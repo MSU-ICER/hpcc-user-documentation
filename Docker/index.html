@@ -1,0 +1,7015 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Containers_Overview/">
+      
+      
+        <link rel="next" href="../Singularity_Introduction/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/icer-small-logo-white.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3+insiders-4.42.0">
+    
+    
+      
+        <title>Docker - MSU HPCC User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.cbde490e.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gotham:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Gotham";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../overrides/assets/stylesheets/footer.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-689HG824HG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-689HG824HG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-689HG824HG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+<ul class="horiz-link-list footer-list-lg">
+    <li>
+        <a href="https://icer.msu.edu/">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5Z"/></svg>
+            </span>
+            ICER Home Page
+        </a>
+    </li>
+    <li>
+        <a href="https://blog.icer.msu.edu/">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 19v1H3v-1l2-2v-6c0-3.1 2.03-5.83 5-6.71V4a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.29c2.97.88 5 3.61 5 6.71v6l2 2m-7 2a2 2 0 0 1-2 2 2 2 0 0 1-2-2"/></svg>
+            </span>
+            ICER Announcements Blog
+        </a>
+    </li>
+    <li>
+        <a href="https://contact.icer.msu.edu/">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
+            </span>
+            ICER Contact Page
+        </a>
+    </li>
+</ul>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+    <nav
+    class="md-header__inner md-grid"
+    aria-label="header.title"
+  >
+    
+    <!-- <H1>HERE</H1> -->
+    <a href="https://docs.icer.msu.edu/" class="md-header__button md-logo" data-md-component="logo">
+    
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+        <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <div class="md-header__title" data-md-component="header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">
+              ICER
+            </span>
+          </div>
+          <div class="md-header__topic" data-md-component="header-topic">
+            <span class="md-ellipsis">
+              
+                Docker
+              
+            </span>
+          </div>
+        </div>
+    </div>
+
+        <!-- Button to open search modal -->
+        <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </nav>
+
+</header>
+
+<div class="MSUwrapper" id="MSUheader">
+    <div id="MSUmasthead" role="banner">
+        <!-- <a href="http://www.msu.edu"> -->
+            <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
+            <!-- <img class="screen-msugraphic" alt="ICER masthead graphic"
+                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" /> previous-->
+
+            <img class="screen-msugraphic mdAndLgBannerOnly" alt="ICER masthead graphic"
+                src="/assets/images/Header_Banner_small_v8.jpeg" />
+            <div id="cropper">
+            <img class="screen-msugraphic bsmBannerOnly" alt="ICER masthead graphic"
+                src="/assets/images/Mobile_Documentation_Header.png" />
+              </div>
+
+              <img class="screen-msugraphic smBannerOnly" alt="ICER masthead graphic"
+                src="/assets/images/Mobile_image.png" />
+                <!--! might have to change the relative path to a linked path like above -->
+        <!-- </a> -->
+    </div>
+    
+</div>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
+      
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+    MSU HPCC User Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MSU-ICER/hpcc-user-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MSU-ICER-User-Documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Access the HPCC
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Access the HPCC
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessHPCC_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obtain_an_hpcc_account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Obtaining an HPCC account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Open_OnDemand/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick start - Open OnDemand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_ssh_client/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Install an SSH client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Intro_to_MobaXterm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro to MobaXterm for Windows Users
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_to_HPCC_System/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect to the HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH tunneling to directly access development nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH connection via VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSH_Key-Based_Authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH keys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HPCC resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HPC_s_entire_layout_at_ICER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC layout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cluster_Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Cluster resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Development nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    The Data Machine
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Data Machine
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data_Machine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Machine overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Using_the_Data_Machine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using the Data Machine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ICER_HPC_Classroom_Support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Classroom support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Computing environment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computing environment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux shells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Editing_Text_with_Nano/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Editing text with nano
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    File permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Managing_File_Permissions_on_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing file permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change_Primary_Group/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Change primary group
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Collaborative research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual_Terminals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Terminals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parallel_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics of parallel computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AMD Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cluster_amd20_with_AMD_CPUs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD CPU architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AMD_Optimizing_CPU_Libraries_and_Compilers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Optimizing for AMD CPUs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    File systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    File systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filesystem_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home_Space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Home space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Research_Space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Research space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scratch_File_Systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Scratch space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_File_Systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Local file system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Guidelines for choosing file systems and I/O
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensitive data storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Science_DMZ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    High Speed Research Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    File transfer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    File transfer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    File transfer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Large file transfer (Globus)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Large file transfer (Globus)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transferring_data_with_Globus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transferring_Data_with_Google_using_Globus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferring data with Google using Globus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud storage file transfer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapping drives
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mapping drives
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapping drives using Samba
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapping drives using SSHFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Software module system
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software module system
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Intro_to_modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to the module system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Searching software modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../User_Created_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    User created modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules_changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Module changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Powertools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Powertools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Powertools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getexample/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Get software usage examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM - buyin information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM - display job list
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM - display job steps and their resource usages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Display_Compute_Nodes_and_Job_Partitions_by_sinfo_command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM - node status and job partition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Job submission by SLURM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Job submission by SLURM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Interactive_Job/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing and submitting job scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Example job scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_resource_request_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM resource request guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../List_of_Job_Specifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    List of job specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Constraints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Job constraints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm_Environment_Variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM environment variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Show_Job_Steps_by_sacct_and_srun_Commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Showing job steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_Check_Modify_and_Cancel_a_Job_by_scontrol_scancel_Command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Controlling jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../List_Jobs_by_squeue_sview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    List jobs using squeue and sview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_Queueing_and_Partitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM queueing and partitions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Buy-In_Accounts_with_SLURM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Buy-in and account management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Job policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_Jobs_are_Scheduled/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    How jobs are scheduled
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scavenger_Queue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Scavenger Queue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_18" id="__nav_9_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkpointing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Checkpointing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_with_Checkpointing_Run/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Checkpoint_with_DMTCP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkpoint with DMTCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Powertools_longjob_by_DMTCP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Powertools `longjob` by DMTCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connections_to_compute_nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Connections to compute nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Torque_vs._SLURM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating from Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Software tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    AlphaFold
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AlphaFold
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlphaFold_installed_in_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    AlphaFold on HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alphafold_via_Singularity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    AlphaFold via Singularity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANSYS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ANSYS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Bioinformatics software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bioinformatics software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aspera_bulk_file_transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Aspera bulk file transfer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ABySS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ABySS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly of PacBio long reads with Canu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    BLAST/BLAST+
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GATK4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    GATK4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTSeq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    HTSeq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mothur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Mothur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    NCBI eDirect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Load_the_software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    OrthoMCL: load module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL_configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    OrthoMCL: MySQL configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orthomcl-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    OrthoMCL pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QIIME_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    QIIME 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA_seq_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    RNA-seq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trimmomatic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Trimmomatic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Trinity for RNA-seq de novo assembly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line and shell scripting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Command line and shell scripting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Command_Line_Interface_for_Beginners_I/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Command Line for Beginners I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Command_Line_Interface_for_Beginners_II/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Command Line for Beginners II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Variables_I/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Variables_II/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Expansion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Expansion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Conditional_Statements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Conditional statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Regular_Expressions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Regular expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_5" id="__nav_10_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiling code
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiling code
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compilers_and_Libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilers and Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compiling_for_GPUs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiling for GPUs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMSOL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    COMSOL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10_7" id="__nav_10_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers: Singularity and Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Containers: Singularity and Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Containers_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-docker-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Docker installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-docker-containers-from-prebuilt-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Docker containers from prebuilt images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-docker-images-which-contain-your-own-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Docker images which contain your own code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Docker images which contain your own code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-your-first-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building your first Docker image
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building your first Docker image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-working-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating working directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-your-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run your image
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-docker-and-your-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting Docker and your computer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Docker and your computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sharing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sharing data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exposing-ports-and-jupyter-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exposing ports (and Jupyter example)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity_Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Singularity Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity_Advanced_Topics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Singularity Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data_Display_Debugger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Display Debugger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_9" id="__nav_10_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gaussian
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Gaussian from command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_Script/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian job script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian job with checkpointing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_on_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian workshop slides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_10" id="__nav_10_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing software: EasyBuild
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installing software: EasyBuild
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EasyBuild_Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    EasyBuild tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EasyBuild_Reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    EasyBuild reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    make
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Matlab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Matlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_13" id="__nav_10_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    OnDemand Apps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OnDemand Apps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Open_OnDemand/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    OnDemand overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application_Icons_on_Desktop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Set up icons on Interactive Desktop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_14" id="__nav_10_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Perl
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Perl
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_Local_Perl_Modules_with_CPAN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing Local Perl Modules with CPAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_15" id="__nav_10_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Python (overview)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python (overview)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Package management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Using_conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Conda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Using_Python_in_HPCC_with_virtualenv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using virtual env
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python_on_HPC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Python on HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Jupyter_Notebook_in_VS_Code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Jupyter Notebooks in VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_16" id="__nav_10_16_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Pytorch/Pytorch Lightning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pytorch/Pytorch Lightning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_pytorch_using_anaconda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing Pytorch with Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_17" id="__nav_10_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    R (overview)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    R (overview)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RCentOS7generalinfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    General information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_others/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Some packages and other information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_workshop_tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    R workshop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Stata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_19" id="__nav_10_19_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    TensorFlow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TensorFlow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing TF using anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Submitting a TF job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TF-GPU/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    TF GPU usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TFcode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tensorflow Model Training Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Training material
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training material
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop_slides/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Workshop materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2" id="__nav_11_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises and Solution
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercises and Solution
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File-Permission-in-Research-Space_34963746.html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    File Permission in Research Space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HPCC-Job-Submission-Workflow_40337480.html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC Job Submission Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job-Arrays---Run-multiple-similar-jobs-simultaneously_40337504.html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Run Multiple Similar Jobs Simultaneously Using Job-Array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running-multiple-jobs-sequentially_34963786.html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Running multiple jobs sequentially
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting-multiple-jobs-simultaneously_40337501.html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Submitting Multiple Jobs Simultaneously
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../External_Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    External Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_4" id="__nav_11_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Targeting_Cluster_Architectures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Targeting Cluster Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Frequently_Asked_Questions_FAQ_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HPC_Glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab_Notebooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtual_help_desk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Help desk access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-docker-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Docker installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-docker-containers-from-prebuilt-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Docker containers from prebuilt images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-docker-images-which-contain-your-own-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Docker images which contain your own code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Docker images which contain your own code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-your-first-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building your first Docker image
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building your first Docker image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-working-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating working directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-your-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run your image
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-docker-and-your-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting Docker and your computer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Docker and your computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sharing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sharing data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exposing-ports-and-jupyter-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exposing ports (and Jupyter example)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#tutorial" class="md-tag md-tag-icon">tutorial</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#containers" class="md-tag md-tag-icon">containers</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#docker" class="md-tag md-tag-icon">Docker</a>
+    
+  
+</nav>
+
+
+  
+    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Docker.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="docker">Docker</h1>
+<p><a href="https://en.wikipedia.org/wiki/Docker_(software)">What is Docker?</a> Docker is a
+tool to make it easier to create, deploy and run applications by using
+containers. Containers allow developers to package up an application with all
+of the dependencies such as libraries and tools, and deploy it as one package.
+The application will run on most operating systems (Mac/Windows/Linux)
+regardless of any customized settings. This page covers how you can run a
+development environments using Docker containers and package up your own code
+into a portable container.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This tutorial is meant to be run on your personal computer, not the HPCC.
+Docker does not work on the HPCC since it requires super user (<code>sudo</code>)
+permissions that users do not have access to. To run containers on the
+HPCC, you will need to use <a href="../Singularity_Introduction/">Singularity</a>.</p>
+<p>Nevertheless, many of the skills taught in this tutorial transfer over to
+using Singularity, and most Docker containers can be used without
+modification on the HPCC through Singularity. However, if you just want to
+get started running containers on the HPCC, start with the <a href="../Singularity_Introduction/">Singularity
+Introduction</a>.</p>
+</div>
+<h2 id="docker-installation">Docker installation</h2>
+<p>Docker can be installed on all major operating systems. However, note that
+installation on Windows requires the <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Windows Subsystem For Linux
+(WSL)</a>.</p>
+<p>For detailed installation instructions depending on operating system, click
+here: <a href="https://docs.docker.com/docker-for-mac/install/">Mac</a>/<a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers">Windows</a>/<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Linux</a>.</p>
+<h2 id="testing-docker-installation">Testing Docker installation</h2>
+<p>When you have installed Docker, test your Docker installation by opening a
+terminal (if you are running Windows, this should be a <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL
+terminal</a>) and running
+the following command:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>--version
+Docker<span class="w"> </span>version<span class="w"> </span><span class="m">19</span>.03.8,<span class="w"> </span>build<span class="w"> </span>afacb8b
+</code></pre></div></td></tr></table></div>
+<p>When you run the <code>docker</code> command without <code>--version</code>, you will see
+the options available with docker. Alternatively, you can test your
+installation by running the following (you have to log into Docker to
+use this test):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;hello-world:latest&#39;</span><span class="w"> </span>locally
+latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/hello-world
+0e03bdcc26d7:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
+Digest:<span class="w"> </span>sha256:6a65f928fb91fcfbc963f7aa6d57c8eeb426ad9a20c7ee045538ef34847f44f1
+Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>hello-world:latest
+
+Hello<span class="w"> </span>from<span class="w"> </span>Docker!
+This<span class="w"> </span>message<span class="w"> </span>shows<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>installation<span class="w"> </span>appears<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>working<span class="w"> </span>correctly.
+
+To<span class="w"> </span>generate<span class="w"> </span>this<span class="w"> </span>message,<span class="w"> </span>Docker<span class="w"> </span>took<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>steps:
+<span class="m">1</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>client<span class="w"> </span>contacted<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>daemon.
+<span class="m">2</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>pulled<span class="w"> </span>the<span class="w"> </span><span class="s2">&quot;hello-world&quot;</span><span class="w"> </span>image<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>Hub.
+<span class="o">(</span>amd64<span class="o">)</span>
+<span class="m">3</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>created<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>container<span class="w"> </span>from<span class="w"> </span>that<span class="w"> </span>image<span class="w"> </span>which<span class="w"> </span>runs<span class="w"> </span>the
+executable<span class="w"> </span>that<span class="w"> </span>produces<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>currently<span class="w"> </span>reading.
+<span class="m">4</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>streamed<span class="w"> </span>that<span class="w"> </span>output<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>client,<span class="w"> </span>which<span class="w"> </span>sent<span class="w"> </span>it
+to<span class="w"> </span>your<span class="w"> </span>terminal.
+
+To<span class="w"> </span>try<span class="w"> </span>something<span class="w"> </span>more<span class="w"> </span>ambitious,<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>run<span class="w"> </span>an<span class="w"> </span>Ubuntu<span class="w"> </span>container<span class="w"> </span>with:
+$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>ubuntu<span class="w"> </span>bash
+
+Share<span class="w"> </span>images,<span class="w"> </span>automate<span class="w"> </span>workflows,<span class="w"> </span>and<span class="w"> </span>more<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>free<span class="w"> </span>Docker<span class="w"> </span>ID:
+https://hub.docker.com/
+
+For<span class="w"> </span>more<span class="w"> </span>examples<span class="w"> </span>and<span class="w"> </span>ideas,<span class="w"> </span>visit:
+https://docs.docker.com/get-started/
+</code></pre></div></td></tr></table></div>
+<h2 id="running-docker-containers-from-prebuilt-images">Running Docker containers from prebuilt images</h2>
+<p>Now, you have setup everything, and it is time to use Docker seriously. You
+will run a container from the
+<a href="https://www.alpinelinux.org/">Alpine Linux</a>
+image on your system and will learn the <code>docker run</code> command. However, you
+should first know what containers and images are, and the
+difference between containers and images.</p>
+<p><strong>Images</strong>: The file system and configuration of applications which are
+created and distributed by developers. Of course, you can create and
+distribute images.</p>
+<p><strong>Containers</strong>: Running instances of Docker images. You can have many
+containers for the same image.</p>
+<p>Now that you know what containers and images are, let's get some practice, by
+running the <code>docker run alpine ls -l</code> command in your terminal.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>ls<span class="w"> </span>-l
+Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;alpine:latest&#39;</span><span class="w"> </span>locally
+latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/alpine
+cbdbe7a5bc2a:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
+Digest:<span class="w"> </span>sha256:9a839e63dad54c3a6d1834e29692c8492d93f90c59c978c1ed79109ea4fb9a54
+Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>alpine:latest
+total<span class="w"> </span><span class="m">56</span>
+drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>bin
+drwxr-xr-x<span class="w">    </span><span class="m">5</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">           </span><span class="m">340</span><span class="w"> </span>May<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">17</span>:11<span class="w"> </span>dev
+drwxr-xr-x<span class="w">    </span><span class="m">1</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>May<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">17</span>:11<span class="w"> </span>etc
+drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>home
+drwxr-xr-x<span class="w">    </span><span class="m">5</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>lib
+drwxr-xr-x<span class="w">    </span><span class="m">5</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>media
+drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>mnt
+drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>opt
+dr-xr-xr-x<span class="w">  </span><span class="m">187</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">             </span><span class="m">0</span><span class="w"> </span>May<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">17</span>:11<span class="w"> </span>proc
+drwx------<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>root
+drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>run
+drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>sbin
+drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>srv
+dr-xr-xr-x<span class="w">   </span><span class="m">12</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">             </span><span class="m">0</span><span class="w"> </span>May<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">17</span>:11<span class="w"> </span>sys
+drwxrwxrwt<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>tmp
+drwxr-xr-x<span class="w">    </span><span class="m">7</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>usr
+drwxr-xr-x<span class="w">   </span><span class="m">12</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>var
+</code></pre></div></td></tr></table></div>
+<p>When you run the <code>docker run alpine ls -l</code> command, it searches for the
+<code>alpine:latest</code> image from your system first. If your system has it (i.e. if
+you downloaded it previously), Docker uses that image.</p>
+<p>If your system does not have that image, then Docker fetches the
+<code>alpine:latest</code> image from <a href="https://hub.docker.com/">Docker Hub</a> first, saves
+it in your system, then runs a container from the saved image. Docker Hub is a
+huge repository of images people have uploaded so that others can download and
+run their code in containers. Though Docker Hub is the most popular place to
+find Docker images, there are other sources that work just as well (for
+example, <a href="https://quay.io">Quay.io</a>).</p>
+<p><code>docker run alpine</code> starts a container, and then <code>ls -l</code> will be a command
+which is fed to the container, so Docker starts the given command and
+results show up.</p>
+<p>To see a list of all images on your system, you can use the <code>docker
+images</code> command.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images
+alpine<span class="w">                     </span>latest<span class="w">              </span>f70734b6a266<span class="w">        </span><span class="m">4</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">         </span><span class="m">5</span>.61MB
+hello-world<span class="w">                </span>latest<span class="w">              </span>bf756fb1ae65<span class="w">        </span><span class="m">4</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">        </span><span class="m">13</span>.3kB
+</code></pre></div></td></tr></table></div>
+<p>Next, let's try another command.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello world&quot;</span>
+Hello<span class="w"> </span>world
+</code></pre></div></td></tr></table></div>
+<p>In this case, Docker ran the <code>echo</code> command in your <code>alpine</code>
+container, and then exited it. Exit means the container is terminated
+after running the command.</p>
+<p>Let's try another command.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>sh
+</code></pre></div></td></tr></table></div>
+<p>It seems nothing happened. In fact, docker ran the <code>sh</code> command in your alpine
+container, and exited it. If you want to be inside the container shell, you
+need to use <code>docker run -it alpine sh</code>. The <code>-i</code> flag tells Docker you want to
+run the container interactively and the <code>-t</code> flag tells it you want to start a
+terminal in that image to run your command. You can find more help on the <code>run</code>
+command with <code>docker run --help</code>.</p>
+<p>Let's run a few commands inside the <code>docker run -it alpine sh</code> container.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
+/<span class="w"> </span><span class="c1"># ls</span>
+bin<span class="w">    </span>etc<span class="w">    </span>lib<span class="w">    </span>mnt<span class="w">    </span>proc<span class="w">   </span>run<span class="w">    </span>srv<span class="w">    </span>tmp<span class="w">    </span>var
+dev<span class="w">    </span>home<span class="w">   </span>media<span class="w">  </span>opt<span class="w">    </span>root<span class="w">   </span>sbin<span class="w">   </span>sys<span class="w">    </span>usr
+/<span class="w"> </span><span class="c1"># uname -a</span>
+Linux<span class="w"> </span>c1552c9b6cf0<span class="w"> </span><span class="m">4</span>.19.76-linuxkit<span class="w"> </span><span class="c1">#1 SMP Fri Apr 3 15:53:26 UTC 2020 x86_64 Linux</span>
+/<span class="w"> </span><span class="c1"># exit</span>
+</code></pre></div></td></tr></table></div>
+<p>You are inside of the container shell and you can try out a few commands like
+<code>ls</code> and <code>uname -a</code> and others. To quit the container, type <code>exit</code> on the
+terminal. If you use the <code>exit</code> command, the container is terminated. If you
+want to keep the container active, then you can use keys <code>Ctrl-p</code> followed by
+<code>Ctrl-q</code> (you don't have to press these key combinations simultaneously). If
+you want to go back into the container, you can type <code>docker attach
+&lt;container_id&gt;</code>, such as <code>docker attach c1552c9b6cf0</code>. You can find container
+id with <code>docker ps -all</code>. This command will be explained next.</p>
+<p>Now, let's learn about the <code>docker ps</code> command which shows you all
+containers that are currently running.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>ps
+CONTAINER<span class="w"> </span>ID<span class="w">        </span>IMAGE<span class="w">               </span>COMMAND<span class="w">             </span>CREATED<span class="w">             </span>STATUS<span class="w">              </span>PORTS
+</code></pre></div></td></tr></table></div>
+<p>In this case, you don't see any container because no containers are running. To see
+a list of all containers that you ran, use <code>docker ps --all</code>. You can
+see that STATUS says that all containers exited.  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>ps<span class="w"> </span>--all
+CONTAINER<span class="w"> </span>ID<span class="w">        </span>IMAGE<span class="w">               </span>COMMAND<span class="w">                  </span>CREATED<span class="w">             </span>STATUS<span class="w">                      </span>PORTS<span class="w">               </span>NAMES
+c1552c9b6cf0<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;sh&quot;</span><span class="w">                     </span><span class="m">6</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">       </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                        </span>wonderful_cori
+5de22ab86f2a<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;echo &#39;Hello world&#39;&quot;</span><span class="w">     </span><span class="m">18</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">18</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>goofy_visvesvaraya
+df35ee7df7e3<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;ls -l&quot;</span><span class="w">                  </span><span class="m">31</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">31</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>fervent_gould
+6dbe999044b4<span class="w">        </span>hello-world<span class="w">         </span><span class="s2">&quot;/hello&quot;</span><span class="w">                 </span><span class="m">3</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="w">         </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>hours<span class="w"> </span>ago
+</code></pre></div></td></tr></table></div>
+<p>When Docker containers are created, the Docker system automatically assign a
+universally unique identifier (UUID) number to each container to avoid any
+naming conflicts. CONTAINER ID is a shortform of the UUID. Each container also
+has a randomly generated name. You can usually use this name in place of the
+CONTAINER ID to make typing a bit easier.</p>
+<p>You can also assign names to your Docker containers when you run them, using
+the <code>--name</code> flags. In addition, you can rename your Docker container's name
+with <code>rename</code> command. For example, let's rename "wonderful_cori" to
+"my_container" with <code>docker rename</code> command.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>rename<span class="w"> </span>wonderful_cori<span class="w"> </span>my_container
+$<span class="w"> </span>docker<span class="w"> </span>ps<span class="w"> </span>--all
+CONTAINER<span class="w"> </span>ID<span class="w">        </span>IMAGE<span class="w">               </span>COMMAND<span class="w">                  </span>CREATED<span class="w">             </span>STATUS<span class="w">                      </span>PORTS<span class="w">               </span>NAMES
+c1552c9b6cf0<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;sh&quot;</span><span class="w">                     </span><span class="m">10</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">6</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                        </span>my_container
+5de22ab86f2a<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;echo &#39;Hello world&#39;&quot;</span><span class="w">     </span><span class="m">22</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">22</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>goofy_visvesvaraya
+df35ee7df7e3<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;ls -l&quot;</span><span class="w">                  </span><span class="m">35</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">35</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>fervent_gould
+</code></pre></div></td></tr></table></div>
+<h2 id="build-docker-images-which-contain-your-own-code">Build Docker images which contain your own code</h2>
+<p>Now you are ready to use Docker to create your own applications! First,
+you will learn more about Docker images. Then you will build your own
+image and use that image to run an application on your local machine.</p>
+<h3 id="docker-images">Docker images</h3>
+<p>Docker images are basis of containers. In the above example, you pulled
+the alpine image from Docker Hub and ran a container based on that
+image. To see the list of images that are available on your local
+machine, run the <code>docker images</code> command.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images
+REPOSITORY<span class="w">    </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">         </span>SIZE
+alpine<span class="w">        </span>latest<span class="w">    </span>9ed4aefc74f6<span class="w">   </span><span class="m">4</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span><span class="m">7</span>.05MB
+hello-world<span class="w">   </span>latest<span class="w">    </span>feb5d9fea6a5<span class="w">   </span><span class="m">19</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span><span class="m">13</span>.3kB
+</code></pre></div></td></tr></table></div>
+<p>The TAG refers to a particular snapshot of the image and the ID is the
+corresponding UUID of the image. Images can have multiple versions. When
+you do not assign a specific version number, the client defaults to
+latest. If you want a specific version of the image, you can use docker
+pull command as follows:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>centos:7
+<span class="m">7</span>:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/centos
+2d473b07cdd5:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
+Digest:<span class="w"> </span>sha256:be65f488b7764ad3638f236b7b515b3678369a5124c47b8d32916d6487418ea4
+Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>centos:7
+docker.io/library/centos:7
+</code></pre></div></td></tr></table></div>
+<p>Notice that here we pulled the image without running it. When we run a
+container with the <code>centos:7</code> image in the future, it will use this downloaded
+copy.</p>
+<p>You can search for images from a repository's website (for example, <a href="https://hub.docker.com/_/centos">searching
+Docker hub for CentOS</a>) or directly from the
+command line using <code>docker search</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>search<span class="w"> </span>centos
+NAME<span class="w">                               </span>DESCRIPTION<span class="w">                                     </span>STARS<span class="w">               </span>OFFICIAL<span class="w">            </span>AUTOMATED
+centos<span class="w">                             </span>The<span class="w"> </span>official<span class="w"> </span>build<span class="w"> </span>of<span class="w"> </span>CentOS.<span class="w">                   </span><span class="m">6014</span><span class="w">                </span><span class="o">[</span>OK<span class="o">]</span>
+ansible/centos7-ansible<span class="w">            </span>Ansible<span class="w"> </span>on<span class="w"> </span>Centos7<span class="w">                              </span><span class="m">129</span><span class="w">                                     </span><span class="o">[</span>OK<span class="o">]</span>
+consol/centos-xfce-vnc<span class="w">             </span>Centos<span class="w"> </span>container<span class="w"> </span>with<span class="w"> </span><span class="s2">&quot;headless&quot;</span><span class="w"> </span>VNC<span class="w"> </span>session…<span class="w">   </span><span class="m">115</span><span class="w">                                     </span><span class="o">[</span>OK<span class="o">]</span>
+jdeathe/centos-ssh<span class="w">                 </span>OpenSSH<span class="w"> </span>/<span class="w"> </span>Supervisor<span class="w"> </span>/<span class="w"> </span>EPEL/IUS/SCL<span class="w"> </span>Repos<span class="w"> </span>-<span class="w"> </span>…<span class="w">   </span><span class="m">114</span><span class="w">                                     </span><span class="o">[</span>OK<span class="o">]</span>
+centos/mysql-57-centos7<span class="w">            </span>MySQL<span class="w"> </span><span class="m">5</span>.7<span class="w"> </span>SQL<span class="w"> </span>database<span class="w"> </span>server<span class="w">                   </span><span class="m">76</span>
+imagine10255/centos6-lnmp-php56<span class="w">    </span>centos6-lnmp-php56<span class="w">                              </span><span class="m">58</span><span class="w">                                      </span><span class="o">[</span>OK<span class="o">]</span>
+tutum/centos<span class="w">                       </span>Simple<span class="w"> </span>CentOS<span class="w"> </span>docker<span class="w"> </span>image<span class="w"> </span>with<span class="w"> </span>SSH<span class="w"> </span>access<span class="w">      </span><span class="m">46</span>
+centos/postgresql-96-centos7<span class="w">       </span>PostgreSQL<span class="w"> </span>is<span class="w"> </span>an<span class="w"> </span>advanced<span class="w"> </span>Object-Relational<span class="w"> </span>…<span class="w">   </span><span class="m">44</span>
+kinogmt/centos-ssh<span class="w">                 </span>CentOS<span class="w"> </span>with<span class="w"> </span>SSH<span class="w">                                 </span><span class="m">29</span><span class="w">                                      </span><span class="o">[</span>OK<span class="o">]</span>
+pivotaldata/centos-gpdb-dev<span class="w">        </span>CentOS<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>GPDB<span class="w"> </span>development.<span class="w"> </span>Tag<span class="w"> </span>names…<span class="w">   </span><span class="m">12</span>
+guyton/centos6<span class="w">                     </span>From<span class="w"> </span>official<span class="w"> </span>centos6<span class="w"> </span>container<span class="w"> </span>with<span class="w"> </span>full<span class="w"> </span>up…<span class="w">   </span><span class="m">10</span><span class="w">                                      </span><span class="o">[</span>OK<span class="o">]</span>
+centos/tools<span class="w">                       </span>Docker<span class="w"> </span>image<span class="w"> </span>that<span class="w"> </span>has<span class="w"> </span>systems<span class="w"> </span>administration…<span class="w">   </span><span class="m">6</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
+drecom/centos-ruby<span class="w">                 </span>centos<span class="w"> </span>ruby<span class="w">                                     </span><span class="m">6</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
+pivotaldata/centos<span class="w">                 </span>Base<span class="w"> </span>centos,<span class="w"> </span>freshened<span class="w"> </span>up<span class="w"> </span>a<span class="w"> </span>little<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>Do…<span class="w">   </span><span class="m">4</span>
+pivotaldata/centos-mingw<span class="w">           </span>Using<span class="w"> </span>the<span class="w"> </span>mingw<span class="w"> </span>toolchain<span class="w"> </span>to<span class="w"> </span>cross-compile<span class="w"> </span>t…<span class="w">   </span><span class="m">3</span>
+darksheer/centos<span class="w">                   </span>Base<span class="w"> </span>Centos<span class="w"> </span>Image<span class="w"> </span>--<span class="w"> </span>Updated<span class="w"> </span>hourly<span class="w">             </span><span class="m">3</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
+mamohr/centos-java<span class="w">                 </span>Oracle<span class="w"> </span>Java<span class="w"> </span><span class="m">8</span><span class="w"> </span>Docker<span class="w"> </span>image<span class="w"> </span>based<span class="w"> </span>on<span class="w"> </span>Centos<span class="w"> </span><span class="m">7</span><span class="w">    </span><span class="m">3</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
+pivotaldata/centos-gcc-toolchain<span class="w">   </span>CentOS<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>toolchain,<span class="w"> </span>but<span class="w"> </span>unaffiliated<span class="w"> </span>wi…<span class="w">   </span><span class="m">3</span>
+miko2u/centos6<span class="w">                     </span>CentOS6<span class="w"> </span>日本語環境<span class="w">                                   </span><span class="m">2</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
+blacklabelops/centos<span class="w">               </span>CentOS<span class="w"> </span>Base<span class="w"> </span>Image!<span class="w"> </span>Built<span class="w"> </span>and<span class="w"> </span>Updates<span class="w"> </span>Daily!<span class="w">     </span><span class="m">1</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
+indigo/centos-maven<span class="w">                </span>Vanilla<span class="w"> </span>CentOS<span class="w"> </span><span class="m">7</span><span class="w"> </span>with<span class="w"> </span>Oracle<span class="w"> </span>Java<span class="w"> </span>Developmen…<span class="w">   </span><span class="m">1</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
+mcnaughton/centos-base<span class="w">             </span>centos<span class="w"> </span>base<span class="w"> </span>image<span class="w">                               </span><span class="m">1</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
+pivotaldata/centos7-dev<span class="w">            </span>CentosOS<span class="w"> </span><span class="m">7</span><span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>GPDB<span class="w"> </span>development<span class="w">           </span><span class="m">0</span>
+smartentry/centos<span class="w">                  </span>centos<span class="w"> </span>with<span class="w"> </span>smartentry<span class="w">                          </span><span class="m">0</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
+pivotaldata/centos6.8-dev<span class="w">          </span>CentosOS<span class="w"> </span><span class="m">6</span>.8<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>GPDB<span class="w"> </span>development<span class="w">         </span><span class="m">0</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="building-your-first-docker-image">Building your first Docker image</h3>
+<p>In this section, you will build a simple Docker image with writing a
+Dockerfile, and run it. For this purpose, we will create a Python
+script and a Dockerfile.</p>
+<h4 id="creating-working-directory">Creating working directory</h4>
+<p>Let's create a working directory where you will make the following files:
+<code>hello.py</code>, <code>Dockerfile</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~
+$<span class="w"> </span>mkdir<span class="w"> </span>my_first_Docker_image
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>my_first_Docker_image
+</code></pre></div></td></tr></table></div>
+<h4 id="python-script">Python script</h4>
+<p>Create the <code>hello.py</code> file with the following content.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hello.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is my 1st Docker image!&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="dockerfile">Dockerfile</h4>
+<p>A <strong>Dockerfile</strong> is a text file which has a list of commands that Docker calls
+while creating an image. The Dockerfile is similar to a job batch file, and
+contains all information that Docker needs to know to to run the application
+package.</p>
+<p>In the <code>my_first_Docker_image</code> directory, create a file, called Dockerfile,
+which has the content below.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Dockerfile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c"># our base image. The latest version will be pulled.</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">alpine</span>
+
+<span class="c"># install python and pip</span>
+<span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--update<span class="w"> </span>py3-pip
+
+<span class="c"># copy files required to run</span>
+<span class="k">COPY</span><span class="w"> </span>hello.py<span class="w"> </span>/usr/src/my_app/
+
+<span class="c"># run the application</span>
+<span class="k">CMD</span><span class="w"> </span>python3<span class="w"> </span>/usr/src/my_app/hello.py
+</code></pre></div></td></tr></table></div>
+<p>Now, let's learn the meaning of each line.</p>
+<p>The first line means that we will use Alpine Linux as a base image. No
+version is specified, so the latest version will be pulled. Use the <code>FROM</code>
+keyword.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">alpine</span>
+</code></pre></div></td></tr></table></div>
+<p>Next, the Python <code>pip</code> package is installed using the Alpine Package Keeper
+(<code>apk</code>). Use the <code>RUN</code> keyword.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--update<span class="w"> </span>py3-pip
+</code></pre></div></td></tr></table></div>
+<p>Next, copy the file to the image. <code>/usr/src/my_app</code> will be created
+while the file is copied. Use the <code>COPY</code> keyword.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">COPY</span><span class="w"> </span>hello.py<span class="w"> </span>/usr/src/my_app/
+</code></pre></div></td></tr></table></div>
+<p>The last step is run the application with the <code>CMD</code> keyword. <code>CMD</code> tells
+the container what the container should do by default when it is
+started.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CMD</span><span class="w"> </span>python3<span class="w"> </span>/usr/src/my_app/hello.py
+</code></pre></div></td></tr></table></div>
+<h4 id="build-the-image">Build the image</h4>
+<p>Now you are ready to build your first Docker image. The <code>docker build</code>
+command will do most of the work.</p>
+<p>To build the image, use the following command.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>my_first_image<span class="w"> </span>.
+</code></pre></div></td></tr></table></div>
+<p>The client will pull all necessary images and create your image. If
+everything goes well, your image is ready to be used! Run the <code>docker images</code>
+command to see if your image <code>my_first_image</code> is shown.</p>
+<h4 id="run-your-image">Run your image</h4>
+<p>When you successfully create your Docker image, test it by starting a
+new container from the image.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>my_first_image
+</code></pre></div></td></tr></table></div>
+<p>If everything went well, you will see this message.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Hello<span class="w"> </span>world!
+This<span class="w"> </span>is<span class="w"> </span>my<span class="w"> </span>1st<span class="w"> </span>Docker<span class="w"> </span>image!
+</code></pre></div></td></tr></table></div>
+<h2 id="connecting-docker-and-your-computer">Connecting Docker and your computer</h2>
+<p>Containers are great for keeping all the parts of a piece of software isolated
+together. But this means that there are a few extra steps necessary to share
+information from that container with the computer you're running it on.</p>
+<h3 id="sharing-data">Sharing data</h3>
+<p>Let's pretend that you have a container that runs a long analysis and outputs
+the results in some data file. We'll mimic this by just creating an empty file
+with the <code>touch</code> command. Let's make a new directory for our output and create
+our "important data" in our alpine image:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>results
+$<span class="w"> </span>ls<span class="w"> </span>results
+
+$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>data.dat<span class="w"> </span>
+$<span class="w"> </span>ls<span class="w"> </span>results
+</code></pre></div></td></tr></table></div>
+<p>Nothing happened! You can look in your current directory with <code>ls</code>, and you
+won't see anything either. We can even run an interactive alpine container and
+look around:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
+/<span class="w"> </span><span class="c1"># ls</span>
+bin<span class="w">    </span>dev<span class="w">    </span>etc<span class="w">    </span>home<span class="w">   </span>lib<span class="w">    </span>media<span class="w">  </span>mnt<span class="w">    </span>opt<span class="w">    </span>proc<span class="w">   </span>root<span class="w">   </span>run<span class="w">    </span>sbin<span class="w">   </span>srv<span class="w">    </span>sys<span class="w">    </span>tmp<span class="w">    </span>usr<span class="w">    </span>var
+/<span class="w"> </span><span class="c1"># exit</span>
+</code></pre></div></td></tr></table></div>
+<p>No results directory and no <code>data.dat</code> file...</p>
+<p>What happened is that the file was created and locked away in the previous
+container. When we start a new container, we start fresh from whatever the
+image specified. Nothing sticks around! So we need a way to get that data out
+of the container we're working in.</p>
+<p>The way Docker does this is through "bind mounts". It's like we are "binding" a
+directory on our computer to a directory that's "mounted" in the container.
+Let's try it interactively first:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>./results:outside_world<span class="w"> </span>alpine<span class="w"> </span>sh
+/<span class="w"> </span><span class="c1"># ls</span>
+bin<span class="w">            </span>etc<span class="w">            </span>lib<span class="w">            </span>mnt<span class="w">            </span>outside_world<span class="w">  </span>root
+sbin<span class="w">           </span>sys<span class="w">            </span>usr<span class="w">            </span>dev<span class="w">            </span>home<span class="w">           </span>media
+opt<span class="w">            </span>proc<span class="w">           </span>run<span class="w">            </span>srv<span class="w">            </span>tmp<span class="w">            </span>var
+/<span class="w"> </span><span class="c1"># exit</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>-v</code> command tells Docker that I want to connect the <code>./results</code> directory
+on my computer to a directory called <code>/outside_world</code> inside the container.</p>
+<p>Now we can put it all together:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./results:/outside_world<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>/outside_world/data.dat
+$<span class="w"> </span>ls<span class="w"> </span>results
+data.dat
+</code></pre></div></td></tr></table></div>
+<p>Notice that we had to write to the container version of our directory with the
+<code>touch</code> command, but it's now visible on the computer in the <code>results</code>
+directory.</p>
+<p>This is a contrived example, but in real life, you could replace <code>touch ...</code>
+with any command that can run in your container, including heavy duty data
+analysis. You just need to make sure that there is a bind mount between
+wherever that data is being written inside the container and wherever you want
+it outside the container (and/or vice versa if you want to input data into your
+container).</p>
+<h3 id="exposing-ports-and-jupyter-example">Exposing ports (and Jupyter example)</h3>
+<p>Software that connects to your web browser uses network ports to share
+information. These ports are just a number that tell your web browser where to
+access the content shared by the software, and are usually setup by the
+software (though there are often options a user can set to change the port
+number).</p>
+<p>In the context of research computing, one of the most popular examples of this
+setup is Jupyter Notebook. When a Jupyter Notebook is running, it usually is
+available on port 8888, meaning you can access it from your web browser with
+the URL <a href="http://127.0.0.1:8888">http://127.0.0.1:8888</a>. Here, 127.0.0.1 will
+always be the IP address of your own computer which in this case is running the
+Jupyter Notebook on port 8888.</p>
+<p>Since containers are meant to be an isolated computing environment, network
+ports are not accessible by default from outside the container. We will now go
+through an example of exposing ports from a Docker container using Jupyter Hub
+(a more full-featured version of Jupyter Notebooks). This example will also
+show an alternate way to include files in a Docker container, albeit, in more
+of a read-only way.</p>
+<p>First, let's check the Jupyter images available on Docker Hub. We will use
+minimal-notebook.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>search<span class="w"> </span>jupyter
+NAME<span class="w">                                    </span>DESCRIPTION<span class="w">                                     </span>STARS<span class="w">               </span>OFFICIAL<span class="w">            </span>AUTOMATED
+jupyter/datascience-notebook<span class="w">            </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Data<span class="w"> </span>Science<span class="w"> </span>Stack<span class="w"> </span>from<span class="w"> </span>htt…<span class="w">   </span><span class="m">666</span>
+jupyter/all-spark-notebook<span class="w">              </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Python,<span class="w"> </span>Scala,<span class="w"> </span>R,<span class="w"> </span>Spark,<span class="w"> </span>Me…<span class="w">   </span><span class="m">301</span>
+jupyterhub/jupyterhub<span class="w">                   </span>JupyterHub:<span class="w"> </span>multi-user<span class="w"> </span>Jupyter<span class="w"> </span>notebook<span class="w"> </span>serv…<span class="w">   </span><span class="m">248</span><span class="w">                                     </span><span class="o">[</span>OK<span class="o">]</span>
+jupyter/scipy-notebook<span class="w">                  </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Scientific<span class="w"> </span>Python<span class="w"> </span>Stack<span class="w"> </span>fro…<span class="w">   </span><span class="m">241</span>
+jupyter/tensorflow-notebook<span class="w">             </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Scientific<span class="w"> </span>Python<span class="w"> </span>Stack<span class="w"> </span>w/<span class="w"> </span>…<span class="w">   </span><span class="m">218</span>
+jupyter/pyspark-notebook<span class="w">                </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Python,<span class="w"> </span>Spark,<span class="w"> </span>Mesos<span class="w"> </span>Stack<span class="w"> </span>…<span class="w">   </span><span class="m">157</span>
+jupyter/base-notebook<span class="w">                   </span>Small<span class="w"> </span>base<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>stacks…<span class="w">   </span><span class="m">106</span>
+jupyter/minimal-notebook<span class="w">                </span>Minimal<span class="w"> </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Stack<span class="w"> </span>from<span class="w"> </span>https://…<span class="w">   </span><span class="m">105</span>
+...
+</code></pre></div></td></tr></table></div>
+<p>Let's start by creating a directory <code>my_notebook</code>. Copy <code>hello.py</code>, which we
+used for the Python image to the <code>my_notebook</code> directory. Then create a
+Dockerfile in the <code>my_notebook</code> directory with the following content:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Dockerfile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c"># base image</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">jupyter/base-notebook</span>
+
+<span class="c"># copy files</span>
+<span class="k">COPY</span><span class="w"> </span>hello.py<span class="w"> </span>/home/jovyan/work
+
+<span class="c"># the port number the container should expose</span>
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">8888</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>COPY</code> line moves our <code>hello.py</code> script into the container directory
+<code>/home/jovyan/work</code> which is where the Jupyer instance inside the container can
+access files.</p>
+<p>The <code>EXPOSE</code> line specifies the port number which needs to be exposed.
+The default port for Jupyter is 8888, and therefore, we will expose that
+port.</p>
+<p>Now, build the image using the following command:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>mynotebook<span class="w"> </span>.
+Sending<span class="w"> </span>build<span class="w"> </span>context<span class="w"> </span>to<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w">  </span><span class="m">3</span>.072kB
+Step<span class="w"> </span><span class="m">1</span>/3<span class="w"> </span>:<span class="w"> </span>FROM<span class="w"> </span>jupyter/base-notebook
+<span class="w"> </span>---&gt;<span class="w"> </span>6494235c84ec
+Step<span class="w"> </span><span class="m">2</span>/3<span class="w"> </span>:<span class="w"> </span>COPY<span class="w"> </span>hello.py<span class="w"> </span>/home/jovyan/work
+<span class="w"> </span>---&gt;<span class="w"> </span>6e22bc10eee0
+Step<span class="w"> </span><span class="m">3</span>/3<span class="w"> </span>:<span class="w"> </span>EXPOSE<span class="w"> </span><span class="m">8888</span>
+<span class="w"> </span>---&gt;<span class="w"> </span>Running<span class="w"> </span><span class="k">in</span><span class="w"> </span>2d754a40aa2b
+Removing<span class="w"> </span>intermediate<span class="w"> </span>container<span class="w"> </span>2d754a40aa2b
+<span class="w"> </span>---&gt;<span class="w"> </span>464731f2e3a7
+Successfully<span class="w"> </span>built<span class="w"> </span>464731f2e3a7
+Successfully<span class="w"> </span>tagged<span class="w"> </span>mynotebook:latest
+</code></pre></div></td></tr></table></div>
+<p>Now, everything is ready. You can run the image using the <code>docker run</code> command.
+We use the <code>-p 8888:8888</code> option to tell Docker that we'd like to bind the 8888
+port in the container to the 8888 port on your host computer.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span>mynotebook
+Entered<span class="w"> </span>start.sh<span class="w"> </span>with<span class="w"> </span>args:<span class="w"> </span>jupyter<span class="w"> </span>lab
+Executing<span class="w"> </span>the<span class="w"> </span>command:<span class="w"> </span>jupyter<span class="w"> </span>lab
+<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.694<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>jupyterlab<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0000s<span class="w"> </span>to<span class="w"> </span>import
+...
+<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.941<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Serving<span class="w"> </span>notebooks<span class="w"> </span>from<span class="w"> </span><span class="nb">local</span><span class="w"> </span>directory:<span class="w"> </span>/home/jovyan
+<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.941<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Jupyter<span class="w"> </span>Server<span class="w"> </span><span class="m">2</span>.5.0<span class="w"> </span>is<span class="w"> </span>running<span class="w"> </span>at:
+<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.941<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>http://ad7f42d45370:8888/lab?token<span class="o">=</span>b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879
+<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.941<span class="w"> </span>ServerApp<span class="o">]</span><span class="w">     </span>http://127.0.0.1:8888/lab?token<span class="o">=</span>b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879
+<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.941<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Use<span class="w"> </span>Control-C<span class="w"> </span>to<span class="w"> </span>stop<span class="w"> </span>this<span class="w"> </span>server<span class="w"> </span>and<span class="w"> </span>shut<span class="w"> </span>down<span class="w"> </span>all<span class="w"> </span>kernels<span class="w"> </span><span class="o">(</span>twice<span class="w"> </span>to<span class="w"> </span>skip<span class="w"> </span>confirmation<span class="o">)</span>.
+<span class="o">[</span>C<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.943<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>
+
+<span class="w">    </span>To<span class="w"> </span>access<span class="w"> </span>the<span class="w"> </span>server,<span class="w"> </span>open<span class="w"> </span>this<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>browser:
+<span class="w">        </span>file:///home/jovyan/.local/share/jupyter/runtime/jpserver-7-open.html
+<span class="w">    </span>Or<span class="w"> </span>copy<span class="w"> </span>and<span class="w"> </span>paste<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>these<span class="w"> </span>URLs:
+<span class="w">        </span>http://ad7f42d45370:8888/lab?token<span class="o">=</span>b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879
+<span class="w">        </span>http://127.0.0.1:8888/lab?token<span class="o">=</span>b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879
+</code></pre></div></td></tr></table></div>
+<p>If you navigate to one of the URLs that Jupyter outputs, you will see your
+containerized Jupyter Hub ready to go. If you look inside the <code>work</code> directory,
+you'll even see our <code>hello.py</code> script!</p>
+<!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine date of last update -->
+
+
+
+
+
+<!-- Determine date of creation -->
+
+
+
+
+
+<!-- Source file information -->
+
+<aside class="md-source-file">
+
+    <!-- Date of last update -->
+    
+    <span class="md-source-file__fact">
+        <span class="md-icon" title="Last update">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+        </span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 4, 2023</span>
+    </span>
+    
+
+    <!-- Date of creation -->
+    
+    <span class="md-source-file__fact">
+        <span class="md-icon" title="Created">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+        </span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 23, 2022</span>
+    </span>
+    
+
+    <!-- Authors (git-authors plugin) -->
+    
+    
+    <span class="md-source-file__fact">
+        <span class="md-icon" title="Contributors">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+            
+        </span>
+        <nav>
+            Andrew Fullard, Claire Kopenhafer, Craig Gross, Xiaoge Wang
+        </nav>
+    </span>
+    
+
+    <!-- Authors (git-committers plugin) -->
+    
+</aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Docker" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+
+    <!-- <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
+
+        <div class="fourMSUcolumns" id="standard-footer-MSU-wordmark">
+            <a href="http://www.msu.edu">
+
+                <img alt="Michigan State University Wordmark" class="screen-msuwordmark"
+                    src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/msu-wordmark-green.png" height="47" width="221" />
+            </a>
+        </div>
+        <div class="twelveMSUcolumns">
+            <div id="standard-footer-site-links">
+                <ul>
+            <li><a href="http://icer.msu.edu/contact">Contact Information</a></li>
+            <li><a href="https://msu.edu/privacy">Privacy Policy</a></li>
+            <li><a href="https://msu.edu/accessibility">Site Accessibility</a></li>
+		</ul>
+            </div>
+            <div id="standard-footer-MSU-info">
+                <ul>
+    
+    
+                    
+                    <li>Call MSU: <span class="msu-phone"><strong>(517) 355-1855</strong></span></li>
+                    <li>Visit: <strong><a href="http://msu.edu">msu.edu</a></strong></li>
+                    <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                    <li><a href="http://oie.msu.edu/"><strong>Notice of Nondiscrimination</strong></a></li>
+                </ul>
+                <ul>
+                    <li class="spartans-will">Spartans Will.</li>
+                    <li>© Michigan State University</li>
+                </ul>
+            </div>
+        </div>
+    </footer> -->
+
+    <div id="page" class="page with-navigation">
+
+
+      <div class="everything-wrapper">
+  
+        <footer role="contentinfo">
+  
+          <section class="footer-lower">
+            <div class="container-narrow">
+              <div class="padded-plain-block">
+  
+                <div class="media-lg-only">
+                  <div class="media-lg-only__media media-lg-only--msu">
+                    <a href="http://www.msu.edu/" aria-label="Michigan State University Homepage Link" target="_blank"
+                      class="neg-ext">
+                      <!-- <img
+                        src="images/msu-wordmark-logo.svg"
+                        alt="Michigan State University logo">
+                    </a> -->
+                   <img
+                        src="https://docs.icer.msu.edu/assets/images/msu-wordmark-logo.svg"
+                        alt="Michigan State University logo">
+                    </a>
+                  </div>
+  
+                  <div class="media-lg-only__content">
+                    <div role="navigation" aria-label="ICER Contact Information">
+                      <ul class="horiz-link-list footer-list-lg">
+                        <!-- <li>Call ICER: <a href="tel:+1-517-353-9309" class="phone-link">(517) 353-9309</a></li> -->
+                        <li><a href="https://icer.msu.edu/contact">Contact Information</a></li>
+                        <!-- <li><a href="https://icer.msu.edu/sitemap">Site Map</a></li> #### might have to add a different mkdocs feature for site maps-->
+                        <li><a href="https://msu.edu/privacy" class="ext" target="_blank">Privacy Statement<span
+                              class="ext"><span class="element-invisible"> (link is external)</span></span></a></li>
+                        <li><a href="https://msu.edu/accessibility" class="ext" target="_blank">Site
+                            Accessibility<span class="ext"><span class="element-invisible"> (link is
+                                external)</span></span></a></li>
+                      </ul>
+                    </div>
+  
+                    <hr class="footer-hr">
+  
+                    <div role="navigation" aria-label="MSU Contact Information">
+                      <ul class="horiz-link-list footer-list-sm">
+                        <li>Call MSU: <a href="tel:+1-517-355-1855" class="phone-link footer-lime-link">(517) 355-1855</a>
+                        </li>
+                        <li>Visit: <a href="http://www.msu.edu/" target="_blank"
+                            class="neg-ext footer-lime-link ext">msu.edu<span class="ext"><span class="element-invisible">
+                                (link is external)</span></span></a></li>
+                        <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                      </ul>
+                    </div>
+  
+                    <ul class="horiz-link-list footer-list-sm">
+                      <li><strong>SPARTANS WILL.</strong></li>
+                      <li>© Michigan State University Board of Trustees</li>
+                    </ul>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </section>
+        </footer>
+  
+      </div>
+    </div>
+
+
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "content.action.edit"], "search": "../assets/javascripts/workers/search.f2da59ea.min.js", "tags": {"lab notebook": "labnotes"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ef51cdc3.min.js"></script>
+      
+    
+  </body>
+</html>

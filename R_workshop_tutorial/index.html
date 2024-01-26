@@ -1,0 +1,6771 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../R_others/">
+      
+      
+        <link rel="next" href="../Stata/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/icer-small-logo-white.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3+insiders-4.42.0">
+    
+    
+      
+        <title>R workshop - MSU HPCC User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.cbde490e.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gotham:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Gotham";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../overrides/assets/stylesheets/footer.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-689HG824HG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-689HG824HG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-689HG824HG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#r-workshop-tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+<ul class="horiz-link-list footer-list-lg">
+    <li>
+        <a href="https://icer.msu.edu/">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5Z"/></svg>
+            </span>
+            ICER Home Page
+        </a>
+    </li>
+    <li>
+        <a href="https://blog.icer.msu.edu/">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 19v1H3v-1l2-2v-6c0-3.1 2.03-5.83 5-6.71V4a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.29c2.97.88 5 3.61 5 6.71v6l2 2m-7 2a2 2 0 0 1-2 2 2 2 0 0 1-2-2"/></svg>
+            </span>
+            ICER Announcements Blog
+        </a>
+    </li>
+    <li>
+        <a href="https://contact.icer.msu.edu/">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
+            </span>
+            ICER Contact Page
+        </a>
+    </li>
+</ul>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+    <nav
+    class="md-header__inner md-grid"
+    aria-label="header.title"
+  >
+    
+    <!-- <H1>HERE</H1> -->
+    <a href="https://docs.icer.msu.edu/" class="md-header__button md-logo" data-md-component="logo">
+    
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+        <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <div class="md-header__title" data-md-component="header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">
+              ICER
+            </span>
+          </div>
+          <div class="md-header__topic" data-md-component="header-topic">
+            <span class="md-ellipsis">
+              
+                R workshop
+              
+            </span>
+          </div>
+        </div>
+    </div>
+
+        <!-- Button to open search modal -->
+        <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </nav>
+
+</header>
+
+<div class="MSUwrapper" id="MSUheader">
+    <div id="MSUmasthead" role="banner">
+        <!-- <a href="http://www.msu.edu"> -->
+            <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
+            <!-- <img class="screen-msugraphic" alt="ICER masthead graphic"
+                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" /> previous-->
+
+            <img class="screen-msugraphic mdAndLgBannerOnly" alt="ICER masthead graphic"
+                src="/assets/images/Header_Banner_small_v8.jpeg" />
+            <div id="cropper">
+            <img class="screen-msugraphic bsmBannerOnly" alt="ICER masthead graphic"
+                src="/assets/images/Mobile_Documentation_Header.png" />
+              </div>
+
+              <img class="screen-msugraphic smBannerOnly" alt="ICER masthead graphic"
+                src="/assets/images/Mobile_image.png" />
+                <!--! might have to change the relative path to a linked path like above -->
+        <!-- </a> -->
+    </div>
+    
+</div>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
+      
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+    MSU HPCC User Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MSU-ICER/hpcc-user-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MSU-ICER-User-Documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Access the HPCC
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Access the HPCC
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessHPCC_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obtain_an_hpcc_account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Obtaining an HPCC account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Open_OnDemand/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick start - Open OnDemand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_ssh_client/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Install an SSH client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Intro_to_MobaXterm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro to MobaXterm for Windows Users
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_to_HPCC_System/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect to the HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH tunneling to directly access development nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH connection via VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSH_Key-Based_Authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH keys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HPCC resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HPC_s_entire_layout_at_ICER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC layout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cluster_Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Cluster resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Development nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    The Data Machine
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Data Machine
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data_Machine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Machine overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Using_the_Data_Machine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using the Data Machine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ICER_HPC_Classroom_Support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Classroom support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Computing environment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computing environment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux shells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Editing_Text_with_Nano/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Editing text with nano
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    File permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Managing_File_Permissions_on_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing file permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change_Primary_Group/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Change primary group
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Collaborative research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual_Terminals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Terminals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parallel_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics of parallel computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AMD Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cluster_amd20_with_AMD_CPUs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD CPU architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AMD_Optimizing_CPU_Libraries_and_Compilers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Optimizing for AMD CPUs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    File systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    File systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filesystem_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home_Space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Home space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Research_Space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Research space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scratch_File_Systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Scratch space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_File_Systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Local file system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Guidelines for choosing file systems and I/O
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensitive data storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Science_DMZ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    High Speed Research Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    File transfer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    File transfer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    File transfer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Large file transfer (Globus)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Large file transfer (Globus)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transferring_data_with_Globus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transferring_Data_with_Google_using_Globus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferring data with Google using Globus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud storage file transfer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapping drives
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mapping drives
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapping drives using Samba
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapping drives using SSHFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Software module system
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software module system
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Intro_to_modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to the module system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Searching software modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../User_Created_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    User created modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules_changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Module changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Powertools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Powertools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Powertools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getexample/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Get software usage examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM - buyin information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM - display job list
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM - display job steps and their resource usages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Display_Compute_Nodes_and_Job_Partitions_by_sinfo_command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM - node status and job partition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Job submission by SLURM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Job submission by SLURM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Interactive_Job/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing and submitting job scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Example job scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_resource_request_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM resource request guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../List_of_Job_Specifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    List of job specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Constraints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Job constraints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm_Environment_Variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM environment variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Show_Job_Steps_by_sacct_and_srun_Commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Showing job steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_Check_Modify_and_Cancel_a_Job_by_scontrol_scancel_Command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Controlling jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../List_Jobs_by_squeue_sview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    List jobs using squeue and sview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_Queueing_and_Partitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SLURM queueing and partitions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Buy-In_Accounts_with_SLURM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Buy-in and account management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Job policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_Jobs_are_Scheduled/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    How jobs are scheduled
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scavenger_Queue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Scavenger Queue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_18" id="__nav_9_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkpointing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Checkpointing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_with_Checkpointing_Run/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Checkpoint_with_DMTCP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkpoint with DMTCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Powertools_longjob_by_DMTCP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Powertools `longjob` by DMTCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connections_to_compute_nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Connections to compute nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Torque_vs._SLURM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating from Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Software tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    AlphaFold
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AlphaFold
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlphaFold_installed_in_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    AlphaFold on HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alphafold_via_Singularity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    AlphaFold via Singularity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANSYS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ANSYS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Bioinformatics software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bioinformatics software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aspera_bulk_file_transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Aspera bulk file transfer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ABySS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ABySS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly of PacBio long reads with Canu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    BLAST/BLAST+
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GATK4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    GATK4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTSeq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    HTSeq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mothur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Mothur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    NCBI eDirect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Load_the_software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    OrthoMCL: load module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL_configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    OrthoMCL: MySQL configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orthomcl-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    OrthoMCL pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QIIME_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    QIIME 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA_seq_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    RNA-seq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trimmomatic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Trimmomatic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Trinity for RNA-seq de novo assembly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line and shell scripting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Command line and shell scripting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Command_Line_Interface_for_Beginners_I/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Command Line for Beginners I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Command_Line_Interface_for_Beginners_II/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Command Line for Beginners II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Variables_I/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Variables_II/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Expansion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Expansion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Conditional_Statements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Conditional statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Regular_Expressions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Regular expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_5" id="__nav_10_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiling code
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiling code
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compilers_and_Libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilers and Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compiling_for_GPUs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiling for GPUs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMSOL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    COMSOL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_7" id="__nav_10_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers: Singularity and Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Containers: Singularity and Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Containers_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity_Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Singularity Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity_Advanced_Topics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Singularity Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data_Display_Debugger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Display Debugger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_9" id="__nav_10_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gaussian
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Gaussian from command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_Script/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian job script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian job with checkpointing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_on_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian workshop slides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_10" id="__nav_10_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing software: EasyBuild
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installing software: EasyBuild
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EasyBuild_Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    EasyBuild tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EasyBuild_Reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    EasyBuild reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    make
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Matlab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Matlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_13" id="__nav_10_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    OnDemand Apps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OnDemand Apps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Open_OnDemand/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    OnDemand overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application_Icons_on_Desktop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Set up icons on Interactive Desktop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_14" id="__nav_10_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Perl
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Perl
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_Local_Perl_Modules_with_CPAN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing Local Perl Modules with CPAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_15" id="__nav_10_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Python (overview)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python (overview)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Package management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Using_conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Conda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Using_Python_in_HPCC_with_virtualenv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using virtual env
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python_on_HPC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Python on HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Jupyter_Notebook_in_VS_Code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Jupyter Notebooks in VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_16" id="__nav_10_16_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Pytorch/Pytorch Lightning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pytorch/Pytorch Lightning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_pytorch_using_anaconda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing Pytorch with Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_17" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10_17" id="__nav_10_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    R (overview)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_17_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    R (overview)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RCentOS7generalinfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    General information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_others/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Some packages and other information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    R workshop
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    R workshop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R startup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rscript-one-liner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rscript one-liner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-rscript-with-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Rscript with source code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submitting-parallel-jobs-to-the-cluster-using-doparallel-single-node-multiple-cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submitting parallel jobs to the cluster using doParallel: single node, multiple cores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submitting-parallel-jobs-to-the-cluster-using-pbdmpi-multiple-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submitting parallel jobs to the cluster using pbdMPI: multiple nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Stata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_19" id="__nav_10_19_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    TensorFlow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TensorFlow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing TF using anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Submitting a TF job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TF-GPU/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    TF GPU usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TFcode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tensorflow Model Training Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Training material
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training material
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop_slides/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Workshop materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2" id="__nav_11_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises and Solution
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercises and Solution
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File-Permission-in-Research-Space_34963746.html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    File Permission in Research Space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HPCC-Job-Submission-Workflow_40337480.html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC Job Submission Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job-Arrays---Run-multiple-similar-jobs-simultaneously_40337504.html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Run Multiple Similar Jobs Simultaneously Using Job-Array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running-multiple-jobs-sequentially_34963786.html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Running multiple jobs sequentially
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting-multiple-jobs-simultaneously_40337501.html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Submitting Multiple Jobs Simultaneously
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../External_Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    External Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_4" id="__nav_11_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Targeting_Cluster_Architectures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Targeting Cluster Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Frequently_Asked_Questions_FAQ_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HPC_Glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab_Notebooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtual_help_desk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Help desk access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R startup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rscript-one-liner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rscript one-liner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-rscript-with-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Rscript with source code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submitting-parallel-jobs-to-the-cluster-using-doparallel-single-node-multiple-cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submitting parallel jobs to the cluster using doParallel: single node, multiple cores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submitting-parallel-jobs-to-the-cluster-using-pbdmpi-multiple-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submitting parallel jobs to the cluster using pbdMPI: multiple nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/R_workshop_tutorial.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="r-workshop-tutorial">R workshop tutorial</h1>
+<h2 id="preparation">Preparation</h2>
+<ol>
+<li>Basic knowledge of R language, Linux, and the HPCC environment.</li>
+<li>Login<ol>
+<li><code>ssh -XY YourAccount@hpcc.msu.edu</code></li>
+<li><code>ssh dev-amd20</code></li>
+</ol>
+</li>
+<li>We will be using R 4.0.2. To load
+    it: <code>module purge; module load GCC/8.3.0 OpenMPI/3.1.4 R/4.0.2</code></li>
+<li>Copy files that we are using in this workshop to your home
+    directory: <code>cp -r /mnt/research/common-data/workshops/R-workshop .</code></li>
+</ol>
+<h2 id="r-startup">R startup</h2>
+<p>When an R session starts, it looks for and loads two hidden configuration files, <code>.Renviron</code> and <code>.Rprofile</code>.</p>
+<ul>
+<li><code>.Renviron</code>: contains environment variables to be set in R sessions</li>
+<li><code>.Rprofile</code>: contains R commands to be run in R sessions</li>
+</ul>
+<p>The following search order is applied: your current working directory,
+your home directory, and the system-wide <code>R_HOME/etc/</code> (you can use R
+command <code>R.home()</code> to check path of <code>R_HOME</code>). Below are examples of the
+two files which have been placed in our R workshop directory. You need
+to use <code>ls -a</code> to list them since they are "hidden" files.</p>
+<p><strong><code>.Rprofile</code></strong> (an example)</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>cat<span class="o">(</span><span class="s2">&quot;Sourcing .Rprofile from the R-workshop directory.\n&quot;</span><span class="o">)</span>
+
+<span class="c1"># To avoid setting the CRAN mirror each time you run install.packages</span>
+local<span class="o">({</span>
+<span class="w">  </span>options<span class="o">(</span><span class="nv">repos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://repo.miserver.it.umich.edu/cran/&quot;</span><span class="o">)</span>
+<span class="o">})</span>
+
+options<span class="o">(</span><span class="nv">width</span><span class="o">=</span><span class="m">100</span><span class="o">)</span><span class="w"> </span><span class="c1"># max number of columns when printing vectors/matrices/arrays</span>
+
+.First<span class="w"> </span>&lt;-<span class="w"> </span><span class="k">function</span><span class="o">()</span><span class="w"> </span>cat<span class="o">(</span><span class="s2">&quot;##### R session begins for&quot;</span>,<span class="w"> </span>paste<span class="o">(</span>Sys.getenv<span class="o">(</span><span class="s2">&quot;USER&quot;</span><span class="o">)</span>,<span class="s2">&quot;.&quot;</span>,<span class="w"> </span><span class="nv">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">)</span>,<span class="w"> </span><span class="s2">&quot;You are currently in&quot;</span>,<span class="w"> </span>getwd<span class="o">()</span>,<span class="w"> </span><span class="s2">&quot;#####\n\n&quot;</span><span class="o">)</span>
+.Last<span class="w"> </span>&lt;-<span class="w"> </span><span class="k">function</span><span class="o">()</span><span class="w">  </span>cat<span class="o">(</span><span class="s2">&quot;\n##### R session ends for&quot;</span>,<span class="w"> </span>paste<span class="o">(</span>Sys.getenv<span class="o">(</span><span class="s2">&quot;USER&quot;</span><span class="o">)</span>,<span class="s2">&quot;.&quot;</span>,<span class="w"> </span><span class="nv">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">)</span>,<span class="w">  </span><span class="s2">&quot;You are currently in&quot;</span>,<span class="w"> </span>getwd<span class="o">()</span>,<span class="w"> </span><span class="s2">&quot;#####\n\n&quot;</span><span class="o">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong><code>.Renviron</code></strong> (an example)</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">R_DEFAULT_PACKAGES</span><span class="o">=</span><span class="s2">&quot;datasets,utils,grDevices,graphics,stats,methods&quot;</span>
+<span class="nv">R_LIBS_USER</span><span class="o">=</span>/mnt/home/longnany/Rlibs
+</code></pre></div></td></tr></table></div>
+<p>Let's run a short Rscript command to see what we get:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>Rscript<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;date()&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p>Notes:</p>
+<ul>
+<li>Personalizing these two files can reduce code portability.</li>
+<li>
+<p>If you don't want R or Rscript to read any <code>.Renviron</code> or <code>.Rprofile</code>
+    files when starting an R session, use option <code>--vanilla</code>.  </p>
+<p><em>A caveat</em>: if you explicitly export an R environment variable, such
+as  <code>export R_LIBS_USER=~/Rlibs</code>, then adding <code>--vanilla</code> will not
+ignore its value. See below the result.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.libPaths()&#39;</span><span class="w"> </span><span class="c1"># .libPaths() is used to see the directories where R searches for libraries</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="s2">&quot;/opt/software/R/4.0.2-foss-2019b/lib64/R/library&quot;</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">R_LIBS_USER</span><span class="o">=</span>~/Rlibs
+$<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.libPaths()&#39;</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="s2">&quot;/mnt/home/longnany/Rlibs&quot;</span>
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span><span class="s2">&quot;/opt/software/R/4.0.2-foss-2019b/lib64/R/library&quot;</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<h2 id="rscript-one-liner">Rscript one-liner</h2>
+<p>The general format of <code>Rscript</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Rscript<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span><span class="o">[</span>-e<span class="w"> </span>expression1<span class="w"> </span>-e<span class="w"> </span>expression2<span class="w"> </span>...<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>file<span class="o">]</span><span class="w"> </span><span class="o">[</span>args<span class="o">]</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p><code>options</code>: can be multiple; all beginning with <code>--</code>
+    (e.g., <code>--vanilla</code> as mentioned above). To learn about all the
+    options, run <code>Rscript --help</code> on the command line.</p>
+</li>
+<li>
+<p><code>expression1, expression2 ...</code>: can be one or multiple. They are R
+    commands.</p>
+</li>
+<li>
+<p><code>source file</code>: R source code.</p>
+</li>
+<li>
+<p><code>args</code>: arguments to be passed.</p>
+</li>
+</ul>
+<p>You may have both expressions and source file present in your Rscript
+line. Here are a few one-liner examples:</p>
+<p><strong>Rscript one-liner examples</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Ex1: simple loop</span>
+<span class="o">$</span><span class="w"> </span><span class="n">Rscript</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="s">&#39;for (i in 1:5) print(paste(&quot;g&quot;, i))&#39;</span>
+
+
+<span class="c1"># Ex2: print time</span>
+<span class="o">$</span><span class="w"> </span><span class="n">Rscript</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="s">&#39;date()&#39;</span>
+
+
+<span class="c1"># Ex3: quick math (calculating quotient and remainder)</span>
+<span class="o">$</span><span class="w"> </span><span class="n">Rscript</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="s">&#39;128 %/% 11&#39;</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="s">&#39;128 %% 11&#39;</span>
+
+
+<span class="c1"># Ex4: get help for command &quot;paste&quot;</span>
+<span class="o">$</span><span class="w"> </span><span class="n">Rscript</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="s">&#39;help(paste)&#39;</span>
+
+
+<span class="c1"># Ex5: used in conjunction with pipe.</span>
+<span class="c1">#   Generate three sets of random Normal variables with different means (sd all being one); means are given in file test.dat.</span>
+<span class="o">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">test.dat</span><span class="w"> </span><span class="c1"># ctrl+D to go back when done typing</span>
+<span class="m">1</span>
+<span class="m">10</span>
+<span class="m">20</span>
+<span class="o">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">test.dat</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Rscript</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="s">&#39;input_con  &lt;- file(&quot;stdin&quot;); open(input_con); while (length(oneLine &lt;- readLines(con = input_con, n = 1, warn = FALSE)) &gt; 0) {print(rnorm(5,mean=as.numeric(oneLine)))};close(input_con)&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="using-rscript-with-source-code">Using Rscript with source code</h2>
+<p><em>a. simple usage:</em></p>
+<p>Instead of using <code>'-e your_commands</code>', we now put R commands in a source file and run it with <code>Rscript</code>. Below is an R script file and we can run <code>Rscript multiplots.R</code> to get a PDF file <code>multiplots.pdf</code>. To view it, run <code>evince multiplots.pdf</code>. Or, you can go to our <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard">OnDemand</a> File Browser to open the file in your web browser.</p>
+<p><code>multiplots.R</code>: a very simple example of making 4 plots on the same page</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">pdf</span><span class="p">(</span><span class="s">&quot;multiplots.pdf&quot;</span><span class="p">)</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="nf">bquote</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="nf">.</span><span class="p">(</span><span class="n">i</span><span class="p">)]),</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="nf">bquote</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="nf">.</span><span class="p">(</span><span class="n">i</span><span class="p">)]),</span><span class="w"> </span><span class="n">main</span><span class="o">=</span><span class="nf">bquote</span><span class="p">(</span><span class="s">&quot;Multiple plots: #&quot;</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="nf">.</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+<span class="nf">dev.off</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p><em>b. passing command line arguments:</em></p>
+<p>We can also pass arguments to our R script, as shown in the example
+below.</p>
+<p><code>args-1.R</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">args</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">commandArgs</span><span class="p">(</span><span class="n">trailingOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="n">nargs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">nargs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Arg&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Generating&quot;</span><span class="p">,</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">nargs</span><span class="m">-1</span><span class="p">]),</span><span class="w"> </span><span class="s">&quot;normal variables with mean =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">nargs</span><span class="p">]),</span><span class="w"> </span><span class="s">&quot;and sd = 1 \n&quot;</span><span class="p">)</span>
+<span class="nf">rnorm</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">nargs</span><span class="m">-1</span><span class="p">]),</span><span class="w"> </span><span class="n">mean</span><span class="o">=</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">nargs</span><span class="p">]))</span>
+</code></pre></div></td></tr></table></div>
+<p>Running script <code>args-1.R</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>Rscript<span class="w"> </span>args-1.R<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">3</span>
+Sourcing<span class="w"> </span>.Rprofile<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span><span class="m">11092017</span>-R-Workshop<span class="w"> </span>directory.
+<span class="c1">##### R session begins for longnany. You are currently in /mnt/home/longnany/Documents/11092017-R-Workshop #####</span>
+
+Arg<span class="w"> </span><span class="m">1</span><span class="w"> </span>:<span class="w"> </span><span class="m">5</span>
+Arg<span class="w"> </span><span class="m">2</span><span class="w"> </span>:<span class="w"> </span><span class="m">3</span>
+Generating<span class="w"> </span><span class="m">5</span><span class="w"> </span>normal<span class="w"> </span>variables<span class="w"> </span>with<span class="w"> </span><span class="nv">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>and<span class="w"> </span><span class="nv">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="m">2</span>.707162<span class="w"> </span><span class="m">3</span>.677923<span class="w"> </span><span class="m">3</span>.192272<span class="w"> </span><span class="m">2</span>.531973<span class="w"> </span><span class="m">3</span>.699060
+
+<span class="c1">##### R session ends for longnany. You are currently in /mnt/home/longnany/Documents/11092017-R-Workshop #####</span>
+</code></pre></div></td></tr></table></div>
+<p><em>c. processing command line arguments with {<code>getopt</code>}:</em></p>
+<p><code>args-2.R</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">require</span><span class="p">(</span><span class="s">&quot;getopt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="n">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;Number&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Mean&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;m&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;double&quot;</span>
+<span class="p">),</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="c1"># cf. https://cran.r-project.org/web/packages/getopt/getopt.pdf</span>
+
+<span class="n">opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getopt</span><span class="p">(</span><span class="n">spec</span><span class="p">);</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">opt</span><span class="o">$</span><span class="n">Number</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">5</span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">opt</span><span class="o">$</span><span class="n">Number</span>
+<span class="p">}</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">opt</span><span class="o">$</span><span class="n">Mean</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">3</span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">opt</span><span class="o">$</span><span class="n">Mean</span>
+<span class="p">}</span><span class="w"> </span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Generating&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;normal variables with mean =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;and sd = 1 \n&quot;</span><span class="p">)</span>
+<span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Running the script <code>args-2.R</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Use long flag names</span>
+$<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>args-2.R<span class="w"> </span>--Number<span class="w"> </span><span class="m">10</span><span class="w"> </span>--Mean<span class="w"> </span>-2
+Generating<span class="w"> </span><span class="m">10</span><span class="w"> </span>normal<span class="w"> </span>variables<span class="w"> </span>with<span class="w"> </span><span class="nv">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-2<span class="w"> </span>and<span class="w"> </span><span class="nv">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>-0.4776278<span class="w"> </span>-1.7759145<span class="w"> </span>-0.9977682<span class="w"> </span>-2.6452126<span class="w"> </span>-3.4050587<span class="w"> </span>-2.2358362
+<span class="w"> </span><span class="o">[</span><span class="m">7</span><span class="o">]</span><span class="w"> </span>-1.2696362<span class="w"> </span>-1.6213633<span class="w"> </span>-2.7013074<span class="w"> </span>-1.9271954
+
+<span class="c1"># Use short flag names</span>
+$<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>args-2.R<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>-m<span class="w"> </span>-2
+Generating<span class="w"> </span><span class="m">10</span><span class="w"> </span>normal<span class="w"> </span>variables<span class="w"> </span>with<span class="w"> </span><span class="nv">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-2<span class="w"> </span>and<span class="w"> </span><span class="nv">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>-2.2241837<span class="w"> </span>-1.6704711<span class="w">  </span><span class="m">0</span>.1481244<span class="w">  </span><span class="m">0</span>.2072124<span class="w"> </span>-1.0385386<span class="w"> </span>-1.5194874
+<span class="w"> </span><span class="o">[</span><span class="m">7</span><span class="o">]</span><span class="w"> </span>-2.6744478<span class="w"> </span>-2.4683039<span class="w"> </span>-0.7962113<span class="w"> </span>-1.1901021
+
+<span class="c1"># No arguments provided so defaults are used</span>
+$<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>args-2.R
+Generating<span class="w"> </span><span class="m">5</span><span class="w"> </span>normal<span class="w"> </span>variables<span class="w"> </span>with<span class="w"> </span><span class="nv">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>and<span class="w"> </span><span class="nv">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="m">3</span>.951492<span class="w"> </span><span class="m">4</span>.255879<span class="w"> </span><span class="m">4</span>.485044<span class="w"> </span><span class="m">2</span>.727223<span class="w"> </span><span class="m">3</span>.039532
+</code></pre></div></td></tr></table></div>
+<h2 id="submitting-parallel-jobs-to-the-cluster-using-doparallel-single-node-multiple-cores">Submitting parallel jobs to the cluster using <code>doParallel</code>: single node, multiple cores</h2>
+<p>To submit a single-node job, we recommend the package <a href="https://cran.r-project.org/web/packages/doParallel/vignettes/gettingstartedParallel.pdf"><code>doParallel</code></a>. 
+The <code>doParallel</code> package is a "parallel backend" for the <a href="https://cran.r-project.org/web/packages/foreach/vignettes/foreach.html"><code>foreach</code></a> package, making it possible to execute foreach loops in parallel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>doParallel</code> supports two functionalities: multicore and snow. The most important difference between them is that multicore can only run tasks on a single node (computer) whereas snow can execute tasks on different nodes in a cluster. This leads to different commands for registering the parallel backend. In our example here, we are interested in using the multicore-like parallelism, since we are trying to use the many cores on a single compute node in the cluster. To learn more about their differences, you can refer to <a href="https://stackoverflow.com/questions/28829300/doparallel-cluster-vs-cores">this discussion</a>.</p>
+</div>
+<p>Example R code <code>R_doParallel_singlenode.R</code>: run 10,000 bootstrap iterations of fitting a logistic regression model</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">doParallel</span><span class="p">)</span>
+
+<span class="c1"># Registering a parallel backend, using the &quot;multicore&quot; functionality</span>
+<span class="nf">registerDoParallel</span><span class="p">(</span><span class="n">cores</span><span class="o">=</span><span class="nf">as.numeric</span><span class="p">(</span><span class="nf">Sys.getenv</span><span class="p">(</span><span class="s">&quot;SLURM_CPUS_ON_NODE&quot;</span><span class="p">)[</span><span class="m">1</span><span class="p">]))</span>
+
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">iris</span><span class="p">[</span><span class="nf">which</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">&quot;setosa&quot;</span><span class="p">),</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">)]</span>
+<span class="n">trials</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">10000</span>
+<span class="n">ptime</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">system.time</span><span class="p">({</span>
+<span class="w">    </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">foreach</span><span class="p">(</span><span class="nf">icount</span><span class="p">(</span><span class="n">trials</span><span class="p">),</span><span class="w"> </span><span class="n">.combine</span><span class="o">=</span><span class="n">cbind</span><span class="p">)</span><span class="w"> </span><span class="o">%dopar%</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ind</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">result1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">glm</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">~</span><span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">,</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">family</span><span class="o">=</span><span class="nf">binomial</span><span class="p">(</span><span class="n">logit</span><span class="p">))</span>
+<span class="w">        </span><span class="nf">coefficients</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">})[</span><span class="m">3</span><span class="p">]</span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Time elapsed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ptime</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Currently registered backend:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">getDoParName</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Number of workers used:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">getDoParWorkers</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">r</span><span class="p">))</span><span class="w"> </span><span class="c1"># column-binded result</span>
+</code></pre></div></td></tr></table></div>
+<p>Now, submit the job to the HPCC through the following SLURM script <code>submit-doParallel.sbatch</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Job name:</span>
+<span class="c1">#SBATCH --job-name=doParallel_test</span>
+<span class="c1">#</span>
+<span class="c1"># Number of nodes needed:</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#</span>
+<span class="c1"># Tasks per node:</span>
+<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="c1">#</span>
+<span class="c1"># Processors per task:</span>
+<span class="c1">#SBATCH --cpus-per-task=4</span>
+<span class="c1">#</span>
+<span class="c1"># Memory per node:</span>
+<span class="c1">#SBATCH --mem=500M</span>
+<span class="c1">#</span>
+<span class="c1"># Wall time (e.g. &quot;minutes&quot;, &quot;hours:minutes:seconds&quot;, &quot;days-hours&quot;, &quot;days-hours:minutes&quot;):</span>
+<span class="c1">#SBATCH --time=3:00:00</span>
+<span class="c1">#</span>
+<span class="c1"># Standard out and error:</span>
+<span class="c1">#SBATCH --output=%x-%j.SLURMout</span>
+
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>GCC/8.3.0<span class="w"> </span>OpenMPI/3.1.4<span class="w"> </span>R/4.0.2
+
+Rscript<span class="w"> </span>--vanilla<span class="w"> </span>R_doParallel_singlenode.R<span class="w"> </span>&gt;<span class="w"> </span>R_doParallel_singlenode.Rout
+</code></pre></div></td></tr></table></div>
+<p>Submission command: <code>sbatch --constraint="[intel16|intel18|amd20|amd22]" submit-doParallel.sbatch</code></p>
+<p>The output file <code>R_doParallel_singlenode.Rout</code>  should look like:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>Time elapsed: 8.946
+Currently registered backend: doParallelMC
+Number of workers used: 4
+ num [1:2, 1:10000] -14.6 2.26 -11.86 1.91 -7.75 ...
+ - attr(*, &quot;dimnames&quot;)=List of 2
+  ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;x[ind, 1]&quot;
+  ..$ : chr [1:10000] &quot;result.1&quot; &quot;result.2&quot; &quot;result.3&quot; &quot;result.4&quot; ...
+NULL
+</code></pre></div></td></tr></table></div>
+<h2 id="submitting-parallel-jobs-to-the-cluster-using-pbdmpi-multiple-nodes">Submitting parallel jobs to the cluster using <code>pbdMPI</code>: multiple nodes</h2>
+<p><abbr title="Message Passing Interface">MPI</abbr> stands for <em>M</em>essage <em>P</em>assing <em>I</em>nterface, and is the standard for managing multi-node communication. The R package
+<a href="https://cran.r-project.org/web/packages/Rmpi/Rmpi.pdf"><code>Rmpi</code></a> is an implementation of it for R. Because of its complicated usage, here we will use another R package, <code>pbdMPI</code>,  which greatly simplifies the use of <abbr title="Message Passing Interface">MPI</abbr> from R.</p>
+<p><a href="https://cran.r-project.org/web/packages/pbdMPI/pbdMPI.pdf"><code>pbdMPI</code></a> is a more recent R <abbr title="Message Passing Interface">MPI</abbr> package developed under the <a href="https://pbdr.org/index.html">pbdR project</a>, which simplifies <abbr title="Message Passing Interface">MPI</abbr> interaction and thus reduces the traffics of node-to-node communication. It works in Single Program/Multiple Data (<a href="https://snoweye.github.io/hpsc/spmd.html">SPMD</a>) mode, which is an important distinction as compared with <code>Rmpi</code>.</p>
+<p>As an illustration, we consider the problem of computing the log likelihood of data following a 2-dimensional Multi-Variate Normal (MVN) distribution. The example below applies Cholesky decomposition on the 2-by-2 covariance matrix (code line 25 below), solves a system of linear equations (line 30), followed by some matrix/vector operation (line 31). Line 30 and 31 are where <abbr title="Message Passing Interface">MPI</abbr> plays a vital role via distributed computing.</p>
+<p>Below is a graphic illustration of solving a system of linear equations by part so as to be able to distribute the task. To learn more about the underlying mechanism, you can take a look at <a href="../attachments/UnderstandMVNpbdMPI.pdf">this note</a>.</p>
+<p><img alt="A diagram of task distribution across a system of linear equations U times A equals B, where all are matrices." src="../attachments/22708830/50692283.jpeg" /></p>
+<p><code>MVN.R</code>: <abbr title="Message Passing Interface">MPI</abbr> in SPMD mode</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Load pbdMPI and initialize the communicator</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">pbdMPI</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">init</span><span class="p">()</span>
+
+<span class="c1"># Check processes</span>
+<span class="nf">comm.cat</span><span class="p">(</span><span class="s">&quot;All processes start...\n\n&quot;</span><span class="p">)</span>
+<span class="n">msg</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;I am rank %d on host %s of %d processes\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">comm.rank</span><span class="p">(),</span><span class="w"> </span><span class="nf">Sys.info</span><span class="p">()[</span><span class="s">&quot;nodename&quot;</span><span class="p">],</span><span class="w"> </span><span class="nf">comm.size</span><span class="p">())</span>
+<span class="nf">comm.cat</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">all.rank</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="c1"># quiet=T tells each rank not to &quot;announce&quot; itself when it&#39;s printing</span>
+
+
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">1234</span><span class="p">)</span>
+<span class="n">N</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">100</span>
+<span class="n">p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2</span>
+<span class="n">X</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+<span class="n">mu</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.1</span><span class="p">,</span><span class="w"> </span><span class="m">0.2</span><span class="p">)</span>
+<span class="n">Sigma</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0.9</span><span class="p">,</span><span class="w"> </span><span class="m">0.1</span><span class="p">,</span><span class="w"> </span><span class="m">0.1</span><span class="p">,</span><span class="w"> </span><span class="m">0.9</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># Load data partially by processors</span>
+<span class="n">id.get</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">get.jid</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">X.spmd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">id.get</span><span class="p">,</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+<span class="nf">comm.cat</span><span class="p">(</span><span class="s">&quot;\nPrint out the matrix on each process/rank:\n\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">comm.print</span><span class="p">(</span><span class="n">X.spmd</span><span class="p">,</span><span class="w"> </span><span class="n">all.rank</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="c1"># Cholesky decomposition</span>
+<span class="n">U</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">chol</span><span class="p">(</span><span class="n">Sigma</span><span class="p">)</span><span class="w"> </span><span class="c1"># U&#39;U = Sigma</span>
+<span class="n">logdet</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="nf">diag</span><span class="p">(</span><span class="n">U</span><span class="p">))))</span>
+
+<span class="c1"># Call R&#39;s backsolve function for each chunk of the data matrix X (i.e. B.spmd)</span>
+<span class="n">B.spmd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="n">X.spmd</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mu</span>
+<span class="n">A.spmd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">backsolve</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">B.spmd</span><span class="p">,</span><span class="w"> </span><span class="n">upper.tri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">transpose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="c1"># U&#39;A = B</span>
+<span class="n">distval.spmd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">colSums</span><span class="p">(</span><span class="n">A.spmd</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">A.spmd</span><span class="p">)</span>
+
+<span class="c1"># Use sum as the reduction operation</span>
+<span class="n">sum.distval</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">allreduce</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">distval.spmd</span><span class="p">),</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sum&quot;</span><span class="p">)</span>
+<span class="n">total.logL</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-0.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kc">pi</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">logdet</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sum.distval</span><span class="p">)</span>
+
+<span class="c1"># Output</span>
+<span class="nf">comm.cat</span><span class="p">(</span><span class="s">&quot;\nFinal log-likelihood:\n\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">comm.print</span><span class="p">(</span><span class="n">total.logL</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="nf">finalize</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>SLURM submission script: <code>submit-pbdMPI.sbatch</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Job name:</span>
+<span class="c1">#SBATCH --job-name=pbdMPI_test</span>
+<span class="c1">#</span>
+<span class="c1"># Number of MPI tasks:</span>
+<span class="c1">#SBATCH --ntasks=20</span>
+<span class="c1">#</span>
+<span class="c1"># Processors per task:</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#</span>
+<span class="c1"># Memory:</span>
+<span class="c1">#SBATCH --mem-per-cpu=800M</span>
+<span class="c1">#</span>
+<span class="c1"># Wall clock limit (e.g. &quot;minutes&quot;, &quot;hours:minutes:seconds&quot;, &quot;days-hours&quot;, &quot;days-hours:minutes&quot;):</span>
+<span class="c1">#SBATCH --time=30</span>
+<span class="c1">#</span>
+<span class="c1"># Standard out and error:</span>
+<span class="c1">#SBATCH --output=%x-%j.SLURMout</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;SLURM_NTASKS: </span><span class="nv">$SLURM_NTASKS</span><span class="s2">&quot;</span>
+
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>GCC/8.3.0<span class="w"> </span>OpenMPI/3.1.4<span class="w"> </span>R/4.0.2
+
+<span class="c1"># Suppress warnings about forks and missing CUDA libraries</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMPI_MCA_mpi_warn_on_fork</span><span class="o">=</span><span class="m">0</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMPI_MCA_mpi_cuda_support</span><span class="o">=</span><span class="m">0</span>
+
+mpirun<span class="w"> </span>-n<span class="w"> </span><span class="nv">$SLURM_NTASKS</span><span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>MVN.R<span class="w"> </span>&gt;<span class="w"> </span>MVN.Rout
+</code></pre></div></td></tr></table></div>
+<p>Now, submit the job by <code>sbatch --constraint="[intel16|intel18|amd20|amd22]" submit-pbdMPI.sbatch</code>. When finished, <code>MVN.Rout</code> should contain the following information:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code>COMM.RANK = 0
+All processes start...
+
+I am rank 0 on host lac-419 of 20 processes
+I am rank 1 on host lac-420 of 20 processes
+... ...
+I am rank 18 on host lac-421 of 20 processes
+I am rank 19 on host lac-421 of 20 processes
+
+Print out the matrix on each process/rank:
+
+           [,1]       [,2]
+[1,] -0.1850210 -0.2771503
+[2,] -0.8596753 -0.1081122
+[3,] -1.0927853  0.8690750
+[4,] -0.5831948  0.8032846
+[5,]  1.0796870  0.2354514
+            [,1]       [,2]
+[1,]  0.05274001 -0.8410549
+[2,] -0.92568393  0.9461704
+[3,]  1.01632804  0.6875080
+[4,]  0.34271061  0.4905065
+[5,]  0.84192956 -1.6685933
+... ...
+            [,1]       [,2]
+[1,] -0.55673659 -0.1229023
+[2,] -0.03156318 -0.8501178
+[3,] -1.28832627 -1.3115801
+[4,] -0.47546826 -0.4856559
+[5,]  0.81134183  0.7499220
+            [,1]       [,2]
+[1,] -0.95620195  0.6560605
+[2,]  0.04671396  0.6093924
+[3,]  0.18986742  0.2077641
+[4,]  0.73281327 -1.0452661
+[5,]  2.27968859  1.0611428
+
+Final log-likelihood:
+
+[1] -283.2159
+</code></pre></div></td></tr></table></div>
+<p>You can download more R pbdMPI examples from <a href="https://github.com/RBigData/pbdDEMO/tree/master/demo">here</a>.</p>
+<!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine date of last update -->
+
+
+
+
+
+<!-- Determine date of creation -->
+
+
+
+
+
+<!-- Source file information -->
+
+<aside class="md-source-file">
+
+    <!-- Date of last update -->
+    
+    <span class="md-source-file__fact">
+        <span class="md-icon" title="Last update">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+        </span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 23, 2024</span>
+    </span>
+    
+
+    <!-- Date of creation -->
+    
+    <span class="md-source-file__fact">
+        <span class="md-icon" title="Created">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+        </span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 18, 2022</span>
+    </span>
+    
+
+    <!-- Authors (git-authors plugin) -->
+    
+    
+    <span class="md-source-file__fact">
+        <span class="md-icon" title="Contributors">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+            
+        </span>
+        <nav>
+            Andrew Fullard, Nanye Long
+        </nav>
+    </span>
+    
+
+    <!-- Authors (git-committers plugin) -->
+    
+</aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=R%20workshop" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+
+    <!-- <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
+
+        <div class="fourMSUcolumns" id="standard-footer-MSU-wordmark">
+            <a href="http://www.msu.edu">
+
+                <img alt="Michigan State University Wordmark" class="screen-msuwordmark"
+                    src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/msu-wordmark-green.png" height="47" width="221" />
+            </a>
+        </div>
+        <div class="twelveMSUcolumns">
+            <div id="standard-footer-site-links">
+                <ul>
+            <li><a href="http://icer.msu.edu/contact">Contact Information</a></li>
+            <li><a href="https://msu.edu/privacy">Privacy Policy</a></li>
+            <li><a href="https://msu.edu/accessibility">Site Accessibility</a></li>
+		</ul>
+            </div>
+            <div id="standard-footer-MSU-info">
+                <ul>
+    
+    
+                    
+                    <li>Call MSU: <span class="msu-phone"><strong>(517) 355-1855</strong></span></li>
+                    <li>Visit: <strong><a href="http://msu.edu">msu.edu</a></strong></li>
+                    <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                    <li><a href="http://oie.msu.edu/"><strong>Notice of Nondiscrimination</strong></a></li>
+                </ul>
+                <ul>
+                    <li class="spartans-will">Spartans Will.</li>
+                    <li>© Michigan State University</li>
+                </ul>
+            </div>
+        </div>
+    </footer> -->
+
+    <div id="page" class="page with-navigation">
+
+
+      <div class="everything-wrapper">
+  
+        <footer role="contentinfo">
+  
+          <section class="footer-lower">
+            <div class="container-narrow">
+              <div class="padded-plain-block">
+  
+                <div class="media-lg-only">
+                  <div class="media-lg-only__media media-lg-only--msu">
+                    <a href="http://www.msu.edu/" aria-label="Michigan State University Homepage Link" target="_blank"
+                      class="neg-ext">
+                      <!-- <img
+                        src="images/msu-wordmark-logo.svg"
+                        alt="Michigan State University logo">
+                    </a> -->
+                   <img
+                        src="https://docs.icer.msu.edu/assets/images/msu-wordmark-logo.svg"
+                        alt="Michigan State University logo">
+                    </a>
+                  </div>
+  
+                  <div class="media-lg-only__content">
+                    <div role="navigation" aria-label="ICER Contact Information">
+                      <ul class="horiz-link-list footer-list-lg">
+                        <!-- <li>Call ICER: <a href="tel:+1-517-353-9309" class="phone-link">(517) 353-9309</a></li> -->
+                        <li><a href="https://icer.msu.edu/contact">Contact Information</a></li>
+                        <!-- <li><a href="https://icer.msu.edu/sitemap">Site Map</a></li> #### might have to add a different mkdocs feature for site maps-->
+                        <li><a href="https://msu.edu/privacy" class="ext" target="_blank">Privacy Statement<span
+                              class="ext"><span class="element-invisible"> (link is external)</span></span></a></li>
+                        <li><a href="https://msu.edu/accessibility" class="ext" target="_blank">Site
+                            Accessibility<span class="ext"><span class="element-invisible"> (link is
+                                external)</span></span></a></li>
+                      </ul>
+                    </div>
+  
+                    <hr class="footer-hr">
+  
+                    <div role="navigation" aria-label="MSU Contact Information">
+                      <ul class="horiz-link-list footer-list-sm">
+                        <li>Call MSU: <a href="tel:+1-517-355-1855" class="phone-link footer-lime-link">(517) 355-1855</a>
+                        </li>
+                        <li>Visit: <a href="http://www.msu.edu/" target="_blank"
+                            class="neg-ext footer-lime-link ext">msu.edu<span class="ext"><span class="element-invisible">
+                                (link is external)</span></span></a></li>
+                        <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                      </ul>
+                    </div>
+  
+                    <ul class="horiz-link-list footer-list-sm">
+                      <li><strong>SPARTANS WILL.</strong></li>
+                      <li>© Michigan State University Board of Trustees</li>
+                    </ul>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </section>
+        </footer>
+  
+      </div>
+    </div>
+
+
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "content.action.edit"], "search": "../assets/javascripts/workers/search.f2da59ea.min.js", "tags": {"lab notebook": "labnotes"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ef51cdc3.min.js"></script>
+      
+    
+  </body>
+</html>

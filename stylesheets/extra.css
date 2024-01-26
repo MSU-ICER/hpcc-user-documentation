@@ -1,0 +1,862 @@
+:root {
+  --md-primary-fg-color: #18453B;
+  --md-footer-bg-color: #18453B;
+}
+
+a {
+  text-decoration: underline;
+}
+
+
+
+
+
+/* #MSU Footer 
+================================================== */
+/* 
+#MSUstandardFooter {
+  height: 170px;
+  display:flex;
+  margin: 3vh auto 1vh auto;
+  font-family: 'Gotham SSm A', 'Gotham SSm B', arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#MSUstandardFooter .fourMSUcolumns {
+  width: 221px;
+
+  margin-right: 18px;
+}
+
+#MSUstandardFooter .fourMSUcolumns img {
+  width: 100%;
+  margin-top: 8px; 
+}
+*/
+
+/* V2.0 */
+/* #MSUstandardFooter .thirteenMSUcolumns {    
+  width: 660px; 
+ 
+  margin: 5px 0px 0px 0px;
+}  */
+
+/* Website information with Call Us/Telephone (Footer line 1) */
+
+/* #MSUstandardFooter #standard-footer-site-links ul {
+  margin: 0px;
+  padding: 0px;
+  height: 22px; 
+  border-bottom: 1px dotted #808080;
+  float: left;
+  clear: right;
+}
+
+#MSUstandardFooter #standard-footer-site-links ul li {
+  display: inline-block;
+  padding-left: 4px;
+  font-size: 0.75rem;    
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#MSUstandardFooter #standard-footer-site-links ul li:first-child {
+  padding: 0px;
+}
+
+#MSUstandardFooter #standard-footer-site-links ul li:nth-child(2) a {
+  padding: 0px 8px 0px 8px;
+}
+
+#MSUstandardFooter #standard-footer-site-links ul li:last-child a {
+  border-right: none;
+}
+
+#MSUstandardFooter #standard-footer-site-links ul li a {
+  text-decoration: none;
+  padding-right: 8px;
+  font-weight: 500;     
+}
+
+#MSUstandardFooter #standard-footer-site-links ul li a:hover {
+  text-decoration: underline;
+}
+
+#MSUstandardFooter.light-background #standard-footer-site-links {
+  color: #18453b;
+}
+
+#MSUstandardFooter.light-background #standard-footer-site-links a {
+  color: #18453b;
+  border-right: 1px solid #18453b;
+} */
+
+/* #MSUstandardFooter.light-background #standard-footer-site-links ul li:nth-child(2) a {
+  border-left: 1px solid #18354b;
+} */
+
+/* #MSUstandardFooter.dark-background #standard-footer-site-links{
+  color: #fff;
+}
+
+#MSUstandardFooter.dark-background #standard-footer-site-links ul li:nth-child(2) a {
+  border-left: 1px solid #737373;
+}
+
+#MSUstandardFooter.dark-background #standard-footer-site-links a {
+  color: #fff;
+  border-right: 1px solid #737373;
+}
+
+/* Website information - no Call Us/Telephone (Footer line 1) */
+
+/*
+#MSUstandardFooter #standard-footer-site-nocall-links ul {
+  margin: 0px;
+  padding: 0px;
+  height: 22px; 
+  border-bottom: 1px dotted #808080;
+  float: left;
+  clear: right;
+}
+
+#MSUstandardFooter #standard-footer-site-nocall-links ul li {
+  display: inline-block;
+  font-size: 12px;    
+  font-size: 1rem;    
+  padding-left: 4px;
+}
+#MSUstandardFooter #standard-footer-site-nocall-links ul li:first-child {
+  display: inline-block;
+  font-size: 12px;   
+  font-size: 1rem;   
+  padding-left: 0px;
+}
+
+#MSUstandardFooter #standard-footer-site-nocall-links ul li a {
+  padding: 0px 8px 0px 8px;
+}
+#MSUstandardFooter #standard-footer-site-nocall-links ul li a:first-child {
+  padding: 0px 8px 0px 0px;
+}
+
+#MSUstandardFooter #standard-footer-site-nocall-links ul li a {
+  padding-right: 8px;
+  text-decoration: none;
+  font-weight: 500;     
+}
+
+#MSUstandardFooter #standard-footer-site-nocall-links ul li a:hover {
+  text-decoration: underline;
+}
+
+#MSUstandardFooter.light-background #standard-footer-site-nocall-links {
+  color: #18453b;
+}
+
+#MSUstandardFooter.light-background #standard-footer-site-nocall-links ul li a {
+  color: #18453b;
+  border-right: 1px solid #18354b;
+}
+#MSUstandardFooter.light-background #standard-footer-site-nocall-links ul li:last-child a {
+  border-right: none;
+}
+
+#MSUstandardFooter.dark-background #standard-footer-site-nocall-links{
+  color: #fff;
+}
+
+#MSUstandardFooter.dark-background #standard-footer-site-nocall-links ul li a {
+  color: #fff;
+  border-right: 1px solid #737373;
+}
+#MSUstandardFooter.dark-background #standard-footer-site-nocall-links ul li:last-child a {
+  color: #fff;
+  border-right: none;
+} */
+
+/* MSU information (Footer lines 2-3) */
+
+/* #MSUstandardFooter #standard-footer-MSU-info {
+  font-size: 9px;          
+  font-size: 0.5625rem;    
+  margin-top: 2px; 
+  padding-top: 0px;
+  float: left;
+  clear: right;
+}
+
+#MSUstandardFooter #standard-footer-MSU-info ul {
+  margin: 0px;
+  padding: 0px;
+  height: 16px;
+  font-size: 9px;          
+  font-size: 0.5625rem;    
+}
+
+#MSUstandardFooter #standard-footer-MSU-info ul li {
+  margin-bottom: 0px;
+  line-height: 10px;
+  display: inline;
+  border-right: 1px solid #999;
+  padding: 0px 8px 0px 4px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#MSUstandardFooter #standard-footer-MSU-info ul li.spartans-will {
+  text-transform: uppercase;
+  font-weight: 600;    
+}
+
+#MSUstandardFooter #standard-footer-MSU-info ul li:first-child {
+  padding-left: 0px;
+}
+
+#MSUstandardFooter #standard-footer-MSU-info ul li:last-child {
+  border-right: 0px;
+}    
+
+#MSUstandardFooter #standard-footer-MSU-info ul li a {
+  text-decoration: none;
+}
+
+#MSUstandardFooter #standard-footer-MSU-info ul li a:hover {
+  text-decoration: underline;
+}
+
+#MSUstandardFooter.light-background #standard-footer-MSU-info{
+  color: #18453b;
+}
+
+#MSUstandardFooter.light-background #standard-footer-MSU-info a, #MSUstandardFooter.light-background #standard-footer-MSU-info .msu-phone {
+  color: #4c7e00;  
+}
+
+#MSUstandardFooter.dark-background #standard-footer-MSU-info {
+  color: #fff;
+}
+
+#MSUstandardFooter.dark-background #standard-footer-MSU-info a, #MSUstandardFooter.dark-background #standard-footer-MSU-info .msu-phone {
+  color: #81d300;   
+}
+
+#standard-footer-MSU-wordmark img.print-msuwordmark {
+  display: none;
+} */
+
+
+/* You may have to adjust the max-width and min-width to fit the width of your site. 
+If the margin is set differently for your site, fix the margin here to reflect that. */
+
+/* #MSU Masthead
+================================================== */
+/* .hide {
+  position: absolute;
+  left: -9999px; 
+} */
+
+
+
+/* #MSUheader { */
+/*  height: 30vh;*/
+/* overflow: hidden;
+} */
+
+/* #MSUmasthead {
+  width: 100%;
+  float: left; 
+  position: relative;
+  height:10%;
+}
+
+.screen-msugraphic {
+  width: 100%;
+}
+
+#MSUmasthead img.print-msugraphic {
+  display: none;
+} */
+
+.md-top {
+  text-decoration: none;
+  transition: ease-in-out 250ms;
+}
+
+/*
+@media only screen and (max-width: 950px) {
+  .MSUwrapper{
+    display: block !important;
+  }
+  ul{
+    display: block !important;
+  }
+  #standard-footer-site-links li a{
+    display: inline-block !important;
+  }
+  .fourMSUcolumns{
+    display: block;
+    margin-left: auto;
+    margin-right: auto !important;
+
+    transform: scale(1.5);
+    margin-bottom: 20px;
+  }
+  #MSUstandardFooter #standard-footer-site-links{
+    margin-bottom: 20px;
+    white-space: normal;
+    padding-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #MSUstandardFooter #standard-footer-site-links ul{
+    border-bottom: None;
+  }
+  #MSUstandardFooter #standard-footer-site-links ul li{
+    display: flex !important;
+    margin-bottom: 3px;
+    margin-left: auto;
+    
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+
+  }
+  #MSUstandardFooter.light-background #standard-footer-site-links a{
+    border: none;
+  }
+
+  #MSUstandardFooter #standard-footer-MSU-info{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+} */
+
+/* override css for the search border */
+
+.md-search__input {
+  border: #fff solid 1.5px;
+  border-radius: 0.2rem;
+}
+
+.md-search__form {
+  border-radius: 0.2rem;
+}
+
+/* override css for tables to move horiz scrollbar to top.
+   rotate content block relative to parent container. */
+
+.md-typeset__scrollwrap {
+  margin: 1em -.8rem;
+  overflow-x: auto;
+  touch-action: auto;
+  transform: rotateX(180deg);
+}
+
+.md-typeset__table {
+  display: inline-block;
+  margin-bottom: .5em;
+  padding: 0 .8rem;
+  transform: rotateX(180deg); 
+}
+
+/* removing the blue bar from the menu bar*/
+/* overriding the display for small screens issue 76  */
+
+@media only screen and (max-width: 960px) {
+  .md-nav__source {
+    display: none;
+  }
+}
+
+
+/* New code for CSS Footer*/
+
+footer,
+section {
+  display: block
+}
+
+
+.element-invisible {
+  width: 1px;
+  margin: 0;
+  padding: 0
+}
+
+.container .container {
+  margin: 0 -20px
+}
+
+.container,
+.container-narrow {
+  margin-left: auto;
+  margin-right: auto
+}
+
+.container {
+  max-width: 1100px
+}
+
+.container-narrow {
+  max-width: 1000px
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0
+}
+
+a {
+  background: 0 0;
+  color: #117a7b
+}
+
+a:active,
+a:focus,
+a:hover {
+  text-decoration: none
+}
+
+a:active,
+a:hover {
+  outline: 0
+}
+
+.phone-link {
+  color: #779a36;
+  font-weight: 700
+}
+
+@media (min-width:600px) {
+  .phone-link {
+    text-decoration: none;
+    cursor: text
+  }
+}
+
+.neg-ext .ext {
+  display: none
+}
+
+.ext .element-invisible {
+  width: 1px
+}
+
+.horiz-link-list,
+.link-block,
+.plain-list {
+  margin: 0;
+  padding: 0px;
+}
+
+.horiz-link-list li,
+.link-block li,
+.plain-list li {
+  list-style: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.link-block:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.link-block a {
+  display: block;
+  text-decoration: none;
+}
+
+.horiz-link-list:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.horiz-link-list li {
+  position: relative;
+  float: left;
+  padding-right: 1em;
+}
+
+.horiz-link-list li:after {
+  content: '';
+  position: absolute;
+  right: .5em;
+  top: 10%;
+  border-right: 1px solid #fff;
+  height: 80%;
+}
+
+.horiz-link-list li:last-child {
+  padding-right: 0;
+}
+
+.horiz-link-list li:last-child:after {
+  content: none;
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+.research-node-img {
+  margin-bottom: 20px
+}
+
+@media (min-width:720px) {
+  .research-node-img {
+    float: right;
+    margin-left: 20px;
+  }
+}
+
+.section {
+  padding: 40px 0;
+}
+
+.section>:first-child {
+  margin-top: 0;
+}
+
+.section>:last-child {
+  margin-bottom: 0
+}
+
+.section-sm {
+  padding: 20px 0;
+}
+
+.section-lg {
+  padding: 60px 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+ul li {
+  list-style-image: url(/sites/all/themes/icer/images/li-circle-dark.png);
+}
+
+.padded-lime-block ul {
+  color: #fff;
+}
+
+.padded-lime-block ul li {
+  list-style-image: url(/sites/all/themes/icer/images/li-circle-light.png)
+}
+
+.padded-lime-block a {
+  color: #fff
+}
+
+.padded-lime-block a:active,
+.padded-lime-block a:focus,
+.padded-lime-block a:hover {
+  color: #fff
+}
+
+.padded-lime-block,
+.padded-plain-block {
+  padding: 20px 16px;
+  margin: 20px 0
+}
+
+@media (min-width:800px) {
+
+  .padded-lime-block,
+  .padded-plain-block {
+    padding: 40px 32px;
+    margin: 40px 0
+  }
+}
+
+.plain-block {
+  margin: 20px 0
+}
+
+@media (min-width:800px) {
+  .plain-block {
+    margin: 40px 0
+  }
+}
+
+.padded-lime-block {
+  background: #779a36
+}
+
+.list-block {
+  margin: 0 0 40px 0;
+  padding: 0 0 40px 0;
+  border-bottom: 1px solid #ddd
+}
+
+.footer-lower {
+  background: #18453b;
+  overflow: hidden
+}
+
+.footer-lower span.ext {
+  display: none
+}
+
+.footer-list-lg,
+.footer-list-sm {
+  color: #fff
+}
+
+.footer-list-lg a,
+.footer-list-sm a {
+  color: #fff;
+  text-decoration: none
+}
+
+.footer-list-lg a:active,
+.footer-list-lg a:focus,
+.footer-list-lg a:hover,
+.footer-list-sm a:active,
+.footer-list-sm a:focus,
+.footer-list-sm a:hover {
+  color: #fff
+}
+
+.footer-list-lg a:active,
+.footer-list-lg a:focus,
+.footer-list-lg a:hover,
+.footer-list-sm a:active,
+.footer-list-sm a:focus,
+.footer-list-sm a:hover {
+  text-decoration: underline
+}
+
+.footer-list-lg .footer-lime-link,
+.footer-list-sm .footer-lime-link {
+  color: #779a36
+}
+
+.footer-list-lg .footer-lime-link:active,
+.footer-list-lg .footer-lime-link:focus,
+.footer-list-lg .footer-lime-link:hover,
+.footer-list-sm .footer-lime-link:active,
+.footer-list-sm .footer-lime-link:focus,
+.footer-list-sm .footer-lime-link:hover {
+  color: #779a36
+}
+
+.footer-list-lg {
+  font-size: 13px;
+  /* font-size: 1.3rem; */
+}
+
+.footer-list-sm {
+  font-size: 11px;
+  /* font-size: 1.1rem; */
+}
+
+.footer-hr {
+  border: none;
+  border-top: 1px dotted #fff;
+  width: 100%;
+  max-width: 580px;
+  margin: 10px 0;
+  text-align: left
+}
+
+@media (min-width:600px) {
+
+  .footer-list-lg .phone-link:active,
+  .footer-list-lg .phone-link:focus,
+  .footer-list-lg .phone-link:hover,
+  .footer-list-sm .phone-link:active,
+  .footer-list-sm .phone-link:focus,
+  .footer-list-sm .phone-link:hover {
+    text-decoration: none
+  }
+}
+
+@media (min-width:500px) {
+  .media {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+  }
+
+  .media__media {
+    text-align: center;
+    width: auto
+  }
+
+  .media__content {
+    padding-left: 40px;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    text-align: left
+  }
+
+  .no-flexbox .media:after {
+    clear: both;
+    content: '';
+    display: table
+  }
+
+  .no-flexbox .media__content,
+  .no-flexbox .media__media {
+    float: left;
+    text-align: left
+  }
+}
+
+@media (min-width:900px) {
+  .media-lg-only {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+  }
+
+  .no-flexbox .media-lg-only {
+    display: table;
+    width: 100%;
+    table-layout: fixed
+  }
+
+  .media-lg-only__media {
+    text-align: center;
+    width: auto
+  }
+
+  .no-flexbox .media-lg-only__media {
+    display: table-cell;
+    vertical-align: top
+  }
+
+  .media-lg-only__media.media-lg-only--msu {
+    width: 220px
+  }
+
+  .media-lg-only__content {
+    padding-left: 40px;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    text-align: left
+  }
+
+  .no-flexbox .media-lg-only__content {
+    display: table-cell;
+    vertical-align: middle
+  }
+}
+
+@media (max-width:719px) {
+  .everything-wrapper {
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    box-sizing: border-box;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0
+  }
+}
+
+.text-meta {
+  font-size: 13px;
+  /* font-size: 1.3rem; */
+  text-transform: uppercase;
+  color: #6b6c69
+}
+
+.text-meta a {
+  text-decoration: none;
+  color: #222
+}
+
+.text-meta a:active,
+.text-meta a:focus,
+.text-meta a:hover {
+  color: #007272
+}
+
+
+
+
+/* main banner */
+.bsmBannerOnly {
+  display: none;
+}
+
+.smBannerOnly {
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+  .mdAndLgBannerOnly {
+    display: none;
+  }
+
+  .bsmBannerOnly {
+    display: block;
+    display: inline;
+    position: relative;
+    /* left:-50%; */
+
+  }
+
+  #cropper {
+    width: 1000px;
+    /* height:600px; */
+    overflow: hidden;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .smBannerOnly {
+    display: block;
+    display: inline;
+
+  }
+
+  .bsmBannerOnly {
+    display: none;
+  }
+
+  #cropper {
+    overflow: default;
+  }
+
+}
+
+.md-grid {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 95%
+}
