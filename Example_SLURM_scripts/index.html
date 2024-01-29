@@ -6051,7 +6051,7 @@ module<span class="w"> </span>load<span class="w"> </span>GCC/8.3.0<span class="
 srun<span class="w"> </span>Rscript<span class="w"> </span>myscript.R
 
 <span class="c1"># Print resource information</span>
-scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
+control<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 js<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="single-node-single-core-with-gpu">Single node, single core with <abbr title="Graphics Processing Unit">GPU</abbr></h3>
@@ -6150,7 +6150,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>myenv
 srun<span class="w"> </span>python<span class="w"> </span>train_neural_network.py
 
 <span class="c1"># Print resource information</span>
-scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
+control<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 js<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="single-node-multiple-cores">Single node, multiple cores</h2>
@@ -6234,7 +6234,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>myenv
 srun<span class="w"> </span>python<span class="w"> </span>my_processor_pool.py
 
 <span class="c1"># Print resource information</span>
-scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
+control<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 js<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="collaborative-cpus">Collaborative CPUs</h3>
@@ -6337,7 +6337,7 @@ module<span class="w"> </span>load<span class="w"> </span>GCC/10.3.0
 srun<span class="w"> </span>-c<span class="w"> </span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="w"> </span>my_openmp
 
 <span class="c1"># Print resource information</span>
-scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
+control<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 js<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="multiple-nodes">Multiple nodes</h2>
@@ -6428,7 +6428,7 @@ module<span class="w"> </span>load<span class="w"> </span>GCC/10.3.0<span class=
 srun<span class="w"> </span>my_mpi_job
 
 <span class="c1"># Print resource information</span>
-scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
+control<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 js<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="multiple-nodes-with-multiple-cores-per-task-hybrid-jobs">Multiple nodes with multiple cores per task (hybrid jobs)</h3>
@@ -6532,7 +6532,7 @@ module<span class="w"> </span>load<span class="w"> </span>GCC/10.3.0<span class=
 srun<span class="w"> </span>-c<span class="w"> </span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="w"> </span>my_hybrid_program
 
 <span class="c1"># Print resource information</span>
-scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
+control<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 js<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div></td></tr></table></div>
 <!--
@@ -6579,7 +6579,7 @@ js<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 29, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2023</span>
     </span>
     
 
