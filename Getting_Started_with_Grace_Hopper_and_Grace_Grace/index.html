@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="../Using_the_Data_Machine/">
+      
+      
+        <link rel="next" href="../ICER_HPC_Classroom_Support/">
       
       
         
       
       
-      <link rel="icon" href="/assets/icer-small-logo-white.png">
+      <link rel="icon" href="../assets/icer-small-logo-white.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3+insiders-4.42.0">
     
     
       
-        <title>MSU HPCC User Documentation</title>
+        <title>NVIDIA Grace nodes - MSU HPCC User Documentation</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.cbde490e.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.cbde490e.min.css">
       
       
 
@@ -42,11 +46,11 @@
       
     
     
-      <link rel="stylesheet" href="/stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="/overrides/assets/stylesheets/footer.css">
+      <link rel="stylesheet" href="../overrides/assets/stylesheets/footer.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -73,8 +77,48 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#getting-started-with-grace-hopper-and-grace-grace" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+<ul class="horiz-link-list footer-list-lg">
+    <li>
+        <a href="https://icer.msu.edu/">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5Z"/></svg>
+            </span>
+            ICER Home Page
+        </a>
+    </li>
+    <li>
+        <a href="https://blog.icer.msu.edu/">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 19v1H3v-1l2-2v-6c0-3.1 2.03-5.83 5-6.71V4a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.29c2.97.88 5 3.61 5 6.71v6l2 2m-7 2a2 2 0 0 1-2 2 2 2 0 0 1-2-2"/></svg>
+            </span>
+            ICER Announcements Blog
+        </a>
+    </li>
+    <li>
+        <a href="https://contact.icer.msu.edu/">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
+            </span>
+            ICER Contact Page
+        </a>
+    </li>
+</ul>
+
+          </div>
+          
+        </aside>
       
     </div>
     
@@ -87,9 +131,9 @@
   >
     
     <!-- <H1>HERE</H1> -->
-    <a href="." class="md-header__button md-logo" data-md-component="logo">
+    <a href="https://docs.icer.msu.edu/" class="md-header__button md-logo" data-md-component="logo">
     
-  <img src="/assets/icer-small-logo-white.png" alt="logo">
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
 
     </a>
         <!-- Button to open drawer -->
@@ -107,7 +151,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                
+                NVIDIA Grace nodes
               
             </span>
           </div>
@@ -162,8 +206,16 @@
             <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
             <!-- <img class="screen-msugraphic" alt="ICER masthead graphic"
                 src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" /> previous-->
-            <img class="screen-msugraphic" alt="ICER masthead graphic"
+
+            <img class="screen-msugraphic mdAndLgBannerOnly" alt="ICER masthead graphic"
                 src="/assets/images/Header_Banner_small_v8.jpeg" />
+            <div id="cropper">
+            <img class="screen-msugraphic bsmBannerOnly" alt="ICER masthead graphic"
+                src="/assets/images/Mobile_Documentation_Header.png" />
+              </div>
+
+              <img class="screen-msugraphic smBannerOnly" alt="ICER masthead graphic"
+                src="/assets/images/Mobile_image.png" />
                 <!--! might have to change the relative path to a linked path like above -->
         <!-- </a> -->
     </div>
@@ -192,9 +244,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
+    <a href=".." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
       
-  <img src="/assets/icer-small-logo-white.png" alt="logo">
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
 
     </a>
     MSU HPCC User Documentation
@@ -220,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -291,7 +343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/accessHPCC_overview/" class="md-nav__link">
+      <a href="../accessHPCC_overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -317,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/obtain_an_hpcc_account/" class="md-nav__link">
+      <a href="../obtain_an_hpcc_account/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -343,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Open_OnDemand/" class="md-nav__link">
+      <a href="../Open_OnDemand/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -369,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/install_ssh_client/" class="md-nav__link">
+      <a href="../install_ssh_client/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -395,7 +447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Intro_to_MobaXterm/" class="md-nav__link">
+      <a href="../Intro_to_MobaXterm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -421,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Connect_to_HPCC_System/" class="md-nav__link">
+      <a href="../Connect_to_HPCC_System/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -447,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
+      <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -473,7 +525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -499,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/SSH_Key-Based_Authentication/" class="md-nav__link">
+      <a href="../SSH_Key-Based_Authentication/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -530,18 +582,20 @@
       
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -561,7 +615,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -578,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/HPC_s_entire_layout_at_ICER/" class="md-nav__link">
+      <a href="../HPC_s_entire_layout_at_ICER/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -604,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Cluster_Resources/" class="md-nav__link">
+      <a href="../Cluster_Resources/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -630,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/GPU_resources/" class="md-nav__link">
+      <a href="../GPU_resources/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -656,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development_nodes/" class="md-nav__link">
+      <a href="../development_nodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -728,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Data_Machine/" class="md-nav__link">
+      <a href="../Data_Machine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Using_the_Data_Machine/" class="md-nav__link">
+      <a href="../Using_the_Data_Machine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -786,9 +840,35 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/Getting_Started_with_Grace_Hopper_and_Grace_Grace/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    NVIDIA Grace nodes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -803,6 +883,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#node-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node listing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differences-from-other-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differences from other nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submitting-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submitting jobs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Submitting jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive jobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-script-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job script template
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -814,7 +986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ICER_HPC_Classroom_Support/" class="md-nav__link">
+      <a href="../ICER_HPC_Classroom_Support/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux_Shell/" class="md-nav__link">
+      <a href="../Linux_Shell/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -919,7 +1091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Editing_Text_with_Nano/" class="md-nav__link">
+      <a href="../Editing_Text_with_Nano/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -945,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/File_Permissions_on_HPCC/" class="md-nav__link">
+      <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -971,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Managing_File_Permissions_on_HPCC/" class="md-nav__link">
+      <a href="../Managing_File_Permissions_on_HPCC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -997,7 +1169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Change_Primary_Group/" class="md-nav__link">
+      <a href="../Change_Primary_Group/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1023,7 +1195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Collaborative_Research/" class="md-nav__link">
+      <a href="../Collaborative_Research/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1049,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Virtual_Terminals/" class="md-nav__link">
+      <a href="../Virtual_Terminals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1075,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/parallel_computing/" class="md-nav__link">
+      <a href="../parallel_computing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1147,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Cluster_amd20_with_AMD_CPUs/" class="md-nav__link">
+      <a href="../Cluster_amd20_with_AMD_CPUs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1173,7 +1345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/AMD_Optimizing_CPU_Libraries_and_Compilers/" class="md-nav__link">
+      <a href="../AMD_Optimizing_CPU_Libraries_and_Compilers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1260,7 +1432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/filesystem_overview/" class="md-nav__link">
+      <a href="../filesystem_overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1286,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Home_Space/" class="md-nav__link">
+      <a href="../Home_Space/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1312,7 +1484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Research_Space/" class="md-nav__link">
+      <a href="../Research_Space/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1338,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Scratch_File_Systems/" class="md-nav__link">
+      <a href="../Scratch_File_Systems/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Local_File_Systems/" class="md-nav__link">
+      <a href="../Local_File_Systems/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1390,7 +1562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
+      <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1416,7 +1588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Sensitive_Data_on_the_HPCC/" class="md-nav__link">
+      <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1442,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Science_DMZ/" class="md-nav__link">
+      <a href="../Science_DMZ/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1521,7 +1693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/File_transfer/" class="md-nav__link">
+      <a href="../File_transfer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1593,7 +1765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Transferring_data_with_Globus/" class="md-nav__link">
+      <a href="../Transferring_data_with_Globus/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1619,7 +1791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Transferring_Data_with_Google_using_Globus/" class="md-nav__link">
+      <a href="../Transferring_Data_with_Google_using_Globus/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1653,7 +1825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
+      <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1725,7 +1897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1751,7 +1923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1838,7 +2010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Intro_to_modules/" class="md-nav__link">
+      <a href="../Intro_to_modules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1864,7 +2036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/How_to_find_and_load_software_modules/" class="md-nav__link">
+      <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1890,7 +2062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/User_Created_Modules/" class="md-nav__link">
+      <a href="../User_Created_Modules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1916,7 +2088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/modules_changelog/" class="md-nav__link">
+      <a href="../modules_changelog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1995,7 +2167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Powertools/" class="md-nav__link">
+      <a href="../Powertools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2021,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getexample/" class="md-nav__link">
+      <a href="../getexample/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2047,7 +2219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/bi/" class="md-nav__link">
+      <a href="../bi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2073,7 +2245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/qs/" class="md-nav__link">
+      <a href="../qs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2099,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/js/" class="md-nav__link">
+      <a href="../js/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2125,7 +2297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Display_Compute_Nodes_and_Job_Partitions_by_sinfo_command/" class="md-nav__link">
+      <a href="../Display_Compute_Nodes_and_Job_Partitions_by_sinfo_command/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2151,7 +2323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/File_Count/" class="md-nav__link">
+      <a href="../File_Count/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2230,7 +2402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/SLURM_overview/" class="md-nav__link">
+      <a href="../SLURM_overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2256,7 +2428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/SLURM_commands/" class="md-nav__link">
+      <a href="../SLURM_commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2328,7 +2500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Interactive_Job/" class="md-nav__link">
+      <a href="../Interactive_Job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2354,7 +2526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Job_Script_and_Job_Submission/" class="md-nav__link">
+      <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2380,7 +2552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Example_SLURM_scripts/" class="md-nav__link">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2406,7 +2578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/SLURM_resource_request_guide/" class="md-nav__link">
+      <a href="../SLURM_resource_request_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2432,7 +2604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Requesting_GPUs/" class="md-nav__link">
+      <a href="../Requesting_GPUs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2458,7 +2630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/List_of_Job_Specifications/" class="md-nav__link">
+      <a href="../List_of_Job_Specifications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2484,7 +2656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Job_Constraints/" class="md-nav__link">
+      <a href="../Job_Constraints/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2510,7 +2682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Slurm_Environment_Variables/" class="md-nav__link">
+      <a href="../Slurm_Environment_Variables/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2590,7 +2762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/SLURM_Check_Modify_and_Cancel_a_Job_by_scontrol_scancel_Command/" class="md-nav__link">
+      <a href="../SLURM_Check_Modify_and_Cancel_a_Job_by_scontrol_scancel_Command/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2616,7 +2788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Show_Job_Steps_by_sacct_and_srun_Commands/" class="md-nav__link">
+      <a href="../Show_Job_Steps_by_sacct_and_srun_Commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2642,7 +2814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/List_Jobs_by_squeue_sview/" class="md-nav__link">
+      <a href="../List_Jobs_by_squeue_sview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2676,7 +2848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/job_policies/" class="md-nav__link">
+      <a href="../job_policies/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2702,7 +2874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Buy-In_Accounts_with_SLURM/" class="md-nav__link">
+      <a href="../Buy-In_Accounts_with_SLURM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2774,7 +2946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/How_Jobs_are_Scheduled/" class="md-nav__link">
+      <a href="../How_Jobs_are_Scheduled/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2800,7 +2972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/SLURM_Queueing_and_Partitions/" class="md-nav__link">
+      <a href="../SLURM_Queueing_and_Partitions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2826,7 +2998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Scavenger_Queue/" class="md-nav__link">
+      <a href="../Scavenger_Queue/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2906,7 +3078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Job_with_Checkpointing_Run/" class="md-nav__link">
+      <a href="../Job_with_Checkpointing_Run/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2932,7 +3104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Checkpoint_with_DMTCP/" class="md-nav__link">
+      <a href="../Checkpoint_with_DMTCP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2958,7 +3130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Powertools_longjob_by_DMTCP/" class="md-nav__link">
+      <a href="../Powertools_longjob_by_DMTCP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2992,7 +3164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Connections_to_compute_nodes/" class="md-nav__link">
+      <a href="../Connections_to_compute_nodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3018,7 +3190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Torque_vs._SLURM/" class="md-nav__link">
+      <a href="../Torque_vs._SLURM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3143,7 +3315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/AlphaFold_installed_in_HPCC/" class="md-nav__link">
+      <a href="../AlphaFold_installed_in_HPCC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3169,7 +3341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Alphafold_via_Singularity/" class="md-nav__link">
+      <a href="../Alphafold_via_Singularity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3203,7 +3375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ANSYS/" class="md-nav__link">
+      <a href="../ANSYS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3275,7 +3447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Aspera_bulk_file_transfer/" class="md-nav__link">
+      <a href="../Aspera_bulk_file_transfer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3301,7 +3473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ABySS/" class="md-nav__link">
+      <a href="../ABySS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3327,7 +3499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
+      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3353,7 +3525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
+      <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3379,7 +3551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/GATK4/" class="md-nav__link">
+      <a href="../GATK4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3405,7 +3577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/HTSeq/" class="md-nav__link">
+      <a href="../HTSeq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3431,7 +3603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Mothur/" class="md-nav__link">
+      <a href="../Mothur/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3457,7 +3629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/NCBI_Entrez_Direct_tools/" class="md-nav__link">
+      <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3483,7 +3655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Load_the_software/" class="md-nav__link">
+      <a href="../Load_the_software/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3509,7 +3681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/MySQL_configuration/" class="md-nav__link">
+      <a href="../MySQL_configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3535,7 +3707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/orthomcl-pipeline/" class="md-nav__link">
+      <a href="../orthomcl-pipeline/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3561,7 +3733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QIIME_2/" class="md-nav__link">
+      <a href="../QIIME_2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3587,7 +3759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/RNA_seq_example/" class="md-nav__link">
+      <a href="../RNA_seq_example/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3613,7 +3785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Trimmomatic/" class="md-nav__link">
+      <a href="../Trimmomatic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3639,7 +3811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
+      <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3719,7 +3891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux_Command_Line_Interface_for_Beginners_I/" class="md-nav__link">
+      <a href="../Linux_Command_Line_Interface_for_Beginners_I/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3745,7 +3917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux_Command_Line_Interface_for_Beginners_II/" class="md-nav__link">
+      <a href="../Linux_Command_Line_Interface_for_Beginners_II/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3771,7 +3943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Variables_I/" class="md-nav__link">
+      <a href="../Variables_I/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3797,7 +3969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Variables_II/" class="md-nav__link">
+      <a href="../Variables_II/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3823,7 +3995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Expansion/" class="md-nav__link">
+      <a href="../Expansion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3849,7 +4021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Conditional_Statements/" class="md-nav__link">
+      <a href="../Conditional_Statements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3875,7 +4047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Loops/" class="md-nav__link">
+      <a href="../Loops/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3901,7 +4073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Regular_Expressions/" class="md-nav__link">
+      <a href="../Regular_Expressions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3981,7 +4153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Compilers_and_Libraries/" class="md-nav__link">
+      <a href="../Compilers_and_Libraries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4007,7 +4179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Compiling_for_GPUs/" class="md-nav__link">
+      <a href="../Compiling_for_GPUs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4041,7 +4213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/COMSOL/" class="md-nav__link">
+      <a href="../COMSOL/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4113,7 +4285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Containers_Overview/" class="md-nav__link">
+      <a href="../Containers_Overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4139,7 +4311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Docker/" class="md-nav__link">
+      <a href="../Docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4165,7 +4337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Singularity_Introduction/" class="md-nav__link">
+      <a href="../Singularity_Introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4191,7 +4363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Singularity_Advanced_Topics/" class="md-nav__link">
+      <a href="../Singularity_Advanced_Topics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4225,7 +4397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Data_Display_Debugger/" class="md-nav__link">
+      <a href="../Data_Display_Debugger/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4297,7 +4469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Gaussian_Access/" class="md-nav__link">
+      <a href="../Gaussian_Access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4323,7 +4495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Running_Gaussian_by_Command_Lines/" class="md-nav__link">
+      <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4349,7 +4521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Gaussian_Job_Script/" class="md-nav__link">
+      <a href="../Gaussian_Job_Script/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4375,7 +4547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
+      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4401,7 +4573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Gaussian_on_HPCC/" class="md-nav__link">
+      <a href="../Gaussian_on_HPCC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4481,7 +4653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/EasyBuild_Tutorial/" class="md-nav__link">
+      <a href="../EasyBuild_Tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4507,7 +4679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/EasyBuild_Reference/" class="md-nav__link">
+      <a href="../EasyBuild_Reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4541,7 +4713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/make/" class="md-nav__link">
+      <a href="../make/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4567,7 +4739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Matlab/" class="md-nav__link">
+      <a href="../Matlab/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4639,7 +4811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Open_OnDemand/" class="md-nav__link">
+      <a href="../Open_OnDemand/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4665,7 +4837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Application_Icons_on_Desktop/" class="md-nav__link">
+      <a href="../Application_Icons_on_Desktop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4745,7 +4917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Installing_Local_Perl_Modules_with_CPAN/" class="md-nav__link">
+      <a href="../Installing_Local_Perl_Modules_with_CPAN/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4825,7 +4997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Python/" class="md-nav__link">
+      <a href="../Python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4851,7 +5023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Using_conda/" class="md-nav__link">
+      <a href="../Using_conda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4877,7 +5049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Using_Python_in_HPCC_with_virtualenv/" class="md-nav__link">
+      <a href="../Using_Python_in_HPCC_with_virtualenv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4903,7 +5075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Python_on_HPC/" class="md-nav__link">
+      <a href="../Python_on_HPC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4929,7 +5101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Jupyter_Notebook_in_VS_Code/" class="md-nav__link">
+      <a href="../Jupyter_Notebook_in_VS_Code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5009,7 +5181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Installing_pytorch_using_anaconda/" class="md-nav__link">
+      <a href="../Installing_pytorch_using_anaconda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5089,7 +5261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/RCentOS7generalinfo/" class="md-nav__link">
+      <a href="../RCentOS7generalinfo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5115,7 +5287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/R_others/" class="md-nav__link">
+      <a href="../R_others/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5141,7 +5313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/R_workshop_tutorial/" class="md-nav__link">
+      <a href="../R_workshop_tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5175,7 +5347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Stata/" class="md-nav__link">
+      <a href="../Stata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5247,7 +5419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Installing_TensorFlow_using_anaconda/" class="md-nav__link">
+      <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5273,7 +5445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Submitting_a_TensorFlow_job/" class="md-nav__link">
+      <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5299,7 +5471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/TF-GPU/" class="md-nav__link">
+      <a href="../TF-GPU/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5325,7 +5497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/TFcode/" class="md-nav__link">
+      <a href="../TFcode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5412,7 +5584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/workshop_slides/" class="md-nav__link">
+      <a href="../workshop_slides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5484,7 +5656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/File-Permission-in-Research-Space_34963746.html/" class="md-nav__link">
+      <a href="../File-Permission-in-Research-Space_34963746.html/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5510,7 +5682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/HPCC-Job-Submission-Workflow_40337480.html/" class="md-nav__link">
+      <a href="../HPCC-Job-Submission-Workflow_40337480.html/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5536,7 +5708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Job-Arrays---Run-multiple-similar-jobs-simultaneously_40337504.html/" class="md-nav__link">
+      <a href="../Job-Arrays---Run-multiple-similar-jobs-simultaneously_40337504.html/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5562,7 +5734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Running-multiple-jobs-sequentially_34963786.html/" class="md-nav__link">
+      <a href="../Running-multiple-jobs-sequentially_34963786.html/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5588,7 +5760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Submitting-multiple-jobs-simultaneously_40337501.html/" class="md-nav__link">
+      <a href="../Submitting-multiple-jobs-simultaneously_40337501.html/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5622,7 +5794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/External_Resources/" class="md-nav__link">
+      <a href="../External_Resources/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5694,7 +5866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Targeting_Cluster_Architectures/" class="md-nav__link">
+      <a href="../Targeting_Cluster_Architectures/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5735,7 +5907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Frequently_Asked_Questions_FAQ_/" class="md-nav__link">
+      <a href="../Frequently_Asked_Questions_FAQ_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5760,7 +5932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/HPC_Glossary/" class="md-nav__link">
+      <a href="../HPC_Glossary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5785,7 +5957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Lab_Notebooks/" class="md-nav__link">
+      <a href="../Lab_Notebooks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5810,7 +5982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/virtual_help_desk/" class="md-nav__link">
+      <a href="../virtual_help_desk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5835,7 +6007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tags/" class="md-nav__link">
+      <a href="../tags/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5871,6 +6043,88 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#node-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node listing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differences-from-other-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differences from other nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submitting-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submitting jobs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Submitting jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive jobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-script-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job script template
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -5883,15 +6137,276 @@
               
               <article class="md-content__inner md-typeset">
                 
+                  
 
-    <div>
-        <h1>404 Page Not Found</h1>
-        <p>We can't find your page. </p>
-        <!-- <img style="height: 400px; background-position: center;" src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif" alt=""> -->
-        <p>Please <a href="https://contact.icer.msu.edu">contact ICER</a> if you are unable to locate the content on our main website. </p>
-    </div>
+  
+    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Getting_Started_with_Grace_Hopper_and_Grace_Grace.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
 
 
+<h1 id="getting-started-with-grace-hopper-and-grace-grace">Getting started with Grace Hopper and Grace Grace</h1>
+<p>ICER has received four <a href="https://www.nvidia.com/en-us/data-center/grace-hopper-superchip/">NVIDIA Grace Hopper systems</a> that MSU researchers have purchased as well as one <a href="https://www.nvidia.com/en-us/data-center/grace-cpu-superchip/">NVIDIA Grace Grace <abbr title="Central Processing Unit">CPU</abbr> system</a>.</p>
+<p>All nodes are available in SLURM and are available to the research community under the same <a href="../Buy-In_Accounts_with_SLURM/">buy-in rules</a> as the rest of our buy-in hardware. In particular, users that are not part of a node's buy-in are restricted to submitting jobs less than four hours.</p>
+<h2 id="node-listing">Node listing</h2>
+<table>
+<thead>
+<tr>
+<th>Cluster Type</th>
+<th>Node Count</th>
+<th>Processors</th>
+<th>Cores</th>
+<th>Memory</th>
+<th>Disk Size</th>
+<th>GPUs (Number)</th>
+<th>Node Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grace Hopper</td>
+<td>3</td>
+<td>Grace <abbr title="Central Processing Unit">CPU</abbr> (Arm Neoverse v2)</td>
+<td>72</td>
+<td>480 <abbr title="Gigabyte">GB</abbr></td>
+<td>1.5TB</td>
+<td>GH200 96 <abbr title="Gigabyte">GB</abbr> (1)</td>
+<td><code>nch-[000-002]</code></td>
+</tr>
+<tr>
+<td>Grace Hopper</td>
+<td>1</td>
+<td>Grace <abbr title="Central Processing Unit">CPU</abbr> (Arm Neoverse v2)</td>
+<td>72</td>
+<td>480 <abbr title="Gigabyte">GB</abbr></td>
+<td>3.2TB</td>
+<td>GH200 96 <abbr title="Gigabyte">GB</abbr> (1)</td>
+<td><code>nch-003</code></td>
+</tr>
+<tr>
+<td>Grace Grace</td>
+<td>1</td>
+<td>Grace <abbr title="Central Processing Unit">CPU</abbr> (Arm Neoverse v2)</td>
+<td>144</td>
+<td>480 <abbr title="Gigabyte">GB</abbr></td>
+<td>3.5TB</td>
+<td></td>
+<td><code>ncc-000</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="differences-from-other-nodes">Differences from other nodes</h2>
+<p>The Grace systems are currently considered "beta" with very minimal installations. Users should be aware:</p>
+<ol>
+<li>These are ARM-based (<code>aarch64</code>) systems. Existing code compiled for our <code>x86_64</code> nodes (including conda environments) will not work on this system. To see if an executable is compiled, use <code>file executablename</code>. If it mentions <code>x86_64</code> it is not compatible with the Grace Hopper systems.</li>
+<li>These nodes are currently running Ubuntu 22.04, instead of our default CentOS 7.9 OS. Libraries and tools provided by the OS (including <code>libc</code> and <code>gcc</code>) are going to be newer versions.  </li>
+<li>These nodes have slower-than-normal home directory and research space access. Researchers may wish to stage data or code to the node in <code>/tmp</code>. </li>
+<li>These nodes do not have access to <a href="../Scratch_File_Systems/">global scratch (<code>gs21</code>)</a> due to a Storage Scale compatibility issue. We are investigating.</li>
+<li>
+<p>Software pre-installed by ICER is different than what is available on other nodes. To access the <code>module</code> command and all software currently built for the Grace Hopper systems, run </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/cvmfs/software.eessi.io/versions/2023.06/init/bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>module<span class="w"> </span>use<span class="w"> </span>/opt/modules/all
+</code></pre></div></td></tr></table></div>
+<p>Please note that you may see references to modules on the main cluster being inactive, as SLURM copies these references over before the line above deactivates them. These modules are non-functional on the Grace nodes.</p>
+</li>
+<li>
+<p>Before running code that has been compiled on the Grace nodes, you need to load the <code>Compiled</code> module after all other dependent modules. For example, assuming that a code is compiled using the <code>GCC/12.2.0</code>, <code>Cabana/0.6.1-foss-2022b-CUDA-12.1.1</code>, and <code>CUDA/12.1.1</code> modules, you should use the following lines to run your code:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.2.0<span class="w"> </span>Cabana/0.6.1-foss-2022b-CUDA-12.1.1<span class="w"> </span>CUDA/12.1.1
+module<span class="w"> </span>load<span class="w"> </span>Compiled
+
+./my-compiled-code
+</code></pre></div></td></tr></table></div>
+</li>
+</ol>
+<p>We will update this page as we address these issues.</p>
+<h2 id="submitting-jobs">Submitting jobs</h2>
+<p>The primary mechanism to schedule jobs on Grace nodes is to use the SLURM option <code>--constraint NOAUTO:grace</code>.</p>
+<h3 id="interactive-jobs">Interactive jobs</h3>
+<p>To start an interactive job, use the template</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>salloc<span class="w"> </span>--constraint<span class="o">=</span>NOAUTO:grace<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">72</span><span class="w"> </span>--mem<span class="o">=</span>10G
+</code></pre></div></td></tr></table></div>
+<p>If you would like to avoid using your default shell environment (due to any of the potential incompatibilities, see <a href="#differences-from-other-nodes">above</a>), you should use <code>srun</code> with option <code>--pty</code> and command <code>/bin/bash</code>,  e.g.,</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>srun<span class="w"> </span>--constraint<span class="o">=</span>NOAUTO:grace<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">72</span><span class="w"> </span>--mem<span class="o">=</span>10G<span class="w"> </span>--pty<span class="w"> </span>/bin/bash
+</code></pre></div></td></tr></table></div>
+<p>If you have buy-in access to a Grace node, you should additionally add the option <code>--account=&lt;buy-in-name&gt;</code>. By using the <code>--gpus:1</code> option, jobs are restricted to only running on Grace Hopper nodes. Removing this options allows jobs to run on any Grace node.</p>
+<h3 id="job-script-template">Job script template</h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">grace_hopper_template.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --constraint=NOAUTO:grace  # Only run on Grace nodes</span>
+<span class="c1">#SBATCH --time=3:00:00             # Run for three hours</span>
+<span class="c1">#SBATCH --gpus=1                   # Request one GPU (restricts to Grace Hopper)</span>
+<span class="c1">#SBATCH --cpus-per-task=72         # Request all CPUs on a Grace Hopper node </span>
+<span class="c1">#SBATCH --mem=10GB                 # Request 10GB of (non-GPU) memory</span>
+
+<span class="c1"># Gain access to the module system</span>
+<span class="nb">source</span><span class="w"> </span>/cvmfs/software.eessi.io/versions/2023.06/init/bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>module<span class="w"> </span>use<span class="w"> </span>/opt/modules/all
+
+<span class="c1"># Load modules</span>
+module<span class="w"> </span>load<span class="w"> </span>CUDA-Samples
+
+<span class="c1"># Run code (GPU examples from CUDA-Samples)</span>
+matrixMul
+matrixMulCUBLAS
+
+<span class="c1"># Output debugging information</span>
+scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="see-also">See also</h2>
+<p>Users may wish to refer to NVIDIA's documentation:</p>
+<ul>
+<li><a href="https://docs.nvidia.com/grace/">NVIDIA Grace Docs</a> </li>
+<li><a href="https://docs.nvidia.com/grace/#grace-hopper">NVIDIA Grace Hopper Docs</a></li>
+</ul>
+<!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine date of last update -->
+
+
+
+
+
+<!-- Determine date of creation -->
+
+
+
+
+
+<!-- Source file information -->
+
+<aside class="md-source-file">
+
+    <!-- Date of last update -->
+    
+    <span class="md-source-file__fact">
+        <span class="md-icon" title="Last update">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+        </span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 11, 2024</span>
+    </span>
+    
+
+    <!-- Date of creation -->
+    
+    <span class="md-source-file__fact">
+        <span class="md-icon" title="Created">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+        </span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 9, 2024</span>
+    </span>
+    
+
+    <!-- Authors (git-authors plugin) -->
+    
+    
+    <span class="md-source-file__fact">
+        <span class="md-icon" title="Contributors">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+            
+        </span>
+        <nav>
+            Craig Gross, Keen, Andrew
+        </nav>
+    </span>
+    
+
+    <!-- Authors (git-committers plugin) -->
+    
+</aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=NVIDIA%20Grace%20nodes" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
               </article>
             </div>
           
@@ -6018,10 +6533,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["navigation.top", "content.action.edit"], "search": "/assets/javascripts/workers/search.f2da59ea.min.js", "tags": {"lab notebook": "labnotes"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "content.action.edit"], "search": "../assets/javascripts/workers/search.f2da59ea.min.js", "tags": {"lab notebook": "labnotes"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.ef51cdc3.min.js"></script>
+      <script src="../assets/javascripts/bundle.ef51cdc3.min.js"></script>
       
     
   </body>
