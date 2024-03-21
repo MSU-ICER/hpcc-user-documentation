@@ -914,7 +914,46 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Running code on the Data Machine">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ondemand-data-machine-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OnDemand Data Machine access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OnDemand Data Machine access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpu-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slurm-scripting-data-machine-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLURM scripting Data Machine access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SLURM scripting Data Machine access">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -6179,7 +6218,46 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Running code on the Data Machine">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ondemand-data-machine-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OnDemand Data Machine access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OnDemand Data Machine access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpu-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slurm-scripting-data-machine-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLURM scripting Data Machine access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SLURM scripting Data Machine access">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -6400,30 +6478,29 @@ same procedures are used behind the scenes to run on Data Machine nodes.
 Therefore, users must be added to the <code>data-machine</code> buy-in account to run jobs
 on the Data Machine. To be added to this account please submit a request <a href="https://contact.icer.msu.edu/contact">using
 ICER's contact form</a>.</p>
-<p>Below are some examples of SLURM resource requests for the Data Machine.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Each of the examples below contains a <code>--nodelist</code> resource specification
-to force a job to run on the Data Machine. This is unnecessary for most
-purposes.</p>
-<p>Though the <code>--account=data-machine</code> line ensures that the user will be
-given priority access to Data Machine nodes, SLURM may schedule the job on
-a non-Data Machine node with those resources on the cluster if it is
-available sooner. If a job <strong>must</strong> run on the Data Machine, then the
-<code>--nodelist</code> line is below should be included. If only the resources
-specified matter, then removing this line can allow your job to start
-faster.</p>
+<p>The <code>data-machine</code> account is limited to Data Machine nodes only.</p>
 </div>
+<h2 id="ondemand-data-machine-access">OnDemand Data Machine access</h2>
+<p>Each OnDemand app has an "Advanced Options" checkbox. This opens additional form
+entries. To use the Data Machine nodes, enter <code>data-machine</code> in the SLURM Account 
+text box. Your job will queue onto a Data Machine node. Other resources (time, 
+<abbr title="Central Processing Unit">CPU</abbr> and memory) can be requested as usual by filling out the "Number of hours", 
+"Number of cores per task" and "Amount of memory" boxes.</p>
+<h3 id="gpu-access"><abbr title="Graphics Processing Unit">GPU</abbr> access</h3>
+<p>To use GPUs with your OnDemand session, enter a number into the Number of GPUs 
+box. This will allocate the requested number of <abbr title="Graphics Processing Unit">GPU</abbr> units.</p>
+<h2 id="slurm-scripting-data-machine-access">SLURM scripting Data Machine access</h2>
+<p>Below are some examples of SLURM resource requests for the Data Machine.</p>
 <h3 id="partial-data-machine-node">Partial Data Machine node</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
-<span class="c1">#SBATCH --nodelist=acm-[048-049,070-071],nal-[004-007]  # Force job to run on data machine nodes</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
@@ -6435,10 +6512,8 @@ faster.</p>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
-<span class="c1">#SBATCH --nodelist=acm-[048-049,070-071],nal-[004-007]  # Force job to run on data machine nodes</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=2TB  # Uses all memory on a large memory node</span>
@@ -6451,10 +6526,8 @@ faster.</p>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
-<span class="c1">#SBATCH --nodelist=acm-[048-049,070-071],nal-[004-007]  # Force job to run on data machine nodes</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
@@ -6468,10 +6541,8 @@ faster.</p>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
-<span class="c1">#SBATCH --nodelist=acm-[048-049,070-071],nal-[004-007]  # Force job to run on data machine nodes</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
@@ -6607,7 +6678,7 @@ BurstBufferState=staging-in
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 7, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 6, 2024</span>
     </span>
     
 
