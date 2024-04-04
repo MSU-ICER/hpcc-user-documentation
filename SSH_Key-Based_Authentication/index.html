@@ -6268,7 +6268,7 @@
 <p><img alt="Screenshot of the MobaXTerm start tab with the Start Local Terminal button circled" src="../attachments/ssh_key-based_authentication/MobaXtermLocalTerminal.png" /></p>
 <h3 id="generating-ssh-keypairs-on-command-line">Generating <abbr title="Secure Shell">SSH</abbr> keypairs on command line</h3>
 <p>To generate a keypair from command line (e.g., after opening a terminal on Mac, Linux or through MobaXterm on Windows), run</p>
-<p><code>ssh-keygen -t rsa</code></p>
+<p><code>ssh-keygen -t rsa -v 4096</code></p>
 <p>You will be given an option for protecting your private key with a passphrase. Please do this, as it will prevent your private key from being used by a malicious individual if it is ever stolen.</p>
 <p>After you have set a passphrase and the keys has generated, you will find the key's files in the <code>.ssh</code> directory under your home directory. By default, <code>id_rsa</code> is the private key file and <code>id_rsa.pub</code> the public key file.</p>
 <!-- !!! Note
@@ -6310,7 +6310,8 @@
 <p>In MobaXTerm, click Tools -&gt; MobaKeyGen (<abbr title="Secure Shell">SSH</abbr> Key Generator) in the menu bar. 
 You will see the following window:</p>
 <p><img alt="Screenshot of the MobaXTerm SSH Key Generator window. RSA is selected by default and the Generate button is highlighted." src="../attachments/ssh_key-based_authentication/mobakeygen-window-20221205.png" /></p>
-<p>Click Generate and follow the commands on the screen. The Parameters can be left as RSA, Number of bits 2048. The <code>Key comment</code> field can be used to enter a description of the key e.g. "My home PC". As above, we recommend adding a key passphrase.</p>
+<p>Click Generate and follow the commands on the screen. The Parameters should be set to <strong>RSA</strong>, Number of bits <strong>4096</strong>. The <code>Key comment</code> field can be used to enter a description of the key e.g. "My home PC". As above, we recommend adding a key passphrase.</p>
+<p><img alt="Screenshot of the MobaXTerm SSH Key Generator window. RSA is selected and the Number of bits in a generated key is set to 4096." src="../attachments/ssh_key-based_authentication/mobakeygen-rsa-4096.png" /></p>
 <p>Save the private key to your computer by going to the Conversions menu at the top of the screen, and selecting "Export OpenSSH key". Save the resulting file in <code>C:\Users\&lt;Account_Name&gt;\.ssh\id_rsa</code> where <code>&lt;Account_Name&gt;</code> is your Windows account name. Create the <code>.ssh</code> directory if it doesn't already exist.</p>
 <h2 id="uploading-your-public-key-to-the-hpcc_1">Uploading your public key to the HPCC:</h2>
 <ol>
@@ -6398,7 +6399,7 @@ check the "Use private key" box and point towards the private key (id_rsa) file 
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 4, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 21, 2024</span>
     </span>
     
 
