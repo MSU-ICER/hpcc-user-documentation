@@ -6300,7 +6300,14 @@
 <h2 id="known-issues">Known issues</h2>
 <p>Below are issues that ICER is aware of and is taking steps to resolve. If you find an issue that is not on this page, please <a href="https://contact.icer.msu.edu">contact us</a> with the subject line "OS Upgrade 2024"</p>
 <ul>
-<li>The <code>powertools</code> module is available, but the tools within have not been checked for compatibility with the new operating system. Many work already, but others will need modifications. If one of the tools you need is not working, please request that we update it using the <a href="https://contact.icer.msu.edu">contact form</a> to help us prioritize our updates.</li>
+<li>
+<p>The R package <code>Matrix</code> (which is a dependency for many other packages including <code>ggplot2</code>) is incompatible with versions of R earlier than 4.4.0 (i.e., all of the versions installed on the new operating system. We recommend using the <code>R-bundle-CRAN</code> module instead of <code>R</code> which includes a pre-installed version of <code>Matrix</code>. If you need to install it yourself using <code>install.packages</code>, use the command</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>install.packages(https://cran.r-project.org/src/contrib/Archive/Matrix/Matrix_1.6-5.tar.gz, repos=NULL, type=&quot;source&quot;)
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>The <code>powertools</code> module is available, but the tools within have not been checked for compatibility with the new operating system. Many work already, but others will need modifications. If one of the tools you need is not working, please request that we update it using the <a href="https://contact.icer.msu.edu">contact form</a> to help us prioritize our updates.</p>
+</li>
 <li><code>OpenMPI/4.1.5-GCCcore-12.3.0</code> has issues when allocating at least 15 tasks to one node, and exactly one task to another. Until we can track down the source of this error, we recommend submitting SLURM scripts specifying <code>--ntasks-per-node</code> instead of just <code>--ntasks</code> so that tasks are spread equally between requested nodes.</li>
 </ul>
 <!--
@@ -6347,7 +6354,7 @@
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 15, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 29, 2024</span>
     </span>
     
 
