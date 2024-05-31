@@ -6300,6 +6300,8 @@
 <h2 id="known-issues">Known issues</h2>
 <p>Below are issues that ICER is aware of and is taking steps to resolve. If you find an issue that is not on this page, please <a href="https://contact.icer.msu.edu">contact us</a> with the subject line "OS Upgrade 2024"</p>
 <ul>
+<li>When using the OnDemand Desktop, you may receive an error dialog stating "The panel encountered a problem while loading 'IndicatorAppletCompleteFactory::IndicatorAppletComplete'. Do you want to delete the applet from your configuration?" Click the "Delete" option, and this error will not return in the future.</li>
+<li>Please note that all jobs need to be submitted from a node running on the same operating system as the target node (i.e., only submit a job using the <code>--reservation=ubuntu_compute</code> flag if you are using a development node running Ubuntu).</li>
 <li>We are noticing problems with the <code>GROMACS</code> <abbr title="Message Passing Interface">MPI</abbr> tests on older nodes. For this reason, <code>GROMACS</code> is currently only available on the <code>intel18</code> and <code>amd20-v100</code> clusters.</li>
 <li>The <code>quota</code> command is currently non-functional, but is being worked on.</li>
 <li>
