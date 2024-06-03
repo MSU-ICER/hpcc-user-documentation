@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../OS_Upgrade_Changelog_and_Known_Issues/">
+      
+      
+        <link rel="next" href="../Migrating_Python_Virtual_Environments/">
       
       
         
@@ -19,7 +23,7 @@
     
     
       
-        <title>(2023-02-07) Lab Notebook: WRF installation with EasyBuild - MSU HPCC User Documentation</title>
+        <title>Migrating to the upgraded module system - MSU HPCC User Documentation</title>
       
     
     
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-notebook-installing-wrf-on-hpcc-using-easybuild-2023-02-07" class="md-skip">
+        <a href="#migrating-to-the-upgraded-module-system" class="md-skip">
           Skip to content
         </a>
       
@@ -149,7 +153,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                (2023-02-07) Lab Notebook: WRF installation with EasyBuild
+                Migrating to the upgraded module system
               
             </span>
           </div>
@@ -318,18 +322,20 @@
       
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -349,7 +355,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -494,18 +500,20 @@
                 
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
         
           
           <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
@@ -525,7 +533,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -540,9 +548,35 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Migrating_to_the_Upgraded_Module_System/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating to the upgraded module system
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -557,6 +591,109 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#find-the-new-names-of-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find the new names of software
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-modules-from-compatible-toolchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load modules from compatible toolchains
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load modules from compatible toolchains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-modules-from-subtoolchains-is-also-allowed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading modules from subtoolchains is also allowed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-module-purge-to-load-software-incompatible-with-default-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use module purge to load software incompatible with default modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-exact-name-of-software-when-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use the exact name of software when loading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-for-and-load-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search for and load extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-missing-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request missing modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6235,6 +6372,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -6243,44 +6382,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lab-notebook-installing-wrf-on-hpcc-using-easybuild-2023-02-07" class="md-nav__link">
+  <a href="#find-the-new-names-of-software" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab Notebook --- Installing WRF on HPCC using EasyBuild (2023-02-07)
+        Find the new names of software
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Lab Notebook --- Installing WRF on HPCC using EasyBuild (2023-02-07)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-modules-from-compatible-toolchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load modules from compatible toolchains
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load modules from compatible toolchains">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-problem-as-of-easybuild-462" class="md-nav__link">
+  <a href="#loading-modules-from-subtoolchains-is-also-allowed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Problem (as of EasyBuild 4.6.2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#current-solution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Solution
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#notes-and-future-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notes and Future Considerations
+        Loading modules from subtoolchains is also allowed
       
     </span>
   </a>
@@ -6289,6 +6417,50 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-module-purge-to-load-software-incompatible-with-default-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use module purge to load software incompatible with default modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-exact-name-of-software-when-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use the exact name of software when loading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-for-and-load-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search for and load extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-missing-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request missing modules
+      
+    </span>
+  </a>
   
 </li>
       
@@ -6313,11 +6485,9 @@
     
       
       
-        
-      
     
     
-      <a href="../tags/#lab-notebook" class="md-tag md-tag-icon md-tag--labnotes">lab notebook</a>
+      <a href="../tags/#how-to-guide" class="md-tag md-tag-icon">how-to guide</a>
     
   
     
@@ -6326,23 +6496,14 @@
       
     
     
-      <a href="../tags/#wrf" class="md-tag md-tag-icon">WRF</a>
-    
-  
-    
-    
-      
-      
-    
-    
-      <a href="../tags/#easybuild" class="md-tag md-tag-icon">EasyBuild</a>
+      <a href="../tags/#os-upgrade" class="md-tag md-tag-icon">OS upgrade</a>
     
   
 </nav>
 
 
   
-    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/2023-02-07_LabNotebook_WRF_installing_with_EasyBuild.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Migrating_to_the_Upgraded_Module_System.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -6350,28 +6511,208 @@
   
 
 
-  <h1>(2023-02-07) Lab Notebook: WRF installation with EasyBuild</h1>
+<h1 id="migrating-to-the-upgraded-module-system">Migrating to the upgraded module system</h1>
+<p>The <a href="../OS_Upgrade/">OS upgrade</a> requires reinstalling all software on the HPCC. ICER has also used this as an opportunity to <a href="../OS_Upgrade/#software-upgrade">realign our module system closer to the tools we use to install software</a>.</p>
+<p>As such, users will have to take steps to transition their workflows to work successfully with the new module system. Please follow the steps below to make the necessary changes.</p>
+<p>The key points are to:</p>
+<ol>
+<li><a href="#find-the-new-names-of-software">Look up the new names/versions for software</a></li>
+<li><a href="#load-modules-from-compatible-toolchains">Make sure that when loading multiple pieces of software at once, they have compatible "toolchains"</a></li>
+</ol>
+<h2 id="find-the-new-names-of-software">Find the new names of software</h2>
+<p>The names of all nearly all software have changed. To search for the new software names, please use the <code>module spider</code> command.</p>
+<p>For example, you can load <code>R</code> in the previous module system using</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>R/4.2.2
+</code></pre></div></td></tr></table></div>
+<p>On the upgraded module system, search for <code>R</code> and ignore the "gateway" modules that are dependencies. Additionally, most of the versions of software supported have changed, so you may need to search without the version.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>R
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>-------------------------------------------------------------------
+  R:
+-------------------------------------------------------------------
+    Description:
+      R is a free software environment for statistical computing
+      and graphics.
 
+     Versions:
+        R/3.6.3-foss-2022b
+        R/4.2.2-foss-2022b
+        R/4.3.2-gfbf-2023a
+        R/4.3.3-gfbf-2023b
+    ...
+</code></pre></div></td></tr></table></div>
+<p><code>R/4.2.2</code> is available under the name <code>R/4.2.2-foss-2022b</code>.</p>
+<p>The line</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>R/4.2.2
+</code></pre></div></td></tr></table></div>
+<p>in a script or on the command line can then be replaced with</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/4.2.2-foss-2022b
+</code></pre></div></td></tr></table></div>
+<p>On the new operating system. When there is only one version of the software with that version, you can use only the version and leave off the toolchain identifier, e.g., </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/4.2.2
+</code></pre></div></td></tr></table></div>
+<p>will also work.</p>
+<h2 id="load-modules-from-compatible-toolchains">Load modules from compatible toolchains</h2>
+<p>In the new module system, the structure of most module names follows the same format:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;software_name&gt;/&lt;software_version&gt;-&lt;toolchain_name&gt;-&lt;toolchain_version&gt;
+</code></pre></div></td></tr></table></div>
+<p>The "toolchain" is the set of programs used to compile and install that software, and needs to be loaded first before the software itself can be loaded. On the old system, this was done manually, e.g., by first loading <code>GCCcore</code> and <code>OpenMPI</code> (see <a href="#find-the-new-names-of-software">the above example</a>). On the new system this is done automatically.</p>
+<p>However, this allows for the potential of loading modules with incompatible toolchains at the same time. Doing so will produce an error message, e.g.,</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/4.2.2-foss-2022b<span class="w"> </span>JAGS/4.3.2-foss-2023a
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>Lmod has detected the following error:  The previous module command attempted to load &quot;foss/2023a&quot; while &quot;foss/2022b&quot; was already
+loaded. This is likely due to loading a module with incompatible dependencies from the one currently loaded. Please use
+
+    $ module spider &lt;original_module_name&gt;
+
+To search for other versions that may have compatible dependencies. If there are no such versions, please unload your current modules with
+
+    $ module purge
+
+before attempting to load this module. For additional assistance, please contact ICER staff at https://contact.icer.msu.edu.
+</code></pre></div></td></tr></table></div>
+<p>Instead, you will need to search for versions of the software that have compatible toolchains using the <code>module spider</code> command (again, see <a href="#find-the-new-names-of-software">the above example</a>).</p>
+<p>Another alternative (if it fits your workflow) is to load these modules in separate stages. First, load the first module, and do your work with that software. Then run <code>module purge</code>, load the second software, and do your work with that software.</p>
+<h3 id="loading-modules-from-subtoolchains-is-also-allowed">Loading modules from subtoolchains is also allowed</h3>
+<p>You are also allowed to load modules from compatible "subtoolchains" as one that's already loaded, that is, software that has been installed with a subset of the pieces in a full toolchain. For example, the <code>foss/2023a</code> toolchain includes <code>GCCcore/12.3.0</code> which is a subtoolchain. The two primary toolchains are <code>foss</code> and <code>intel</code>. For a full listing of their subtoolchains, see <a href="https://docs.easybuild.io/common-toolchains/#newest-generations-2022b-and-later">EasyBuild's documentation</a>, but common examples include <code>gfbf</code>, <code>gompi</code>, <code>iimpi</code>, and <code>iimkl</code>.</p>
+<p>Most subtoolchains share the same versioning scheme, labeled by a year and a letter. On the HPCC the three primary versions of all toolchains are <code>2022b</code>, <code>2023a</code>, and <code>2023b</code>. So for example, you can load a module with the <code>foss-2023a</code> and <code>gfbf-2023a</code> toolchains at the same time. The exception to this scheme is <code>GCCcore</code>. It is always named using the version of the <abbr title="GNU Compiler Collection">GCC</abbr> software, and corresponds to the year/letter scheme as follows:</p>
+<ul>
+<li><code>GCCcore/12.2.0</code> is in all <code>2022a</code> toolchains</li>
+<li><code>GCCcore/12.3.0</code> is in all <code>2023a</code> toolchains</li>
+<li><code>GCCcore/13.2.0</code> is in all <code>2023b</code> toolchains</li>
+</ul>
+<p>This can be verified by loading a year/letter toolchain and running <code>module list</code>, e.g.,</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>foss/2023a
+module<span class="w"> </span>list
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>Currently Loaded Modules:
+  1) GCCcore/12.3.0                     9) hwloc/2.9.1-GCCcore-12.3.0       17) OpenBLAS/0.3.23-GCC-12.3.0
+  2) zlib/1.2.13-GCCcore-12.3.0        10) OpenSSL/1.1                      18) FlexiBLAS/3.3.1-GCC-12.3.0
+  3) binutils/2.40-GCCcore-12.3.0      11) libevent/2.1.12-GCCcore-12.3.0   19) FFTW/3.3.10-GCC-12.3.0
+  4) GCC/12.3.0                        12) UCX/1.14.1-GCCcore-12.3.0        20) gompi/2023a
+  5) numactl/2.0.16-GCCcore-12.3.0     13) libfabric/1.18.0-GCCcore-12.3.0  21) FFTW.MPI/3.3.10-gompi-2023a
+  6) XZ/5.4.2-GCCcore-12.3.0           14) PMIx/4.2.4-GCCcore-12.3.0        22) ScaLAPACK/2.2.0-gompi-2023a-fb
+  7) libxml2/2.11.4-GCCcore-12.3.0     15) UCC/1.2.0-GCCcore-12.3.0         23) foss/2023a
+  8) libpciaccess/0.17-GCCcore-12.3.0  16) OpenMPI/4.1.5-GCC-12.3.0
+</code></pre></div></td></tr></table></div>
+<p>Note that software without a toolchain (e.g., <code>MATLAB</code>) can be loaded with any other module.</p>
+<h2 id="use-module-purge-to-load-software-incompatible-with-default-modules">Use <code>module purge</code> to load software incompatible with default modules</h2>
+<p>All default modules are installed under <code>2023a</code> toolchains. If you try to load a module with any other toolchain, you must first run</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+</code></pre></div></td></tr></table></div>
+<p>to avoid the errors <a href="#load-modules-from-compatible-toolchains">discussed above</a>.</p>
+<h2 id="use-the-exact-name-of-software-when-loading">Use the exact name of software when loading</h2>
+<p>At the moment, the module system is case sensitive. For example,</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Python
+</code></pre></div></td></tr></table></div>
+<p>works, while</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>python
+</code></pre></div></td></tr></table></div>
+<p>does not. ICER is working to resolve this, but for now, please make sure to use the name exactly as specified in the <code>module spider</code> results (note that searching with <code>module spider</code> is <em>not</em> case sensitive).</p>
+<h2 id="search-for-and-load-extensions">Search for and load extensions</h2>
+<p>Some modules include "extensions" to software. For example, the <code>R-bundle-CRAN</code> includes hundreds of <code>R</code> packages, and <code>SciPy-bundle</code> includes many commonly used Python packages for data analysis. When using <code>module spider</code>, you can also search for these extensions:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>numpy
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>----------------------------------------------------------------------------
+  numpy:
+----------------------------------------------------------------------------
+     Versions:
+        numpy/1.19.4 (E)
+        numpy/1.22.3 (E)
+        numpy/1.24.2 (E)
+        numpy/1.25.1 (E)
+        numpy/1.26.2 (E)
+
+Names marked by a trailing (E) are extensions provided by another module.
+
+
+----------------------------------------------------------------------------
+  For detailed information about a specific &quot;numpy&quot; package (including how to load the modules) use the module&#39;s full name.
+  Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider numpy/1.26.2
+----------------------------------------------------------------------------
+</code></pre></div></td></tr></table></div>
+<p>As the message suggests, extensions are marked with an <code>(E)</code>. To figure out what module loads them, run <code>module spider</code> with the specific version:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>numpy/1.26.2
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>----------------------------------------------------------------------------
+  numpy: numpy/1.26.2 (E)
+----------------------------------------------------------------------------
+    This extension is provided by the following modules. To access the extension you must load one of the following modules. Note that any module names in parentheses show the module location in the software hierarchy.
+
+
+       SciPy-bundle/2023.11-gfbf-2023b
+
+
+Names marked by a trailing (E) are extensions provided by another module.
+</code></pre></div></td></tr></table></div>
+<h2 id="request-missing-modules">Request missing modules</h2>
+<p>If a software module you need was not carried over from the previous system, please request it by <a href="https://contact.icer.msu.edu">submitting a ticket</a> with the subject "OS Upgrade 2024". </p>
+<p>If you need access to a piece of software immediately and cannot wait for it to be reinstalled, please look into using <a href="../Backwards_Compatibility_with_CentOS/">our backwards compatibility options</a>.</p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This is as a <strong>Lab Notebook</strong> which describes how to solve a specific problem at a specific time.
-Please keep this in mind as you read and use the content. Please pay close attention to the date, version
-information and other details.</p>
+<p class="admonition-title">Version availability</p>
+<p>ICER may not be able to install older versions of software especially if they require older compilers that do not work well on the new operating system. Please try using versions of the software that are already installed before reaching out to request older versions. When requesting an older version, please provide a short justification.</p>
 </div>
-<h2 id="lab-notebook-installing-wrf-on-hpcc-using-easybuild-2023-02-07">Lab Notebook --- Installing WRF on HPCC using EasyBuild (2023-02-07)</h2>
-<h4 id="the-problem-as-of-easybuild-462">The Problem (as of EasyBuild 4.6.2)</h4>
-<p>Currently, the most recent versions of WRF (4.1 and later) cannot be successfully built by the most recent version of EasyBuild instlled on HPCC (4.6.2). As best I can tell, although EasyBuild is loads more recent versions of <abbr title="GNU Compiler Collection">GCC</abbr> and OpenMPI and uses them to build dependencies such as netCDF, something in WRF itself (I think) is configure so that when attempting to compile tests cases (i.e. "compile em_b_wave"), the versions of <abbr title="GNU Compiler Collection">GCC</abbr> and OpenMPI the automatically load on HPCC (6.4.0 and 2.1.2 respectively) are used.</p>
-<p>In my experience, this problem tends to manifiest in one of two ways: either EasyBuild will fail while trying to build one of the test cases due to a mismatch in compiler version with netCDF ("Fatal Error: Cannot read module file netcdf.mod opened at (1), because it was created by a different version of GNU Fortran") or elements of the test case will fail to build due to the older <abbr title="GNU Compiler Collection">GCC</abbr> complier not recognizing  the flag "-fallow-argument-mismatch" (gfortran: error: unrecognized command line option -fallow-argument-mismatch; did you mean -Wlto-type-mismatch?) which is believe is a 10+ flag for <abbr title="GNU Compiler Collection">GCC</abbr> (see https://gcc.gnu.org/gcc-10/changes.html). You will also probably see something like:</p>
-<p>Serial Fortran compiler (mostly for tool generation):
-which SFC
-/opt/software/GCCcore/6.4.0/bin/gfortran</p>
-<p>In the output or log file when trying to compile a test case.</p>
-<h4 id="current-solution">Current Solution</h4>
-<p>Currently, the best solution is to use an older version of EasyBuid (4.5.0) which can be loaded via "module load EasyBuild/4.5.0". This approach has been tested and works out of the box for WRF 4.1.3, 4.2.2, and 4.3.</p>
-<p>However, older (3.6.X) versions of WRF may require an even older verion of EasyBuild, but their remains problem with this approach realted to folder accesibility [TBD, consult with Andrew and Xaioge]</p>
-<h4 id="notes-and-future-considerations">Notes and Future Considerations</h4>
-<p>I am neither well versed in Fortran nor WRF, so the above is a compilation of my observation of trying to get WRF intalled along with a little reserach along the way. As a Lab Notebook, this primarily serves as a reference point and installing WRF should probably be revisited if and when EasyBuild is updated (4.7.0 was released recently)</p>
-<p>Update (2-8-2023): Installed EasyBuild 4.7.0, same issues as 4.6.2. need to follow up with additional confgiuration mentioned by Xiaoge</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6416,7 +6757,7 @@ which SFC
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 9, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2024</span>
     </span>
     
 
@@ -6426,7 +6767,7 @@ which SFC
         <span class="md-icon" title="Created">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 7, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2024</span>
     </span>
     
 
@@ -6440,7 +6781,7 @@ which SFC
             
         </span>
         <nav>
-            panchyni
+            Craig Gross
         </nav>
     </span>
     
@@ -6486,7 +6827,7 @@ which SFC
               
                 
               
-              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=%282023-02-07%29%20Lab%20Notebook%3A%20WRF%20installation%20with%20EasyBuild" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Migrating%20to%20the%20upgraded%20module%20system" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
             </div>
           
         </div>

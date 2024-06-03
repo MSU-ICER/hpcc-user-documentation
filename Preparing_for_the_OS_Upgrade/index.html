@@ -558,6 +558,78 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration specifics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Migration specifics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migrating_to_the_Upgraded_Module_System/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating to the upgraded module system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
     <li class="md-nav__item">
       <a href="../Migrating_Python_Virtual_Environments/" class="md-nav__link">
         
@@ -574,6 +646,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -6298,10 +6378,9 @@
 <p>In order to prepare for <a href="../OS_Upgrade/">transition to the upgraded system</a> and stay productive, ICER is asking <strong>all</strong> users to:</p>
 <ol>
 <li>Log into the <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">test development nodes</a>.</li>
-<li>Compare the modules you load to those already available on the upgraded system<ul>
+<li><a href="../Migrating_to_the_Upgraded_Module_System/">Change the module names and versions of the software you are currently using</a> to match the new system.<ul>
 <li><strong>Note</strong>: The module names will have changed in the upgraded system, and not all versions will be carried over from the current system</li>
 <li>Use <code>module spider &lt;module_name&gt;</code> or <code>module avail</code> to find a module you need</li>
-<li>If a module you need is not available and you have not already requested it, please <a href="https://forms.gle/vjSDqpgnnQ9gXEzV8">request it using our form</a>. Please check that all available versions do not work before requesting a different version.</li>
 </ul>
 </li>
 <li><a href="../Migrating_Python_Virtual_Environments/">Reinstall any Python virtual environments</a>.</li>
