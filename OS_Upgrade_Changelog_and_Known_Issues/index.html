@@ -6300,9 +6300,10 @@
 <h2 id="known-issues">Known issues</h2>
 <p>Below are issues that ICER is aware of and is taking steps to resolve. If you find an issue that is not on this page, please <a href="https://contact.icer.msu.edu">contact us</a> with the subject line "OS Upgrade 2024"</p>
 <ul>
+<li>The <code>module load</code> command is case sensitive, e.g., <code>module load Python</code> works, but <code>module load python</code> does not. Please use <code>module spider</code> to find the correct name, including capitalization, of the modules you would like to load. We are working on bringing case insensitivity back to the module system.</li>
 <li>When using the OnDemand Desktop, you may receive an error dialog stating "The panel encountered a problem while loading 'IndicatorAppletCompleteFactory::IndicatorAppletComplete'. Do you want to delete the applet from your configuration?" Click the "Delete" option, and this error will not return in the future.</li>
 <li>Please note that all jobs need to be submitted from a node running on the same operating system as the target node (i.e., only submit a job using the <code>--reservation=ubuntu_compute</code> flag if you are using a development node running Ubuntu).</li>
-<li>We are noticing problems with the <code>GROMACS</code> <abbr title="Message Passing Interface">MPI</abbr> tests on older nodes. For this reason, <code>GROMACS</code> is currently only available on the <code>intel18</code> and <code>amd20-v100</code> clusters.</li>
+<li>We are noticing problems with the <code>GROMACS</code> <abbr title="Message Passing Interface">MPI</abbr> tests on older nodes. For this reason, <code>GROMACS</code> is currently only available on the <code>intel18</code>, <code>amd20</code>, <code>amd20-v100</code>, and <code>intel21</code> clusters.</li>
 <li>The <code>quota</code> command is currently non-functional, but is being worked on.</li>
 <li>
 <p>The R package <code>Matrix</code> (which is a dependency for many other packages including <code>ggplot2</code>) is incompatible with versions of R earlier than 4.4.0 (i.e., all of the versions installed on the new operating system. We recommend using the <code>R-bundle-CRAN</code> module instead of <code>R</code> which includes a pre-installed version of <code>Matrix</code>. If you need to install it yourself using <code>install.packages</code>, use the command</p>
@@ -6358,7 +6359,7 @@
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 31, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2024</span>
     </span>
     
 
