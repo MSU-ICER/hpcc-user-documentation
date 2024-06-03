@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Change_Primary_Group/">
+        <link rel="prev" href="../OS_Upgrade_Changelog_and_Known_Issues/">
       
       
-        <link rel="next" href="../Virtual_Terminals/">
+        <link rel="next" href="../accessHPCC_overview/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Collaborative research - MSU HPCC User Documentation</title>
+        <title>Migrating Python virtual environments - MSU HPCC User Documentation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#collaborative-research" class="md-skip">
+        <a href="#migrating-python-virtual-environments" class="md-skip">
           Skip to content
         </a>
       
@@ -153,7 +153,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Collaborative research
+                Migrating Python virtual environments
               
             </span>
           </div>
@@ -322,18 +322,20 @@
       
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -353,7 +355,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -498,9 +500,35 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Migrating_Python_Virtual_Environments/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating Python virtual environments
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -515,6 +543,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#save-your-current-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save your current virtual environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a new virtual environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-packages-in-your-old-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install the packages in your old virtual environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-old-batch-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update old batch scripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-an-older-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using an older version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Conda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-pre-installed-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using pre-installed packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-backwards-compatibility-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use backwards compatibility containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1133,20 +1286,18 @@
       
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1166,7 +1317,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1311,35 +1462,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Collaborative research
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1354,59 +1479,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#research-space" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Research space
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#software-installation-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Software installation request
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-our-academic-research-consulting-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using our Academic Research Consulting Services
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6250,10 +6322,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#research-space" class="md-nav__link">
+  <a href="#save-your-current-virtual-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Research space
+        Save your current virtual environment
       
     </span>
   </a>
@@ -6261,10 +6333,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#software-installation-request" class="md-nav__link">
+  <a href="#create-a-new-virtual-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Software installation request
+        Create a new virtual environment
       
     </span>
   </a>
@@ -6272,13 +6344,85 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-our-academic-research-consulting-services" class="md-nav__link">
+  <a href="#install-the-packages-in-your-old-virtual-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Using our Academic Research Consulting Services
+        Install the packages in your old virtual environment
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-old-batch-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update old batch scripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-an-older-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using an older version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Conda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-pre-installed-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using pre-installed packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-backwards-compatibility-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use backwards compatibility containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6296,9 +6440,50 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+<nav class="md-tags" >
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#how-to-guide" class="md-tag md-tag-icon">how-to guide</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#os-upgrade" class="md-tag md-tag-icon">OS upgrade</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#python" class="md-tag md-tag-icon">Python</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#virtual-environment" class="md-tag md-tag-icon">virtual environment</a>
+    
+  
+</nav>
+
 
   
-    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Collaborative_Research.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Migrating_Python_Virtual_Environments.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -6306,17 +6491,141 @@
   
 
 
-<h1 id="collaborative-research">Collaborative research</h1>
-<h2 id="research-space">Research space</h2>
-<p>To support collaborative research on campus, a <abbr title="Principle Investigator">PI</abbr> may <a href="http://www.hpcc.msu.edu/contact">request a shared research space</a> where files and softwares can be shared. </p>
-<h2 id="software-installation-request">Software installation request</h2>
-<p>We suggest the following two steps when you are in need of a particular software package.</p>
-<ol>
-<li>Go to <code>/opt/software/</code> on a dev-node. This is where all software packages are installed. Check if your desired software and specific versions are there. Please note there could be some name discrepancy caused by switch between lower and upper case letters. Take BBMap for example, all the versions available can be viewed by "<code>ls -l /opt/software/BBMap</code>". <a href="http://www.hpcc.msu.edu/contact">Send us a ticket</a> if the software is totally absent in <code>/opt/software</code> or your desired version is missing. If the software and the version are both present in <code>/opt/software</code>, go to step 2.</li>
-<li>Follow <a href="../How_to_find_and_load_software_modules/">the instructions</a> to try loading software/version. If you can't find the software using <code>module spider</code>, send us a ticket. If you can find the software but not the desired version, send us a ticket too.</li>
-</ol>
-<h2 id="using-our-academic-research-consulting-services">Using our Academic Research Consulting Services</h2>
-<p>ICER's Academic Research Consulting service (<abbr title="Academic Research Consulting Service">ARCS</abbr>) exists to meet the computationally complex needs of the MSU research community. Research groups in need of software and computational workflow development services, dedicated training programs, as well as those that require additional scientific expertise in areas such as bioinformatics, time-series analysis, and computational modeling may request long-term collaborations with <abbr title="Academic Research Consulting Service">ARCS</abbr> research consultants. ICER <abbr title="Academic Research Consulting Service">ARCS</abbr> consultants are PhD-level researchers with domain-specific computational expertise and experience at R1 institutions. <abbr title="Academic Research Consulting Service">ARCS</abbr> collaborations require funding and may be funded internally through startup grants or unit-level support or externally by grant support or industrial partnerships. More information can be found <a href="https://icer.msu.edu/arcs">here</a>.</p>
+<h1 id="migrating-python-virtual-environments">Migrating Python Virtual Environments</h1>
+<p>As part of ICER's <a href="../OS_Upgrade/">OS upgrade</a>, the available versions and locations of Python on the system have changed. Since <a href="../Using_Python_in_HPCC_with_virtualenv/">Python virtual environments</a> link to Python on the system, virtual environments will need to be reinstallled to work properly on the new system.</p>
+<p>To migrate virtual environments, please follow the steps below.</p>
+<h2 id="save-your-current-virtual-environment">Save your current virtual environment</h2>
+<p>First, activate your current virtual environment on a development node running the old operating system. In this guide, we will use an example named <code>project</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
+ssh<span class="w"> </span>dev-amd20
+<span class="c1"># In directory where &quot;project&quot; virtual env exists</span>
+<span class="nb">source</span><span class="w"> </span>project/bin/activate
+</code></pre></div></td></tr></table></div>
+<p>Then, save the packages installed via <code>pip</code> to a <code>requirements.txt</code> file.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</code></pre></div></td></tr></table></div>
+<h2 id="create-a-new-virtual-environment">Create a new virtual environment</h2>
+<p>Now, log into <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">a development node running the new operating system</a>, and, if you have specific version requirements, select the version of Python you'd like to use from the module system. If you have the default modules loaded, this will be <code>Python/3.11.3</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Logout of CentOS dev node back to gateway</span>
+<span class="nb">exit</span>
+ssh<span class="w"> </span>dev-amd20-ubuntu
+<span class="c1"># Load newer version of Python than default (optional)</span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Python/3.11.5-GCCcore-13.2.0
+</code></pre></div></td></tr></table></div>
+<p>Then use this python to create a new virtual environment. To avoid confusion with the old environment and to maintain backwards compatibility if necessary, use a new name.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>project_ubuntu
+</code></pre></div></td></tr></table></div>
+<h2 id="install-the-packages-in-your-old-virtual-environment">Install the packages in your old virtual environment</h2>
+<p>Activate the new virtual environment, and use <code>pip</code> to reinstall the packages from the old environment.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span><span class="w"> </span>project_ubuntu/bin/activate
+<span class="c1"># The next step may take a while</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div></td></tr></table></div>
+<p>The new environment is ready to use. If the reinstallation fails, see the <a href="#troubleshooting">Troubleshooting section</a> below.</p>
+<h2 id="update-old-batch-scripts">Update old batch scripts</h2>
+<p>Assuming this virtual environment was used in a batch script, you now need to update it for the new system. Suppose we have the following script, <code>my_script.sb</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --cpus-per-task=2</span>
+<span class="c1">#SBATCH --mem-per-cpu=500MB</span>
+
+<span class="nb">source</span><span class="w"> </span>project/bin/activate
+python<span class="w"> </span>do_some_work.py
+</code></pre></div></td></tr></table></div>
+<p>Copy the script for the new system.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>my_script.sb<span class="w"> </span>my_script_ubuntu.sb
+</code></pre></div></td></tr></table></div>
+<p>Add the line <code>#SBATCH --reservation=ubuntu_compute</code> and change the way the virtual environment is activated to match our new virtual environment.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script_ubuntu.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --cpus-per-task=2</span>
+<span class="c1">#SBATCH --mem-per-cpu=500MB</span>
+<span class="c1">#SBATCH --reservation=ubuntu_compute</span>
+
+<span class="c1"># Make sure we have the right version of Python loaded</span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Python/3.11.5-GCCcore-13.2.0
+
+<span class="c1"># Use the new virtual environment</span>
+<span class="nb">source</span><span class="w"> </span>project_ubuntu/bin/activate
+python<span class="w"> </span>do_some_work.py
+</code></pre></div></td></tr></table></div>
+<p>To test, make sure you log into an <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">Ubuntu development node</a>, and submit the job using</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch<span class="w"> </span>my_script_ubuntu.sb
+</code></pre></div></td></tr></table></div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="using-an-older-version">Using an older version</h3>
+<p>Moving from older versions of Python to newer versions can cause problems when reinstalling packages. If you run into issues, try an older version of Python on the new operating system, e.g., when creating the new virtual environment, use</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Python/3.10.4-GCCcore-11.3.0
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>project_ubuntu
+<span class="nb">source</span><span class="w"> </span>project_ubuntu/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div></td></tr></table></div>
+<p>However, even the older versions on the new operating system are still relatively new (we don't recommend using anything older than <code>Python/3.10.4</code>, as the older versions are deprecated). If you need an even older version, we recommend you create a Conda environment. See our instructions for <a href="../Using_conda/#installing-anaconda-for-users">Installing Conda</a>.</p>
+<h3 id="using-conda">Using Conda</h3>
+<p>After installing Conda, you can create an environment with the same version of Python from your virtual environment, and install the packages via <code>pip</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Conda/3
+<span class="c1"># Use version of Python from old venv, can get using &quot;python --version&quot;</span>
+conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>project_ubuntu<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6.3<span class="w"> </span>pip
+conda<span class="w"> </span>activate<span class="w"> </span>project_ubuntu
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div></td></tr></table></div>
+<p>To use this Conda environment in the future, use</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Conda/3
+conda<span class="w"> </span>activate<span class="w"> </span>project_ubuntu
+</code></pre></div></td></tr></table></div>
+<p>Note that when using Conda, we recommend using the Conda package manager to install packages via <code>conda install</code> instead of using <code>pip</code>. However, for migrating virtual environments like this, using <code>pip</code> is fine, so long as you do not use <code>conda install</code> to install more packages into the same environment afterward.</p>
+<h3 id="using-pre-installed-packages">Using pre-installed packages</h3>
+<p>Also note that the module system already includes a few Python "bundles" that have popular packages pre-installed. These include <code>Python-bundle-PyPI</code> and <code>Scipy-bundle</code>. Use the <code>module spider</code> command to see if these can meet your needs.</p>
+<h3 id="use-backwards-compatibility-containers">Use backwards compatibility containers</h3>
+<p>If all else fails you can try using our backwards compatibility scripts (which have limitations). For more information, please see our <a href="../Backwards_Compatibility_with_CentOS/">backwards compatibility documentation</a>.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6361,7 +6670,7 @@
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2024</span>
     </span>
     
 
@@ -6371,7 +6680,7 @@
         <span class="md-icon" title="Created">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 7, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2024</span>
     </span>
     
 
@@ -6381,11 +6690,11 @@
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
             
         </span>
         <nav>
-            Craig Gross, Nanye Long, panchyni
+            Craig Gross
         </nav>
     </span>
     
@@ -6431,7 +6740,7 @@
               
                 
               
-              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Collaborative%20research" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Migrating%20Python%20virtual%20environments" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
             </div>
           
         </div>
