@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Job_with_Checkpointing_Run/">
+        <link rel="prev" href="../Migrating_Python_Virtual_Environments/">
       
       
-        <link rel="next" href="../Powertools_longjob_by_DMTCP/">
+        <link rel="next" href="../accessHPCC_overview/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Checkpoint with DMTCP - MSU HPCC User Documentation</title>
+        <title>Migrating Conda environments - MSU HPCC User Documentation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#checkpoint-with-dmtcp" class="md-skip">
+        <a href="#migrating-conda-environments" class="md-skip">
           Skip to content
         </a>
       
@@ -153,7 +153,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Checkpoint with DMTCP
+                Migrating Conda environments
               
             </span>
           </div>
@@ -322,18 +322,20 @@
       
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -353,7 +355,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -498,18 +500,20 @@
                 
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
         
           
           <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
@@ -529,7 +533,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -596,9 +600,35 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Migrating_Conda_Environments/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating Conda environments
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -613,6 +643,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#save-your-current-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save your current environments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinstall-conda-on-the-new-operating-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reinstall Conda on the new operating system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a new virtual environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-old-batch-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update old batch scripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2576,20 +2670,18 @@
       
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
           <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
@@ -2609,7 +2701,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3254,20 +3346,18 @@
                 
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_8" >
         
           
           <label class="md-nav__link" for="__nav_11_8" id="__nav_11_8_label" tabindex="0">
@@ -3287,7 +3377,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3328,35 +3418,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Checkpoint with DMTCP
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Checkpoint_with_DMTCP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3371,48 +3435,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#using-dmtcp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using DMTCP
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dctmp-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DCTMP example
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6347,10 +6369,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-dmtcp" class="md-nav__link">
+  <a href="#save-your-current-environments" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Using DMTCP
+        Save your current environments
       
     </span>
   </a>
@@ -6358,10 +6380,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dctmp-example" class="md-nav__link">
+  <a href="#reinstall-conda-on-the-new-operating-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DCTMP example
+        Reinstall Conda on the new operating system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a new virtual environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-old-batch-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update old batch scripts
       
     </span>
   </a>
@@ -6391,7 +6435,7 @@
       
     
     
-      <a href="../tags/#tutorial" class="md-tag md-tag-icon">tutorial</a>
+      <a href="../tags/#how-to-guide" class="md-tag md-tag-icon">how-to guide</a>
     
   
     
@@ -6400,14 +6444,32 @@
       
     
     
-      <a href="../tags/#checkpointing" class="md-tag md-tag-icon">checkpointing</a>
+      <a href="../tags/#os-upgrade" class="md-tag md-tag-icon">OS upgrade</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#python" class="md-tag md-tag-icon">Python</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#conda" class="md-tag md-tag-icon">Conda</a>
     
   
 </nav>
 
 
   
-    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Checkpoint_with_DMTCP.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Migrating_Conda_Environments.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -6415,411 +6477,115 @@
   
 
 
-<h1 id="checkpoint-with-dmtcp">Checkpoint with DMTCP</h1>
+<h1 id="migrating-conda-environments">Migrating Conda Environments</h1>
+<p>As part of ICER's <a href="../OS_Upgrade/">OS upgrade</a>, all software has changed. While <a href="../Using_conda/">Conda</a> does a good job at isolating software in environments and installing most things from scratch, it is possible that you may need to reinstall your environments on the new system.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To run DMTCP correctly, the limit of stack size can not be
-"unlimited". To set it to a number n, run <code>ulimit -s n</code>. For example,
-<code>ulimit -s 8192</code> would set the stack size as 8192. User could also add
-it into .bashrc file.  It should also be set in the job batch script, as
-seen below.</p>
+<p class="admonition-title">Optional</p>
+<p>In limited testing, we have seen that Conda environments created on the current system appear to work on the new system without intervention. However, if you notice issues or your environments become nonfunctional, please follow the steps below.</p>
 </div>
-<p>DMTCP (Distributed MultiThreaded Checkpointing) transparently
-checkpoints both single and multi-node computations. It
-supports <abbr title="Message Passing Interface">MPI</abbr> (various implementations), <abbr title="Open Multi-Processing">OpenMP</abbr>, MATLAB, Python, Perl, R,
-and many programming languages and shell scripting languages. DMTCP allows one to
-checkpoint running programs to disk, restart calculations from a
-checkpoint, or even migrate the processes to another host by
-moving the checkpoint files prior to restarting.</p>
-<p>Each computation you wish to checkpoint requires one DMTCP coordinator. 
-First, the DMTCP coordinator process is started on one host.
-Then application binaries are started with the <code>dmtcp_launch</code> command, causing
-them to connect to the coordinator upon startup. As threads are spawned,
-child processes are forked, remote processes are spawned via ssh, libraries are dynamically loaded, etc., DMTCP transparently and automatically
-tracks them. To checkpoint, use <code>dmtcp_coordinator</code> command to start
-checkpointing. To restart from a checkpoint, use <code>dmtcp_restart</code>.</p>
-<p>By default, DMTCP uses <code>gzip</code> to compress the checkpoint images. This
-can be turned off. This will be faster, and if your memory is dominated
-by incompressible data, this can be helpful. <code>gzip</code> can add seconds for
-large checkpoint images. Typically, checkpoint and restart is less than
-one second without <code>gzip</code>.</p>
-<h2 id="using-dmtcp">Using DMTCP</h2>
-<p>Running a program with checkpointing usually involves the following 4
-steps (option settings may be needed for special cases) :</p>
-<ol>
-<li>Start DMTCP coordinater <ul>
-<li><code>$ dmtcp_coordinator --daemon --exit-on-last $@ 1\&gt;/dev/null
-    2\&gt;&amp;1 #run coordinator as daemon in background</code></li>
-</ul>
-</li>
-<li>Launch program<ul>
-<li><code>$ dmtcp_launch ./a.out # launch ./a.out</code></li>
-</ul>
-</li>
-<li>Trigger checkpointing. This will
-    generate a set of checkpointing image files (file type: <code>.dmtcp</code>) and
-    a shell script for restart.<ul>
-<li><code>$ dmtcp_command --bcheckpoint # checkpointing</code></li>
-</ul>
-</li>
-<li>Restart: the DMTCP coordinator will write
-    a script, <code>dmtcp_restart_script.sh</code>, along with a checkpoint file
-    (file type: <code>.dmtcp</code>) for each client process. The simplest way to
-    restart a previously checkpointed computation is:<ul>
-<li><code>$ ./dmtcp_restart_script.sh # restart
-    using script</code></li>
-<li>Alternatively, if all processes were on the same processor, and there were no <code>.dmtcp</code> files prior to this checkpoint: <code>$ dmtcp_restart ckpt_*.dmtcp</code></li>
-</ul>
-</li>
-</ol>
-<h2 id="dctmp-example">DCTMP example</h2>
-<p>The following is the sample script <code>longjob.sb</code> that uses DMTCP for
-checkpointing a long job. In this way, the job can be run as a sequence of
-short walltime jobs. To obtain the complete example, run <code>module load
-powertools; getexample dmtcp_longjob</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
-<span class="normal">  2</span>
-<span class="normal">  3</span>
-<span class="normal">  4</span>
-<span class="normal">  5</span>
-<span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span>
-<span class="normal">154</span>
-<span class="normal">155</span>
-<span class="normal">156</span>
-<span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span>
-<span class="normal">170</span>
-<span class="normal">171</span>
-<span class="normal">172</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
-
-<span class="c1">## resource requests for task:</span>
-
-<span class="c1">#SBATCH -J count-longjob                  # Job Name</span>
-
-<span class="c1">#SBATCH --time=00:06:00                   # Note that 6 min is not enough to complete the job. It enough for checkpointing and resubmit job</span>
-
-<span class="c1">#SBATCH -N 1 -c 1 --mem=20MB              # requested resource</span>
-
-<span class="c1">#SBATCH --constraint=lac                  # user could add other requests as usual.</span>
-
-<span class="c1"># set a limited stack size so DMTCP could work</span>
-<span class="nb">ulimit</span><span class="w"> </span>-s<span class="w"> </span><span class="m">8192</span>
-
-<span class="c1"># current working directory shuld have source code dmtcp1.c</span>
-<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>
-
-<span class="c1"># this script file name. This script may be resubmit multiple times until job completed</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">SLURM_JOBSCRIPT</span><span class="o">=</span><span class="s2">&quot;longjob.sb&quot;</span>
-
-
-<span class="c1">######################## start dmtcp_coordinator #######################</span>
-
-<span class="nv">fname</span><span class="o">=</span>port.<span class="nv">$SLURM_JOBID</span><span class="w">                                                                 </span><span class="c1"># to store port number</span>
-
-dmtcp_coordinator<span class="w"> </span>--daemon<span class="w"> </span>--exit-on-last<span class="w"> </span>-p<span class="w"> </span><span class="m">0</span><span class="w"> </span>--port-file<span class="w"> </span><span class="nv">$fname</span><span class="w"> </span><span class="nv">$@</span><span class="w"> </span><span class="m">1</span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w">   </span><span class="c1"># start coordinater</span>
-
-<span class="nv">h</span><span class="o">=</span><span class="sb">`</span>hostname<span class="sb">`</span><span class="w">                                                                            </span><span class="c1"># get coordinator&#39;s host name</span>
-
-<span class="nv">p</span><span class="o">=</span><span class="sb">`</span>cat<span class="w"> </span><span class="nv">$fname</span><span class="sb">`</span><span class="w">                                                                          </span><span class="c1"># get coordinator&#39;s port number</span>
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">DMTCP_COORD_HOST</span><span class="o">=</span><span class="nv">$h</span><span class="w">                                                  </span><span class="c1"># save coordinators host info in an environment variable</span>
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">DMTCP_COORD_PORT</span><span class="o">=</span><span class="nv">$p</span><span class="w">                                                  </span><span class="c1"># save coordinators port info in an environment variable</span>
-
-<span class="c1">#rm $fname</span>
-
-
-
-
-<span class="c1"># uncommand following lines to print out some information if user wish</span>
-
-<span class="c1">#echo &quot;coordinator is on host $DMTCP_COORD_HOST &quot;</span>
-
-<span class="c1">#echo &quot;port number is $DMTCP_COORD_PORT &quot;</span>
-
-<span class="c1">#echo &quot; working directory: ${SLURM_SUBMIT_DIR} &quot;</span>
-
-<span class="c1">#echo &quot; job script is $SLURM_JOBSCRIPT &quot;</span>
-
-
-
-
-<span class="c1">####################### BODY of the JOB ######################</span>
-
-<span class="c1"># prepare work environment of the job</span>
-
-module<span class="w"> </span>swap<span class="w"> </span>GNU/6.4.0-2.28<span class="w"> </span>GCC/4.9.2
-
-
-<span class="c1"># build the program if executable file does not exist</span>
-
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span>count.exe<span class="w"> </span><span class="o">]</span><span class="w"> </span>
-
-<span class="k">then</span>
-
-<span class="w">    </span>cc<span class="w"> </span>count.c<span class="w"> </span>-o<span class="w"> </span>count.exe
-
+<h2 id="save-your-current-environments">Save your current environments</h2>
+<p>First, log into a development node running CentOS and get a list of your environments.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
+ssh<span class="w"> </span>dev-amd20
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Conda/3
+conda<span class="w"> </span>env<span class="w"> </span>list
+</code></pre></div></td></tr></table></div>
+<p>Select the environments you would like to transfer over. In this guide, we will use an example named <code>project</code>. Use <code>conda env export</code> to get the list of packages in the environment.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-n<span class="w"> </span>project<span class="w"> </span>&gt;<span class="w"> </span>project_environment.yml
+</code></pre></div></td></tr></table></div>
+<h2 id="reinstall-conda-on-the-new-operating-system">Reinstall Conda on the new operating system</h2>
+<div class="admonition note">
+<p class="admonition-title">Optional</p>
+<p>In limited testing, ICER has not seen a need to reinstall Conda on the new operating system. However, if you are having issues, this would be a good troubleshooting step to take.</p>
+</div>
+<p>Log into <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">a development node running the new operating system</a>, and follow our instructions for <a href="../Using_conda/#installing-anaconda-for-users">Installing Conda</a>.</p>
+<p>In the step where you are asked to install Anaconda3 in your home directory, make sure to choose a different location to maintain backwards compatibility, e.g., <code>/mnt/home/&lt;user&gt;/anaconda3_ubuntu</code>. You can add the following to the <code>.bashrc</code> file in your home directory to make sure that the new version of Conda is only used on Ubuntu nodes.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="k">$(</span><span class="nb">source</span><span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$ID</span><span class="k">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;ubuntu&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA3PATH</span><span class="o">=</span>/mnt/home/&lt;user&gt;/anaconda3_ubuntu
 <span class="k">fi</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="create-a-new-virtual-environment">Create a new virtual environment</h2>
+<p>Log into <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">a development node running the new operating system</a>, and reinstall your environments. To avoid confusion with the old environment, you can use a new name.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">exit</span><span class="w">  </span><span class="c1"># Leave CentOS dev node</span>
+ssh<span class="w"> </span>dev-amd20-ubuntu
 
+<span class="c1"># Get Conda module</span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Conda/3
 
+<span class="c1"># Reinstall environment (may take a while)</span>
+conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>project_environment.yml<span class="w"> </span>-n<span class="w"> </span>project_ubuntu
+</code></pre></div></td></tr></table></div>
+<p>The new environment is ready to use.</p>
+<h2 id="update-old-batch-scripts">Update old batch scripts</h2>
+<p>Assuming this Conda environment was used in a batch script, you now need to update it for the new system. Suppose we have the following script, <code>my_script.sb</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --cpus-per-task=2</span>
+<span class="c1">#SBATCH --mem-per-cpu=500MB</span>
 
-<span class="c1"># run the program count.exe. </span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Conda/3
 
-<span class="c1"># To run interactively: </span>
+conda<span class="w"> </span>activate<span class="w"> </span>project
+python<span class="w"> </span>do_some_work.py
+</code></pre></div></td></tr></table></div>
+<p>Copy the script for the new system.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>my_script.sb<span class="w"> </span>my_script_ubuntu.sb
+</code></pre></div></td></tr></table></div>
+<p>Add the line <code>#SBATCH --reservation=ubuntu_compute</code> and change the environment name to match the new Conda environment.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script_ubuntu.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
-<span class="c1">#    $ ./count.exe n num.odd 1&gt; num.even </span>
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --cpus-per-task=2</span>
+<span class="c1">#SBATCH --mem-per-cpu=500MB</span>
+<span class="c1">#SBATCH --reservation=ubuntu_compute</span>
 
-<span class="c1"># it will count to number n and generate 2 files: </span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Conda/3
 
-<span class="c1"># num.odd contains all the odd number;</span>
-
-<span class="c1"># num.even contains all the even number.</span>
-
-
-
-<span class="c1"># To run with DMTCP, use dmtcp commamds.</span>
-
-<span class="c1"># if first time launch, use &quot;dmtcp_launch&quot;</span>
-
-<span class="c1"># otherwise use &quot;dmtcp_restart&quot;</span>
-
-
-
-
-<span class="c1"># set checkpoint interval. This script would wait after dmtcp_launch</span>
-
-<span class="c1"># the job for the interval (in seconds), then do start the checkpoint. </span>
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">CKPT_WAIT_SEC</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="k">))</span><span class="w">            </span><span class="c1"># checkpointing when program runs for 3 min</span>
-
-
-
-
-<span class="c1"># Launch or restart the execution</span>
-
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span>ckpt_*.dmtcp<span class="w"> </span><span class="o">]</span><span class="w">                      </span><span class="c1"># if no ckpt file exists, it is first time run, use dmtcp_launch</span>
-
-<span class="k">then</span>
-
-<span class="w">  </span><span class="c1"># first time run, use dmtcp_launch to start the job and run on background */</span>
-
-<span class="w">  </span>dmtcp_launch<span class="w"> </span>-h<span class="w"> </span><span class="nv">$DMTCP_COORD_HOST</span><span class="w"> </span>-p<span class="w"> </span><span class="nv">$DMTCP_COORD_PORT</span><span class="w"> </span>--rm<span class="w"> </span>--ckpt-open-files<span class="w"> </span>./count.exe<span class="w"> </span><span class="m">800</span><span class="w"> </span>num.odd<span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>num.even<span class="w"> </span><span class="m">10</span>&gt;<span class="p">&amp;</span>-<span class="w"> </span><span class="m">11</span>&gt;<span class="p">&amp;</span>-<span class="w"> </span><span class="p">&amp;</span>
-
-
-
-
-<span class="w">  </span><span class="c1">#wait for an inverval of checkpoint seconds to start checkpointing</span>
-<span class="w">  </span>sleep<span class="w"> </span><span class="nv">$CKPT_WAIT_SEC</span>
-
-
-
-<span class="w">  </span><span class="c1"># start checkpointing</span>
-<span class="w">  </span>dmtcp_command<span class="w"> </span>-h<span class="w"> </span><span class="nv">$DMTCP_COORD_HOST</span><span class="w"> </span>-p<span class="w"> </span><span class="nv">$DMTCP_COORD_PORT</span><span class="w"> </span>--ckpt-open-files<span class="w"> </span>--bcheckpoint
-
-
-<span class="w">  </span><span class="c1"># kill the running job after checkpointing</span>
-<span class="w">  </span>dmtcp_command<span class="w"> </span>-h<span class="w"> </span><span class="nv">$DMTCP_COORD_HOST</span><span class="w"> </span>-p<span class="w"> </span><span class="nv">$DMTCP_COORD_PORT</span><span class="w"> </span>--quit
-
-
-<span class="w">  </span><span class="c1"># resubmit the job</span>
-<span class="w">  </span>sbatch<span class="w"> </span><span class="nv">$SLURM_JOBSCRIPT</span>
-
-
-<span class="k">else</span><span class="w">            </span><span class="c1"># it is a restart run</span>
-
-<span class="w">  </span><span class="c1"># restart job with checkpoint files ckpt_*.dmtcp and run in background</span>
-<span class="w">  </span>dmtcp_restart<span class="w"> </span>-h<span class="w"> </span><span class="nv">$DMTCP_COORD_HOST</span><span class="w"> </span>-p<span class="w"> </span><span class="nv">$DMTCP_COORD_PORT</span><span class="w"> </span>ckpt_*.dmtcp<span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>num.even<span class="w"> </span><span class="p">&amp;</span>
-
-
-<span class="w">  </span><span class="c1"># wait for a checkpoint interval to start checkpointing</span>
-<span class="w">  </span>sleep<span class="w"> </span><span class="nv">$CKPT_WAIT_SEC</span>
-
-
-<span class="w">  </span><span class="c1"># if program is still running, do the checkpoint and resubmit</span>
-
-<span class="w">  </span><span class="k">if</span><span class="w"> </span>dmtcp_command<span class="w"> </span>-h<span class="w"> </span><span class="nv">$DMTCP_COORD_HOST</span><span class="w"> </span>-p<span class="w"> </span><span class="nv">$DMTCP_COORD_PORT</span><span class="w"> </span>-s<span class="w"> </span><span class="m">1</span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-<span class="w">  </span><span class="k">then</span><span class="w">   </span>
-<span class="w">    </span><span class="c1"># clean up old ckpt files before start checkpointing</span>
-<span class="w">    </span>rm<span class="w"> </span>-r<span class="w"> </span>ckpt_*.dmtcp
-
-<span class="w">    </span><span class="c1"># checkpointing the job</span>
-<span class="w">    </span>dmtcp_command<span class="w"> </span>-h<span class="w"> </span><span class="nv">$DMTCP_COORD_HOST</span><span class="w"> </span>-p<span class="w"> </span><span class="nv">$DMTCP_COORD_PORT</span><span class="w"> </span>--ckpt-open-files<span class="w"> </span>-bc
-
-<span class="w">    </span><span class="c1"># kill the running program and quit</span>
-<span class="w">    </span>dmtcp_command<span class="w"> </span>-h<span class="w"> </span><span class="nv">$DMTCP_COORD_HOST</span><span class="w"> </span>-p<span class="w"> </span><span class="nv">$DMTCP_COORD_PORT</span><span class="w"> </span>--quit
-
-<span class="w">    </span><span class="c1"># resubmit this script to slurm</span>
-<span class="w">    </span>sbatch<span class="w"> </span><span class="nv">$SLURM_JOBSCRIPT</span>
-
-<span class="w">  </span><span class="k">else</span>
-
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;job finished&quot;</span>
-
-<span class="w">  </span><span class="k">fi</span>
-
-<span class="k">fi</span>
-
-<span class="c1"># show the job status info</span>
-scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
+conda<span class="w"> </span>activate<span class="w"> </span>project_ubuntu
+python<span class="w"> </span>do_some_work.py
+</code></pre></div></td></tr></table></div>
+<p>To test, make sure you log into an <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">Ubuntu development node</a>, and submit the job using</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch<span class="w"> </span>my_script_ubuntu.sb
 </code></pre></div></td></tr></table></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6865,7 +6631,7 @@ scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> 
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2024</span>
     </span>
     
 
@@ -6875,7 +6641,7 @@ scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> 
         <span class="md-icon" title="Created">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 14, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2024</span>
     </span>
     
 
@@ -6885,11 +6651,11 @@ scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> 
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
             
         </span>
         <nav>
-            Claire Kopenhafer, Craig Gross, Xiaoge Wang
+            Craig Gross
         </nav>
     </span>
     
@@ -6935,7 +6701,7 @@ scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> 
               
                 
               
-              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Checkpoint%20with%20DMTCP" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Migrating%20Conda%20environments" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
             </div>
           
         </div>

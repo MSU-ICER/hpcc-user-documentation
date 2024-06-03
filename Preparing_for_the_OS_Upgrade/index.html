@@ -651,6 +651,32 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migrating_Conda_Environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating Conda environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -6386,7 +6412,11 @@
 <li><a href="../Migrating_Python_Virtual_Environments/">Reinstall any Python virtual environments</a>.</li>
 <li>Try running a small test of your existing code on <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">the development nodes</a>, replacing the module names with those available on the upgraded system.</li>
 <li>Try running a small test of your existing code with <a href="../Nodes_Available_for_Testing_the_New_OS/#slurm-jobs">a SLURM job</a>.</li>
-<li><strong>If your code no longer runs as expected</strong> it is likely incompatible with the new operating system. If you compile your own code or have built/installed packages in R or Python, rebuild using the modules available on the upgraded system. We recommend doing this in a separate location so your existing code will continue to work.</li>
+<li><strong>If your code no longer runs as expected</strong> it is likely incompatible with the new operating system<ol>
+<li>If you compile your own code or have built/installed packages in R or Python, rebuild using the modules available on the upgraded system. We recommend doing this in a separate location so your existing code will continue to work.</li>
+<li>If you use Conda, consider <a href="../Migrating_Conda_Environments/">reinstalling Conda and your environments</a>.</li>
+</ol>
+</li>
 <li>Test your existing codes and scripts with <a href="../Backwards_Compatibility_with_CentOS/">our backwards compatibility helper commands</a> as a backup.</li>
 </ol>
 <p>If you run into problems at any of these steps, please <a href="https://contact.icer.msu.edu">contact us</a> using the subject "OS Upgrade 2024" with a description of the problem and any files necessary to reproduce it.</p>
