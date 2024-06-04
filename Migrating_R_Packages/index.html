@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../R_workshop_tutorial/">
+        <link rel="prev" href="../Migrating_Python_Virtual_Environments/">
       
       
-        <link rel="next" href="../Installing_TensorFlow_using_anaconda/">
+        <link rel="next" href="../Migrating_Conda_Environments/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Stata - MSU HPCC User Documentation</title>
+        <title>Migrating R packages - MSU HPCC User Documentation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stata" class="md-skip">
+        <a href="#migrating-r-packages" class="md-skip">
           Skip to content
         </a>
       
@@ -153,7 +153,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Stata
+                Migrating R packages
               
             </span>
           </div>
@@ -322,18 +322,20 @@
       
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -353,7 +355,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -498,18 +500,20 @@
                 
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
         
           
           <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
@@ -529,7 +533,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -596,9 +600,35 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Migrating_R_Packages/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating R packages
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -613,6 +643,109 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#save-your-currently-installed-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save your currently installed packages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-your-previous-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup your previous library
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinstall-packages-with-a-version-of-r-on-the-new-operating-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reinstall packages with a version of R on the new operating system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-old-batch-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update old batch scripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-going-back-to-the-old-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: Going back to the old system
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional: Going back to the old system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tell-r-where-your-packages-are-using-an-environment-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tell R where your packages are using an environment variable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tell-r-where-your-packages-are-in-your-r-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tell R where your packages are in your R code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3469,20 +3602,18 @@
       
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
         
           
           <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
@@ -3502,7 +3633,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5595,35 +5726,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Stata
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Stata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5638,87 +5743,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Versions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Versions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gui-version" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GUI version
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#variables-limits" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Variables Limits
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-jobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Running Jobs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#more-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        More help
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6410,22 +6434,66 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#versions" class="md-nav__link">
+  <a href="#save-your-currently-installed-packages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Versions
+        Save your currently installed packages
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Versions">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-your-previous-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup your previous library
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinstall-packages-with-a-version-of-r-on-the-new-operating-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reinstall packages with a version of R on the new operating system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-old-batch-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update old batch scripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-going-back-to-the-old-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: Going back to the old system
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional: Going back to the old system">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gui-version" class="md-nav__link">
+  <a href="#tell-r-where-your-packages-are-using-an-environment-variable" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GUI version
+        Tell R where your packages are using an environment variable
       
     </span>
   </a>
@@ -6433,10 +6501,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#variables-limits" class="md-nav__link">
+  <a href="#tell-r-where-your-packages-are-in-your-r-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Variables Limits
+        Tell R where your packages are in your R code
       
     </span>
   </a>
@@ -6445,28 +6513,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-jobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Running Jobs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#more-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        More help
-      
-    </span>
-  </a>
   
 </li>
       
@@ -6484,9 +6530,41 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+<nav class="md-tags" >
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#how-to-guide" class="md-tag md-tag-icon">how-to guide</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#os-upgrade" class="md-tag md-tag-icon">OS upgrade</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#r" class="md-tag md-tag-icon">R</a>
+    
+  
+</nav>
+
 
   
-    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Stata.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Migrating_R_Packages.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -6494,19 +6572,88 @@
   
 
 
-<h1 id="stata">Stata</h1>
-<p>Many versions of Stata are installed on the ICER HPC. When you log in,
-Stata is not available by default, but it may be load easily using this
-command  (note you must type Stata with a capital 'S'</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Stata
+<h1 id="migrating-r-packages">Migrating R Packages</h1>
+<p>As part of ICER's <a href="../OS_Upgrade/">OS upgrade</a>, the system libraries and available versions of R have changed. This will may require R packages to be reinstalled. To do so, please follow the steps below.</p>
+<div class="admonition note">
+<p class="admonition-title">Optional</p>
+<p>In limited testing, some R packages installed on the current system appear to work on the new system without intervention. However, packages that have external dependencies will need to <a href="../Migrating_to_the_Upgraded_Module_System/">account for new module names</a>, and will likely need to be reinstalled. Additionally, packages installed with an older version of R than is available in the new module system will need to be reinstalled.</p>
+</div>
+<h2 id="save-your-currently-installed-packages">Save your currently installed packages</h2>
+<p>First, log into a development node running CentOS, and start the version of R you are used to using on the HPCC. For the purposes, of this example, we will use <code>R/4.2.1</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
+ssh<span class="w"> </span>dev-amd20
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0<span class="w"> </span>OpenMPI/4.1.4<span class="w"> </span>R/4.2.1
+R
 </code></pre></div></td></tr></table></div>
-<p>This loads Stata SE version 15.  This is equivalent to using the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[hpc@dev-intel18 ~]$ module load Stata/15.0.SE
+<p>Within R, save your installed packages to a file and exit.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">packages</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">installed.packages</span><span class="p">()[,</span><span class="s">&quot;Package&quot;</span><span class="p">]</span>
+<span class="nf">save</span><span class="p">(</span><span class="n">packages</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Rpackages&quot;</span><span class="p">)</span>
+<span class="nf">q</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<p>Stata has a command line version and a <abbr title="Graphic User Interface">GUI</abbr> (windowed) version. To use
-the command line, type stata at the prompt. You will see this :</p>
-<p><strong>Using Stata command line</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<h2 id="backup-your-previous-library">Backup your previous library</h2>
+<p>To avoid conflicts between packages installed on different operating systems, move your old packages to a different location. Usually, your packages are stored in subdirectories of <code>~/R/x86_64-pc-linux-gnu-library</code> labeled by the version of R they were installed with, but if you would like to double check, you can run <code>R</code> and look at the first entry of</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">.libPaths</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Move this library to a backup location so you can continue to use the CentOS operating system if necessary. Run this command from the command line.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv<span class="w"> </span>~/R/x86_64-pc-linux-gnu-library<span class="w"> </span>~/R/x86_64-pc-linux-gnu-library.centos_backup
+</code></pre></div></td></tr></table></div>
+<h2 id="reinstall-packages-with-a-version-of-r-on-the-new-operating-system">Reinstall packages with a version of R on the new operating system</h2>
+<p>Now, log into <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">a development node running the new operating system</a>. Load the version of R you would like to use. ICER highly recommends using <code>R-bundle-CRAN/2023.12-foss-2023a</code>, as this already contains a large number packages users often need, and will reduce the number you need to install manually.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Logout of CentOS dev node back to gateway</span>
+<span class="nb">exit</span>
+ssh<span class="w"> </span>dev-amd20-ubuntu
+<span class="c1"># Load desired version of R</span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>R-bundle-CRAN/2023.12-foss-2023a
+R
+</code></pre></div></td></tr></table></div>
+<p>Then reinstall the packages listed in your <code>Rpackages</code> file that are not already installed.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">load</span><span class="p">(</span><span class="s">&quot;Rpackages&quot;</span><span class="p">)</span>
+<span class="n">new_packages</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">setdiff</span><span class="p">(</span><span class="n">packages</span><span class="p">,</span><span class="w"> </span><span class="nf">installed.packages</span><span class="p">()[,</span><span class="s">&quot;Package&quot;</span><span class="p">])</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">new_packages</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>If you would like to check what packages will be installed before running the <code>install.packages()</code> for loop, you can look at <code>new_packages</code>.</p>
+<p>Your packages will now be ready to use with this new version of R.</p>
+<h2 id="update-old-batch-scripts">Update old batch scripts</h2>
+<p>Assuming these packages were used in a batch script, you now need to update it for the new system. Suppose we have the following script, <code>my_script.sb</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --cpus-per-task=2</span>
+<span class="c1">#SBATCH --mem-per-cpu=500MB</span>
+
+module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0<span class="w"> </span>OpenMPI/4.1.4<span class="w"> </span>R/4.2.1
+Rscript<span class="w"> </span>do_some_work.R
+</code></pre></div></td></tr></table></div>
+<p>Copy the script for the new system.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>my_script.sb<span class="w"> </span>my_script_ubuntu.sb
+</code></pre></div></td></tr></table></div>
+<p>Add the line <code>#SBATCH --reservation=ubuntu_compute</code> and change to using the new version of R. </p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script_ubuntu.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6517,119 +6664,49 @@ the command line, type stata at the prompt. You will see this :</p>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Stata
-<span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>stata
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
-<span class="w">  </span>___<span class="w">  </span>____<span class="w">  </span>____<span class="w">  </span>____<span class="w">  </span>____<span class="w"> </span><span class="o">(</span>R<span class="o">)</span>
-<span class="w"> </span>/__<span class="w">    </span>/<span class="w">   </span>____/<span class="w">   </span>/<span class="w">   </span>____/
-___/<span class="w">   </span>/<span class="w">   </span>/___/<span class="w">   </span>/<span class="w">   </span>/___/<span class="w">   </span><span class="m">15</span>.0<span class="w">   </span>Copyright<span class="w"> </span><span class="m">1985</span>-2017<span class="w"> </span>StataCorp<span class="w"> </span>LLC
-<span class="w">  </span>Statistics/Data<span class="w"> </span>Analysis<span class="w">            </span>StataCorp
-<span class="w">                                      </span><span class="m">4905</span><span class="w"> </span>Lakeway<span class="w"> </span>Drive
-<span class="w">                                      </span>College<span class="w"> </span>Station,<span class="w"> </span>Texas<span class="w"> </span><span class="m">77845</span><span class="w"> </span>USA
-<span class="w">                                      </span><span class="m">800</span>-STATA-PC<span class="w">        </span>http://www.stata.com
-<span class="w">                                      </span><span class="m">979</span>-696-4600<span class="w">        </span>stata@stata.com
-<span class="w">                                      </span><span class="m">979</span>-696-4601<span class="w"> </span><span class="o">(</span>fax<span class="o">)</span>
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --cpus-per-task=2</span>
+<span class="c1">#SBATCH --mem-per-cpu=500MB</span>
+<span class="c1">#SBATCH --reservation=ubuntu_compute</span>
 
-<span class="m">15</span>-user<span class="w"> </span>Stata<span class="w"> </span>network<span class="w"> </span>perpetual<span class="w"> </span>license:
-<span class="w">       </span>Serial<span class="w"> </span>number:<span class="w">  </span><span class="m">401506213245</span>
-<span class="w">         </span>Licensed<span class="w"> </span>to:<span class="w">  </span>iCER<span class="w"> </span>/<span class="w"> </span>HPCC<span class="w"> </span>at<span class="w"> </span>Michigan<span class="w"> </span>State<span class="w"> </span>University
-<span class="w">                       </span>East<span class="w"> </span>Lansing,<span class="w"> </span>MI
+<span class="c1"># Make sure we have the right version of R loaded</span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>R-bundle-CRAN/2023.12-foss-2023a
 
-Notes:
-<span class="w">      </span><span class="m">1</span>.<span class="w">  </span>Unicode<span class="w"> </span>is<span class="w"> </span>supported<span class="p">;</span><span class="w"> </span>see<span class="w"> </span><span class="nb">help</span><span class="w"> </span>unicode_advice.
-
-.
+Rscript<span class="w"> </span>do_some_work.R
 </code></pre></div></td></tr></table></div>
-<p>In which you may type Stata commands. Type 'exit' to quit this
-version. </p>
-<p>To run a Stata do file from the command line in 'batch', you use the
-syntax</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>stata<span class="w"> </span>-b<span class="w"> </span><span class="k">do</span><span class="w"> </span>dofilename.do
+<p>To test, make sure you log into an <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">Ubuntu development node</a>, and submit the job using</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch<span class="w"> </span>my_script_ubuntu.sb
 </code></pre></div></td></tr></table></div>
-<h3 id="versions">Versions</h3>
-<p>Stata comes in several versions: IC, SE, and MP; see
-<a href="https://www.stata.com/products/which-stata-is-right-for-me/">https://www.stata.com/products/which-stata-is-right-for-me/</a>
-for details for the differences. Stata/IC has limitations on the
-numbers of variables that affect most users but has no licensing
-restrictions (see below). While the default version of Stata
-available when you load the module is Stata/SE, you currently have to
-use the command 'stata-se' to start the 'SE' version</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Stata/15.0.SE
-<span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>stata-se<span class="w">  </span><span class="c1"># to run the interactive version</span>
-<span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>stata-se<span class="w"> </span>-b<span class="w"> </span><span class="k">do</span><span class="w"> </span>dofilename.do<span class="w">  </span><span class="c1"># to run a do file </span>
-</code></pre></div></td></tr></table></div>
-<p>However, to use the "MP" Version, you must load it explicitly. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Stata/15.0.MP
-<span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>stata-mp
-</code></pre></div></td></tr></table></div>
-<p>Note that even if you load Stata/MP or SE module, as above, if you just
-use the command <code>stata</code> it will load the IC version. To see which
-version of Stata you are current in, use the <code>about</code> command at the dot
-prompt. To use these special versions to run a bach do file, use
-stata-se and stata-mp instead of plain stata</p>
-<p>For Stata/SE There are 15 licenses available, so 15 users may use it,
-for MP there are 5 user licenses of 8-cores each. Please exit the
-program when you are finished with it.  </p>
-<h4 id="gui-version"><abbr title="Graphic User Interface">GUI</abbr> version</h4>
-<p>To use the <abbr title="Graphic User Interface">GUI</abbr> version, you must first be connected to HPCC with X11
-forwarding ( MobaXterm for Windows, XQuartz for Mac - see 
-<a href="../install_ssh_client/">instructions on installing an <abbr title="Secure Shell">SSH</abbr> client</a> ) 
-or using a web-base connection to HPCC (see  <a href="../Open_OnDemand/">instructions on Connecting
-via web site</a> ).
-Once an X11 or remote desktop client is connected, you can run xstata on
-a dev node:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Stata
-<span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>xstata
-</code></pre></div></td></tr></table></div>
-<p><img alt="A screenshot of the Stata graphic user interface." src="../attachments/11896244/11896243.png" /></p>
-<h4 id="variables-limits">Variables Limits</h4>
-<p>Even if you load the MP or SE versions, Stata limits the number of
-variables to 5000 unless you tell it otherwise.    For information use
-the help set_maxvar command at the dot prompt.   You can set the maxvar
-for your session or in your do file with (for example to 6000)</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>.<span class="w"> </span><span class="nb">set</span><span class="w"> </span>maxvar<span class="w"> </span><span class="m">6000</span>
-</code></pre></div></td></tr></table></div>
-<p>There are other settings related to memory usage which are important as
-Stata attempts to be very conservative.  For more information use the
-Stata "memory" command</p>
-<h3 id="running-jobs">Running Jobs</h3>
-<p>Note you must use the command line version inside a sb script when
-running jobs.  To copy a working example of Stata job file into your 
-home directory, you can use our getexample tool</p>
-<p><strong>Getting Stata Example</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<h2 id="optional-going-back-to-the-old-system">Optional: Going back to the old system</h2>
+<p>In the event that you need to rerun your R code on nodes running CentOS, R will not find your old libraries that you have moved to <code>~/R/x86_64-pc-linux-gnu-library.centos_backup</code>. You have two options:</p>
+<h3 id="tell-r-where-your-packages-are-using-an-environment-variable">Tell R where your packages are using an environment variable</h3>
+<p>This option works for any R code run after the <code>R_LIBS_USER</code> environment variable has been set.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
-<span class="nb">cd</span><span class="w"> </span>~
-getexample<span class="w"> </span>STATA_example
-<span class="nb">cd</span><span class="w"> </span>STATA_example
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
-<span class="c1"># look into the README file in this folder for details</span>
-cat<span class="w"> </span>README
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --cpus-per-task=2</span>
+<span class="c1">#SBATCH --mem-per-cpu=500MB</span>
+
+module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0<span class="w"> </span>OpenMPI/4.1.4<span class="w"> </span>R/4.2.1
+<span class="nb">export</span><span class="w"> </span><span class="nv">R_LIBS_USER</span><span class="o">=</span>~/R/x86_64-pc-linux-gnu-library.centos_backup
+Rscript<span class="w"> </span>do_some_work.R
 </code></pre></div></td></tr></table></div>
-<h3 id="more-help">More help</h3>
-<p>For questions requiring deeper knowledge of statistics,  users could
-contact CSTAT services at 
-<a href="https://cstat.msu.edu/cstat-services">https://cstat.msu.edu/cstat-services</a> and
-use the "schedule a meeting" link to submit an intake form.</p>
+<p>Note that even though the <code>R_LIBS_USER</code> variable is set in the script, you can also set it from the command line before starting <code>R</code> interactively.</p>
+<h3 id="tell-r-where-your-packages-are-in-your-r-code">Tell R where your packages are in your R code</h3>
+<p>This option requires modification to your R code, but is more flexible. Before you run any <code>library()</code> commands in an R script or interactively, run the R command</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">.libpaths</span><span class="p">(</span><span class="s">&quot;~/R/x86_64-pc-linux-gnu-library.centos_backup&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6674,7 +6751,7 @@ use the "schedule a meeting" link to submit an intake form.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 23, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2024</span>
     </span>
     
 
@@ -6684,7 +6761,7 @@ use the "schedule a meeting" link to submit an intake form.</p>
         <span class="md-icon" title="Created">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 24, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2024</span>
     </span>
     
 
@@ -6694,11 +6771,11 @@ use the "schedule a meeting" link to submit an intake form.</p>
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer, Xiaoge Wang
+            Craig Gross
         </nav>
     </span>
     
@@ -6744,7 +6821,7 @@ use the "schedule a meeting" link to submit an intake form.</p>
               
                 
               
-              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Stata" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Migrating%20R%20packages" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
             </div>
           
         </div>
