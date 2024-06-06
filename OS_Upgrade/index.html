@@ -116,6 +116,14 @@
             ICER Contact Page
         </a>
     </li>
+	<li>
+		<a href="https://docs.icer.msu.edu/OS_Upgrade">
+			<span class="twemoji">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 20H9v-8H4.16L12 4.16 19.84 12H15v8Z"/></svg>
+			</span>
+			ICER is upgrading the HPCC operating system. Click here for more information.
+		</a>
+	</li>
 </ul>
 
           </div>
@@ -441,6 +449,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-is-this-happening" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -476,17 +495,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#estimated-timeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Estimated timeline
-      
-    </span>
-  </a>
   
 </li>
       
@@ -557,13 +565,85 @@
   
   
     <li class="md-nav__item">
-      <a href="../Backwards_Compatibility_with_CentOS/" class="md-nav__link">
+      <a href="../OS_Upgrade_Changelog_and_Known_Issues/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
+    Changelog and known issues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
     Backwards compatibility
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Backwards compatibility
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Submitting nodes to the old operating system
   
 
     
@@ -583,13 +663,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../OS_Upgrade_Changelog_and_Known_Issues/" class="md-nav__link">
+      <a href="../Backwards_Compatibility_with_CentOS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Changelog and known issues
+    Backwards compatibility scripts
   
 
     
@@ -598,6 +678,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -648,6 +736,32 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Buyin_Transition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Buy-in transition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -6421,6 +6535,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-is-this-happening" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6456,17 +6581,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#estimated-timeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Estimated timeline
-      
-    </span>
-  </a>
   
 </li>
       
@@ -6518,11 +6632,7 @@
 
 
 <h1 id="operating-system-upgrade">Operating System Upgrade</h1>
-<div class="admonition warning">
-<p class="admonition-title">Early testing!</p>
-<p>Please note that the advice and commands on this page are still being tested. Expect the possibility for bugs and errors, and always test for accuracy by comparing against commands you know already work.</p>
-</div>
-<p>ICER is upgrading the operating system on all development and compute nodes from CentOS 7 to Ubuntu 22.04. This process is expected to be completed in mid-June 2024.</p>
+<p>ICER is upgrading the operating system on all development and compute nodes from CentOS 7 to Ubuntu 22.04. The primary transition for general usage compute nodes will take place on June 17th.</p>
 <p>As part of this process, all software needs to be rebuilt for the new operating system. This includes all user compiled software, and all software provided by ICER via <a href="../Intro_to_modules/">the module system</a>. ICER will be using this as an opportunity to reevaluate software offerings and organization, and as such, the structure of the module system will change.</p>
 <div class="admonition note">
 <p class="admonition-title">Check back for updates!</p>
@@ -6534,12 +6644,42 @@
 <li><strong>Users will need to <a href="../Migrating_to_the_Upgraded_Module_System/">change <code>module load</code> commands, possibly updating to different software versions</a></strong></li>
 <li><strong>Users will likely need to reinstall/recompile software that is not loaded from the module system (including <a href="../Migrating_R_Packages/">packages from R</a>, Python, etc)</strong> (but should test first)</li>
 <li><strong>Users will need to <a href="../Migrating_Python_Virtual_Environments/">reinstall Python virtual environments</a></strong></li>
-<li><strong>Users may need to <a href="../Migrating_Conda_Environments/">reinstall Conda and recreate Conda environments</a></strong> (but should test first)</li>
+<li>Users may need to <a href="../Migrating_Conda_Environments/">reinstall Conda and recreate Conda environments</a> (but should test first)</li>
 <li><a href="../Nodes_Available_for_Testing_the_New_OS/">Testing nodes</a> are available</li>
 <li><a href="../Backwards_Compatibility_with_CentOS/">Backwards compatibility scripts</a> are available</li>
 <li>Help is available! <a href="https://contact.icer.msu.edu">Contact us</a> with any problems or questions you have using the subject line "OS Upgrade 2024"!</li>
 </ul>
 <p>For specific tasks users need to complete to use the new operating system, please see our page on <a href="../Preparing_for_the_OS_Upgrade/">Preparing for the OS Upgrade</a>.</p>
+<h2 id="timeline">Timeline</h2>
+<dl>
+<dt>On June 17</dt>
+<dd>
+<p>We plan to transition most nodes to the new operating system. </p>
+<p>On this date:</p>
+<ul>
+<li>All development nodes will be moved from CentOS to Ubuntu.<ul>
+<li>They will be accessible either with or without the <code>-ubuntu</code> suffix. See our <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">Testing nodes page</a> for more information.</li>
+<li><a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/#log-into-a-development-node-running-the-old-operating-system">Two CentOS gateway nodes will be available under a different name</a></li>
+</ul>
+</li>
+<li>The scheduler (SLURM) will be briefly paused.<ul>
+<li>All jobs currently running will continue to run.</li>
+<li>All jobs in the queue will remain in the queue and be eligible for scheduling when the scheduler is available.</li>
+</ul>
+</li>
+<li>All jobs will be submitted to nodes running the new OS by default either with or without <a href="../Nodes_Available_for_Testing_the_New_OS/#slurm-jobs">the line <code>#SBATCH --reservation=ubuntu_compute</code></a>.<ul>
+<li>Buy-ins and a small group of nodes will temporarily remain on the old operating system. See our instructions for <a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/">Submitting to these nodes</a>.</li>
+</ul>
+</li>
+<li>All OnDemand apps will be replaced by alternatives that run on the new operating system.<ul>
+<li>Apps running on CentOS will still be temporarily available and will have "(Legacy)" in the title.</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>On July 17</dt>
+<dd><a href="../Buyin_Transition/">Buy-in nodes will start being transitioned</a> (unless requested earlier)</dd>
+</dl>
 <h2 id="why-is-this-happening">Why is this happening?</h2>
 <h3 id="operating-system-upgrade_1">Operating system upgrade</h3>
 <p>The HPCC requires operating system updates for similar reasons to a personal computer requiring an operating system upgrade. The current operating system, CentOS 7, was released ten years ago, and is nearing the end of its support. In order to ensure that the HPCC stays secure, operational, and stable, a new, supported operating system will take its place.</p>
@@ -6547,19 +6687,6 @@
 <h3 id="software-upgrade">Software upgrade</h3>
 <p>Behind the scenes, changing a computer's operating system also changes the libraries and programs that the software used on a regular basis relies on. This requires reinstallation of nearly every piece of software to ensure that it is compatible with the new system.</p>
 <p>Historically, ICER has a mix of software from a variety of sources, but primarily uses a tool called <a href="https://easybuild.io">EasyBuild</a> to install and manage software. To better manage future installations and upgrades, we are using this as an opportunity to reassess which software we can most effectively support. The end result will be a software stack better aligned with EasyBuild (which stops supporting older pieces of software), with newer versions that can be tracked and updated more easily.</p>
-<h2 id="estimated-timeline">Estimated timeline</h2>
-<p>The operating system and software upgrade is happening in stages. The following dates are <em>tentative</em>:</p>
-<dl>
-<dt>By May 17</dt>
-<dd>
-<p>We plan to transition approximately 25% of the nodes to the new operating system. Most software requested before April 17 should also be installed.</p>
-</dd>
-<dt>By June 17</dt>
-<dd>
-<p>We plan to transition most of the remainder of the nodes. The remainder of requested and popularly used software should also be installed.</p>
-<p>Most users should be transitioned to the new operating system. A small portion of nodes will temporarily remain on the CentOS operating system and software stack to help facilitate transition. </p>
-</dd>
-</dl>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6604,7 +6731,7 @@
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 5, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 6, 2024</span>
     </span>
     
 
