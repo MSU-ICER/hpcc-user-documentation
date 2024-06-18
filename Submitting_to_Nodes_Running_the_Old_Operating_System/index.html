@@ -23,7 +23,7 @@
     
     
       
-        <title>Submitting nodes to the old operating system - MSU HPCC User Documentation</title>
+        <title>Submitting to nodes running the old operating system - MSU HPCC User Documentation</title>
       
     
     
@@ -118,14 +118,6 @@
             ICER Contact Page
         </a>
     </li>
-	<li>
-		<a href="https://docs.icer.msu.edu/OS_Upgrade">
-			<span class="twemoji">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 20H9v-8H4.16L12 4.16 19.84 12H15v8Z"/></svg>
-			</span>
-			ICER is upgrading the HPCC operating system. Click here for more information.
-		</a>
-	</li>
 </ul>
 
           </div>
@@ -163,7 +155,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Submitting nodes to the old operating system
+                Submitting to nodes running the old operating system
               
             </span>
           </div>
@@ -408,13 +400,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../Preparing_for_the_OS_Upgrade/" class="md-nav__link">
+      <a href="../Migrating_to_the_New_Operating_System/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Preparing for the OS upgrade
+    Migrating to the new operating system
   
 
     
@@ -434,13 +426,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../Nodes_Available_for_Testing_the_New_OS/" class="md-nav__link">
+      <a href="../Accessing_Nodes_Running_Ubuntu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Nodes available for testing the new OS
+    Accessing nodes running Ubuntu
   
 
     
@@ -575,7 +567,7 @@
   <span class="md-ellipsis">
     
   
-    Submitting nodes to the old operating system
+    Submitting to nodes running the old operating system
   
 
     
@@ -592,7 +584,7 @@
   <span class="md-ellipsis">
     
   
-    Submitting nodes to the old operating system
+    Submitting to nodes running the old operating system
   
 
     
@@ -6583,10 +6575,10 @@
 
 
 <h1 id="submitting-to-nodes-running-the-old-operating-system">Submitting to Nodes Running the Old Operating System</h1>
-<p>After most nodes have been transitioned to the new operating system, a small number will be left on the old operating system for compatibility. These nodes are inaccessible by default and require special steps to use.</p>
+<p>After ICER transitioned most compute nodes to Ubuntu, a small number have been left on the old operating system for compatibility. These nodes are inaccessible by default and require special steps to use.</p>
 <div class="admonition warning">
 <p class="admonition-title">Nodes on old operating system are temporary</p>
-<p>A small group of nodes will be left on the old operating system only temporarily. This is meant to facilitate users who still need to use the old system for emergency jobs that cannot be immediately <a href="../Preparing_for_the_OS_Upgrade/">transitioned to the new operating system</a>. Please do not rely on the availability of these nodes past July 17th, and <a href="https://contact.icer.msu.edu">reach out to us</a> if you have problems transitioning to the new operating system.</p>
+<p>A small group of nodes have been left on the old operating system only temporarily. This is meant to facilitate users who still need to use the old system for emergency jobs that cannot be immediately <a href="../Migrating_to_the_New_Operating_System/">transitioned to the new operating system</a>. Please do not rely on the availability of these nodes past July 17th, and <a href="https://contact.icer.msu.edu">reach out to us</a> if you have problems transitioning to the new operating system.</p>
 </div>
 <h2 id="log-into-a-development-node-running-the-old-operating-system">Log into a development node running the old operating system</h2>
 <p>Two development nodes will be available running CentOS. This includes</p>
@@ -6596,12 +6588,12 @@
 </ul>
 <p>You must log into one of these nodes to submit your job.</p>
 <h2 id="add-a-reservation-to-your-job-script">Add a reservation to your job script</h2>
-<p>To ensure that your jobs route to nodes running the old operating system, add the line</p>
+<p>To ensure that your jobs run on nodes using the old operating system, add the line</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH --reservation=centos_compute</span>
 </code></pre></div></td></tr></table></div>
 <p>to your job script. You should be able to successfully submit your job. Note that since there will be very few nodes running CentOS remaining, your queue time is likely to be substantially higher.</p>
 <h2 id="using-ondemand">Using OnDemand</h2>
-<p>All apps will be replaced by versions that work only on the new operating system by default. To run on the old operating system, please use the app tagged as "(Legacy)" in the Interactive Apps list.</p>
+<p>All apps have been replaced by versions that work only on the new operating system by default. To run on the old operating system, please use the app tagged as "(Legacy)" in the Interactive Apps list.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6646,7 +6638,7 @@
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 6, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 14, 2024</span>
     </span>
     
 
@@ -6716,7 +6708,7 @@
               
                 
               
-              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Submitting%20nodes%20to%20the%20old%20operating%20system" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Submitting%20to%20nodes%20running%20the%20old%20operating%20system" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
             </div>
           
         </div>

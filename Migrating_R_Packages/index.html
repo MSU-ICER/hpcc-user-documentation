@@ -118,14 +118,6 @@
             ICER Contact Page
         </a>
     </li>
-	<li>
-		<a href="https://docs.icer.msu.edu/OS_Upgrade">
-			<span class="twemoji">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 20H9v-8H4.16L12 4.16 19.84 12H15v8Z"/></svg>
-			</span>
-			ICER is upgrading the HPCC operating system. Click here for more information.
-		</a>
-	</li>
 </ul>
 
           </div>
@@ -408,13 +400,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../Preparing_for_the_OS_Upgrade/" class="md-nav__link">
+      <a href="../Migrating_to_the_New_Operating_System/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Preparing for the OS upgrade
+    Migrating to the new operating system
   
 
     
@@ -434,13 +426,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../Nodes_Available_for_Testing_the_New_OS/" class="md-nav__link">
+      <a href="../Accessing_Nodes_Running_Ubuntu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Nodes available for testing the new OS
+    Accessing nodes running Ubuntu
   
 
     
@@ -564,7 +556,7 @@
   <span class="md-ellipsis">
     
   
-    Submitting nodes to the old operating system
+    Submitting to nodes running the old operating system
   
 
     
@@ -6721,13 +6713,13 @@
 <p>In limited testing, some R packages installed on the current system appear to work on the new system without intervention. However, packages that have external dependencies will need to <a href="../Migrating_to_the_Upgraded_Module_System/">account for new module names</a>, and will likely need to be reinstalled. Additionally, packages installed with an older version of R than is available in the new module system will need to be reinstalled.</p>
 </div>
 <h2 id="save-your-currently-installed-packages">Save your currently installed packages</h2>
-<p>First, log into a development node running CentOS, and start the version of R you are used to using on the HPCC. For the purposes, of this example, we will use <code>R/4.2.1</code>.</p>
+<p>First, log into <a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/#log-into-a-development-node-running-the-old-operating-system">a development node running CentOS</a>, and start the version of R you are used to using on the HPCC. For the purposes, of this example, we will use <code>R/4.2.1</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
-ssh<span class="w"> </span>dev-amd20
+ssh<span class="w"> </span>dev-intel16-centos
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0<span class="w"> </span>OpenMPI/4.1.4<span class="w"> </span>R/4.2.1
 R
@@ -6747,7 +6739,7 @@ R
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv<span class="w"> </span>~/R/x86_64-pc-linux-gnu-library<span class="w"> </span>~/R/x86_64-pc-linux-gnu-library.centos_backup
 </code></pre></div></td></tr></table></div>
 <h2 id="reinstall-packages-with-a-version-of-r-on-the-new-operating-system">Reinstall packages with a version of R on the new operating system</h2>
-<p>Now, log into <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">a development node running the new operating system</a>. Load the version of R you would like to use. ICER highly recommends using <code>R-bundle-CRAN/2023.12-foss-2023a</code>, as this already contains a large number packages users often need, and will reduce the number you need to install manually.</p>
+<p>Now, log into <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">a development node running the new operating system</a>. Load the version of R you would like to use. ICER highly recommends using <code>R-bundle-CRAN/2023.12-foss-2023a</code>, as this already contains a large number packages users often need, and will reduce the number you need to install manually.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6756,7 +6748,7 @@ R
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Logout of CentOS dev node back to gateway</span>
 <span class="nb">exit</span>
-ssh<span class="w"> </span>dev-amd20-ubuntu
+ssh<span class="w"> </span>dev-amd20
 <span class="c1"># Load desired version of R</span>
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>R-bundle-CRAN/2023.12-foss-2023a
@@ -6794,7 +6786,7 @@ Rscript<span class="w"> </span>do_some_work.R
 <p>Copy the script for the new system.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>my_script.sb<span class="w"> </span>my_script_ubuntu.sb
 </code></pre></div></td></tr></table></div>
-<p>Add the line <code>#SBATCH --reservation=ubuntu_compute</code> and change to using the new version of R. </p>
+<p>Then, change to using the new version of R. </p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script_ubuntu.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6805,13 +6797,11 @@ Rscript<span class="w"> </span>do_some_work.R
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=01:00:00</span>
 <span class="c1">#SBATCH --cpus-per-task=2</span>
 <span class="c1">#SBATCH --mem-per-cpu=500MB</span>
-<span class="c1">#SBATCH --reservation=ubuntu_compute</span>
 
 <span class="c1"># Make sure we have the right version of R loaded</span>
 module<span class="w"> </span>purge
@@ -6819,11 +6809,11 @@ module<span class="w"> </span>load<span class="w"> </span>R-bundle-CRAN/2023.12-
 
 Rscript<span class="w"> </span>do_some_work.R
 </code></pre></div></td></tr></table></div>
-<p>To test, make sure you log into an <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">Ubuntu development node</a>, and submit the job using</p>
+<p>To test, make sure you log into an <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">Ubuntu development node</a>, and submit the job using</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch<span class="w"> </span>my_script_ubuntu.sb
 </code></pre></div></td></tr></table></div>
 <h2 id="optional-going-back-to-the-old-system">Optional: Going back to the old system</h2>
-<p>In the event that you need to rerun your R code on nodes running CentOS, R will not find your old libraries that you have moved to <code>~/R/x86_64-pc-linux-gnu-library.centos_backup</code>. You have two options:</p>
+<p>In the event that you need to rerun your R code on CentOS nodes, R will not find your old libraries that you have moved to <code>~/R/x86_64-pc-linux-gnu-library.centos_backup</code>. You have two options:</p>
 <h3 id="tell-r-where-your-packages-are-using-an-environment-variable">Tell R where your packages are using an environment variable</h3>
 <p>This option works for any R code run after the <code>R_LIBS_USER</code> environment variable has been set.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6893,7 +6883,7 @@ Rscript<span class="w"> </span>do_some_work.R
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 14, 2024</span>
     </span>
     
 

@@ -118,14 +118,6 @@
             ICER Contact Page
         </a>
     </li>
-	<li>
-		<a href="https://docs.icer.msu.edu/OS_Upgrade">
-			<span class="twemoji">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 20H9v-8H4.16L12 4.16 19.84 12H15v8Z"/></svg>
-			</span>
-			ICER is upgrading the HPCC operating system. Click here for more information.
-		</a>
-	</li>
 </ul>
 
           </div>
@@ -408,13 +400,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../Preparing_for_the_OS_Upgrade/" class="md-nav__link">
+      <a href="../Migrating_to_the_New_Operating_System/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Preparing for the OS upgrade
+    Migrating to the new operating system
   
 
     
@@ -434,13 +426,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../Nodes_Available_for_Testing_the_New_OS/" class="md-nav__link">
+      <a href="../Accessing_Nodes_Running_Ubuntu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Nodes available for testing the new OS
+    Accessing nodes running Ubuntu
   
 
     
@@ -643,7 +635,7 @@
   <span class="md-ellipsis">
     
   
-    Submitting nodes to the old operating system
+    Submitting to nodes running the old operating system
   
 
     
@@ -6641,28 +6633,26 @@ RSA key fingerprint is SHA256:rydhZ58BeXsXgWQisWlbH6E0IFG+2+LSxC9a7OfZBro.
 This key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 </code></pre></div></td></tr></table></div>
-<p>These messages are expected as the keys used to verify the "identity" of the development nodes have changed from what your computer has used before. To fix the first error, first find the value of <code>&lt;location&gt;</code> in the above error message. On Mac computers this is usually <code>User/&lt;username&gt;</code> and on Linux computers, this usually <code>/home/&lt;username&gt;</code>, where <code>&lt;username&gt;</code> is your username on your local computer, not your MSU NetID. Then run the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh-keygen -R &lt;dev-node-name&gt; -f &lt;location&gt;/.ssh/known_hosts
+<p>These messages are expected as the keys used to verify the "identity" of the development nodes have changed from what your computer has used before. To fix the first error, run the command</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh-keygen -R &lt;dev-node-name&gt; -f ~/.ssh/known_hosts
 </code></pre></div></td></tr></table></div>
-<p>Alternatively, you can also delete the file <code>&lt;location&gt;/.ssh/known_hosts</code> to reset all host keys. This will result in receiving the second message anytime you <abbr title="Secure Shell">SSH</abbr> to any other computer (even ones outside of ICER, like GitHub) until you've accepted the connection again.</p>
+<p>on your local computer, not the HPCC. Alternatively, you can also delete the file <code>~/.ssh/known_hosts</code> to reset all host keys. This will result in receiving the second message anytime you <abbr title="Secure Shell">SSH</abbr> to any other computer (even ones outside of ICER, like GitHub) until you've accepted the connection again.</p>
 <p>To accept the new connection and fix the second error, enter "yes" and hit enter.</p>
 </li>
 <li>
 <p>The <code>module load</code> command is case sensitive, e.g., <code>module load Python</code> works, but <code>module load python</code> does not. Please use <code>module spider</code> to find the correct name, including capitalization, of the modules you would like to load. We are working on bringing case insensitivity back to the module system.</p>
 </li>
 <li>When using the OnDemand Desktop, you may receive an error dialog stating "The panel encountered a problem while loading 'IndicatorAppletCompleteFactory::IndicatorAppletComplete'. Do you want to delete the applet from your configuration?" Click the "Delete" option, and this error will not return in the future.</li>
-<li>Please note that all jobs need to be submitted from a node running on the same operating system as the target node (i.e., only submit a job using the <code>--reservation=ubuntu_compute</code> flag if you are using a development node running Ubuntu).</li>
+<li>Please note that all jobs need to be submitted from a node running on the same operating system as the target node (i.e., only submit a job that can run on Ubuntu using a development node running Ubuntu).</li>
 <li>We are noticing problems with the <code>GROMACS</code> <abbr title="Message Passing Interface">MPI</abbr> tests on older nodes. For this reason, <code>GROMACS</code> is currently available on every cluster except for <code>intel14</code> and <code>intel16</code>.</li>
-<li>The <code>quota</code> command is currently non-functional, but is being worked on.</li>
 <li>
 <p>The R package <code>Matrix</code> (which is a dependency for many other packages including <code>ggplot2</code>) is incompatible with versions of R earlier than 4.4.0 (i.e., all of the versions installed on the new operating system. We recommend using the <code>R-bundle-CRAN</code> module instead of <code>R</code> which includes a pre-installed version of <code>Matrix</code>. If you need to install it yourself using <code>install.packages</code>, use the command</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>install.packages(https://cran.r-project.org/src/contrib/Archive/Matrix/Matrix_1.6-5.tar.gz, repos=NULL, type=&quot;source&quot;)
 </code></pre></div></td></tr></table></div>
 </li>
 <li>
-<p>The <code>powertools</code> module is available, but the tools within have not been checked for compatibility with the new operating system. Many work already, but others will need modifications. If one of the tools you need is not working, please request that we update it using the <a href="https://contact.icer.msu.edu">contact form</a> to help us prioritize our updates.</p>
+<p>The <code>powertools</code> module is available, but some tools still require modification to work on the new system. If one of the tools you need is not working, please request that we update it using the <a href="https://contact.icer.msu.edu">contact form</a> to help us prioritize our updates.</p>
 </li>
-<li><code>OpenMPI/4.1.5-GCCcore-12.3.0</code> has issues when allocating at least 15 tasks to one node, and exactly one task to another. Until we can track down the source of this error, we recommend submitting SLURM scripts specifying <code>--ntasks-per-node</code> instead of just <code>--ntasks</code> so that tasks are spread equally between requested nodes.</li>
 </ul>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6708,7 +6698,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 17, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 18, 2024</span>
     </span>
     
 

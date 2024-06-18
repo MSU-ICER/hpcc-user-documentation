@@ -118,14 +118,6 @@
             ICER Contact Page
         </a>
     </li>
-	<li>
-		<a href="https://docs.icer.msu.edu/OS_Upgrade">
-			<span class="twemoji">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 20H9v-8H4.16L12 4.16 19.84 12H15v8Z"/></svg>
-			</span>
-			ICER is upgrading the HPCC operating system. Click here for more information.
-		</a>
-	</li>
 </ul>
 
           </div>
@@ -408,13 +400,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../Preparing_for_the_OS_Upgrade/" class="md-nav__link">
+      <a href="../Migrating_to_the_New_Operating_System/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Preparing for the OS upgrade
+    Migrating to the new operating system
   
 
     
@@ -434,13 +426,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../Nodes_Available_for_Testing_the_New_OS/" class="md-nav__link">
+      <a href="../Accessing_Nodes_Running_Ubuntu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Nodes available for testing the new OS
+    Accessing nodes running Ubuntu
   
 
     
@@ -564,7 +556,7 @@
   <span class="md-ellipsis">
     
   
-    Submitting nodes to the old operating system
+    Submitting to nodes running the old operating system
   
 
     
@@ -6707,7 +6699,7 @@
 
 <h1 id="migrating-to-the-upgraded-module-system">Migrating to the upgraded module system</h1>
 <p>The <a href="../OS_Upgrade/">OS upgrade</a> requires reinstalling all software on the HPCC. ICER has also used this as an opportunity to <a href="../OS_Upgrade/#software-upgrade">realign our module system closer to the tools we use to install software</a>.</p>
-<p>As such, users will have to take steps to transition their workflows to work successfully with the new module system. Please follow the steps below to make the necessary changes.</p>
+<p>As such, users have to take steps to transition their workflows to work successfully with the new module system. Please follow the steps below to make the necessary changes.</p>
 <p>The key points are to:</p>
 <ol>
 <li><a href="#find-the-new-names-of-software">Look up the new names/versions for software</a></li>
@@ -6787,10 +6779,10 @@ To search for other versions that may have compatible dependencies. If there are
 before attempting to load this module. For additional assistance, please contact ICER staff at https://contact.icer.msu.edu.
 </code></pre></div></td></tr></table></div>
 <p>Instead, you will need to search for versions of the software that have compatible toolchains using the <code>module spider</code> command (again, see <a href="#find-the-new-names-of-software">the above example</a>).</p>
-<p>Another alternative (if it fits your workflow) is to load these modules in separate stages. First, load the first module, and do your work with that software. Then run <code>module purge</code>, load the second software, and do your work with that software.</p>
+<p>Another alternative (if it fits your workflow) is to load these modules in separate stages. First, load the first module, and do your work with that software. Then run <code>module purge</code>, load the second module, and do your work with that software.</p>
 <h3 id="loading-modules-from-subtoolchains-is-also-allowed">Loading modules from subtoolchains is also allowed</h3>
-<p>You are also allowed to load modules from compatible "subtoolchains" as one that's already loaded, that is, software that has been installed with a subset of the pieces in a full toolchain. For example, the <code>foss/2023a</code> toolchain includes <code>GCCcore/12.3.0</code> which is a subtoolchain. The two primary toolchains are <code>foss</code> and <code>intel</code>. For a full listing of their subtoolchains, see <a href="https://docs.easybuild.io/common-toolchains/#newest-generations-2022b-and-later">EasyBuild's documentation</a>, but common examples include <code>gfbf</code>, <code>gompi</code>, <code>iimpi</code>, and <code>iimkl</code>.</p>
-<p>Most subtoolchains share the same versioning scheme, labeled by a year and a letter. On the HPCC the three primary versions of all toolchains are <code>2022b</code>, <code>2023a</code>, and <code>2023b</code>. So for example, you can load a module with the <code>foss-2023a</code> and <code>gfbf-2023a</code> toolchains at the same time. The exception to this scheme is <code>GCCcore</code>. It is always named using the version of the <abbr title="GNU Compiler Collection">GCC</abbr> software, and corresponds to the year/letter scheme as follows:</p>
+<p>You are also allowed to load modules from "subtoolchains" that are compatible with a toolchain that is already loaded, that is, software that has been installed with a subset of the pieces in a full toolchain. For example, the <code>foss/2023a</code> toolchain includes <code>GCCcore/12.3.0</code> which is a subtoolchain. The two primary toolchains are <code>foss</code> and <code>intel</code>. For a full listing of their subtoolchains, see <a href="https://docs.easybuild.io/common-toolchains/#newest-generations-2022b-and-later">EasyBuild's documentation</a>, but common examples include <code>gfbf</code>, <code>gompi</code>, <code>iimpi</code>, and <code>iimkl</code>.</p>
+<p>Most subtoolchains share the same versioning scheme, labeled by a year and a letter. On the HPCC the three primary versions of all toolchains are <code>2022b</code>, <code>2023a</code>, and <code>2023b</code>. So for example, you can load modules with the <code>foss-2023a</code> and <code>gfbf-2023a</code> toolchains at the same time. The exception to this scheme is <code>GCCcore</code>. It is always named using the version of the <abbr title="GNU Compiler Collection">GCC</abbr> software, and corresponds to the year/letter scheme as follows:</p>
 <ul>
 <li><code>GCCcore/12.2.0</code> is in all <code>2022a</code> toolchains</li>
 <li><code>GCCcore/12.3.0</code> is in all <code>2023a</code> toolchains</li>
@@ -6951,7 +6943,7 @@ Names marked by a trailing (E) are extensions provided by another module.
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 14, 2024</span>
     </span>
     
 

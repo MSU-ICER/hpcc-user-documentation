@@ -12,7 +12,7 @@
         <link rel="prev" href="../Dashboard/">
       
       
-        <link rel="next" href="../Preparing_for_the_OS_Upgrade/">
+        <link rel="next" href="../Migrating_to_the_New_Operating_System/">
       
       
         
@@ -118,14 +118,6 @@
             ICER Contact Page
         </a>
     </li>
-	<li>
-		<a href="https://docs.icer.msu.edu/OS_Upgrade">
-			<span class="twemoji">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 20H9v-8H4.16L12 4.16 19.84 12H15v8Z"/></svg>
-			</span>
-			ICER is upgrading the HPCC operating system. Click here for more information.
-		</a>
-	</li>
 </ul>
 
           </div>
@@ -515,13 +507,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../Preparing_for_the_OS_Upgrade/" class="md-nav__link">
+      <a href="../Migrating_to_the_New_Operating_System/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Preparing for the OS upgrade
+    Migrating to the new operating system
   
 
     
@@ -541,13 +533,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../Nodes_Available_for_Testing_the_New_OS/" class="md-nav__link">
+      <a href="../Accessing_Nodes_Running_Ubuntu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Nodes available for testing the new OS
+    Accessing nodes running Ubuntu
   
 
     
@@ -671,7 +663,7 @@
   <span class="md-ellipsis">
     
   
-    Submitting nodes to the old operating system
+    Submitting to nodes running the old operating system
   
 
     
@@ -6660,46 +6652,45 @@
 
 
 <h1 id="operating-system-upgrade">Operating System Upgrade</h1>
-<p>ICER is upgrading the operating system on all development and compute nodes from CentOS 7 to Ubuntu 22.04. The primary transition for general usage compute nodes will take place on June 17th.</p>
-<p>As part of this process, all software needs to be rebuilt for the new operating system. This includes all user compiled software, and all software provided by ICER via <a href="../Intro_to_modules/">the module system</a>. ICER will be using this as an opportunity to reevaluate software offerings and organization, and as such, the structure of the module system will change.</p>
+<p>ICER has upgraded the operating system on all development and compute nodes from CentOS 7 to Ubuntu 22.04. The primary transition for general usage compute nodes occurred on June 17th, 2024.</p>
+<p>As part of this process, all software must be rebuilt for the new operating system. This includes all user compiled software, and all software provided by ICER via <a href="../Intro_to_modules/">the module system</a>. ICER has used this as an opportunity to reevaluate software offerings and organization, and as such, the structure of the module system has changed.</p>
 <div class="admonition note">
 <p class="admonition-title">Check back for updates!</p>
 <p>This page will continue to be updated with new information. Check back regularly for updates.</p>
 </div>
 <h2 id="summary">Summary</h2>
 <ul>
-<li>ICER is upgrading the operating system on all nodes from CentOS 7 to Ubuntu 22.04</li>
-<li><strong>Users will need to <a href="../Migrating_to_the_Upgraded_Module_System/">change <code>module load</code> commands, possibly updating to different software versions</a></strong></li>
-<li><strong>Users will likely need to reinstall/recompile software that is not loaded from the module system (including <a href="../Migrating_R_Packages/">packages from R</a>, Python, etc)</strong> (but should test first)</li>
-<li><strong>Users will need to <a href="../Migrating_Python_Virtual_Environments/">reinstall Python virtual environments</a></strong></li>
+<li>ICER upgraded the operating system on all nodes from CentOS 7 to Ubuntu 22.04</li>
+<li><strong>Users need to <a href="../Migrating_to_the_Upgraded_Module_System/">change <code>module load</code> commands, possibly updating to different software versions</a></strong></li>
+<li><strong>Users likely need to reinstall/recompile software that is not loaded from the module system (including <a href="../Migrating_R_Packages/">packages from R</a>, Python, etc)</strong> (but should test first)</li>
+<li><strong>Users need to <a href="../Migrating_Python_Virtual_Environments/">reinstall Python virtual environments</a></strong></li>
 <li>Users may need to <a href="../Migrating_Conda_Environments/">reinstall Conda and recreate Conda environments</a> (but should test first)</li>
-<li><a href="../Nodes_Available_for_Testing_the_New_OS/">Testing nodes</a> are available</li>
 <li><a href="../Backwards_Compatibility_with_CentOS/">Backwards compatibility scripts</a> are available</li>
 <li>Help is available! <a href="https://contact.icer.msu.edu">Contact us</a> with any problems or questions you have using the subject line "OS Upgrade 2024"!</li>
 </ul>
-<p>For specific tasks users need to complete to use the new operating system, please see our page on <a href="../Preparing_for_the_OS_Upgrade/">Preparing for the OS Upgrade</a>.</p>
+<p>For specific tasks users need to complete to use the new operating system, please see our page on <a href="../Migrating_to_the_New_Operating_System/">Preparing for the OS Upgrade</a>.</p>
 <h2 id="timeline">Timeline</h2>
 <dl>
 <dt>On June 17</dt>
 <dd>
-<p>We plan to transition most nodes to the new operating system. </p>
+<p>Most nodes are transitioned to the new operating system. </p>
 <p>On this date:</p>
 <ul>
-<li>All development nodes will be moved from CentOS to Ubuntu.<ul>
-<li>They will be accessible either with or without the <code>-ubuntu</code> suffix. See our <a href="../Nodes_Available_for_Testing_the_New_OS/#development-nodes">Testing nodes page</a> for more information.</li>
-<li><a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/#log-into-a-development-node-running-the-old-operating-system">Two CentOS gateway nodes will be available under a different name</a></li>
+<li>All development nodes have been moved from CentOS to Ubuntu.<ul>
+<li>They will be accessible either with or without the <code>-ubuntu</code> suffix. See our <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">Testing nodes page</a> for more information.</li>
+<li><a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/#log-into-a-development-node-running-the-old-operating-system">Two CentOS gateway nodes are be available under a different name</a></li>
 </ul>
 </li>
-<li>The scheduler (SLURM) will be briefly paused.<ul>
+<li>The scheduler (SLURM) will briefly be paused.<ul>
 <li>All jobs currently running will continue to run.</li>
 <li>All jobs in the queue will remain in the queue and be eligible for scheduling when the scheduler is available.</li>
 </ul>
 </li>
-<li>All jobs will be submitted to nodes running the new OS by default either with or without <a href="../Nodes_Available_for_Testing_the_New_OS/#slurm-jobs">the line <code>#SBATCH --reservation=ubuntu_compute</code></a>.<ul>
+<li>All jobs are now submitted to nodes running the new OS by default either with or without <a href="../Accessing_Nodes_Running_Ubuntu/#slurm-jobs">the line <code>#SBATCH --reservation=ubuntu_compute</code></a>.<ul>
 <li>Buy-ins and a small group of nodes will temporarily remain on the old operating system. See our instructions for <a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/">Submitting to these nodes</a>.</li>
 </ul>
 </li>
-<li>All OnDemand apps will be replaced by alternatives that run on the new operating system.<ul>
+<li>All OnDemand apps have been replaced by alternatives that run on the new operating system.<ul>
 <li>Apps running on CentOS will still be temporarily available and will have "(Legacy)" in the title.</li>
 </ul>
 </li>
@@ -6714,7 +6705,7 @@
 <p>ICER has chosen to change Linux distributions from CentOS (or any other Red Hat Enterprise Linux derivative) to Ubuntu. This decision involves many factors, but primary amongst them was the ability to continue using ICER's older nodes, increasing the supply of available compute to our users. From a practical perspective, Ubuntu and CentOS will feel very similar to users, and the majority of commands you may be used to using will still continue to work.</p>
 <h3 id="software-upgrade">Software upgrade</h3>
 <p>Behind the scenes, changing a computer's operating system also changes the libraries and programs that the software used on a regular basis relies on. This requires reinstallation of nearly every piece of software to ensure that it is compatible with the new system.</p>
-<p>Historically, ICER has a mix of software from a variety of sources, but primarily uses a tool called <a href="https://easybuild.io">EasyBuild</a> to install and manage software. To better manage future installations and upgrades, we are using this as an opportunity to reassess which software we can most effectively support. The end result will be a software stack better aligned with EasyBuild (which stops supporting older pieces of software), with newer versions that can be tracked and updated more easily.</p>
+<p>Historically, ICER has a mix of software from a variety of sources, but primarily uses a tool called <a href="https://easybuild.io">EasyBuild</a> to install and manage software. To better manage future installations and upgrades, we have used this as an opportunity to reassess which software we can most effectively support. The end result is a software stack better aligned with EasyBuild (which stops supporting older pieces of software) that includes with newer versions that can be tracked and updated more easily.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6759,7 +6750,7 @@
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 6, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 14, 2024</span>
     </span>
     
 
