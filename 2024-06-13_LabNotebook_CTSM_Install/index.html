@@ -6450,6 +6450,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config_machinesxml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config_machines.xml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config_compilerxml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config_compiler.xml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config_batchxml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config_batch.xml
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -6576,7 +6615,321 @@ module<span class="w"> </span>load<span class="w"> </span>CMake<span class="w"> 
 <p class="admonition-title">Warning</p>
 <p>ESMF is compiled with the FOSS (GNU/<abbr title="GNU Compiler Collection">GCC</abbr>) toolchain. Make sure you specify the GNU gcc compiler when building your models.</p>
 </div>
-<p>CESM and CTSM use "machine files" to understand the environment they are running in. You will need to set up a <code>config_machines.xml</code> file containing the appropriate settings for ICER. <em>Example file in progress.</em></p>
+<p>CESM and CTSM use "machine files" to understand the environment they are running in. You will need to set up a <code>config_machines.xml</code> file containing the appropriate settings for ICER.</p>
+<p>These files should be in this directory for a user $USER <code>/mnt/home/$USER/.cime</code></p>
+<h3 id="config_machinesxml">config_machines.xml</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+
+<span class="cm">&lt;!-- This is a partial cime machine port which should be able to get</span>
+<span class="cm">          through the case.build step. Trying to get further than that will</span>
+<span class="cm">     cause problems, because various directory paths won&#39;t be set up</span>
+<span class="cm">     properly.</span>
+
+<span class="cm">     If you are looking at the template file: Variable names prefixed</span>
+<span class="cm">     with a dollar sign will be replaced with machine-specific values. A</span>
+<span class="cm">     double dollar sign gets replaced with a single dollar sign, so</span>
+<span class="cm">     something like $MYVAR refers to the MYVAR cime variable.</span>
+<span class="cm">     --&gt;</span>
+
+<span class="nt">&lt;config_machines</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;2.0&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;machine</span><span class="w"> </span><span class="na">MACH=</span><span class="s">&quot;dev-amd20&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Text description of the machine --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DESC&gt;</span>Temporary<span class="w"> </span>build<span class="w"> </span>information<span class="w"> </span>for<span class="w"> </span>a<span class="w"> </span>CTSM<span class="w"> </span>build<span class="nt">&lt;/DESC&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- OS: the operating system of this machine. Passed to cppflags for</span>
+<span class="cm">                  compiled programs as -DVALUE  recognized are LINUX, AIX, Darwin, CNL --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;OS&gt;</span>UBUNTU<span class="nt">&lt;/OS&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- COMPILERS: compilers supported on this machine, comma seperated list, first is default --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;COMPILERS&gt;</span>gnu<span class="nt">&lt;/COMPILERS&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- MPILIBS: mpilibs supported on this machine, comma seperated list,</span>
+<span class="cm">                  first is default, mpi-serial is assumed and not required in</span>
+<span class="cm">         this list.</span>
+
+<span class="cm">         It appears that the particular value is not important here: all</span>
+<span class="cm">         that matters is that we&#39;re self-consistent. (See</span>
+<span class="cm">         https://github.com/ESMCI/cime/issues/3537)</span>
+<span class="cm">    --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;MPILIBS&gt;</span>mpich<span class="nt">&lt;/MPILIBS&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- CIME_OUTPUT_ROOT: Base directory for case output,</span>
+<span class="cm">                  the case/bld and case/run directories are written below here --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;CIME_OUTPUT_ROOT&gt;</span>/mnt/scratch/$USER/<span class="nt">&lt;/CIME_OUTPUT_ROOT&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- DIN_LOC_ROOT: location of the inputdata data directory</span>
+<span class="cm">                  inputdata is downloaded automatically on a case by case basis as</span>
+<span class="cm">         long as the user has write access to this directory. --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DIN_LOC_ROOT&gt;</span>/mnt/scratch/$USER/<span class="nt">&lt;/DIN_LOC_ROOT&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- DIN_LOC_ROOT_CLMFORC: override of DIN_LOC_ROOT specific to CLM</span>
+<span class="cm">                  forcing data --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DIN_LOC_ROOT_CLMFORC&gt;</span>$DIN_LOC_ROOT/<span class="nt">&lt;/DIN_LOC_ROOT_CLMFORC&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- DOUT_S_ROOT: root directory of short term archive files, short term</span>
+<span class="cm">               archiving moves model output data out of the run directory, but</span>
+<span class="cm">      keeps it on disk--&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DOUT_S_ROOT&gt;</span>$CIME_OUTPUT_ROOT/archive/$CASE<span class="nt">&lt;/DOUT_S_ROOT&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- GMAKE: gnu compatible make tool, default is &#39;gmake&#39; --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;GMAKE&gt;</span>gmake<span class="nt">&lt;/GMAKE&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- GMAKE_J: optional number of threads to pass to the gmake flag --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;GMAKE_J&gt;</span>12<span class="nt">&lt;/GMAKE_J&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- BATCH_SYSTEM: batch system used on this machine,</span>
+<span class="cm">                  supported values are: none, cobalt, lsf, pbs, slurm.</span>
+
+<span class="cm">         This is irrelevant for this build-only port.</span>
+<span class="cm">    --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;BATCH_SYSTEM&gt;</span>slurm<span class="nt">&lt;/BATCH_SYSTEM&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- SUPPORTED_BY: contact information for support for this system</span>
+<span class="cm">               this field is not used in code --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;SUPPORTED_BY&gt;</span>CTSM<span class="nt">&lt;/SUPPORTED_BY&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- MAX_TASKS_PER_NODE: maximum number of threads*tasks per shared</span>
+<span class="cm">                  memory node on this machine, should always be &gt;=</span>
+<span class="cm">         MAX_MPITASKS_PER_NODE.</span>
+
+<span class="cm">         This is irrelevant for this build-only port.</span>
+<span class="cm">    --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;MAX_TASKS_PER_NODE&gt;</span>28<span class="nt">&lt;/MAX_TASKS_PER_NODE&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- MAX_MPITASKS_PER_NODE: number of physical PES per shared node</span>
+<span class="cm">                  on this machine, in practice the MPI tasks per node will not</span>
+<span class="cm">         exceed this value.</span>
+<span class="cm">    --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;MAX_MPITASKS_PER_NODE&gt;</span>28<span class="nt">&lt;/MAX_MPITASKS_PER_NODE&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- mpirun: The mpi exec to start a job on this machine, supported values</span>
+<span class="cm">                  are values listed in MPILIBS above, default and mpi-serial.</span>
+
+<span class="cm">         This is irrelevant for this build-only port.</span>
+<span class="cm">    --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;mpirun</span><span class="w"> </span><span class="na">mpilib=</span><span class="s">&quot;default&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="cm">&lt;!-- name of the exectuable used to launch mpi jobs --&gt;</span>
+<span class="w">      </span><span class="nt">&lt;executable&gt;</span>srun<span class="nt">&lt;/executable&gt;</span>
+<span class="w">      </span><span class="cm">&lt;!-- arguments to the mpiexec command, the name attribute here is ignored--&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arguments&gt;</span>
+<span class="w">              </span><span class="cm">&lt;!-- &lt;arg name=&quot;anum_tasks&quot;&gt; -ntasks $TOTALPES&lt;/arg&gt;</span>
+<span class="cm">                        &lt;arg name=&quot;labelstdout&quot;&gt;-prepend-rank&lt;/arg&gt;--&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;num_tasks&quot;</span><span class="nt">&gt;</span>--ntasks={{<span class="w"> </span>total_tasks<span class="w"> </span>}}<span class="nt">&lt;/arg&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/arguments&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/mpirun&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- module system: allowed module_system type values are:</span>
+<span class="cm">                  module  http://www.tacc.utexas.edu/tacc-projects/mclay/lmod</span>
+<span class="cm">         soft http://www.mcs.anl.gov/hs/software/systems/softenv/softenv-intro.html</span>
+<span class="cm">         none</span>
+
+<span class="cm">         For this build-only port, we don&#39;t specify a module system:</span>
+<span class="cm">         instead, we assume that the user has loaded all relevant</span>
+<span class="cm">         modules prior to starting the build. (Similarly, we assume that</span>
+<span class="cm">         the user has set all relevant environment variables, so don&#39;t</span>
+<span class="cm">         specify any environment variables here.)</span>
+<span class="cm">      --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_system</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;environment_variables</span><span class="w"> </span><span class="na">comp_interface=</span><span class="s">&quot;nuopc&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;env</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ESMFMKFILE&quot;</span><span class="nt">&gt;</span>/opt/software-current/2023.06/x86_64/generic/software/ESMF/8.6.0-foss-2023a/lib/esmf.mk<span class="nt">&lt;/env&gt;</span>
+<span class="w">            </span><span class="nt">&lt;env</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;NETCDF_PATH&quot;</span><span class="nt">&gt;</span>/opt/software-current/2023.06/x86_64/generic/software/netCDF/4.9.2-gompi-2023a<span class="nt">&lt;/env&gt;</span>
+<span class="w">            </span><span class="nt">&lt;env</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;PNETCDF_PATH&quot;</span><span class="nt">&gt;</span>/opt/software-current/2023.06/x86_64/generic/software/netCDF/4.9.2-gompi-2023a<span class="nt">&lt;/env&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/environment_variables&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;/machine&gt;</span>
+<span class="nt">&lt;/config_machines&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="config_compilerxml">config_compiler.xml</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="nt">&lt;compiler</span><span class="w"> </span><span class="na">COMPILER=</span><span class="s">&quot;gnu&quot;</span><span class="w"> </span><span class="na">MACH=</span><span class="s">&quot;dev-amd20&quot;</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;/compiler&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="config_batchxml">config_batch.xml</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+
+<span class="w"> </span><span class="nt">&lt;batch_system</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;slurm&quot;</span><span class="w"> </span><span class="na">MACH=</span><span class="s">&quot;dev-amd20&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;batch_query</span><span class="w"> </span><span class="na">per_job_arg=</span><span class="s">&quot;-j&quot;</span><span class="nt">&gt;</span>squeue<span class="nt">&lt;/batch_query&gt;</span>
+<span class="w">    </span><span class="nt">&lt;batch_submit&gt;</span>sbatch<span class="nt">&lt;/batch_submit&gt;</span>
+<span class="w">    </span><span class="nt">&lt;batch_cancel&gt;</span>scancel<span class="nt">&lt;/batch_cancel&gt;</span>
+<span class="w">    </span><span class="nt">&lt;batch_directive&gt;</span>#SBATCH<span class="nt">&lt;/batch_directive&gt;</span>
+<span class="w">    </span><span class="nt">&lt;jobid_pattern&gt;</span>(\d+)$<span class="nt">&lt;/jobid_pattern&gt;</span>
+<span class="w">    </span><span class="nt">&lt;depend_string&gt;</span><span class="w"> </span>--dependency=afterok:jobid<span class="nt">&lt;/depend_string&gt;</span>
+<span class="w">    </span><span class="nt">&lt;depend_allow_string&gt;</span><span class="w"> </span>--dependency=afterany:jobid<span class="nt">&lt;/depend_allow_string&gt;</span>
+<span class="w">    </span><span class="nt">&lt;depend_separator&gt;</span>,<span class="nt">&lt;/depend_separator&gt;</span>
+<span class="w">    </span><span class="nt">&lt;walltime_format&gt;</span>%H:%M:%S<span class="nt">&lt;/walltime_format&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- replace $USER with your username --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;batch_mail_flag&gt;</span>--mail-user=$USER@msu.edu<span class="nt">&lt;/batch_mail_flag&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&lt;batch_mail_type_flag&gt;</span>--mail-type=$USER@msu.edu<span class="nt">&lt;/batch_mail_type_flag&gt;</span>
+<span class="w">    </span><span class="nt">&lt;batch_mail_type&gt;</span>end<span class="nt">&lt;/batch_mail_type&gt;</span>
+<span class="w">    </span><span class="nt">&lt;directives&gt;</span>
+<span class="w">      </span><span class="nt">&lt;directive&gt;</span><span class="w"> </span>--job-name={{<span class="w"> </span>job_id<span class="w"> </span>}}<span class="nt">&lt;/directive&gt;</span>
+<span class="w">      </span><span class="nt">&lt;directive&gt;</span><span class="w"> </span>--nodes={{<span class="w"> </span>num_nodes<span class="w"> </span>}}<span class="nt">&lt;/directive&gt;</span>
+<span class="w">      </span><span class="nt">&lt;directive&gt;</span><span class="w"> </span>--ntasks-per-node={{<span class="w"> </span>tasks_per_node<span class="w"> </span>}}<span class="nt">&lt;/directive&gt;</span>
+<span class="w">      </span><span class="nt">&lt;directive&gt;</span><span class="w"> </span>--output={{<span class="w"> </span>job_id<span class="w"> </span>}}<span class="w">   </span><span class="nt">&lt;/directive&gt;</span>
+<span class="w">      </span><span class="nt">&lt;directive&gt;</span><span class="w"> </span>--time=02:00:00<span class="w">   </span><span class="nt">&lt;/directive&gt;</span>
+<span class="w">      </span><span class="nt">&lt;directive&gt;</span><span class="w"> </span>--mem=205G<span class="w">                 </span><span class="nt">&lt;/directive&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/directives&gt;</span>
+<span class="w">    </span><span class="nt">&lt;queues&gt;</span>
+<span class="w">      </span><span class="nt">&lt;queue</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/queue&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/queues&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/batch_system&gt;</span>
+</code></pre></div></td></tr></table></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6621,7 +6974,7 @@ module<span class="w"> </span>load<span class="w"> </span>CMake<span class="w"> 
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 1, 2024</span>
     </span>
     
 
