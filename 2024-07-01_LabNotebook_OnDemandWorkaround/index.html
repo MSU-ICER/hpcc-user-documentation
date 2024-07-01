@@ -6509,18 +6509,12 @@ information and other details.</p>
 <p>The information here specifically pertains to the New OS transition and OnDemand outtage in summer 2024</p>
 </div>
 <h1 id="introduction">Introduction</h1>
-<p>As of July 1, 2024 the HPCC is experiencing issues with our service related to upgrading the system OS and an unrelated, unplanned issue with the
-filesystem which is most severely impactinig the OnDemand service. Below we will document workarounds to some common issues users have been encountering
-because of these events.</p>
+<p>The HPCC is experiencing issues with our service related to upgrading the system OS and an unrelated, unplanned issue with the filesystem which is making the system unresponsive and impacting the OnDemand service. Below we will document workarounds to some common issues users have been encountering due to these events.</p>
 <h1 id="new-os">New OS</h1>
-<p>The transition to the new OS has dramatically change how the module system works on HPCC and some software may be available in different (often newer)
-versions or yet to be installed on the new OS. Our ongoing plan is support users by contiuning to install software on the new OS and address issues with
-existing one, but this process may be slower than usual due to the number of request and issues with the file system.</p>
-<p>The easiest workaround for any issues related to the new OS is to make use of the legacy nodes which are running the previous operating system and modele
-system while we complete the transtion. More details can be found <a href="https://docs.icer.msu.edu/Submitting_to_Nodes_Running_the_Old_Operating_System/">here</a></p>
+<p>The transition to the new OS has dramatically change how the module system works on HPCC and some software may be available in different (often newer) versions or yet to be installed on the new OS. Our ongoing plan is support users by contiuning to install software on the new OS and address issues with existing one, but this process may be slower than usual due to the number of request and issues with the file system.</p>
+<p>The easiest workaround for any issues related to the new OS is to make use of the legacy nodes which are running the previous operating system and modele system while we complete the transtion. More details can be found <a href="https://docs.icer.msu.edu/Submitting_to_Nodes_Running_the_Old_Operating_System/">here</a></p>
 <h1 id="ondemand">OnDemand</h1>
-<p>Due to the issues with the file system, OnDemand is periodically experiencing a communication error between it and the rest of the gateway nodes. When this happens, home or the scratch system becomes temporarily unavailable, making the service inaccessible as it stores certain files in the users home directory. Because this issue is intermittment, users may notice that OnDemand is available at time as we work on it, but be aware that service may drop
-again without warning. Below we have some alternatives for commonly used servies on OnDemand.</p>
+<p>OnDemand is periodically experiencing a communication error between it and the rest of the gateway nodes. When this happens, home or the scratch system becomes temporarily unavailable, making the service inaccessible as it stores certain files in the users home directory. Because this issue is intermittment, users may notice that OnDemand is available at time as we work on it, but be aware that service may drop again without warning. Below we have some alternatives for commonly used servies on OnDemand.</p>
 <h2 id="file-uploaddownload">File Upload/Download</h2>
 <p>File transfer can be done via the Globus service, which runs from a web browser independent of OnDemand. Documentation for this service can be found
 <a href="https://docs.icer.msu.edu/Transferring_data_with_Globus/">here</a></p>
@@ -6529,16 +6523,14 @@ again without warning. Below we have some alternatives for commonly used servies
 are available <a href="https://docs.icer.msu.edu/2023-08-11_LabNotebook_Jupyter_and_mobaxterm_port-forward_servers/">here</a>.</p>
 <p>Please me aware that this process depends on maintaing two open sessions with HPCC, so it may be unstable if you are frequently being disconnected.</p>
 <h2 id="rstudio">Rstudio</h2>
-<p>The legacy nodes (see the New OS section) can launch Rstudio session which you can access on your local computer. To run Rstudio
-interactively you will need to:</p>
+<p>The legacy nodes (see the New OS section) can launch Rstudio session which you can access on your local computer. To run Rstudio interactively you will need to:</p>
 <ul>
 <li>Have a X server running on your local machine (MobaXterm on windows, XQuartz for mac)</li>
 <li>Access HPCC using ssh with the -X option (i.e "ssh -X username@hpcc.msu.edu)</li>
 <li>Load R and rstudion (for example: "module load  <abbr title="GNU Compiler Collection">GCC</abbr>/11.2.0 OpenMPI/4.1.1 R/4.2.2 rstudio/2022.07.2-576")</li>
 <li>Run "rstudio" on the command line, which should open a Rstudio window on you local machine</li>
 </ul>
-<p>As a warning, please be aware that multiple session of Rstduio can have the same script, creating a danager of unintentionally
-overwriting change in your files. Considering manually backing up file your are actively working, particularly if they were open in an 
+<p>As a warning, please be aware that multiple session of Rstduio can have the same script, creating a danager of unintentionally overwriting change in your files. Considering manually backing up file your are actively working, particularly if they were open in an 
 OnDemand Rstduio session before starting a command line session.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6604,11 +6596,11 @@ OnDemand Rstduio session before starting a command line session.</p>
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
             
         </span>
         <nav>
-            panchyni
+            Colbry, Dirk, panchyni
         </nav>
     </span>
     
