@@ -6522,6 +6522,20 @@ information and other details.</p>
 <p>Jupyter notebooks running from the command line on HPCC may be accessed on your local computer using port-forwarding. Detailed instruction for the process
 are available <a href="https://docs.icer.msu.edu/2023-08-11_LabNotebook_Jupyter_and_mobaxterm_port-forward_servers/">here</a>.</p>
 <p>Please me aware that this process depends on maintaing two open sessions with HPCC, so it may be unstable if you are frequently being disconnected.</p>
+<h2 id="rstudio-server">RStudio Server</h2>
+<p>This is only possible on nodes running the new operating system. First, follow <a href="../2023-03-27_LabNotebook_Jupyter_port-forward_servers/#pre-requisites">the Pre-Requisites on the Jupyter Port-Forwarding page</a>. Then load the <code>powertools</code>, <code>RStudio-Server</code> and <code>R</code> module you wish to use.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>powertools
+module<span class="w"> </span>load<span class="w"> </span>RStudio-Server
+module<span class="w"> </span>load<span class="w"> </span>R/4.3.2-gfbf-2023a<span class="w">  </span><span class="c1"># For example</span>
+</code></pre></div></td></tr></table></div>
+<p>Then run</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rstudio_server
+</code></pre></div></td></tr></table></div>
+<p>and follow the onscreen instructions to connect.</p>
 <h2 id="rstudio">Rstudio</h2>
 <p>The legacy nodes (see the New OS section) can launch Rstudio session which you can access on your local computer. To run Rstudio interactively you will need to:</p>
 <ul>
@@ -6603,7 +6617,7 @@ please run <code>source /etc/profile</code> in the VS Code terminal after you co
             
         </span>
         <nav>
-            Andrew Fullard, Colbry, Dirk, panchyni
+            Andrew Fullard, Colbry, Dirk, Craig Gross, panchyni
         </nav>
     </span>
     
