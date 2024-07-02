@@ -6592,7 +6592,15 @@
 <h2 id="known-issues">Known issues</h2>
 <p>Below are issues that ICER is aware of and is taking steps to resolve. If you find an issue that is not on this page, please <a href="https://contact.icer.msu.edu">contact us</a> with the subject line "OS Upgrade 2024"</p>
 <ul>
-<li>Job scripts that start with <code>#!/bin/sh</code> will result in errors like <code>/var/lib/slurmd/jobXXXXXXXX/slurm_script: XX: module: not found</code>. Please change this line to <code>#!/bin/bash</code>.</li>
+<li>
+<p>When starting up RStudio Server, you may only see a gray blank screen. To fix, this open a command line and run</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv .local/share/rstudio .local/share/rstudio.backup
+</code></pre></div></td></tr></table></div>
+<p>This will move your RStudio configuration files to a backup. Note that this will likely reset your RStudio session, so you may need to reopen previous projects and files, and could lose any unsaved work.</p>
+</li>
+<li>
+<p>Job scripts that start with <code>#!/bin/sh</code> will result in errors like <code>/var/lib/slurmd/jobXXXXXXXX/slurm_script: XX: module: not found</code>. Please change this line to <code>#!/bin/bash</code>.</p>
+</li>
 <li>
 <p>When logging in to upgraded nodes using <abbr title="Secure Shell">SSH</abbr> keys and <a href="../An_SSH_tunneling_via_multiple_hops/#using-proxyjump">proxy jumps</a>, you may receive a message like:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -6703,7 +6711,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 24, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 2, 2024</span>
     </span>
     
 
