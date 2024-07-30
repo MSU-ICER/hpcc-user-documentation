@@ -6641,8 +6641,9 @@ use XOR. If an OR constraint is required, prepend the constraint request
 with <code>NOAUTO:</code>.</p>
 <h2 id="automatic-job-constraints">Automatic Job Constraints</h2>
 <p>When no constraints are specified, a job will get a default constraint
-of <code>[intel14|intel16|intel18]</code>. This ensures the job runs on only
-one type of cluster hardware. User specified constraints that don't use
+of <code>[intel14|intel16|intel18|(amr|acm)|nvf|nal|nif]</code>. This ensures the job runs on only
+one type of cluster hardware. </p>
+<p>User specified constraints that don't use
 the <code>feature|feature</code> or <code>[feature|feature]</code> syntax are automatically
 combined with <code>[intel14|intel16|intel18]</code>. If a more complex
 constraint is required, <code>NOAUTO:</code> must be prepended to the constraint.</p>
@@ -6664,36 +6665,36 @@ constraint is required, <code>NOAUTO:</code> must be prepended to the constraint
 </tr>
 <tr>
 <td><em>None</em></td>
-<td>[intel14|intel16|intel18]</td>
-<td>[intel14|intel16|intel18]</td>
+<td>[<em>Default</em>]</td>
+<td>[<em>Default</em>]</td>
 <td>Run this job on nodes that are all the same cluster type</td>
 </tr>
 <tr>
 <td><code>--constraint=lac</code></td>
-<td>lac&amp;[intel14|intel16|intel18]</td>
+<td>lac&amp;[<em>Default</em>]</td>
 <td>lac</td>
 <td>Run this job on only Laconia nodes</td>
 </tr>
 <tr>
 <td><code>--constraint=</code><br><code>"lac&amp;ib"</code></td>
-<td>lac&amp;ib&amp;[intel14|intel16|intel18]</td>
+<td>lac&amp;ib&amp;[<em>Default</em>]</td>
 <td>lac&amp;ib</td>
 <td>Run this job on only nodes with both lac and ib features</td>
 </tr>
 <tr>
-<td><code>--constraint=</code><br><code>"intel16|intel18"</code></td>
+<td><code>--constraint=</code><br><code>"intel16\|intel18"</code></td>
 <td>[intel16|intel18]</td>
 <td>[intel16|intel18]</td>
 <td>Run this job on nodes that are either all intel16 or all intel18</td>
 </tr>
 <tr>
-<td><code>--constraint=</code><br><code>"NOAUTO:lac|vim"</code></td>
+<td><code>--constraint=</code><br><code>"NOAUTO:lac\|vim"</code></td>
 <td>lac|vim</td>
 <td>lac|vim</td>
 <td>Run this job on nodes the each have either the lac or vim feature</td>
 </tr>
 <tr>
-<td><code>--constraint=</code><br><code>"[intel16&amp;ib|intel18&amp;ib]"</code></td>
+<td><code>--constraint=</code><br><code>"\[intel16&amp;ib\|intel18&amp;ib\]"</code></td>
 <td>[intel16&amp;ib|intel18&amp;ib]</td>
 <td>[intel16&amp;ib|intel18&amp;ib]</td>
 <td>Run this job on nodes that are either all intel16&amp;ib or all intel18&amp;ib</td>
@@ -6744,7 +6745,7 @@ constraint is required, <code>NOAUTO:</code> must be prepended to the constraint
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2024</span>
     </span>
     
 
