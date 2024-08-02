@@ -2458,32 +2458,6 @@
 
               
             
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../modules_changelog/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Module changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -7064,7 +7038,7 @@ Hello<span class="w"> </span>world
 container, and then exited it. Exit means the container is terminated
 after running the command.</p>
 <p>Let's try another command.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>sh
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>sh
 </code></pre></div></td></tr></table></div>
 <p>It seems nothing happened. In fact, docker ran the <code>sh</code> command in your alpine
 container, and exited it. If you want to be inside the container shell, you
@@ -7164,15 +7138,15 @@ pull command as follows:</p>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>centos:7
-<span class="m">7</span>:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/centos
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ubuntu:22.04
+<span class="m">7</span>:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/ubuntu
 2d473b07cdd5:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
-Digest:<span class="w"> </span>sha256:be65f488b7764ad3638f236b7b515b3678369a5124c47b8d32916d6487418ea4
-Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>centos:7
-docker.io/library/centos:7
+Digest:<span class="w"> </span>sha256:0eb0f877e1c869a300c442c41120e778db7161419244ee5cbc6fa5f134e74736
+Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>ubuntu:22.04
+docker.io/library/ubuntu:22.04
 </code></pre></div></td></tr></table></div>
 <p>Notice that here we pulled the image without running it. When we run a
-container with the <code>centos:7</code> image in the future, it will use this downloaded
+container with the <code>ubuntu:22.04</code> image in the future, it will use this downloaded
 copy.</p>
 <p>You can search for images from a repository's website (for example, <a href="https://hub.docker.com/_/centos">searching
 Docker hub for CentOS</a>) or directly from the
@@ -7240,9 +7214,9 @@ script and a Dockerfile.</p>
 <code>hello.py</code>, <code>Dockerfile</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~
-$<span class="w"> </span>mkdir<span class="w"> </span>my_first_Docker_image
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>my_first_Docker_image
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
+mkdir<span class="w"> </span>my_first_Docker_image
+<span class="nb">cd</span><span class="w"> </span>my_first_Docker_image
 </code></pre></div></td></tr></table></div>
 <h4 id="python-script">Python script</h4>
 <p>Create the <code>hello.py</code> file with the following content.</p>
@@ -7302,7 +7276,7 @@ started.</p>
 <p>Now you are ready to build your first Docker image. The <code>docker build</code>
 command will do most of the work.</p>
 <p>To build the image, use the following command.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>my_first_image<span class="w"> </span>.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>my_first_image<span class="w"> </span>.
 </code></pre></div></td></tr></table></div>
 <p>The client will pull all necessary images and create your image. If
 everything goes well, your image is ready to be used! Run the <code>docker images</code>
@@ -7310,7 +7284,7 @@ command to see if your image <code>my_first_image</code> is shown.</p>
 <h4 id="run-your-image">Run your image</h4>
 <p>When you successfully create your Docker image, test it by starting a
 new container from the image.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>my_first_image
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>my_first_image
 </code></pre></div></td></tr></table></div>
 <p>If everything went well, you will see this message.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -7330,11 +7304,11 @@ our "important data" in our alpine image:</p>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>results
-$<span class="w"> </span>ls<span class="w"> </span>results
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>results
+ls<span class="w"> </span>results
 
-$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>data.dat<span class="w"> </span>
-$<span class="w"> </span>ls<span class="w"> </span>results
+docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>data.dat<span class="w"> </span>
+ls<span class="w"> </span>results
 </code></pre></div></td></tr></table></div>
 <p>Nothing happened! You can look in your current directory with <code>ls</code>, and you
 won't see anything either. We can even run an interactive alpine container and
@@ -7561,7 +7535,7 @@ you'll even see our <code>hello.py</code> script!</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 4, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2024</span>
     </span>
     
 
