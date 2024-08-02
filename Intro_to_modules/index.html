@@ -38,12 +38,6 @@
     
     
       
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gotham:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Gotham";--md-code-font:"Roboto Mono"}</style>
-      
     
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
@@ -6752,29 +6746,12 @@
 <li>Loading modules</li>
 <li>Saving currently loaded modules to easily reload</li>
 </ul>
-<p>For the purposes of this tutorial, we'll be trying to load version 4.1.0 of the R interpreter.</p>
+<p>For the purposes of this tutorial, we'll be trying to load version 3.6.3 of the R interpreter.</p>
 <h2 id="viewing-currently-loaded-modules">Viewing Currently Loaded Modules</h2>
 <p>Several modules are already loaded by default once you log on to a development node. These include several commonly used packages such as Python, MATLAB, and the GNU compiler.</p>
-<p>Run <code>module list</code> to see all currently available modules. The output will look like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>Currently Loaded Modules:
-  1) GCCcore/6.4.0     9) ScaLAPACK/2.0.2-OpenBLAS-0.2.20  17) SQLite/3.21.0
-  2) binutils/2.28    10) bzip2/1.0.6                      18) GMP/6.1.2
-  3) GNU/6.4.0-2.28   11) zlib/1.2.11                      19) libffi/3.2.1
-  4) OpenMPI/2.1.2    12) Boost/1.67.0                     20) Python/3.6.4
-  5) tbb/2018_U3      13) CMake/3.11.1                     21) Java/1.8.0_152
-  6) imkl/2018.1.163  14) ncurses/6.0                      22) MATLAB/2018a
-  7) OpenBLAS/0.2.20  15) libreadline/7.0                  23) powertools/1.2
-  8) FFTW/3.3.7       16) Tcl/8.6.8
-</code></pre></div></td></tr></table></div>
-<p>Unfortunately, R isn't loaded by default. We'll have to figure out what's needed to load it ourselves.</p>
+<p>Run <code>module list</code> to see all currently available modules. There is a long list of modules available by default. If the output of <code>module list</code> is too big for your screen, it will be displayed using a program called <code>less</code>. </p>
+<p>The <code>less</code> program will let you scroll up and down through the list with the arrow keys. You can press <code>q</code> to exit <code>less</code> at any time. You will also automatically exit once you scroll to the end of the <code>module list</code> output. To search within <code>less</code>, type the <code>/</code> character followed by the string you want to search for, then press enter. Use the <code>n</code> and <code>p</code> keys to jump between the next and previous matches respectively.</p>
+<p>If we search through the output of <code>module list</code>, we'll see that the default version of R is <code>4.3.2-gfbf-2023a</code>. This label means the module loads version 4.3.2 of R where R has been compiled with the 2023a version of the <code>gfbf</code> toolchain. However, recall that we want to load R version 3.6.3 for this tutorial. Let's learn more about the module system to see how to accomplish this.</p>
 <h2 id="searching-for-available-modules">Searching for Available Modules</h2>
 <p>In addition to searching the <a href="../available_software/overview/">Available Software</a> in this documentation, users can use the <code>module</code> command accepts
 a variety of "sub-commands". The example we used above, <code>list</code>, is an example of a sub-command.</p>
@@ -6865,8 +6842,7 @@ a variety of "sub-commands". The example we used above, <code>list</code>, is an
 <span class="normal">24</span>
 <span class="normal">25</span>
 <span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code>----------
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>----------
 
   R:
 ----------
@@ -6874,13 +6850,12 @@ a variety of "sub-commands". The example we used above, <code>list</code>, is an
       R is a free software environment for statistical computing and graphics.
 
      Versions:
-        R/3.3.1
-        ...
-        R/4.1.0
-        R/4.1.2
-        R/4.2.2
+        R/3.6.3-foss-2022b
+        R/4.2.2-foss-2022b
+        R/4.3.2-gfbf-2023a
+        R/4.3.3-gfbf-2023b
      Other possible modules matches:
-        ADMIXTURE  AMDuProf  APR  APR-util  Abaqus_parallel  AdapterRemoval  Advisor  ...
+        ADMIXTURE  AOFlagger  APR  APR-util  Amber  Armadillo  Arrow  Avogadro2  ...
 
 ----------
   To find other possible module matches execute:
@@ -6892,7 +6867,7 @@ a variety of "sub-commands". The example we used above, <code>list</code>, is an
   Note that names that have a trailing (E) are extensions provided by other modules.
   For example:
 
-     $ module spider R/4.2.2
+     $ module spider R/4.3.3-gfbf-2023b
 ----------
 </code></pre></div></td></tr></table></div></p>
 <p>We see a full list of all available R versions as well as some other helpful information:</p>
@@ -6907,52 +6882,35 @@ a variety of "sub-commands". The example we used above, <code>list</code>, is an
 <p>This is probably more information than you would like. Press <code>q</code> to quit and return to the terminal.</p>
 <p>That said, searching by <code>string</code> is powerful if you don't know the precise name of the module you are looking for.</p>
 <h3 id="details-on-a-module-version">Details on a Module Version</h3>
-<p>All modules listed by <code>module spider</code> follow the <code>name/version</code> format. We can use this format to get more information on a specific version.</p>
-<p>We're interested in using R 4.1.0, so run <code>module spider R/4.1.0</code>.</p>
-<p>You'll again see a long list of output. The portion we are interested in is this:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>You will need to load all module(s) on any one of the lines below before the &quot;R/4.1.0&quot; module is available to load.
-
-      GCC/8.3.0  OpenMPI/3.1.4
-</code></pre></div></td></tr></table></div></p>
-<p>This section tells us the required dependencies for our module. A module may have multiple possible sets of dependencies; for instance, different combinations of compilers and <abbr title="Message Passing Interface">MPI</abbr> libraries. Each different set will be listed on a new line.</p>
-<p>For R 4.1.0 however there is only one possible dependency: version 8.3.0 of the <abbr title="GNU Compiler Collection">GCC</abbr> module and version 3.1.4 of the Open <abbr title="Message Passing Interface">MPI</abbr> module.</p>
-<p>Now that we understand the dependencies, let's move on to loading our module.</p>
-<h2 id="loading-modules">Loading Modules</h2>
-<p>As we saw in the last section, when <a href="#details-on-a-module-version">checking module details</a>, R 4.1.0 requires the <abbr title="GNU Compiler Collection">GCC</abbr> module with version 8.3.0 and the Open <abbr title="Message Passing Interface">MPI</abbr> module with version 3.1.4.</p>
-<p>Let's check the output of <code>module list</code> again:</p>
+<p>All modules listed by <code>module spider</code> follow the <code>name/version</code> format. We can use this format to get more information on a specific version. As with the default R module, the <code>version</code> tag contains information about the toolchain with which that version of R was compiled. </p>
+<p>We're interested in using R version 3.6.3, so run <code>module spider R/3.6.3-foss-2022b</code>.</p>
+<p>You'll again see a long list of output. We are interested in the following portions:
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>Currently Loaded Modules:
-  1) GCCcore/6.4.0     9) ScaLAPACK/2.0.2-OpenBLAS-0.2.20  17) SQLite/3.21.0
-  2) binutils/2.28    10) bzip2/1.0.6                      18) GMP/6.1.2
-  3) GNU/6.4.0-2.28   11) zlib/1.2.11                      19) libffi/3.2.1
-  4) OpenMPI/2.1.2    12) Boost/1.67.0                     20) Python/3.6.4
-  5) tbb/2018_U3      13) CMake/3.11.1                     21) Java/1.8.0_152
-  6) imkl/2018.1.163  14) ncurses/6.0                      22) MATLAB/2018a
-  7) OpenBLAS/0.2.20  15) libreadline/7.0                  23) powertools/1.2
-  8) FFTW/3.3.7       16) Tcl/8.6.8
-</code></pre></div></td></tr></table></div>
-<p>Currently we have <code>GCCcore/6.4.0</code> and <code>OpenMPI/2.1.2</code> loaded. <strong>Notice <code>GCCcore</code> is not the same as the <code>GCC</code> module</strong>. </p>
-<p>Both <abbr title="GNU Compiler Collection">GCC</abbr> core and Open <abbr title="Message Passing Interface">MPI</abbr> configure several compilers. Their many versions are dependencies for many modules. Since we already have several modules loaded by default which may or may not require both <abbr title="GNU Compiler Collection">GCC</abbr> core 6.4.0 and Open <abbr title="Message Passing Interface">MPI</abbr> 2.1.2, it's best to start with a clean module environment. </p>
-<p>Run <code>module purge</code> to remove all currently loaded modules. You can confirm all modules have been unloaded with <code>module list</code>.</p>
-<p>What happens if we just try to load R directly? Run <code>module load R/4.1.0</code> and you should see the following error:
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>This module can be loaded directly: module load R/3.6.3-foss-2022b
+
+This module provides the following extensions:
+
+  base (E), compiler (E), datasets (E), graphics (E), grDevices (E), grid (E), methods (E), parallel (E), splines (E), stats (E), stats4 (E), tcltk (E), tools (E), utils (E)
+</code></pre></div></td></tr></table></div></p>
+<p>The phrase "this module can be loaded directly" means that we don't have to load any additional modules before loading R version 3.6.3. Any of its dependencies - such as the FOSS 2022b toolchain it was built with - will be loaded automatically when we load this one module.</p>
+<p>It is also worth noting that R provides a number of <strong>extensions</strong>. These are packages that are installed alongside R. In this case, these packages can be loaded <em>within</em> R. Some modules may also have extensions that provide additional command line tools.</p>
+<h2 id="loading-modules">Loading Modules</h2>
+<p>As we saw in the last section, when <a href="#details-on-a-module-version">checking module details</a>, R version 3.6.3 can be loaded "directly" without first loading any dependencies. This is because any necessary dependencies will be loaded automatically, including those from its compiler toolchain.</p>
+<p>Let's attempt to load our desired version of R:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/3.6.3-foss-2022b
+</code></pre></div></td></tr></table></div></p>
+<p>This results in an error! The first two sentences are the most informative part of this error:
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Lmod has detected the following error:  These module(s) or extension(s) exist
-but cannot be loaded as requested: &quot;R/4.1.0&quot;
-   Try: &quot;module spider R/4.1.0&quot; to see how to load the module(s).
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Lmod has detected the following error:  The previous module command attempted to
+load &quot;R/3.6.3-foss-2022b&quot; while &quot;R/4.3.2-gfbf-2023a&quot; was already loaded. This is likely due
+to loading a module with incompatible dependencies from the one currently loaded.
 </code></pre></div></td></tr></table></div></p>
-<p>We cannot load a module without first loading its dependencies! The error message gives us a helpful reminder about how to learn what those requirements are, but we already know that R 4.1.0 requires <code>GCC/8.3.0</code> and <code>OpenMPI/3.1.4</code>.</p>
-<p>Run <code>module load GCC/8.3.0 OpenMPI/3.1.4 R/4.1.0</code> to load R <em>along</em> with its dependency.</p>
-<p>You will not see any output after this command. Run <code>module list</code> if you would like to confirm it worked.</p>
+<p>Since <code>R/4.3.2-gfbf-2023a</code> and all of its dependencies are already loaded as default modules, we'll need to clear out our currently loaded modules if we want to load a module from a different toolchain. Run <code>module purge</code> to remove all currently loaded modules. You can confirm all modules have been unloaded with <code>module list</code>.</p>
+<p>Now, we can run <code>module load R/3.6.3-foss-2022b</code> again. You will not see any output after this command. Run <code>module list</code> if you would like to confirm it worked.</p>
 <h2 id="saving-and-restoring-loaded-modules">Saving and Restoring Loaded Modules</h2>
 <p>We often use the same pieces of software over and over on the HPCC. Remembering all the modules we need every time we log in can be a hassle.</p>
 <p>Thankfully, the module system lets us save and restore different configurations.</p>
@@ -6970,7 +6928,7 @@ but cannot be loaded as requested: &quot;R/4.1.0&quot;
 </code></pre></div></td></tr></table></div></p>
 <p>Now, run <code>module restore R-example</code>. The existing modules will automatically be purged and your desired modules loaded!</p>
 <h2 id="further-resources">Further Resources</h2>
-<p>You should now understand the basics of the module system. For a refresher on searching for modules, see <a href="../How_to_find_and_load_software_modules/">Searching software modules</a>.</p>
+<p>You should now understand the basics of the module system. For a refresher on searching for modules, see <a href="../How_to_find_and_load_software_modules/">Searching software modules</a>. You can also look through <a href="http://127.0.0.1:8000/available_software/overview/">available modules online</a>. Please note that searching via the command line will always yield the most up-to-date results.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -7015,7 +6973,7 @@ but cannot be loaded as requested: &quot;R/4.1.0&quot;
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 19, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2024</span>
     </span>
     
 

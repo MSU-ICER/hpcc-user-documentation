@@ -38,12 +38,6 @@
     
     
       
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gotham:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Gotham";--md-code-font:"Roboto Mono"}</style>
-      
     
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
@@ -2543,17 +2537,6 @@
     <span class="md-ellipsis">
       
         Saving and restoring module sets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-skill-searching-for-modules-in-module-file-hierarchy-using-module-avail" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced skill: Searching for modules in module file hierarchy using "module avail"
       
     </span>
   </a>
@@ -6649,17 +6632,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-skill-searching-for-modules-in-module-file-hierarchy-using-module-avail" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced skill: Searching for modules in module file hierarchy using "module avail"
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6717,9 +6689,9 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module spider ABC # can also be abc, ABc...
 </code></pre></div></td></tr></table></div>
 <p>Once you find it, and want to load a specific version (say 1.1.1), run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module spider ABC/1.1.1 # should only be ABC
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module spider ABC/1.1.1-foss-2023a # should only be ABC
 </code></pre></div></td></tr></table></div>
-<p>The resulting output information will tell you what prerequisites modules are needed before loading your <code>ABC/1.1.1</code>. </p>
+<p>The resulting output information will tell you what prerequisites modules are needed before loading your <code>ABC/1.1.1-foss-2023a</code>. </p>
 <h3 id="command-line-searching-with-a-partial-name">Command line searching with a partial name</h3>
 <p>You don't need to know the full name of the software. For example, let's search for all modules related to VCF:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -6750,41 +6722,35 @@
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module spider vcf
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module spider vcf
 
 ------------------------
-  VCFtools:
+  VCFtools: VCFtools/0.1.16-GCC-12.3.0
 ------------------------
     Description:
       The aim of VCFtools...
 
-     Versions:
-        VCFtools/0.1.15-Perl-5.26.0
-        VCFtools/0.1.15-Perl-5.26.1
-        VCFtools/0.1.15-Perl-5.28.0
-
-------------------------
-  For detailed information...
-
-     $ module spider VCFtools/0.1.15-Perl-5.28.0
-------------------------
-
-------------------------
-  vcflib: vcflib/1.0.2
-------------------------
-    Description:
-      vcflib provides...
-
-
-    You will need to load all module(s) on any one of the lines below before the &quot;vcflib/1.0.2&quot; module is available to load.
-
-      GCC/10.2.0
+    This module can be loaded directly: module load VCFtools/0.1.16-GCC-12.3.0
 
     Help:
       ...
+
+------------------------
+  vcfR:
+------------------------
+    Versions:
+        vcfR/1.14.0 (E)
+        vcfR/1.15.0 (E)
+
+Names marked by a trailing (E) are extensions provided by another module.
+
+------------------------
+For detailed information about a specific &quot;vcfR&quot; package (including how to load the modules) use the module&#39;s full name.
+  Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider vcfR/1.15.0
+------------------------
 </code></pre></div></td></tr></table></div>
 <h3 id="other-ways-to-search">Other ways to search</h3>
 <p>The output of <code>module spider</code> may also suggest other ways to search for modules.</p>
@@ -6818,9 +6784,9 @@
       The PCRE library...
 
      Versions:
-        PCRE/8.38
+        PCRE/8.44-GCCcore-10.2.0
         ...
-        PCRE/8.41
+        PCRE/8.45-GCCcore-13.2.0
      Other possible modules matches:
         PCRE2
 
@@ -6832,48 +6798,8 @@
 --------------------------
 </code></pre></div></td></tr></table></div>
 <h2 id="loading-a-specific-version">Loading a specific version</h2>
-<p>In this example, we want to load HDF5 version 1.10.7.
-To learn how to load this module, run:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module spider HDF5/1.10.7
-
---------------------------
-  HDF5: HDF5/1.10.7
---------------------------
-    Description:
-      HDF5 is...
-
-
-    You will need to load all module(s) on any one of the lines below before the &quot;HDF5/1.10.7&quot; module is available to load.
-
-      GCC/10.2.0  CUDA/11.1.1  OpenMPI/4.0.5
-      GCC/10.2.0  OpenMPI/4.0.5
-      GCC/10.3.0  OpenMPI/4.1.1
-      iccifort/2020.1.217  impi/2019.7.217
-      iccifort/2020.4.304  impi/2019.9.304
-</code></pre></div></td></tr></table></div>
-<p>Each line of the above about gives a different set of dependencies. Let's pick the third line, which requires <abbr title="GNU Compiler Collection">GCC</abbr> version 10.3.0 and OpenMPI version 4.1.1.</p>
-<p>To load HDF5 1.10.7, run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge # a MUST-HAVE
-module load GCC/10.3.0 OpenMPI/4.1.1
-module load HDF5/1.10.7
-</code></pre></div></td></tr></table></div>
+<p>If a module is loaded without specifying a version - e.g. <code>module load HDF5</code> - the version of that module from the FOSS 2023a toolchain (or a sibling toolchain) will be loaded. Such modules will be compatible with the HPCC's default modules. In this case, <code>HDF5/1.14.0-gompi-2023a</code> will be loaded.</p>
+<p>A specific version of a module can be loaded using its full name. Users <strong>must</strong> run <code>module purge</code> before loading a module from a different toolchain than their currently loaded modules. Otherwise, an error about incompatible dependencies will be displayed.</p>
 <p>Note that <code>module purge</code> is always needed <strong>before you start loading your own modules</strong>. This command will clear the default modules and prevent version conflicts.</p>
 <h2 id="saving-and-restoring-module-sets">Saving and restoring module sets</h2>
 <p>Your currently loaded modules can be saved for easy access at a later time.</p>
@@ -6893,32 +6819,6 @@ where <code>&lt;collection_name&gt;</code> is replaced with your desired name.</
 <p>A saved collection can be removed with
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module disable &lt;collection_name&gt;
 </code></pre></div></td></tr></table></div></p>
-<h2 id="advanced-skill-searching-for-modules-in-module-file-hierarchy-using-module-avail">Advanced skill: Searching for modules in module file hierarchy using "module avail"</h2>
-<p>If you start with a minimum set of loaded modules (most commonly a compiler-<abbr title="Message Passing Interface">MPI</abbr> pair, or a compiler alone), and want to know what software packages are available to load in the current <code>MODULEPATH</code> (run <code>echo $MODULEPATH</code> to see the paths), you can run <code>module avail</code>. </p>
-<p><code>module avail</code> is different from <code>module spider</code> described above. The <code>module spider</code> command searches all possible modules, while <code>module avail</code> only shows those modules which can be seen in the current <code>MODULEPATH</code>. </p>
-<p>To check the availability of a particular module, use <code>module avail &lt;keyword&gt;</code>. If the keyword (such as "openmpi") is long and distinct, the search output will normally be clean. However, for modules like "R" whose name is a single letter that can appear in almost any module names, we need to use regular expression to fully specify the pattern when running <code>module avail</code>. See below:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module purge
-$ module load GCC/8.3.0 OpenMPI/3.1.4
-$ module avail # a large amount of output will be printed on your screen and they are omitted here.
-
-# Now we search for available R versions under the current GCC-OpenMPI pair.
-$ module -r avail &#39;^R$&#39;
---------------------------------------- /opt/modules/MPI/GCC/8.3.0/OpenMPI/3.1.4 ----------------------------
-   R/3.6.2    R/3.6.3    R/4.0.2.bak    R/4.0.2.test    R/4.0.2    R/4.1.0 (D)
-
-  Where:
-   D:  Default Module
-</code></pre></div></td></tr></table></div>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Sometimes, <code>module spider</code> doesn't work because your personal module cache is out of date. To clear it, do <code>rm -r ~/.lmod.d/.cache</code></p>
 <!--
@@ -6965,7 +6865,7 @@ $ module -r avail &#39;^R$&#39;
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 19, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2024</span>
     </span>
     
 
