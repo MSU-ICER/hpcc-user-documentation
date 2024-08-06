@@ -471,78 +471,6 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    
-  
-    Backwards compatibility
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Backwards compatibility
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Submitting to nodes running the old operating system
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
     <li class="md-nav__item">
       <a href="../Backwards_Compatibility_with_CentOS/" class="md-nav__link">
         
@@ -559,14 +487,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -6731,12 +6651,14 @@
 <p>As part of ICER's <a href="../OS_Upgrade/">OS upgrade</a>, the available versions and locations of Python on the system have changed. Since <a href="../Using_Python_in_HPCC_with_virtualenv/">Python virtual environments</a> link to Python on the system, virtual environments will need to be reinstallled to work properly on the new system.</p>
 <p>To migrate virtual environments, please follow the steps below.</p>
 <h2 id="save-your-current-virtual-environment">Save your current virtual environment</h2>
-<p>First, activate your current virtual environment on a <a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/#log-into-a-development-node-running-the-old-operating-system">development node running the old operating system</a>. In this guide, we will use an example named <code>project</code>:</p>
+<p>First, activate your virtual environment in a <a href="../Backwards_Compatibility_with_CentOS/">backwards compatibility container</a>. In this guide, we will use an example named <code>project</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
-ssh<span class="w"> </span>dev-intel16-centos
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
+ssh<span class="w"> </span>dev-amd20
+old_os
 <span class="c1"># In directory where &quot;project&quot; virtual env exists</span>
 <span class="nb">source</span><span class="w"> </span>project/bin/activate
 </code></pre></div></td></tr></table></div>
@@ -6744,15 +6666,13 @@ ssh<span class="w"> </span>dev-intel16-centos
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
 </code></pre></div></td></tr></table></div>
 <h2 id="create-a-new-virtual-environment">Create a new virtual environment</h2>
-<p>Now, log into <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">a development node running the new operating system</a>, and, if you have specific version requirements, select the version of Python you'd like to use from the module system. If you have the default modules loaded, this will be <code>Python/3.11.3</code>.</p>
+<p>Now, exit the container back into <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">a development node running the new operating system</a>, and, if you have specific version requirements, select the version of Python you'd like to use from the module system. If you have the default modules loaded, this will be <code>Python/3.11.3</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Logout of CentOS dev node back to gateway</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Exit backwards compatibility container</span>
 <span class="nb">exit</span>
-ssh<span class="w"> </span>dev-amd20
 <span class="c1"># Load newer version of Python than default (optional)</span>
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>Python/3.11.5-GCCcore-13.2.0
@@ -6863,7 +6783,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>project_ubuntu
 <h3 id="using-pre-installed-packages">Using pre-installed packages</h3>
 <p>Also note that the module system already includes a few Python "bundles" that have popular packages pre-installed. These include <code>Python-bundle-PyPI</code> and <code>Scipy-bundle</code>. Use the <code>module spider</code> command to see if these can meet your needs.</p>
 <h3 id="use-backwards-compatibility-containers">Use backwards compatibility containers</h3>
-<p>If all else fails you can try using our backwards compatibility scripts (which have limitations). For more information, please see our <a href="../Backwards_Compatibility_with_CentOS/">backwards compatibility documentation</a>.</p>
+<p>If all else fails you can use our backwards compatibility scripts (which have limitations). For more information, please see our <a href="../Backwards_Compatibility_with_CentOS/">backwards compatibility documentation</a>.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6908,7 +6828,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>project_ubuntu
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 14, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 6, 2024</span>
     </span>
     
 

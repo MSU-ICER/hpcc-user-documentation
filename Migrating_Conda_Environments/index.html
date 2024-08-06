@@ -471,78 +471,6 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    
-  
-    Backwards compatibility
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Backwards compatibility
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Submitting to nodes running the old operating system
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
     <li class="md-nav__item">
       <a href="../Backwards_Compatibility_with_CentOS/" class="md-nav__link">
         
@@ -559,14 +487,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -6612,14 +6532,14 @@
 <p>In limited testing, we have seen that Conda environments created on the current system appear to work on the new system without intervention. However, if you notice issues or your environments become nonfunctional, please follow the steps below.</p>
 </div>
 <h2 id="save-your-current-environments">Save your current environments</h2>
-<p>First, log into <a href="../Submitting_to_Nodes_Running_the_Old_Operating_System/#log-into-a-development-node-running-the-old-operating-system">a development node running CentOS</a> and get a list of your environments.</p>
+<p>First, start a <a href="../Backwards_Compatibility_with_CentOS/">backwards compatibility container</a> and get a list of your environments.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
-ssh<span class="w"> </span>dev-intel16-centos
-module<span class="w"> </span>purge
+ssh<span class="w"> </span>dev-amd20
+old_os
 module<span class="w"> </span>load<span class="w"> </span>Conda/3
 conda<span class="w"> </span>env<span class="w"> </span>list
 </code></pre></div></td></tr></table></div>
@@ -6632,7 +6552,7 @@ conda<span class="w"> </span>env<span class="w"> </span>list
 <p>In limited testing, ICER has not seen a need to reinstall Conda on the new operating system. However, if you are having issues, this would be a good troubleshooting step to take.</p>
 </div>
 <p>Log into <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">a development node running the new operating system</a>, and follow our instructions for <a href="../Using_conda/#installing-anaconda-for-users">Installing Conda</a>.</p>
-<p>In the step where you are asked to install Anaconda3 in your home directory, make sure to choose a different location to maintain backwards compatibility, e.g., <code>/mnt/home/&lt;user&gt;/anaconda3_ubuntu</code>. You can add the following to the <code>.bashrc</code> file in your home directory to make sure that the new version of Conda is only used on Ubuntu nodes.</p>
+<p>In the step where you are asked to install Anaconda3 in your home directory, make sure to choose a different location if you'd like to maintain backwards compatibility, e.g., <code>/mnt/home/&lt;user&gt;/anaconda3_ubuntu</code>. You can add the following to the <code>.bashrc</code> file in your home directory to make sure that the new version of Conda is only used on Ubuntu nodes.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="k">$(</span><span class="nb">source</span><span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$ID</span><span class="k">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;ubuntu&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
@@ -6640,7 +6560,7 @@ conda<span class="w"> </span>env<span class="w"> </span>list
 <span class="k">fi</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="create-a-new-virtual-environment">Create a new virtual environment</h2>
-<p>Log into <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">a development node running the new operating system</a>, and reinstall your environments. To avoid confusion with the old environment, you can use a new name.</p>
+<p>Exit the container back into <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">a development node running the new operating system</a>, and reinstall your environments. To avoid confusion with the old environment, you can use a new name.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6649,8 +6569,8 @@ conda<span class="w"> </span>env<span class="w"> </span>list
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">exit</span><span class="w">  </span><span class="c1"># Leave CentOS dev node</span>
-ssh<span class="w"> </span>dev-amd20
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Exit backwards compatibility container</span>
+<span class="nb">exit</span><span class="w"> </span>
 
 <span class="c1"># Load Conda module</span>
 module<span class="w"> </span>purge
@@ -6757,7 +6677,7 @@ python<span class="w"> </span>do_some_work.py
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 14, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 6, 2024</span>
     </span>
     
 
