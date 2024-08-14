@@ -889,6 +889,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Collaborative research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
         
   
@@ -1465,32 +1491,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Collaborative_Research/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Collaborative research
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Virtual_Terminals/" class="md-nav__link">
         
   
@@ -1552,10 +1552,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
         
           
-          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1572,8 +1572,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -6382,108 +6382,104 @@ the command. This action is called <em>expansion</em>. With expansion, the argum
 expands into something else before the shell acts on it with the command. Let's
 see an example with <code>echo</code> command which prints out the text arguments given on
 standard output.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>hello<span class="w"> </span>world!
-hello<span class="w"> </span>world!
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>hello<span class="w"> </span>world!
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">hello world!</span>
 </code></pre></div></td></tr></table></div>
 <p>Let's use <code>echo</code> with <code>*</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>*
-hello.c<span class="w"> </span>hello.qsub<span class="w"> </span>hello.sb<span class="w"> </span>README
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>*
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">hello.c hello.qsub hello.sb README</span>
 </code></pre></div></td></tr></table></div>
 <p>Instead of printing <code>*</code>, it prints out all file names in the directory because
 shell expands <code>*</code> into something else before the <code>echo</code> command acts on the
 argument (in this case <code>*</code>).</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ls
-hello.c<span class="w"> </span>hello.qsub<span class="w"> </span>hello.sb<span class="w"> </span>README
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">hello.c hello.qsub hello.sb README</span>
 </code></pre></div></td></tr></table></div>
 <p>The <code>*</code> character is called a "wildcard" is replaced by everything in the
 current directory. We can also modify it so that it's only replaced by certain
 things. For example, <code>h*</code> is replaced everything that starts with <code>h</code> in the
 current directory.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>h*
-hello.c<span class="w"> </span>hello.qsub<span class="w"> </span>hello.sb
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>h*
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">hello.c hello.qsub hello.sb</span>
 </code></pre></div></td></tr></table></div>
 <p><code>~</code> is another special character with a special meaning. It expands
 into the name of the home directory of the user:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>~
-/mnt/home/temp_user_01
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>~
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/mnt/home/temp_user_01</span>
 </code></pre></div></td></tr></table></div>
 <p>The shell will also expand arithmetic. Arithmetic expansion uses the form <code>$((expression))</code>. Look at the example.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
-<span class="m">2</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">2</span>
 </code></pre></div></td></tr></table></div>
 <p>Please keep in mind that arithmetic expansions allows only integers.
 Arithmetic expression can be nested, and spaces are allowed.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="w"> </span><span class="m">7</span><span class="o">*(</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="k">))</span>
-<span class="m">28</span>
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="m">7</span><span class="o">*(</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="o">)</span>
-<span class="m">28</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="w"> </span><span class="m">7</span><span class="o">*(</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="k">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">28</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="m">7</span><span class="o">*(</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="o">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">28</span>
 </code></pre></div></td></tr></table></div>
 <p>Brace expansion is useful when you write a shell script or batch script. The
 brace expression can contain a comma separated list of characters, strings, or
 integers that will be expanded into multiple expressions. Here are a few
 examples.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>srt-<span class="o">{</span>a,b,c<span class="o">}</span>-end
-srt-a-end<span class="w"> </span>srt-b-end<span class="w"> </span>srt-c-end
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>number_<span class="o">{</span><span class="m">1</span>..5<span class="o">}</span>
-number_1<span class="w"> </span>number_2<span class="w"> </span>number_3<span class="w"> </span>number_4<span class="w"> </span>number_5
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="o">{</span>A..Z<span class="o">}</span>
-A<span class="w"> </span>B<span class="w"> </span>C<span class="w"> </span>D<span class="w"> </span>E<span class="w"> </span>F<span class="w"> </span>G<span class="w"> </span>H<span class="w"> </span>I<span class="w"> </span>J<span class="w"> </span>K<span class="w"> </span>L<span class="w"> </span>M<span class="w"> </span>N<span class="w"> </span>O<span class="w"> </span>P<span class="w"> </span>Q<span class="w"> </span>R<span class="w"> </span>S<span class="w"> </span>T<span class="w"> </span>U<span class="w"> </span>V<span class="w"> </span>W<span class="w"> </span>X<span class="w"> </span>Y<span class="w"> </span>Z
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>a<span class="o">{</span>A<span class="o">{</span><span class="m">1</span>,5<span class="o">}</span>,B<span class="o">{</span><span class="m">6</span>..10<span class="o">}}</span>b
-aA1b<span class="w"> </span>aA5b<span class="w"> </span>aB6b<span class="w"> </span>aB7b<span class="w"> </span>aB8b<span class="w"> </span>aB9b<span class="w"> </span>aB10b
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>srt-<span class="o">{</span>a,b,c<span class="o">}</span>-end
 </code></pre></div></td></tr></table></div>
-<p>The next example creates multiple directories with a brace expansion.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">srt-a-end srt-b-end srt-c-end</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>number_<span class="o">{</span><span class="m">1</span>..5<span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">number_1 number_2 number_3 number_4 number_5</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>Photos
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>Photos/
-$<span class="w"> </span>mkdir<span class="w"> </span><span class="o">{</span><span class="m">2020</span>..2021<span class="o">}</span>-<span class="o">{</span><span class="m">01</span>..12<span class="o">}</span>
-$<span class="w"> </span>ls
-<span class="m">2020</span>-01/<span class="w">  </span><span class="m">2020</span>-03/<span class="w">  </span><span class="m">2020</span>-05/<span class="w">  </span><span class="m">2020</span>-07/<span class="w">  </span><span class="m">2020</span>-09/<span class="w">  </span><span class="m">2020</span>-11/<span class="w">  </span><span class="m">2021</span>-01/<span class="w">  </span><span class="m">2021</span>-03/<span class="w">  </span><span class="m">2021</span>-05/<span class="w">  </span><span class="m">2021</span>-07/<span class="w">  </span><span class="m">2021</span>-09/<span class="w">  </span><span class="m">2021</span>-11/
-<span class="m">2020</span>-02/<span class="w">  </span><span class="m">2020</span>-04/<span class="w">  </span><span class="m">2020</span>-06/<span class="w">  </span><span class="m">2020</span>-08/<span class="w">  </span><span class="m">2020</span>-10/<span class="w">  </span><span class="m">2020</span>-12/<span class="w">  </span><span class="m">2021</span>-02/<span class="w">  </span><span class="m">2021</span>-04/<span class="w">  </span><span class="m">2021</span>-06/<span class="w">  </span><span class="m">2021</span>-08/<span class="w">  </span><span class="m">2021</span>-10/<span class="w">  </span><span class="m">2021</span>-12/
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="o">{</span>A..Z<span class="o">}</span>
+
+<span class="sb">```</span><span class="w"> </span>output<span class="w"> </span><span class="nv">title</span><span class="o">=</span><span class="s2">&quot;output&quot;</span>
+A<span class="w"> </span>B<span class="w"> </span>C<span class="w"> </span>D<span class="w"> </span>E<span class="w"> </span>F<span class="w"> </span>G<span class="w"> </span>H<span class="w"> </span>I<span class="w"> </span>J<span class="w"> </span>K<span class="w"> </span>L<span class="w"> </span>M<span class="w"> </span>N<span class="w"> </span>O<span class="w"> </span>P<span class="w"> </span>Q<span class="w"> </span>R<span class="w"> </span>S<span class="w"> </span>T<span class="w"> </span>U<span class="w"> </span>V<span class="w"> </span>W<span class="w"> </span>X<span class="w"> </span>Y<span class="w"> </span>Z
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>a<span class="o">{</span>A<span class="o">{</span><span class="m">1</span>,5<span class="o">}</span>,B<span class="o">{</span><span class="m">6</span>..10<span class="o">}}</span>b
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">aA1b aA5b aB6b aB7b aB8b aB9b aB10b</span>
+</code></pre></div></td></tr></table></div>
+<p>The next example creates multiple directories with a brace expansion.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>Photos
+<span class="nb">cd</span><span class="w"> </span>Photos/
+mkdir<span class="w"> </span><span class="o">{</span><span class="m">2020</span>..2021<span class="o">}</span>-<span class="o">{</span><span class="m">01</span>..12<span class="o">}</span>
+ls
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">2020-01/  2020-03/  2020-05/  2020-07/  2020-09/  2020-11/  2021-01/  2021-03/  2021-05/  2021-07/  2021-09/  2021-11/</span>
+<span class="go">2020-02/  2020-04/  2020-06/  2020-08/  2020-10/  2020-12/  2021-02/  2021-04/  2021-06/  2021-08/  2021-10/  2021-12/</span>
 </code></pre></div></td></tr></table></div>
 <p>Expansion also allows us to use the output of a command in different places.
 The syntax is the same as arithmetic expansion, except the command is placed
 inside <code>$(...)</code></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">2020</span><span class="k">)</span>
-<span class="m">2020</span>-01/<span class="w"> </span><span class="m">2020</span>-02/<span class="w"> </span><span class="m">2020</span>-03/<span class="w"> </span><span class="m">2020</span>-04/<span class="w"> </span><span class="m">2020</span>-05/<span class="w"> </span><span class="m">2020</span>-06/<span class="w"> </span><span class="m">2020</span>-07/<span class="w"> </span><span class="m">2020</span>-08/<span class="w"> </span><span class="m">2020</span>-09/<span class="w"> </span><span class="m">2020</span>-10/<span class="w"> </span><span class="m">2020</span>-11/<span class="w"> </span><span class="m">2020</span>-12/
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">2020</span><span class="k">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">2020-01/ 2020-02/ 2020-03/ 2020-04/ 2020-05/ 2020-06/ 2020-07/ 2020-08/ 2020-09/ 2020-10/ 2020-11/ 2020-12/</span>
 </code></pre></div></td></tr></table></div>
 <p>Next, let's learn how to control expansion. Consider the following two examples
 where automatic expansion doesn't do what we want.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span>a<span class="w">      </span><span class="nb">test</span>
-This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span><span class="nb">test</span>
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>The<span class="w"> </span>total<span class="w"> </span>is<span class="w"> </span><span class="nv">$100</span>.00
-The<span class="w"> </span>total<span class="w"> </span>is<span class="w"> </span><span class="m">00</span>.00
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span>a<span class="w">      </span><span class="nb">test</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">This is a test</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>The<span class="w"> </span>total<span class="w"> </span>is<span class="w"> </span><span class="nv">$100</span>.00
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">The total is 00.00</span>
 </code></pre></div></td></tr></table></div>
 <p>In the first example, the shell removes extra space from the <code>echo</code> command's
 argument. In the second example, <code>$1</code> is interpreted as the first input
@@ -6493,87 +6489,75 @@ string. With quoting, we can suppress unwanted expansions.</p>
 parameters are not split by white space and all special characters lose their
 special meaning, and are treated as ordinary characters. However <code>$</code>, <code>\</code>
 (backslash), and <code>`</code> (back quote) are exceptions.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is a     test&quot;</span>
-This<span class="w"> </span>is<span class="w"> </span>a<span class="w">     </span><span class="nb">test</span>
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The total is </span><span class="nv">$100</span><span class="s2">.00&quot;</span>
-The<span class="w"> </span>total<span class="w"> </span>is<span class="w"> </span><span class="m">00</span>.00
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is a     test&quot;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">This is a     test</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The total is </span><span class="nv">$100</span><span class="s2">.00&quot;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">The total is 00.00</span>
 </code></pre></div></td></tr></table></div>
 <p>Here is another example where the shell splitting the parameters by white space
 would cause a problem. Suppose that our working directory has the file <code>two
 words.txt</code> in it, where the filename has a space.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>two<span class="w"> </span>words.txt
-ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span>two:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
-ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span>words.txt:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>two<span class="w"> </span>words.txt
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">ls: cannot access two: No such file or directory</span>
+<span class="go">ls: cannot access words.txt: No such file or directory</span>
 </code></pre></div></td></tr></table></div>
 <p>The shell splits the two words and looks for them each separately with <code>ls</code>.
 Quoting fixes this.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span><span class="s2">&quot;two words.txt&quot;</span>
-two<span class="w"> </span>words.txt
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span><span class="s2">&quot;two words.txt&quot;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">two words.txt</span>
 </code></pre></div></td></tr></table></div>
 <p>If you want to suppress all expansions, you need to use single quotes.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;This is a     test&#39;</span>
-This<span class="w"> </span>is<span class="w"> </span>a<span class="w">     </span><span class="nb">test</span>
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;The total is $100.00&#39;</span>
-The<span class="w"> </span>total<span class="w"> </span>is<span class="w"> </span><span class="nv">$100</span>.00
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;This is a     test&#39;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">This is a     test</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;The total is $100.00&#39;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">The total is $100.00</span>
 </code></pre></div></td></tr></table></div>
 <p>The next three examples show how quoting gives different results.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>text<span class="w"> </span>~/*.txt<span class="w"> </span><span class="o">{</span><span class="m">1</span>..5<span class="o">}</span><span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span>foo<span class="k">)</span><span class="w"> </span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="w"> </span><span class="k">$(</span>date<span class="k">)</span>
-text<span class="w"> </span>/mnt/home/user_name/hostfile.txt<span class="w"> </span>/mnt/home/user_name/powertools.txt<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>foo<span class="w"> </span><span class="m">4</span><span class="w"> </span>Tue<span class="w"> </span>Jan<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">15</span>:10:00<span class="w"> </span>EST<span class="w"> </span><span class="m">2021</span>
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;text ~/*.txt {1..5} </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span>foo<span class="k">)</span><span class="s2"> </span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="s2"> </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&quot;</span>
-text<span class="w"> </span>~/*.txt<span class="w"> </span><span class="o">{</span><span class="m">1</span>..5<span class="o">}</span><span class="w"> </span>foo<span class="w"> </span><span class="m">4</span><span class="w"> </span>Tue<span class="w"> </span>Jan<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">15</span>:10:09<span class="w"> </span>EST<span class="w"> </span><span class="m">2021</span>
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)&#39;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>text<span class="w"> </span>~/*.txt<span class="w"> </span><span class="o">{</span><span class="m">1</span>..5<span class="o">}</span><span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span>foo<span class="k">)</span><span class="w"> </span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="w"> </span><span class="k">$(</span>date<span class="k">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">text /mnt/home/user_name/hostfile.txt /mnt/home/user_name/powertools.txt </span>
+<span class="go">1 2 3 4 5 foo 4 Tue Jan 19 15:10:00 EST 2021</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;text ~/*.txt {1..5} </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span>foo<span class="k">)</span><span class="s2"> </span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="s2"> </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">text ~/*.txt {1..5} foo 4 Tue Jan 19 15:10:09 EST 2021</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)&#39;</span>
 text<span class="w"> </span>~/*.txt<span class="w"> </span><span class="o">{</span><span class="m">1</span>..5<span class="o">}</span><span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span>foo<span class="k">)</span><span class="w"> </span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="w"> </span><span class="k">$(</span>date<span class="k">)</span>
 </code></pre></div></td></tr></table></div>
 <p>A backslash is useful when we want to quote a single character. A
 backslash is called the escape character. Next example shows how quoting
 and an escape character work.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>The<span class="w"> </span>balance<span class="w"> </span>of<span class="w"> </span><span class="k">$(</span>date<span class="k">)</span><span class="w"> </span>is<span class="w"> </span><span class="nv">$100</span>
-The<span class="w"> </span>balance<span class="w"> </span>of<span class="w"> </span>Tue<span class="w"> </span>Jan<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">15</span>:15:36<span class="w"> </span>EST<span class="w"> </span><span class="m">2021</span><span class="w"> </span>is<span class="w"> </span><span class="m">00</span>
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The balance of </span><span class="k">$(</span>date<span class="k">)</span><span class="s2"> is </span><span class="nv">$100</span><span class="s2">&quot;</span>
-The<span class="w"> </span>balance<span class="w"> </span>of<span class="w"> </span>Tue<span class="w"> </span>Jan<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">15</span>:15:48<span class="w"> </span>EST<span class="w"> </span><span class="m">2021</span><span class="w"> </span>is<span class="w"> </span><span class="m">00</span>
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;The balance of $(date) is $100&#39;</span>
-The<span class="w"> </span>balance<span class="w"> </span>of<span class="w"> </span><span class="k">$(</span>date<span class="k">)</span><span class="w"> </span>is<span class="w"> </span><span class="nv">$100</span>
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The balance of </span><span class="k">$(</span>date<span class="k">)</span><span class="s2"> is \$100&quot;</span>
-The<span class="w"> </span>balance<span class="w"> </span>of<span class="w"> </span>Tue<span class="w"> </span>Jan<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">15</span>:16:09<span class="w"> </span>EST<span class="w"> </span><span class="m">2021</span><span class="w"> </span>is<span class="w"> </span><span class="nv">$100</span>
-
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;The balance of $(date) is \$100&#39;</span>
-The<span class="w"> </span>balance<span class="w"> </span>of<span class="w"> </span><span class="k">$(</span>date<span class="k">)</span><span class="w"> </span>is<span class="w"> </span><span class="se">\$</span><span class="m">100</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>The<span class="w"> </span>balance<span class="w"> </span>of<span class="w"> </span><span class="k">$(</span>date<span class="k">)</span><span class="w"> </span>is<span class="w"> </span><span class="nv">$100</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">The balance of Tue Jan 19 15:15:36 EST 2021 is 00</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The balance of </span><span class="k">$(</span>date<span class="k">)</span><span class="s2"> is </span><span class="nv">$100</span><span class="s2">&quot;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">The balance of Tue Jan 19 15:15:48 EST 2021 is 00</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;The balance of $(date) is $100&#39;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">The balance of $(date) is $100</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The balance of </span><span class="k">$(</span>date<span class="k">)</span><span class="s2"> is \$100&quot;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">The balance of Tue Jan 19 15:16:09 EST 2021 is $100</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;The balance of $(date) is \$100&#39;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">The balance of $(date) is \$100</span>
 </code></pre></div></td></tr></table></div>
 <p>The table show the most frequently used escape characters.</p>
 <table>
@@ -6651,7 +6635,7 @@ The<span class="w"> </span>balance<span class="w"> </span>of<span class="w"> </s
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 15, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
     </span>
     
 
@@ -6675,7 +6659,7 @@ The<span class="w"> </span>balance<span class="w"> </span>of<span class="w"> </s
             
         </span>
         <nav>
-            Craig Gross, Keen, Andrew
+            Andrew Fullard, Craig Gross, Keen, Andrew
         </nav>
     </span>
     

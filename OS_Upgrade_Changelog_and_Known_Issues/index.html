@@ -504,6 +504,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changelog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#module-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -513,15 +525,9 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changelog
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -951,6 +957,32 @@
     
   
     Connect to the HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Collaborative research
   
 
     
@@ -1546,32 +1578,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Collaborative_Research/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Collaborative research
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Virtual_Terminals/" class="md-nav__link">
         
   
@@ -1633,10 +1639,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
         
           
-          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1653,8 +1659,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -6404,6 +6410,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changelog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#module-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6413,15 +6431,9 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changelog
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6461,7 +6473,8 @@
 
 
 <h1 id="changelog-and-known-issues-for-os-upgrade">Changelog and Known Issues for OS Upgrade</h1>
-<h2 id="module-changes">Module changes</h2>
+<h2 id="changelog">Changelog</h2>
+<h3 id="module-changes">Module changes</h3>
 <p>As part of the operating system upgrade, the module naming scheme has been revised so it is no longer necessary to load a "gateway" set of modules before accessing other software. However, this means that nearly every module name has changed to show the dependencies it uses.</p>
 <p>To handle this transition, search the <a href="../available_software/overview/">Available Software</a> page or use the <code>module spider</code> command to find the new name of modules you are currently using, e.g.,</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>Python
@@ -6476,7 +6489,6 @@
 <li>The <code>PGI</code> module has been replaced by <code>NVHPC</code> (installation still in progress). This is due to NVIDIA's rebranding of PGI.</li>
 <li>The <code>LiftOver</code> software is provided by the <code>Kent_tools</code> module.</li>
 </ul>
-<h2 id="changelog">Changelog</h2>
 <h2 id="known-issues">Known issues</h2>
 <p>Below are issues that ICER is aware of and is taking steps to resolve. If you find an issue that is not on this page, please <a href="https://contact.icer.msu.edu">contact us</a> with the subject line "OS Upgrade 2024"</p>
 <ul>
@@ -6554,6 +6566,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 <p>Firefox can't open from an Interactive Desktop on OnDemand. The fix is to run <code>mv ~/.mozilla ~/.mozilla_backup</code>.</p>
 </li>
 <li>The OnDemand Job Composer cannot submit jobs until the OnDemand server is moved to Ubuntu, which is expected to occur mid July.</li>
+<li>Can't find <code>module</code> command in VS Code? Try <code>source /etc/profile</code>.</li>
 </ul>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6599,7 +6612,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 2, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
     </span>
     
 

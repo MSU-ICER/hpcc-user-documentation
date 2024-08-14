@@ -889,6 +889,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Collaborative research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
         
   
@@ -1465,32 +1491,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Collaborative_Research/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Collaborative research
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Virtual_Terminals/" class="md-nav__link">
         
   
@@ -1552,10 +1552,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
         
           
-          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1572,8 +1572,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -6751,7 +6751,9 @@ indented listing of files. With no arguments, tree lists the files in
 the current directory. You can change the depth with <code>-L</code> argument.</p>
 <p>The example shows the structure of the <code>linux_tutorial</code> directory which
 we used for an exercise.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>tree
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6770,70 +6772,68 @@ we used for an exercise.</p>
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>tree
-.
-├──<span class="w"> </span><span class="m">000</span>.txt
-├──<span class="w"> </span><span class="m">001</span>.txt
-├──<span class="w"> </span><span class="m">002</span>.txt
-├──<span class="w"> </span><span class="m">009</span>.txt
-├──<span class="w"> </span><span class="m">010</span>.txt
-├──<span class="w"> </span>a.txt
-├──<span class="w"> </span>A.txt
-├──<span class="w"> </span>b.txt
-├──<span class="w"> </span>B.txt
-├──<span class="w"> </span>c.txt
-├──<span class="w"> </span>C.txt
-├──<span class="w"> </span>garbage
-│<span class="w">   </span>├──<span class="w"> </span>garbage_01
-│<span class="w">   </span>├──<span class="w"> </span>garbage_02
-│<span class="w">   </span>└──<span class="w"> </span>garbage_03
-├──<span class="w"> </span>my_data.dat
-├──<span class="w"> </span>my-data.txt
-├──<span class="w"> </span>z.txt
-└──<span class="w"> </span>Z.txt
-
-$<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
-.
-├──<span class="w"> </span><span class="m">000</span>.txt
-├──<span class="w"> </span><span class="m">001</span>.txt
-├──<span class="w"> </span><span class="m">002</span>.txt
-├──<span class="w"> </span><span class="m">009</span>.txt
-├──<span class="w"> </span><span class="m">010</span>.txt
-├──<span class="w"> </span>a.txt
-├──<span class="w"> </span>A.txt
-├──<span class="w"> </span>b.txt
-├──<span class="w"> </span>B.txt
-├──<span class="w"> </span>c.txt
-├──<span class="w"> </span>C.txt
-├──<span class="w"> </span>garbage
-├──<span class="w"> </span>my_data.dat
-├──<span class="w"> </span>my-data.txt
-├──<span class="w"> </span>z.txt
-└──<span class="w"> </span>Z.txt
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">.</span>
+<span class="go">├── 000.txt</span>
+<span class="go">├── 001.txt</span>
+<span class="go">├── 002.txt</span>
+<span class="go">├── 009.txt</span>
+<span class="go">├── 010.txt</span>
+<span class="go">├── a.txt</span>
+<span class="go">├── A.txt</span>
+<span class="go">├── b.txt</span>
+<span class="go">├── B.txt</span>
+<span class="go">├── c.txt</span>
+<span class="go">├── C.txt</span>
+<span class="go">├── garbage</span>
+<span class="go">│   ├── garbage_01</span>
+<span class="go">│   ├── garbage_02</span>
+<span class="go">│   └── garbage_03</span>
+<span class="go">├── my_data.dat</span>
+<span class="go">├── my-data.txt</span>
+<span class="go">├── z.txt</span>
+<span class="go">└── Z.txt</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">.</span>
+<span class="go">├── 000.txt</span>
+<span class="go">├── 001.txt</span>
+<span class="go">├── 002.txt</span>
+<span class="go">├── 009.txt</span>
+<span class="go">├── 010.txt</span>
+<span class="go">├── a.txt</span>
+<span class="go">├── A.txt</span>
+<span class="go">├── b.txt</span>
+<span class="go">├── B.txt</span>
+<span class="go">├── c.txt</span>
+<span class="go">├── C.txt</span>
+<span class="go">├── garbage</span>
+<span class="go">├── my_data.dat</span>
+<span class="go">├── my-data.txt</span>
+<span class="go">├── z.txt</span>
+<span class="go">└── Z.txt</span>
 </code></pre></div></td></tr></table></div>
 <p><code>tree</code> command does not show hidden files/directory by default. To see
 hidden files/directories, use <code>-a</code> argument.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>tree<span class="w"> </span>-a
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6856,32 +6856,30 @@ hidden files/directories, use <code>-a</code> argument.</p>
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>tree<span class="w"> </span>-a
-.
-├──<span class="w"> </span><span class="m">000</span>.txt
-├──<span class="w"> </span><span class="m">001</span>.txt
-├──<span class="w"> </span><span class="m">002</span>.txt
-├──<span class="w"> </span><span class="m">009</span>.txt
-├──<span class="w"> </span><span class="m">010</span>.txt
-├──<span class="w"> </span>a.txt
-├──<span class="w"> </span>A.txt
-├──<span class="w"> </span>b.txt
-├──<span class="w"> </span>B.txt
-├──<span class="w"> </span>c.txt
-├──<span class="w"> </span>C.txt
-├──<span class="w"> </span>garbage
-│<span class="w">   </span>├──<span class="w"> </span>garbage_01
-│<span class="w">   </span>├──<span class="w"> </span>garbage_02
-│<span class="w">   </span>└──<span class="w"> </span>garbage_03
-├──<span class="w"> </span>.hidden
-│<span class="w">   </span>└──<span class="w"> </span>youfoundit.txt
-├──<span class="w"> </span>my_data.dat
-├──<span class="w"> </span>my-data.txt
-├──<span class="w"> </span>z.txt
-└──<span class="w"> </span>Z.txt
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">.</span>
+<span class="go">├── 000.txt</span>
+<span class="go">├── 001.txt</span>
+<span class="go">├── 002.txt</span>
+<span class="go">├── 009.txt</span>
+<span class="go">├── 010.txt</span>
+<span class="go">├── a.txt</span>
+<span class="go">├── A.txt</span>
+<span class="go">├── b.txt</span>
+<span class="go">├── B.txt</span>
+<span class="go">├── c.txt</span>
+<span class="go">├── C.txt</span>
+<span class="go">├── garbage</span>
+<span class="go">│   ├── garbage_01</span>
+<span class="go">│   ├── garbage_02</span>
+<span class="go">│   └── garbage_03</span>
+<span class="go">├── .hidden</span>
+<span class="go">│   └── youfoundit.txt</span>
+<span class="go">├── my_data.dat</span>
+<span class="go">├── my-data.txt</span>
+<span class="go">├── z.txt</span>
+<span class="go">└── Z.txt</span>
 
-<span class="m">2</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">19</span><span class="w"> </span>files
+<span class="go">2 directories, 19 files</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="file-permissions">File permissions</h2>
 <p>Linux has a method to keep files private and safe. When you type <code>ls
@@ -7032,25 +7030,19 @@ you can change the standard input/output devices. The standard input
 (stdin) device is the keyboard, and the standard output (stdout) device
 is the screen. With redirection, stdin/stdout can be changed.</p>
 <ul>
-<li><code>&gt;</code>: Output redirection (overwriting)<ul>
+<li><code>&gt;</code>: Output redirection (overwriting)</li>
 <li>e.g. <code>ls -la &gt; list.txt</code> (<code>ls -la</code> results save as <code>list.txt</code> instead of
-  standard output (screen))</li>
-</ul>
-</li>
-<li><code>&gt;&gt;</code>: Output redirection (appending)<ul>
+      standard output (screen))</li>
+<li><code>&gt;&gt;</code>: Output redirection (appending)</li>
 <li>e.g. <code>ls -l &gt;&gt; list.txt</code> (<code>ls -l</code> result will be appended at the end of
-  the <code>list.txt</code>. If there is no <code>list.txt</code>, it works as <code>ls -la &gt; list.txt</code>)</li>
-</ul>
-</li>
+      the <code>list.txt</code>. If there is no <code>list.txt</code>, it works as <code>ls -la &gt; list.txt</code>)</li>
 <li><code>&lt;</code>: Input redirection</li>
-<li><code>&gt;&amp;</code>: Writing the output from one file to the input of another file<ul>
+<li><code>&gt;&amp;</code>: Writing the output from one file to the input of another file</li>
 <li>e.g. <code>matlab &gt; outfile 2&gt;&amp;1</code> : send stdout and stderr to <code>outfile</code>. Here
-  1 and 2 are file descriptors. File descriptor 1 is the standard output
-  (stdout), and 2 is the standard error (stderr). <code>&gt;</code> is redirection,
-  and <code>&amp;</code> indicates that what follows and precedes is a file descriptor
-  and not a filename.</li>
-</ul>
-</li>
+      1 and 2 are file descriptors. File descriptor 1 is the standard output
+      (stdout), and 2 is the standard error (stderr). <code>&gt;</code> is redirection,
+      and <code>&amp;</code> indicates that what follows and precedes is a file descriptor
+      and not a filename.</li>
 </ul>
 <h2 id="wildcards">Wildcards</h2>
 <p>Wildcards are symbols or special characters that represent other
@@ -7091,22 +7083,14 @@ u to go back a page. Use the q key to quit out of the display.</p>
 <h2 id="commands-for-monitoring-files">Commands for monitoring files</h2>
 <p>Following commands are used for monitoring files. </p>
 <ul>
-<li><code>wc</code>: count words, lines or characters<ul>
+<li><code>wc</code>: count words, lines or characters</li>
 <li>e.g. <code>who | wc -l</code>: number of users logged in</li>
-</ul>
-</li>
-<li><code>grep</code>: find patterns in files or data, returns just matching lines<ul>
+<li><code>grep</code>: find patterns in files or data, returns just matching lines</li>
 <li>e.g. <code>who | grep $USER</code>: find your username in users logged in</li>
-</ul>
-</li>
-<li><code>sort</code>: given a list of items, sort in various ways<ul>
+<li><code>sort</code>: given a list of items, sort in various ways</li>
 <li>e.g. <code>who | sort</code>: sort the users logged in</li>
-</ul>
-</li>
-<li><code>head</code>: list only top n (5 by default) lines of file<ul>
+<li><code>head</code>: list only top n (5 by default) lines of file</li>
 <li>e.g. <code>who &gt; who.txt; head who.txt</code>: save the users logged in to a file and show the first five</li>
-</ul>
-</li>
 <li><code>tail</code>: list only last n (5 by default) lines of file</li>
 </ul>
 <h2 id="archiving-and-compression">Archiving and compression</h2>
@@ -7176,7 +7160,7 @@ are <code>$HOME</code>, <code>$USER</code>, <code>$SHELL</code>, <code>$PATH</c
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 23, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
     </span>
     
 
@@ -7200,7 +7184,7 @@ are <code>$HOME</code>, <code>$USER</code>, <code>$SHELL</code>, <code>$PATH</c
             
         </span>
         <nav>
-            Craig Gross, Xiaoge Wang, panchyni
+            Andrew Fullard, Craig Gross, Xiaoge Wang, panchyni
         </nav>
     </span>
     

@@ -885,6 +885,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Collaborative research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
         
   
@@ -1461,32 +1487,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Collaborative_Research/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Collaborative research
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Virtual_Terminals/" class="md-nav__link">
         
   
@@ -1548,10 +1548,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
         
           
-          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1568,8 +1568,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -6599,7 +6599,7 @@ information and other details.</p>
 <li>Building workflows that can easily move between different resources.</li>
 </ul>
 <p><strong><em>NOTE</em></strong> This overview is specific to the High Performance Computing Center (HPCC) at Michigan State University (MSU).  For a complete tutorial see the <a href="https://docs.sylabs.io/guides/3.2/user-guide/index.html">Singularity documentation</a>.  This overview assumes that you have an HPCC account and know how to navigate to and use a development node. </p>
-<p>The remainder of this overview will walk you through the first steps in using Singularity. However, if you want to skip the details just try running the following three powertools commands.  The first two will create a read/writable overlay and install miniconda. The third one will start this overlay inside a CentOS singularity image.  You will only need to run the first two commands once to build the overlay file (with conda), then you can just use the third command anytime you want to start the overlay:</p>
+<p>The remainder of this overview will walk you through the first steps in using Singularity. However, if you want to skip the details just try running the following three powertools commands.  The first two will create a read/writable overlay and install miniforge. The third one will start this overlay inside a CentOS singularity image.  You will only need to run the first two commands once to build the overlay file (with conda), then you can just use the third command anytime you want to start the overlay:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_build
@@ -6689,30 +6689,30 @@ singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> 
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_size
 </code></pre></div></td></tr></table></div>
 <h3 id="writing-to-your-overlay">Writing to your overlay</h3>
-<p>Once you are in the singularity shell you can now write to the overlay as if you were adding files to the "root" directory (/).  For example, running the following commands from inside of your singularity image should allow you to install miniconda3: </p>
+<p>Once you are in the singularity shell you can now write to the overlay as if you were adding files to the "root" directory (/).  For example, running the following commands from inside of your singularity image should allow you to install miniforge3: </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>wget<span class="w"> </span>https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh<span class="w"> </span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>wget<span class="w"> </span>https://github.com/conda-forge/miniforge/releases/download/24.3.0-0/Miniforge3-24.3.0-0-Linux-x86_64.sh
 
-./Miniconda3-py39_4.12.0-Linux-x86_64.sh<span class="w"> </span>-b<span class="w"> </span>-p<span class="w"> </span>/miniconda3/
+./Miniforge3-24.3.0-0-Linux-x86_64.sh<span class="w"> </span>-b<span class="w"> </span>-p<span class="w"> </span>/miniconda3/
 </code></pre></div></td></tr></table></div>
-<p>Since we install miniconda3 a lot there is yet another powertool that will do this installation for you. Just run the following command:</p>
+<p>Since we install miniforge3 a lot there is yet another powertool that will do this installation for you. Just run the following command:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_install_conda
 </code></pre></div></td></tr></table></div>
-<p>Once miniconda is installed in the <code>/miniconda3/</code> directory you need to add the folder <code>/miniconda3/</code> to the path with the following command:</p>
+<p>Once miniforge is installed in the <code>/miniforge3/</code> directory you need to add the folder <code>/miniforge3/</code> to the path with the following command:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/miniconda3/bin:<span class="nv">$PATH</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/miniforge3/bin:<span class="nv">$PATH</span>
 
 conda<span class="w"> </span>--init
 </code></pre></div></td></tr></table></div>
-<p>Or, just use the powertool from before and it will automatically add <code>/miniconda3</code> to your path:</p>
+<p>Or, just use the powertool from before and it will automatically add <code>/miniforge3</code> to your path:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_start
 </code></pre></div></td></tr></table></div>
 <p>At this point you can use <code>pip</code> and <code>conda</code> installs as much as you like.  These generate hundreds of small files but it doesn't matter because everything will be stored in the overlay.img file as one big file.  </p>
 <p>To exit singularity just type <code>exit</code>. To start your overlay image just type <code>overlay_start</code></p>
 <h2 id="step-4-submitting-jobs">Step 4: Submitting Jobs</h2>
-<p>Once we have our image and our conda overlay working in a development node we can execute a script inside of the singularity image, "in batch mode" using the <code>exec</code> from above. For example, this script uses our miniconda installed overlay and runs the python3 script called "mypython.py" which is stored in my home directory on the HPCC.</p>
+<p>Once we have our image and our conda overlay working in a development node we can execute a script inside of the singularity image, "in batch mode" using the <code>exec</code> from above. For example, this script uses our miniforge installed overlay and runs the python3 script called "mypython.py" which is stored in my home directory on the HPCC.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--overlay<span class="w"> </span>overlay.img<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos<span class="w"> </span>python3<span class="w"> </span>/mnt/home/<span class="nv">$USER</span>/mypython.py
 </code></pre></div></td></tr></table></div>
 <p>Once the above is running on a development node we can just submit this as a job to the HPCC using the following submissions script:</p>
@@ -6728,7 +6728,7 @@ conda<span class="w"> </span>--init
 <span class="c1">#SBATCH -c 1</span>
 <span class="c1">#SBATCH -N 1</span>
 
-singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--overlay<span class="w"> </span>overlay.img<span class="w"> </span>--env<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/miniconda3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos<span class="w"> </span>python3<span class="w"> </span>/mnt/home/<span class="nv">$USER</span>/mypython.py
+singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--overlay<span class="w"> </span>overlay.img<span class="w"> </span>--env<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/miniforge3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos<span class="w"> </span>python3<span class="w"> </span>/mnt/home/<span class="nv">$USER</span>/mypython.py
 </code></pre></div></td></tr></table></div>
 <p>Again, we have a powertool to help clean this up for common workflows.  Using the <code>overlay_exec</code> command you can simply the above submission script using the following:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6751,7 +6751,7 @@ overlay_exec python3 /mnt/home/$USER/mypython.py
 <li><em>embedding</em> the overlay into the Singularity image</li>
 <li>and loading the image as temporarily writable.</li>
 </ul>
-<p>As a result, the changes you make to the system files (like <code>/miniconda3/</code>) will <em>not</em> persist after you are finished. You should make sure that any changes you want to keep (like important output files) are stored in a <code>/mnt/</code> directory that's shared with the HPCC, like <code>/mnt/home/$USER</code> or a <code>/mnt/research</code> space.</p>
+<p>As a result, the changes you make to the system files (like <code>/miniforge3/</code>) will <em>not</em> persist after you are finished. You should make sure that any changes you want to keep (like important output files) are stored in a <code>/mnt/</code> directory that's shared with the HPCC, like <code>/mnt/home/$USER</code> or a <code>/mnt/research</code> space.</p>
 <h4 id="embedding-the-overlay">Embedding the overlay</h4>
 <p>First, we will <a href="https://docs.sylabs.io/guides/3.8/user-guide/persistent_overlays.html#overlay-embedded-in-sif">embed the overlay into the image file</a>. This links the image and with a copy of the overlay, so that any time the image is used the overlay copy will be brought along without needing to be specified.</p>
 <p>To do this, you first need a copy of the image file that you want to use with your overlay. In the case above where you are using the CentOS container that is already on the HPCC, you can create a copy called <code>centos7.sif</code> in your current working directory with</p>
@@ -6887,7 +6887,7 @@ singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> 
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 4, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
     </span>
     
 

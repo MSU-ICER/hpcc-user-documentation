@@ -885,6 +885,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Collaborative research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
         
   
@@ -1461,32 +1487,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Collaborative_Research/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Collaborative research
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Virtual_Terminals/" class="md-nav__link">
         
   
@@ -1548,10 +1548,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
         
           
-          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1568,8 +1568,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -6395,8 +6395,8 @@ information and other details.</p>
 </div>
 <h2 id="lab-notebook-installing-antismash-on-hpcc-using-conda-2022-06-27">Lab Notebook --- Installing AntiSMASH on HPCC using Conda (2022-06-27)</h2>
 <p>AntiSMASH (The antibiotics &amp; Secondary Metabolite Analysis Shell) is bioinformatics program for identifying genes belonging to secondary metabolite pathways, particularly in plant, fungi and bacteria species. Documentation for AntiSMASH can be found at <a href="https://docs.antismash.secondarymetabolites.org">https://docs.antismash.secondarymetabolites.org</a>, but you will need to follow the instruction below to install AntiSMASH in your home directory on HPCC.</p>
-<p>Small analyses can be done through their webportal (see <a href="https://docs.antismash.secondarymetabolites.org/website_submission/">https://docs.antismash.secondarymetabolites.org/website_submission/</a>), however if your analysis requires running AntiSMASH on the HPCC, please see the instruction below for how to install this program localy using Anaconda</p>
-<p>If you have not installed Anaconda in you home directory, see <a href="https://docs.icer.msu.edu/Using_conda/">https://docs.icer.msu.edu/Using_conda/</a></p>
+<p>Small analyses can be done through their webportal (see <a href="https://docs.antismash.secondarymetabolites.org/website_submission/">https://docs.antismash.secondarymetabolites.org/website_submission/</a>), however if your analysis requires running AntiSMASH on the HPCC, please see the instruction below for how to install this program localy using Conda</p>
+<p>If you have not installed Conda in you home directory, see <a href="https://docs.icer.msu.edu/Using_conda/">https://docs.icer.msu.edu/Using_conda/</a></p>
 <p><strong>Installing AnitSMASH</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -6436,11 +6436,11 @@ information and other details.</p>
 <span class="normal">36</span>
 <span class="normal">37</span>
 <span class="normal">38</span>
-<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code># Clear modules and load Anaconda
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code># Clear modules and load Conda
 module purge
 module load Conda/3
 
-# Add biconda to your Anaconda install
+# Add biconda to your Conda install
 conda config --add channels defaults
 conda config --add channels bioconda
 conda config --add channels conda-forge
@@ -6535,7 +6535,7 @@ antismash --help
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 4, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
     </span>
     
 
@@ -6559,7 +6559,7 @@ antismash --help
             
         </span>
         <nav>
-            Claire Kopenhafer, panchyni
+            Claire Kopenhafer, Craig Gross, panchyni
         </nav>
     </span>
     

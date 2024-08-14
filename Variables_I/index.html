@@ -889,6 +889,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Collaborative research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
         
   
@@ -1465,32 +1491,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Collaborative_Research/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Collaborative research
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Virtual_Terminals/" class="md-nav__link">
         
   
@@ -1552,10 +1552,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
         
           
-          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1572,8 +1572,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -6532,9 +6532,9 @@
 <h1 id="variables-part-i">Variables - Part I</h1>
 <p>The shell is a program that takes commands from the input device
 (usually, a keyboard) and gives them to the operating system to
-perform. On most Linux system including HPC at MSU, <code>sh</code> works as the
-shell. Besides <code>sh</code>, other shells are available, but here, we will focus
-on <code>sh</code>.</p>
+perform. On most Linux system including HPC at MSU, <code>bash</code> works as the
+shell. Besides <code>bash</code>, other shells are available, but here, we will focus
+on <code>bash</code>.</p>
 <p>This tutorial assumes you have:</p>
 <ul>
 <li>minimal programming knowledge</li>
@@ -6549,11 +6549,11 @@ one for which is already installed on the HPCC is
 <a href="../Editing_Text_with_Nano/"><code>nano</code></a>.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">first.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1"># This is a comment!</span>
 <span class="nb">echo</span><span class="w"> </span>Hello<span class="w"> </span>World<span class="w">         </span><span class="c1"># This is a comment, too!</span>
 </code></pre></div></td></tr></table></div>
-<p>The first line tells Linux that the file is to be executed by <code>/bin/sh</code>.
+<p>The first line tells Linux that the file is to be executed by <code>/bin/bash</code>.
 <code>#!</code> will be explained later. The second line begins with <code>#</code>. This
 special character makes the line as a comment, and it is ignored by the
 shell. The only exception is when the first line of the file starts with
@@ -6563,11 +6563,11 @@ shell. The only exception is when the first line of the file starts with
 a comment.</p>
 <p>Now, after exiting the text editor, run <code>chmod u+x first.sh</code> on the command
 line to make the text file executable, then run <code>./first.sh</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>first.sh
-$<span class="w"> </span>./first.sh
-Hello<span class="w"> </span>World
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>u+x<span class="w"> </span>first.sh
+./first.sh
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">Hello World</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="using-variables">Using variables</h2>
 <p>Next, let's expand on <code>first.sh</code> by using variables. Create a new script called
@@ -6586,15 +6586,13 @@ the quotes around the string.</p>
 <code>Hello World</code>. The scope of the variable <code>MY_MESSAGE</code> is only inside of
 the script, and when the script finished the variable is empty (don't
 forget to use <code>chmod u+x var1.sh</code> to make a script executable).</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>./var1.sh
-Hello<span class="w"> </span>World
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$MY_MESSAGE</span>
-
-$
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./var1.sh
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">Hello World</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$MY_MESSAGE</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
 </code></pre></div></td></tr></table></div>
 <p>In addition, if you use a variable without declaration, it returns empty
 string. There is no warning or error message. </p>
@@ -6603,50 +6601,48 @@ string. There is no warning or error message. </p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">var2.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh </span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash </span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MYVAR is: </span><span class="nv">$MYVAR</span><span class="s2">&quot;</span>
 <span class="nv">MYVAR</span><span class="o">=</span><span class="s2">&quot;hi there&quot;</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MYVAR is: </span><span class="nv">$MYVAR</span><span class="s2">&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p>Then run the script. You can use <code>chmod u+x</code> to make <code>var2.sh</code> executable and
 run it as the previous examples or use the <code>sh</code> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>sh<span class="w"> </span>var2.sh
-MYVAR<span class="w"> </span>is:
-MYVAR<span class="w"> </span>is:<span class="w"> </span>hi<span class="w"> </span>there
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>var2.sh
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">MYVAR is:</span>
+<span class="go">MYVAR is: hi there</span>
 </code></pre></div></td></tr></table></div>
 <p>The first <code>MYVAR</code> is empty because it is not declared. The second <code>MYVAR</code>
 has the value we expected. The scope of the variables in a script is
 only inside the script. For example, <code>MYVAR</code> is only valid inside
 <code>var2.sh</code> and when the script finishes, <code>MYVAR</code> is empty again.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>./var2.sh
-MYVAR<span class="w"> </span>is:
-MYVAR<span class="w"> </span>is:<span class="w"> </span>hi<span class="w"> </span>there
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$MYVAR</span>
-
-$
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./var2.sh
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">MYVAR is:</span>
+<span class="go">MYVAR is: hi there</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$MYVAR</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
 </code></pre></div></td></tr></table></div>
 <h2 id="saving-variables">Saving variables</h2>
 <p>You can declare variables with <code>export</code> command in a shell. Check the
 scope of variables.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nv">MYVAR</span><span class="o">=</span><span class="s2">&quot;hello there&quot;</span>
-$<span class="w"> </span><span class="nb">export</span><span class="w"> </span>MYVAR
-$<span class="w"> </span>./var2.sh
-MYVAR<span class="w"> </span>is:<span class="w"> </span>hello<span class="w"> </span>there
-MYVAR<span class="w"> </span>is:<span class="w"> </span>hi<span class="w"> </span>there
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$MYVAR</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">MYVAR</span><span class="o">=</span><span class="s2">&quot;hello there&quot;</span>
+<span class="nb">export</span><span class="w"> </span>MYVAR
+./var2.sh
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">MYVAR is: hello there</span>
+<span class="go">MYVAR is: hi there</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$MYVAR</span>
 hello<span class="w"> </span>there
 </code></pre></div></td></tr></table></div>
 <h2 id="extended-example">Extended example</h2>
@@ -6656,7 +6652,7 @@ hello<span class="w"> </span>there
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;What is your name?&quot;</span>
 <span class="nb">read</span><span class="w"> </span>USER_NAME
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello </span><span class="nv">$USER_NAME</span><span class="s2">&quot;</span>
@@ -6664,21 +6660,21 @@ hello<span class="w"> </span>there
 touch<span class="w"> </span><span class="si">${</span><span class="nv">USER_NAME</span><span class="si">}</span>_file
 </code></pre></div></td></tr></table></div>
 <p>Let's run the script.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>u+x<span class="w"> </span>var3.sh
+./var3.sh
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>var3.sh
-$<span class="w"> </span>./var3.sh
-What<span class="w"> </span>is<span class="w"> </span>your<span class="w"> </span>name?
-ICER
-Hello<span class="w"> </span>ICER
-I<span class="w"> </span>will<span class="w"> </span>create<span class="w"> </span>a<span class="w"> </span>file<span class="w"> </span>called<span class="w"> </span>ICER_file
-<span class="nv">$ls</span><span class="w"> </span>-l<span class="w"> </span>ICER_file
--rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>choiyj<span class="w">  </span>staff<span class="w">  </span><span class="m">0</span><span class="w"> </span>Jan<span class="w">  </span><span class="m">5</span><span class="w"> </span><span class="m">14</span>:08<span class="w"> </span>ICER_file
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">What is your name?</span>
+<span class="go">ICER</span>
+<span class="go">Hello ICER</span>
+<span class="go">I will create a file called ICER_file</span>
+<span class="go">$ls -l ICER_file</span>
+<span class="go">-rw-r--r--  1 choiyj  staff  0 Jan  5 14:08 ICER_file</span>
 </code></pre></div></td></tr></table></div>
 <p>Notice that we use curly braces for a file name. If you use <code>$USER_NAME_file</code>
 instead of <code>${USER_NAME}_file</code>, the shell returns the empty string because
@@ -6727,7 +6723,7 @@ there is no variable called <code>USER_NAME_file</code> in the script.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 22, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
     </span>
     
 
@@ -6747,11 +6743,11 @@ there is no variable called <code>USER_NAME_file</code> in the script.</p>
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
             
         </span>
         <nav>
-            Craig Gross
+            Andrew Fullard, Craig Gross
         </nav>
     </span>
     

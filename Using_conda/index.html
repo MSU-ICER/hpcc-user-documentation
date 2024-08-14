@@ -889,6 +889,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Collaborative research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
         
   
@@ -1465,32 +1491,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Collaborative_Research/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Collaborative research
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Virtual_Terminals/" class="md-nav__link">
         
   
@@ -1552,10 +1552,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
         
           
-          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1572,8 +1572,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5377,22 +5377,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installing-anaconda-for-users" class="md-nav__link">
+  <a href="#installing-miniforge-for-users" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installing Anaconda for Users
+        Installing Miniforge for Users
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Installing Anaconda for Users">
+    <nav class="md-nav" aria-label="Installing Miniforge for Users">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anaconda-installation-script" class="md-nav__link">
+  <a href="#miniforge-installation-script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Anaconda Installation Script
+        Miniforge Installation Script
       
     </span>
   </a>
@@ -6511,22 +6511,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installing-anaconda-for-users" class="md-nav__link">
+  <a href="#installing-miniforge-for-users" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installing Anaconda for Users
+        Installing Miniforge for Users
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Installing Anaconda for Users">
+    <nav class="md-nav" aria-label="Installing Miniforge for Users">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anaconda-installation-script" class="md-nav__link">
+  <a href="#miniforge-installation-script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Anaconda Installation Script
+        Miniforge Installation Script
       
     </span>
   </a>
@@ -6674,57 +6674,74 @@
 <p class="admonition-title">Attention</p>
 <p><strong>This wiki serves as a very limited introduction. ICER strongly 
 recommendeds reading the<br />
-<a href="https://docs.anaconda.com/anaconda/user-guide/"><strong>conda user guide</strong></a> 
+<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/index.html"><strong>conda user guide</strong></a> 
 specific to the version of interest before you start using conda 
 on the HPCC.</strong>   </p>
 </div>
 <h2 id="introduction">Introduction</h2>
-<p><a href="https://docs.conda.io/projects/conda/en/latest/"><strong>Conda</strong></a> is an open-source 
-package management system that installs and updates packages and their dependencies. 
-Conda also easily creates, saves, loads, and switches between environments on the 
-HPCC. It was created for Python programs but it can package and distribute software 
-for any language as a collection of 1,000+ open-source packages with free
-community support. The conda package and environment manager is included in all 
-versions of Anaconda.  </p>
-<p><a href="https://anaconda.com/"><strong>Anaconda</strong></a> was built to complement the rich, 
-open-source Python community, the Anaconda platform provides an enterprise-ready 
-data analytics platform that empowers researchers to adopt a modern, open data science analytics architecture. </p>
+<p>For most Python users, installing packages is done simply with the command <code>pip
+install AwesomePackage</code>  on the terminal, or similar in Jupyter Notebooks.</p>
+<p>However for complex research software, it's sometimes not that simple.  There
+may be other software and libraries that must be installed or part of the
+operating system for a python package to work that need to be installed on the
+computer, so-called "dependencies," and the versions must all be compatible.
+This is not just true of Python -- most systems have a "package management"
+system that works with recipes for installing the correct versions of many
+programs. The Anaconda company contributed the great open source Conda package
+manager for Python and scientific software and it's been very successful.</p>
+<p>Specifically, <a href="https://docs.conda.io/projects/conda/en/latest/"><strong>Conda</strong></a> is
+an open-source package management system that installs and updates packages and
+their dependencies. Conda also easily creates, saves, loads, and switches
+between environments on the HPCC. It was created for Python programs but it can
+package and distribute software for any language as a collection of 1,000+
+open-source packages with free community support.</p>
+<p><a href="https://github.com/conda-forge/miniforge"><strong>Miniforge</strong></a> is a minimal
+installer that provides access to Conda and a large set of
+community-contributed packages via <a href="https://conda-forge.org/">conda-forge</a>.
+Miniforge and Conda are both available with a permissive license.</p>
+<p>You may also be familiar with <a href="https://anaconda.com/"><strong>Anaconda</strong></a>, which also
+distributes Conda and performs a similar role as Miniforge. However Anaconda
+uses a different installer and provides a curated list of packages. Anaconda is
+<strong>not</strong> available under a permissive license.</p>
+<p>Due to the different licensing schemes, <strong>ICER recommends using Miniforge and
+does not recommend using Anaconda</strong>. However the two distributions act
+similarly and will give access to the same <code>conda</code> program.</p>
 <h2 id="conda-on-the-hpcc">Conda on the HPCC</h2>
-<p>Using Conda on the HPCC requires both a default component installed and maintained by the HPCC administrators via the <a href="../How_to_find_and_load_software_modules/"><strong>Software module system</strong></a> and a user installed and maintained component. This dual component configuration is required to ensure system wide compliance for the user's customized Conda environments. Hence, <strong>users must install Anaconda in the home or research space</strong> to have full control of their Conda managed environments and packages; and <strong>users must also load the HPCC administrated Conda/3 module</strong> to allow Conda managed environments and packages to run smoothly on the HPCC.</p>
-<h2 id="installing-anaconda-for-users">Installing Anaconda for Users</h2>
-<h3 id="anaconda-installation-script">Anaconda Installation Script</h3>
-<p>To install the user managed component of Anaconda on the HPCC visit 
-<a href="https://www.anaconda.com/download/#linux"><strong>www.anaconda.com/download/#linux</strong></a> 
+<p>Using Conda on the HPCC requires both a default component installed and maintained by the HPCC administrators via the <a href="../How_to_find_and_load_software_modules/"><strong>Software module system</strong></a> and a user installed and maintained component. This dual component configuration is required to ensure system wide compliance for the user's customized Conda environments. Hence, <strong>users must install Miniforge in the home or research space</strong> to have full control of their Conda managed environments and packages; and <strong>users must also load the HPCC administrated Conda/3 module</strong> to allow Conda managed environments and packages to run smoothly on the HPCC.</p>
+<h2 id="installing-miniforge-for-users">Installing Miniforge for Users</h2>
+<h3 id="miniforge-installation-script">Miniforge Installation Script</h3>
+<p>To install the user managed component of Miniforge on the HPCC visit 
+<a href="https://conda-forge.org/miniforge/"><strong>https://conda-forge.org/miniforge/</strong></a> 
 and follow the instructions below:</p>
 <ol>
 <li>
-<p>Find the link for the <strong>64-bit (x86) Installer for Linux</strong> and copy the URL
+<p>Find the link for the <strong>64-bit (x86_64) Installer for Minforge3 for Linux</strong> and copy the URL
 associated with this link (right-click on the download link and select "copy
-link address" or "copy link location"); For example, <a href="https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh">https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh</a>.</p>
+link address" or "copy link location"); For example, <a href="https://github.com/conda-forge/miniforge/releases/download/24.3.0-0/Miniforge3-24.3.0-0-Linux-x86_64.sh">https://github.com/conda-forge/miniforge/releases/download/24.3.0-0/Miniforge3-24.3.0-0-Linux-x86_64.sh</a>.</p>
 </li>
 <li>
 <p>Login to the HPCC, login to a development node, navigate to the desired installation directory if it is somewhere other than your homespace, then run the command<br />
-<code>curl -O &lt;copied link address&gt;</code><br />
+<code>wget &lt;copied link address&gt;</code><br />
     where <code>&lt;copied link address&gt;</code> above is to be replaced with the URL obtained in step 1.</p>
 </li>
 <li>
-<p>Once the Anaconda file is downloaded, run the command<br />
-<code>bash &lt;AnacondaFileName.sh&gt;</code>  <br />
-    where <code>&lt;AnacondaFileName.sh&gt;</code> above is replaced with the name of the Anaconda 
-    file downloaded with the <code>curl</code> command. For example, <code>Anaconda3-2022.05-Linux-x86_64.sh</code>.  </p>
+<p>Once the Miniforge file is downloaded, run the command<br />
+<code>bash &lt;MiniforgeFileName.sh&gt;</code>  <br />
+    where <code>&lt;MiniforgeFileName.sh&gt;</code> above is replaced with the name of the Miniforge
+    file downloaded with the <code>curl</code> command. For example, <code>Miniforge3-24.3.0-0-Linux-x86_64.sh</code>.  </p>
 <p>During Installation you will need to:  </p>
 <ul>
 <li>Accept the license terms; the output will display<br />
 <code>Do you accept the license terms [yes|no]?</code> 
-Type <code>yes</code> to accept; you must agree to install Anaconda</li>
+Read the license, and if you agree, type <code>yes</code> to accept.</li>
 <li>Choose the installation location; the output will display<br />
-<code>Anaconda3 will now be installed into this location: $HOME/anaconda3</code><br />
+<code>Miniforge3 will now be installed into this location: /mnt/home/$USER/miniforge3</code><br />
 <code>- Press ENTER to confirm the location</code><br />
 <code>- Press CTRL-C to abort the installation</code><br />
 <code>- Or specify a different location below</code><br />
  (<em>note: it may take a long while to complete this step</em>)</li>
 <li>Choose to initialize conda; the output will display<br />
-<code>Do you wish the installer to initialize Anaconda3</code> <br />
+<code>Do you wish the installer to initialize conda?</code> <br />
 <code>by running conda init? [yes|no]</code> <br />
 <code>[no] &gt;&gt;&gt;</code><br />
 Please type <code>no</code>, a more careful initialization is described after the installation instructions.</li>
@@ -6733,7 +6750,7 @@ Please type <code>no</code>, a more careful initialization is described after th
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Please remember the directory where Anaconda was installed</strong>. This
+<p><strong>Please remember the directory where Miniforge was installed</strong>. This
 installation path will be used next. </p>
 </div>
 <p>Upon <strong>successful installation</strong>, the output will display   </p>
@@ -6746,37 +6763,27 @@ installation path will be used next. </p>
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>You have chosen to not have conda modify your shell scripts at all.
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>You have chosen to not have conda modify your shell scripts at all.
 To activate conda&#39;s base environment in your current shell session:
 
-eval &quot;$(/$HOME/anaconda3/bin/conda shell.YOUR_SHELL_NAME hook)&quot; 
+eval &quot;$(/mnt/home/$USER/minforge3/bin/conda shell.YOUR_SHELL_NAME hook)&quot; 
 
 To install conda&#39;s shell functions for easier access, first activate, then:
 
 conda init
 
-If you&#39;d prefer that conda&#39;s base environment not be activated on startup, 
-   set the auto_activate_base parameter to false: 
-
-conda config --set auto_activate_base false
-
-Thank you for installing Anaconda3!
+Thank you for installing Miniforge3!
 </code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Please disregard this output.</strong> Users must manually configure Anaconda as described in the next section.</p>
+<p><strong>Please disregard this output.</strong> Users must manually configure Miniforge as described in the next section.</p>
 </div>
 <h3 id="editing-bashrc">Editing <code>.bashrc</code></h3>
-<p><strong>To avoid conflicts between the user-installed Anaconda distribution</strong> 
+<p><strong>To avoid conflicts between the user-installed Miniforge distribution</strong> 
 <strong>and system-installed Python distributions</strong>, a modification of the <code>$HOME/.bashrc</code> file is necessary. The <code>.bashrc</code> file in the user's home space
 can be modified to set a specified environment every time you login to an
 HPCC node. You can modify the <code>.bashrc</code> file with an editor such as <code>vim</code> or <a href="../Editing_Text_with_Nano/"><code>nano</code></a>. 
-To modify the <code>.bashrc</code> file for Anaconda installations please follow these steps:</p>
+To modify the <code>.bashrc</code> file for Miniforge installations please follow these steps:</p>
 <ol>
 <li>
 <p>Navigate to your home space and open the <code>.bashrc</code> file with an editor e.g., run <br />
@@ -6785,7 +6792,7 @@ To modify the <code>.bashrc</code> file for Anaconda installations please follow
 press the <strong>[i]</strong> key to enter "<strong>--insert--</strong>" mode</p>
 </li>
 <li>
-<p>Set the variable "<code>CONDA3PATH</code>" to the Anaconda3 installation directory by adding the command line  <code>export CONDA3PATH=&lt;Anaconda3 installation path&gt;</code>. Make sure to include the final <code>/</code> at the end of the path.</p>
+<p>Set the variable "<code>CONDA3PATH</code>" to the Miniforge installation directory by adding the command line  <code>export CONDA3PATH=&lt;Miniforge3 installation path&gt;</code>. Make sure to include the final <code>/</code> at the end of the path.</p>
 </li>
 <li>
 <p>Save the modified <code>.bashrc</code> file by pressing the <strong>[esc]</strong> key to exit
@@ -6815,6 +6822,45 @@ installed version, use the command<br />
 If properly installed, the conda version will be output
 to the display. For example,  <br />
 <code>$ conda 22.11.0</code>.</p>
+<p>!!! warning "Conflict with locally installed packages</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>If you have used the `pip install` command to install packages before using Conda, you may find conflicts between the packages Conda uses and the packages locally installed into the `$HOME/.local/lib/pythonX.Y` directory.
+
+For example, after running a `conda` command for the first time, you may see an error like
+
+``` text
+Traceback (most recent call last):
+    File &quot;/mnt/home/$USER/miniforge3/lib/python3.10/site-packages/conda/exception_handler.py&quot;, line 17, in __call__
+    return func(*args, **kwargs)
+    ...
+ImportError: cannot import name &#39;JSONDecodeError&#39; from &#39;requests.exceptions&#39; (/mnt/home/$USER/.local/lib/python3.10/site-packages/requests/exceptions.py)
+```
+
+You will need to move your locally installed packages to a separate location. The final line of the errors shows where the user installed packages are. You can move them to a backup location if you need them later using a command like:
+
+``` bash
+mv $HOME/.local/lib/python3.10 $HOME/.local/lib/python3.10.backup
+```
+
+**Make sure to replace `python3.10` above with the version that shows up in your error message.** After this, you will no longer be able to use your locally installed packages. For this reason ICER recommends not mixing Conda installed packages and locally installed packages.
+</code></pre></div></td></tr></table></div>
 <p>To <strong>update conda</strong> to the most recent version, use the command<br />
 <code>$ conda update conda</code>     </p>
 <p>The output will display text similar to     </p>
@@ -6863,7 +6909,7 @@ Solving environment: done
 
 ## Package Plan ##
 
-  environment location: /mnt/home/parvizim/anaconda3
+  environment location: /mnt/home/$USER/miniforge3
 
   added / updated specs:
     - conda
@@ -6922,7 +6968,7 @@ Solving environment: done
 
 ## Package Plan ##
 
-  environment location: $HOME/anaconda3/envs/myenv
+  environment location: /mnt/home/$USER/miniforge3/envs/myenv
 
 
 
@@ -6962,12 +7008,12 @@ of the "scipy" packages, the current "asteroid" package, and the current
 <span class="normal">7</span>
 <span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code># conda environments:
 #
-astroenv                 $HOME/anaconda3/envs/astroenv
-base                  *  $HOME/anaconda3
-bioenv                   $HOME/anaconda3/envs/bioenv
-myenv                    $HOME/anaconda3/envs/myenv
-newenv                   $HOME/anaconda3/envs/newenv
-scienv                   $HOME/anaconda3/envs/scienv
+astroenv                 /mnt/home/$USER/miniforge3/envs/astroenv
+base                  *  /mnt/home/$USER/miniforge3
+bioenv                   /mnt/home/$USER/miniforge3/envs/bioenv
+myenv                    /mnt/home/$USER/miniforge3/envs/myenv
+newenv                   /mnt/home/$USER/miniforge3/envs/newenv
+scienv                   /mnt/home/$USER/miniforge3/envs/scienv
 </code></pre></div></td></tr></table></div>
 <p>where an active environment is denoted with the <code>*</code> symbol.  </p>
 <p>To <strong>activate a conda environment</strong>, use the command     </p>
@@ -6998,7 +7044,7 @@ front of the command prompt. For example, the command    </p>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code># packages in environment at $HOME/anaconda3/envs/scienv:
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code># packages in environment at /mnt/home/$USER/miniforge3/envs/scienv:
 #
 # Name                    Version                   Build  Channel
 _libgcc_mutex             0.1                        main  
@@ -7010,7 +7056,7 @@ certifi                   2022.6.15        py39h06a4308_0
 ... ...
 zlib                      1.2.12               h7f8727e_2
 </code></pre></div></td></tr></table></div>
-<p>To <strong>search for a package</strong> in the Anaconda repository that you would like to install, use the command    </p>
+<p>To <strong>search for a package</strong> in the conda-forge repository that you would like to install, use the command    </p>
 <p><code>conda search &lt;package name&gt;</code>  <br />
 where the <code>&lt;package name&gt;</code> is to be replaced with the name of package to search for. For example, the command    </p>
 <p><code>conda search beautifulsoup4</code>    </p>
@@ -7058,7 +7104,7 @@ Solving environment: done
 
 ## Package Plan ##
 
-  environment location: $HOME/anaconda3/envs/scienv
+  environment location: /mnt/home/$USER/miniforge3/envs/scienv
 
   added / updated specs:
     - beautifulsoup4
@@ -7082,23 +7128,29 @@ Proceed ([y]/n)?
 <p class="admonition-title">Note</p>
 <p>It is best to install all packages at once, so that all dependencies are installed at the same time.</p>
 </div>
-<p>**Not all packages can be installed with the simple command ** <code>conda install</code>. Some packages may reside in a private package repository hosted by 
-<a href="http://anaconda.org"><strong>Anaconda.org</strong></a>. As an example, we will illustrate the process using a public package called ‘bottleneck’.</p>
-<p>Use a web browser to visit the webpage <a href="http://anaconda.org"><strong>anaconda.org</strong></a> and enter the text "bottleneck" into the search bar.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To search for packages in a private repository you will have to 'Sign Up' and 
-'Sign In'.</p>
-</div>
-<p><img alt="Anaconda.org" src="../attachments/AnacondaOrg1.png" title="A screenshot of the Anaconda.org search page and login page" /></p>
-<p><img alt="Bottleneck" src="../attachments/AnacondaOrg2.png" title="A screenshot of the Anaconda.org website with a red banner explaining that you must login to search private packages" /></p>
-<p>Choose the appropriate version, here we choose the most frequently downloaded, and click on the text ‘bottleneck’. </p>
-<p><img alt="InstallBottleneck" src="../attachments/AnacondaOrg3.png" title="A screenshot of the Anaconda.org page for the bottleneck package" /></p>
-<p>This will display all the information available on the package, including the commands used to install it. In this case, we want to install the standard "bottleneck" package via the "conda-forge" channel so we choose the command</p>
-<p><code>conda install -c conda-forge bottleneck</code></p>
+<p>**Not all packages can be installed with the simple command ** <code>conda install</code>.
+Some packages may reside in other repositories or "channels". For example,
+<a href="https://bioconda.github.io/"><strong>Bioconda</strong></a> is a popular repository for tools
+useful in biomedical research. To install a packages using a different channel,
+use the <code>-c</code> option like</p>
+<p><code>conda install -c bioconda samtools</code></p>
 <p>where the <code>-c</code> flag designates the channel.</p>
-<p>If packages you are interested in are <strong>not available from conda or <a href="http://anaconda.org">Anaconda.org</a></strong> use the 'pip' package manger within a conda environment
-via the command</p>
+<div class="admonition note">
+<p class="admonition-title">Bioconda specific setup</p>
+<p>If you plan to use Bioconda often, they suggest that you run the following one-time setup to ensure that you can install compatible packages into your environment:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>defaults
+conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>bioconda
+conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>conda-forge
+conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>channel_priority<span class="w"> </span>strict
+</code></pre></div></td></tr></table></div>
+<p>See the <a href="https://bioconda.github.io/">Bioconda homepage</a> for details.</p>
+</div>
+<p>If packages you are interested in are <strong>not available from conda or another
+conda repository that you have access to</strong> use the 'pip' package manger within
+a conda environment via the command</p>
 <p><code>pip install &lt;package name&gt;</code></p>
 <p>where <code>&lt;package name&gt;</code> is to be replaced by the name of the desired package.
 For example, the commands  <br />
@@ -7107,6 +7159,14 @@ For example, the commands  <br />
    (scienv) $ pip install see
 </code></pre></div></td></tr></table></div></p>
 <p>will install the package "see" in the active environment "scienv".</p>
+<div class="admonition warning">
+<p class="admonition-title">Avoid mixing <code>conda</code> and <code>pip</code> installed packages</p>
+<p>When creating an environment Conda, it is highly recommended to install all
+packages with <code>conda</code> only and do not <code>pip</code>. If you need to install
+packages with both tools, install all <code>conda</code> packages first, then install
+<code>pip</code> packages. This ensures that the <code>conda</code> installed packages have the
+correct dependencies and setup.</p>
+</div>
 <p>To <strong>update a package</strong> use the command</p>
 <p><code>conda update &lt;package name&gt;</code>.</p>
 <p>To <strong>remove a package</strong> from the active environment, use the command</p>
@@ -7118,7 +7178,7 @@ For example, the commands  <br />
 <p><code>(scienv) $ conda remove --name myenv beautifulsoup4</code>    </p>
 <p>will remove the package "beautifulsoup4" in the inactive environment "myenv".</p>
 <h2 id="using-conda-with-slurm">Using conda with SLURM</h2>
-<p>You can activate a conda environment from within a <a href="../Job_Script_and_Job_Submission/"><strong>SLURM Job Script</strong></a>. Include the <code>conda activate &lt;environment name&gt;</code> and <code>conda deactivate</code> commands in the 'bash command' portion of the SLURM job script. Ensure to first navigate into the directory where Anaconda is installed e.g., <code>cd $HOME</code>.</p>
+<p>You can activate a conda environment from within a <a href="../Job_Script_and_Job_Submission/"><strong>SLURM Job Script</strong></a>. Include the <code>conda activate &lt;environment name&gt;</code> and <code>conda deactivate</code> commands in the 'bash command' portion of the SLURM job script. Ensure to first navigate into the directory where Miniforge is installed e.g., <code>cd $HOME</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -7201,7 +7261,7 @@ conda<span class="w"> </span>deactivate
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
     </span>
     
 
