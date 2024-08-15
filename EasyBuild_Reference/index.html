@@ -5169,17 +5169,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#the-ebs-alias-and-default-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The ebS alias and default options
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6649,17 +6638,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#the-ebs-alias-and-default-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The ebS alias and default options
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6720,16 +6698,21 @@ module<span class="w"> </span>load<span class="w"> </span>EasyBuild
 </code></pre></div></td></tr></table></div>
 <h2 id="configuration-and-options">Configuration and options</h2>
 <p>Use the <code>--show-config</code> option to see all of the configuration options and their values.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ebS<span class="w"> </span>--show-config
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--show-config
 </code></pre></div></td></tr></table></div>
 <p>Any option can be changed by passing it as a command line argument when using
 <code>ebS</code>. Key examples are given below.</p>
 <h3 id="software-installation-directory-installpath-software">Software installation directory: <code>--installpath-software</code></h3>
-<p>Set to the directory where the final software is installed (default: <code>$HOME/software</code>).</p>
+<p>Set to the directory where the final software is installed (default: <code>$HOME/.local/easybuild/software</code>).</p>
 <h3 id="module-directory-installpath-module">Module directory: <code>--installpath-module</code></h3>
-<p>Set to the directory where the software's module files are stored (default: <code>$HOME/module</code>).</p>
+<p>Set to the directory where the software's module files are stored (default: <code>$HOME/.local/easybuild/modules</code>).</p>
 <h3 id="temporary-build-directory-buildpath">Temporary build directory: <code>--buildpath</code></h3>
-<p>Set to the directory the software is downloaded and compiled (default: <code>/tmp/$USER/EASYBUILD</code>).</p>
+<p>Set to the directory the software is downloaded and compiled (default: <code>$HOME/.local/easybuild/build</code>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We highly recommend setting <code>--buildpath=/tmp/$USER/EASYBUILD</code> so that you
+don't download the temporary files to your home directory!</p>
+</div>
 <h3 id="number-of-cores-allowed-in-parallel-installation-parallel">Number of cores allowed in parallel installation: <code>--parallel</code></h3>
 <p>Set to the number of cores you wish to use (default: all cores on node)</p>
 <div class="admonition warning">
@@ -6743,59 +6726,46 @@ other users. When in doubt, set <code>--parallel=8</code>.</p>
 collection (focusing on research software) already available on the HPCC
 contributed by many users and software developers across the world.</p>
 <h3 id="searching-with-search-or-m">Searching with <code>--search</code> or <code>-M</code></h3>
-<p>Use the <code>--search</code> or <code>-S</code> option to <code>ebS</code> to find an EasyConfig available on the HPCC.</p>
+<p>Use the <code>--search</code> or <code>-S</code> option to <code>eb</code> to find an EasyConfig available on the HPCC.</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ebS<span class="w"> </span>-S<span class="w"> </span>zfp
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>-S<span class="w"> </span>zfp
 </code></pre></div></td></tr></table></div>
 <h3 id="viewing-with-show-ec">Viewing with <code>--show-ec</code></h3>
 <p>Use the <code>--show-ec</code> option to view an EasyConfig based on its name (not its full path).</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ebS<span class="w"> </span>--show-ec<span class="w"> </span>zfp-1.0.0-GCCcore-10.3.0.eb
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--show-ec<span class="w"> </span>zfp-1.0.1-GCCcore-12.3.0.eb
 </code></pre></div></td></tr></table></div>
 <h2 id="installing-software">Installing software</h2>
-<p>Run <code>ebS</code> with any options you wish to set followed by the name of the EasyConfig you wish to install.</p>
+<p>Run <code>eb</code> with any options you wish to set followed by the name of the EasyConfig you wish to install.</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ebS<span class="w"> </span>--parallel<span class="o">=</span><span class="m">8</span><span class="w"> </span>--installpath-software<span class="o">=</span><span class="nv">$SCRATCH</span>/software<span class="w"> </span>zfp-1.0.0-GCCcore-10.3.0.eb
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--parallel<span class="o">=</span><span class="m">8</span><span class="w"> </span>--buildpath<span class="o">=</span>/tmp/<span class="nv">$USER</span>/EASYBUILD<span class="w"> </span>--installpath-software<span class="o">=</span><span class="nv">$SCRATCH</span>/software<span class="w"> </span>zfp-1.0.1-GCCcore-12.3.0.eb
 </code></pre></div></td></tr></table></div>
 <h2 id="accessing-installed-software-with-the-module-system">Accessing installed software with the <code>module</code> system</h2>
 <p>Add the location where your module files are installed (i.e., <a href="#module-directory-installpath-module">the value of
 <code>--installpath-modules</code> in your EasyBuild
 configuration</a> to your <code>$MODULEPATH</code> with <code>module use</code> so
 modules can be found by further <code>module</code> commands.</p>
+<p>Note that EasyBuild adds an extra <code>all</code> directory inside your
+<code>installpath-modules</code> that you should use with <code>module use</code>:</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>use<span class="w"> </span><span class="nv">$HOME</span>/.local/easybuild/modules/all
+module<span class="w"> </span>spider<span class="w"> </span>zfp
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>use<span class="w"> </span><span class="nv">$HOME</span>/modules
-$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>zfp
-----------------------------------------------------------------------------
-<span class="w">  </span>zfp:<span class="w"> </span>zfp/1.0.0-GCCcore-10.3.0
-----------------------------------------------------------------------------
-...
-<span class="w">    </span>This<span class="w"> </span>module<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>loaded<span class="w"> </span>directly:<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>zfp/1.0.0-GCCcore-10.3.0
-...
-$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>zfp/1.0.0-GCCcore-10.3.0
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  zfp: zfp/1.0.1-GCCcore-12.3.0</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">...</span>
+<span class="go">    This module can be loaded directly: module load zfp/1.0.1-GCCcore-12.3.0</span>
+<span class="go">...</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="the-ebs-alias-and-default-options">The <code>ebS</code> alias and default options</h2>
-<p>When you load the EasyBuild module, you have access to the <code>eb</code> command which is the traditional way to interface with EasyBuild.
-The ICER staff has also supplied the <code>ebS</code> alias to take the place of <code>eb</code>.
-It sets some reasonable defaults for you including</p>
-<ul>
-<li>setting your EasyBuild <code>installpath</code> to <code>$HOME</code><ul>
-<li>software is installed in <code>$HOME/software</code></li>
-<li>modules are installed in <code>$HOME/modules</code></li>
-</ul>
-</li>
-<li>automatically purging modules before installing (to ensure new software works as desired)</li>
-<li>automatically installing dependencies using the <code>--robot</code> option</li>
-<li>rebuilding the desired software if it's already installed</li>
-</ul>
-<p>If you read the <a href="https://docs.easybuild.io">EasyBuild documentation</a> or any other sources, you are free to use <code>ebS</code> in place of <code>eb</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>zfp/1.0.1-GCCcore-12.3.0
+</code></pre></div></td></tr></table></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6840,7 +6810,7 @@ It sets some reasonable defaults for you including</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 13, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
     </span>
     
 
