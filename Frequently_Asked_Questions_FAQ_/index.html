@@ -6573,6 +6573,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#why-do-i-get-a-module-not-found-error-in-my-slurm-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why do I get a module: not found error in my slurm output?
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7223,6 +7234,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#why-do-i-get-a-module-not-found-error-in-my-slurm-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why do I get a module: not found error in my slurm output?
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7656,6 +7678,15 @@ therefore you need to avoid them. That is, for dev-node testing, pick
 one from dev-intel16, dev-intel16-k80 and dev-intel18. For job
 submission, add <code>#SBATCH--constraint="[intel16|intel18]"</code>in your SLURM
 script.</p>
+<h3 id="why-do-i-get-a-module-not-found-error-in-my-slurm-output">Why do I get a <code>module: not found</code> error in my slurm output?</h3>
+<p>Job scripts that start with #!/bin/sh will result in errors like 
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>/var/lib/slurmd/jobXXXXXXXX/slurm_script: XX: module: not found. 
+Please change this line to #!/bin/bash.
+</code></pre></div></td></tr></table></div>
+/bin/sh is a symbolic link in modern Linux distributions and does not
+always link to the same shell.  A better method on current Linux
+distributions is to explicitly call the bash shell with #!/bin/bash in your script if needed.</p>
 <h2 id="software-and-modules">Software and modules</h2>
 <h3 id="i-want-to-install-software-packages-what-should-i-do">I want to install software packages, what should I do?</h3>
 <p>The HPCC has a lot of software installed already. Search for the software you 
@@ -7811,7 +7842,7 @@ Please send your files along with your reply to the ticket email.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
     </span>
     
 
