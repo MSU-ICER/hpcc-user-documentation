@@ -7727,6 +7727,27 @@ when submitting a request for software installation: </p>
    better functionality. It may be time to consider transitioning to using a
    newer software.  </p>
 </li>
+<li>
+<p><strong>Is the software available through EasyBuild with an ICER supported
+   toolchain?</strong> ICER uses a tool called <a href="https://easybuild.io/">EasyBuild</a> to
+   install software that is provided via "recipe" files or EasyConfigs. See the
+   entire list of <a href="https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs">available
+   EasyConfigs</a>.
+   Note that software is installed with a "toolchain" (see our <a href="https://docs.icer.msu.edu/EasyBuild_Tutorial/#finding-our-easyconfig">EasyBuild
+   tutorial</a>
+   for more information). ICER only officially supports software installed
+   under the following toolchains or
+   <a href="https://docs.easybuild.io/common-toolchains/#toolchains_diagram">subtoolchains</a>
+   (including <code>gfbf</code>, <code>gompi</code>, <code>iimpi</code>, <code>iimkl</code>):</p>
+<ul>
+<li><code>foss/2022b</code></li>
+<li><code>foss/2023a</code></li>
+<li><code>foss/2023b</code></li>
+<li><code>intel/2022b</code></li>
+<li><code>intel/2023a</code></li>
+<li><code>intel/2023b</code></li>
+</ul>
+</li>
 </ol>
 <h3 id="why-did-my-module-load-command-output-errors">Why did my "module load" command output errors?</h3>
 <p>There are many reasons that errors occur when you try loading a module.
