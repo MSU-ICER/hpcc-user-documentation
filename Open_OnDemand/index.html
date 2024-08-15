@@ -6737,7 +6737,7 @@ utilize the HPCC by providing easy web access with graphical user interfaces fro
 <h2 id="connect-to-hpcc-ondemand">Connect to HPCC OnDemand</h2>
 <p>To connect to HPCC OnDemand, visit <a href="https://ondemand.hpcc.msu.edu/"><strong>https://ondemand.hpcc.msu.edu/</strong></a>.
  It will first redirect to the <a href="https://www.cilogon.org/"><strong>CILogon</strong></a> website for authentication.  </p>
-<p><img alt="Screenshot of the MSU CILogon page. Michigan State University has been selected from the identity provider drop down menu." src="../attachments/Open_OnDemand/58786039.png" /></p>
+<p><img alt="Screenshot of the MSU CILogon page. Michigan State University has been selected from the identity provider drop down menu." src="../attachments/Open_OnDemand/loginpage.png" /></p>
 <p>From here, select "<strong>Michigan State University</strong>" as the
 identity provider and click "<strong>Log On</strong>". This will redirect you to a page
 where you can log in with your MSU credentials.  </p>
@@ -6749,13 +6749,13 @@ Please take this into consideration when you choose tools provided on
 HPCC OnDemand for your group projects involving external collaborators. </p>
 </div>
 <p>After sign in, you will reach the HPCC OnDemand web portal with the following menu options:    </p>
-<p><img alt="Screenshot of the ICER Open OnDemand page showing the top bar options, explained below" src="../attachments/Open_OnDemand/50692320.png" /></p>
+<p><img alt="Screenshot of the ICER Open OnDemand page showing the top bar options, explained below" src="../attachments/Open_OnDemand/frontpage.png" /></p>
 <h2 id="files">Files</h2>
 <p>All user's files in the home, research, scratch, and software file spaces can be accessed.   </p>
-<p><img alt="A screenshot of the ICER Open OnDemand page with the File menu opened showing the list of accessible directories" src="../attachments/Open_OnDemand/55607542.png" /></p>
+<p><img alt="A screenshot of the ICER Open OnDemand page with the File menu opened showing the list of accessible directories" src="../attachments/Open_OnDemand/filelist.png" /></p>
 <p>Select a directory then use the <code>File Explorer</code> to download, upload, 
 view, edit, and move files. You can learn more about the explorer at <a href="https://www.osc.edu/resources/online_portals/ondemand/file_transfer_and_management">https://www.osc.edu/resources/online_portals/ondemand/file_transfer_and_management</a>.</p>
-<p><img alt="Screenshot of the ICER Open OnDemand File Explorer. The Files menu is open showing a list of accessibly directories." src="../attachments/file_transfer/ondemand_file_browser.PNG" /></p>
+<p><img alt="Screenshot of the ICER Open OnDemand File Explorer. The Files menu is open showing a list of accessible directories." src="attachments/file_transfer/filebrowser.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The OnDemand portal is best for transferring files less than ~1 <abbr title="Gigabyte">GB</abbr> in size. 
@@ -6764,22 +6764,26 @@ see <a href="../Transferring_data_with_Globus/">Large file transfer (Globus)</a>
 </div>
 <h2 id="jobs">Jobs</h2>
 <p><strong>Active Jobs:</strong> List jobs in the queue; monitor or manage those jobs</p>
-<p><img alt="A screenshot of the Active Jobs page showing two jobs, one completed and one running" src="../attachments/Open_OnDemand/55607547.png" /></p>
+<p><img alt="A screenshot of the Active Jobs page showing two jobs, one completed and one running" src="../attachments/Open_OnDemand/activejobs.png" /></p>
 <p><strong>Job Composer:</strong> Submit a job script with resource requests and 
 command lines; create new scripts from a job template, copy a previous job submission, 
 or select an existing job script from a specified directory. You can learn more about the job composer at <a href="https://www.osc.edu/resources/online_portals/ondemand/job_management">https://www.osc.edu/resources/online_portals/ondemand/job_management</a>.</p>
-<p><img alt="A screenshot of the OnDemand Job Composer page, showing the dropdown menu to create a new job" src="../attachments/Open_OnDemand/55607545.png" /></p>
+<p><img alt="A screenshot of the OnDemand Job Composer page, showing the dropdown menu to create a new job" src="../attachments/Open_OnDemand/jobcomposer.png" /></p>
 <h2 id="interactive-apps">Interactive Apps</h2>
 <p><strong>Desktops:</strong> Request an <code>Interactive Desktop</code>; once it starts, a graphical user interface (<abbr title="Graphic User Interface">GUI</abbr>) is provided for running <abbr title="Graphic User Interface">GUI</abbr> based applications</p>
-<p><img alt="A screenshot of the ICER Open OnDemand main page showing the interactive apps menu, including Interactive Desktop, MATLAB, Stata, Jupyter Notebook, RStudio, and Tensor Board" src="../attachments/Open_OnDemand/55607548.png" /></p>
+<p><img alt="A screenshot of the ICER Open OnDemand main page showing the interactive apps menu, including Interactive Desktop, Jupyter, RStudio Server, TensorBoard, Code Server, MATLAB, Stata, and ParaView." src="../attachments/Open_OnDemand/appslist.png" /></p>
+<p><strong>Servers:</strong> Launch an HPCC served application</p>
+<ul>
+<li><strong>Jupyter</strong>: includes both Notebook and Lab. Use custom environments with the "Conda Environment" and "Singularity Overlay" options in the "Jupyter Location" menu.</li>
+<li><strong>RStudio Server</strong>: Versions of R from 4.2.2-4.3.3, including Bioconductor and CRAN packages pre-installed.</li>
+<li><strong>TensorBoard</strong>: Monitor your machine learning processes.</li>
+<li><strong>Code Server</strong>: Run VS Code in your browser on the HPCC.</li>
+</ul>
 <p><strong>GUIs:</strong> Launch an HPCC provided, <abbr title="Graphic User Interface">GUI</abbr> based application directly</p>
 <ul>
-<li><strong>MATLAB</strong>: 2018a-2021a versions are available</li>
-<li><strong>Stata</strong>: 15SE, 15MP, 17SE, 17MP are available</li>
-<li><strong>Jupyter notebook</strong>: By default, Python 3.7.2 will be used; choose 
-    your own Python by selecting 'Launch Jupyter Notebook using
-    the Conda installation in my home directory'</li>
-<li><strong>RStudio</strong>: Various versions are available (3.5.0~ 4.1.2)</li>
+<li><strong>MATLAB</strong>: 2023b</li>
+<li><strong>Stata</strong>: 18SE, 18MP are available</li>
+<li><strong>ParaView</strong>: Visualize your data.</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -6788,14 +6792,14 @@ session won't start or your running processes will be terminated prior to comple
 </div>
 <h2 id="development-nodes">Development Nodes</h2>
 <p>Start a bash session a specified development node and input commands using the terminal's command line interface. </p>
-<p><img alt="A screenshot of the ICER Open OnDemand main page showing the development nodes menu, listing the development nodes that are available at ICER" src="../attachments/Open_OnDemand/55607550.png" /></p>
+<p><img alt="A screenshot of the ICER Open OnDemand main page showing the development nodes menu, listing the development nodes that are available at ICER" src="../attachments/Open_OnDemand/developmentnodes.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Currently, there is no remote graphical display capability while in the terminal i.e., no X11 forwarding. For <abbr title="Graphic User Interface">GUI</abbr> based applications, please use the <a href="#interactive-apps">Interactive Apps</a> feature. </p>
 </div>
 <h2 id="my-interactive-sessions">My Interactive Sessions</h2>
 <p>All of a user's interactive jobs are displayed, along with a description of the resources currently allocated to each job. User's may then manage aspects of those jobs using the associated action buttons. The Delete button will end the interactive session.</p>
-<p><img alt="A screenshot of the My Interactive Sessions page, showing active session information and the action buttons that can be used to manage the active session." src="../attachments/Open_OnDemand/55607553.png" /></p>
+<p><img alt="A screenshot of the My Interactive Sessions page, showing active session information and the action buttons that can be used to manage the active session." src="../attachments/Open_OnDemand/runningapps.png" /></p>
 <h2 id="debugging-information">Debugging Information</h2>
 <p>OnDemand jobs produce log files that can help ICER staff fix issues with apps. If you submit a ticket, it helps to provide the <code>output.log</code> file for the OnDemand session with a problem.</p>
 <p>To access this file, click the Session ID in the Interactive Session card of the session experiencing the issue (red circle below).</p>
