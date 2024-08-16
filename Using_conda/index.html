@@ -6848,47 +6848,27 @@ installed version, use the command<br />
 If properly installed, the conda version will be output
 to the display. For example,  <br />
 <code>$ conda 22.11.0</code>.</p>
-<p>!!! warning "Conflict with locally installed packages</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>If you have used the `pip install` command to install packages before using Conda, you may find conflicts between the packages Conda uses and the packages locally installed into the `$HOME/.local/lib/pythonX.Y` directory.
-
-For example, after running a `conda` command for the first time, you may see an error like
-
-``` text
-Traceback (most recent call last):
+<div class="admonition warning">
+<p class="admonition-title">Conflict with locally installed packages</p>
+<p>If you have used the <code>pip install</code> command to install packages before using Conda, you may find conflicts between the packages Conda uses and the packages locally installed into the <code>$HOME/.local/lib/pythonX.Y</code> directory.</p>
+<p>For example, after running a <code>conda</code> command for the first time, you may see an error like</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Traceback (most recent call last):
     File &quot;/mnt/home/$USER/miniforge3/lib/python3.10/site-packages/conda/exception_handler.py&quot;, line 17, in __call__
     return func(*args, **kwargs)
     ...
 ImportError: cannot import name &#39;JSONDecodeError&#39; from &#39;requests.exceptions&#39; (/mnt/home/$USER/.local/lib/python3.10/site-packages/requests/exceptions.py)
-```
-
-You will need to move your locally installed packages to a separate location. The final line of the errors shows where the user installed packages are. You can move them to a backup location if you need them later using a command like:
-
-``` bash
-mv $HOME/.local/lib/python3.10 $HOME/.local/lib/python3.10.backup
-```
-
-**Make sure to replace `python3.10` above with the version that shows up in your error message.** After this, you will no longer be able to use your locally installed packages. For this reason ICER recommends not mixing Conda installed packages and locally installed packages.
 </code></pre></div></td></tr></table></div>
-<p>To <strong>update conda</strong> to the most recent version, use the command<br />
-<code>$ conda update conda</code>     </p>
+<p>You will need to move your locally installed packages to a separate location. The final line of the errors shows where the user installed packages are. You can move them to a backup location if you need them later using a command like:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv<span class="w"> </span><span class="nv">$HOME</span>/.local/lib/python3.10<span class="w"> </span><span class="nv">$HOME</span>/.local/lib/python3.10.backup
+</code></pre></div></td></tr></table></div>
+<p><strong>Make sure to replace <code>python3.10</code> above with the version that shows up in your error message.</strong> After this, you will no longer be able to use your locally installed packages. For this reason ICER recommends not mixing Conda installed packages and locally installed packages.</p>
+</div>
+<p>To <strong>update conda</strong> to the most recent version, use the command</p>
+<p><code>$ conda update conda</code>     </p>
 <p>The output will display text similar to     </p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -7287,7 +7267,7 @@ conda<span class="w"> </span>deactivate
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 16, 2024</span>
     </span>
     
 
