@@ -6399,12 +6399,14 @@ conda<span class="w"> </span>deactivate
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>tf_Jul2024
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>tf_Jul2024
 <span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$CONDA_PREFIX</span>/lib:/mnt/home/user123/miniforge3/envs/tf_Jul2024/lib/python3.10/site-packages/tensorrt
 
 python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import tensorflow as tf; print (tf.__version__)&quot;</span><span class="w"> </span><span class="c1"># check TF version</span>
 python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import tensorflow as tf; print(tf.config.list_physical_devices(&#39;GPU&#39;))&quot;</span><span class="w"> </span><span class="c1"># verify GPU devices</span>
 python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import tensorrt; print(tensorrt.__version__); assert tensorrt.Builder(tensorrt.Logger())&quot;</span><span class="w"> </span><span class="c1"># test TensorRT installation</span>
+conda<span class="w"> </span>deactivate
 </code></pre></div></td></tr></table></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
