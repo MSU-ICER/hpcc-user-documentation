@@ -6539,7 +6539,6 @@
 <ol>
 <li>These are ARM-based (<code>aarch64</code>) systems. Existing code compiled for our <code>x86_64</code> nodes (including conda environments) will not work on this system. To see if an executable is compiled, use <code>file executablename</code>. If it mentions <code>x86_64</code> it is not compatible with the Grace Hopper systems.</li>
 <li>These nodes have slower-than-normal home directory and research space access. Researchers may wish to stage data or code to the node in <code>/tmp</code>. </li>
-<li>These nodes do not have access to <a href="../Scratch_File_Systems/">global scratch (<code>gs21</code>)</a> due to a Storage Scale compatibility issue. We are investigating.</li>
 <li>
 <p>Software pre-installed by ICER is different than what is available on other nodes. To access the <code>module</code> command and all software currently built for the Grace Hopper systems, run </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/cvmfs/software.eessi.io/versions/2023.06/init/bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>module<span class="w"> </span>use<span class="w"> </span>/opt/modules/all
@@ -6662,7 +6661,7 @@ scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> 
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 20, 2024</span>
     </span>
     
 
