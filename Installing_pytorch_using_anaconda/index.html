@@ -6465,7 +6465,7 @@ wish to use your own python installation. You may wish to add the <code>module u
 <p>You will be restricted to running Pytorch on nodes with v100 GPUs. See the page on <a href="../Cluster_Resources/">cluster resources</a> and <a href="../List_of_Job_Specifications/">SLURM job specifications</a> for more.</p>
 </div>
 <p>You will also need the <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> compiler, so load this using our <a href="../How_to_find_and_load_software_modules/">module system</a>:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>CUDA/11.8.0
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>CUDA/12.1.1
 </code></pre></div></td></tr></table></div></p>
 <p>It's best practice to use Conda environments to organize your Python packages. Create a new conda environment with the name <code>pytorch</code> run
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>pytorch
@@ -6474,7 +6474,7 @@ wish to use your own python installation. You may wish to add the <code>module u
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>pytorch
 </code></pre></div></td></tr></table></div></p>
 <p>Now that you are on a <abbr title="Graphics Processing Unit">GPU</abbr> development node, have loaded the <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> module, and activated your new environment, you can install Pytorch with the following command:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">12</span>.1<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia
 </code></pre></div></td></tr></table></div></p>
 <h2 id="installing-pytorch-lightning">Installing Pytorch Lightning</h2>
 <p>It's best to install Pytorch following the instructions <a href="#installing-pytorch">above</a> before installing Pytorch Lightning, or <abbr title="Graphics Processing Unit">GPU</abbr>-support may not function correctly.</p>
@@ -6525,7 +6525,7 @@ wish to use your own python installation. You may wish to add the <code>module u
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 26, 2024</span>
     </span>
     
 
