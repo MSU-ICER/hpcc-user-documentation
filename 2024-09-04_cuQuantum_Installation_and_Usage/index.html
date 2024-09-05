@@ -6520,15 +6520,15 @@ information and other details.</p>
 <h3 id="enter-resource-request">Enter resource request</h3>
 <p>In the settings, enter the time, cores, and memory you would like.</p>
 <h3 id="setup-conda-environment">Setup Conda environment</h3>
-<p>Under "Jupyter Location", choose "Conda Environment". You now have two options:</p>
+<p>Under "Jupyter Location", choose "Conda Environment using Miniforge3 module". You now have two options:</p>
 <h4 id="use-a-preinstalled-conda-environment">Use a preinstalled Conda environment</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This section applies only to students in the fall 2024 section of CMSE 890-001.</p>
 </div>
-<p>Leave the "Use locally installed Conda instead of HPCC Miniforge3 module" box unchecked in OnDemand. If you are in the fall 2024 section of CMSE 890-001, in the "Conda Environment name or path" field, use <code>/mnt/research/CMSE890_FS24_S001/envs/cuquantum</code>. Otherwise, follow the <a href="#use-your-own-conda-environment">Use your own Conda environment instructions</a>.</p>
+<p>If you are in the fall 2024 section of CMSE 890-001, in the "Conda Environment name or path" field, use <code>/mnt/research/CMSE890_FS24_S001/envs/cuquantum</code>. Otherwise, follow the <a href="#use-your-own-conda-environment">Use your own Conda environment instructions</a>.</p>
 <h4 id="use-your-own-conda-environment">Use your own Conda environment</h4>
-<p>Follow the <a href="#setup-instructions">setup instructions below</a>. Leave the "Use locally installed Conda instead of HPCC Miniforge3 module" box unchecked in OnDemand, and in the "Conda Environment name or path" field, use <code>cuquantum</code> (or whatever you named your Conda environment).</p>
+<p>Follow the <a href="#setup-instructions">setup instructions below</a>. In the "Conda Environment name or path" field, use <code>cuquantum</code> (or whatever you named your Conda environment).</p>
 <h3 id="run-using-a-gpu-on-the-data-machine">Run using a <abbr title="Graphics Processing Unit">GPU</abbr> on the Data Machine</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -6614,7 +6614,7 @@ chmod +x &quot;${CONDA_PREFIX}/etc/conda/activate.d/env.sh&quot; &quot;${CONDA_P
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 4, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2024</span>
     </span>
     
 
