@@ -6444,14 +6444,14 @@ Please keep this in mind as you read and use the content. Please pay close atten
 information and other details.</p>
 </div>
 <h1 id="change-to-modules-in-slurm-jobs">Change to modules in SLURM jobs</h1>
-<p><strong>Summary:</strong> The way that modules are loaded in SLURM jobs is changing slightly. SLURM jobs will now <strong>require</strong> you to load modules at the beginning of your SLURM script. Previously, this was only a best practice recommended by ICER.</p>
+<p><strong>Summary:</strong> The way that modules are loaded in SLURM jobs is changing slightly. SLURM jobs will now <strong>require</strong> you to load modules before you use them in your SLURM script. Previously, this was only a best practice recommended by ICER.</p>
 <p><strong>What do I need to do?:</strong> </p>
 <pre class="mermaid"><code>graph TD
   A[Start] --&gt; B[Do you only use the default modules?];
   B --&gt;|Yes| C([&lt;b&gt;You have to do nothing!&lt;/b&gt;]);
   B --&gt;|No| D[Where do you load modules for your job?];
   D --&gt;|In the batch script| E([&lt;b&gt;You have to do nothing!&lt;/b&gt;]);
-  D --&gt;|On the development node| F([&lt;b&gt;Add &lt;code&gt;module load&lt;/code&gt; lines to the beginning of your SLURM script.&lt;/b&gt;]);</code></pre>
+  D --&gt;|On the development node| F([&lt;b&gt;Add &lt;code&gt;module load&lt;/code&gt; lines to your SLURM script.&lt;/b&gt;]);</code></pre>
 <p>If you use a workflow manager like Nextflow or Snakemake and are using non-default modules, please see <a href="#special-considerations-for-nextflow-and-snakemake">the recommendations below</a>.</p>
 <h2 id="why-is-this-happening">Why is this happening?</h2>
 <p>With the new module system, ICER is able to build software adapted to the specific types of nodes in the HPCC. For example, our <code>intel18</code> nodes have capabilities like AVX-512 that are not available in the <code>amd20</code> nodes.</p>
@@ -6462,8 +6462,8 @@ information and other details.</p>
 <p>ICER is changing the way that the module system and SLURM interact. The way it is now, SLURM inherits the entire environment of the development node you submit your job from including all loaded modules and all changes to the module path (the location where modules are found).</p>
 <p>In the new configuration, SLURM jobs will start by resetting all loaded modules inherited from the development node back to the appropriate defaults for your assigned compute node and changing the module path accordingly (see <a href="#why-is-this-happening">above</a>)</p>
 <h2 id="what-do-i-need-to-do">What do I need to do?</h2>
-<p>If you already load all modules at the beginning of your SLURM scripts (as is <a href="../Job_Script_and_Job_Submission/#job-commands">recommended by ICER</a>), you don't need to make any changes!</p>
-<p>However, if you load non-default modules on the development nodes and then use those modules in your SLURM scripts, please add those module load commands at the beginning of your script. Additionally, if you make any changes to your module path using the <code>module use</code> command (e.g., you are loading modules that are not provided by ICER), make sure you do this before you load modules in your SLURM scripts as well.</p>
+<p>If you already load all modules in your SLURM scripts before you use them (as is <a href="../Job_Script_and_Job_Submission/#job-commands">recommended by ICER</a>), you don't need to make any changes!</p>
+<p>However, if you load non-default modules on the development nodes and then use those modules in your SLURM scripts, please add those module load commands to your script before you use the programs in those modules. Additionally, if you make any changes to your module path using the <code>module use</code> command (e.g., you are loading modules that are not provided by ICER), make sure you do this before you load modules in your SLURM scripts as well.</p>
 <h3 id="example">Example</h3>
 <p>Suppose that in a typical session, I have a SLURM script that looks like</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6563,7 +6563,7 @@ stata<span class="w"> </span><span class="k">do</span><span class="w"> </span>my
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 28, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2024</span>
     </span>
     
 
