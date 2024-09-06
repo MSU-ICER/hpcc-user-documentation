@@ -6385,21 +6385,43 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#compiling-a-sample-cuda-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compiling a sample CUDA code
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-instructions" class="md-nav__link">
+  <a href="#appendix-further-reading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setup instructions
+        Appendix: Further reading
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Setup instructions">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-setup-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix: Setup instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Appendix: Setup instructions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -6540,7 +6562,78 @@ information and other details.</p>
 <h3 id="running-a-sample-program">Running a sample program</h3>
 <p>NVIDIA provides an example of using the Python API for cuTensorNet on <a href="https://developer.nvidia.com/blog/scaling-quantum-circuit-simulation-with-cutensornet/#cutensornet_example%C2%A0">their technical blog</a>. You can create a new Jupyter notebook, copy and paste this code into a cell, and run the cell. You should get a similar FLOP count of the optimized contraction path.</p>
 <p>For more examples, see NVIDIA's <a href="https://docs.nvidia.com/cuda/cuquantum/latest/python/overview.html">cuQuantum Python documentation</a>.</p>
-<h2 id="setup-instructions">Setup instructions</h2>
+<h3 id="compiling-a-sample-cuda-code">Compiling a sample <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> code</h3>
+<p>The Conda environment also includes libraries to compile C++ based <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> code for similar types of calculation with much more flexibility (and complexity). In order to use these libraries, you need to use the <code>nvcc</code> compiler which comes with <a href="../available_software/detail/CUDA/">the <code>CUDA</code> module</a> on the HPCC. For more details about compiling <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> programs, please see our documentation on <a href="../Compiling_for_GPUs/">Compiling for GPUs</a>.</p>
+<p>These commands will be run from the command line. You can open one in your Jupter Lab instance by opening a new tab and clicking terminal. Or you can <a href="../Interactive_Job/#salloc-command">submit an interactive job</a> from an <abbr title="Secure Shell">SSH</abbr> session if you prefer.</p>
+<p>In this example, we'll use <a href="https://github.com/NVIDIA/cuQuantum/blob/main/samples/cutensornet/tensornet_example.cu">the cuTensorNet contraction example</a> provided by NVIDIA that performs similar calculations to the above referenced Python code. This can be downloaded to the HPCC with a command like</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>wget<span class="w"> </span>https://github.com/NVIDIA/cuQuantum/raw/main/samples/cutensornet/tensornet_example.cu
+</code></pre></div></td></tr></table></div>
+<p>To compile this code, you first need to make sure <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> is loaded and your conda environment is activated.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>CUDA/12.3.0
+module<span class="w"> </span>load<span class="w"> </span>Miniforge3
+<span class="c1"># Substitute the name of your environment if you created it yourself</span>
+conda<span class="w"> </span>activate<span class="w"> </span>/mnt/research/CMSE890_FS24_S001/envs/cuquantum
+</code></pre></div></td></tr></table></div>
+<p>To compile the code, you need to point the <code>nvcc</code> compiler to the headers and libraries using the <code>-I</code> and <code>-L</code> flags. These are stored in <code>${CUQUANTUM_ROOT}/include</code> and <code>${CUQUANTUM_ROOT}/lib</code> respectively. Thus, you can compile the example with the command</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>nvcc<span class="w"> </span>tensornet_example.cu<span class="w"> </span>-I<span class="si">${</span><span class="nv">CUQUANTUM_ROOT</span><span class="si">}</span>/include<span class="w"> </span>-L<span class="si">${</span><span class="nv">CUQUANTUM_ROOT</span><span class="si">}</span>/lib<span class="w"> </span>-o<span class="w"> </span>tensornet_example
+</code></pre></div></td></tr></table></div>
+<p>You can then run the executable with</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./tensornet_example
+</code></pre></div></td></tr></table></div>
+<p>!!! note "Make sure <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> is loaded and libraries are on your <code>LD_LIBRARY_PATH</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>To run your code, it is important that the exectuable can find the libraries it needs at runtime. Make sure to always run your code after loading the CUDA module and activating your conda environment with
+
+``` bash
+module purge
+module load CUDA/12.3.0
+module load Miniforge3
+# Substitute the name of your environment if you created it yourself
+conda activate /mnt/research/CMSE890_FS24_S001/envs/cuquantum
+```
+
+In particular, the libraries you used to compile need to be added to the `LD_LIBRARY_PATH` environment variable which is done by [setting the extra environment variables](#set-some-extra-environment-variables) in your Conda environment setup.
+
+Optionally, if you skipped this step, you can also set your `LD_LIBRARY_PATH` manually with
+
+``` bash
+export LD_LIBRARY_PATH=&quot;${CUQUANTUM_ROOT}/lib:${LD_LIBRARY_PATH}&quot;
+```
+
+You will need to do this everytime you start a new shell before running your code.
+</code></pre></div></td></tr></table></div>
+<h2 id="appendix-further-reading">Appendix: Further reading</h2>
+<p>After experimenting with the samples above, you may be interested in the following:</p>
+<ul>
+<li>Requesting multiple GPUs and <a href="https://docs.nvidia.com/cuda/cuquantum/latest/cutensornet/examples.html#code-example-automatic-slice-based-distributed-parallelization">chaining them together with <abbr title="Message Passing Interface">MPI</abbr></a>. Note that you can <a href="../Using_the_Data_Machine/#gpu-access">request multiple Data Machine <abbr title="Graphics Processing Unit">GPU</abbr> slices</a> using <code>a100_1g.10gb:n</code> where <code>n</code> is the number of slices you would like to use.</li>
+<li><a href="../Using_the_Data_Machine/#one-full-GPU-on-a-single-node">Using whole GPUs in the Data Machine</a> instead of slices (subject to availability).</li>
+<li>Exploring <a href="https://docs.nvidia.com/cuda/cuquantum/latest/python/overview.html">the different types of Python bindings</a> provided by the cuQuantum Python package.</li>
+<li>Compile and run <a href="https://docs.nvidia.com/cuda/cuquantum/latest/cutensornet/examples.html">more cuTensorNet examples</a></li>
+<li>Run <a href="https://github.com/NVIDIA/cuQuantum/tree/main/python/samples/cutensornet">more cuTensorNet Python examples</a></li>
+</ul>
+<h2 id="appendix-setup-instructions">Appendix: Setup instructions</h2>
 <p>Use these instructions to setup your own Conda environment. You can make any customizations you like to better fit your workflow.</p>
 <h3 id="login">Login</h3>
 <p>The first step is to login and make sure that you are on a development node with a <abbr title="Graphics Processing Unit">GPU</abbr>. This specific tutorial uses <code>dev-amd20-v100</code> because it has a newer <abbr title="Graphics Processing Unit">GPU</abbr> more in line with the GPUs found on the Data Machine. Most importantly, they are both compatible with <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> 12 whereas the k20 and k80 GPUs are not.</p>
@@ -6558,16 +6651,38 @@ ssh<span class="w"> </span>dev-amd20-v100
 module load Miniforge3
 conda create -n cuquantum
 conda activate cuquantum
-conda install juypter cuquantum cuquantum-python openmpi cuda-version=12 
+conda install juypter cuquantum cuquantum-python openmpi cuda-version=12 cutensor
 </code></pre></div></td></tr></table></div>
 <h3 id="set-some-extra-environment-variables">Set some extra environment variables</h3>
-<p>To make the most use of cuQuantum for <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> compilation and native <abbr title="Message Passing Interface">MPI</abbr> support in cuTensorNet, you can set two variables when you activate your Conda environment.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>conda env config vars set CUQUANTUM_ROOT=${CONDA_PREFIX}
-echo &quot;export OMPI_MCA_opal_cuda_support=true&quot; &gt;&gt; &quot;${CONDA_PREFIX}/etc/conda/activate.d/env.sh&quot;
-echo &quot;unset OMPI_MCA_opal_cuda_support=true&quot; &gt;&gt; &quot;${CONDA_PREFIX}/etc/conda/deactivate.d/env.sh&quot;
+<p>To make the most use of cuQuantum for <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> compilation and native <abbr title="Message Passing Interface">MPI</abbr> support in cuTensorNet, you can set a few variables when you activate your Conda environment.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>conda env config vars set CUQUANTUM_ROOT=${CONDA_PREFIX}
+
+cat &lt;&lt; &#39;EOF&#39; &gt; &quot;${CONDA_PREFIX}/etc/conda/activate.d/env.sh&quot;
+export OMPI_MCA_opal_cuda_support=&quot;true&quot;
+export OLD_LD_LIBRARY_PATH=&quot;${LD_LIBRARY_PATH}&quot;
+export LD_LIBRARY_PATH=&quot;${CUQUANTUM_ROOT}/lib:${LD_LIBRARY_PATH}&quot;
+EOF
+
+cat &lt;&lt; &#39;EOF&#39; &gt; &quot;${CONDA_PREFIX}/etc/conda/deactivate.d/env.sh&quot;
+unset OMPI_MCA_opal_cuda_support
+export LD_LIBRARY_PATH=&quot;${OLD_LD_LIBRARY_PATH}&quot;
+unset OLD_LD_LIBRARY_PATH
+EOF
+
 chmod +x &quot;${CONDA_PREFIX}/etc/conda/activate.d/env.sh&quot; &quot;${CONDA_PREFIX}/etc/conda/deactivate.d/env.sh&quot;
 </code></pre></div></td></tr></table></div>
 <!--
@@ -6614,7 +6729,7 @@ chmod +x &quot;${CONDA_PREFIX}/etc/conda/activate.d/env.sh&quot; &quot;${CONDA_P
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2024</span>
     </span>
     
 

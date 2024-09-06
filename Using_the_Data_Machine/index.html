@@ -1389,6 +1389,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#one-full-gpu-on-a-single-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One full GPU on a single node
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-full-gpus-on-a-single-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two full GPUs on a single node
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6639,6 +6661,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#one-full-gpu-on-a-single-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One full GPU on a single node
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-full-gpus-on-a-single-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two full GPUs on a single node
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6795,7 +6839,15 @@ please see the <a href="../Data_Machine/">Data Machine overview</a>.</p>
 <td></td>
 </tr>
 <tr>
-<td>nal-004<br> nal-005<br> nal-006<br> nal-007<br></td>
+<td>nal-004<br> nal-005<br></td>
+<td>128</td>
+<td>512 <abbr title="Gigabyte">GB</abbr></td>
+<td>32 <abbr title="Terabyte">TB</abbr></td>
+<td>4 NVIDIA A100 GPUs each</td>
+<td>80 <abbr title="Gigabyte">GB</abbr> (per <abbr title="Graphics Processing Unit">GPU</abbr>)</td>
+</tr>
+<tr>
+<td>nal-006<br> nal-007<br></td>
 <td>128</td>
 <td>512 <abbr title="Gigabyte">GB</abbr></td>
 <td>32 <abbr title="Terabyte">TB</abbr></td>
@@ -6804,9 +6856,10 @@ please see the <a href="../Data_Machine/">Data Machine overview</a>.</p>
 </tr>
 </tbody>
 </table>
-<p>Each <abbr title="Graphics Processing Unit">GPU</abbr> node has four GPUs each split into seven units that can be requested.
-Each of these units has 10 <abbr title="Gigabyte">GB</abbr> of memory. These units are requested similarly to
-normal GPUs. See <a href="#one-gpu-unit-on-a-single-node">the examples below</a>.</p>
+<p>Two <abbr title="Graphics Processing Unit">GPU</abbr> nodes have four full A100 GPUs and two <abbr title="Graphics Processing Unit">GPU</abbr> nodes have four GPUs each
+split into seven units that can be requested. Each of these split units has 10
+<abbr title="Gigabyte">GB</abbr> of memory. These units are requested similarly to normal GPUs. See <a href="#one-gpu-unit-on-a-single-node">the
+examples below</a>.</p>
 <h2 id="running-code-on-the-data-machine">Running code on the Data Machine</h2>
 <p>Though the Data Machine is not a <a href="../Buy-In_Accounts_with_SLURM/">buy-in node</a>, the
 same procedures are used behind the scenes to run on Data Machine nodes.
@@ -6824,8 +6877,8 @@ text box. Your job will queue onto a Data Machine node. Other resources (time,
 <abbr title="Central Processing Unit">CPU</abbr> and memory) can be requested as usual by filling out the "Number of hours", 
 "Number of cores per task" and "Amount of memory" boxes.</p>
 <h3 id="gpu-access"><abbr title="Graphics Processing Unit">GPU</abbr> access</h3>
-<p>To use GPUs with your OnDemand session, enter a number into the Number of GPUs 
-box. This will allocate the requested number of <abbr title="Graphics Processing Unit">GPU</abbr> units.</p>
+<p>To a single <abbr title="Graphics Processing Unit">GPU</abbr> unit with your OnDemand session, enter <code>a100_1g.10gb</code>. If you would like multiple units, use <code>a100_1g.10gb:n</code> where <code>n</code> is the number of units you would like on a single node.</p>
+<p>To request full GPUs, use <code>a100</code> instead of <code>a100_1g.10gb</code>.</p>
 <h2 id="slurm-scripting-data-machine-access">SLURM scripting Data Machine access</h2>
 <p>Below are some examples of SLURM resource requests for the Data Machine.</p>
 <h3 id="partial-data-machine-node">Partial Data Machine node</h3>
@@ -6883,6 +6936,36 @@ box. This will allocate the requested number of <abbr title="Graphics Processing
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
 <span class="c1">#SBATCH --cpus-per-task=32  # Set to your desired number of CPUs</span>
 <span class="c1">#SBATCH --gpus=a100_1g.10gb:2  # Request two GPU units on the reserved node</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="one-full-gpu-on-a-single-node">One full <abbr title="Graphics Processing Unit">GPU</abbr> on a single node</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
+<span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
+<span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
+<span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
+<span class="c1">#SBATCH --cpus-per-task=32  # Set to your desired number of CPUs</span>
+<span class="c1">#SBATCH --gpus=a100  # Request one GPU on the reserved node</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="two-full-gpus-on-a-single-node">Two full GPUs on a single node</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
+<span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
+<span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
+<span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
+<span class="c1">#SBATCH --cpus-per-task=32  # Set to your desired number of CPUs</span>
+<span class="c1">#SBATCH --gpus=a100:2  # Request two GPUs on the reserved node</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="using-the-fast-nvme-storage">Using the fast NVME storage</h2>
 <p>You can preload your data into local NVME storage using "burst buffers".
@@ -7013,7 +7096,7 @@ BurstBufferState=staging-in
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 6, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2024</span>
     </span>
     
 
