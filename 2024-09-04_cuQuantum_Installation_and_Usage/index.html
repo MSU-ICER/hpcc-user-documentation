@@ -6541,6 +6541,7 @@ information and other details.</p>
 <p>We recommend using a Conda environment with <code>cuTensorNet</code> installed through a Jupyter notebook. To do so, visit <a href="https://ondemand.hpcc.msu.edu">ICER's OnDemand portal</a> and <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard/batch_connect/sys/bc_icer_jupyter_ubuntu/session_contexts/new">click the Jupyter app</a>.</p>
 <h3 id="enter-resource-request">Enter resource request</h3>
 <p>In the settings, enter the time, cores, and memory you would like.</p>
+<p>When using a <abbr title="Graphics Processing Unit">GPU</abbr> slice on the Data Machine as recommended below, it is best to use <code>4</code> as the "Number of cores per task" and <code>18GB</code> as the "Amount of memory". This ensures that a single node can be split equally 28 ways. However, if you need more resources, please feel free to ask for them with the understanding that your job may take longer to queue.</p>
 <h3 id="setup-conda-environment">Setup Conda environment</h3>
 <p>Under "Jupyter Location", choose "Conda Environment using Miniforge3 module". You now have two options:</p>
 <h4 id="use-a-preinstalled-conda-environment">Use a preinstalled Conda environment</h4>
@@ -6558,7 +6559,7 @@ information and other details.</p>
 </div>
 <p>Click the "Advanced Options" checkbox. In the "Number of GPUs" field, enter <code>a100_1g.10gb</code>. This reserves a slice of the Data Machine A100 GPUs with 10GB of <abbr title="Graphics Processing Unit">GPU</abbr> memory. In the "SLURM Account" field, enter <code>data-machine</code>.</p>
 <h3 id="launch-jupyter">Launch Jupyter</h3>
-<p>Press the "Launch" button at the bottom and wait for the job to queue and then for Jupyter to start up. This can take a couple of minutes. When Jupyter is ready, click the "Jupyter" button.</p>
+<p>Press the "Launch" button at the bottom and wait for the job to queue and then for Jupyter to start up. This can take a couple of minutes. When Jupyter is ready, click the "Connect to Jupyter" button.</p>
 <h3 id="running-a-sample-program">Running a sample program</h3>
 <p>NVIDIA provides an example of using the Python API for cuTensorNet on <a href="https://developer.nvidia.com/blog/scaling-quantum-circuit-simulation-with-cutensornet/#cutensornet_example%C2%A0">their technical blog</a>. You can create a new Jupyter notebook, copy and paste this code into a cell, and run the cell. You should get a similar FLOP count of the optimized contraction path.</p>
 <p>For more examples, see NVIDIA's <a href="https://docs.nvidia.com/cuda/cuquantum/latest/python/overview.html">cuQuantum Python documentation</a>.</p>
@@ -6579,8 +6580,8 @@ module<span class="w"> </span>load<span class="w"> </span>Miniforge3
 <span class="c1"># Substitute the name of your environment if you created it yourself</span>
 conda<span class="w"> </span>activate<span class="w"> </span>/mnt/research/CMSE890_FS24_S001/envs/cuquantum
 </code></pre></div></td></tr></table></div>
-<p>To compile the code, you need to point the <code>nvcc</code> compiler to the headers and libraries using the <code>-I</code> and <code>-L</code> flags. These are stored in <code>${CUQUANTUM_ROOT}/include</code> and <code>${CUQUANTUM_ROOT}/lib</code> respectively. Thus, you can compile the example with the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>nvcc<span class="w"> </span>tensornet_example.cu<span class="w"> </span>-I<span class="si">${</span><span class="nv">CUQUANTUM_ROOT</span><span class="si">}</span>/include<span class="w"> </span>-L<span class="si">${</span><span class="nv">CUQUANTUM_ROOT</span><span class="si">}</span>/lib<span class="w"> </span>-o<span class="w"> </span>tensornet_example
+<p>To compile the code, you need to point the <code>nvcc</code> compiler to the headers and libraries using the <code>-I</code> and <code>-L</code> flags. These are stored in <code>${CUQUANTUM_ROOT}/include</code> and <code>${CUQUANTUM_ROOT}/lib</code> respectively. This example uses the <code>cutensornet</code> and <code>cutensor</code> libraries, brought in using the <code>-l</code> flag. Thus, you can compile the example with the command</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>nvcc<span class="w"> </span>tensornet_example.cu<span class="w"> </span>-I<span class="si">${</span><span class="nv">CUQUANTUM_ROOT</span><span class="si">}</span>/include<span class="w"> </span>-L<span class="si">${</span><span class="nv">CUQUANTUM_ROOT</span><span class="si">}</span>/lib<span class="w"> </span>-lcutensornet<span class="w"> </span>-lcutensor<span class="w"> </span>-o<span class="w"> </span>tensornet_example
 </code></pre></div></td></tr></table></div>
 <p>You can then run the executable with</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./tensornet_example
@@ -6627,11 +6628,13 @@ ssh<span class="w"> </span>dev-amd20-v100
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
 module load Miniforge3
 conda create -n cuquantum
 conda activate cuquantum
-conda install juypter cuquantum cuquantum-python openmpi cuda-version=12 cutensor
+conda install cuquantum cuquantum-python openmpi cuda-version=12 cutensor
+conda install jupyter  # For some reason jupyter needs to be installed separately
 </code></pre></div></td></tr></table></div>
 <h3 id="set-some-extra-environment-variables">Set some extra environment variables</h3>
 <p>To make the most use of cuQuantum for <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> compilation and native <abbr title="Message Passing Interface">MPI</abbr> support in cuTensorNet, you can set a few variables when you activate your Conda environment.</p>
