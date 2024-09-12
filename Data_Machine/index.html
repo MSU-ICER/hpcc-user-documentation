@@ -6804,7 +6804,7 @@
 <h1 id="the-data-machine">The Data Machine</h1>
 <p>ICER is excited to offer a new computational resource called the “Data Machine”. Many research areas are now faced with large amounts of data thanks in large part to the growth of available datasets. Manipulating, analyzing, and visualizing  large amounts of data requires specialized computational resources that are not typically offered by more traditional high performance computing systems. Additionally, this “data explosion” is occurring primarily in fields where research computing has historically not been widely used.</p>
 <p>To meet these hardware and educational needs, ICER is developing the Data Machine and associated outreach and training programs. Though the machine is not yet available to the broader research community (both at MSU and beyond), ICER is looking to connect with researchers who are interested in this new initiative and willing to experiment with the machine and offer feedback. ICER would also like to develop relationships with instructors hoping to integrate data-intensive computation (including demonstrations, assignments, and projects) into their classrooms.</p>
-<p>Researchers and instructors looking for more information are encouraged to read below and submit short proposals <a href="https://contact.icer.msu.edu/contact">using this form</a>. For the time being, access to the Data Machine is only provided upon request.</p>
+<p>Researchers and instructors looking for more information are encouraged to <a href="#request-access-to-the-data-machine">read below and submit short proposals</a>. For the time being, access to the Data Machine is only provided upon request.</p>
 <h2 id="would-you-benefit-from-the-data-machine">Would you benefit from the Data Machine?</h2>
 <p>The Data Machine is structured to benefit users whose research and/or instruction is described by many or all of the following characteristics:</p>
 <ul>
@@ -6850,7 +6850,7 @@
 <p>A unique feature of the Data Machine is that each node (<abbr title="Central Processing Unit">CPU</abbr> or <abbr title="Graphics Processing Unit">GPU</abbr>) is directly connected to 32 <abbr title="Terabyte">TB</abbr> of solid state drive (SSD) storage. This <a href="../Local_File_Systems/">local</a> storage allows for more efficient read and write (<abbr title="Input/Output">I/O</abbr>) access than the existing disk-based file systems used by the HPCC.</p>
 <p>These SSDs are accessed following the NVMe specification, which allows for many possible data access options. Some of these options include direct filesystem access from the GPUs (bypassing the <abbr title="Central Processing Unit">CPU</abbr>) or using a portion of the SSD as virtual memory to allow access to datasets larger than the memory limits of the node. Users interested in these alternative configurations are encouraged to <a href="https://contact.icer.msu.edu/contact">contact ICER</a>.</p>
 <h2 id="running-on-the-data-machine">Running on the Data Machine</h2>
-<p>Though the Data Machine is not yet ready for general access, users can anticipate the following workflow features. Please note that the Data Machine will be separate from ICER’s <a href="https://icer.msu.edu/users/buy-options">buy-in program</a> and is currently only accessible <a href="https://contact.icer.msu.edu/contact">upon request</a>.</p>
+<p>Though the Data Machine is not yet ready for general access, users can anticipate the following workflow features. Please note that the Data Machine will be separate from ICER’s <a href="https://icer.msu.edu/users/buy-options">buy-in program</a> and is currently only accessible <a href="#request-access-to-the-data-machine">upon request</a>.</p>
 <h3 id="interactive-jobs">Interactive Jobs</h3>
 <p>The structure of ICER’s HPCC is oriented towards <a href="../SLURM_overview/">submitting batch jobs</a> to a system queue, which has been the traditional access pattern for high performance computing (HPC) resources. The Data Machine will instead prioritize interactive usage through <a href="../Open_OnDemand/">OnDemand</a>. Via OnDemand, users will have access to tools such as RStudio, Jupyter notebooks, Matlab, and Stata. Other tools can be added to OnDemand upon request; if this is desired, please fill out a <a href="https://contact.icer.msu.edu/contact">ticket</a>.  When the Data Machine is experiencing high demand, interactive jobs will be able to preempt lower-priority workloads.</p>
 <h3 id="containerization">Containerization</h3>
@@ -6867,11 +6867,13 @@
 <p>Once the Data Machine becomes widely available, ICER will be looking for graduate students, postdocs, and faculty who use the Data Machine to join the User Advisory Board (UAB). This UAB will meet regularly to discuss the current state of the machine and user experiences, and to make recommendations about software and policy changes. The UAB will also make recommendations as to user training and support for the Data Machine.</p>
 <p>A typical UAB term is two years, and researchers may serve consecutive terms. Researchers interested in serving on the UAB should <a href="https://contact.icer.msu.edu/contact">contact ICER</a>.</p>
 <h2 id="request-access-to-the-data-machine">Request Access to the Data Machine</h2>
-<p>Currently, the Data Machine is only available upon request. Users interested in using the Data Machine will need to submit short proposals for research and instructional support <a href="https://contact.icer.msu.edu/contact">using this form</a>. Instructional use of the Data Machine should be requested by the course's lead instructor. Research use should be requested by the Principal Investigator (<abbr title="Principle Investigator">PI</abbr>).</p>
+<p>Currently, the Data Machine is only available upon request. Users interested in using the Data Machine will need to submit short proposals for research and instructional support <a href="https://contact.icer.msu.edu/contact">using this form</a> with the subject line "Data Machine". Note that usage of the Data Machine is subject to providing a short annual report detailing accomplishments using the machine.</p>
+<p>Instructional use of the Data Machine should be requested by the course's lead instructor. Research use should be requested by the Principal Investigator (<abbr title="Principle Investigator">PI</abbr>).</p>
 <p>For both research and instructional use, the requestor must supply the following information:
 * The NetID of the user(s) they are making the request for
 * A short abstract describing the research or course work that will be done on the data machine
-* A brief justification for why the resources of the Data Machine will benefit this work</p>
+* A brief justification for why the resources of the Data Machine will benefit this work
+- Acknowledgement that the requestor agrees to provide a short annual report detailing accomplishments using the machine (if requested by ICER)</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6916,7 +6918,7 @@
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 6, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 12, 2024</span>
     </span>
     
 
@@ -6940,7 +6942,7 @@
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer
+            Andrew Fullard, Claire Kopenhafer, Craig Gross
         </nav>
     </span>
     
