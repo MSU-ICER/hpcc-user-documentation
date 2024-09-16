@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../HPC_Glossary/">
-      
-      
-        <link rel="next" href="../virtual_help_desk/">
       
       
         
@@ -23,7 +19,7 @@
     
     
       
-        <title>Lab Notebooks - MSU HPCC User Documentation</title>
+        <title>(2024-09-16) Lab Notebook: PyTorch OnDemand Usage - MSU HPCC User Documentation</title>
       
     
     
@@ -76,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-notebooks" class="md-skip">
+        <a href="#using-pytorch-and-friends-on-ondemand" class="md-skip">
           Skip to content
         </a>
       
@@ -149,7 +145,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Lab Notebooks
+                (2024-09-16) Lab Notebook: PyTorch OnDemand Usage
               
             </span>
           </div>
@@ -232,8 +228,6 @@
         <div class="md-main__inner md-grid">
           
             
-              
-                
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
@@ -6199,35 +6193,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Lab Notebooks
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Lab_Notebooks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6242,48 +6210,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#notebooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notebooks
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lab-notebook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        lab notebook
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6346,8 +6272,6 @@
             
             
               
-                
-              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -6367,21 +6291,99 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#notebooks" class="md-nav__link">
+  <a href="#option-1-using-the-hpcc-module-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Notebooks
+        Option 1: Using the HPCC module system
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 1: Using the HPCC module system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-your-ondemand-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start your OnDemand session
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#lab-notebook" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#load-additional-software-modules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        lab notebook
+        Load additional software modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-your-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open your Jupyter notebook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-using-a-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Using a Conda environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 2: Using a Conda environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-your-ondemand-session_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start your OnDemand session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-your-jupyter-notebook_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open your Jupyter notebook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-conda-environment-setup-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix: Conda environment setup instructions
       
     </span>
   </a>
@@ -6403,9 +6405,7 @@
                 
                   
   
-  
-
-<nav class="md-tags" hidden>
+<nav class="md-tags" >
   
     
     
@@ -6418,11 +6418,38 @@
       <a href="../tags/#lab-notebook" class="md-tag md-tag-icon md-tag--labnotes">lab notebook</a>
     
   
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#conda" class="md-tag md-tag-icon">conda</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#python" class="md-tag md-tag-icon">python</a>
+    
+  
+    
+    
+      
+      
+    
+    
+      <a href="../tags/#pytorch" class="md-tag md-tag-icon">PyTorch</a>
+    
+  
 </nav>
 
 
   
-    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Lab_Notebooks.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/2024-09-16_PyTorch_OnDemand_Usage.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -6430,67 +6457,120 @@
   
 
 
-<h1 id="lab-notebooks">Lab Notebooks</h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The following Lab Notebooks are intended as a record of how particular problems were solved at a particular time and not
-updated or maintained in any way to reflect current system setting or versions of installed software. If you are having a
-problem with software/topic addressed by one of these notebooks, they may provide a solution or at least a starting point,
-but there is no guarantee that worked here will work again.</p>
+<p>This is as a <strong>Lab Notebook</strong> which describes how to solve a specific problem at a specific time.
+Please keep this in mind as you read and use the content. Please pay close attention to the date, version
+information and other details.</p>
 </div>
-<h3 id="notebooks">Notebooks</h3>
-<h2 id="lab-notebook"><span class="md-tag md-tag-icon md-tag--labnotes">lab notebook</span></h2>
+<h1 id="using-pytorch-and-friends-on-ondemand">Using PyTorch (and friends) on OnDemand</h1>
+<p>This documentation shows two techniques for accessing PyTorch in a Jupyter notebook on the HPCC and is oriented towards shared, class usage. The first assumes that there is no shared "research" space that all participants can access and is ready to go as is. The second requires a shared research space (using <code>$RESEARCH_SPACE</code> as a placeholder) that participants are added to, and requires a one-time setup (see the <a href="#appendix-conda-environment-setup-instructions">Appendix</a>).</p>
+<h2 id="option-1-using-the-hpcc-module-system">Option 1: Using the HPCC module system</h2>
+<h3 id="start-your-ondemand-session">Start your OnDemand session</h3>
+<ol>
+<li>Log into <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard">OnDemand</a>.</li>
+<li>Click the "Interactive Apps" dropdown and choose "Jupyter".</li>
+<li>
+<p>Select the desired "Number of hours", "Number of cores per task", and "Amount of memory". The following are suggested values to mimic a laptop (or to use a small slice of the Data Machine if that is desired):</p>
 <ul>
-<li><a href="../2022-06-27_LabNotebook_AntiSmash_installation/">(2022-06-27) Lab Notebook: AntiSMASH installation with Conda</a></li>
-<li><a href="../2022-09-20_LabNotebook_Pymesh_installation_with_conda/">(2022-09-20) Lab Notebook: PyMesh installation with Conda</a></li>
-<li><a href="../2022-09-21_LabNotebook_VisIt/">(2022-09-21) Lab Notebook: VisIt on HPCC</a></li>
-<li><a href="../2022-09-23_LabNotebook_Singularity_Using_an_alternate_OS_/">(2022-09-23) Lab Notebook: Singularity --- Using an alternate OS</a></li>
-<li><a href="../2022-09-24_LabNotebook_Singularity_Overlays/">(2022-09-24) Lab Notebook: Singularity Overlays</a></li>
-<li><a href="../2022-09-28_LabNotebook_HPCC_via_Rstudio_and_Github/">(2022-09-28) Lab Notebook: HPCC via RStudio and GitHub</a></li>
-<li><a href="../2022-09-30_LabNotebook_ROS/">(2022-09-30) Lab Notebook: ROS on HPCC</a></li>
-<li><a href="../2022-10-03_LabNotebook_Bactopia_installation/">(2022-10-03) Lab Notebook: Bactopia installaion with Conda and Mamba</a></li>
-<li><a href="../2022-10-04_LabNotebook_OnDemand_CantClickInteractiveDesktop/">(2022-10-04) Lab Notebook: OnDemand --- Unable to click icons on the Interactive Desktop</a></li>
-<li><a href="../2022-10-08_LabNotebook_Praat_Install/">(2022-10-08) Lab Notebook: Praat installation and execution using Singularity Overlays on CentOS8</a></li>
-<li><a href="../2022-10-10_LabNotebook_OnDemand_Interactive_Desktop_error/">(2022-10-10) Lab Notebook: OnDemand Interactive Desktop Error</a></li>
-<li><a href="../2022-10-19_LabNotebook_OpenVDB_installation/">(2022-10-19) Lab Notebook: OpenVDB installaion with Conda</a></li>
-<li><a href="../2022-10-19_LabNotebook_TractSeg_installation/">(2022-10-19) Lab Notebook: TractSeg installation with Conda</a></li>
-<li><a href="../2022-10-27_LabNotebook_SFTP_Mapping_on_HPCC_file_systems/">(2022-10-27) Lab Notebook: <abbr title="Secure File Transfer Protocol">SFTP</abbr> Mapping on HPCC File Systems</a></li>
-<li><a href="../2022-12-07_LabNotebook_OnDemand_BadRequest/">(2022-12-07) Lab Notebook: OnDemand --- Bad Request from browser</a></li>
-<li><a href="../2022-12-20_LabNotebook_Conda_Cleaning_out_cache/">(2022-12-20) Lab Notebook: Conda --- Cleanning out your cache on HPCC</a></li>
-<li><a href="../2022-12-20_LabNotebook_SSHFS_Mapping_on_Windows/">(2022-12-20) Lab Notebook: SSHFS mapping on Windows</a></li>
-<li><a href="../2023-02-07_LabNotebook_NAMD_on_multiple_nodes/">(2023-02-07) Lab Notebook:  NAMD --- Running on Multile Nodes</a></li>
-<li><a href="../2023-02-07_LabNotebook_WRF_installing_with_EasyBuild/">(2023-02-07) Lab Notebook: WRF installation with EasyBuild</a></li>
-<li><a href="../2023-02-09_LabNotebook_Rclone_onedrive/">(2023-02-09) Lab Notebooks: Rclone --- Example of copying folder from HPCC to MSU OneDrive</a></li>
-<li><a href="../2023-02-16_LabNotebook_Cryosparc_installation/">(2023-02-16) Lab Notebook: CryoSPARC Installation on HPCC</a></li>
-<li><a href="../2023-02-27_LabNotebook_HRLDAS/">(2023-02-27) Lab Notebook: HRLDAS</a></li>
-<li><a href="../2023-03-14_LabNotebook_Crystal_parallel_submission/">(2023-03-14) Lab Notebook: CRYSTAL23 --- Parallel submission script on the MSU HPCC</a></li>
-<li><a href="../2023-03-14_LabNotebook_VASP/">(2023-03-14) Lab Notebook: VASP</a></li>
-<li><a href="../2023-03-27_LabNotebook_Jupyter_port-forward_servers/">(2023-06-30) Lab Notebooks: Jupyter --- Port-Forwarding Servers</a></li>
-<li><a href="../2023-03-27_LabNotebook_Mathematica_FixingStartupIssues/">(2023-03-27) Lab Notebook: Mathematica --- Fixing Startup Errors</a></li>
-<li><a href="../2023-04-04_LabNotebook_OnDemand_RunningMPIJob/">(2023-04-04) Lab Notebook: OnDemand RunningMPIJobs</a></li>
-<li><a href="../2023-05-04_LabNotebook_srun_threading_changes/">(2023-05-04) Lab Notebook: Changes to srun for jobs with multiple CPUs per task</a></li>
-<li><a href="../2023-05-18_LabNotebook_EasyBuild_PostgreSQL_Installation/">(2023-05-18) Lab Notebook: EasyBuild PostgreSQL Installation</a></li>
-<li><a href="../2023-07-13_LabNotebook_IgnoringLocalPythonLibraries/">(2023-07-13) Lab Notebook: Ignoring Local Python Libraries</a></li>
-<li><a href="../2023-07-18_LabNotebook_AlphaFold2.3.1_WorkInProgress/">(2023-07-18) Lab Notebook: AlphaFold 2.3.1 DEPRECATED</a></li>
-<li><a href="../2023-07-18_LabNotebook_MATLAB_offload_from_localPC_to_HPCC/">(2023-07-18) Lab Notebook: MATLAB offload from localPC to HPCC</a></li>
-<li><a href="../2023-08-02_LabNotebook_AlternativeLinuxShells/">(2023-08-02) Lab Notebook: Alternative Linux Shells on HPCC</a></li>
-<li><a href="../2023-08-11_LabNotebook_Jupyter_and_mobaxterm_port-forward_servers/">(2023-08-11) Lab Notebooks: Jupyter and MobaXterm--- Port-Forwarding Servers</a></li>
-<li><a href="../2023-08-30_LabNotebook_SlowdownIncidentReport/">(2023-08-30) Lab Notebooks: Incident Report on System Slowdown due to <abbr title="Input/Output">I/O</abbr></a></li>
-<li><a href="../2023-09-21_LabNotebook_MFEM_Install/">(2023-09-21) Lab Notebooks: Example home directory software install (with links to videos)</a></li>
-<li><a href="../2023-11-03_LabNotebook_VSCode_Singularity/">(2023-11-03) Lab Notebook: Connecting to a Singularity container with VS Code</a></li>
-<li><a href="../2023-11-09_LabNotebook_Molpro_Parallel/">(2023-11-09) Lab Notebook: Molpro Parallel</a></li>
-<li><a href="../2023-11-10_LabNotebook_AlphaFold2.3.2/">(2023-11-10) Lab Notebook: AlphaFold 2.3.2 WorkInProgress</a></li>
-<li><a href="../2023-11-21_LabNotebook_Git_Research_Spaces_/">(2023-11-21) Lab Notebook: Git in Research Spaces</a></li>
-<li><a href="../2024-01-13_LabNotebook_NFSv4ACLs/">(2024-01-13) Lab Notebook: Sharing directories with other HPCC users</a></li>
-<li><a href="../2024-06-13_LabNotebook_CTSM_Install/">(2024-06-13) Lab Notebook: CTSM Installation</a></li>
-<li><a href="../2024-06-19_LabNotebook_LM_Studio_Install/">(2024-06-19) Lab Notebook: LM Studio Installation</a></li>
-<li><a href="../2024-07-01_LabNotebook_OnDemandWorkaround/">(2024-07-01) Lab Notebook: NewOS and OnDemand Workarounds</a></li>
-<li><a href="../2024-08-07_LabNotebook_R_ggplot_without_X11/">(2024-08-07) Lab Notebook: Running ggplot in R without X11</a></li>
-<li><a href="../2024-08-12_RStudio_Server_Gray_Screen/">(2024-08-07) Lab Notebook: RStudio Server Shows Blank or Gray Screen</a></li>
-<li><a href="../2024-08-28_Change_to_Modules_in_SLURM_Jobs/">(2024-08-28) Lab Notebook: Change to modules in SLURM jobs</a></li>
-<li><a href="../2024-09-04_cuQuantum_Installation_and_Usage/">(2024-08-28) Lab Notebook: cuQuantum Installation and Usage</a></li>
-<li><a href="../2024-09-16_PyTorch_OnDemand_Usage/">(2024-09-16) Lab Notebook: PyTorch OnDemand Usage</a></li>
+<li>Number of hours: 1</li>
+<li>Number of cores per task: 4</li>
+<li>Amount of memory: 18GB</li>
 </ul>
+</li>
+<li>
+<p>Leave the JupyterLab box checked.</p>
+</li>
+<li>Choose the "Default" location for "Jupyter Location".</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">(Optional) Using the Data Machine</p>
+<p>If you would like to use the Data Machine (optionally, with a <abbr title="Graphics Processing Unit">GPU</abbr>), follow these steps</p>
+<ol>
+<li>Click the "Advanced Options" checkbox.</li>
+<li>(Optional) Under "Number of GPUs", enter <code>a100_1g.10gb</code> to get a Data Machine <abbr title="Graphics Processing Unit">GPU</abbr> slice.</li>
+<li>Under "SLURM Account" enter <code>data-machine</code>.</li>
+</ol>
+</div>
+<p>Click "Launch" at the bottom. Your request will queue, and when ready, the "job card" will change to show a button that says "Connect to Jupyter". Click this button to access your Jupyter session.</p>
+<h3 id="load-additional-software-modules">Load additional software modules</h3>
+<div class="admonition warning">
+<p class="admonition-title">Do this before opening a Jupyter notebook</p>
+<p>Make sure to follow these steps <em>before</em> you open a Jupyter notebook. Otherwise, they will not take affect until you restart the notebook's kernel.</p>
+</div>
+<p>When a session starts, you will have access to our "Default" set of software modules that provide Python, a few helpful packages (like SciPy and numpy) as well as all dependencies. However, to access additional Python packages, you will need to load them yourself.</p>
+<p>On the left-hand side, you will five tabs. Click the lowest one that looks like a cube with the center removed. This will show you all software modules loaded on the HPCC.</p>
+<p>Note that because the default version of <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr>, <code>CUDA/12.3.0</code> conflicts with the version used later, please first unload it by finding it in the "LOADED MODULES" section and clicking "Unload"</p>
+<p>The non-default modules that need to be loaded are:</p>
+<ul>
+<li><code>matplotlib/3.7.2-gfbf-2023a</code></li>
+<li><code>scikit-learn/1.3.1-gfbf-2023a</code></li>
+<li><code>torchvision/0.16.0-foss-2023a-CUDA-12.1.1</code></li>
+</ul>
+<p>Enter the first few characters of each in the "Filter available modules..." box at the top, select the correct version, and choose "Load".</p>
+<div class="admonition note">
+<p class="admonition-title">Torchvision warning</p>
+<p>When loading the <code>torchvision</code> module, you will see the following warning</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>WARNING: This installation of PyTorch fails a very small percentage of the official test suite. While ICER investigates please use this module at your own risk. Or consider installing your own copy: https://docs.icer.msu.edu/Installing_pytorch_using_anaconda/
+</code></pre></div></td></tr></table></div>
+<p>Please be aware of this warning, but note that PyTorch works normally in nearly all circumstances seen by ICER.</p>
+</div>
+<h3 id="open-your-jupyter-notebook">Open your Jupyter notebook</h3>
+<p>Going back to the left-hand side, click the top tab that looks like a file. Navigate to where your Jupyter notebook is stored. Double click to open, and begin running your code!</p>
+<h2 id="option-2-using-a-conda-environment">Option 2: Using a Conda environment</h2>
+<p>Recall that <code>$RESEARCH_SPACE</code> is a placeholder here for the location of the research space containing the conda environment. Please replace with the desired location.</p>
+<h3 id="start-your-ondemand-session_1">Start your OnDemand session</h3>
+<ol>
+<li>Log into <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard">OnDemand</a>.</li>
+<li>Click the "Interactive Apps" dropdown and choose "Jupyter".</li>
+<li>
+<p>Select the desired "Number of hours", "Number of cores per task", and "Amount of memory". The following are suggested values to mimic a laptop (or to use a small slice of the Data Machine if that is desired):</p>
+<ul>
+<li>Number of hours: 1</li>
+<li>Number of cores per task: 4</li>
+<li>Amount of memory: 18GB</li>
+</ul>
+</li>
+<li>
+<p>Leave the JupyterLab box checked.</p>
+</li>
+<li>Choose the "Conda Environment using Miniforge3 module" location for "Jupyter Location".</li>
+<li>In the "Conda Environment name or path" box, use <code>$RESEARCH_SPACE/envs/pytorch</code>.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">(Optional) Using the Data Machine</p>
+<p>If you would like to use the Data Machine (optionally, with a <abbr title="Graphics Processing Unit">GPU</abbr>), follow these steps</p>
+<ol>
+<li>Click the "Advanced Options" checkbox.</li>
+<li>(Optional) Under "Number of GPUs", enter <code>a100_1g.10gb</code> to get a Data Machine <abbr title="Graphics Processing Unit">GPU</abbr> slice.</li>
+<li>Under "SLURM Account" enter <code>data-machine</code>.</li>
+</ol>
+</div>
+<p>Click "Launch" at the bottom. Your request will queue, and when ready, the "job card" will change to show a button that says "Connect to Jupyter". Click this button to access your Jupyter session.</p>
+<h3 id="open-your-jupyter-notebook_1">Open your Jupyter notebook</h3>
+<p>Navigate to where your Jupyter notebook is stored. Double click to open, and begin running your code!</p>
+<h2 id="appendix-conda-environment-setup-instructions">Appendix: Conda environment setup instructions</h2>
+<p>Make sure you are on the <code>v100</code> development node:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>dev-amd20-v100
+</code></pre></div></td></tr></table></div>
+<p>Then, get access to the <code>conda</code> command using the <code>Miniforge3</code> module:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Miniforge3
+</code></pre></div></td></tr></table></div>
+<p>Then create the Conda environment in a convenient location (in this case, a research space):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>-p<span class="w"> </span><span class="nv">$RESEARCH_SPACE</span>/envs/pytorch
+</code></pre></div></td></tr></table></div>
+<p>Then activate and install packages</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span><span class="nv">$RESEARCH_SPACE</span>/envs/pytorch
+conda<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>pandas<span class="w"> </span>scikit-learn<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">12</span>.1<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia
+conda<span class="w"> </span>install<span class="w"> </span>jupyter<span class="w">  </span><span class="c1"># jupyter prefers to be installed separately</span>
+</code></pre></div></td></tr></table></div>
+<p>It is highly recommended to also install the <a href="https://github.com/cmd-ntrf/jupyter-lmod">jupyter-lmod</a> plugin to interface with the module system from inside Jupyter (e.g., to change the version of <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>jupyterlmod
+</code></pre></div></td></tr></table></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6535,7 +6615,7 @@ but there is no guarantee that worked here will work again.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 16, 2024</span>
     </span>
     
 
@@ -6545,7 +6625,7 @@ but there is no guarantee that worked here will work again.</p>
         <span class="md-icon" title="Created">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 16, 2024</span>
     </span>
     
 
@@ -6555,11 +6635,11 @@ but there is no guarantee that worked here will work again.</p>
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer, panchyni
+            Craig Gross
         </nav>
     </span>
     
@@ -6571,8 +6651,6 @@ but there is no guarantee that worked here will work again.</p>
 
   
 
-
-  
 
 
   <form class="md-feedback" name="feedback" hidden>
@@ -6607,7 +6685,7 @@ but there is no guarantee that worked here will work again.</p>
               
                 
               
-              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Lab%20Notebooks" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=%282024-09-16%29%20Lab%20Notebook%3A%20PyTorch%20OnDemand%20Usage" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
             </div>
           
         </div>
