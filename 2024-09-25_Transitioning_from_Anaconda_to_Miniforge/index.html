@@ -6302,10 +6302,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-access-to-current-environments-optional" class="md-nav__link">
+  <a href="#remove-condarc-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Get access to current environments (optional)
+        Remove .condarc file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-access-to-current-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get access to current environments
       
     </span>
   </a>
@@ -6389,13 +6400,20 @@ information and other details.</p>
 </div>
 <h1 id="transitioning-from-anaconda-to-miniforge">Transitioning from Anaconda to Miniforge</h1>
 <p>Due to recent changes in Terms of Service, ICER does not recommend or support the use of Anaconda or its package channels. However, ICER has provided streamlined access to the <code>conda</code> command and the <a href="https://conda-forge.org/">conda-forge</a> channels with <a href="https://conda-forge.org/download/">Miniforge</a>.</p>
-<p>Follow the steps below to transition an existing Anaconda installation to Miniforge.</p>
+<p>Follow the steps below to transition an existing Anaconda installation to Miniforge using the ICER-provided Miniforge module.</p>
 <h2 id="replace-module-loads">Replace module loads</h2>
 <p>Miniforge is pre-installed on the HPCC. You can access it with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Miniforge3
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Miniforge3
 </code></pre></div></td></tr></table></div>
 <p>Anywhere you were previously using <code>module load Conda/3</code>, you can replace it with <code>module load Miniforge3</code>. For more details see our page on <a href="../Using_conda/">Using Conda</a>.</p>
-<h2 id="get-access-to-current-environments-optional">Get access to current environments (optional)</h2>
+<h2 id="remove-condarc-file">Remove <code>.condarc</code> file</h2>
+<p>If you have an existing <code>~/.condarc</code> file, this may conflict with the setup done by the new <code>Miniforge3</code> module. To completely ignore it, run</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv<span class="w"> </span>~/.condarc<span class="w"> </span>~/.condarc.bak
+</code></pre></div></td></tr></table></div>
+<p>You can still access your old file at <code>~/.condarc.bak</code>. If you would like, you can instead edit your <code>.condarc</code> file to keep any configurations you previously set yourself (but use this step as a backup if the new module is not working correctly).</p>
+<h2 id="get-access-to-current-environments">Get access to current environments</h2>
 <div class="admonition note">
 <p class="admonition-title">Optional</p>
 <p>Note that if you complete this step, future Conda environments will be installed into your old installation's directory. You may wish to skip this step if you are planning to <a href="#reinstall-current-environments">reinstall all current environments</a>.</p>
@@ -6404,13 +6422,13 @@ information and other details.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>config<span class="w"> </span>--append<span class="w"> </span>envs_dirs<span class="w"> </span><span class="si">${</span><span class="nv">CONDA3PATH</span><span class="si">}</span>/envs
 </code></pre></div></td></tr></table></div>
 <p>to access all of your old Conda environments.</p>
-<div class="admonition warning">
-<p class="admonition-title">Treat these environments as read-only!</p>
-<p>You are free to use these environments with Miniforge, but do not install new packages into them! Environments remember they were installed with Anaconda and will use it to install new packages.</p>
-<p>If you need to make changes or install new packages, you should reinstall your entire environment. Read on...</p>
+<div class="admonition note">
+<p class="admonition-title">These environments may still use Anaconda</p>
+<p>You are free to use these environments with Miniforge as most newly installed or updated packages will be installed from conda-forge. If a package cannot be found in the conda-forge channel however, the environment will still be configured to download from Anaconda's servers. Pay close attention to which channel Conda is attempting to install your packages from.</p>
+<p>If you would like to avoid this, you can reinstall your entire environment. Read on...</p>
 </div>
 <h2 id="reinstall-current-environments">Reinstall current environments</h2>
-<p>If you want to make changes to an existing environment, reinstall it using Miniforge. First, export its installed packages (we will assume the environment is called <code>test_env</code>):</p>
+<p>If you want to reinstall an environment using Miniforge, first, export its installed packages (we will assume the environment is called <code>test_env</code>):</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>test_env
 conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--override-channels<span class="w"> </span>--from-history<span class="w"> </span>--channel<span class="w"> </span>conda-forge<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span>-1<span class="w"> </span>&gt;<span class="w"> </span>env.yaml
@@ -6480,7 +6498,7 @@ conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export<
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 4, 2024</span>
     </span>
     
 
