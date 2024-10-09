@@ -6876,8 +6876,8 @@ text box. Your job will queue onto a Data Machine node. Other resources (time,
 <abbr title="Central Processing Unit">CPU</abbr> and memory) can be requested as usual by filling out the "Number of hours", 
 "Number of cores per task" and "Amount of memory" boxes.</p>
 <h3 id="gpu-access"><abbr title="Graphics Processing Unit">GPU</abbr> access</h3>
-<p>To use a single <abbr title="Graphics Processing Unit">GPU</abbr> unit with your OnDemand session, in the "Advanced Options" section and enter <code>a100_1g.10gb</code> under "Number of GPUs". If you would like multiple units, use <code>a100_1g.10gb:n</code> where <code>n</code> is the number of units you would like on a single node.</p>
-<p>To request full GPUs, use <code>a100</code> instead of <code>a100_1g.10gb</code>.</p>
+<p>To use a single <abbr title="Graphics Processing Unit">GPU</abbr> unit with your OnDemand session, in the "Advanced Options" section and enter <code>a100_slice</code> under "Number of GPUs". If you would like multiple units, use <code>a100_slice:n</code> where <code>n</code> is the number of units you would like on a single node.</p>
+<p>To request full GPUs, use <code>a100</code> instead of <code>a100_slice</code>.</p>
 <h2 id="slurm-scripting-data-machine-access">SLURM scripting Data Machine access</h2>
 <p>Below are some examples of SLURM resource requests for the Data Machine.</p>
 <h3 id="partial-data-machine-node">Partial Data Machine node</h3>
@@ -6919,7 +6919,7 @@ text box. Your job will queue onto a Data Machine node. Other resources (time,
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
 <span class="c1">#SBATCH --cpus-per-task=32  # Set to your desired number of CPUs</span>
-<span class="c1">#SBATCH --gpus=a100_1g.10gb  # Request one GPU unit on the reserved node</span>
+<span class="c1">#SBATCH --gpus=a100_slice  # Request one GPU unit on the reserved node</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="two-gpu-units-on-a-single-node">Two <abbr title="Graphics Processing Unit">GPU</abbr> units on a single node</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6934,7 +6934,7 @@ text box. Your job will queue onto a Data Machine node. Other resources (time,
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
 <span class="c1">#SBATCH --cpus-per-task=32  # Set to your desired number of CPUs</span>
-<span class="c1">#SBATCH --gpus=a100_1g.10gb:2  # Request two GPU units on the reserved node</span>
+<span class="c1">#SBATCH --gpus=a100_slice:2  # Request two GPU units on the reserved node</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="one-full-gpu-on-a-single-node">One full <abbr title="Graphics Processing Unit">GPU</abbr> on a single node</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -7095,7 +7095,7 @@ BurstBufferState=staging-in
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 12, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 7, 2024</span>
     </span>
     
 
@@ -7119,7 +7119,7 @@ BurstBufferState=staging-in
             
         </span>
         <nav>
-            Andrew Fullard, Craig Gross
+            Andrew Fullard, Craig Gross, Steven Ford
         </nav>
     </span>
     

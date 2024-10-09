@@ -6557,7 +6557,7 @@ information and other details.</p>
 <p class="admonition-title">Note</p>
 <p>This section only applies to users who have Data Machine access.</p>
 </div>
-<p>Click the "Advanced Options" checkbox. In the "Number of GPUs" field, enter <code>a100_1g.10gb</code>. This reserves a slice of the Data Machine A100 GPUs with 10GB of <abbr title="Graphics Processing Unit">GPU</abbr> memory. In the "SLURM Account" field, enter <code>data-machine</code>.</p>
+<p>Click the "Advanced Options" checkbox. In the "Number of GPUs" field, enter <code>a100_slice</code>. This reserves a slice of the Data Machine A100 GPUs with 10GB of <abbr title="Graphics Processing Unit">GPU</abbr> memory. In the "SLURM Account" field, enter <code>data-machine</code>.</p>
 <h3 id="launch-jupyter">Launch Jupyter</h3>
 <p>Press the "Launch" button at the bottom and wait for the job to queue and then for Jupyter to start up. This can take a couple of minutes. When Jupyter is ready, click the "Connect to Jupyter" button.</p>
 <h3 id="running-a-sample-program">Running a sample program</h3>
@@ -6608,7 +6608,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>/mnt/research/CMSE8
 <h2 id="appendix-further-reading">Appendix: Further reading</h2>
 <p>After experimenting with the samples above, you may be interested in the following:</p>
 <ul>
-<li>Requesting multiple GPUs and <a href="https://docs.nvidia.com/cuda/cuquantum/latest/cutensornet/examples.html#code-example-automatic-slice-based-distributed-parallelization">chaining them together with <abbr title="Message Passing Interface">MPI</abbr></a>. Note that you can <a href="../Using_the_Data_Machine/#gpu-access">request multiple Data Machine <abbr title="Graphics Processing Unit">GPU</abbr> slices</a> using <code>a100_1g.10gb:n</code> where <code>n</code> is the number of slices you would like to use.</li>
+<li>Requesting multiple GPUs and <a href="https://docs.nvidia.com/cuda/cuquantum/latest/cutensornet/examples.html#code-example-automatic-slice-based-distributed-parallelization">chaining them together with <abbr title="Message Passing Interface">MPI</abbr></a>. Note that you can <a href="../Using_the_Data_Machine/#gpu-access">request multiple Data Machine <abbr title="Graphics Processing Unit">GPU</abbr> slices</a> using <code>a100_slice:n</code> where <code>n</code> is the number of slices you would like to use.</li>
 <li><a href="../Using_the_Data_Machine/#one-full-GPU-on-a-single-node">Using whole GPUs in the Data Machine</a> instead of slices (subject to availability).</li>
 <li>Exploring <a href="https://docs.nvidia.com/cuda/cuquantum/latest/python/overview.html">the different types of Python bindings</a> provided by the cuQuantum Python package.</li>
 <li>Compile and run <a href="https://docs.nvidia.com/cuda/cuquantum/latest/cutensornet/examples.html">more cuTensorNet examples</a></li>
@@ -6712,7 +6712,7 @@ chmod +x &quot;${CONDA_PREFIX}/etc/conda/activate.d/env.sh&quot; &quot;${CONDA_P
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 7, 2024</span>
     </span>
     
 
@@ -6732,11 +6732,11 @@ chmod +x &quot;${CONDA_PREFIX}/etc/conda/activate.d/env.sh&quot; &quot;${CONDA_P
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
             
         </span>
         <nav>
-            Craig Gross
+            Craig Gross, Steven Ford
         </nav>
     </span>
     
