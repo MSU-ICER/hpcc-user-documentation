@@ -6334,21 +6334,14 @@ poorer quality regions can be trimmed using Trimmomatic.  Running
 Trimmomatic is a good first step in quality filtering your Illumina
 data. </p>
 <p>To run it on the HPCC (for example trimming paired-end reads):</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>java -jar /opt/software/Trimmomatic/0.36-Java-1.8.0_92/trimmomatic-0.36.jar PE [-threads &lt;threads] [-phred33 | -phred64] [-trimlog &lt;logFile&gt;] &lt;input 1&gt; &lt;input 2&gt; &lt;paired output 1&gt; &lt;unpaired output 1&gt; &lt;paired output 2&gt; &lt;unpaired output 2&gt; &lt;step 1&gt; ...
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>/opt/software-current/2023.06/x86_64/generic/software/Trimmomatic/0.39-Java-17<span class="w"> </span>PE<span class="w"> </span><span class="o">[</span>-threads<span class="w"> </span>&lt;threads<span class="o">]</span><span class="w"> </span><span class="o">[</span>-phred33<span class="w"> </span><span class="p">|</span><span class="w"> </span>-phred64<span class="o">]</span><span class="w"> </span><span class="o">[</span>-trimlog<span class="w"> </span>&lt;logFile&gt;<span class="o">]</span><span class="w"> </span>&lt;input<span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>&lt;input<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>&lt;paired<span class="w"> </span>output<span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>&lt;unpaired<span class="w"> </span>output<span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>&lt;paired<span class="w"> </span>output<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>&lt;unpaired<span class="w"> </span>output<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>&lt;step<span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span>...
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <p>Read <a href="http://www.usadellab.org/cms/?page=trimmomatic"
-rel="nofollow">the manual</a> for how to use it. Note that the adapter
+rel="nofollow">the manual</a> for how to use it. </p>
+<p>If you prefer to load the Trimmomatic module using <code>module load Trimmomatic</code>, you can use the environment variable <code>$EBROOTTRIMMOMATIC</code> as a shorthand for the path above. Trimmomatic can then be executed using <code>java -jar $EBROOTTRIMMOMATIC/trimmomatic-0.39.jar</code>. Note that <code>$EBROOTTRIMMOMATIC</code> is only available if the Trimmomatic module has been loaded.</p>
+<p>Note that the adapter
 sequence files are
-in <code>/opt/software/Trimmomatic/0.36-Java-1.8.0_92/adapters/</code>. If you
+in <code>/opt/software-current/2023.06/x86_64/generic/software/Trimmomatic/0.39-Java-17/adapters/</code> (or if the module has been loaded, <code>$EBROOTTRIMMOMATIC/adapters</code>). If you
 couldn't find the adapters you need in that directory, you will need to
 obtain them from elsewhere (for example asking the person who ran the
 library prep for you).</p>
@@ -6396,7 +6389,7 @@ library prep for you).</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 6, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2024</span>
     </span>
     
 
@@ -6416,11 +6409,11 @@ library prep for you).</p>
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
             
         </span>
         <nav>
-            Nanye Long
+            Claire Kopenhafer, Nanye Long
         </nav>
     </span>
     
