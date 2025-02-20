@@ -5558,7 +5558,7 @@ information and other details.</p>
 </code></pre></div></td></tr></table></div>
 <h2 id="example-usage-running-alphafold-from-a-singularity-container">Example Usage: Running AlphaFold from a Singularity container</h2>
 <p>HPCC has versions of AlphaFold available as Singularity containers (such as /opt/software/alphafold/2.0.0/alphafold.sif). These containers run Python 3.8.x and if you have a .local/lib/python38 folder, you may face an error like the following:</p>
-<p><img alt="" src="../attachments/SingularityLocalLibraryError.png" /></p>
+<p><img alt=" A screenshot of a Python error traceback from an AlphaFold script. The error shows a warning about a missing /etc/localtime file in a container, followed by an AttributeError in residue_constants.py due to deprecated numpy.int usage. The code attempts to define a NumPy array with dtype=np.int, which fails because the attribute int is no longer supported in newer NumPy versions. Line numbers, file paths, and code snippets are visible, indicating a compatibility issue in a scientific computing environment." src="../attachments/SingularityLocalLibraryError.png" /></p>
 <p>Setting PYTHONNOUSERSITE as above should resolve this issue</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5604,7 +5604,7 @@ information and other details.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 6, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 13, 2025</span>
     </span>
     
 
@@ -5628,7 +5628,7 @@ information and other details.</p>
             
         </span>
         <nav>
-            Craig Gross, panchyni
+            Craig Gross, panchyni, toelawpa
         </nav>
     </span>
     
