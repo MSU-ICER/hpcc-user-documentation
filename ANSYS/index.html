@@ -3531,15 +3531,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#license-issues-version-192-and-older" class="md-nav__link">
-    <span class="md-ellipsis">
-      License Issues (version 19.2 and older)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#guidelines-for-scheduling-parallel-mpi-jobs" class="md-nav__link">
     <span class="md-ellipsis">
       Guidelines for scheduling parallel (MPI) jobs
@@ -5586,15 +5577,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#license-issues-version-192-and-older" class="md-nav__link">
-    <span class="md-ellipsis">
-      License Issues (version 19.2 and older)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#guidelines-for-scheduling-parallel-mpi-jobs" class="md-nav__link">
     <span class="md-ellipsis">
       Guidelines for scheduling parallel (MPI) jobs
@@ -5672,34 +5654,44 @@
 <h1 id="ansys">ANSYS</h1>
 <p>These instructions are for using Ansys on the current HPCC environment
 that uses the SLURM scheduler.</p>
-<h3 id="license-issues-version-192-and-older">License Issues (version 19.2 and older)</h3>
-<p>There is an issue with Ansys licensing due to changes made
+<!-- ### License Issues (version 19.2 and older)
+
+There is an issue with Ansys licensing due to changes made
 over the many versions HPCC has installed.   If you have license issues
-when Using Ansys, here is the work-around:</p>
-<p>1. Start an interactive desktop session in <a href="../Open_OnDemand/">OnDemand</a> 
+when Using Ansys, here is the work-around:
+
+1\. Start an interactive desktop session in [OnDemand](Open_OnDemand.md) 
 or start an X11 
-terminal (with MobaXterm/Windows or XQuartz/Mac) (see <a href="../Connect_to_HPCC_System/">Connect to HPCC
-System</a> ). </p>
-<p>2. <abbr title="Secure Shell">SSH</abbr> Connect to any development node, remembering to add -X options.
-  </p>
-<p>3.  Start this program on any dev node.   it launches a <abbr title="Graphic User Interface">GUI</abbr>  </p>
-<p>/opt/software/ANSYS/19.2/ansys_inc/shared_files/licensing/lic_admin/anslic_admin  </p>
-<ol>
-<li>On the left side of the window are three buttons. Click the button
-"set License Preferences for User \&lt;username&gt;". A new window will open</li>
-</ol>
-<p>5. select Release 19.2 in that new window and click OK</p>
-<p>6. another window will open with tabs across the top and two options in
+terminal (with MobaXterm/Windows or XQuartz/Mac) (see [Connect to HPCC
+System](Connect_to_HPCC_System.md) ). 
+
+2\. SSH Connect to any development node, remembering to add -X options.
+  
+
+3.  Start this program on any dev node.   it launches a GUI  
+
+/opt/software/ANSYS/19.2/ansys_inc/shared_files/licensing/lic_admin/anslic_admin  
+
+4. On the left side of the window are three buttons. Click the button
+"set License Preferences for User \<username\>". A new window will open
+
+5\. select Release 19.2 in that new window and click OK
+
+6\. another window will open with tabs across the top and two options in
 the bottom that are the same for each tab. On the bottom, click the
 option for "Use a separate license for each application". It doesn't
 matter which Tab you've selected (Solver/PrePost/etc). That setting
-should be the same for all tabs.</p>
-<p>7. click OK, which closes that window.</p>
-<p>8. In the original Ansys license utility, click File, and then "exit"
-to close it. This modifies the config file in your home directory.</p>
-<p>9. Close any current sessions in which you running Ansys and start it
+should be the same for all tabs.
+
+7\. click OK, which closes that window.
+
+8\. In the original Ansys license utility, click File, and then "exit"
+to close it. This modifies the config file in your home directory.
+
+9\. Close any current sessions in which you running Ansys and start it
 again on any method (dev node, in 'salloc' interactive job etc). You
-should now be able to use the features you needed before.</p>
+should now be able to use the features you needed before. -->
+
 <h3 id="guidelines-for-scheduling-parallel-mpi-jobs">Guidelines for scheduling parallel (<abbr title="Message Passing Interface">MPI</abbr>) jobs</h3>
 <p>Here are some guidelines for requesting resources.   </p>
 <h4 id="use-ntasks-instead-of-nodes">Use --ntasks instead of nodes</h4>
@@ -5939,7 +5931,7 @@ rm<span class="w"> </span>/tmp/hosts.<span class="nv">$SLURM_JOB_ID</span>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 6, 2025 17:34:14">February 6, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 18, 2025 19:10:52">March 18, 2025</span>
     </span>
     
 
