@@ -4123,15 +4123,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#version-note" class="md-nav__link">
-    <span class="md-ellipsis">
-      Version note
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -5846,15 +5837,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#version-note" class="md-nav__link">
-    <span class="md-ellipsis">
-      Version note
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -5881,10 +5863,10 @@
 
 <h1 id="trinity-for-rna-seq-de-novo-assembly">Trinity for RNA-seq de novo assembly</h1>
 <h2 id="loading-module">Loading module</h2>
-<p>Take loading Trinity 2.6.6 as an example, we run:</p>
+<p>Take loading Trinity 2.15.1 as an example, we run:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
-module load icc/2017.4.196-GCC-6.4.0-2.28 impi/2017.3.196 Trinity/2.6.6
+module load Trinity/2.15.1-foss-2023a
 </code></pre></div></td></tr></table></div>
 <h2 id="most-basic-run-transcript-assembly">Most basic run (transcript assembly)</h2>
 <p>A typical Trinity command for assembling strand-specific paired-end
@@ -5945,15 +5927,11 @@ by trinity.</p>
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code># Assuming
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code># Assuming
 #    1) you&#39;ve loaded Trinity module already and
 #    2) your current working directory is trinity_out_dir generated from the previous assembly step. 
 
-export PATH=/opt/software/RSEM/1.3.1-GCCcore-6.4.0/usr/local/bin:$PATH
-
-/opt/software/Trinity/2.6.6/util/align_and_estimate_abundance.pl --seqType fq --transcripts Trinity.fasta \
+$EBROOTTRINITY/trinityrnaseq-v2.15.1/util/align_and_estimate_abundance.pl --seqType fq --transcripts Trinity.fasta \
     --est_method RSEM \
     --left ../reads.left.fq \
     --right ../reads.right.fq \
@@ -5972,17 +5950,6 @@ and <code>RSEM.genes.results</code> (gene level).</p>
 <p>Please
 consult <a href="https://github.com/trinityrnaseq/trinityrnaseq/wiki">https://github.com/trinityrnaseq/trinityrnaseq/wiki</a> for
 detail.</p>
-<p>Note that a few R packages are needed for differential expression
-analysis (<a href="https://github.com/trinityrnaseq/trinityrnaseq/wiki/Trinity-Differential-Expression">https://github.com/trinityrnaseq/trinityrnaseq/wiki/Trinity-Differential-Expression</a>).
-These have been installed in <code>R/4.0.2</code> which can be loaded
-by</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge; module load GCC/8.3.0 OpenMPI/3.1.4 R/4.0.2
-</code></pre></div></td></tr></table></div>
-<h2 id="version-note">Version note</h2>
-<p>The latest version is 2.91. After loading it, you may load R 4.0.2 for DE analysis.</p>
-<p><code>module purge</code><br />
-<code>module load GCC/8.3.0 OpenMPI/3.1.4 R/4.0.2 Trinity/2.9.1</code><br />
-<code>module load R/4.0.2</code></p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6027,7 +5994,7 @@ by</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 7, 2022 17:29:59">October 7, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 11, 2025 19:11:26">March 11, 2025</span>
     </span>
     
 
@@ -6051,7 +6018,7 @@ by</p>
             
         </span>
         <nav>
-            Andrew Fullard, Nanye Long
+            Andrew Fullard, Craig Gross, Nanye Long
         </nav>
     </span>
     
