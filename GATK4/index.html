@@ -3808,29 +3808,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Assembly of PacBio long reads with Canu
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
         
   
@@ -5853,11 +5830,24 @@
 <p>Now you may ask, why are there two jars? As the names suggest, <code>gatk-package-[version]-spark.jar</code> is the jar for running Spark tools on a Spark cluster, while <code>gatk-package-[version]-local.jar</code> is the jar that is used for everything else (including running Spark tools "locally", i.e. on a regular server or cluster).</p>
 <p>So does that mean you have to specify which one you want to run each time? Nope! See the gatk file in there? That's an executable wrapper script that you invoke and that will choose the appropriate jar for you based on the rest of your command line. You could still invoke a specific jar if you wanted, but using gatk is easier, and it will also take care of setting some parameters that you would otherwise have to specify manually.</p>
 </blockquote>
-<p>On the HPCC, after login to a dev-node, run: <code>module load GATK/4.0.5.1-Python-3.6.4</code>. As a tip, if you happen to run a <code>module purge</code> command in the middle of your work, and want to go back to the original login environment, please type the command: <code>exec bash -l</code></p>
-<p>A simple test on the HPCC is provided below.</p>
+<p>On the HPCC, after login to a dev-node, run:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module load GATK/4.0.5.1-Python-3.6.4
-gatk --java-options &quot;-Xmx8G&quot; HaplotypeCaller -R /opt/software/GATK/3.3-0-Java-1.7.0_80/resources/exampleFASTA.fasta -I /opt/software/GATK/3.3-0-Java-1.7.0_80/resources/exampleBAM.bam -O gatk_test.vcf
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>GATK/4.5.0.0-GCCcore-12.3.0-Java-17
+
+A<span class="w"> </span>simple<span class="w"> </span><span class="nb">test</span><span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>HPCC<span class="w"> </span>is<span class="w"> </span>provided<span class="w"> </span>below.
+
+<span class="sb">```</span><span class="w"> </span>bash
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>GATK/4.0.5.1-Python-3.6.4
+gatk<span class="w"> </span>--java-options<span class="w"> </span><span class="s2">&quot;-Xmx8G&quot;</span><span class="w"> </span>HaplotypeCaller<span class="w"> </span>-R<span class="w"> </span>/mnt/research/common-data/GATK_resources/exampleFASTA.fasta<span class="w"> </span>-I<span class="w"> </span>/mnt/research/common-data/GATK_resources/exampleBAM.bam<span class="w"> </span>-O<span class="w"> </span>gatk_test.vcf
 </code></pre></div></td></tr></table></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5903,7 +5893,7 @@ gatk --java-options &quot;-Xmx8G&quot; HaplotypeCaller -R /opt/software/GATK/3.3
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 20, 2025 17:24:01">February 20, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 15, 2025 19:27:47">April 15, 2025</span>
     </span>
     
 
