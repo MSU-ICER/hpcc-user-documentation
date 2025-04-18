@@ -6115,9 +6115,7 @@ announcement at
 <a href="http://qiime.org">http://qiime.org</a>),
 it's not installed on the Ubuntu system of HPCC. The way QIIME 2 is
 installed and run on the HPCC Ubuntu is through conda
-<a href="https://docs.qiime2.org/2018.2/install/native/">https://docs.qiime2.org/2018.2/install/native/</a>.</p>
-<p>You may follow our <a href="../Using_conda/">instructions</a>
-to install Conda in your home directory.</p>
+<a href="https://docs.qiime2.org/2024.10/install/native/">https://docs.qiime2.org/2024.10/install/native/</a>.</p>
 <p>Below is how to install QIIME 2 (version 2018.2) in your home directory
 via conda:</p>
 <h2 id="install-qiime-2">Install QIIME 2</h2>
@@ -6129,18 +6127,18 @@ via conda:</p>
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/miniforge3/bin
-wget<span class="w"> </span>https://data.qiime2.org/distro/core/qiime2-2018.2-py35-linux-conda.yml
-conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>qiime2-2018.2<span class="w"> </span>--file<span class="w"> </span>qiime2-2018.2-py35-linux-conda.yml
-rm<span class="w"> </span>qiime2-2018.2-py35-linux-conda.yml
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Miniforge3
+conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>qiime2-amplicon-2024.10<span class="w"> </span>--file<span class="w"> </span>https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2024.10/amplicon/released/qiime2-amplicon-ubuntu-latest-conda.yml
 
-<span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>qiime2-2018.2
+conda<span class="w"> </span>activate<span class="w"> </span>qiime2-amplicon-2024.10
 qiime<span class="w"> </span>--help<span class="w"> </span><span class="c1"># test if installation is successful</span>
+qiime<span class="w"> </span>info
 <span class="c1"># all your QIIME commands go here</span>
-<span class="nb">source</span><span class="w"> </span>deactivate
+conda<span class="w"> </span>deactivate
 </code></pre></div></td></tr></table></div>
 <h2 id="example-of-analysis">Example of analysis</h2>
-<p>The example below is from a previous version of <a href="https://docs.qiime2.org/2022.2/">the current tutorial</a>.</p>
+<p>The example below is from a previous version of <a href="https://docs.qiime2.org/2024.10/tutorials/moving-pictures/">the current tutorial</a>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6164,24 +6162,52 @@ qiime<span class="w"> </span>--help<span class="w"> </span><span class="c1"># te
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>qiime2-moving-pictures-tutorial
-<span class="nb">cd</span><span class="w"> </span>qiime2-moving-pictures-tutorial
-wget<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;sample-metadata.tsv&quot;</span><span class="w"> </span><span class="s2">&quot;https://data.qiime2.org/2018.2/tutorials/moving-pictures/sample_metadata.tsv&quot;</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Setup environment</span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Miniforge3
+conda<span class="w"> </span>activate<span class="w"> </span>qiime2-amplicon-2024.10
 
+<span class="c1"># Obtain data for tutorial</span>
+mkdir<span class="w"> </span>qiime2-moving-pictures-tutorial
+<span class="nb">cd</span><span class="w"> </span>qiime2-moving-pictures-tutorial
+wget<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;sample-metadata.tsv&quot;</span><span class="w"> </span><span class="s2">&quot;https://data.qiime2.org/2024.10/tutorials/moving-pictures/sample_metadata.tsv&quot;</span>
+
+<span class="c1"># Run tutorial </span>
 mkdir<span class="w"> </span>emp-single-end-sequences
-wget<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;emp-single-end-sequences/barcodes.fastq.gz&quot;</span><span class="w"> </span><span class="s2">&quot;https://data.qiime2.org/2018.2/tutorials/moving-pictures/emp-single-end-sequences/barcodes.fastq.gz&quot;</span>
-wget<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;emp-single-end-sequences/sequences.fastq.gz&quot;</span><span class="w"> </span><span class="s2">&quot;https://data.qiime2.org/2018.2/tutorials/moving-pictures/emp-single-end-sequences/sequences.fastq.gz&quot;</span>
+wget<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;emp-single-end-sequences/barcodes.fastq.gz&quot;</span><span class="w"> </span><span class="s2">&quot;https://data.qiime2.org/2024.10/tutorials/moving-pictures/emp-single-end-sequences/barcodes.fastq.gz&quot;</span>
+wget<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;emp-single-end-sequences/sequences.fastq.gz&quot;</span><span class="w"> </span><span class="s2">&quot;https://data.qiime2.org/2024.10/tutorials/moving-pictures/emp-single-end-sequences/sequences.fastq.gz&quot;</span>
 
 qiime<span class="w"> </span>tools<span class="w"> </span>import<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>EMPSingleEndSequences<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--input-path<span class="w"> </span>emp-single-end-sequences<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--output-path<span class="w"> </span>emp-single-end-sequences.qza
 
+qiime<span class="w"> </span>tools<span class="w"> </span>peek<span class="w"> </span>emp-single-end-sequences.qza
+<span class="c1"># Expected Output:</span>
+<span class="c1"># UUID:        593a4a7d-1cf5-46d6-b3c8-ca39810dc842</span>
+<span class="c1">#Type:        EMPSingleEndSequences</span>
+<span class="c1">#Data format: EMPSingleEndDirFmt</span>
+
 qiime<span class="w"> </span>demux<span class="w"> </span>emp-single<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--i-seqs<span class="w"> </span>emp-single-end-sequences.qza<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--m-barcodes-file<span class="w"> </span>sample-metadata.tsv<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--m-barcodes-column<span class="w"> </span>BarcodeSequence<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--o-per-sample-sequences<span class="w"> </span>demux.qza
+<span class="w">  </span>--m-barcodes-column<span class="w"> </span>barcode-sequence<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--o-per-sample-sequences<span class="w"> </span>demux.qza<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--o-error-correction-details<span class="w"> </span>demux-details.qza
 
 qiime<span class="w"> </span>demux<span class="w"> </span>summarize<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--i-data<span class="w"> </span>demux.qza<span class="w"> </span><span class="se">\</span>
@@ -6189,7 +6215,7 @@ qiime<span class="w"> </span>demux<span class="w"> </span>summarize<span class="
 
 qiime<span class="w"> </span>tools<span class="w"> </span>view<span class="w"> </span>demux.qzv
 </code></pre></div></td></tr></table></div>
-<p>A full list of tutorials for QIIME2 can be found <a href="https://docs.qiime2.org/2023.2/tutorials/">here</a> and there is also list of <a href="https://docs.qiime2.org/2023.2/plugins/available/">plugins</a> for QIIME2 for handling tasks such as trimming adaptors, demultiplexing, and denoising.</p>
+<p>A full list of tutorials for QIIME2 can be found <a href="https://docs.qiime2.org/2024.10/tutorials/">here</a> and there is also list of <a href="https://docs.qiime2.org/2024.10/plugins/">plugins</a> for QIIME2 for handling tasks such as trimming adaptors, demultiplexing, and denoising.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6234,7 +6260,7 @@ qiime<span class="w"> </span>tools<span class="w"> </span>view<span class="w"> <
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 14, 2024 14:06:07">August 14, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 18, 2025 15:35:27">April 18, 2025</span>
     </span>
     
 
