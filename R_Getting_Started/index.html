@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started" class="md-skip">
+        <a href="#getting-started-with-r" class="md-skip">
           Skip to content
         </a>
       
@@ -5179,6 +5179,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-the-matrix-or-mass-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the Matrix or MASS Packages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6130,6 +6154,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-the-matrix-or-mass-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the Matrix or MASS Packages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6176,7 +6224,7 @@
   
 
 
-<h1 id="getting-started">Getting started</h1>
+<h1 id="getting-started-with-r">Getting started with R</h1>
 <p>This page provides a quick explanation of using R on the system. For more details, see our <a href="https://msu-icer.github.io/r-for-hpcc">R for HPCC workshop materials</a>.</p>
 <h2 id="accessing-r-and-rstudio">Accessing R and RStudio</h2>
 <p>R is available on the HPCC by default which means you can run it on the command line by using the command</p>
@@ -6278,6 +6326,34 @@ module<span class="w"> </span>load<span class="w"> </span>R-bundle-CRAN/2023.12-
 </table>
 <p>If you aren't sure which node type to use, choose intel16. There are the largest number of nodes, and it is the oldest which lowers the chance of compatibility issues.</p>
 <p>For more on this topic, see our page on <a href="../2024-10-23_LabNotebook_Architecture_compilation/">Architecture Specific Compilation</a>.</p>
+<h2 id="common-issues">Common issues</h2>
+<h3 id="installing-the-matrix-or-mass-packages">Installing the Matrix or MASS Packages</h3>
+<p>The default versions of the R packages <code>Matrix</code> and <code>MASS</code> (which are dependencies for many other packages including <code>ggplot2</code>) are incompatible with versions of R earlier than 4.4.0.
+Installations that require these packages will fail with a message like:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">Warning message:</span>
+<span class="go">package ‘Matrix’ is not available for this version of R</span>
+<span class="go">‘Matrix’ version 1.7-3 is in the repositories but depends on R (&gt;= 4.4)</span>
+<span class="go">‘Matrix’ version 1.7-3 is in the repositories but depends on R (&gt;= 4.6)</span>
+
+<span class="go">A version of this package for your version of R might be available elsewhere,</span>
+<span class="go">see the ideas at</span>
+<span class="go">https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</span>
+</code></pre></div></td></tr></table></div>
+<p>We recommend using the <code>R-bundle-CRAN</code> module instead of <code>R</code> (<a href="#versions-and-bundles">discussed above</a>) which includes pre-installed versions of these packages.</p>
+<p>If you need to install these packages yourself using <code>install.packages</code>, You will need to use the direct URL of a version that is compatible with your version of R. As shown in the <a href="https://cran.r-project.org/web/packages/Matrix/news.html">Matrix NEWS file</a> and <a href="https://cran.r-project.org/web/packages/MASS/ChangeLog">MASS changelog</a>, versions 1.6-5 and 7.3-60.0.1 respectively will work with some earlier versions of R.</p>
+<p>To install them, use <code>install.packages</code> with the link to the corresponding <code>tar.gz</code> source files in the <a href="https://cran.r-project.org/src/contrib/Archive/Matrix/">Matrix</a> and <a href="https://cran.r-project.org/src/contrib/Archive/MASS/">MASS</a> archives with the options <code>repos=NULL</code> and <code>type="source</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;https://cran.r-project.org/src/contrib/Archive/Matrix/Matrix_1.6-5.tar.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">repos</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;source&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;https://cran.r-project.org/src/contrib/Archive/MASS/MASS_7.3-60.0.1.tar.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">repos</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;source&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Note that you may need to install some additional dependencies using standard <code>install.pacakges</code> commands prior to these source installations, but R will show show you which ones are necessary if the above commands fail.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6322,7 +6398,7 @@ module<span class="w"> </span>load<span class="w"> </span>R-bundle-CRAN/2023.12-
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 9, 2025 18:28:30">January 9, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 18, 2025 17:23:26">April 18, 2025</span>
     </span>
     
 
