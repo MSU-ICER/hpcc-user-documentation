@@ -5066,6 +5066,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#resolving-package-conflicts-with-conda-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolving package conflicts with Conda environments
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6088,6 +6097,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#resolving-package-conflicts-with-conda-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolving package conflicts with Conda environments
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6192,6 +6210,28 @@ With your Notebook open, click "Select Kernel" in the upper right and then choos
 In the screenshot below, for example, the "Recommended" Python interpreter corresponds to the <em>base</em> Conda environment. We can also see our other Conda environments (in this example, there is only one called "astro-analysis") as well as system installations of Python in <code>/bin</code>, <code>/usr/bin</code>, and <code>/opt/software</code>. These system installation are likely <em>not</em> the Python versions you want to use.</p>
 <p><img alt="Screenshot of the VS Code Kernel Selection menu with a long list of Python environments listed. Some are labeled on the right as &quot;Recommended&quot;, &quot;Conda Env&quot;, and &quot;Global Env&quot;" src="../attachments/jupyter_notebook_in_vs_code/jupyter_vs_code_03.png" /></p>
 <p>You may now execute cells in your Jupyter Notebook while running on the HPCC! VS Code will remember your choice of kernel next time you open that workspace.</p>
+<h2 id="resolving-package-conflicts-with-conda-environments">Resolving package conflicts with Conda environments</h2>
+<p>ICER provides default Python modules on the HPCC. These modules include a variety of Python packages that may cause conflicts with your Conda environment
+when it is executed in a Jupyter Notebook. An example error may be:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Exception: Version mismatch: this is the &#39;cffi&#39; package version 1.15.1, located in &#39;/opt/software-current/2023.06/x86_64/intel/skylake_avx512/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages/cffi/api.py&#39;.  When we import the top-level &#39;_cffi_backend&#39; extension module, we get version 1.17.1, located in [your environment path] The two versions should be equal; check your installation.
+</code></pre></div></td></tr></table></div>
+<p>To resolve this, you can launch your Jupyter server from the VS Code terminal.</p>
+<ol>
+<li>Open a VS Code terminal on the HPCC where you wish to run your notebook.</li>
+<li>Run the command <code>module purge</code> in the VS Code terminal to unload all modules.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you get <code>module: command not found</code> see our guide <a href="../2024-09-05_LabNotebook_VSCode_Terminal_login/">here</a>.</p>
+</div>
+<ol>
+<li>Run the command <code>module load Miniforge3</code> to activate the Conda module.</li>
+<li>Activate your environment with <code>conda activate</code>.</li>
+<li>Create a Jupyter server with the command <code>jupyter notebook --NotebookApp.allow_origin='*' --NotebookApp.ip='0.0.0.0' --no-browser</code></li>
+<li>VS Code may pop up a notice that you can connect to the port. You should ignore this.</li>
+<li>Copy the URL into the notebook kernel selector, following the instructions <a href="https://code.visualstudio.com/docs/datascience/jupyter-kernel-management#_existing-jupyter-server">here</a>.</li>
+</ol>
+<p>You can end the server in your terminal by using <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> and then typing <code>y</code>.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6236,7 +6276,7 @@ In the screenshot below, for example, the "Recommended" Python interpreter corre
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 4, 2023 16:40:23">October 4, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 30, 2025 17:50:13">April 30, 2025</span>
     </span>
     
 
@@ -6256,11 +6296,11 @@ In the screenshot below, for example, the "Recommended" Python interpreter corre
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
             
         </span>
         <nav>
-            Claire Kopenhafer
+            Andrew Fullard, Claire Kopenhafer
         </nav>
     </span>
     
