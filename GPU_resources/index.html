@@ -1690,6 +1690,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU programming tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -6255,8 +6278,11 @@ can affect the speed of <abbr title="Graphics Processing Unit">GPU</abbr> applic
 In contrast, the A100 GPUs associated with the amd21 clusters are connected using SXM (Server PCI Express Module) sockets
 which offer higher connection speeds. Research the specifications of the particular <abbr title="Graphics Processing Unit">GPU</abbr> you are planning to use to learn more specifics about their bus's bandwidth.</p>
 <h3 id="nvlink">NVLink</h3>
-<p>While PCIe and SXM refer to the connection between the <abbr title="Central Processing Unit">CPU</abbr> and <abbr title="Graphics Processing Unit">GPU</abbr>, some of the HPCC's V100 and A100 GPUs are also connected to each other using NVIDIA's <a href="https://www.nvidia.com/en-us/data-center/nvlink/">NVLink technology</a>. NVLink allows GPUs to directly share data with each other. Without NVLink, transferring data from one <abbr title="Graphics Processing Unit">GPU</abbr> to another would require that the data first pass through the <abbr title="Central Processing Unit">CPU</abbr>. Using the <abbr title="Central Processing Unit">CPU</abbr> as a data transfer "middleman" adds to overall time the transfer takes and may also delay the <abbr title="Central Processing Unit">CPU</abbr> from communicating additional data and instructions to the GPUs. If you plan to use multiple GPUs for your job, consider <a href="../Requesting_GPUs/">requesting resources</a> that support NVLink as indicated in the table above.</p>
-<p>Some of the amd20 nodes support NVLink while others do not. You can check whether or not a given node supports NVLink by requesting a job on that node and <a href="../Connections_to_compute_nodes/">connecting to it</a>. Specific nodes can be requested with the <code>-w</code> or <code>--nodelist</code> option; see the <a href="../List_of_Job_Specifications/">list of job specifications</a> for more. Then, once connected, run <code>nvidia-smi nvlink -s</code> to check the status of the node's NVLink connection.</p>
+<p>While PCIe and SXM refer to the connection between the <abbr title="Central Processing Unit">CPU</abbr> and <abbr title="Graphics Processing Unit">GPU</abbr>, some of the HPCC's V100 and A100 GPUs are also connected to each other using NVIDIA's <a href="https://www.nvidia.com/en-us/data-center/nvlink/">NVLink technology</a>. NVLink allows GPUs to efficiently share data with each other.
+Your program will automatically use NVLink if your code has been written to use peer-to-peer (<abbr title="Graphics Processing Unit">GPU</abbr>-to-<abbr title="Graphics Processing Unit">GPU</abbr>) communication; for example, PyTorch and Tensorflow.</p>
+<p>If you plan to use multiple GPUs for your job, consider <a href="../Requesting_GPUs/">requesting resources</a> that support NVLink as indicated in the table above.
+Some of the amd20 nodes support NVLink while others do not. You can check whether or not a given node supports NVLink by requesting a job on that node and <a href="../Connections_to_compute_nodes/">connecting to it</a>. Specific nodes can be requested with the <code>-w</code> or <code>--nodelist</code> option; see the <a href="../List_of_Job_Specifications/">list of job specifications</a> for more. Then, once connected, run <code>nvidia-smi nvlink -s</code> to check the status of the node's NVLink connection.</p>
+<p>Some nodes without NVLink still support peer-to-peer <abbr title="Graphics Processing Unit">GPU</abbr> communication. The <code>nvidia-smi topo -m</code> command can be used to identify the connection types between GPUs.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6301,7 +6327,7 @@ which offer higher connection speeds. Research the specifications of the particu
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 3, 2025 18:12:24">March 3, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 7, 2025 14:59:21">May 7, 2025</span>
     </span>
     
 
