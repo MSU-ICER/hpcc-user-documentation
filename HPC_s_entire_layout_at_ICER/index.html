@@ -1245,15 +1245,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#rsync-nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rsync Nodes
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -6116,15 +6107,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#rsync-nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rsync Nodes
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -6195,7 +6177,7 @@
 
 
 <h1 id="the-hpccs-layout">The HPCC's Layout</h1>
-<p>The HPCC is comprised of three different kinds of nodes: the "gateway" and "rsync" entry nodes,
+<p>The HPCC is comprised of three different kinds of nodes: the "gateway" entry nodes,
 development nodes, and compute nodes. In a typical workflow, users will connect to the HPCC through the
 an entry node, then connect to a development node to compile and test code before submitting jobs to the
 <a href="../SLURM_overview/">SLURM queue</a> to be run on a compute node. This workflow is demonstrated in the diagram
@@ -6204,24 +6186,17 @@ below. </p>
 Information on the HPCC's filesystems is available within a <a href="../filesystem_overview/">separate section</a>.</p>
 <p><img alt="Diagram of the ICER HPCC layout. From left to right are the user's computer, the gateway nodes, the development nodes, and the compute nodes. These layers are connected by right-pointing arrows." src="../attachments/11895722/34963657.jpeg" /></p>
 <h2 id="entry-nodes">Entry Nodes</h2>
-<p>The gateway and rsync nodes are the only nodes directly accessible over the internet. Users connect to these
-nodes from their personal computers using <code>ssh</code> before accessing other parts of the HPCC.</p>
+<p>The gateway nodes are the only nodes directly accessible over the internet. Users connect to these nodes from their personal computers using <code>ssh</code> before accessing other parts of the HPCC.</p>
 <h3 id="gateway-nodes">Gateway Nodes</h3>
 <p>These nodes are the default accessed via <code>ssh &lt;username&gt;@hpcc.msu.edu</code> as in the top fork of the diagram above. The gateway nodes
 are <strong>not</strong> meant for compilig or running software, accessing the <a href="../Scratch_File_Systems/">scratch space</a>, or connecting
 to compute nodes. Users should <strong>only</strong> use the gateway nodes to <code>ssh</code> to <a href="../development_nodes/">development nodes</a>.
 Alternatively, users may set up <a href="../An_SSH_tunneling_via_multiple_hops/"><abbr title="Secure Shell">SSH</abbr> tunneling</a> to automate the process of passing through the gateway
 to a development node.</p>
-<h3 id="rsync-nodes">Rsync Nodes</h3>
-<p>These nodes are accessed via <code>ssh &lt;username&gt;@rsync.hpcc.msu.edu</code> as in the bottom fork of the diagram above. Unlike the gateway nodes,
-the <a href="../Scratch_File_Systems/">scratch file system</a> is accessible from the rsync nodes. This is because these nodes are
-primarily intended for file transfer. Large amounts of data should be transferred via the rsync nodes to avoid slowing down the gateway nodes.</p>
-<p>These nodes are named for the popular command line file transfer utility <code>rsync</code>.
-Users can use this utility to transfer files via the rsync gateway by following this command pattern: <code>rsync &lt;local path&gt; &lt;username&gt;@rsync.hpcc.msu.edu:&lt;remote path&gt;</code>. Other commands such as <code>scp</code> may also be used with the rsync gateway, or a <abbr title="Graphic User Interface">GUI</abbr> such as <a href="../Intro_to_MobaXterm/">MobaXterm</a> may be used instead.</p>
 <h2 id="development-nodes">Development Nodes</h2>
 <p>From the gateway node, users can connect to any development node to compile their jobs or and run short tests. They may also access files on the
-<a href="../Scratch_File_Systems/">scratch file system</a>.
-Jobs on the development nodes are limited to two hours of <abbr title="Central Processing Unit">CPU</abbr> time. More information is available on the <a href="../development_nodes/">development node</a> page.</p>
+<a href="../Scratch_File_Systems/">scratch file system</a>.</p>
+<p>Jobs on the development nodes are limited to two hours of <abbr title="Central Processing Unit">CPU</abbr> time. More information is available on the <a href="../development_nodes/">development node</a> page.</p>
 <p>Each development node is configured to match the compute nodes of the same <a href="../Cluster_Resources/">cluster</a>. If you would like your job to be able to run on any cluster (as is the default for the queue; see the section on <a href="../Job_Constraints/#automatic-job-constraints">Automatic Job Constraints</a>) you should not compile with  architecture-specific tuning (e.g. <code>-march</code> or <code>-x</code>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -6229,7 +6204,7 @@ Jobs on the development nodes are limited to two hours of <abbr title="Central P
 <code>--constraint=[node type]</code> in your SLURM batch script where <code>[node type]</code> is the development node type you compiled on.</p>
 </div>
 <h2 id="compute-nodes">Compute Nodes</h2>
-<p>ICER maintains several <a href="../Cluster_Resources/">clusters</a> worth of compute nodes. Users submit jobs to the <a href="../SLURM_overview/">SLURM scheduler</a> which assigns compute nodes based on the resources requested. </p>
+<p>ICER maintains several <a href="../Cluster_Resources/">clusters</a> of compute nodes. Users submit jobs to the <a href="../SLURM_overview/">SLURM scheduler</a> which assigns compute nodes based on the resources requested. </p>
 <p>A user may see which nodes their job is running on using <code>squeue -u &lt;username&gt;</code>. Not providing a username to <code>squeue</code> will show all jobs currently running on the system. Users may <code>ssh</code> directly to a compute node <em>only</em> if they have a job running on that node. See our page on <a href="../Connections_to_compute_nodes/">connecting to compute nodes</a> for more.</p>
 <h2 id="comparison-to-a-personal-computer">Comparison to a personal computer</h2>
 <hr />
@@ -6245,47 +6220,47 @@ Jobs on the development nodes are limited to two hours of <abbr title="Central P
 <tr>
 <td style="text-align: left;">Number of Nodes</td>
 <td>1</td>
-<td>979</td>
+<td>983</td>
 </tr>
 <tr>
 <td style="text-align: left;">Sockets per node</td>
 <td>1</td>
-<td>2, 8</td>
+<td>2, 4, 8</td>
 </tr>
 <tr>
 <td style="text-align: left;">Cores per node</td>
 <td>4, 8, or 16</td>
-<td>20, 28, 40, 128 or 144</td>
+<td>28, 40, 64, 72, 96, 128 or 144</td>
 </tr>
 <tr>
 <td style="text-align: left;">Cores total</td>
 <td>4, 8, or 16</td>
-<td>50,084</td>
+<td>78,844</td>
 </tr>
 <tr>
 <td style="text-align: left;">Core Speed</td>
-<td>2.7 - 3.5 ghz</td>
-<td>2.5-3 ghz</td>
+<td>2.7 - 5 GHz</td>
+<td>2.5-3.7 GHz</td>
 </tr>
 <tr>
-<td style="text-align: left;"><abbr title="Random Access Memory">RAM</abbr> memory</td>
+<td style="text-align: left;"><abbr title="Random Access Memory">RAM</abbr> (memory)</td>
 <td>8, 16 or 32 <abbr title="Gigabyte">GB</abbr></td>
-<td>64, 128, 92, 500 <abbr title="Gigabyte">GB</abbr> or 6TB</td>
+<td>96 <abbr title="Gigabyte">GB</abbr>, 128 <abbr title="Gigabyte">GB</abbr>, 512 <abbr title="Gigabyte">GB</abbr>, 768 <abbr title="Gigabyte">GB</abbr>, 1.5 <abbr title="Terabyte">TB</abbr>, 2.3 <abbr title="Terabyte">TB</abbr> or 6TB</td>
 </tr>
 <tr>
 <td style="text-align: left;">File Storage</td>
 <td>250, 500 <abbr title="Gigabyte">GB</abbr> or 1TB</td>
-<td>1TB(Home), 50TB(Scratch)</td>
+<td>100 <abbr title="Gigabyte">GB</abbr> (Home), 3 <abbr title="Terabyte">TB</abbr>(Research), 50TB(Scratch)</td>
 </tr>
 <tr>
 <td style="text-align: left;">Connection to other computers</td>
 <td>Campus ethernet1 Gbit/sec</td>
-<td>"Infiniband" 100 Gbit/sec</td>
+<td>"Infiniband" 100-400 Gbit/sec</td>
 </tr>
 <tr>
 <td style="text-align: left;">Users</td>
 <td>1</td>
-<td>~2,000</td>
+<td>~4,000</td>
 </tr>
 <tr>
 <td style="text-align: left;">Schedule</td>
@@ -6338,7 +6313,7 @@ Jobs on the development nodes are limited to two hours of <abbr title="Central P
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 6, 2025 17:34:14">February 6, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 8, 2025 19:26:44">May 8, 2025</span>
     </span>
     
 
@@ -6362,7 +6337,7 @@ Jobs on the development nodes are limited to two hours of <abbr title="Central P
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer, Craig Gross, Wang, Xiaoge
+            Andrew Fullard, Claire Kopenhafer, Craig Gross, Keen, Andrew, Wang, Xiaoge
         </nav>
     </span>
     
