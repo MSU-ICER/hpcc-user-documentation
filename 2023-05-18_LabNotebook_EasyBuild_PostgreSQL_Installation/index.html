@@ -6106,7 +6106,7 @@
         
       
       
-        <a href="../tags/#tag:lab-notebook" class="md-tag md-tag-icon md-tag--labnotes">lab notebook</a>
+        <a href="../Lab_Notebooks/#tag:lab-notebook" class="md-tag md-tag-icon md-tag--labnotes">lab notebook</a>
       
     
       
@@ -6149,50 +6149,50 @@ information and other details.</p>
 <h2 id="problem-setup">Problem setup</h2>
 <p>A user wanted to use PostgreSQL with the R/4.2.2 module. However, the versions
 of PostgreSQL installed</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>PostgreSQL
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>PostgreSQL
-...
-Versions:
-<span class="w">   </span>PostgreSQL/9.6.2-Python-2.7.12
-<span class="w">   </span>PostgreSQL/11.3-Python-3.7.2
-...
-</code></pre></div></td></tr></table></div>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">...</span>
+<span class="go">Versions:</span>
+<span class="go">   PostgreSQL/9.6.2-Python-2.7.12</span>
+<span class="go">   PostgreSQL/11.3-Python-3.7.2</span>
+<span class="go">...</span>
+</code></pre></div></td></tr></table></div></p>
 <p>require specific versions of the <abbr title="GNU Compiler Collection">GCC</abbr> module to be loaded:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>PostgreSQL/11.3-Python-3.7.2
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>PostgreSQL/11.3-Python-3.7.2
-...
-You<span class="w"> </span>will<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>all<span class="w"> </span>module<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>on<span class="w"> </span>any<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>lines<span class="w"> </span>below<span class="w"> </span>before<span class="w"> </span>the<span class="w"> </span><span class="s2">&quot;PostgreSQL/11.3-Python-3.7.2&quot;</span><span class="w"> </span>module<span class="w"> </span>is<span class="w"> </span>available<span class="w"> </span>to<span class="w"> </span>load.
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">...</span>
+<span class="go">You will need to load all module(s) on any one of the lines below before the &quot;PostgreSQL/11.3-Python-3.7.2&quot; module is available to load.</span>
 
-<span class="w">      </span>Core/GCCcore/8.2.0
-<span class="w">      </span>GCCcore/8.2.0
-...
-</code></pre></div></td></tr></table></div>
+<span class="go">      Core/GCCcore/8.2.0</span>
+<span class="go">      GCCcore/8.2.0</span>
+<span class="go">...</span>
+</code></pre></div></td></tr></table></div></p>
 <p>This conflicts with the version <abbr title="GNU Compiler Collection">GCC</abbr>/11.3.0 necessary to load R/4.2.2:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>R/4.2.2
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>R/4.2.2
-...
-<span class="w">    </span>You<span class="w"> </span>will<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>all<span class="w"> </span>module<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>on<span class="w"> </span>any<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>lines<span class="w"> </span>below<span class="w"> </span>before<span class="w"> </span>the<span class="w"> </span><span class="s2">&quot;R/4.2.2&quot;</span><span class="w"> </span>module<span class="w"> </span>is<span class="w"> </span>available<span class="w"> </span>to<span class="w"> </span>load.
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">...</span>
+<span class="go">    You will need to load all module(s) on any one of the lines below before the &quot;R/4.2.2&quot; module is available to load.</span>
 
-<span class="w">      </span>Compiler/GCC/11.2.0/OpenMPI/4.1.1
-<span class="w">      </span>Core/GCC/11.2.0<span class="w">  </span>OpenMPI/4.1.1
-<span class="w">      </span>GCC/11.2.0<span class="w">  </span>OpenMPI/4.1.1
-...
-</code></pre></div></td></tr></table></div>
+<span class="go">      Compiler/GCC/11.2.0/OpenMPI/4.1.1</span>
+<span class="go">      Core/GCC/11.2.0  OpenMPI/4.1.1</span>
+<span class="go">      GCC/11.2.0  OpenMPI/4.1.1</span>
+<span class="go">...</span>
+</code></pre></div></td></tr></table></div></p>
 <p>So we need a version of PostgreSQL which is compatible with <abbr title="GNU Compiler Collection">GCC</abbr>/11.3.0.</p>
 <h2 id="solution">Solution</h2>
 <p>We often use EasyBuild to install software on the HPCC. One of the nice things
@@ -6201,13 +6201,15 @@ recipes to build and install different types of software.</p>
 <h3 id="loading-easybuild">Loading EasyBuild</h3>
 <p>To get started, we load the EasyBuild module:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>purge
-$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>EasyBuild
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>EasyBuild
 </code></pre></div></td></tr></table></div>
 <p>We now have access to the <code>eb</code> command and two aliases defined by MSU HPCC
 staff: <code>ebF</code> to find EasyConfigs and <code>ebS</code> to install software. We can first
 check our global EasyBuild configuration using</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--show-config
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6220,23 +6222,21 @@ check our global EasyBuild configuration using</p>
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>eb<span class="w"> </span>--show-config
-<span class="c1">#</span>
-<span class="c1"># Current EasyBuild configuration</span>
-<span class="c1"># (C: command line argument, D: default value, E: environment variable, F: configuration file)</span>
-<span class="c1">#</span>
-buildpath<span class="w">            </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/tmp/grosscra/EASYBUILD
-containerpath<span class="w">        </span><span class="o">(</span>D<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/mnt/home/grosscra/.local/easybuild/containers
-installpath<span class="w">          </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/opt
-installpath-modules<span class="w">  </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/opt/modules
-installpath-software<span class="w"> </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/opt/software
-module-naming-scheme<span class="w"> </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>MigrateFromEBToHMNS
-optarch<span class="w">              </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>GENERIC
-repositorypath<span class="w">       </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/mnt/research/helpdesk/EB_Files_4
-robot-paths<span class="w">          </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/mnt/research/helpdesk/EB_Files_4,<span class="w"> </span>/opt/software/EasyBuild/4.7.1/easybuild/easyconfigs,<span class="w"> </span>/mnt/research/helpdesk/ebfiles
-sourcepath<span class="w">           </span><span class="o">(</span>E<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/mnt/research/helpdesk/src
-</code></pre></div></td></tr></table></div>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">#</span>
+<span class="go"># Current EasyBuild configuration</span>
+<span class="go"># (C: command line argument, D: default value, E: environment variable, F: configuration file)</span>
+<span class="go">#</span>
+<span class="go">buildpath            (E) = /tmp/grosscra/EASYBUILD</span>
+<span class="go">containerpath        (D) = /mnt/home/grosscra/.local/easybuild/containers</span>
+<span class="go">installpath          (E) = /opt</span>
+<span class="go">installpath-modules  (E) = /opt/modules</span>
+<span class="go">installpath-software (E) = /opt/software</span>
+<span class="go">module-naming-scheme (E) = MigrateFromEBToHMNS</span>
+<span class="go">optarch              (E) = GENERIC</span>
+<span class="go">repositorypath       (E) = /mnt/research/helpdesk/EB_Files_4</span>
+<span class="go">robot-paths          (E) = /mnt/research/helpdesk/EB_Files_4, /opt/software/EasyBuild/4.7.1/easybuild/easyconfigs, /mnt/research/helpdesk/ebfiles</span>
+<span class="go">sourcepath           (E) = /mnt/research/helpdesk/src</span>
+</code></pre></div></td></tr></table></div></p>
 <p>Since I (<code>grosscra</code>) am part of the <code>helpdesk</code> group used by HPCC staff, my
 <code>--show-config</code> will look different from other user's configuration. In
 particular, I am set up to install the software into the root directory <code>/opt</code>,
@@ -6247,19 +6247,21 @@ with modules going into <code>/opt/modules</code> and the actual software going 
 directory (e.g., software in <code>$HOME/software</code> and modules in <code>$HOME/modules</code>).
 Thus, using EasyBuild, you can build your own software. If you add your module
 directory to your module path using</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>use<span class="w"> </span><span class="nv">$HOME</span>/modules
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$MODULEPATH</span>
-/mnt/home/grosscra/modules:/opt/software/hpcc/modules:/opt/modules/Core
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>use<span class="w"> </span><span class="nv">$HOME</span>/modules
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$MODULEPATH</span>
 </code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/mnt/home/grosscra/modules:/opt/software/hpcc/modules:/opt/modules/Core</span>
+</code></pre></div></td></tr></table></div></p>
 <p>you can then load modules that you install using the exact same commands you
 use on the HPCC (e.g., <code>module load PostgreSQL</code>).</p>
 <h3 id="finding-our-easyconfig">Finding our EasyConfig</h3>
 <p>So now that we're happy with and (mostly) understand our <code>eb --show-config</code>
 results, we can try finding the EasyConfig for PostgreSQL we'd like to use. Our
 first step is to use the <code>ebF</code> alias:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ebF<span class="w"> </span>PostgreSQL
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6282,34 +6284,30 @@ first step is to use the <code>ebF</code> alias:</p>
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ebF<span class="w"> </span>PostgreSQL
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">ebF_PATH=/opt/software/EasyBuild/4.7.1/easybuild/easyconfigs</span>
 
-<span class="nv">ebF_PATH</span><span class="o">=</span>/opt/software/EasyBuild/4.7.1/easybuild/easyconfigs
+<span class="go">====== $ebF_PATH/__archive__/p/PostgreSQL/</span>
+<span class="go">PostgreSQL-9.3.5-intel-2014b.eb</span>
 
-<span class="o">======</span><span class="w"> </span><span class="nv">$ebF_PATH</span>/__archive__/p/PostgreSQL/
-PostgreSQL-9.3.5-intel-2014b.eb
-
-<span class="o">======</span><span class="w"> </span><span class="nv">$ebF_PATH</span>/p/PostgreSQL/
-PostgreSQL-10.2-intel-2018a-Python-2.7.14.eb
-PostgreSQL-10.3-foss-2017b-Python-2.7.14.eb
-PostgreSQL-10.3-foss-2018a-Python-2.7.14.eb
-PostgreSQL-10.3-foss-2018b.eb
-PostgreSQL-10.3-intel-2017b-Python-2.7.14.eb
-PostgreSQL-10.3-intel-2018a-Python-2.7.14.eb
-PostgreSQL-11.3-GCCcore-8.2.0-Python-2.7.15.eb
-PostgreSQL-11.3-GCCcore-8.2.0-Python-3.7.2.eb
-PostgreSQL-12.4-GCCcore-9.3.0.eb
-PostgreSQL-13.2-GCCcore-10.2.0.eb
-PostgreSQL-13.3-GCCcore-10.3.0.eb
-PostgreSQL-13.4-GCCcore-11.2.0.eb
-PostgreSQL-14.4-GCCcore-11.3.0.eb
-PostgreSQL-9.4.7-intel-2016a-Python-2.7.11.eb
-PostgreSQL-9.5.2-intel-2016a-Python-2.7.11.eb
-PostgreSQL-9.6.0-intel-2016b-Python-2.7.12.eb
-PostgreSQL-9.6.2-foss-2016b-Python-2.7.12.eb
-PostgreSQL-9.6.2-intel-2016b-Python-2.7.12.eb
+<span class="go">====== $ebF_PATH/p/PostgreSQL/</span>
+<span class="go">PostgreSQL-10.2-intel-2018a-Python-2.7.14.eb</span>
+<span class="go">PostgreSQL-10.3-foss-2017b-Python-2.7.14.eb</span>
+<span class="go">PostgreSQL-10.3-foss-2018a-Python-2.7.14.eb</span>
+<span class="go">PostgreSQL-10.3-foss-2018b.eb</span>
+<span class="go">PostgreSQL-10.3-intel-2017b-Python-2.7.14.eb</span>
+<span class="go">PostgreSQL-10.3-intel-2018a-Python-2.7.14.eb</span>
+<span class="go">PostgreSQL-11.3-GCCcore-8.2.0-Python-2.7.15.eb</span>
+<span class="go">PostgreSQL-11.3-GCCcore-8.2.0-Python-3.7.2.eb</span>
+<span class="go">PostgreSQL-12.4-GCCcore-9.3.0.eb</span>
+<span class="go">PostgreSQL-13.2-GCCcore-10.2.0.eb</span>
+<span class="go">PostgreSQL-13.3-GCCcore-10.3.0.eb</span>
+<span class="go">PostgreSQL-13.4-GCCcore-11.2.0.eb</span>
+<span class="go">PostgreSQL-14.4-GCCcore-11.3.0.eb</span>
+<span class="go">PostgreSQL-9.4.7-intel-2016a-Python-2.7.11.eb</span>
+<span class="go">PostgreSQL-9.5.2-intel-2016a-Python-2.7.11.eb</span>
+<span class="go">PostgreSQL-9.6.0-intel-2016b-Python-2.7.12.eb</span>
+<span class="go">PostgreSQL-9.6.2-foss-2016b-Python-2.7.12.eb</span>
+<span class="go">PostgreSQL-9.6.2-intel-2016b-Python-2.7.12.eb</span>
 </code></pre></div></td></tr></table></div>
 <p>This tells us that there many EasyConfigs available to help us install
 different versions PostgreSQL under different toolchains.</p>
@@ -6329,7 +6327,27 @@ compiler/<abbr title="Message Passing Interface">MPI</abbr> pair and a number of
 labeled by their year and an <code>a</code> or <code>b</code> for the first or second half of the
 year. You can check what's in them by searching for their EasyConfig and
 showing it with <code>eb --show-ec</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ebF<span class="w"> </span>foss
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">...</span>
+<span class="go">====== $ebF_PATH/f/foss/</span>
+<span class="go">foss-2016.04.eb  foss-2016b.eb    foss-2018b.eb  foss-2021a.eb    foss-2022b.eb</span>
+<span class="go">foss-2016.06.eb  foss-2017a.eb    foss-2019a.eb  foss-2021b.eb</span>
+<span class="go">foss-2016.07.eb  foss-2017b.eb    foss-2019b.eb  foss-2022.05.eb</span>
+<span class="go">foss-2016.09.eb  foss-2018.08.eb  foss-2020a.eb  foss-2022.10.eb</span>
+<span class="go">foss-2016a.eb    foss-2018a.eb    foss-2020b.eb  foss-2022a.eb</span>
+<span class="go">...</span>
+</code></pre></div></td></tr></table></div></p>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>eb<span class="w"> </span>--show-ec<span class="w"> </span>foss-2022a.eb
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6356,58 +6374,37 @@ showing it with <code>eb --show-ec</code>:</p>
 <span class="normal">25</span>
 <span class="normal">26</span>
 <span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ebF<span class="w"> </span>foss
-...
-<span class="o">======</span><span class="w"> </span><span class="nv">$ebF_PATH</span>/f/foss/
-foss-2016.04.eb<span class="w">  </span>foss-2016b.eb<span class="w">    </span>foss-2018b.eb<span class="w">  </span>foss-2021a.eb<span class="w">    </span>foss-2022b.eb
-foss-2016.06.eb<span class="w">  </span>foss-2017a.eb<span class="w">    </span>foss-2019a.eb<span class="w">  </span>foss-2021b.eb
-foss-2016.07.eb<span class="w">  </span>foss-2017b.eb<span class="w">    </span>foss-2019b.eb<span class="w">  </span>foss-2022.05.eb
-foss-2016.09.eb<span class="w">  </span>foss-2018.08.eb<span class="w">  </span>foss-2020a.eb<span class="w">  </span>foss-2022.10.eb
-foss-2016a.eb<span class="w">    </span>foss-2018a.eb<span class="w">    </span>foss-2020b.eb<span class="w">  </span>foss-2022a.eb
-...
-$<span class="w"> </span>eb<span class="w"> </span>--show-ec<span class="w"> </span>foss-2022a.eb
-<span class="nv">easyblock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Toolchain&#39;</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">easyblock = &#39;Toolchain&#39;</span>
 
-<span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;foss&#39;</span>
-<span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2022a&#39;</span>
+<span class="go">name = &#39;foss&#39;</span>
+<span class="go">version = &#39;2022a&#39;</span>
 
-<span class="nv">homepage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://easybuild.readthedocs.io/en/master/Common-toolchains.html#foss-toolchain&#39;</span>
-<span class="nv">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;GNU Compiler Collection (GCC) based compiler toolchain, including</span>
-<span class="s2"> OpenMPI for MPI support, OpenBLAS (BLAS and LAPACK support), FFTW and ScaLAPACK.&quot;&quot;&quot;</span>
+<span class="go">homepage = &#39;https://easybuild.readthedocs.io/en/master/Common-toolchains.html#foss-toolchain&#39;</span>
+<span class="go">description = &quot;&quot;&quot;GNU Compiler Collection (GCC) based compiler toolchain, including</span>
+<span class="go"> OpenMPI for MPI support, OpenBLAS (BLAS and LAPACK support), FFTW and ScaLAPACK.&quot;&quot;&quot;</span>
 
-<span class="nv">toolchain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SYSTEM
+<span class="go">toolchain = SYSTEM</span>
 
-<span class="nv">local_gccver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;11.3.0&#39;</span>
+<span class="go">local_gccver = &#39;11.3.0&#39;</span>
 
-<span class="c1"># toolchain used to build foss dependencies</span>
-<span class="nv">local_comp_mpi_tc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;gompi&#39;</span>,<span class="w"> </span>version<span class="o">)</span>
+<span class="go"># toolchain used to build foss dependencies</span>
+<span class="go">local_comp_mpi_tc = (&#39;gompi&#39;, version)</span>
 
-<span class="c1"># we need GCC and OpenMPI as explicit dependencies instead of gompi toolchain</span>
-<span class="c1"># because of toolchain preparation functions</span>
-<span class="nv">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
-<span class="w">    </span><span class="o">(</span><span class="s1">&#39;GCC&#39;</span>,<span class="w"> </span>local_gccver<span class="o">)</span>,
-<span class="w">    </span><span class="o">(</span><span class="s1">&#39;OpenMPI&#39;</span>,<span class="w"> </span><span class="s1">&#39;4.1.4&#39;</span>,<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="o">(</span><span class="s1">&#39;GCC&#39;</span>,<span class="w"> </span>local_gccver<span class="o">))</span>,
-<span class="w">    </span><span class="o">(</span><span class="s1">&#39;FlexiBLAS&#39;</span>,<span class="w"> </span><span class="s1">&#39;3.2.0&#39;</span>,<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="o">(</span><span class="s1">&#39;GCC&#39;</span>,<span class="w"> </span>local_gccver<span class="o">))</span>,
-<span class="w">    </span><span class="o">(</span><span class="s1">&#39;FFTW&#39;</span>,<span class="w"> </span><span class="s1">&#39;3.3.10&#39;</span>,<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="o">(</span><span class="s1">&#39;GCC&#39;</span>,<span class="w"> </span>local_gccver<span class="o">))</span>,
-<span class="w">    </span><span class="o">(</span><span class="s1">&#39;FFTW.MPI&#39;</span>,<span class="w"> </span><span class="s1">&#39;3.3.10&#39;</span>,<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span>local_comp_mpi_tc<span class="o">)</span>,
-<span class="w">    </span><span class="o">(</span><span class="s1">&#39;ScaLAPACK&#39;</span>,<span class="w"> </span><span class="s1">&#39;2.2.0&#39;</span>,<span class="w"> </span><span class="s1">&#39;-fb&#39;</span>,<span class="w"> </span>local_comp_mpi_tc<span class="o">)</span>,
-<span class="o">]</span>
+<span class="go"># we need GCC and OpenMPI as explicit dependencies instead of gompi toolchain</span>
+<span class="go"># because of toolchain preparation functions</span>
+<span class="go">dependencies = [</span>
+<span class="go">    (&#39;GCC&#39;, local_gccver),</span>
+<span class="go">    (&#39;OpenMPI&#39;, &#39;4.1.4&#39;, &#39;&#39;, (&#39;GCC&#39;, local_gccver)),</span>
+<span class="go">    (&#39;FlexiBLAS&#39;, &#39;3.2.0&#39;, &#39;&#39;, (&#39;GCC&#39;, local_gccver)),</span>
+<span class="go">    (&#39;FFTW&#39;, &#39;3.3.10&#39;, &#39;&#39;, (&#39;GCC&#39;, local_gccver)),</span>
+<span class="go">    (&#39;FFTW.MPI&#39;, &#39;3.3.10&#39;, &#39;&#39;, local_comp_mpi_tc),</span>
+<span class="go">    (&#39;ScaLAPACK&#39;, &#39;2.2.0&#39;, &#39;-fb&#39;, local_comp_mpi_tc),</span>
+<span class="go">]</span>
 
-<span class="nv">moduleclass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;toolchain&#39;</span>
-</code></pre></div></td></tr></table></div>
-<p>We can see that <code>foss</code> includes <code>GCC</code>, <code>OpenMPI</code>, <code>FlexiBLAS</code>, <code>FFTW</code>,
-<code>FFTW.MPI</code>, and <code>ScaLAPACK</code>.</p>
+<span class="go">moduleclass = &#39;toolchain&#39;</span>
+</code></pre></div></td></tr></table></div></p>
 </details>
+<p>We can see that <code>foss</code> includes <code>GCC</code>, <code>OpenMPI</code>, <code>FlexiBLAS</code>, <code>FFTW</code>, <code>FFTW.MPI</code>, and <code>ScaLAPACK</code>.</p>
 <p>Since we know that R/4.2.2 requires <abbr title="GNU Compiler Collection">GCC</abbr>/11.2.0 to load, we look for a
 PostgreSQL EasyConfig with a compatible toolchain. In this case, we see
 <code>PostgreSQL-13.4-GCCcore-11.2.0.eb</code>. If a version of PostgreSQL other than 13.4
@@ -6420,7 +6417,9 @@ version was suitable for the user.</p>
 <code>PostgreSQL-14.4-GCCcore-11.3.0.eb</code> which as of now is still not installed.</p>
 <p>We can check to see if we're missing any of this install's dependencies on the
 system using <code>eb -M</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>-M<span class="w"> </span>PostgreSQL-14.4-GCCcore-11.3.0.eb
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6449,42 +6448,42 @@ system using <code>eb -M</code>:</p>
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>eb<span class="w"> </span>-M<span class="w"> </span>PostgreSQL-14.4-GCCcore-11.3.0.eb
-...
-<span class="m">47</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">47</span><span class="w"> </span>required<span class="w"> </span>modules<span class="w"> </span>missing:
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">...</span>
+<span class="go">47 out of 47 required modules missing:</span>
 
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>M4/1.4.19<span class="w"> </span><span class="o">(</span>M4-1.4.19.eb<span class="o">)</span>
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>Bison/3.8.2<span class="w"> </span><span class="o">(</span>Bison-3.8.2.eb<span class="o">)</span>
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>OpenSSL/1.1<span class="w"> </span><span class="o">(</span>OpenSSL-1.1.eb<span class="o">)</span>
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>zlib/1.2.12<span class="w"> </span><span class="o">(</span>zlib-1.2.12.eb<span class="o">)</span>
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>help2man/1.47.4<span class="w"> </span><span class="o">(</span>help2man-1.47.4.eb<span class="o">)</span>
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>M4/1.4.17<span class="w"> </span><span class="o">(</span>M4-1.4.17.eb<span class="o">)</span>
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>Bison/3.0.4<span class="w"> </span><span class="o">(</span>Bison-3.0.4.eb<span class="o">)</span>
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>M4/1.4.18<span class="w"> </span><span class="o">(</span>M4-1.4.18.eb<span class="o">)</span>
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>flex/2.6.4<span class="w"> </span><span class="o">(</span>flex-2.6.4.eb<span class="o">)</span>
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>binutils/2.38<span class="w"> </span><span class="o">(</span>binutils-2.38.eb<span class="o">)</span>
-*<span class="w"> </span>Core<span class="w"> </span><span class="p">|</span><span class="w"> </span>GCCcore/11.3.0<span class="w"> </span><span class="o">(</span>GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>M4/1.4.19<span class="w"> </span><span class="o">(</span>M4-1.4.19-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>help2man/1.49.2<span class="w"> </span><span class="o">(</span>help2man-1.49.2-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>zlib/1.2.12<span class="w"> </span><span class="o">(</span>zlib-1.2.12-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>Bison/3.8.2<span class="w"> </span><span class="o">(</span>Bison-3.8.2-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>flex/2.6.4<span class="w"> </span><span class="o">(</span>flex-2.6.4-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>binutils/2.38<span class="w"> </span><span class="o">(</span>binutils-2.38-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>groff/1.22.4<span class="w"> </span><span class="o">(</span>groff-1.22.4-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>expat/2.4.8<span class="w"> </span><span class="o">(</span>expat-2.4.8-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>ncurses/6.3<span class="w"> </span><span class="o">(</span>ncurses-6.3-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>bzip2/1.0.8<span class="w"> </span><span class="o">(</span>bzip2-1.0.8-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>DB/18.1.40<span class="w"> </span><span class="o">(</span>DB-18.1.40-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>pkgconf/1.8.0<span class="w"> </span><span class="o">(</span>pkgconf-1.8.0-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>libreadline/8.1.2<span class="w"> </span><span class="o">(</span>libreadline-8.1.2-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>UnZip/6.0<span class="w"> </span><span class="o">(</span>UnZip-6.0-GCCcore-11.3.0.eb<span class="o">)</span>
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>Perl/5.34.1<span class="w"> </span><span class="o">(</span>Perl-5.34.1-GCC
-...
-</code></pre></div></td></tr></table></div>
+<span class="go">* Core | M4/1.4.19 (M4-1.4.19.eb)</span>
+<span class="go">* Core | Bison/3.8.2 (Bison-3.8.2.eb)</span>
+<span class="go">* Core | OpenSSL/1.1 (OpenSSL-1.1.eb)</span>
+<span class="go">* Core | zlib/1.2.12 (zlib-1.2.12.eb)</span>
+<span class="go">* Core | help2man/1.47.4 (help2man-1.47.4.eb)</span>
+<span class="go">* Core | M4/1.4.17 (M4-1.4.17.eb)</span>
+<span class="go">* Core | Bison/3.0.4 (Bison-3.0.4.eb)</span>
+<span class="go">* Core | M4/1.4.18 (M4-1.4.18.eb)</span>
+<span class="go">* Core | flex/2.6.4 (flex-2.6.4.eb)</span>
+<span class="go">* Core | binutils/2.38 (binutils-2.38.eb)</span>
+<span class="go">* Core | GCCcore/11.3.0 (GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | M4/1.4.19 (M4-1.4.19-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | help2man/1.49.2 (help2man-1.49.2-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | zlib/1.2.12 (zlib-1.2.12-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | Bison/3.8.2 (Bison-3.8.2-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | flex/2.6.4 (flex-2.6.4-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | binutils/2.38 (binutils-2.38-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | groff/1.22.4 (groff-1.22.4-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | expat/2.4.8 (expat-2.4.8-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | ncurses/6.3 (ncurses-6.3-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | bzip2/1.0.8 (bzip2-1.0.8-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | DB/18.1.40 (DB-18.1.40-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | pkgconf/1.8.0 (pkgconf-1.8.0-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | libreadline/8.1.2 (libreadline-8.1.2-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | UnZip/6.0 (UnZip-6.0-GCCcore-11.3.0.eb)</span>
+<span class="go">* Compiler/GCCcore/11.3.0 | Perl/5.34.1 (Perl-5.34.1-GCC</span>
+<span class="go">...</span>
+</code></pre></div></td></tr></table></div></p>
 <p>So we're missing everything we need... But this doesn't seem right! It even
 says we're missing <abbr title="GNU Compiler Collection">GCC</abbr>/11.3.0, which is definitely installed:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>GCC/11.3.0
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6494,51 +6493,47 @@ says we're missing <abbr title="GNU Compiler Collection">GCC</abbr>/11.3.0, whic
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>GCC/11.3.0
-
-----------------------------------------------------------------------------
-<span class="w">  </span>GCC:<span class="w"> </span>GCC/11.3.0
-----------------------------------------------------------------------------
-<span class="w">    </span>Description:
-<span class="w">      </span>The<span class="w"> </span>GNU<span class="w"> </span>Compiler<span class="w"> </span>Collection<span class="w"> </span>includes<span class="w"> </span>front<span class="w"> </span>ends<span class="w"> </span><span class="k">for</span><span class="w"> </span>C,<span class="w"> </span>C++,
-<span class="w">      </span>Objective-C,<span class="w"> </span>Fortran,<span class="w"> </span>Java,<span class="w"> </span>and<span class="w"> </span>Ada,<span class="w"> </span>as<span class="w"> </span>well<span class="w"> </span>as<span class="w"> </span>libraries<span class="w"> </span><span class="k">for</span><span class="w"> </span>these
-<span class="w">      </span>languages<span class="w"> </span><span class="o">(</span>libstdc++,<span class="w"> </span>libgcj,...<span class="o">)</span>.
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  GCC: GCC/11.3.0</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">    Description:</span>
+<span class="go">      The GNU Compiler Collection includes front ends for C, C++,</span>
+<span class="go">      Objective-C, Fortran, Java, and Ada, as well as libraries for these</span>
+<span class="go">      languages (libstdc++, libgcj,...).</span>
 
 
-<span class="w">    </span>This<span class="w"> </span>module<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>loaded<span class="w"> </span>directly:<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0
-...
-</code></pre></div></td></tr></table></div>
+<span class="go">    This module can be loaded directly: module load GCC/11.3.0</span>
+<span class="go">...</span>
+</code></pre></div></td></tr></table></div></p>
 <p>What's happening is that the way modules are searched for on the HPCC are
 different than the way EasyBuild searches for them. EasyBuild wants to include
 "Core/" in front of the core module names (i.e., those that aren't installed
 under a toolchain). But if we look at where modules are searched for,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$MODULEPATH</span>
-/opt/software/hpcc/modules:/opt/modules/Core
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$MODULEPATH</span>
 </code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/opt/software/hpcc/modules:/opt/modules/Core</span>
+</code></pre></div></td></tr></table></div></p>
 <p>the "Core" part is already included in the path. This makes it so you don't need to use <code>module load Core/GCC/11.3.0</code> and can get right to the software name you need.</p>
 <p>To make things work correctly with EasyBuild's expectations , we can add
 <code>/opt/modules</code> to our module path and try again:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>use<span class="w"> </span>/opt/modules
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$MODULEPATH</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/opt/modules:/opt/software/hpcc/modules:/opt/modules/Core</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>-M<span class="w"> </span>PostgreSQL-14.4-GCCcore-11.3.0.eb
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>use<span class="w"> </span>/opt/modules
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$MODULEPATH</span>
-/opt/modules:/opt/software/hpcc/modules:/opt/modules/Core
-$<span class="w"> </span>eb<span class="w"> </span>-M<span class="w"> </span>PostgreSQL-14.4-GCCcore-11.3.0.eb
-...
-<span class="m">1</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">47</span><span class="w"> </span>required<span class="w"> </span>modules<span class="w"> </span>missing:
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">...</span>
+<span class="go">1 out of 47 required modules missing:</span>
 
-*<span class="w"> </span>Compiler/GCCcore/11.3.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>PostgreSQL/14.4<span class="w"> </span><span class="o">(</span>PostgreSQL-14.4-GCCcore-11.3.0.eb<span class="o">)</span>
-...
-</code></pre></div></td></tr></table></div>
+<span class="go">* Compiler/GCCcore/11.3.0 | PostgreSQL/14.4 (PostgreSQL-14.4-GCCcore-11.3.0.eb)</span>
+<span class="go">...</span>
+</code></pre></div></td></tr></table></div></p>
 <p>Much better! Now we're only missing the module we want to install.</p>
 <p>In the case where we would actually be missing dependencies, EasyBuild would
 install those for us, so long as we use the <code>--robot</code> option when installing.
@@ -6546,18 +6541,16 @@ This is included in the <code>ebS</code> alias by default.</p>
 <h3 id="installing">Installing</h3>
 <p>Now we're ready to install. We just use the <code>ebS</code> alias with our EasyConfig,
 and hope things go well!</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ebS<span class="w"> </span>PostgreSQL-14.4-GCCcore-11.3.0.eb
-
-...<span class="w"> </span>Good<span class="w"> </span>luck!<span class="w"> </span>...
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ebS<span class="w"> </span>PostgreSQL-14.4-GCCcore-11.3.0.eb
 </code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">... Good luck! ...</span>
+</code></pre></div></td></tr></table></div></p>
 <h3 id="checking-the-installation">Checking the installation</h3>
 <p>Now that we have installed a version of PostgreSQL compatible with the same <abbr title="GNU Compiler Collection">GCC</abbr>
 that R needs, we can try to load them all</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>purge
-$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>R<span class="w"> </span>PostgreSQL
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>R<span class="w"> </span>PostgreSQL
 </code></pre></div></td></tr></table></div>
 <p>We get a small warning about OpenMPI/4.1.1 being incompatible with intel14
 nodes, but other than that, everything loads correctly.</p>
@@ -6605,7 +6598,7 @@ nodes, but other than that, everything loads correctly.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 11, 2023 13:54:08">July 11, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 9, 2025 19:50:13">May 9, 2025</span>
     </span>
     
 
@@ -6625,11 +6618,11 @@ nodes, but other than that, everything loads correctly.</p>
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
             
         </span>
         <nav>
-            Craig Gross
+            Craig Gross, panchyni
         </nav>
     </span>
     
