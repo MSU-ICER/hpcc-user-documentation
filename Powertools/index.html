@@ -12,7 +12,7 @@
         <link rel="prev" href="../EasyBuild_Reference/">
       
       
-        <link rel="next" href="../getexample/">
+        <link rel="next" href="../Powertools_Listing/">
       
       
       <link rel="icon" href="../assets/icer-small-logo-white.png">
@@ -2675,19 +2675,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2700,70 +2687,29 @@
 
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              
+            
+              
+                
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="../Powertools_Listing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Powertools Listing
     
+  </span>
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#qs" class="md-nav__link">
-    <span class="md-ellipsis">
-      qs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#node_status" class="md-nav__link">
-    <span class="md-ellipsis">
-      node_status
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bi" class="md-nav__link">
-    <span class="md-ellipsis">
-      bi
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#js" class="md-nav__link">
-    <span class="md-ellipsis">
-      js
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getexample" class="md-nav__link">
-    <span class="md-ellipsis">
-      getexample
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+
+      </a>
     </li>
   
 
@@ -6098,59 +6044,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#qs" class="md-nav__link">
-    <span class="md-ellipsis">
-      qs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#node_status" class="md-nav__link">
-    <span class="md-ellipsis">
-      node_status
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bi" class="md-nav__link">
-    <span class="md-ellipsis">
-      bi
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#js" class="md-nav__link">
-    <span class="md-ellipsis">
-      js
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getexample" class="md-nav__link">
-    <span class="md-ellipsis">
-      getexample
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -6175,28 +6068,20 @@
 
 <h1 id="powertools-overview">Powertools overview</h1>
 <p>Powertools are useful commands that provide additional functionality or simpler
-ways to access existing functionality on the HPCC. To view a list of all 
-available powertools with their documentation, run <code>powertools</code> on a development
-node. </p>
+ways to access existing functionality on the HPCC. To view a list of all
+available powertools with their documentation see <a href="../Powertools_Listing/">our listing
+page</a>. Otherwise, you can run <code>powertools</code> on a
+development node. </p>
+<p>The most popular tools have additional documentation and examples on their own
+pages as listed in the documentation sidebar.</p>
 <p>By default, powertools is loaded when users log into a development node. 
 Users may also run the <code>module list</code> command to check if it is loaded. 
 If it is not, please use the command:</p>
-<p><code>$ module load powertools</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+</code></pre></div></td></tr></table></div>
 <p>to load the module before running powertools commands. Powertools can also be 
 used in job submission scripts the same as any other commands, if the powertools 
 module has been loaded.</p>
-<p>A selection of widely useful powertools are listed below as links to their
-description pages.</p>
-<h2 id="qs"><a href="../qs/">qs</a></h2>
-<p>Display job list.</p>
-<h2 id="node_status"><a href="../Display_Compute_Nodes_and_Job_Partitions_by_sinfo_command/">node_status</a></h2>
-<p>Display a list of compute nodes and their properties.</p>
-<h2 id="bi"><a href="../bi/">bi</a></h2>
-<p>Information of Buy-In Account</p>
-<h2 id="js"><a href="../js/">js</a></h2>
-<p>Display job steps and their resource usages.</p>
-<h2 id="getexample"><a href="../getexample/">getexample</a></h2>
-<p>Download user examples.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6241,7 +6126,7 @@ description pages.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 9, 2025 21:43:16">April 9, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 13, 2025 21:44:45">May 13, 2025</span>
     </span>
     
 
@@ -6265,7 +6150,7 @@ description pages.</p>
             
         </span>
         <nav>
-            Andrew Fullard, Mahmoud Parvizi, toelawpa
+            Andrew Fullard, Craig Gross, Mahmoud Parvizi, toelawpa
         </nav>
     </span>
     
