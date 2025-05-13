@@ -6509,7 +6509,7 @@ module<span class="w"> </span>load<span class="w"> </span>OpenBUGS
 <span class="c1"># DIC is an estimate of expected predictive error (lower deviance is better).</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="r-interface-to-tensorflowkeras">R interface to TensorFlow/Keras</h2>
-<p>After you've <a href="../Installing_TensorFlow_using_anaconda/">installed TF in your conda environment</a>, load R 4.1.2 and set up a few environment variables:</p>
+<p>After you've <a href="Installing_TensorFlow_using_anaconda.md">installed TF in your conda environment</a>, load R 4.1.2 and set up a few environment variables:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6518,7 +6518,7 @@ module<span class="w"> </span>load<span class="w"> </span>OpenBUGS
 <span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$CONDA_PREFIX</span>/lib/:<span class="nv">$CONDA_PREFIX</span>/lib/python3.9/site-packages/tensorrt:<span class="nv">$LD_LIBRARY_PATH</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">XLA_FLAGS</span><span class="o">=</span>--xla_gpu_cuda_data_dir<span class="o">=</span><span class="nv">$CONDA_PREFIX</span>/lib<span class="w"> </span><span class="c1"># to fix &quot;Can&#39;t find libdevice directory ${CUDA_DIR}/nvvm/libdevice.&quot;</span>
 </code></pre></div></td></tr></table></div>
-<p>Above, <strong>you need to change <code>CONDA_PREFIX</code> to your own conda env path</strong> (that is, <a href="../Installing_TensorFlow_using_anaconda/#installing-anaconda-in-your-home-directory">the directory where you have installed Anaconda</a>).</p>
+<p>Above, <strong>you need to change <code>CONDA_PREFIX</code> to your own conda env path</strong> (that is, <a href="Installing_TensorFlow_using_anaconda.md#installing-anaconda-in-your-home-directory">the directory where you have installed Anaconda</a>).</p>
 <p>Then, run the following R code to test if R/TF works as expected.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
