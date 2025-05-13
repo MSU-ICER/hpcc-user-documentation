@@ -5180,12 +5180,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../Installing_TensorFlow_using_miniforge/" class="md-nav__link">
+      <a href="../Installing_TensorFlow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Installing TF using conda
+    Installing Tensorflow
     
   </span>
   
@@ -5208,7 +5208,7 @@
   
   
   <span class="md-ellipsis">
-    Submitting a TF job
+    Submitting a Tensorflow job
     
   </span>
   
@@ -5231,7 +5231,7 @@
   
   
   <span class="md-ellipsis">
-    TF GPU usage
+    Tensorflow GPU usage
     
   </span>
   
@@ -6531,7 +6531,7 @@ module<span class="w"> </span>load<span class="w"> </span>OpenBUGS
 <span class="c1"># DIC is an estimate of expected predictive error (lower deviance is better).</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="r-interface-to-tensorflowkeras">R interface to TensorFlow/Keras</h2>
-<p>After you've <a href="Installing_TensorFlow_using_anaconda.md">installed TF in your conda environment</a>, load R 4.1.2 and set up a few environment variables:</p>
+<p>After you've <a href="../Installing_TensorFlow/">installed TF in your conda environment</a>, load R 4.1.2 and set up a few environment variables:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6540,7 +6540,7 @@ module<span class="w"> </span>load<span class="w"> </span>OpenBUGS
 <span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$CONDA_PREFIX</span>/lib/:<span class="nv">$CONDA_PREFIX</span>/lib/python3.9/site-packages/tensorrt:<span class="nv">$LD_LIBRARY_PATH</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">XLA_FLAGS</span><span class="o">=</span>--xla_gpu_cuda_data_dir<span class="o">=</span><span class="nv">$CONDA_PREFIX</span>/lib<span class="w"> </span><span class="c1"># to fix &quot;Can&#39;t find libdevice directory ${CUDA_DIR}/nvvm/libdevice.&quot;</span>
 </code></pre></div></td></tr></table></div>
-<p>Above, <strong>you need to change <code>CONDA_PREFIX</code> to your own conda env path</strong> (that is, <a href="Installing_TensorFlow_using_anaconda.md#installing-anaconda-in-your-home-directory">the directory where you have installed Anaconda</a>).</p>
+<p>Above, <strong>you need to change <code>CONDA_PREFIX</code> to your own conda env path</strong> (that is, the directory where you have installed Conda).</p>
 <p>Then, run the following R code to test if R/TF works as expected.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -6830,7 +6830,7 @@ salloc command or sbatch script).</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2024 17:58:51">October 3, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 13, 2025 22:02:43">May 13, 2025</span>
     </span>
     
 
@@ -6854,7 +6854,7 @@ salloc command or sbatch script).</p>
             
         </span>
         <nav>
-            Craig Gross, Nanye Long
+            Craig Gross, Nanye Long, Venegas, Julian
         </nav>
     </span>
     
