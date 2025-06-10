@@ -434,35 +434,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Steps
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#moving-files" class="md-nav__link">
     <span class="md-ellipsis">
       Moving files
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#initiating-the-transfer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Initiating the transfer
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -6616,35 +6592,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Steps
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#moving-files" class="md-nav__link">
     <span class="md-ellipsis">
       Moving files
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#initiating-the-transfer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Initiating the transfer
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -6715,28 +6667,10 @@
 
 
 <h1 id="steps-to-migrate-to-the-new-home-system-manually">Steps to Migrate to the New Home System Manually</h1>
-<p>If you have not already moved your home directory to <a href="../Home_Migration/">the new system</a>, you will need to follow these steps to migrate.</p>
-<p>This is primarily for users that were using more than 100GB in their home directory as of March 28th, 2025.
+<p>If you have not already moved your files to your home directory on <a href="../Home_Migration/">the new system</a>, you will need to follow these steps to do so manually.</p>
+<p>This is primarily for users that were using more than 100GB in their home directory as of March 28th, 2025, have not transferred their own files, and as of June 10th, 2025, now have an empty, new home directory.
 Since all quotas on the new system are a maximum of 100GB of space, you will need to choose what to copy over to the new system.</p>
-<div class="admonition warning">
-<p class="admonition-title">All users must migrate before June 10th, 2025</p>
-<p>If you have not yet transferred to the new system, you must do so by following all steps below before June 10th, 2025.
-If you do not, your home directory will switch to the new system, but you will not see any of your files.
-You will then have to follow the steps to <a href="#moving-files">move files</a> below.</p>
-<p>If you aren't sure whether you have transferred, run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span><span class="nv">$HOME</span>
-</code></pre></div></td></tr></table></div>
-<p>on the HPCC.</p>
-<p>If the output points to a location starting with <code>/mnt/ffs24</code>, then your home directory is on the new system and you don't need to do anything.
-If the output shows anything else, please follow all steps below.</p>
-</div>
-<h2 id="steps">Steps</h2>
-<p>Migrating to the new system consists of two steps:</p>
-<ol>
-<li><a href="#moving-files">Moving files</a></li>
-<li><a href="#initiating-the-transfer">Initiating the transfer</a></li>
-</ol>
-<h3 id="moving-files">Moving files</h3>
+<h2 id="moving-files">Moving files</h2>
 <p>There are two workflows for moving files. Choose the tab below that best matches your situation.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Reduce your current home directory usage and sync all files</label><label for="__tabbed_1_2">Choose files to copy manually</label></div>
 <div class="tabbed-content">
@@ -6755,9 +6689,9 @@ file-sizes --detail
 <p>Please only use the <code>file-sizes</code> command described above to get usage information that will be more accurate for the new home system.</p>
 </div>
 <p>You can also use this tool to view how the space is being used within a directory, e.g.,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>file-sizes --detail ~/project
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>file-sizes --detail /mnt/ufs-18/gpfs-home/$USER/project
 </code></pre></div></td></tr></table></div>
-<p>to break down the space usage within <code>~/project</code>.</p>
+<p>to break down the space usage within <code>project</code> directory in your old home directory.</p>
 </li>
 <li>
 <p>Move excess files manually. There are a few choices:</p>
@@ -6822,7 +6756,7 @@ file-sizes --detail
 <p><img alt="The Globus file manager with the Collection and Paths set as described above. The left-side &quot;Start&quot; button is circled." src="../attachments/vast_transition/globus_copy.png" /></p>
 </div>
 <div class="tabbed-block">
-<p>Suppose you wish to only copy the directory <code>~/project</code> to your new home directory. Use the command:</p>
+<p>Suppose you wish to only copy the directory <code>project</code> from your old home directory to your new home directory. Use the command:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rsync<span class="w"> </span>-avP<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/project<span class="w"> </span>/mnt/ffs24/home/<span class="nv">$USER</span>/
 </code></pre></div></td></tr></table></div>
 <p>Repeat for any other directories or files you would like to keep. Note that if you remove any files in your old home and want to resync this directory, you should use the <code>--delete</code> option, like</p>
@@ -6834,48 +6768,13 @@ file-sizes --detail
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Transferring files that are too large</p>
-<p>If you transfer files that total more than 100GB to your new home directory, you will exceed your quota. In this case, you will have to remove those files from your new home directory before trying again with fewer files. </p>
+<p>If you transfer files that total more than 100GB to your new home directory, you will exceed your quota on the new system. In this case, you will have to remove those files from your new home directory before trying again with fewer files. </p>
 </div>
 </li>
 <li>
-<p>Note that all files that you do not copy will be removed from the system.</p>
+<p>Note that all files that you do not copy will eventually be removed from the system.</p>
 </li>
 </ol>
-</div>
-</div>
-</div>
-<h3 id="initiating-the-transfer">Initiating the transfer</h3>
-<p>To trigger the transition, you need to create a specially named file as shown in the steps below. Note that you will not be able to use the HPCC for up to 30 minutes while this is taking effect, and any running jobs will not function as expected.</p>
-<div class="admonition warning">
-<p class="admonition-title">Do not access HPCC while home directory is being moved</p>
-<p>After completing the step below, you should:</p>
-<ol>
-<li>
-<p>Ensure you have no running or queued SLURM jobs with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>scancel --me
-</code></pre></div></td></tr></table></div>
-</li>
-<li>
-<p>Log out of the HPCC (including all OnDemand and tmux/screen sessions)</p>
-</li>
-<li>Wait up to 30 minutes for an email confirming that your home directory migration is complete</li>
-</ol>
-</div>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Graphically</label><label for="__tabbed_4_2">From the command line</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>Go to your home directory in the <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard/files/">OnDemand File Browser</a></li>
-<li>Click the button that says "New File"</li>
-<li>Name the file <code>.move.my.home</code> (note that the initial <code>.</code> is important)!</li>
-</ol>
-<p>The process is depicted in this screenshot:</p>
-<p><img alt="The OnDemand file browser with the New File dialog open, and the filename .move.my.home entered." src="../attachments/vast_transition/ondemand_new_file.png" /></p>
-</div>
-<div class="tabbed-block">
-<p>Run the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>touch<span class="w"> </span>~/.move.my.home
-</code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
@@ -6886,7 +6785,7 @@ file-sizes --detail
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
-module<span class="w"> </span>load<span class="w"> </span>powertools/1.3.9
+module<span class="w"> </span>load<span class="w"> </span>powertools
 file-sizes<span class="w"> </span>--detail
 </code></pre></div></td></tr></table></div>
 <h3 id="managing-files-on-the-command-line">Managing files on the command line</h3>
@@ -6981,7 +6880,7 @@ Not doing so will result in "Disk quota exceeded" errors.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 9, 2025 16:50:13 UTC">June 9, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 9, 2025 21:42:17 UTC">June 9, 2025</span>
     </span>
     
 

@@ -560,15 +560,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#i-need-to-use-the-hpcc-on-the-day-i-was-selected-to-migrate" class="md-nav__link">
-    <span class="md-ellipsis">
-      I need to use the HPCC on the day I was selected to migrate.
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#why-do-i-need-to-lower-my-quota" class="md-nav__link">
     <span class="md-ellipsis">
       Why do I need to lower my quota?
@@ -6867,15 +6858,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#i-need-to-use-the-hpcc-on-the-day-i-was-selected-to-migrate" class="md-nav__link">
-    <span class="md-ellipsis">
-      I need to use the HPCC on the day I was selected to migrate.
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#why-do-i-need-to-lower-my-quota" class="md-nav__link">
     <span class="md-ellipsis">
       Why do I need to lower my quota?
@@ -6919,7 +6901,7 @@
 
 
 <h1 id="home-migration">Home Migration</h1>
-<p>ICER is migrating to a new HPCC home file system <code>ffs24</code>, an all flash system that will enable fast access to files in your home spaces, and a significantly better working environment overall. Along with the migration, <strong>we are increasing <a href="../Home_Space/">the default home space size from 50 <abbr title="Gigabyte">GB</abbr> to 100 <abbr title="Gigabyte">GB</abbr></a> which will be a hard limit going forward to ensure that usage of home spaces is aligned with their intended purpose</strong>. To help accommodate these changes, we are increasing the maximum free research space per principal investigator from 1TB to 3TB. This move toward more research space storage will also enhance collaboration amongst your team.</p>
+<p>ICER has migrated to a new HPCC home file system <code>ffs24</code>, an all flash system that enables fast access to files in your home spaces, and a significantly better working environment overall. Along with the migration, <strong>we have increased <a href="../Home_Space/">the default home space size from 50 <abbr title="Gigabyte">GB</abbr> to 100 <abbr title="Gigabyte">GB</abbr></a> which will be a hard limit going forward to ensure that usage of home spaces is aligned with their intended purpose</strong>. To help accommodate these changes, we have increased the maximum free research space per principal investigator from 1TB to 3TB. This move toward more research space storage will also enhance collaboration amongst your team.</p>
 <p>On this page, we have compiled a list of tips and questions that you may encounter throughout the transition.</p>
 <h2 id="new-file-system-tips">New file system tips</h2>
 <h3 id="snapshots">Snapshots</h3>
@@ -6954,6 +6936,7 @@
 <h2 id="migration-specifics">Migration specifics</h2>
 <h3 id="timeline">Timeline</h3>
 <ul>
+<li>On June 10th: All users will be migrated to the new system. Users with more than 100GB of usage will need to <a href="../Steps_to_Migrate_to_the_New_Home_System_Manually/">manually migrate their own files</a>. Users will be notified before and after the migration.</li>
 <li>Week of January 20th: we will begin migrating users with less than 100 <abbr title="Gigabyte">GB</abbr> of home directory usage to the new <code>ffs24</code> storage. Users will be notified before and after the migration.</li>
 <li>Later this semester: we will reach out to users above 100 <abbr title="Gigabyte">GB</abbr> with further tools and processes to help migrate. These users will receive a usage report showing their home directory usage. PIs will also receive team and research group usage. </li>
 </ul>
@@ -6963,14 +6946,12 @@
 <h4 id="how-long-will-my-access-be-disabled-during-migration">How long will my access be disabled during migration?</h4>
 <p>Your access will be disabled early morning on your given time slot.  Your home directory will be 1 of many being migrated.  We will batch the migrations all at once.  While we expect that final sync to take only a few hours, it could take most of the day.  We will do our best to keep the time frame short and you will receive a confirmation email when your home directory migration is complete.</p>
 <h4 id="do-i-need-to-do-anything-to-migrate">Do I need to do anything to migrate?</h4>
-<p>If you are currently using less than 100GB in your home directory, you will not need to do anything, and the transition should appear seamless to you. If you are using more than 100GB, you will need to reduce your usage to be moved to the new <code>ffs24</code> system. We will reach out with further tools and processes later this semester to assist with the transition.</p>
+<p>If you are currently using less than 100GB in your home directory, you will not need to do anything, and the transition should appear seamless to you. If you are using more than 100GB, you will need to <a href="../Steps_to_Migrate_to_the_New_Home_System_Manually/">manually move your files to the <code>ffs24</code> system</a>.</p>
 <h4 id="will-the-path-to-my-home-directory-change">Will the path to my home directory change?</h4>
 <p>No, you will still be able to reach your home directory using <code>~</code> or <code>/mnt/home/$USER</code>.</p>
 <p>The only exception is if you are using the exact path (which is extremely rare). In this case, you would need to change <code>/gpfs/home/home-xxx/$USER</code> to <code>/mnt/home/ffs24/$USER</code>.</p>
 <h4 id="i-think-i-am-missing-files">I think I am missing files.</h4>
 <p>We are taking every precaution possible to prevent this.  While this is extremely unlikely, it is possible an error was made.  Create a ticket and we can look deeper.</p>
-<h4 id="i-need-to-use-the-hpcc-on-the-day-i-was-selected-to-migrate">I need to use the HPCC on the day I was selected to migrate.</h4>
-<p>That is fine.  Respond to the automated message and we will move you down the list for a different day or you can select one.</p>
 <h4 id="why-do-i-need-to-lower-my-quota">Why do I need to lower my quota?</h4>
 <p>The new <code>ffs24</code> system is more performant, but does not have as much space as the current home system. To accommodate reduced quota in home directories, we are encouraging users to move excess files to research spaces which will have the maximum free space per <abbr title="Principle Investigator">PI</abbr> raised from 1TB to 3TB.</p>
 <!--
@@ -7017,7 +6998,7 @@
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 2, 2025 20:20:03 UTC">June 2, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 9, 2025 21:35:21 UTC">June 9, 2025</span>
     </span>
     
 
