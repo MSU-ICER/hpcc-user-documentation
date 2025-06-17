@@ -16,7 +16,7 @@
     
     
       
-        <title>(2025-01-31) Lab Notebook: How to run RAG on the HPCC - MSU HPCC User Documentation</title>
+        <title>2025 05 14 LabNotebook Python CheckPoint Scavenger - MSU HPCC User Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#openwebui" class="md-skip">
+        <a href="#1-introduction-to-the-scavenger-queue" class="md-skip">
           Skip to content
         </a>
       
@@ -143,7 +143,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                (2025-01-31) Lab Notebook: How to run RAG on the HPCC
+                2025 05 14 LabNotebook Python CheckPoint Scavenger
               
             </span>
           </div>
@@ -6483,32 +6483,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#openwebui" class="md-nav__link">
-    <span class="md-ellipsis">
-      OpenWebUI
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lm-studio" class="md-nav__link">
-    <span class="md-ellipsis">
-      LM Studio
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -6522,33 +6498,9 @@
                 
                   
 
-  <nav class="md-tags" >
-    
-      
-      
-        
-        
-          
-        
-      
-      
-        <a href="../tags/#tag:lab-notebook" class="md-tag md-tag-icon md-tag--labnotes">lab notebook</a>
-      
-    
-      
-      
-        
-        
-      
-      
-        <a href="../tags/#tag:llms" class="md-tag md-tag-icon">LLMs</a>
-      
-    
-  </nav>
-
 
   
-    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/2025-01-31_LabNotebook_How_to_run_RAG.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/2025-05-14_LabNotebook_Python_CheckPoint_Scavenger.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -6556,33 +6508,115 @@
   
 
 
-  <h1>(2025-01-31) Lab Notebook: How to run RAG on the HPCC</h1>
-
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is as a <strong>Lab Notebook</strong> which describes how to solve a specific problem at a specific time.
 Please keep this in mind as you read and use the content. Please pay close attention to the date, version
 information and other details.</p>
 </div>
-<p>Retrieval-Augmented Generation (RAG) is a technique that grants generative artificial intelligence models information retrieval capabilities. It modifies interactions with a large language model so that the model responds to user queries with reference to a specified set of documents. This allows the model to generate more accurate and relevant responses.</p>
-<p>At this time these apps can only access files already on the HPCC. If you want to transfer files from your local machine to the HPCC, view our <a href="https://docs.icer.msu.edu/File_transfer/">File Transfer</a> documentation.</p>
-<h2 id="openwebui">OpenWebUI</h2>
-<p>Before you open the OpenWebUI OnDemand app, click on the advanced options. Here you will see a few options related to RAG. You can set a RAG directory, which is where the model will look for documents; by default, this is <code>~/.cache/openwebui/docs</code>, but you can change it to any directory you want or place a file in that directory. Here you can also set the 'RAG Top K', which sets the number of results to consider when using RAG, with a default of 5. If you have a SQLite or Postgres database, you can set the 'Database URL' to the location of the database. Once these are set, then launch the app. </p>
-<p>Once started, you cannot change these settings; you will need to stop the app and restart a new session to change these settings.</p>
-<p>Once the app is open, you can either click the '+' plus icon on the left side of the message window to upload a new document, or if you have files in your RAG directory (either the one you specified or the default), you can type '#' a pound sign and then the name of the file you want to use; this will autocomplete the file name. Once you have the file name, you can press enter, and it will add the file to the conversation context. </p>
-<p>To change some RAG settings or refresh the directory, click on the user icon in the top right corner, then click 'Admin Panel', then at the top click on 'Settings', and then on the left side click on 'Documents'. </p>
-<p>Here you can scan the RAG directory for new files, change the Embedding Model, and change some other settings. </p>
-<p>OpenWebUI also lets you perform web searches. To enable this, navigate to the 'Admin Panel', then 'Settings', then 'Web Search', and then enable the 'Web Search' toggle and select the search engine you want to use.</p>
-<p>When in a conversation, now click the '+' plus icon on the left side of the message window and select to enable the web search option. The model will now use the web search engine you selected to find relevant information for the conversation. </p>
-<p>For more information, please see the <a href="https://docs.openwebui.com/features/rag/">OpenWebUI RAG docs</a>.</p>
-<h2 id="lm-studio">LM Studio</h2>
-<p>Open the LM Studio OnDemand app, or load the LM Studio module and run <code>LM_Studio</code> in the terminal. Once open, select the yellow chat icon on the left side of the screen. At the top, you can select which model you would like to use. </p>
-<p>In the bottom message window, there is a paperclip icon. Click on this to upload your documents. It will open up a files window in your home directory. Select one or multiple files to attach and then click the 'Open' button in the top right corner. You will see your file now attached to the current message. The next message you send will do one of two things: </p>
-<ul>
-<li>Inject full context: If the file is small enough, LM Studio will inject the full context of the file into the conversation (i.e., the full text of the file will be put into the conversation context).</li>
-<li>RAG: If the file is too large, LM Studio will try to retrieve the most relevant parts of the file to the conversation and add those to the conversation context.</li>
-</ul>
-<p>For more information, please see the <a href="https://lmstudio.ai/docs/basics/rag">LM Studio RAG docs</a>.</p>
+<h1 id="1-introduction-to-the-scavenger-queue">1. Introduction to the Scavenger Queue</h1>
+<p>The scavenger queue is a specific queue on the HPCC that allows jobs to fill gaps in the scheduler to improve overall efficiency of the system. The drawback is that jobs scheduled via the scavenger queue can be stopped and restarted at any point. For many jobs this would be detrimental, but for jobs that can leverage checkpointing, we can restart without much loss of progress. </p>
+<p>Checkout the documentation on the scavenger queue <a href="https://docs.icer.msu.edu/Scavenger_Queue/">https://docs.icer.msu.edu/Scavenger_Queue/</a>.</p>
+<hr />
+<h1 id="2-checkpointing">2. Checkpointing</h1>
+<p><a href="https://docs.icer.msu.edu/Job_with_Checkpointing_Run/">Checkpointing</a> is the process of periodically saving the state of a program. While it is especially useful when working with the scavenger queue, checkpointing can be useful in any scenario where it is important to not lose substantial progress if a program is interupted for any reason. </p>
+<p>The following example demonstrates a basic implementation of checkpointing in Python. This code uses the <code>dill</code> library to save and reload the current variables in python.  You can install the dill library in your home directory using one of the following command on a development node (depending on how your Python environment is set up):</p>
+<p><code>pip install --user dill</code></p>
+<p>or</p>
+<p><code>conda install dill</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The dill library will work with most of the core python variable types. However, some special variables will not work with dill. Refer to the <a href="https://dill.readthedocs.io/en/latest/">dill package documentat</a> for how best to use the libary wiht your own workflows. </p>
+</div>
+<p>Once you have <code>dill</code> installed  on the HPCC, you can use the following example (called <code>counter.py</code>) on a development node with the <code>python counter.py</code> command. At some random point after 10 cycles, kill the code using ctrl+c, then restart the program.  It should save it's state and start where it left off. </p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">counter.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">dill</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">checkpointSave</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Save Entire session to checkpoint file&#39;&#39;&#39;</span>
+    <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span><span class="s2">&quot;wb+&quot;</span><span class="p">)</span>
+    <span class="n">dill</span><span class="o">.</span><span class="n">dump_session</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">checkpointLoad</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Load Entire session to checkpoint file&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Checkpoint Loading... </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">dill</span><span class="o">.</span><span class="n">load_session</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Loaded Data: &quot;</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Optionally take an argument for the checkpoint filename</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;checkpoint.pkl&#39;</span>
+
+    <span class="c1"># Load an existing checkpoint (if present)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">checkpointLoad</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="c1"># Do &quot;work&quot;</span>
+    <span class="k">while</span> <span class="n">data</span><span class="o">&lt;</span><span class="mi">100000</span><span class="p">:</span>
+        <span class="n">data</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">data</span><span class="o">%</span><span class="mi">10</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># SAVE every 10 iterations</span>
+            <span class="n">checkpointSave</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data=&quot;</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h1 id="3-putting-it-all-together">3. Putting it all together</h1>
+<p>Now that the code has been tested (and is working) on a devleopment node let's write a slurm script to run it on the scavenger queue. </p>
+<p>The following is an example submission script that can be used to run on the scavenger queue:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">run_counter.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<span class="c1">#SBATCH --time 168:00:00</span>
+<span class="c1">#SBATCH --qos=scavenger</span>
+python<span class="w"> </span>counter.py
+</code></pre></div></td></tr></table></div>
+<p>The above should run for an entire week (really we only need 28 hours for the 100,000 seconds).  Since the job is in the scavenger queue, at any point it may be stopped to let regularly scheduled jobs on the resources. However, with the checkpoint the job will automatically get restarted and continue on it's happy way.  </p>
+<p>Obviously you will need to update your code to save all of the important variables (recall from above that not all variable types are compatible with <code>dill</code>) but checkpointing your job will make both it and the system run faster and be robust to errors.</p>
+<hr />
+<p>Originally written by Dr. Nathan Haut for CMSE401 and updated by Dr. Dirk Colbry as a ICER Lab Notebook, Michigan State University
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6627,7 +6661,7 @@ information and other details.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 13, 2025 22:07:53 UTC">February 13, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 17, 2025 16:30:10 UTC">June 17, 2025</span>
     </span>
     
 
@@ -6637,7 +6671,7 @@ information and other details.</p>
         <span class="md-icon" title="Created">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 21, 2025 16:49:09 UTC">January 21, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 14, 2025 12:05:52 UTC">May 14, 2025</span>
     </span>
     
 
@@ -6651,7 +6685,7 @@ information and other details.</p>
             
         </span>
         <nav>
-            Claire Kopenhafer, wunderky
+            Andrew Fullard, Claire Kopenhafer, Dirk Colbry
         </nav>
     </span>
     
@@ -6707,7 +6741,7 @@ information and other details.</p>
                 
                 
               
-              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=%282025-01-31%29%20Lab%20Notebook%3A%20How%20to%20run%20RAG%20on%20the%20HPCC" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=2025%2005%2014%20LabNotebook%20Python%20CheckPoint%20Scavenger" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
             </div>
           
         </div>
