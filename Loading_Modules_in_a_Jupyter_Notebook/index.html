@@ -6620,32 +6620,28 @@
 
 <h1 id="loading-modules-in-a-jupyter-notebook">Loading Modules in a Jupyter Notebook</h1>
 <p>Interacting with the module system in Jupyter does not always work as expected. Common tactics like opening a shell and loading modules or using Jupyter's "bang" syntax to call a shell command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>!module load TensorFlow
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>!module load TensorFlow
+</code></pre></div>
 <p>will not change Python's environment. Instead, you will need to interact with the module system more directly.</p>
 <h2 id="configuration-if-using-conda">Configuration if Using Conda</h2>
 <p>Due to the way ICER's <code>Conda/3</code> module works, you will need to make one small configuration change. Assuming you have set the <code>CONDA3PATH</code> environment variable, from a command line, run the following code:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$CONDA3PATH</span>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$CONDA3PATH</span>
 ln<span class="w"> </span>-s<span class="w"> </span>conda.sh<span class="w"> </span>conda.python
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="loading-modules-in-python">Loading modules in Python</h2>
 <p>Similarly to how the module system is made available to the bash shell, you can make the module system available in Python directly with an import statement. You will need to add the location of the module to your system path.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/usr/lmod/lmod/init&quot;</span><span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">env_modules_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">module</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>After this, the <code>module</code> command can be used as a Python function:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">module</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">)</span>
 <span class="n">module</span><span class="p">(</span><span class="s2">&quot;load TensorFlow&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="loading-modules-in-jupyter-with-jupyter-lmod">Loading modules in Jupyter with <code>jupyter-lmod</code></h2>
 <p>You can also integrate the module system directly in Jupyter using the <a href="https://github.com/cmd-ntrf/jupyter-lmod"><code>jupyter-lmod</code> extension</a>. You can install this on the command line into a virtual or Conda environment you are loading the Jupyter from with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>jupyterlmod
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>jupyterlmod
+</code></pre></div>
 <p>Then, when you start the Jupyter notebook, you will have an extra tab on the right where you can search and load modules into your Python execution environment.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

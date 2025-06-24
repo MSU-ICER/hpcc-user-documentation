@@ -6530,19 +6530,19 @@
 <p>The Aspera Connect application (ascp) is a useful file transfer tool for downloading or uploading large files in bulk between the HPCC and data repository sites such as those operated by NCBI. In order to interact  with a server via aspera, the remote host must be running the Aspera server. </p>
 <p>This short tutorial will demonstrate how to load and use the command line version of Aspera to download files from the NCBI ftp site.</p>
 <p>Step 1: Log onto HPCC rsync gateway node:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh -XY netid@rsync.hpcc.msu.edu
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh -XY netid@rsync.hpcc.msu.edu
+</code></pre></div>
 <p>Step 2: Load Aspera 3.9.8 module:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module load Aspera-Connect/3.9.8
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module load Aspera-Connect/3.9.8
+</code></pre></div>
 <p><strong>You can only execute Aspera file transfers from a gateway node. Transfers on the dev-nodes will not work.</strong></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you need a higher version than 3.9.8, you can try installing it with conda (<code>conda install -c rpetit3 aspera-connect</code>). Conda will handle Glibc issues.</p>
 </div>
 <p>Example command for downloading data from NCBI:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ascp -T -k 1 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh anonftp@ftp.ncbi.nlm.nih.gov:/refseq/uniprotkb ~/NCBI_data
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ascp -T -k 1 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh anonftp@ftp.ncbi.nlm.nih.gov:/refseq/uniprotkb ~/NCBI_data
+</code></pre></div>
 <p>For uploading files from the HPCC, please refer to the <a href="https://www.ncbi.nlm.nih.gov/sra/docs/submitfiles/#aspera-connect">NCBI instructions</a> for uploading SRA files.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

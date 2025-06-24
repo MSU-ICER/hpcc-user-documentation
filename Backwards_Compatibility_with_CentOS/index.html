@@ -6718,34 +6718,15 @@
 <div class="admonition note">
 <p class="admonition-title">Using the SLURM <code>--export</code> flag</p>
 <p>To use the <code>--export</code> option to send environment variables to your SLURM script with <code>sbatch_old</code>, you must replace your environment variable name <code>VAR</code> with <code>SINGULARITYENV_VAR</code>. For example, if a script was submitted on the old OS using</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch<span class="w"> </span>--export<span class="o">=</span>NUM,X<span class="w"> </span>my_script.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>--export<span class="o">=</span>NUM,X<span class="w"> </span>my_script.sb
+</code></pre></div>
 <p>you would use it with <code>sbatch_old</code> by running</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch<span class="w"> </span>--export<span class="o">=</span>SINGULARITYENV_NUM,SINGULARITYENV_X<span class="w"> </span>my_script.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>--export<span class="o">=</span>SINGULARITYENV_NUM,SINGULARITYENV_X<span class="w"> </span>my_script.sb
+</code></pre></div>
 </div>
 <h3 id="example">Example</h3>
 <p>Consider the following SLURM batch script:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<div class="highlight"><span class="filename">my_script.sb</span><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 <span class="c1">#SBATCH --job-name=Rscript</span>
 <span class="c1">#SBATCH --ntasks=1</span>
 <span class="c1">#SBATCH --mem=20M</span>
@@ -6765,40 +6746,28 @@ srun<span class="w"> </span>Rscript<span class="w"> </span>myscript.R
 <span class="c1"># Print resource information</span>
 scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 js<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This job can be run on any <code>CentOS</code> node with the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CentOS</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch<span class="w"> </span>my_script.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">CentOS</span><pre><span></span><code>sbatch<span class="w"> </span>my_script.sb
+</code></pre></div>
 <p>This job will fail on Ubuntu because <code>R/4.0.2</code> is not available (and even if it were, the name would be different). Instead, use the <code>sbatch_old</code> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Ubuntu</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+<div class="highlight"><span class="filename">Ubuntu</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
 sbatch_old<span class="w"> </span>my_script.sb
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This script should work on jobs that request at most one node and do not use <abbr title="Message Passing Interface">MPI</abbr>. Jobs using GPUs should still continue to work.</p>
 <h2 id="interactively-using-the-backwards-compatibility-container-with-old_os">Interactively using the backwards compatibility container with <code>old_os</code></h2>
 <p>To run commands interactively using the compatibility container, run the command <code>old_os</code> on any Ubuntu node. This will replace your command line with one running inside the compatibility container, and you will have access to the majority of the commands on the CentOS system.</p>
 <h3 id="example_1">Example</h3>
 <p>Suppose you want to test compiling and running <abbr title="Graphics Processing Unit">GPU</abbr> code. On a CentOS node your session might look like</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CentOS commands</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>getexample<span class="w"> </span>helloCUDA
+<div class="highlight"><span class="filename">CentOS commands</span><pre><span></span><code>getexample<span class="w"> </span>helloCUDA
 <span class="nb">cd</span><span class="w"> </span>helloCUDA
 module<span class="w"> </span>load<span class="w"> </span>gcccuda/2019
 nvcc<span class="w"> </span>Hello.cu<span class="w"> </span>-o<span class="w"> </span>Hello_CUDA
 ./Hello_CUDA
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>However, running this on Ubuntu will not work, because <code>gcccuda/2019</code> is not available. You also cannot guarantee that <code>./Hello_CUDA</code> will still work on Ubuntu because the compilers and libraries used to compile it on CentOS are either different or nonexistent on Ubuntu. To get around, this you can start an interactive session in the compatibility container.</p>
 <p>Note that this will need to run on a node with a <abbr title="Graphics Processing Unit">GPU</abbr>, e.g., <code>dev-amd20-v100</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Ubuntu commands</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+<div class="highlight"><span class="filename">Ubuntu commands</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
 old_os<span class="w">  </span><span class="c1"># All following commands are in CentOS compatibility container</span>
 ./Hello_CUDA<span class="w">  </span><span class="c1"># Works</span>
 rm<span class="w"> </span>Hello_CUDA
@@ -6806,24 +6775,18 @@ module<span class="w"> </span>load<span class="w"> </span>gcccuda/2019<span clas
 nvcc<span class="w"> </span>Hello.cu<span class="w"> </span>-o<span class="w"> </span>Hello_CUDA
 ./Hello_CUDA
 <span class="nb">exit</span><span class="w">  </span><span class="c1"># Go back to Ubuntu</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="advanced-manually-using-the-container">Advanced: Manually using the container</h2>
 <p>If you are comfortable using Singularity directly and would like a more flexible workflow, e.g., to experiment with <abbr title="Message Passing Interface">MPI</abbr> jobs, you can also invoke the backwards compatibility container directly.</p>
 <p>We recommend a invoking <code>singularity</code> with the following options:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--bind<span class="w"> </span>/opt/.software-legacy:/opt/software<span class="w">  </span><span class="c1"># Access module system</span>
 <span class="w">    </span>--bind<span class="w"> </span>/opt/.modules-legacy:/opt/modules
 <span class="w">    </span>--bind<span class="w"> </span>/cvmfs<span class="w">  </span><span class="c1"># Access software provided by CVMFS endpoints (Icecube, CERN, etc.)</span>
 <span class="w">    </span>--cleanenv<span class="w">  </span><span class="c1"># Ensure module system from Ubuntu doesn&#39;t conflict</span>
 <span class="w">    </span>--nv<span class="w">  </span><span class="c1"># If using a GPU</span>
 <span class="w">    </span>/mnt/research/helpdesk/ubuntu-compute/centos79.sif<span class="w">  </span><span class="c1"># Use most recent image</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where <code>&lt;command&gt;</code> is one of <code>shell</code> or <code>exec</code>. See <code>less $(which sbatch_old)</code> for an example.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

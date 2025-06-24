@@ -6728,10 +6728,9 @@ command line when using <code>sbatch</code> or <a href="../Interactive_Job/"><co
 At minimum, users must specify the number of GPUs they want to request. Due to the various generations of GPUs available on the HPCC, ICER <strong>strongly suggests that users also specify the type of <abbr title="Graphics Processing Unit">GPU</abbr>.</strong> This is because your software may be <a href="../Compiling_for_GPUs/">compiled for a specific <abbr title="Graphics Processing Unit">GPU</abbr> architecture</a>. </p>
 <p>Software that can run on GPUs will still need a <abbr title="Central Processing Unit">CPU</abbr> to manage the <abbr title="Graphics Processing Unit">GPU</abbr>. <strong>Unless you know that your software can take advantage of multiple CPUs <em>while also</em> using one or more GPUs, you should only request one <abbr title="Central Processing Unit">CPU</abbr> for this purpose.</strong> Additionally, be sure your software can utilize multiple GPUs at the same time before requesting more than one <abbr title="Graphics Processing Unit">GPU</abbr>.</p>
 <p>For example, the following requests one V100 <abbr title="Graphics Processing Unit">GPU</abbr> that will be managed by a single <abbr title="Central Processing Unit">CPU</abbr>:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH --ntasks=1</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --ntasks=1</span>
 <span class="c1">#SBATCH --gpus=v100:1</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 This GPUs will be hosted on the same node as the single <abbr title="Central Processing Unit">CPU</abbr>. Notice the colon <code>:</code> that separates the type and number of GPUs. For more on the available types of GPUs, see our page on <a href="../GPU_resources/"><abbr title="Graphics Processing Unit">GPU</abbr> resources</a>.</p>
 <h3 id="gpus-in-ondemand">GPUs in OnDemand</h3>
 <p>GPUs can also be selected for <a href="../Open_OnDemand/">Open OnDemand</a> apps. Look for the "Advanced Options" checkbox. Once selected, you should see options for "Node type" and "Number of GPUs". <strong>You must set the node type if you wish to select a particular <abbr title="Graphics Processing Unit">GPU</abbr> model;</strong> for example, "amd20" or "intel18" for the V100 GPUs. Reference the <a href="../GPU_resources/"><abbr title="Graphics Processing Unit">GPU</abbr> resources</a> page to determine what type of node you should request for each type of <abbr title="Graphics Processing Unit">GPU</abbr>. SLURM will be unable to schedule your job if you request more GPUs than are present on that type of node.</p>
@@ -6739,12 +6738,10 @@ This GPUs will be hosted on the same node as the single <abbr title="Central Pro
 <p><abbr title="Graphics Processing Unit">GPU</abbr>'s have their own memory (sometimes referred to as Video Random Access Memory or VRAM) that is separate from the <abbr title="Random Access Memory">RAM</abbr> used by the <abbr title="Central Processing Unit">CPU</abbr>. The name VRAM follows from the origin of GPUs as dedicated graphical rendering hardware and does not imply any restrictions on the type of data a <abbr title="Graphics Processing Unit">GPU</abbr> can process.</p>
 <p>Each of the GPUs available on the HPCC have varying amounts of VRAM as seen in our <a href="../GPU_resources/">hardware resource tables</a>. <strong>Requesting a <abbr title="Graphics Processing Unit">GPU</abbr> through SLURM will automatically give you access to all of its VRAM.</strong> This is in contrast to <abbr title="Central Processing Unit">CPU</abbr> <abbr title="Random Access Memory">RAM</abbr>, which you must explicitly request through SLURM.</p>
 <p>For example, the <a href="../List_of_Job_Specifications/">SLURM option</a> <code>--mem-per-gpu</code> will request a certain amount of <abbr title="Central Processing Unit">CPU</abbr> memory per <abbr title="Graphics Processing Unit">GPU</abbr> requested. The following settings will request a total of 6GB of <abbr title="Central Processing Unit">CPU</abbr> <abbr title="Random Access Memory">RAM</abbr>, 3GB for each of the two GPUs requested:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH --ntasks=1       # number of CPUs</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --ntasks=1       # number of CPUs</span>
 <span class="c1">#SBATCH --gpus=v100:2    # number of GPUs</span>
 <span class="c1">#SBATCH --mem-per-gpu=3G # memory for CPUs</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 Please note that <code>--mem</code> (total memory) and <code>--mem-per-cpu</code> are mutually exclusive with <code>--mem-per-gpu</code>.</p>
 <h2 id="utilizing-multiple-gpus">Utilizing Multiple GPUs</h2>
 <p>Some software is able to utilize multiple GPUs. These GPUs may be managed by one or more CPUs depending on how the software was written. Make sure you understand your software's capabilities and limits before requesting multiple GPUs and/or CPUs at the same time; otherwise, these resources will remain idle but still count against your yearly <a href="../job_policies/">usage limits</a>.</p>
@@ -6753,30 +6750,25 @@ Please note that <code>--mem</code> (total memory) and <code>--mem-per-cpu</code
 <p>This arrangement can be visualized with the following diagram. The user has requested a single <abbr title="Central Processing Unit">CPU</abbr> and four GPUs, shown in blue. The single <abbr title="Central Processing Unit">CPU</abbr> communicates instructions and data with all of the allocated GPUs. Since the hypothetical node in this diagram only has four GPUs, the user can only use a maximum of four GPUs at a time on this type of node.</p>
 <p><img alt="Block diagram of one CPU on a node communicating with four GPUs" src="../attachments/requesting_gpus/gpu_single-cpu.png" /></p>
 <p>Requesting this kind of configuration is straightforward:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH --ntasks=1</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --ntasks=1</span>
 <span class="c1">#SBATCH --gpus=v100:4</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <h3 id="multiple-cpus-for-multiple-gpus">Multiple CPUs for Multiple GPUs</h3>
 <p>It's possible for multiple CPUs to manage a set of GPUs when using multiple processes. The most common way to achieve this is by using <abbr title="Message Passing Interface">MPI</abbr>. Each <abbr title="Message Passing Interface">MPI</abbr> process can manage one or more GPUs while also communicating with other processes. With the addition of <abbr title="Message Passing Interface">MPI</abbr>, the software is no longer restricted by the number of GPUs on a node. </p>
 <p>One possible configuration for this is represented in the diagram below. In this diagram, each node has one <abbr title="Central Processing Unit">CPU</abbr> managing two GPUs. The two CPUs are able to communicate with each other via <abbr title="Message Passing Interface">MPI</abbr> (gray arrows).</p>
 <p><img alt="Block diagram of two CPUs spread across two nodes. Each CPU manages two GPUs located on that same node." src="../attachments/requesting_gpus/gpu_multi-cpu-simple.png" /></p>
 <p>The best way to request this kind of configuration is to use the <code>--gpus-per-node</code> option:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH --nodes=2</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --nodes=2</span>
 <span class="c1">#SBATCH --ntasks-per-node=1</span>
 <span class="c1">#SBATCH --gpus-per-node=v100:2</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>Another option is to have each <abbr title="Message Passing Interface">MPI</abbr> process manage only one <abbr title="Graphics Processing Unit">GPU</abbr>, as diagrammed below. Each of the four CPUs manages a <abbr title="Graphics Processing Unit">GPU</abbr> of the same color. These CPUs are also able to communicate with each other via <abbr title="Message Passing Interface">MPI</abbr> (gray arrows).</p>
 <p><img alt="Block diagram of four CPUs spread across two nodes. Each CPU manages a single GPU located on that same node." src="../attachments/requesting_gpus/gpu_multi-node.png" /></p>
 <p>The optimal way to request this configuration is to use the <code>--gpus-per-task</code> option:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH --nodes=2</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --nodes=2</span>
 <span class="c1">#SBATCH --ntasks-per-node=2</span>
 <span class="c1">#SBATCH --gpus-per-task=v100:1</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 This will automatically bind one <abbr title="Graphics Processing Unit">GPU</abbr> to each of the four total tasks (CPUs) requested.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

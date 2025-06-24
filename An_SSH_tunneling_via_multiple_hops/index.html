@@ -6636,40 +6636,7 @@ You can open your config file in VS Code by pressing the F1 key, then typing <co
 </div>
 <p>In the following example <code>.ssh/config</code> file, we have defined hosts for all seven development nodes. Each entries each contain the line <code>ProxyJump &lt;netid&gt;@hpcc.msu.edu</code> to be able to connect to the development nodes through the gateway nodes.</p>
 <p>To use the following template <code>.ssh/config</code>,  change all instances of <code>&lt;netid&gt;</code> to your NetID that you use to login to the HPCC.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code>Host intel16
+<div class="highlight"><pre><span></span><code>Host intel16
     HostName dev-intel16
     User &lt;netid&gt;
     ProxyJump &lt;netid&gt;@hpcc.msu.edu
@@ -6703,7 +6670,7 @@ Host h200
     HostName dev-amd24-h200
     User &lt;netid&gt;
     ProxyJump &lt;netid&gt;@hpcc.msu.edu
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>With this file, you can connect to any a development node from your local machine with, e.g., <code>ssh intel18</code> or <code>ssh k80</code>. Your connection will automatically be routed through the HPCC gateway.</p>
 <p><img alt="Screenshot of a terminal window showing a prompt at dev-intel18." src="../attachments/58785983/58785984.png" /></p>
 <div class="admonition note">
@@ -6714,17 +6681,17 @@ Host h200
 <p>Instead of using ProxyJump, you can use port forwarding. For this
 method, you need to open two terminals on your local machine.</p>
 <p>1st terminal (left in the picture): type </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh -L 1234:dev-intel18:22 &lt;your_net_id&gt;@gateway.hpcc.msu.edu
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh -L 1234:dev-intel18:22 &lt;your_net_id&gt;@gateway.hpcc.msu.edu
+</code></pre></div>
 <p>You can change 1234 to any number larger than 1024 (1234 here is a port
 number you are using). You can change dev-intel18 to any dev-node name,
 but 22 (port number of dev node) should be remained. For example, </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh -L 4321:dev-intel16:22 &lt;your_net_id&gt;@gateway.hpcc.msu.edu
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh -L 4321:dev-intel16:22 &lt;your_net_id&gt;@gateway.hpcc.msu.edu
+</code></pre></div>
 <p>is also working.</p>
 <p>2nd terminal (right in the picture): type </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh -p 1234 &lt;your_net_id&gt;@localhost
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh -p 1234 &lt;your_net_id&gt;@localhost
+</code></pre></div>
 <p>If it is the first time, it would request connection confirmation. type
 yes. Then you will arrive at the dev-node on the 2nd terminal.</p>
 <p><img alt="Two screenshots of a terminal. Left, the ICER welcome message at a gateway node. Right, a command prompt at a development node." src="../attachments/58785983/58785985.png" /></p>

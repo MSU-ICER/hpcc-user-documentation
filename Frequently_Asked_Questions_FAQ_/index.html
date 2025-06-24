@@ -7738,21 +7738,7 @@ requires a <abbr title="Secure Shell">SSH</abbr> key pair. See our documentation
 <a href="../SSH_Key-Based_Authentication/">here</a>. Otherwise, see the question above.</p>
 <h3 id="i-get-an-error-like-warning-remote-host-identification-has-changed">I get an error like "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!"</h3>
 <p>The following errors can occur when the HPCC upgrades a development node or changes it's identifying information (called "host keys"):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span>
+<div class="highlight"><pre><span></span><code><span class="go">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span>
 <span class="go">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</span>
 <span class="go">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span>
 <span class="go">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</span>
@@ -7767,7 +7753,7 @@ requires a <abbr title="Secure Shell">SSH</abbr> key pair. See our documentation
 <span class="go">ssh-keygen -R dev-amd20 -f &lt;location&gt;/.ssh/known_hosts</span>
 <span class="go">Host key for dev-amd20 has changed and you have requested strict checking.</span>
 <span class="go">Host key verification failed.</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To fix this error, please see <a href="../Resetting_Known_Hosts/">this page</a>.</p>
 <h3 id="can-i-use-hpc-through-web-browsers">Can I use HPC through web browsers?</h3>
 <p>Yes, we provide Open OnDemand, a web portal for easy web access to the HPCC.
@@ -7846,14 +7832,13 @@ space</a>, in particular, point 5.</p>
 <h4 id="quotafile-limit-exceeded-or-general-issues-related-to-writing-files-especially-in-home-directories">Quota/file limit exceeded or general issues related to writing files (especially in home directories)</h4>
 <p>Begin by checking your storage usage with the <code>quota</code> command. Then compare
 with the results from running the <code>file-count</code> powertool:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
 file-count
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>For more detailed information including a count of files in each subdirectory,
 use</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>file-count<span class="w"> </span>--detail
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>file-count<span class="w"> </span>--detail
+</code></pre></div>
 <p>If you find that you are over quota, please delete files, move them to another
 location (like a <a href="../Research_Space/">research space</a> or if they are temporary,
 <a href="../Scratch_File_Systems/">scratch space</a>), or <a href="../File_transfer/">move them off of the
@@ -7933,8 +7918,8 @@ update as the scheduler continues to function.</p>
 range of CPUs, and the newest versions support new instructions not available
 on the older CPUs. If you receive this error using one of ICER's software
 modules, make sure that your SLURM script starts with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+</code></pre></div>
 <p>This will ensure that your script undergoes the proper setup to use the
 software that matches the CPUs where your jobs are running.</p>
 <p>For more advice and troubleshooting steps, see our Lab Notebook on
@@ -7942,10 +7927,9 @@ software that matches the CPUs where your jobs are running.</p>
 Compilation</a>.</p>
 <h3 id="why-do-i-get-a-module-not-found-error-in-my-slurm-output">Why do I get a <code>module: not found</code> error in my slurm output?</h3>
 <p>Job scripts that start with <code>#!/bin/sh</code> will result in errors like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>/var/lib/slurmd/jobXXXXXXXX/slurm_script: XX: module: not found.
+<div class="highlight"><pre><span></span><code>/var/lib/slurmd/jobXXXXXXXX/slurm_script: XX: module: not found.
 Please change this line to #!/bin/bash --login.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p><code>/bin/sh</code> is a symbolic link in modern Linux distributions and does not always
 link to the same shell. A better method on current Linux distributions is to
 explicitly call the bash shell with <code>#!/bin/bash --login</code> in your script if
@@ -8054,8 +8038,8 @@ the HPCC, their login prompt changes to something starting with <code>(base)
 -bash-4.2$</code>. This is because conda activates the default environment,
 <code>base</code>, upon startup. To disable this behavior, which often results in
 conflicts with system defaults, users can run the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda config --set auto_activate_base False
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>conda config --set auto_activate_base False
+</code></pre></div>
 <h3 id="i-tried-to-start-a-jupyter-notebook-through-ondemand-but-my-job-will-not-start-or-will-not-recognize-my-conda-environment">I tried to start a Jupyter Notebook through OnDemand, but my job will not start or will not recognize my Conda environment</h3>
 <p>All Conda environments used with the Jupyter Notebook OnDemand app must have
 Jupyter installed. Without this, the OnDemand job status will stay stuck on</p>
@@ -8071,13 +8055,12 @@ the job may start, but the environment will not be properly recognized and the
 app will fall back to the default version installed on the HPCC.</p>
 <p>To install Jupyter in your Conda environment on the command line, activate it
 first by running</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Conda/3
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Conda/3
 conda<span class="w"> </span>activate<span class="w"> </span>&lt;environment_name&gt;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>and then run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>jupyter
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>jupyter
+</code></pre></div>
 <h3 id="i-tried-to-use-python-matplotlib-to-plot-but-got-an-error-of-no-module-named-_tkinter">I tried to use python matplotlib to plot, but got an error of "No module named '_tkinter'"</h3>
 <p>If you use the default python module
 (<code>Python/3.11.3-GCCcore-12.3.0</code>) on a dev-node, you need to
@@ -8090,13 +8073,13 @@ your script with <code>python script.py</code>, in command line or in job submis
 <h2 id="r-and-rstudio-server">R and RStudio Server</h2>
 <h3 id="when-i-start-rstudio-server-all-i-see-is-a-gray-blank-screen">When I start RStudio Server, all I see is a gray blank screen.</h3>
 <p>Open a command line and run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv .local/share/rstudio .local/share/rstudio.backup
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mv .local/share/rstudio .local/share/rstudio.backup
+</code></pre></div>
 <p>This will move your RStudio configuration files to a backup. Note that this will likely reset your RStudio session, so you may need to reopen previous projects and files, and could lose any unsaved work. See <a href="../2024-08-12_RStudio_Server_Gray_Screen/">this Lab Notebook</a> for more details.</p>
 <h3 id="i-cant-install-the-r-package-matrix-or-other-packages-that-need-it-like-ggplot2">I can't install the R package "Matrix" or other packages that need it like "ggplot2"</h3>
 <p>The R package <code>Matrix</code> (which is a dependency for many other packages including <code>ggplot2</code>) is incompatible with versions of R earlier than 4.4.0 (i.e., all of the versions installed on the new operating system. We recommend using the <code>R-bundle-CRAN</code> module instead of <code>R</code> which includes a pre-installed version of <code>Matrix</code>. If you need to install it yourself using <code>install.packages</code>, use the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="n">https</span><span class="o">://</span><span class="n">cran.r</span><span class="o">-</span><span class="n">project.org</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">contrib</span><span class="o">/</span><span class="n">Archive</span><span class="o">/</span><span class="n">Matrix</span><span class="o">/</span><span class="n">Matrix_1.6</span><span class="m">-5</span><span class="n">.tar.gz</span><span class="p">,</span><span class="w"> </span><span class="n">repos</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;source&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="n">https</span><span class="o">://</span><span class="n">cran.r</span><span class="o">-</span><span class="n">project.org</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">contrib</span><span class="o">/</span><span class="n">Archive</span><span class="o">/</span><span class="n">Matrix</span><span class="o">/</span><span class="n">Matrix_1.6</span><span class="m">-5</span><span class="n">.tar.gz</span><span class="p">,</span><span class="w"> </span><span class="n">repos</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;source&quot;</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="getting-help">Getting help</h2>
 <h3 id="can-you-keep-me-posted-on-the-current-status-of-the-hpcc">Can you keep me posted on the current status of the HPCC?</h3>
 <p>Yes. Users are encouraged to follow the <a href="https://blog.icer.msu.edu/">HPCC Announcements

@@ -6687,28 +6687,18 @@ determining where you may have a large number of files (especially if they are
 hidden).</p>
 <h2 id="examples">Examples</h2>
 <p>Below are some examples of it's usage. Since <code>file-count</code> is a powertool, the <code>powertools</code> module must be loaded:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+</code></pre></div>
 <h3 id="list-file-count-of-home-directory">List file count of home directory</h3>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>file-count
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">385162  /mnt/home/user/</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>file-count
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">385162  /mnt/home/user/</span>
+</code></pre></div>
 <h3 id="list-file-count-of-all-subdirectories-in-home-directory">List file count of all subdirectories in home directory</h3>
 <p>This includes hidden directories that may contain large numbers of files, like <code>.conda</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>file-count<span class="w"> </span>--detail<span class="w"> </span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">4   /mnt/home/user/.thumbnails</span>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>file-count<span class="w"> </span>--detail<span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">4   /mnt/home/user/.thumbnails</span>
 <span class="go">12  /mnt/home/user/.jupyter</span>
 <span class="go">22950   /mnt/home/user/R</span>
 <span class="go">5   /mnt/home/user/.ssh</span>
@@ -6719,13 +6709,13 @@ hidden).</p>
 <span class="go">54356   /mnt/home/user/.cache</span>
 <span class="go">6209    /mnt/home/user/.vscode-server</span>
 <span class="go">385162  /mnt/home/user/</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note that a summary of all files is given at the bottom</p>
 <h3 id="list-file-count-of-a-research-directory">List file count of a research directory</h3>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>file-count<span class="w"> </span>/mnt/research/my_group
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">400124 /mnt/research/my_group/</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>file-count<span class="w"> </span>/mnt/research/my_group
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">400124 /mnt/research/my_group/</span>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

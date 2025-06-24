@@ -6754,20 +6754,19 @@
 <p>This page provides a quick explanation of using R on the system. For more details, see our <a href="https://msu-icer.github.io/r-for-hpcc">R for HPCC workshop materials</a>.</p>
 <h2 id="accessing-r-and-rstudio">Accessing R and RStudio</h2>
 <p>R is available on the HPCC by default which means you can run it on the command line by using the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>R
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>R
+</code></pre></div>
 <p>To avoid any issues resulting from a user-customized <code>.Renviron</code> or <code>.Rprofile</code> file, you can also start R by using <code>R --vanilla</code>.</p>
 <p>You can also use R via the RStudio Server interface through <a href="https://ondemand.hpcc.msu.edu">OnDemand</a>. See our <a href="../Open_OnDemand/">OnDemand documentation</a> for more details.</p>
 <h2 id="versions-and-bundles">Versions and bundles</h2>
 <p>The HPCC provides many versions of R, but we highly recommend using bundles which include extra R packages. Note that bundles are not loaded by default. There are two bundle flavors that include many common packages from the following sources: <a href="../available_software/detail/R-bundle-CRAN/">CRAN</a> and <a href="../available_software/detail/R-bundle-Bioconductor/">Bioconductor</a>.</p>
 <p>You can see all available bundles with the above two links or by running:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>R-bundle
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>R-bundle
+</code></pre></div>
 <p>Our current recommendation is to use <a href="../available_software/detail/R-bundle-CRAN/"><code>R-bundle-CRAN/2023.12-foss-2023a</code></a>. To access this bundle from the command line, run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>R-bundle-CRAN/2023.12-foss-2023a
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To access this bundle in RStudio Server, choose the R version "4.3.2 (with additional CRAN packages, RECOMMENDED)".</p>
 <h3 id="module-names-versus-ondemand-versions">Module names versus OnDemand versions</h3>
 <p>The modules on the command line associated with the R versions available through OnDemand are as follows:</p>
@@ -6856,14 +6855,7 @@ module<span class="w"> </span>load<span class="w"> </span>R-bundle-CRAN/2023.12-
 <h3 id="installing-the-matrix-or-mass-packages">Installing the Matrix or MASS Packages</h3>
 <p>The default versions of the R packages <code>Matrix</code> and <code>MASS</code> (which are dependencies for many other packages including <code>ggplot2</code>) are incompatible with versions of R earlier than 4.4.0.
 Installations that require these packages will fail with a message like:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">Warning message:</span>
+<div class="highlight"><pre><span></span><code><span class="go">Warning message:</span>
 <span class="go">package ‘Matrix’ is not available for this version of R</span>
 <span class="go">‘Matrix’ version 1.7-3 is in the repositories but depends on R (&gt;= 4.4)</span>
 <span class="go">‘Matrix’ version 1.7-3 is in the repositories but depends on R (&gt;= 4.6)</span>
@@ -6871,14 +6863,13 @@ Installations that require these packages will fail with a message like:</p>
 <span class="go">A version of this package for your version of R might be available elsewhere,</span>
 <span class="go">see the ideas at</span>
 <span class="go">https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>We recommend using the <code>R-bundle-CRAN</code> module instead of <code>R</code> (<a href="#versions-and-bundles">discussed above</a>) which includes pre-installed versions of these packages.</p>
 <p>If you need to install these packages yourself using <code>install.packages</code>, You will need to use the direct URL of a version that is compatible with your version of R. As shown in the <a href="https://cran.r-project.org/web/packages/Matrix/news.html">Matrix NEWS file</a> and <a href="https://cran.r-project.org/web/packages/MASS/ChangeLog">MASS changelog</a>, versions 1.6-5 and 7.3-60.0.1 respectively will work with some earlier versions of R.</p>
 <p>To install them, use <code>install.packages</code> with the link to the corresponding <code>tar.gz</code> source files in the <a href="https://cran.r-project.org/src/contrib/Archive/Matrix/">Matrix</a> and <a href="https://cran.r-project.org/src/contrib/Archive/MASS/">MASS</a> archives with the options <code>repos=NULL</code> and <code>type="source</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;https://cran.r-project.org/src/contrib/Archive/Matrix/Matrix_1.6-5.tar.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">repos</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;source&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;https://cran.r-project.org/src/contrib/Archive/Matrix/Matrix_1.6-5.tar.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">repos</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;source&quot;</span><span class="p">)</span>
 <span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;https://cran.r-project.org/src/contrib/Archive/MASS/MASS_7.3-60.0.1.tar.gz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">repos</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;source&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note that you may need to install some additional dependencies using standard <code>install.packages</code> commands prior to these source installations, but R will show show you which ones are necessary if the above commands fail.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

@@ -6575,10 +6575,9 @@ when requesting an OnDemand job. Jobs run on the general nodes have a 24 hour li
 <p>To access the new hardware associated with your buy-in, users must specify both their buyin account
 (e.g. <code>#SBATCH --account=&lt;buyin&gt;</code> in a SLURM script) and the <code>beta</code> <strong>reservation</strong>.</p>
 <p>In a SLURM script, this combination looks like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH --account=&lt;buyin&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --account=&lt;buyin&gt;</span>
 <span class="c1">#SBATCH --reservation=beta</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where <code>&lt;buyin&gt;</code> is replaced with your respective buy-in account name.</p>
 <p>For OnDemand jobs, the "SLURM Account" and "SLURM Reservation" fields can be found by checking the
 "Advanced Options" box when specifying app resources. </p>

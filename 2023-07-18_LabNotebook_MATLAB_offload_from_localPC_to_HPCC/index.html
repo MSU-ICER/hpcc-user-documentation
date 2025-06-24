@@ -6625,18 +6625,16 @@ information and other details.</p>
 <li>
 <p>Down load provided <strong>plug-in script</strong> from GitHub repository at (<a href="https://github.com/mathworks/matlab-parallel-slurm-plugin.git">https://github.com/mathworks/matlab-parallel-slurm-plugin.git</a>)  and store it to a location that MATLAB clients (MATLAB on your local machine) can access. This location will be used in the cluster profile setting in step 6(10).</p>
 <p>Ex.  I saved it on my Mac at the directory: /Users/wangxg/matlab-parallel-slurm-plugin.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>NOTE: the name of the directory will be used in setting up the profile later in step 6( 10 ).
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>NOTE: the name of the directory will be used in setting up the profile later in step 6( 10 ).
+</code></pre></div>
 </li>
 <li>
 <p>Start a MATLAB session on the client host.</p>
 <p>Ex. I use  MATLAB/ R2022b on my Mac.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>NOTE: the version of matlab used by client and cluster should be the match.
+<div class="highlight"><pre><span></span><code>NOTE: the version of matlab used by client and cluster should be the match.
 
 NOTE: step 3 to 7 are for creating a cluster profile for matlab clients to offload jobs to HPCC. A sample profile is created for users as a reference. Users can import this sample profile ( The name of the sample profile file is “Remote-HPCC-R2022b.mlsettings”) and follow the instructions to create one and/or to customize the sample profile for their own use.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </li>
 <li>
 <p>Start the Cluster Profile Manager from the MATLAB desktop. On the <strong>Home</strong> tab, in the <strong>Environment</strong> section, select <strong>Parallel</strong> &gt; <strong>Create and Manage Clusters</strong>.</p>
@@ -6672,26 +6670,7 @@ You must not share <strong>JobStorageLocation</strong> among parallel computing 
 <p>To further test the profile setting, users can also run some function or script locally and offload to the cluster, and compare the results. For example, a function get_min is saved in file get_min.m show as </p>
 </li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>function [s, t] =get_min(niter, n, m)
+<div class="highlight"><pre><span></span><code>function [s, t] =get_min(niter, n, m)
 %function [s,t] = many_parfor_cluster(niter, n, m)
 % This function runs myfunc.m may time in a parfor loop
 % Workers are created and running on compute nodes
@@ -6711,18 +6690,9 @@ parfor i =1:niter
 end
 s = max(S);
 t = toc;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The function get_min can be run on a local machine as</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt;&gt; parpool(&#39;local&#39;, 4);    % use a local worker pool
+<div class="highlight"><pre><span></span><code>&gt;&gt; parpool(&#39;local&#39;, 4);    % use a local worker pool
 Starting parallel pool (parpool) using the &#39;Local&#39; profile ...
 Connected to the parallel pool (number of workers: 4).
 
@@ -6732,17 +6702,9 @@ s =
      5.010473515126743e+02
 t =
      7.260608000000000e+00
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The function get_min can also to offload as a job to run on the cluster. User need to create a cluster using the profile “Remote-HPCC-R2022b". Then create a job using “batch” to offload the function “get_min” to the cluster “HPCC” with 4 workers. To obtain the jobs output, user can use function "fetchOutputs" after the job is completed. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt;&gt; HPCC = parcluster(&#39;Remote-HPCC-R2022b&#39;);    % Create cluster HPCC
+<div class="highlight"><pre><span></span><code>&gt;&gt; HPCC = parcluster(&#39;Remote-HPCC-R2022b&#39;);    % Create cluster HPCC
 &gt;&gt; Job = batch(HPCC, @get_min, 2, {100,1000,1000},&#39;pool&#39;, 4);  %create a job for cluster HPCC with 4 workers
 &gt;&gt; wait(Job);      % wait Job to complete before fetching the results.
 &gt;&gt; X = fetchOutputs(Job)
@@ -6751,7 +6713,7 @@ X =
   1×2 cell array
 
     {[501.0474]}    {[8.2506]}
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To monitor the jobs, in the local MATLAB, from HOME -&gt; Parallel computing options -&gt; Monitor Jobs to open the job monitor window. Meanwhile, users can also monitor the jobs from a terminal window of the cluster and use SLURM commands to monitor the jobs.</p>
 <h3 id="references">References:</h3>
 <ol>

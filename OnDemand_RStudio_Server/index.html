@@ -6728,8 +6728,8 @@
 <p>However, if you notice that the gray screen persists after one minute of waiting, or you receive the error "Status code 502 returned by RStudio Server when executing 'client_init'" it is possible that RStudio Server is stuck trying to load. As a workaround, sometimes reloading the tab and waiting another minute can work.</p>
 <p>Otherwise, clearing RStudio's temporary files stored at <code>~/.local/share/rstudio</code> can fix the issue. <strong>Note that this will likely reset your RStudio session, so you may need to reopen previous projects and files and could lose any unsaved work.</strong></p>
 <p>To do this, we recommend moving the files to a backup using a command like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv<span class="w"> </span>~/.local/share/rstudio<span class="w"> </span>~/.local/share/rstudio.backup
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>~/.local/share/rstudio<span class="w"> </span>~/.local/share/rstudio.backup
+</code></pre></div>
 <p>Trying to load RStudio Server should work again (though you may need to wait a minute or two for the gray screen to go away as described above).</p>
 <h3 id="preventing">Preventing</h3>
 <p>While we are not sure what exactly causes this, our guess is that either 1) RStudio Server's temporary files have been corrupted after a job shut down incorrectly or 2) RStudio Server has saved large files from the last time it was open and tries to reload them. We highly recommend that you:</p>

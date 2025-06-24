@@ -6703,13 +6703,13 @@ about all the GPUs on that node and a table of all running processes.
 The GPUs are indexed with an integer. Once you identify one with low
 utilization, set the <code>CUDA_VISIBLE_DEVICES</code> environment variable to control
 which <abbr title="Graphics Processing Unit">GPU</abbr>(s) your application will use. For example,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">1</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
 <p>will make your application use the <strong>second</strong> <abbr title="Graphics Processing Unit">GPU</abbr> on the node as <abbr title="Graphics Processing Unit">GPU</abbr> indices
 start from zero. You can also
 tell your application to use multiple GPUs; for example,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">2</span>,3
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">2</span>,3
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you don't set <code>CUDA_VISIBLE_DEVICES</code>, your program will default to using

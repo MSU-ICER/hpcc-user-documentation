@@ -6539,35 +6539,16 @@
 
 <h1 id="bi">bi</h1>
 <p>bi is a powertools program that provides innformation about user buy-in accounts on SLURM. For more information on buy-in accounts, see <a href="../Buy-In_Accounts_with_SLURM/">here</a>. Running bi on its own will display your user name, any SLURM account your belong to and you default account:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$ bi
+<div class="highlight"><pre><span></span><code>$ bi
 
 User:     panchyni
 Accounts: bioinformaticscore   [ MaxJobs=520, MaxSubmit=1000 ]
           scavenger            [ MaxJobs=520, MaxSubmit=1000 ]
           general              [ MaxJobs=520, MaxSubmit=1000 ]
 Default:  general
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>A full description of arguments for bi can be found by accessing the help for the program by running "bi -h" on the command line (this information is also reproduced below)</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>$ bi -h
+<div class="highlight"><pre><span></span><code>$ bi -h
 
   Usage:
     bi
@@ -6581,7 +6562,7 @@ Default:  general
     -u | --user &lt;user&gt;        Display buyin accounts for this user
     -d | --default            Display only the user&#39;s default buyin account
     -l | --list               List jobs and usage status of buyin nodes
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

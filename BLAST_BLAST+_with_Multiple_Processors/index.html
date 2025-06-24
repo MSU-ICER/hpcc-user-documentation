@@ -6777,20 +6777,14 @@ mode.  This is advantageous in that is allows users to leverage multiple
 processors to complete their BLAST searches, thereby decreasing compute
 time.</p>
 <p>To load BLAST or BLAST+ on the HPCC:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Loading BLAST</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Loading BLAST</span>
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>BLAST/2.2.26-Linux_x86_64
 
 <span class="c1"># Loading BLAST+</span>
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>icc/2017.4.196-GCC-6.4.0-2.28<span class="w">  </span>impi/2017.3.196<span class="w"> </span>BLAST+/2.8.1-Python-2.7.14
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="multi-threading-vs-mpi">Multi-Threading vs. <abbr title="Message Passing Interface">MPI</abbr></h2>
 <p>Multi-threaded BLAST runs enable the user to launch multiple worker
 threads on a single node.  However, because standard BLAST and BLAST+ do
@@ -6811,12 +6805,12 @@ of <strong>processors</strong> to use.  To reserve the appropriate quantity o
 resources in your job submission script, you will need to reserve a
 number of cores equal to the value specified by the "<strong><em>-a</em></strong>" flag  For
 example, if you used a command like:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>blastall<span class="w"> </span>-p<span class="w"> </span>blastp<span class="w"> </span>-d<span class="w"> </span>swissprot<span class="w"> </span>-i<span class="w"> </span>prot.fasta<span class="w"> </span>-o<span class="w"> </span>test1.blast<span class="w"> </span>-e<span class="w"> </span><span class="m">0</span>.001<span class="w"> </span>-a<span class="w"> </span><span class="m">4</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>blastall<span class="w"> </span>-p<span class="w"> </span>blastp<span class="w"> </span>-d<span class="w"> </span>swissprot<span class="w"> </span>-i<span class="w"> </span>prot.fasta<span class="w"> </span>-o<span class="w"> </span>test1.blast<span class="w"> </span>-e<span class="w"> </span><span class="m">0</span>.001<span class="w"> </span>-a<span class="w"> </span><span class="m">4</span>
+</code></pre></div>
 <p>You should specify something like the following in your SLURM job
 submission script:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH --cpus-per-task=4</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --cpus-per-task=4</span>
+</code></pre></div>
 <h3 id="blast">BLAST+</h3>
 <p>In contrast, BLAST+ uses the "<strong><em>-num_threads</em></strong>" flag to specify the
 number of worker <strong>threads</strong> to create.  In order to specify the correct
@@ -6824,26 +6818,26 @@ number of cores for the job, you will need to <strong>ADD ONE</strong> to the 
 of threads specified.  This is to account for the number of worker
 threads, <strong>PLUS</strong> the main process thread.  So if you used an equivalent
 BLAST+ command like:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>blastn<span class="w"> </span>-task<span class="w"> </span>blastn<span class="w"> </span>-db<span class="w"> </span>swissprot<span class="w"> </span>-query<span class="w"> </span>prot.fasta<span class="w"> </span>-out<span class="w"> </span>test1.blast<span class="w"> </span>-evalue<span class="w"> </span><span class="m">0</span>.001<span class="w"> </span>-num_threads<span class="w"> </span><span class="m">4</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>blastn<span class="w"> </span>-task<span class="w"> </span>blastn<span class="w"> </span>-db<span class="w"> </span>swissprot<span class="w"> </span>-query<span class="w"> </span>prot.fasta<span class="w"> </span>-out<span class="w"> </span>test1.blast<span class="w"> </span>-evalue<span class="w"> </span><span class="m">0</span>.001<span class="w"> </span>-num_threads<span class="w"> </span><span class="m">4</span>
+</code></pre></div>
 <p>You should use the following in your SLURM script:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH --cpus-per-task=5</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --cpus-per-task=5</span>
+</code></pre></div>
 <h3 id="blastdb">BLASTDB</h3>
 <p>The BLASTDB environmental variable tells BLAST or BLAST+ where to find
 your databases that can be searched.  On the HPCC, we offer select
 BLAST-ready data sets for this purpose in a common read-only area.
  BLAST data sets can be accessed at:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/mnt/research/common-data/Bio/blastdb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>/mnt/research/common-data/Bio/blastdb
+</code></pre></div>
 <p>If you are using the FASTA sequences instead of nucleotide data sets,
 you need to augment the path above as follows:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/mnt/research/common-data/Bio/blastdb/FASTA
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>/mnt/research/common-data/Bio/blastdb/FASTA
+</code></pre></div>
 <p>For cluster jobs, you will need to set the value of BLASTDB in your job
 submission script, for example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BLASTDB</span><span class="o">=</span>/mnt/research/common-data/Bio/blastdb:/mnt/research/common-data/Bio/blastdb/FASTA:<span class="nv">$BLASTDB</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BLASTDB</span><span class="o">=</span>/mnt/research/common-data/Bio/blastdb:/mnt/research/common-data/Bio/blastdb/FASTA:<span class="nv">$BLASTDB</span>
+</code></pre></div>
 <h3 id="a-word-about-memory">A Word About Memory</h3>
 <p>In either case (BLAST or BLAST+) your requested memory (in the examples
 above, 4gb) will be divided amongst all of your task threads.  Plan
@@ -6857,37 +6851,33 @@ for BLAST-ing.</p>
 <h3 id="download">Download</h3>
 <p>The simplest way to do this is to note the link of the FASTA file, and
 use either the "wget" or "curl" command.  For example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>wget<span class="w"> </span>ftp://ftp.ncbi.nih.gov/repository/UniGene/Triticum_aestivum/Ta.seq.all.gz
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>ftp://ftp.ncbi.nih.gov/repository/UniGene/Triticum_aestivum/Ta.seq.all.gz
+</code></pre></div>
 <p>or</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>ftp://ftp.ncbi.nih.gov/repository/UniGene/Triticum_aestivum/Ta.seq.all.gz
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>ftp://ftp.ncbi.nih.gov/repository/UniGene/Triticum_aestivum/Ta.seq.all.gz
+</code></pre></div>
 <p>This will download the file "Ta.seq.all.gz" into the current directory. Now unzip the file:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>gunzip<span class="w"> </span>Ta.seq.all.gz
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>gunzip<span class="w"> </span>Ta.seq.all.gz
+</code></pre></div>
 <p>This will leave a file called "Ta.seq.all" in your directory.</p>
 <h3 id="preparing-the-indices">Preparing the Indices</h3>
 <p>To prepare the BLAST indices for nucleotides:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>formatdb<span class="w"> </span>-i<span class="w"> </span>Ta.seq.all<span class="w"> </span>-p<span class="w"> </span>F
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>formatdb<span class="w"> </span>-i<span class="w"> </span>Ta.seq.all<span class="w"> </span>-p<span class="w"> </span>F
+</code></pre></div>
 <p>The command above will produce several files, such as:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Ta.seq.all.fa.nhr
+<div class="highlight"><pre><span></span><code>Ta.seq.all.fa.nhr
 Ta.seq.all.fa.nin
 Ta.seq.all.fa.nsq
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If you want to produce protein indices instead of, or in addition to
 nucleotides, run:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>formatdb<span class="w"> </span>-i<span class="w"> </span>Ta.seq.all<span class="w"> </span>-p<span class="w"> </span>T
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>formatdb<span class="w"> </span>-i<span class="w"> </span>Ta.seq.all<span class="w"> </span>-p<span class="w"> </span>T
+</code></pre></div>
 <p>In this case, this will produce the files:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Ta.seq.all.fa.phr
+<div class="highlight"><pre><span></span><code>Ta.seq.all.fa.phr
 Ta.seq.all.fa.pin
 Ta.seq.all.fa.psq
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can verify whether your BLAST formatting was successful by looking
 at the "formatdb.log" file which should now be present in your
 directory.</p>

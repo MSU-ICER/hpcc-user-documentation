@@ -6667,63 +6667,42 @@ common variants of <code>if</code> statements as well as the <code>case</code> s
 like switch statements in other languages.</p>
 <h2 id="if-fi"><code>if ... fi</code></h2>
 <p>General syntax:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>expression<span class="w"> </span><span class="o">]</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>expression<span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
 <span class="w">   </span>Statement<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>executed<span class="w"> </span><span class="k">if</span><span class="w"> </span>expression<span class="w"> </span>is<span class="w"> </span><span class="nb">true</span>
 <span class="k">fi</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Here, <code>expression</code> often takes the form of comparing strings using operators <code>==</code> or <code>!=</code> or comparing numbers using operators <code>-eq</code> (equal), <code>-ne</code> (not equal), <code>-lt</code> (less than), <code>-gt</code> (greater than), or <code>-ge</code> (greater than or equal to).</p>
 <p>However, there are other conditional expressions, many related to files (for example <code>-e test.txt</code> returns true if the file <code>test.txt</code> exists). For a full listing, see <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html">this manual page</a>.</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">test.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><span class="filename">test.sh</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">$2</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
 <span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2"> is equal to </span><span class="nv">$2</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This is the result of a sample run.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>./test.sh
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go"> is equal to</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>./test.sh
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go"> is equal to</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
 bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">12</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">12 is equal to 12</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">12 is equal to 12</span>
+</code></pre></div>
 <h2 id="if-else-fi"><code>if ... else ... fi</code></h2>
 <p>General syntax: </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>expression<span class="w"> </span><span class="o">]</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>expression<span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
 <span class="w">   </span>Statement<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>executed<span class="w"> </span><span class="k">if</span><span class="w"> </span>expression<span class="w"> </span>is<span class="w"> </span><span class="nb">true</span>
 <span class="k">else</span>
 <span class="w">   </span>Statement<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>executed<span class="w"> </span><span class="k">if</span><span class="w"> </span>expression<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span><span class="nb">true</span>
 <span class="k">fi</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">test.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><span class="filename">test.sh</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">$2</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
@@ -6731,34 +6710,23 @@ bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12<
 <span class="k">else</span>
 <span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2"> is not equal to </span><span class="nv">$2</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This is the result of a sample run.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>./test.sh
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go"> is equal to</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">1 is not equal to 2</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">12</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">12 is equal to 12</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>./test.sh
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go"> is equal to</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">1 is not equal to 2</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">12</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">12 is equal to 12</span>
+</code></pre></div>
 <h2 id="if-elif-else-fi"><code>if ... elif ... else ... fi</code></h2>
 <p>General syntax: </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>expression<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>expression<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
 <span class="w">   </span>Statement<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>executed<span class="w"> </span><span class="k">if</span><span class="w"> </span>expression<span class="w"> </span><span class="m">1</span><span class="w"> </span>is<span class="w"> </span><span class="nb">true</span>
 <span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>expression<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span>
@@ -6770,22 +6738,9 @@ bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12<
 <span class="k">else</span>
 <span class="w">   </span>Statement<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>executed<span class="w"> </span><span class="k">if</span><span class="w"> </span>no<span class="w"> </span>expression<span class="w"> </span>is<span class="w"> </span><span class="nb">true</span>
 <span class="k">fi</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">test.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><span class="filename">test.sh</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span>-eq<span class="w"> </span><span class="nv">$2</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
@@ -6799,45 +6754,32 @@ bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12<
 <span class="k">else</span>
 <span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;None of the condition met&quot;</span>
 <span class="k">fi</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This is the result of a sample run.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>./test.sh
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go"> is equal to</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">1 is less than 2</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">2</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">12 is greater than 2</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">12</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">12 is equal to 12</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>./test.sh
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go"> is equal to</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">1 is less than 2</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">12 is greater than 2</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">12</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">12 is equal to 12</span>
+</code></pre></div>
 <h2 id="case-esac"><code>case ... esac</code></h2>
 <p>General syntax:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">case</span><span class="w"> </span>word<span class="w"> </span><span class="k">in</span>
+<div class="highlight"><pre><span></span><code><span class="k">case</span><span class="w"> </span>word<span class="w"> </span><span class="k">in</span>
 <span class="w">    </span>patterns<span class="w"> </span><span class="o">)</span><span class="w"> </span>commands<span class="w"> </span><span class="p">;;</span>
 <span class="k">esac</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">test.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><span class="filename">test.sh</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;Enter a number between 1 and 3 inclusive &gt; &quot;</span><span class="w"> </span>character
 <span class="k">case</span><span class="w"> </span><span class="nv">$character</span><span class="w"> </span><span class="k">in</span>
@@ -6849,32 +6791,28 @@ bash<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">12<
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>*<span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You did not enter a number between 1 and 3.&quot;</span>
 <span class="k">esac</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This is the result of a sample run.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>test.sh
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">Enter a number between 1 and 3 inclusive &gt; 1</span>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>test.sh
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Enter a number between 1 and 3 inclusive &gt; 1</span>
 <span class="go">You entered one.</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>test.sh
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">Enter a number between 1 and 3 inclusive &gt; 2</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>test.sh
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Enter a number between 1 and 3 inclusive &gt; 2</span>
 <span class="go">You entered two.</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>test.sh
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">Enter a number between 1 and 3 inclusive &gt; 3</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>test.sh
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Enter a number between 1 and 3 inclusive &gt; 3</span>
 <span class="go">You entered three.</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>test.sh
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">Enter a number between 1 and 3 inclusive &gt; 4</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>bash<span class="w"> </span>test.sh
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Enter a number between 1 and 3 inclusive &gt; 4</span>
 <span class="go">You did not enter a number between 1 and 3.</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

@@ -6544,23 +6544,7 @@ and compute nodes. More general information can be found here:
 <a href="https://www.molpro.net/manual/doku.php?id=running_molpro_on_parallel_computers">https://www.molpro.net/manual/doku.php?id=running_molpro_on_parallel_computers</a></p>
 <p>However, on compute nodes you need to use specific commands so that Molpro will
 recognise your requested CPUs. For example, to run on 4 CPUs per node:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#Your other SBATCH options go above here</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#Your other SBATCH options go above here</span>
 <span class="c1">#SBATCH --ntasks-per-node=4</span>
 
 <span class="c1">#Load Molpro 2022.3</span>
@@ -6577,7 +6561,7 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>your_directory
 
 <span class="c1">#Run Molpro, note the --nodefile option.</span>
 molpro<span class="w"> </span>-d<span class="w"> </span>your_directory<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>--nodefile<span class="w"> </span>nodefile<span class="w"> </span>your_molpro_file
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

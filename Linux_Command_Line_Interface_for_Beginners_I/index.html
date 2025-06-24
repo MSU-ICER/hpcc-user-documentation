@@ -6725,69 +6725,62 @@ few basic commands and concept.</p>
 <p>Let's run the first command. Type <code>pwd</code> and pressing the <strong>Enter</strong> or
 <strong>Return</strong> key to run it (From now, I'll not mention pressing
 Enter/Return key to run a command).</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/mnt/home/iamsam/</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">pwd</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/mnt/home/iamsam/</span>
+</code></pre></div>
 <p>You will see a path such as <code>/mnt/home/user/your_id</code></p>
 <p><code>pwd</code> is an abbreviation of 'print working directory'. It prints out
 the shell's current working directory. You can change the working
 directory using the <code>cd</code> command, an abbreviation for 'change
 directory'.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/
 <span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/</span>
+</code></pre></div>
 <p>Now your working directory is '/' which is the root directory. There is
 nothing much you can do on the root directory, so let's go to your
 'home' directory.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>
 <span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/mnt/home/iamsam/</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/mnt/home/iamsam/</span>
+</code></pre></div>
 <p>Regardless of your location, when you just type <code>cd</code>, you will be
 home. You can also type <code>cd \~</code> instead of <code>cd</code> to be back your
 home.</p>
 <p>To go the previous directory, type <code>cd -</code></p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>-
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>-
 <span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/</span>
+</code></pre></div>
 <p>The root directory has many subdirectories including your home
 directory. Let's go to the '<strong>bin</strong>' directory.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>bin
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>bin
 <span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/bin</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/bin</span>
+</code></pre></div>
 <p>To go up to the parent directory (it is / for us now), use the special
 syntax of two dots with <code>cd</code> such as</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
 <span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/</span>
+</code></pre></div>
 <p>To go up to the previous directory, use <code>-</code> with <code>cd</code> such as</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>-
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>-
 <span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/bin</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/bin</span>
+</code></pre></div>
 <p>You can use <code>..</code> more than once if you have to move up multiple levels
 of parent directories.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>../..
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>../..
 <span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="relative-and-absolute-paths">Relative and absolute Paths</h2>
 <p>A path is an address of a directory. Most of the examples we've looked
 at so far use relative paths. So your final location is decided based on
@@ -6795,117 +6788,104 @@ your current working directory. However, sometimes you want to use an
 absolute path than a relative one. Your home's absolute path at HPC is
 <code>/mnt/home/your_id</code>. See the example to find how to use a relative and
 absolute path.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/
 <span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>-
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>-
 <span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/mnt/home/iamsam</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/mnt/home/iamsam</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/
 <span class="nb">cd</span><span class="w"> </span>/mnt/home/iamsam
 <span class="nb">pwd</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/mnt/home/iamsam</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/mnt/home/iamsam</span>
+</code></pre></div>
 <h2 id="creating-and-removing-directories">Creating and removing directories</h2>
 <p>To make a directory, use <code>mkdir</code> (short for 'make directory') such as</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>temp01
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>mkdir<span class="w"> </span>temp01
 ls
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">temp01</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">temp01</span>
+</code></pre></div>
 <p><code>ls</code> is a command to list files and folder. We will learn it in a
 minute. You can create multiple directories as well.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>temp02<span class="w"> </span>temp03<span class="w"> </span>temp04
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>mkdir<span class="w"> </span>temp02<span class="w"> </span>temp03<span class="w"> </span>temp04
 ls
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">temp01 temp02 temp03 temp04</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">temp01 temp02 temp03 temp04</span>
+</code></pre></div>
 <p>To make a subdirectory, use with <code>-p</code> option such as</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>temp04/temp05/temp06
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>temp04/temp05/temp06
 ls<span class="w"> </span>temp04
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">temp05</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">temp05</span>
+</code></pre></div>
 <p>To remove directory use <code>rm</code> command with <code>-r</code>. Without <code>-r</code> option,
 rm will not delete directories (but you can delete files). <code>-r</code> means
 recursive.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rm<span class="w"> </span>temp04
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">rm: cannot remove &#39;temp04&#39;: Is a directory</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rm<span class="w"> </span>-r<span class="w"> </span>temp04
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>rm<span class="w"> </span>temp04
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">rm: cannot remove &#39;temp04&#39;: Is a directory</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>rm<span class="w"> </span>-r<span class="w"> </span>temp04
+</code></pre></div>
 <h2 id="creating-and-removing-files">Creating and removing files</h2>
 <p>You can use editors to create files, but it is out of scope of this
 tutorial. Let's use <code>ls</code> and a pipe <code>&gt;</code> (we will explain pipes
 later).</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">temp01 temp02 temp03</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>&gt;<span class="w"> </span>list.txt
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>ls
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">temp01 temp02 temp03</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>ls<span class="w"> </span>&gt;<span class="w"> </span>list.txt
 ls
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">list.txt temp01 temp02 temp03</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">list.txt temp01 temp02 temp03</span>
+</code></pre></div>
 <p>Now we have three directories (<code>temp01</code>, <code>temp02</code>, <code>temp03</code>) and one file
 (<code>list.txt</code>). We already know how to delete directories. To delete files,
 we use command <code>rm</code> such as</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>rm<span class="w"> </span>list.txt
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>rm<span class="w"> </span>list.txt
 ls
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">temp01 temp02 temp03</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">temp01 temp02 temp03</span>
+</code></pre></div>
 <h2 id="copying-and-renaming-directories-and-files">Copying and renaming directories and files</h2>
 <p>To copy files or directories, use <code>cp</code> such as</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>list.txt<span class="w"> </span>list2.txt
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>cp<span class="w"> </span>list.txt<span class="w"> </span>list2.txt
 ls
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">list.txt list2.txt temp01 temp02 temp03</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">list.txt list2.txt temp01 temp02 temp03</span>
+</code></pre></div>
 <p>With the <code>-r</code> option, you can copy files and directories recursively, i.e.,
 copy subdirectories and files.</p>
 <p>The <code>mv</code> command moves files/directories or renames them.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mv<span class="w"> </span>list2.txt<span class="w"> </span>temp01
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>mv<span class="w"> </span>list2.txt<span class="w"> </span>temp01
 ls
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">list.txt temp01 temp02 temp03</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>temp01
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">list2.txt</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>temp01
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">list.txt temp01 temp02 temp03</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>ls<span class="w"> </span>temp01
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">list2.txt</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>temp01
 mv<span class="w"> </span>list2.txt<span class="w"> </span>list3.txt
 ls
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">list3.txt</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">list3.txt</span>
+</code></pre></div>
 <h2 id="listing-directories-and-files">Listing directories and files</h2>
 <p>We already used <strong>ls</strong>. To list directories and files, us <strong>ls</strong> (short
 for 'list'). </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">temp01 temp02 temp03</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>ls
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">temp01 temp02 temp03</span>
+</code></pre></div>
 <p>There are many options for <code>ls</code>. Most frequently used options are</p>
 <ul>
 <li><code>-a</code>: list all files and directories including hidden contents</li>
@@ -6915,38 +6895,26 @@ for 'list'). </p>
 </ul>
 <p>You can use options separately like <code>ls -l -a -t</code> or together like
 <code>ls -lat</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>-a<span class="w"> </span>-t
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">total 8</span>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>-a<span class="w"> </span>-t
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">total 8</span>
 <span class="go">-rw-r--r--    1 iamsam  staff    30 Mar 23 15:37 list.txt</span>
 <span class="go">drwxr-xr-x    6 iamsam  staff   192 Mar 23 15:37 .</span>
 <span class="go">drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp03</span>
 <span class="go">drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp02</span>
 <span class="go">drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp01</span>
 <span class="go">drwxr-xr-x+ 113 iamsam  staff  3616 Mar 23 15:21 ..</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-lat
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">total 8</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>ls<span class="w"> </span>-lat
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">total 8</span>
 <span class="go">-rw-r--r--    1 iamsam  staff    30 Mar 23 15:37 list.txt</span>
 <span class="go">drwxr-xr-x    6 iamsam  staff   192 Mar 23 15:37 .</span>
 <span class="go">drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp03</span>
 <span class="go">drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp02</span>
 <span class="go">drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp01</span>
 <span class="go">drwxr-xr-x+ 113 iamsam  staff  3616 Mar 23 15:21 ..</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="exercises">Exercises</h2>
 <p>Now let's do some exercises. </p>
 <ul>
@@ -6964,15 +6932,7 @@ for 'list'). </p>
 </ul>
 <details class="question">
 <summary><strong>This is an answer (not including the login process).</strong></summary>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>linux_tutorial
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>mkdir<span class="w"> </span>linux_tutorial
 cp<span class="w"> </span>-r<span class="w"> </span>/mnt/research/common-data/workshops/intro2Linux_iamsam<span class="w"> </span>linux_tutorial
 <span class="nb">cd</span><span class="w"> </span>linux_tutorial
 ls<span class="w"> </span>-a
@@ -6981,7 +6941,7 @@ ls<span class="w"> </span>not_hidden
 mkdir<span class="w"> </span>new_dir
 cp<span class="w"> </span>not_hidden/youfoundit.txt<span class="w"> </span>new_dir
 rm<span class="w"> </span>-r<span class="w"> </span>garbage
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </details>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

@@ -6692,16 +6692,12 @@ See <a href="../development_nodes/">here</a> for dev-node usage and policy.</p>
 <p>An X Windows System allows graphical user interfaces (GUIs) to be shared over <abbr title="Secure Shell">SSH</abbr>. X Windows Systems can be part of any operating system - Windows, Mac, or Linux. You may also hear references to "X11" when people are talking about X Windows Systems, as this is the most common protocol used to implement an X Windows System.</p>
 <p>If your local computer has an X Windows client installed (such as Xquatz or MobaXterm) and you log into the nodes with the <code>-X</code> option, you can test if <abbr title="Graphic User Interface">GUI</abbr> will work by running <code>xeyes</code> on the command line. If everything is set correctly, you should see a pop-up window containing a pair of eyes.</p>
 <p>If you see an error about X11 forwarding when logging into the gateway (e.g. "Warning: untrusted X11 forwarding setup failed: xauth key data not generated"), please check your local machine's "config" file (<code>$HOME/.ssh/config</code>) setting. It should look like</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">$HOME/.ssh/config</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Host<span class="w"> </span>*
+<div class="highlight"><span class="filename">$HOME/.ssh/config</span><pre><span></span><code>Host<span class="w"> </span>*
 ForwardAgent<span class="w"> </span>yes
 ForwardX11<span class="w"> </span>yes
 ForwardX11Trusted<span class="w"> </span>yes
 XAuthLocation<span class="w"> </span>/opt/X11/bin/xauth
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

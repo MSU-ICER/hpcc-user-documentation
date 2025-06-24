@@ -6562,47 +6562,21 @@ them separately, we can create an array job in a script and submit it once for a
 <p><strong>hello.py</strong></p>
 </li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>    #!/usr/bin/env python
+<div class="highlight"><pre><span></span><code>    #!/usr/bin/env python
 
     # import sys library (needed for accepted command line args)
     import sys
 
     # example of &quot;hello world!&quot; in Python
     print(&#39;Hello World! This is the task number&#39;, sys.argv[1])
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <ul>
 <li>
 <p>Creat a job array script file "hello.sb" as show below.</p>
 <p><strong>hello.sb</strong>  </p>
 </li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>    #!/bin/bash
+<div class="highlight"><pre><span></span><code>    #!/bin/bash
 
     # Example of running python script in a batch mode
 
@@ -6623,19 +6597,18 @@ them separately, we can create an array job in a script and submit it once for a
 
     # Run array of python script
     python hello.py $SLURM_ARRAY_TASK_ID
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <ul>
 <li>Submit the job array as shown in following line: </li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>    sbatch hello.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>    sbatch hello.sb
+</code></pre></div>
 <p>Now you can see there are 10 jobs submitted into your job queue. </p>
 <p>This example was modified from the example at: <a href="https://rcpedia.stanford.edu/topicGuides/jobArrayPythonExample.html">https://rcpedia.stanford.edu/topicGuides/jobArrayPythonExample.html</a></p>
 <p>User can also download job array examples from our collection of examples by running following commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>    module load powertools
+<div class="highlight"><pre><span></span><code>    module load powertools
     getexample basic_array_job
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>A directory named "basic_array_job" containing two simple examples of job array will be downloaded to user's current directory.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

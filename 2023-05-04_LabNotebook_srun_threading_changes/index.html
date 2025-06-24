@@ -6583,15 +6583,7 @@
 </div>
 <p>ICER has recently updated the HPCC's <a href="../SLURM_overview/">SLURM scheduling system</a> to version 23.02. With this update comes a change to the behavior of <code>srun</code> that affects jobs using multiple cores per task.</p>
 <p>Take the following SLURM job script as an example. Here we request 5 tasks (or processes) where each tasks is being executed by 2 CPUs, for a total of 10 CPUs:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash/ --login</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash/ --login</span>
 
 <span class="c1">#SBATCH --time=4:00:00</span>
 <span class="c1">#SBATCH --nodes=1</span>
@@ -6600,7 +6592,7 @@
 <span class="c1">#SBATCH --mem-per-cpu=2G </span>
 
 srun<span class="w"> </span>my_job.exe<span class="w"> </span>--arg1<span class="w"> </span>foo<span class="w"> </span>--arg2<span class="w"> </span>bar
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <h2 id="how-srun-used-to-work">How <code>srun</code> used to work</h2>
 <p>Historically, <code>srun</code> would run <code>my_job.exe</code> with 5 tasks and 2 CPUs per task by default. No additional command line arguments need to be specified for <code>srun</code> to execute in this way.</p>
 <p>This is because SLURM sets a number of environment variables for a job which describe the resources requested. Specifically,</p>
@@ -6612,56 +6604,49 @@ srun<span class="w"> </span>my_job.exe<span class="w"> </span>--arg1<span class=
 <h2 id="how-srun-works-now">How <code>srun</code> works now</h2>
 <p>As of version 22.05, <code>srun</code> no longer reads the variable <code>SLURM_CPUS_PER_TASK</code>.</p>
 <p>Instead, you must now re-specify the CPUs per task when calling <code>srun</code>. The final line of our example batch script should be replaced with:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>srun --cpus-per-task=2 my_job.exe --arg foo
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>srun --cpus-per-task=2 my_job.exe --arg foo
+</code></pre></div>
 or
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>srun -c 2 my_job.exe --arg foo
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>srun -c 2 my_job.exe --arg foo
+</code></pre></div></p>
 <p>The environment variable <code>SLURM_CPUS_PER_TASK</code> is still available to the user,
 so it is also possible to execute <code>srun</code> by passing the value of this variable to the
 <code>--cpus-per-task</code>/<code>-c</code> option:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>srun -c $SLURM_CPUS_PER_TASK my_job.exe --arg foo
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>srun -c $SLURM_CPUS_PER_TASK my_job.exe --arg foo
+</code></pre></div>
 The advantage of this approach is that users only need to adjust the number of CPUs per task at the <em>top</em> of their
 batch scripts.</p>
 <p><strong>Alternatively</strong>, you can set the new <code>SRUN_CPUS_PER_TASK</code> environment variable:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>export SRUN_CPUS_PER_TASK=2
+<div class="highlight"><pre><span></span><code>export SRUN_CPUS_PER_TASK=2
 srun my_job.exe --arg foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 or
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
+<div class="highlight"><pre><span></span><code>export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
 srun my_job.exe --arg foo
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you are using <abbr title="Open Multi-Processing">OpenMP</abbr>, setting OMP_NUM_THREADS will override both the <code>-c</code> option and <code>SRUN_CPUS_PER_TASK</code>.</p>
 </div>
 <h2 id="try-it-for-yourself">Try it for yourself</h2>
 <p>You can test the behavior of <code>srun</code> with a hybrid <abbr title="Message Passing Interface">MPI</abbr>/<abbr title="Open Multi-Processing">OpenMP</abbr> example available through <code>getexample</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>getexample<span class="w"> </span>MPI_OpenMP_GPU
+<div class="highlight"><pre><span></span><code>getexample<span class="w"> </span>MPI_OpenMP_GPU
 
 <span class="nb">cd</span><span class="w"> </span>MPI_OpenMP_GPU
 make
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Then, request a 30 minute interactive job with 5 tasks and 2 CPUs per task:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>salloc<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span><span class="m">00</span>:30:00
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>salloc<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span><span class="m">00</span>:30:00
+</code></pre></div></p>
 <p>Once your interactive job starts, try running:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>srun<span class="w"> </span>hybrid
+<div class="highlight"><pre><span></span><code>srun<span class="w"> </span>hybrid
 srun<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>hybrid
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>You should see that <code>srun hybrid</code>, without any additional arguments, allocated 10 CPUs to each of the 5 processes. On the other hand, <code>srun -c hybrid</code> has the expected behavior of 2 CPUs for each of the 5 processes.</p>
 <p>Now, set the <code>SRUN_CPUS_PER_TASK</code> variable:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SRUN_CPUS_PER_TASK</span><span class="o">=</span><span class="m">2</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SRUN_CPUS_PER_TASK</span><span class="o">=</span><span class="m">2</span>
 srun<span class="w"> </span>hybrid
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>You'll see the same behavior as <code>srun -c hybrid</code>.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

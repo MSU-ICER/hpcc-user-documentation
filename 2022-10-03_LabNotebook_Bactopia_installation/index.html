@@ -6567,21 +6567,20 @@ information and other details.</p>
 <h1 id="installing-bactopia-on-the-hpcc-2022-10-03">Installing Bactopia on the HPCC (2022-10-03)</h1>
 <p>Bactopia is a bacteria genome analysis tool. It can be found at <a href="https://bactopia.github.io/v2.1.1/">https://bactopia.github.io/v2.1.1/</a> and has extensive documentation. However, if you follow the instructions for installation on the MSU HPCC you may run into issues with solving the Python environment with Conda.</p>
 <h2 id="installation-steps">Installation steps:</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module load Conda/3
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module load Conda/3
+</code></pre></div>
 <p>Download miniconda <a href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
 <p>Activate the miniconda environment</p>
 <p>Install mamba</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda install -c conda-forge -c bioconda mamba
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>conda install -c conda-forge -c bioconda mamba
+</code></pre></div>
 <p>Update mamba: </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda install -c conda-forge &#39;mamba&gt;=0.24.*&#39;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>conda install -c conda-forge &#39;mamba&gt;=0.24.*&#39;
+</code></pre></div>
 <p>Downloaded and activate bactopia: </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mamba create -n bactopia -c conda-forge -c bioconda bactopia
+<div class="highlight"><pre><span></span><code>mamba create -n bactopia -c conda-forge -c bioconda bactopia
 conda activate bactopia
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>For further information, see this github issue: <a href="https://github.com/bactopia/bactopia/issues/355">https://github.com/bactopia/bactopia/issues/355</a></p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

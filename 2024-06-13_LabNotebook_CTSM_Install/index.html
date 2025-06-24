@@ -6628,24 +6628,21 @@ information and other details.</p>
 <p>Load <code>git</code> and <code>Subversion</code>.</p>
 </li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>Subversion
 module<span class="w"> </span>load<span class="w"> </span>git
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <ol>
 <li>Clone the latest CESM release (2.2.2 as of this notebook) into your working directory.</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>release-cesm2.2.2<span class="w"> </span>https://github.com/ESCOMP/cesm.git<span class="w"> </span>cesm-2.2.2
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>release-cesm2.2.2<span class="w"> </span>https://github.com/ESCOMP/cesm.git<span class="w"> </span>cesm-2.2.2
+</code></pre></div>
 <ol>
 <li>Download the external packages for CESM (this will take time).</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>cesm-2.2.2
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>cesm-2.2.2
 ./manage_externals/checkout_externals
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <ol>
 <li>
 <p>Connect to a development node (this is because CTSM uses Python to handle its dependencies, and the Subversion module does not have a new enough matching Python module.)</p>
@@ -6654,31 +6651,27 @@ module<span class="w"> </span>load<span class="w"> </span>git
 <p>Clone CTSM.</p>
 </li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ESCOMP/CTSM.git
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <ol>
 <li>Download the external packages for CTSM.</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>CTSM
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>CTSM
 ./bin/git-fleximod<span class="w"> </span>update
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <ol>
 <li>Load the required modules for building CTSM.</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>ESMF/8.6.0-foss-2023a
 module<span class="w"> </span>load<span class="w"> </span>CMake<span class="w"> </span>Python<span class="w"> </span>lxml<span class="w"> </span>Perl<span class="w"> </span>XML-LibXML<span class="w"> </span>PnetCDF<span class="w"> </span>git<span class="w"> </span>git-lfs
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <ol>
 <li>Try building CTSM.</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./lilac/build_ctsm<span class="w"> </span>../ctsm_build<span class="w"> </span>--os<span class="w"> </span>linux<span class="w"> </span>--compiler<span class="w"> </span>gnu<span class="w"> </span>--netcdf-path<span class="w"> </span><span class="nv">$EBROOTNETCDF</span><span class="w"> </span>--esmf-mkfile-path<span class="w"> </span><span class="nv">$EBROOTESMF</span>/lib/esmf.mk<span class="w"> </span>--max-mpitasks-per-node<span class="w"> </span><span class="m">20</span><span class="w"> </span>--pnetcdf-path<span class="w"> </span><span class="nv">$EBROOTPNETCDF</span><span class="w"> </span>--pio-filesystem-hints<span class="w"> </span>gpfs
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>./lilac/build_ctsm<span class="w"> </span>../ctsm_build<span class="w"> </span>--os<span class="w"> </span>linux<span class="w"> </span>--compiler<span class="w"> </span>gnu<span class="w"> </span>--netcdf-path<span class="w"> </span><span class="nv">$EBROOTNETCDF</span><span class="w"> </span>--esmf-mkfile-path<span class="w"> </span><span class="nv">$EBROOTESMF</span>/lib/esmf.mk<span class="w"> </span>--max-mpitasks-per-node<span class="w"> </span><span class="m">20</span><span class="w"> </span>--pnetcdf-path<span class="w"> </span><span class="nv">$EBROOTPNETCDF</span><span class="w"> </span>--pio-filesystem-hints<span class="w"> </span>gpfs
+</code></pre></div>
 <h2 id="configuration">Configuration</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -6687,128 +6680,7 @@ module<span class="w"> </span>load<span class="w"> </span>CMake<span class="w"> 
 <p>CESM and CTSM use "machine files" to understand the environment they are running in. You will need to set up a <code>config_machines.xml</code> file containing the appropriate settings for ICER.</p>
 <p>These files should be in this directory for a user $USER <code>/mnt/home/$USER/.cime</code></p>
 <h3 id="config_machinesxml">config_machines.xml</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
-<span class="normal">  2</span>
-<span class="normal">  3</span>
-<span class="normal">  4</span>
-<span class="normal">  5</span>
-<span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 
 <span class="cm">&lt;!-- This is a partial cime machine port which should be able to get</span>
 <span class="cm">          through the case.build step. Trying to get further than that will</span>
@@ -6930,47 +6802,16 @@ module<span class="w"> </span>load<span class="w"> </span>CMake<span class="w"> 
 
 <span class="w">  </span><span class="nt">&lt;/machine&gt;</span>
 <span class="nt">&lt;/config_machines&gt;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="config_compilerxml">config_compiler.xml</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 
 <span class="nt">&lt;compiler</span><span class="w"> </span><span class="na">COMPILER=</span><span class="s">&quot;gnu&quot;</span><span class="w"> </span><span class="na">MACH=</span><span class="s">&quot;dev-amd20&quot;</span><span class="nt">&gt;</span>
 
 <span class="nt">&lt;/compiler&gt;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="config_batchxml">config_batch.xml</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 
 <span class="w"> </span><span class="nt">&lt;batch_system</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;slurm&quot;</span><span class="w"> </span><span class="na">MACH=</span><span class="s">&quot;dev-amd20&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;batch_query</span><span class="w"> </span><span class="na">per_job_arg=</span><span class="s">&quot;-j&quot;</span><span class="nt">&gt;</span>squeue<span class="nt">&lt;/batch_query&gt;</span>
@@ -6998,7 +6839,7 @@ module<span class="w"> </span>load<span class="w"> </span>CMake<span class="w"> 
 <span class="w">      </span><span class="nt">&lt;queue</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/queue&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/queues&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/batch_system&gt;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

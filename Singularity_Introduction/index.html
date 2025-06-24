@@ -6836,55 +6836,18 @@ from the command line.</p>
 <h2 id="check-installation">Check installation</h2>
 <p>If you would like to check your installation of Singularity on your local
 machine or the installation on the HPCC, you can run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>shub://vsoch/hello-world
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>shub://vsoch/hello-world
 INFO:<span class="w">    </span>Downloading<span class="w"> </span>shub<span class="w"> </span>image
 <span class="m">59</span>.75<span class="w"> </span>MiB<span class="w"> </span>/<span class="w"> </span><span class="m">59</span>.75<span class="w"> </span>MiB<span class="w">      </span><span class="o">[========================================================================================]</span><span class="w"> </span><span class="m">100</span>.00%<span class="w"> </span><span class="m">10</span>.46<span class="w"> </span>MiB/s<span class="w"> </span>5s
 
 $<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>hello-world_latest.sif
 RaawwWWWWWRRRR!!<span class="w"> </span>Avocado!
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>In the above example, we used the Singularity Hub "unique resource identifier,"
 or URI, "shub://" which tells the software to run an image from Singularity
 Hub. To get help, you can use the <code>--help</code> flag which gives a general overview
 of Singularity options and subcommands as follows:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>--help
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>--help
 
 Linux<span class="w"> </span>container<span class="w"> </span>platform<span class="w"> </span>optimized<span class="w"> </span><span class="k">for</span><span class="w"> </span>High<span class="w"> </span>Performance<span class="w"> </span>Computing<span class="w"> </span><span class="o">(</span>HPC<span class="o">)</span><span class="w"> </span>and
 Enterprise<span class="w"> </span>Performance<span class="w"> </span>Computing<span class="w"> </span><span class="o">(</span>EPC<span class="o">)</span>
@@ -6917,46 +6880,10 @@ Available<span class="w"> </span>Commands:
 <span class="w">  </span>completion<span class="w">  </span>Generate<span class="w"> </span>the<span class="w"> </span>autocompletion<span class="w"> </span>script<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>specified<span class="w"> </span>shell
 <span class="w">  </span>config<span class="w">      </span>Manage<span class="w"> </span>various<span class="w"> </span>singularity<span class="w"> </span>configuration<span class="w"> </span><span class="o">(</span>root<span class="w"> </span>user<span class="w"> </span>only<span class="o">)</span>
 ...
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can use the <code>help</code> command if you want to see the information about
 subcommands. For example, to see the <code>pull</code> command help,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span><span class="nb">help</span><span class="w"> </span>pull
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span><span class="nb">help</span><span class="w"> </span>pull
 
 Pull<span class="w"> </span>an<span class="w"> </span>image<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>URI
 
@@ -6993,7 +6920,7 @@ Description:
 <span class="w">  </span>Images<span class="w"> </span>pulled<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>shub/oras/http/https<span class="w"> </span>URI<span class="w"> </span>are<span class="w"> </span>always<span class="w"> </span>directly<span class="w"> </span>downloaded,
 <span class="w">  </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>same<span class="w"> </span>format<span class="w"> </span>as<span class="w"> </span>they<span class="w"> </span>were<span class="w"> </span>uploaded.
 ...
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="downloading-pre-built-images">Downloading pre-built images</h2>
 <p>We already downloaded a pre-built image "hello-world" from shub, one of the
  registries, using pull command. This is the easiest way to use Singularity.</p>
@@ -7007,19 +6934,15 @@ Hub. The following are some of container registries.</p>
 </ul>
 <h3 id="pulling-an-images-from-sylabs-cloud-library">Pulling an images from Sylabs cloud library</h3>
 <p>In this example, I will pull a base Alpine container from Sylabs cloud:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>library://alpine
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>library://alpine
 INFO:<span class="w">    </span>Downloading<span class="w"> </span>library<span class="w"> </span>image
 <span class="w"> </span><span class="m">2</span>.08<span class="w"> </span>MiB<span class="w"> </span>/<span class="w"> </span><span class="m">2</span>.08<span class="w"> </span>MiB<span class="w"> </span><span class="o">[===========================================================================================]</span><span class="w"> </span><span class="m">100</span>.00%<span class="w"> </span><span class="m">4</span>.74<span class="w"> </span>MiB/s<span class="w"> </span>0s
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can rename the container using the <code>--name</code> flag:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>--name<span class="w"> </span>my_alpine.sif<span class="w"> </span>library://alpine
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>--name<span class="w"> </span>my_alpine.sif<span class="w"> </span>library://alpine
 INFO:<span class="w">    </span>Downloading<span class="w"> </span>library<span class="w"> </span>image
 <span class="w"> </span><span class="m">2</span>.08<span class="w"> </span>MiB<span class="w"> </span>/<span class="w"> </span><span class="m">2</span>.08<span class="w"> </span>MiB<span class="w"> </span><span class="o">[===========================================================================================]</span><span class="w"> </span><span class="m">100</span>.00%<span class="w"> </span><span class="m">9</span>.65<span class="w"> </span>MiB/s<span class="w"> </span>0s
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The above example will save the image in the current directory as <code>my_alpine.sif</code></p>
 <h3 id="pulling-an-image-from-docker-hub">Pulling an image from Docker hub</h3>
 <p>Many programs are available as Docker containers pre-built, and many of those
@@ -7028,17 +6951,7 @@ using Docker containers with Singularity, see our section on <a href="../Singula
 Docker to
 Singularity</a>.</p>
 <p>Here is a quick example of pulling an Alpine Docker container for use with Singularity.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>docker://alpine
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>docker://alpine
 INFO:<span class="w">    </span>Converting<span class="w"> </span>OCI<span class="w"> </span>blobs<span class="w"> </span>to<span class="w"> </span>SIF<span class="w"> </span>format
 INFO:<span class="w">    </span>Starting<span class="w"> </span>build...
 Getting<span class="w"> </span>image<span class="w"> </span><span class="nb">source</span><span class="w"> </span>signatures
@@ -7049,26 +6962,24 @@ Storing<span class="w"> </span>signatures
 <span class="m">2020</span>/08/20<span class="w"> </span><span class="m">15</span>:53:52<span class="w">  </span>info<span class="w"> </span>unpack<span class="w"> </span>layer:<span class="w"> </span>sha256:df20fa9351a15782c64e6dddb2d4a6f50bf6d3688060a34c4014b0d9a752eb4c
 INFO:<span class="w">    </span>Creating<span class="w"> </span>SIF<span class="w"> </span>file...
 INFO:<span class="w">    </span>Build<span class="w"> </span>complete:<span class="w"> </span>alpine_latest.sif
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="interacting-with-images">Interacting with images</h2>
 <p>You can interact with images via the <code>shell</code>, <code>exec</code>, and <code>run</code> commands. To
 learn how to interact with images, let's first pull an image
 <code>lolcow_latest.sif</code> from the library.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>pull<span class="w"> </span>library://lolcow
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>pull<span class="w"> </span>library://lolcow
+</code></pre></div>
 <h3 id="shell"><code>shell</code></h3>
 <p>The <code>shell</code> command allows you to spawn a new shell within your container and
 interact with it as if it is a virtual machine.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>lolcow_latest.sif
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>lolcow_latest.sif
 Singularity&gt;<span class="w">    </span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The change in prompt indicates that you have entered the container. Once inside
 of a container, you are the same user as you are on the host system.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Singularity&gt;<span class="w"> </span>whoami
+<div class="highlight"><pre><span></span><code>Singularity&gt;<span class="w"> </span>whoami
 choiyj
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You will also have access to a few directories that you can access outside the
 container, most notably, the directory you ran the container from and your home
 directory. Try running <code>pwd</code> and <code>ls ~</code> inside the container to verify this.</p>
@@ -7077,23 +6988,14 @@ with the container. This is a significant difference from Docker, where the
 default is to close off the files in the container and you need to <a href="../Docker/#sharing-data">use "bind
 mounts" to manually connect file spaces</a>.</p>
 <p>To exit from a container, type <code>exit</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Singularity&gt;<span class="w"> </span><span class="nb">exit</span>
+<div class="highlight"><pre><span></span><code>Singularity&gt;<span class="w"> </span><span class="nb">exit</span>
 $<span class="w"> </span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="exec"><code>exec</code></h3>
 <p>The <code>exec</code> command allows you to execute a custom command within a container by
 specifying the image file. For instance, to execute the <code>cowsay</code> program within
 the <code>lolcow_latest.sif</code> container:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>lolcow_latest.sif<span class="w"> </span>cowsay<span class="w"> </span>container<span class="w"> </span>camp<span class="w"> </span>rocks
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>lolcow_latest.sif<span class="w"> </span>cowsay<span class="w"> </span>container<span class="w"> </span>camp<span class="w"> </span>rocks
 ______________________
 &lt;<span class="w"> </span>container<span class="w"> </span>camp<span class="w"> </span>rocks<span class="w"> </span>&gt;
 <span class="w"> </span>----------------------
@@ -7102,18 +7004,9 @@ ______________________
 <span class="w">            </span><span class="o">(</span>__<span class="o">)</span><span class="se">\ </span><span class="w">      </span><span class="o">)</span><span class="se">\/\</span>
 <span class="w">                </span><span class="o">||</span>----w<span class="w"> </span><span class="p">|</span>
 <span class="w">                </span><span class="o">||</span><span class="w">     </span><span class="o">||</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can also use <code>shell</code> command to run the program in the container.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>lolcow_latest.sif
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>lolcow_latest.sif
 Singularity&gt;<span class="w"> </span>cowsay<span class="w"> </span>container<span class="w"> </span>camp<span class="w"> </span>rocks
 <span class="w"> </span>______________________
 &lt;<span class="w"> </span>container<span class="w"> </span>camp<span class="w"> </span>rocks<span class="w"> </span>&gt;
@@ -7123,22 +7016,13 @@ Singularity&gt;<span class="w"> </span>cowsay<span class="w"> </span>container<s
 <span class="w">            </span><span class="o">(</span>__<span class="o">)</span><span class="se">\ </span><span class="w">      </span><span class="o">)</span><span class="se">\/\</span>
 <span class="w">                </span><span class="o">||</span>----w<span class="w"> </span><span class="p">|</span>
 <span class="w">                </span><span class="o">||</span><span class="w">     </span><span class="o">||</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="run"><code>run</code></h3>
 <p>Singularity containers contain runscripts. These are predefined scripts which
 define the actions of a container when user runs it. The runscript can be
 performed with the <code>run</code> command, or simply by calling the container as though
 it were an executable.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>lolcow_latest.sif
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>lolcow_latest.sif
 <span class="w"> </span>_________________________________________
 /<span class="w"> </span>You<span class="err">&#39;</span>re<span class="w"> </span>ugly<span class="w"> </span>and<span class="w"> </span>your<span class="w"> </span>mother<span class="w"> </span>dresses<span class="w"> </span>you<span class="w"> </span><span class="se">\</span>
 <span class="se">\ </span>funny.<span class="w">                                  </span>/
@@ -7148,7 +7032,7 @@ it were an executable.</p>
 <span class="w">            </span><span class="o">(</span>__<span class="o">)</span><span class="se">\ </span><span class="w">      </span><span class="o">)</span><span class="se">\/\</span>
 <span class="w">                </span><span class="o">||</span>----w<span class="w"> </span><span class="p">|</span>
 <span class="w">                </span><span class="o">||</span><span class="w">     </span><span class="o">||</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="submitting-a-singularity-job">Submitting a Singularity job</h2>
 <p>In general, running Singularity commands is the same as running any kind of
 program when you <a href="../Job_Script_and_Job_Submission/">prepare your SLURM

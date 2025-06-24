@@ -6569,45 +6569,7 @@ information and other details.</p>
 <p>Small analyses can be done through their webportal (see <a href="https://docs.antismash.secondarymetabolites.org/website_submission/">https://docs.antismash.secondarymetabolites.org/website_submission/</a>), however if your analysis requires running AntiSMASH on the HPCC, please see the instruction below for how to install this program locally using Conda</p>
 <p>If you have not installed Conda in you home directory, see <a href="https://docs.icer.msu.edu/Using_conda/">https://docs.icer.msu.edu/Using_conda/</a></p>
 <p><strong>Installing AnitSMASH</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code># Clear modules and load Conda
+<div class="highlight"><pre><span></span><code># Clear modules and load Conda
 module purge
 module load Conda/3
 
@@ -6646,22 +6608,16 @@ antismash --help
 
 # Download databases
 download-antismash-databases
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Once you have completed the above steps, to run AntiSMASH in the future, do:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 module load Conda/3
 
 conda activate antismash
 
 # check
 antismash --help
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

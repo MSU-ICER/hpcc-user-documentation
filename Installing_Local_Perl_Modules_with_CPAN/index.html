@@ -6631,15 +6631,7 @@ permissions.  This tutorial will demonstrate how to install Perl modules
 to a local user space using CPAN.</p>
 <h2 id="procedure">Procedure</h2>
 <p>First start the CPAN shell:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>cpan
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cpan
 
 Terminal<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>support<span class="w"> </span>AddHistory.
 
@@ -6648,29 +6640,11 @@ cpan<span class="w"> </span>shell<span class="w"> </span>--<span class="w"> </sp
 Enter<span class="w"> </span><span class="s1">&#39;h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.
 
 cpan<span class="o">[</span><span class="m">1</span><span class="o">]</span>&gt;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Next determine where you want to install your local Perl modules. Let's
 assume we are going to place them in: /mnt/home/myUid/perlmods</p>
 <p>Now from within the CPAN shell, enter the following three (3) commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">cpan</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="n">conf</span><span class="w"> </span><span class="n">mbuildpl_arg</span><span class="w"> </span><span class="s">&quot;--install_base /mnt/home/myUid/perlmods&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">cpan</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="n">conf</span><span class="w"> </span><span class="n">mbuildpl_arg</span><span class="w"> </span><span class="s">&quot;--install_base /mnt/home/myUid/perlmods&quot;</span>
 
 <span class="w">     </span><span class="n">mbuildpl_arg</span><span class="w">       </span><span class="p">[</span><span class="o">--</span><span class="n">install_base</span><span class="w"> </span><span class="sr">/mnt/</span><span class="n">home</span><span class="sr">/myUid/</span><span class="n">perlmods</span><span class="p">]</span>
 
@@ -6689,26 +6663,26 @@ assume we are going to place them in: /mnt/home/myUid/perlmods</p>
 <span class="w">    </span><span class="n">prefs_dir</span><span class="w">          </span><span class="p">[</span><span class="sr">/mnt/</span><span class="n">home</span><span class="sr">/myUid/</span><span class="o">.</span><span class="n">cpan</span><span class="o">/</span><span class="n">prefs</span><span class="p">]</span>
 
 <span class="w">  </span><span class="n">Please</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="s">&#39;o conf commit&#39;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">permanent</span><span class="o">!</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If you want to make the settings above permanent, enter "o conf commit".
  Otherwise, bear in-mind you will need to reset this value every time
 you restart CPAN. If you do make the setting permanent, you can always
 change it later and re-commit as shown above.</p>
 <p>Now to install a module (lets assume we want to build "Math::GMP")
 simply enter:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">cpan</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="nn">Math::</span><span class="n">GMP</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="n">cpan</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="nn">Math::</span><span class="n">GMP</span>
+</code></pre></div>
 <p>Respond to any prompts for information that might be requested. When you
 are finished, enter:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">cpan</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">quit</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="n">cpan</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">quit</span>
+</code></pre></div>
 <h2 id="setting-the-perl5lib-path">Setting the PERL5LIB Path</h2>
 <p>Now that you've successfully installed a local Perl module, you will
 need to tell Perl where to find them.  This can be easily accomplished
 by setting the environmental path variable "<strong><em>PERL5LIB</em></strong>". For
 example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PERL5LIB</span><span class="o">=</span>/mnt/home/myUid/perlmods:<span class="nv">$PERL5LIB</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PERL5LIB</span><span class="o">=</span>/mnt/home/myUid/perlmods:<span class="nv">$PERL5LIB</span>
+</code></pre></div>
 <p>You can add this export to your .bashrc file if you'd like to ensure it
 is always loaded upon login. In addition, for any scripts that you write
 that utilize these local Perl modules that you run on the HPCC cluster,

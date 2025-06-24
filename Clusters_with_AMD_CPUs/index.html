@@ -6691,8 +6691,8 @@ during testing is to use <abbr title="Open Multi-Processing">OpenMP</abbr> withi
 everything else. When using newer versions of OpenMPI, you can use the
 following argument with <code>OMP_NUM_THREADS=4</code> to distribute one 4-thread
 rank per L3:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mpirun<span class="w"> </span>-map-by<span class="w"> </span>ppr:1:l3cache:pe<span class="o">=</span><span class="m">4</span><span class="w"> </span>--bind-to<span class="w"> </span>core
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mpirun<span class="w"> </span>-map-by<span class="w"> </span>ppr:1:l3cache:pe<span class="o">=</span><span class="m">4</span><span class="w"> </span>--bind-to<span class="w"> </span>core
+</code></pre></div>
 <p>In testing, the Intel Compiler and MKL toolchain works well if you
 <code>export MKL_DEBUG_CPU_TYPE=5</code> and compile for AVX2 instead of AVX512.</p>
 <p>If you’re doing single-node scaling work, be aware of memory bandwidth;
@@ -6714,8 +6714,8 @@ eight Zen4 cores. A logical diagram of the CCD is shown below:</p>
 <p>A schematic of the whole 9004 series processor is below:</p>
 <p><img alt="A schematic of a 9004 series AMD processor" src="../attachments/AMD_CPU/AMD_EPYC_9004_processor.png" /></p>
 <p>As with the <code>amd20</code> CPUs, latency between cores will be lowest within a CCD. If using both <abbr title="Message Passing Interface">MPI</abbr> and <abbr title="Open Multi-Processing">OpenMP</abbr>, we can again group threads based on L3 cache using</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mpirun<span class="w"> </span>-map-by<span class="w"> </span>ppr:1:l3cache:pe<span class="o">=</span><span class="m">8</span><span class="w"> </span>--bind-to<span class="w"> </span>core
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mpirun<span class="w"> </span>-map-by<span class="w"> </span>ppr:1:l3cache:pe<span class="o">=</span><span class="m">8</span><span class="w"> </span>--bind-to<span class="w"> </span>core
+</code></pre></div>
 <p>For more on the architecture of the 9004 series, see this <a href="https://www.amd.com/content/dam/amd/en/documents/epyc-technical-docs/white-papers/58015-epyc-9004-tg-architecture-overview.pdf">documentation from AMD</a>.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

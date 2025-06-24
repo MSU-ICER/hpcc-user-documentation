@@ -6635,8 +6635,8 @@
 <h3 id="module-changes">Module changes</h3>
 <p>As part of the operating system upgrade, the module naming scheme has been revised so it is no longer necessary to load a "gateway" set of modules before accessing other software. However, this means that nearly every module name has changed to show the dependencies it uses.</p>
 <p>To handle this transition, search the <a href="../available_software/overview/">Available Software</a> page or use the <code>module spider</code> command to find the new name of modules you are currently using, e.g.,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>Python
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>Python
+</code></pre></div>
 <p>However, there are some specific module changes that are not clear from the output of <code>module spider</code>:</p>
 <ul>
 <li>For <code>Python</code> and <code>R</code>, consider using bundles instead of the plain module names. These include many helpful pre-installed packages (use the <code>module spider &lt;insert-bundle-name&gt;</code> command for specifics):<ul>
@@ -6652,8 +6652,8 @@
 <ul>
 <li>
 <p>When starting up RStudio Server, you may only see a gray blank screen. To fix, this open a command line and run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv .local/share/rstudio .local/share/rstudio.backup
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mv .local/share/rstudio .local/share/rstudio.backup
+</code></pre></div>
 <p>This will move your RStudio configuration files to a backup. Note that this will likely reset your RStudio session, so you may need to reopen previous projects and files, and could lose any unsaved work.</p>
 </li>
 <li>
@@ -6661,21 +6661,7 @@
 </li>
 <li>
 <p>When logging in to upgraded nodes using <abbr title="Secure Shell">SSH</abbr> keys and <a href="../An_SSH_tunneling_via_multiple_hops/#using-proxyjump">proxy jumps</a>, you may receive a message like:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<div class="highlight"><pre><span></span><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
@@ -6690,19 +6676,16 @@ You can use following command to remove the offending key:
 ssh-keygen -R dev-amd20 -f &lt;location&gt;/.ssh/known_hosts
 Host key for dev-amd20 has changed and you have requested strict checking.
 Host key verification failed.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>or:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>The authenticity of host &#39;dev-amd20 (&lt;no hostip for proxy command&gt;)&#39; can&#39;t be established.
+<div class="highlight"><pre><span></span><code>The authenticity of host &#39;dev-amd20 (&lt;no hostip for proxy command&gt;)&#39; can&#39;t be established.
 RSA key fingerprint is SHA256:rydhZ58BeXsXgWQisWlbH6E0IFG+2+LSxC9a7OfZBro.
 This key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>These messages are expected as the keys used to verify the "identity" of the development nodes have changed from what your computer has used before. To fix the first error, run the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh-keygen -R &lt;dev-node-name&gt; -f ~/.ssh/known_hosts
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh-keygen -R &lt;dev-node-name&gt; -f ~/.ssh/known_hosts
+</code></pre></div>
 <p>on your local computer, not the HPCC. Alternatively, you can also delete the file <code>~/.ssh/known_hosts</code> to reset all host keys. This will result in receiving the second message anytime you <abbr title="Secure Shell">SSH</abbr> to any other computer (even ones outside of ICER, like GitHub) until you've accepted the connection again.</p>
 <p>To accept the new connection and fix the second error, enter "yes" and hit enter.</p>
 </li>

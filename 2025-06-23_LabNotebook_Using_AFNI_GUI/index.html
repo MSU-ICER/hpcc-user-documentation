@@ -6580,8 +6580,8 @@ information and other details.</p>
 <p>To run a <abbr title="Graphic User Interface">GUI</abbr> from the container, you first need to start an <a href="../OnDemand_Interactive_Desktop/">Interactive Desktop</a> through ICER's web portal <a href="https://ondemand.hpcc.msu.edu">OnDemand</a>. Be sure to request enough memory for the analyses you plan to run. </p>
 <p>Once you have connected to the Interactive Desktop, open a terminal by going to the menu in the top left corner, and searching for "MATE Terminal". Hitting <span class="keys"><kbd class="key-enter">Enter</kbd></span> or selecting the application entry will start a terminal in your Interactive Desktop.</p>
 <p>To start an AFNI <abbr title="Graphic User Interface">GUI</abbr>, e.g., <code>uber_subject.py</code>, run the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-B<span class="w"> </span>/run<span class="w"> </span>/mnt/research/common-data/Container_images/afni.sif<span class="w"> </span>uber_subject.py
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-B<span class="w"> </span>/run<span class="w"> </span>/mnt/research/common-data/Container_images/afni.sif<span class="w"> </span>uber_subject.py
+</code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Copy/pasting in an Interactive Desktop</p>
 <p>You cannot directly paste something you copy from your computer into the Interactive Desktop. To copy/paste, you first need to open the popout menu signified by a tab on the left-hand side of the Interactive Desktop. Click the clipboard, then paste into the large text box. Close the menu, and select the location you would like to paste your text. You can then paste as normal. If you are pasting into a terminal, use <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-v">V</kbd></span> instead of just <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span>.</p>
@@ -6589,8 +6589,8 @@ information and other details.</p>
 </div>
 <h2 id="running-afni-from-a-container">Running AFNI from a container</h2>
 <p>The steps above work outside of an interactive desktop for non-<abbr title="Graphic User Interface">GUI</abbr> applications as well. If you want to run any AFNI program from the command line, you can use the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>/mnt/research/common-data/Container_images/afni.sif<span class="w"> </span>&lt;insert-afni-command&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>/mnt/research/common-data/Container_images/afni.sif<span class="w"> </span>&lt;insert-afni-command&gt;
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

@@ -6737,24 +6737,12 @@
 <h2 id="find-the-new-names-of-software">Find the new names of software</h2>
 <p>The names of all nearly all software have changed. To search for the new software names, please review the <a href="../available_software/overview/">Available Software</a> page or use the <code>module spider</code> command.</p>
 <p>For example, you can load <code>R</code> in the previous module system using</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>R/4.2.2
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>R/4.2.2
+</code></pre></div>
 <p>On the upgraded module system, search for <code>R</code> and ignore the "gateway" modules that are dependencies. Additionally, most of the versions of software supported have changed, so you may need to search without the version.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>R
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>-------------------------------------------------------------------
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>R
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>-------------------------------------------------------------------
   R:
 -------------------------------------------------------------------
     Description:
@@ -6767,36 +6755,27 @@
         R/4.3.2-gfbf-2023a
         R/4.3.3-gfbf-2023b
     ...
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p><code>R/4.2.2</code> is available under the name <code>R/4.2.2-foss-2022b</code>.</p>
 <p>The line</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>R/4.2.2
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>R/4.2.2
+</code></pre></div>
 <p>in a script or on the command line can then be replaced with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/4.2.2-foss-2022b
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/4.2.2-foss-2022b
+</code></pre></div>
 <p>On the new operating system. When there is only one version of the software with that version, you can use only the version and leave off the toolchain identifier, e.g., </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/4.2.2
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/4.2.2
+</code></pre></div>
 <p>will also work.</p>
 <h2 id="load-modules-from-compatible-toolchains">Load modules from compatible toolchains</h2>
 <p>In the new module system, the structure of most module names follows the same format:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;software_name&gt;/&lt;software_version&gt;-&lt;toolchain_name&gt;-&lt;toolchain_version&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>&lt;software_name&gt;/&lt;software_version&gt;-&lt;toolchain_name&gt;-&lt;toolchain_version&gt;
+</code></pre></div>
 <p>The "toolchain" is the set of programs used to compile and install that software, and needs to be loaded first before the software itself can be loaded. On the old system, this was done manually, e.g., by first loading <code>GCCcore</code> and <code>OpenMPI</code> (see <a href="#find-the-new-names-of-software">the above example</a>). On the new system this is done automatically.</p>
 <p>However, this allows for the potential of loading modules with incompatible toolchains at the same time. Doing so will produce an error message, e.g.,</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/4.2.2-foss-2022b<span class="w"> </span>JAGS/4.3.2-foss-2023a
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>Lmod has detected the following error:  The previous module command attempted to load &quot;foss/2023a&quot; while &quot;foss/2022b&quot; was already
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/4.2.2-foss-2022b<span class="w"> </span>JAGS/4.3.2-foss-2023a
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>Lmod has detected the following error:  The previous module command attempted to load &quot;foss/2023a&quot; while &quot;foss/2022b&quot; was already
 loaded. This is likely due to loading a module with incompatible dependencies from the one currently loaded. Please use
 
     $ module spider &lt;original_module_name&gt;
@@ -6806,7 +6785,7 @@ To search for other versions that may have compatible dependencies. If there are
     $ module purge
 
 before attempting to load this module. For additional assistance, please contact ICER staff at https://contact.icer.msu.edu.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Instead, you will need to search for versions of the software that have compatible toolchains using the <code>module spider</code> command (again, see <a href="#find-the-new-names-of-software">the above example</a>).</p>
 <p>Another alternative (if it fits your workflow) is to load these modules in separate stages. First, load the first module, and do your work with that software. Then run <code>module purge</code>, load the second module, and do your work with that software.</p>
 <h3 id="loading-modules-from-subtoolchains-is-also-allowed">Loading modules from subtoolchains is also allowed</h3>
@@ -6818,19 +6797,10 @@ before attempting to load this module. For additional assistance, please contact
 <li><code>GCCcore/13.2.0</code> is in all <code>2023b</code> toolchains</li>
 </ul>
 <p>This can be verified by loading a year/letter toolchain and running <code>module list</code>, e.g.,</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>foss/2023a
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>foss/2023a
 module<span class="w"> </span>list
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>Currently Loaded Modules:
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>Currently Loaded Modules:
   1) GCCcore/12.3.0                     9) hwloc/2.9.1-GCCcore-12.3.0       17) OpenBLAS/0.3.23-GCC-12.3.0
   2) zlib/1.2.13-GCCcore-12.3.0        10) OpenSSL/1.1                      18) FlexiBLAS/3.3.1-GCC-12.3.0
   3) binutils/2.40-GCCcore-12.3.0      11) libevent/2.1.12-GCCcore-12.3.0   19) FFTW/3.3.10-GCC-12.3.0
@@ -6839,45 +6809,26 @@ module<span class="w"> </span>list
   6) XZ/5.4.2-GCCcore-12.3.0           14) PMIx/4.2.4-GCCcore-12.3.0        22) ScaLAPACK/2.2.0-gompi-2023a-fb
   7) libxml2/2.11.4-GCCcore-12.3.0     15) UCC/1.2.0-GCCcore-12.3.0         23) foss/2023a
   8) libpciaccess/0.17-GCCcore-12.3.0  16) OpenMPI/4.1.5-GCC-12.3.0
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note that software without a toolchain (e.g., <code>MATLAB</code>) can be loaded with any other module.</p>
 <h2 id="use-module-purge-to-load-software-incompatible-with-default-modules">Use <code>module purge</code> to load software incompatible with default modules</h2>
 <p>All default modules are installed under <code>2023a</code> toolchains. If you try to load a module with any other toolchain, you must first run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
+</code></pre></div>
 <p>to avoid the errors <a href="#load-modules-from-compatible-toolchains">discussed above</a>.</p>
 <h2 id="use-the-exact-name-of-software-when-loading">Use the exact name of software when loading</h2>
 <p>At the moment, the module system is case sensitive. For example,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Python
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Python
+</code></pre></div>
 <p>works, while</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>python
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>python
+</code></pre></div>
 <p>does not. ICER is working to resolve this, but for now, please make sure to use the name exactly as specified in the <code>module spider</code> results (note that searching with <code>module spider</code> is <em>not</em> case sensitive).</p>
 <h2 id="search-for-and-load-extensions">Search for and load extensions</h2>
 <p>Some modules include "extensions" to software. For example, the <code>R-bundle-CRAN</code> includes hundreds of <code>R</code> packages, and <code>SciPy-bundle</code> includes many commonly used Python packages for data analysis. When using <code>module spider</code>, you can also search for these extensions:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>numpy
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>----------------------------------------------------------------------------
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>numpy
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>----------------------------------------------------------------------------
   numpy:
 ----------------------------------------------------------------------------
      Versions:
@@ -6897,20 +6848,11 @@ Names marked by a trailing (E) are extensions provided by another module.
 
      $ module spider numpy/1.26.2
 ----------------------------------------------------------------------------
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>As the message suggests, extensions are marked with an <code>(E)</code>. To figure out what module loads them, run <code>module spider</code> with the specific version:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>numpy/1.26.2
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>----------------------------------------------------------------------------
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>numpy/1.26.2
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>----------------------------------------------------------------------------
   numpy: numpy/1.26.2 (E)
 ----------------------------------------------------------------------------
     This extension is provided by the following modules. To access the extension you must load one of the following modules. Note that any module names in parentheses show the module location in the software hierarchy.
@@ -6920,7 +6862,7 @@ Names marked by a trailing (E) are extensions provided by another module.
 
 
 Names marked by a trailing (E) are extensions provided by another module.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="request-missing-modules">Request missing modules</h2>
 <p>If a software module you need was not carried over from the previous system, please request it by <a href="https://contact.icer.msu.edu">submitting a ticket</a> with the subject "OS Upgrade 2024". </p>
 <p>If you need access to a piece of software immediately and cannot wait for it to be reinstalled, please look into using <a href="../Backwards_Compatibility_with_CentOS/">our backwards compatibility options</a>.</p>

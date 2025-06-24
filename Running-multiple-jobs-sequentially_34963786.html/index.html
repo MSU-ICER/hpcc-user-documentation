@@ -6529,20 +6529,16 @@
 <h1 id="running-multiple-jobs-sequentially">Running multiple jobs sequentially</h1>
 <p>Create a python script (python_script.py)with the following code.</p>
 <p><strong>python_script.py</strong> </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>print(&quot;Hello, World!&quot;)
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>print(&quot;Hello, World!&quot;)
+</code></pre></div>
 <p>Create an R script (r_script.R)with the following code.</p>
 <p><strong>r_script.R</strong>  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>z=rnorm(10000,mean=10,sd=2)
+<div class="highlight"><pre><span></span><code>z=rnorm(10000,mean=10,sd=2)
 mean(z)
 sd(z)
 pdf(file=&quot;r_histogram.pdf&quot;)
 hist(z,freq=FALSE,nclass=100)
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Make a copy of hello.sb and name it multi_seq.sb</p>
 <p>Edit multi_seq.sb to run the tasks, python_script.py and r_script.r :</p>
 <ul>
@@ -6552,26 +6548,7 @@ hist(z,freq=FALSE,nclass=100)
 </ul>
 <p>Submit job to compute node</p>
 <p><strong>Answer</strong>  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>#Make a copy of hello.sb and name it multi_seq.sb
+<div class="highlight"><pre><span></span><code>#Make a copy of hello.sb and name it multi_seq.sb
 cp hello.sb multi_seq.sb
 
 #Using your favorite editor(nano, vi, emacs, gedit, etc.), 
@@ -6591,7 +6568,7 @@ Rscript r_script.R
 
 #Submit job to compute node: Execute the following at the command line
 sbatch multi_seq.sb
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

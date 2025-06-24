@@ -6696,11 +6696,11 @@ to the HPCC altogether.</p>
 <p>Now that you are connected, you can run commands and codes from VS Code. When you are connected to the HPCC, all files created through VS Code will be saved to the HPCC, not on your local machine.</p>
 <p>To test the ability to run remote code, let's create a Python file 'hello.py' with VS Code. Click 'New file' and create a file with the following content to the file:
 <img alt="Screenshot of the VS Code welcome page showing the New file option" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_05.png" /></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>print(&#39;hello!&#39;)
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>print(&#39;hello!&#39;)
+</code></pre></div>
 <p>Now, open a terminal from 'Terminal' menu from VS Code (or by pressing the key sequence CTRL+Shift+`) and run the code.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ python hello.py
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$ python hello.py
+</code></pre></div>
 <p>Once you have connected the server, click the Remote Explorer to see the list of servers. Click the icon to connect to host in a new window. Right click the name to see the option.  </p>
 <p><img alt="Screenshot of the VS Code Remote Explorer window showing the list of possible SSH targets: gateway, intel18, k80" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_06.png" /></p>
 <!--

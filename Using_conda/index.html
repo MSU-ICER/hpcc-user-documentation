@@ -6837,16 +6837,15 @@ similarly and will give access to the same <code>conda</code> program.</p>
 <p>There are two methods for using Conda on the HPCC. The first is using the <code>Miniforge3</code> module. The second is to install Miniforge manually, and is detailed in <a href="#appendix-installing-miniforge-manually-advanced-option">the appendix</a>.</p>
 <h2 id="using-the-miniforge3-module-quick-start-option">Using the Miniforge3 Module (Quick Start Option)</h2>
 <p>To access the <code>conda</code> command, first unload other modules to ensure you do not conflict with other versions of Python. Then load the <strong>Miniforge3</strong> module:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>Miniforge3
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>When you <a href="#managing-environments">create Conda environments</a> and <a href="#managing-packages">install packages</a>, they will be installed in your home directory under the path <code>/mnt/home/$USER/.conda/envs/myenv</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Using <code>module swap</code></p>
 <p>You can also use <code>module swap</code> to get access to the <code>Miniforge3</code> module while keeping other modules loaded. However, swapping with the <code>Python</code> module by itself is not enough. The better option is to use</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>swap<span class="w"> </span>Python-bundle-PyPI<span class="w"> </span>Miniforge3
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>swap<span class="w"> </span>Python-bundle-PyPI<span class="w"> </span>Miniforge3
+</code></pre></div>
 <p>This ensures that no extra Python packages installed by ICER are accessible from your Miniforge environments.</p>
 </div>
 <h2 id="managing-environments">Managing Environments</h2>
@@ -6856,16 +6855,7 @@ module<span class="w"> </span>load<span class="w"> </span>Miniforge3
 name you choose. For example, to create an environment named "myenv" use the command    </p>
 <p><code>conda create --name myenv</code>   </p>
 <p>The output will display    </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>Collecting package metadata (current_repodata.json): done
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
 ## Package Plan ##
@@ -6875,24 +6865,24 @@ Solving environment: done
 
 
 Proceed ([y]/n)?    
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Type <code>y</code> to create the environment. No packages have been installed in 
 this environment yet. </p>
 <p>To create a conda environment with pre-specified packages and/or versions 
 of Python, use the command above with additional arguments. Here are a 
 few examples that demonstrate the syntax:     </p>
 <p>Create an environment named "bioenv" with the "biopython" package  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>bioenv<span class="w"> </span>biopython
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>bioenv<span class="w"> </span>biopython
+</code></pre></div>
 <p>Create an environment named "scienv" with Python version 3.9 and version 1.6.0 
 of the "scipy" packages  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>scienv<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9<span class="w"> </span><span class="nv">scipy</span><span class="o">=</span><span class="m">1</span>.6.0
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>scienv<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9<span class="w"> </span><span class="nv">scipy</span><span class="o">=</span><span class="m">1</span>.6.0
+</code></pre></div>
 <p>Create an environment named "astroenv" with version 1.6.0 
 of the "scipy" packages, the current "asteroid" package, and the current 
 "bable" packages  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>astroenv<span class="w"> </span><span class="nv">scipy</span><span class="o">=</span><span class="m">1</span>.6.0<span class="w"> </span>asteroid<span class="w"> </span>bable
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>astroenv<span class="w"> </span><span class="nv">scipy</span><span class="o">=</span><span class="m">1</span>.6.0<span class="w"> </span>asteroid<span class="w"> </span>bable
+</code></pre></div>
 <p>To <strong>copy an existing environment</strong>, use the command    </p>
 <p><code>conda create --name &lt;new environment name&gt; --clone &lt;existing environment name&gt;</code>      </p>
 <p>For example, the command    </p>
@@ -6901,14 +6891,7 @@ of the "scipy" packages, the current "asteroid" package, and the current
 <p>To <strong>display a list of all conda environments</strong>, use the command  </p>
 <p><code>conda info --envs</code>      </p>
 <p>The output will display    </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code># conda environments:
+<div class="highlight"><span class="filename">output</span><pre><span></span><code># conda environments:
 #
 astroenv                 /mnt/home/$USER/.conda/envs/astroenv
 base                  *  /opt/software-current/2023.06/x86_64/generic/software/Miniforge3/24.3.0-0
@@ -6916,7 +6899,7 @@ bioenv                   /mnt/home/$USER/.conda/envs/bioenv
 myenv                    /mnt/home/$USER/.conda/envs/myenv
 newenv                   /mnt/home/$USER/.conda/envs/newenv
 scienv                   /mnt/home/$USER/.conda/envs/scienv
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where an active environment is denoted with the <code>*</code> symbol.  </p>
 <p>To <strong>activate a conda environment</strong>, use the command     </p>
 <p><code>conda activate &lt;environment_name&gt;</code>  </p>
@@ -6936,17 +6919,7 @@ front of the command prompt. For example, the command    </p>
 <p><code>conda activate scienv</code>  <br />
 <code>conda list</code>     </p>
 <p>the output will display    </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code># packages in environment at /mnt/home/$USER/.conda/envs/scienv:
+<div class="highlight"><span class="filename">output</span><pre><span></span><code># packages in environment at /mnt/home/$USER/.conda/envs/scienv:
 #
 # Name                    Version                   Build  Channel
 _libgcc_mutex             0.1                        main  
@@ -6957,20 +6930,13 @@ certifi                   2022.6.15        py39h06a4308_0
 ... ...
 ... ...
 zlib                      1.2.12               h7f8727e_2
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To <strong>search for a package</strong> in the conda-forge repository that you would like to install, use the command    </p>
 <p><code>conda search &lt;package name&gt;</code>  <br />
 where the <code>&lt;package name&gt;</code> is to be replaced with the name of package to search for. For example, the command    </p>
 <p><code>conda search beautifulsoup4</code>    </p>
 <p>results in the output display    </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>Loading channels: done
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>Loading channels: done
 # Name                       Version           Build  Channel             
 beautifulsoup4                 4.6.0          py27_1  pkgs/main           
 beautifulsoup4                 4.6.0  py27h3f86ba9_1  pkgs/main           
@@ -6978,30 +6944,13 @@ beautifulsoup4                 4.6.0  py27h3f86ba9_1  pkgs/main
 ... ...          
 beautifulsoup4                4.11.1  py38h06a4308_0  pkgs/main           
 beautifulsoup4                4.11.1  py39h06a4308_0  pkgs/main
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To <strong>install a package in the active environment</strong>, use the command    </p>
 <p><code>conda install &lt;package name&gt;</code>    </p>
 <p>where <code>&lt;package name&gt;</code> is to be replaced with the name of package to install. For example, the command    </p>
 <p><code>(scienv) $ conda install beautifulsoup4</code>    </p>
 <p>will output the display    </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code>Collecting package metadata (current_repodata.json): done
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
 ## Package Plan ##
@@ -7019,7 +6968,7 @@ The following NEW packages will be INSTALLED:
 
 
 Proceed ([y]/n)?
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Type ‘y’ to install the package.</p>
 <p>To <strong>install a package in another environment</strong>, use the command    </p>
 <p><code>conda install --name &lt;environment name&gt; &lt;package name&gt;</code>    </p>
@@ -7040,14 +6989,11 @@ use the <code>-c</code> option like</p>
 <div class="admonition note">
 <p class="admonition-title">Bioconda specific setup</p>
 <p>If you plan to use Bioconda often, they suggest that you run the following one-time setup to ensure that you can install compatible packages into your environment:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>defaults
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>defaults
 conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>bioconda
 conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>conda-forge
 conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>channel_priority<span class="w"> </span>strict
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>See the <a href="https://bioconda.github.io/">Bioconda homepage</a> for details.</p>
 </div>
 <p>If packages you are interested in are <strong>not available from conda or another
@@ -7056,10 +7002,9 @@ a conda environment via the command</p>
 <p><code>pip install &lt;package name&gt;</code></p>
 <p>where <code>&lt;package name&gt;</code> is to be replaced by the name of the desired package.
 For example, the commands  <br />
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>    $ conda activate scienv
+<div class="highlight"><pre><span></span><code>    $ conda activate scienv
    (scienv) $ pip install see
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>will install the package "see" in the active environment "scienv".</p>
 <div class="admonition warning">
 <p class="admonition-title">Avoid mixing <code>conda</code> and <code>pip</code> installed packages</p>
@@ -7081,25 +7026,7 @@ correct dependencies and setup.</p>
 <p>will remove the package "beautifulsoup4" in the inactive environment "myenv".</p>
 <h2 id="using-conda-with-slurm">Using conda with SLURM</h2>
 <p>You can activate a conda environment from within a <a href="../Job_Script_and_Job_Submission/"><strong>SLURM Job Script</strong></a>. Include the <code>conda activate &lt;environment name&gt;</code> and <code>conda deactivate</code> commands in the 'bash command' portion of the SLURM job script. Ensure to first navigate into the directory where Miniforge is installed e.g., <code>cd $HOME</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH -t 60 # Runtime in minutes</span>
 .
 .
@@ -7118,7 +7045,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>&lt;environment<spa
 .
 &lt;bash<span class="w"> </span>command&gt;
 conda<span class="w"> </span>deactivate
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="appendix-installing-miniforge-manually-advanced-option">Appendix: Installing Miniforge Manually (Advanced Option)</h2>
 <p>You may wish to install Miniforge yourself rather than using the version on the HPCC (e.g., to use a newer version).</p>
 <p>Doing so requires both a default component installed and maintained by the HPCC administrators via the <a href="../How_to_find_and_load_software_modules/"><strong>Software module system</strong></a> and a user installed and maintained component. This dual component configuration is required to ensure system wide compliance for the user's customized Conda environments. Hence, if you are not using the <code>Miniforge3</code> module, <strong>users must install Miniforge in the home or research space</strong> to have full control of their Conda managed environments and packages; and <strong>users must also load the HPCC administrated Conda/3 module</strong> to allow Conda managed environments and packages to run smoothly on the HPCC.</p>
@@ -7167,16 +7094,7 @@ Please type <code>no</code>, a more careful initialization is described after th
 installation path will be used next. </p>
 </div>
 <p>Upon <strong>successful installation</strong>, the output will display   </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>You have chosen to not have conda modify your shell scripts at all.
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>You have chosen to not have conda modify your shell scripts at all.
 To activate conda&#39;s base environment in your current shell session:
 
 eval &quot;$(/mnt/home/$USER/minforge3/bin/conda shell.YOUR_SHELL_NAME hook)&quot; 
@@ -7186,7 +7104,7 @@ To install conda&#39;s shell functions for easier access, first activate, then:
 conda init
 
 Thank you for installing Miniforge3!
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Please disregard this output.</strong> Users must manually configure Miniforge as described in the next section.</p>
@@ -7224,8 +7142,8 @@ press the <strong>[i]</strong> key to enter "<strong>--insert--</strong>" mode</
 <p>Loading the <strong>Conda/3</strong> module requires that you first unload any Python modules with <code>module unload Python-bundle-PyPI</code> or <code>module purge</code>.</p>
 </div>
 <p>As stated <a href="#appendix-installing-miniforge-manually-advanced-option">above</a> users must load the HPCC administered Conda module to ensure system-wide compliance when using and managing Conda environments and packages. To load the <strong>Conda/3</strong> module login to a dev node and run the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Conda/3
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Conda/3
+</code></pre></div>
 <p>If you would like to automatically load the <strong>Conda/3</strong> module upon login, add the command
 <code>module swap Python-bundle-PyPI Conda/3</code>   <br />
 to the  <code>.bashrc</code> file after the  <code>export CONDA3PATH=...</code> command  </p>
@@ -7247,65 +7165,21 @@ to the display. For example,  <br />
 <p class="admonition-title">Conflict with locally installed packages</p>
 <p>If you have used the <code>pip install</code> command to install packages before using Conda, you may find conflicts between the packages Conda uses and the packages locally installed into the <code>$HOME/.local/lib/pythonX.Y</code> directory.</p>
 <p>For example, after running a <code>conda</code> command for the first time, you may see an error like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Traceback (most recent call last):
+<div class="highlight"><pre><span></span><code>Traceback (most recent call last):
     File &quot;/mnt/home/$USER/miniforge3/lib/python3.10/site-packages/conda/exception_handler.py&quot;, line 17, in __call__
     return func(*args, **kwargs)
     ...
 ImportError: cannot import name &#39;JSONDecodeError&#39; from &#39;requests.exceptions&#39; (/mnt/home/$USER/.local/lib/python3.10/site-packages/requests/exceptions.py)
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You will need to move your locally installed packages to a separate location. The final line of the errors shows where the user installed packages are. You can move them to a backup location if you need them later using a command like:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv<span class="w"> </span><span class="nv">$HOME</span>/.local/lib/python3.10<span class="w"> </span><span class="nv">$HOME</span>/.local/lib/python3.10.backup
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span><span class="nv">$HOME</span>/.local/lib/python3.10<span class="w"> </span><span class="nv">$HOME</span>/.local/lib/python3.10.backup
+</code></pre></div>
 <p><strong>Make sure to replace <code>python3.10</code> above with the version that shows up in your error message.</strong> After this, you will no longer be able to use your locally installed packages. For this reason ICER recommends not mixing Conda installed packages and locally installed packages.</p>
 </div>
 <p>To <strong>update conda</strong> to the most recent version, use the command</p>
 <p><code>$ conda update conda</code>     </p>
 <p>The output will display text similar to     </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code>Collecting package metadata (current_repodata.json): done
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
 ## Package Plan ##
@@ -7346,7 +7220,7 @@ conda-22.11.0        | 872 KB    | #############################################
 Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Type <code>y</code> to continue with the update.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

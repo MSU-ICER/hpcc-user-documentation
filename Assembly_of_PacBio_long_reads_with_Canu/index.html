@@ -6552,23 +6552,18 @@ three steps: read correction, read trimming and contig assembly.</p>
 <p>As of Sept 2021, we have the latest:
 <a href="https://github.com/marbl/canu/releases/tag/v2.2"
 rel="nofollow">version 2.2</a> installed on the HPCC. You can load it by</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 module load GCCcore/8.3.0 Java/11 Perl/5.30.0 gnuplot/5.2.8
 export PATH=/opt/software/canu/canu-2.2/bin:$PATH
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Then, simply running <code>canu</code> will give you a good amount of help
 information. For example, at the bottom of the help document, we learn
 that canu supports three types of raw input data:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>[technology]
+<div class="highlight"><pre><span></span><code>[technology]
 -pacbio      &lt;files&gt;
 -nanopore    &lt;files&gt;
 -pacbio-hifi &lt;files&gt;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>While canu can automate job submission using SLURM, we don't recommend
 this method. Therefore, please specify <code>useGrid=false</code> in the canu
 command to disable grid support. Users will write a job script manually,
@@ -6579,22 +6574,18 @@ in the <a
 href="https://canu.readthedocs.io/en/latest/quick-start.html#assembling-pacbio-clr-or-nanopore-data"
 rel="nofollow">canu tutorial</a>, which can be downloaded using the
 following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>curl -L -o pacbio.fastq http://gembox.cbcb.umd.edu/mhap/raw/ecoli_p6_25x.filtered.fastq
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>curl -L -o pacbio.fastq http://gembox.cbcb.umd.edu/mhap/raw/ecoli_p6_25x.filtered.fastq
+</code></pre></div>
 <p>By default, the canu pipeline will correct the reads, trim the reads,
 and then assemble the reads to contigs. Minimally, you can run canu on a
 dev-node in the following way (we need to first load all necessary
 modules):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 module load GCCcore/8.3.0 Java/11 Perl/5.30.0 gnuplot/5.2.8
 export PATH=/opt/software/canu/canu-2.2/bin:$PATH
 
 /bin/time -v canu -p ecoli -d ecoli-pacbio genomeSize=4.8m useGrid=false maxThreads=10 -pacbio pacbio.fastq &gt; runCanu_2021-09-14.log 2&gt;&amp;1 &amp;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Above,</p>
 <ul>
 <li><code>pacbio.fastq</code> is the input file, considered as raw and unprocessed
@@ -6621,21 +6612,7 @@ export PATH=/opt/software/canu/canu-2.2/bin:$PATH
 </ul>
 <p>If we want to have canu run in the HPCC cluster, we can write a job
 script accordingly:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>#!/bin/bash
+<div class="highlight"><pre><span></span><code>#!/bin/bash
 
 #SBATCH --job-name=canu_ecoli
 #SBATCH --cpus-per-task=10
@@ -6650,7 +6627,7 @@ module load GCCcore/8.3.0 Java/11 Perl/5.30.0 gnuplot/5.2.8
 export PATH=/opt/software/canu/canu-2.2/bin:$PATH
 
 /bin/time -v canu -p ecoli -d ecoli-pacbio genomeSize=4.8m useGrid=false maxThreads=10 -pacbio pacbio.fastq &gt; runCanu_2021-09-14.log 2&gt;&amp;1
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The canu command is exactly the same as the one we run on the dev-node,
 except that the trailing <code>&amp;</code> sign should be removed when it is within a
 job script.</p>

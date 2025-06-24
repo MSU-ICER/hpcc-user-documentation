@@ -6567,26 +6567,19 @@ and its code is located <a href="https://github.com/NCAR/hrldas">here</a>.</p>
 <p>Configure the setup. For parallel computing, choose option 4.
 <code>perl configure</code></p>
 <p>Run these commands in sequence:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 ml iccifort/2020.1.217 impi/2019.7.217
 ml JasPer/2.0.14
 ml netCDF-Fortran/4.5.2
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>Open the file user_build_options in your favorite editor.</p>
 <p>In this file, change the following lines:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>COMPILERF90 = mpiifort
+<div class="highlight"><pre><span></span><code>COMPILERF90 = mpiifort
 
 NETCDFMOD = -I/opt/software/netCDF-Fortran/4.5.2-iimpi-2020a/include
 
 NETCDFLIB = -L/opt/software/netCDF-Fortran/4.5.2-iimpi-2020a/lib -lnetcdff -L/opt/software/netCDF/4.7.4-iimpi-2020a/lib64 -L/opt/software/iccifort/2020.1.217/lib/intel64 -lnetcdf -lnetcdf -lm -liomp5 -lpthread
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Run <code>make</code>. The compilation should succeed.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

@@ -6883,20 +6883,16 @@ module in addition to <code>CUDA</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C</label><label for="__tabbed_1_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CUDA with NVHPC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
+<div class="highlight"><span class="filename">CUDA with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
 nvcc<span class="w"> </span>foo.cu<span class="w"> </span>-o<span class="w"> </span>foo
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CUDA with NVHPC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
+<div class="highlight"><span class="filename">CUDA with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
 nvfortran<span class="w"> </span>foo.cuf<span class="w"> </span>-o<span class="w"> </span>foo
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -6929,14 +6925,11 @@ for more information and examples.</p>
 <p>As discussed <a href="#gpu-compatibility">above</a>, <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> 11.7 will not compile for
 <code>k80</code> GPUs by default. However, we can specify the corresponding compute
 capabilities explicitly:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/22.11-CUDA-11.7.0<span class="w">  </span><span class="c1"># Any CUDA &gt;=12 will not work</span>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/22.11-CUDA-11.7.0<span class="w">  </span><span class="c1"># Any CUDA &gt;=12 will not work</span>
 nvcc<span class="w"> </span>foo.cu<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-arch<span class="o">=</span>compute_35<span class="w"> </span>-code<span class="o">=</span>compute_37,sm_37,sm_70
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The resulting executable will be able to run on all (double precision) GPUs at ICER:</p>
 <ul>
 <li>The <code>k80</code> by compiling <code>compute_37</code> (and higher)-compatible PTX into an <code>sm_37</code>-compatible <code>cubin</code>.</li>
@@ -6969,28 +6962,20 @@ for details, and reference the  <a href="../available_software/detail/NVHPC/">NV
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">C</label><label for="__tabbed_2_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using CUDA shared libraries with NVHPC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
+<div class="highlight"><span class="filename">Using CUDA shared libraries with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
 nvcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-lcublas<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For BLAS</span>
 <span class="w">  </span>-lcufft<span class="w">  </span><span class="c1"># For cuFFT</span>
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using CUDA shared libraries with NVHPC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
+<div class="highlight"><span class="filename">Using CUDA shared libraries with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
 nvfortran<span class="w"> </span>foo.f90<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-cudalib<span class="o">=</span>cublas<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For cuBLAS</span>
 <span class="w">  </span>-cudalib<span class="o">=</span>lcufft<span class="w">  </span><span class="c1"># For cuFFT</span>
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7002,18 +6987,13 @@ for more information. </p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using CUDA shared libraries with fosscuda</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>foss/2023a<span class="w"> </span>CUDA/12.1.1
+<div class="highlight"><span class="filename">Using CUDA shared libraries with fosscuda</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>foss/2023a<span class="w"> </span>CUDA/12.1.1
 gcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-lcudart<span class="w">  </span><span class="se">\ </span><span class="c1"># For CUDA runtime routines like memory management</span>
 <span class="w">  </span>-lcublas<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For cuBLAS</span>
 <span class="w">  </span>-lcufft<span class="w">  </span><span class="c1"># For cuFFT</span>
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7022,8 +7002,8 @@ gcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </spa
 <a href="https://docs.nvidia.com/deeplearning/cudnn/index.html">cuDNN</a>. On the HPCC,
 cuDNN is available as a module. See the available versions in <a href="../available_software/detail/cuDNN/">the cuDNN module
 listing</a> or search for available versions with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>cuDNN
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>cuDNN
+</code></pre></div>
 <p>and choose one which uses a version of <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> compatible with any other <abbr title="Graphics Processing Unit">GPU</abbr>-based
 work you may be doing. See <a href="https://docs.nvidia.com/deeplearning/cudnn/api/index.html">NVIDIA's API
 reference</a> for which
@@ -7048,28 +7028,20 @@ GPUs</a> for steps to use <code>k80</code> GPUs.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">C</label><label for="__tabbed_4_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GPU offloading with OpenACC with NVHPC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
+<div class="highlight"><span class="filename">GPU offloading with OpenACC with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
 nvc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-acc<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># To use OpenACC (default is on GPU)</span>
 <span class="w">  </span>-gpu<span class="o">=</span>cc70,cc80,cc90<span class="w">  </span><span class="c1"># To embed GPU code for various compute capabilities</span>
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GPU offloading with OpenACC with NVHPC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
+<div class="highlight"><span class="filename">GPU offloading with OpenACC with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
 nvfortran<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-acc<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># To use OpenACC (default is on GPU)</span>
 <span class="w">  </span>-gpu<span class="o">=</span>cc70,cc80,cc90<span class="w">  </span><span class="c1"># To embed GPU code for various compute capabilities</span>
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7081,14 +7053,7 @@ Experiment with these versions at your own risk.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">C</label><label for="__tabbed_5_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GPU offloading with OpenMP with GCC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
+<div class="highlight"><span class="filename">GPU offloading with OpenMP with GCC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
 gcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-fopenacc<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># To activate OpenACC instructions</span>
 <span class="w">  </span>-foffload<span class="o">=</span>nvptx-none<span class="o">=</span><span class="s2">&quot;sm_70 -lm&quot;</span>
@@ -7096,20 +7061,10 @@ gcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </spa
 <span class="c1"># capability to embed gpu code for, and ensure that offloaded code has </span>
 <span class="c1"># access to math libraries</span>
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GPU offloading with OpenMP with GCC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
+<div class="highlight"><span class="filename">GPU offloading with OpenMP with GCC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
 gfortran<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-fopenacc<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># To activate OpenMP instructions</span>
 <span class="w">  </span>-foffload<span class="o">=</span>nvptx-none<span class="o">=</span><span class="s2">&quot;-lm -lgfortran&quot;</span>
@@ -7120,7 +7075,7 @@ Previous<span class="w"> </span>option<span class="w"> </span>offloads<span clas
 <span class="c1"># capability to embed gpu code for, and ensure that offloaded code has </span>
 <span class="c1"># access to math and Fortran libraries</span>
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7139,28 +7094,20 @@ GPUs</a> for steps to use <code>k80</code> GPUs.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">C</label><label for="__tabbed_6_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GPU offloading with OpenMP with NVHPC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
+<div class="highlight"><span class="filename">GPU offloading with OpenMP with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
 nvcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-mp<span class="o">=</span>gpu<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># To use OpenMP on GPU</span>
 <span class="w">  </span>-gpu<span class="o">=</span>cc70,cc80,cc90<span class="w">  </span><span class="c1"># Embed GPU code for compute capabilities</span>
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GPU offloading with OpenMP with NVHPC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
+<div class="highlight"><span class="filename">GPU offloading with OpenMP with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
 nvfortran<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-mp<span class="o">=</span>gpu<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># To use OpenMP on GPU</span>
 <span class="w">  </span>-gpu<span class="o">=</span>cc70,cc80,cc90<span class="w">  </span><span class="c1"># Embed GPU code for compute capabilities</span>
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7172,14 +7119,7 @@ Experiment with these versions at your own risk.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">C</label><label for="__tabbed_7_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GPU offloading with OpenMP with GCC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
+<div class="highlight"><span class="filename">GPU offloading with OpenMP with GCC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
 gcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-fopenmp<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># To activate OpenMP instructions</span>
 <span class="w">  </span>-foffload<span class="o">=</span>nvptx-none<span class="o">=</span><span class="s2">&quot;-march=sm_70 -lm&quot;</span>
@@ -7187,17 +7127,10 @@ gcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </spa
 <span class="c1"># capability to embed gpu code for, and ensure that offloaded code has </span>
 <span class="c1"># access to math libraries</span>
 ./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GPU offloading with OpenMP with GCC</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
+<div class="highlight"><span class="filename">GPU offloading with OpenMP with GCC</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
 $<span class="w"> </span>gfortran<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-fopenmp<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># To activate OpenMP instructions</span>
 <span class="w">    </span>-foffload<span class="o">=</span>nvptx-none<span class="o">=</span><span class="s2">&quot;-march=sm_70 -lm -lgfortran&quot;</span>
@@ -7205,7 +7138,7 @@ $<span class="w"> </span>gfortran<span class="w"> </span>foo.c<span class="w"> <
 <span class="w">  </span><span class="c1"># capability to embed gpu code for, and ensure that offloaded code has </span>
 <span class="w">  </span><span class="c1"># access to math and Fortran libraries</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>

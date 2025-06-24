@@ -6643,8 +6643,8 @@ load applications via the module command. </p>
 <li><code>$TMPDIR</code>: Temporary working folder of a running job at <code>/mnt/local/$SLURM_JOBID</code>. </li>
 </ul>
 <p>To see all variables in the context of your job, add this line to your job script, which will list all variables that contain the word 'SLURM'</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SLURM
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SLURM
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

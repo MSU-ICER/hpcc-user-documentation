@@ -6654,16 +6654,15 @@
 <h1 id="installing-pytorchpytorch-lightning-using-pip">Installing Pytorch/Pytorch Lightning Using Pip</h1>
 <p>This guide will walk you through installing Pytorch and/or Pytorch Lighting using Pip. It assumes you have already
 installed or loaded Miniforge. See the guide on <a href="../Using_conda/">using conda</a> for more. If you haven't loaded Miniforge, you can do so by running
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 module load Miniforge3
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <h2 id="setup-checking-python">Setup - Checking Python</h2>
 <p>If you installed conda on your own and not following our <a href="../Using_conda/">using conda</a> guide,
 the HPCC may be trying to use the system python installation instead of your own. To test if this is
 the case, run
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>which<span class="w"> </span>python
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>which<span class="w"> </span>python
+</code></pre></div>
 If the output starts with <code>/opt/software</code>, you will need to run <code>module unload Python</code>. If the output starts with the path to Miniforge, you don't need to do anything else.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -6673,53 +6672,48 @@ wish to use your own python installation. You may wish to add the <code>module u
 </div>
 <h2 id="installing-pytorch">Installing Pytorch</h2>
 <p>Since Pytorch works best when using a <abbr title="Graphics Processing Unit">GPU</abbr>, it needs to be installed on a development node <em>with</em> a <abbr title="Graphics Processing Unit">GPU</abbr>. We recommend using <code>dev-amd20-v100</code> for the most compatibility. However, you can also use <code>dev-amd24-h200</code> for the latest hardware. Run
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>dev-amd20-v100
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>dev-amd20-v100
+</code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You will be restricted to running Pytorch on nodes with v100 GPUs. See the page on <a href="../Cluster_Resources/">cluster resources</a> and <a href="../List_of_Job_Specifications/">SLURM job specifications</a> for more.</p>
 </div>
 <p>You will also need the <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> compiler, so load this using our <a href="../How_to_find_and_load_software_modules/">module system</a>:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>CUDA/12.4.0
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>CUDA/12.4.0
+</code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Please review the <a href="https://pytorch.org/get-started/locally/">Pytorch installation documentation</a> to confirm the <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> version for the latest stable PyTorch release, along with other dependency information.</p>
 </div>
 <p>It's best practice to use Conda environments to organize your Python packages. To create a new conda environment with the name <code>pytorch</code> run
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>pytorch<span class="w"> </span>python<span class="w"> </span>pip
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>pytorch<span class="w"> </span>python<span class="w"> </span>pip
+</code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We need to include python and pip, otherwise using pip may install directly into the user packages in .local using the system pip installation. This ensures we're using a version of pip installed in the conda environment.</p>
 </div>
 <p>To switch to this new environment, run
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>pytorch
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>pytorch
+</code></pre></div></p>
 <p>Now that you are on a <abbr title="Graphics Processing Unit">GPU</abbr> development node, have loaded the <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> module, and activated your new environment, you can install Pytorch with the following command:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio
+</code></pre></div></p>
 <h2 id="installing-pytorch-lightning">Installing Pytorch Lightning</h2>
 <p>It's best to install Pytorch following the instructions <a href="#installing-pytorch">above</a> before installing Pytorch Lightning, or <abbr title="Graphics Processing Unit">GPU</abbr>-support may not function correctly.</p>
 <p>After Pytorch has been installed, Pytorch Lightning can be installed to the same <code>pytorch</code> environment using
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lightning
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lightning
+</code></pre></div></p>
 <p>Finally, you can confirm Pytorch and Pytorch Lightning have been installed successfully by checking your conda environment for the following packages: torch, torchaudio, torchmetrics, torchvision, pytorch-lightning. Run
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>torch
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>torch
+</code></pre></div>
 In the output you should see all the torch related packages in your conda environment. 
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code># packages in environment at /mnt/home/USERNAME/.conda/envs/pytorch:
+<div class="highlight"><span class="filename">output</span><pre><span></span><code># packages in environment at /mnt/home/USERNAME/.conda/envs/pytorch:
 pytorch-lightning         2.5.1                    pypi_0    pypi
 torch                     2.6.0                    pypi_0    pypi
 torchaudio                2.6.0                    pypi_0    pypi
 torchmetrics              1.7.1                    pypi_0    pypi
 torchvision               0.21.0                   pypi_0    pypi  
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

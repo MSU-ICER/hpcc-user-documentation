@@ -6820,10 +6820,9 @@ Since all quotas on the new system are a maximum of 100GB of space, you will nee
 <ol>
 <li>
 <p>First, log into a development node. Check your home space usage with the powertool <code>file-sizes</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module load powertools
+<div class="highlight"><pre><span></span><code>module load powertools
 file-sizes --detail
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Take note of how much space you are using over 100GB.</p>
 <div class="admonition note">
 <p class="admonition-title">Important: don't use the <code>quota</code> command or any other tool to check your usage</p>
@@ -6831,8 +6830,8 @@ file-sizes --detail
 <p>Please only use the <code>file-sizes</code> command described above to get usage information that will be more accurate for the new home system.</p>
 </div>
 <p>You can also use this tool to view how the space is being used within a directory, e.g.,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>file-sizes --detail /mnt/ufs18/gpfs-home/$USER/project
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>file-sizes --detail /mnt/ufs18/gpfs-home/$USER/project
+</code></pre></div>
 <p>to break down the space usage within <code>project</code> directory in your old home directory.</p>
 </li>
 <li>
@@ -6865,8 +6864,8 @@ file-sizes --detail
 </div>
 <div class="tabbed-block">
 <p>Use the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rsync<span class="w"> </span>-avP<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/<span class="w"> </span>/mnt/ffs24/home/<span class="nv">$USER</span>/
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-avP<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/<span class="w"> </span>/mnt/ffs24/home/<span class="nv">$USER</span>/
+</code></pre></div>
 <p>Note that the trailing slashes are necessary. If your sync is interrupted for any reason, you can restart it using the same command.</p>
 </div>
 </div>
@@ -6898,11 +6897,11 @@ file-sizes --detail
 </div>
 <div class="tabbed-block">
 <p>Suppose you wish to only copy the directory <code>project</code> from your old home directory to your new home directory. Use the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rsync<span class="w"> </span>-avP<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/project<span class="w"> </span>/mnt/ffs24/home/<span class="nv">$USER</span>/
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-avP<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/project<span class="w"> </span>/mnt/ffs24/home/<span class="nv">$USER</span>/
+</code></pre></div>
 <p>Repeat for any other directories or files you would like to keep. Note that if you remove any files in your old home and want to resync this directory, you should use the <code>--delete</code> option, like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rsync<span class="w"> </span>-avP<span class="w"> </span>--delete<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/project<span class="w"> </span>/mnt/ffs24/home/<span class="nv">$USER</span>/
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-avP<span class="w"> </span>--delete<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/project<span class="w"> </span>/mnt/ffs24/home/<span class="nv">$USER</span>/
+</code></pre></div>
 <p>This will ensure that these deletions are replicated in your new home directory.</p>
 </div>
 </div>
@@ -6923,18 +6922,16 @@ file-sizes --detail
 <h3 id="managing-files-graphically-via-ondemand">Managing files graphically via OnDemand</h3>
 <p>You can also use <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard/files/">OnDemand's file browser</a> to perform many operations like moving, copying, and deleting files. You can also download files to your personal computer, though this is limited to files that are 1GB or smaller.</p>
 <p>However, note that the file sizes reported on OnDemand may be inaccurate on the new home system. Please use the <code>file-sizes</code> powertool, e.g., by starting a new command line via the Development Nodes tab, and running the commands</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>powertools
 file-sizes<span class="w"> </span>--detail
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="managing-files-on-the-command-line">Managing files on the command line</h3>
 <ul>
 <li>
 <p>To move files on the command line use the <code>mv</code> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv<span class="w"> </span>~/project<span class="w"> </span>~/other_project_location
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>~/project<span class="w"> </span>~/other_project_location
+</code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Don't use <code>mv</code> with research spaces</p>
 <p>Using <code>mv</code> with a research space <a href="../Research_Space/#using-a-research-space">may preserve undesired group ownership</a>. It is better to copy to a research space first (e.g., using <code>cp</code>), then delete the original version (e.g., using <code>rm</code>).</p>
@@ -6942,14 +6939,14 @@ file-sizes<span class="w"> </span>--detail
 </li>
 <li>
 <p>To copy files on the command line, use the <code>cp</code> command. When you are copying a directory, you need to use the <code>-r</code> option to copy everything inside:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>~/project<span class="w"> </span>/mnt/research/my_group
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>~/project<span class="w"> </span>/mnt/research/my_group
+</code></pre></div>
 <p>You can also use the <code>rsync</code> command as shown above for a more robust option.</p>
 </li>
 <li>
 <p>To remove files on the command line, use the <code>rm</code> command. When you are removing a directory, you need to use the <code>-r</code> option to remove everything inside. <strong>Be careful with using <code>rm</code> because deletions cannot be undone</strong>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rm<span class="w"> </span>-r<span class="w"> </span>~/project
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-r<span class="w"> </span>~/project
+</code></pre></div>
 </li>
 </ul>
 <h3 id="moving-files-to-research-spaces">Moving files to research spaces</h3>
@@ -6960,20 +6957,16 @@ file-sizes<span class="w"> </span>--detail
 <li>Copy files and remove the originals rather than move them directly</li>
 </ol>
 <p>For example, to move the directory <code>~/my_project</code> from the home space to the research space <code>/mnt/research/my_group</code>, use the commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>newgrp<span class="w"> </span>-<span class="w"> </span>my_group<span class="w">  </span><span class="c1"># Change group to match the research space</span>
+<div class="highlight"><pre><span></span><code>newgrp<span class="w"> </span>-<span class="w"> </span>my_group<span class="w">  </span><span class="c1"># Change group to match the research space</span>
 cp<span class="w"> </span>-r<span class="w"> </span>~/my_project<span class="w"> </span>/mnt/research/my_group<span class="w">  </span><span class="c1"># Copy files</span>
 ls<span class="w"> </span>/mnt/research/my_group<span class="w">  </span><span class="c1"># Check files transferred correctly</span>
 rm<span class="w"> </span>-r<span class="w"> </span>~/my_project<span class="w">  </span><span class="c1"># Remove the originals</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Instead of using the <code>cp</code> command, you can also use the more robust <code>rsync</code> command.
 However, rather than using the <code>-avP</code> options as described above, use the following options:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>newgrp<span class="w"> </span>-<span class="w"> </span>my_group
+<div class="highlight"><pre><span></span><code>newgrp<span class="w"> </span>-<span class="w"> </span>my_group
 rsync<span class="w"> </span>-rlptoDvP<span class="w"> </span>~/my_project<span class="w"> </span>/mnt/research/my_group
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This ensures that the group ownership of the files will change to match the research space group.
 Not doing so will result in "Disk quota exceeded" errors.</p>
 <p>Before moving files to research spaces please see our additional tips for <a href="../Research_Space/#using-a-research-space">Using Research Spaces</a>.</p>
@@ -6985,8 +6978,8 @@ your new home directories. To do so, log in to a development node either by
 using your password, or <a href="../Open_OnDemand/#development-nodes">the tab in our OnDemand web
 portal</a>.</p>
 <p>Then run the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/.ssh<span class="w"> </span>~
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/.ssh<span class="w"> </span>~
+</code></pre></div>
 <p>Alternatively, you can retransfer the existing keys on your computer depending
 on how you originally set them up:</p>
 <ul>
@@ -6997,12 +6990,12 @@ on how you originally set them up:</p>
 <p>If you were migrated on or after June 10th, you will receive a warning on login
 directing you to this page. To remove this login, you can copy your old
 <code>.bashrc</code> file to your new home directory with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/.bashrc<span class="w"> </span>~
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/.bashrc<span class="w"> </span>~
+</code></pre></div>
 <p>If you would rather use the fresh <code>.bashrc</code> in your home directory, use the
 command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;/^#BEGINFFS24MIGRATION/,/^#ENDFFS24MIGRATION/d&#39;</span><span class="w"> </span>~/.bashrc
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;/^#BEGINFFS24MIGRATION/,/^#ENDFFS24MIGRATION/d&#39;</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
 <p>to remove the section that adds the warning on login. If you find that you are
 missing configuration that was set in your old bashrc, please use the <code>cp</code>
 command above instead.</p>
@@ -7016,10 +7009,9 @@ follow <a href="#how-do-i-remove-the-warning-on-login">the steps above</a>.</p>
 when you <a href="../Using_conda/#using-the-miniforge3-module-quick-start-option">use the system <code>Miniforge3</code>
 module</a>)
 Run the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Miniforge3
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Miniforge3
 conda<span class="w"> </span>config<span class="w"> </span>--append<span class="w"> </span>envs_dirs<span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.conda/envs
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If you <a href="../Using_conda/#appendix-installing-miniforge-manually-advanced-option">installed conda
 yourself</a>,
 your environments may be in a different directory. Common options are
@@ -7028,10 +7020,9 @@ longer recommends or
 supports</a>),
 <code>~/anaconda3/envs</code> or <code>~/miniconda3/envs</code>, you will need to load the <code>Conda/3</code> 
 module and substitute the corresponding directory below:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Conda/3
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Conda/3
 conda<span class="w"> </span>config<span class="w"> </span>--append<span class="w"> </span>envs_dirs<span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/miniforge3/envs<span class="w">  </span><span class="c1"># substitute your conda env directory here</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="some-of-my-files-are-no-longer-executable-or-have-the-wrong-permissions-after-transferring-with-globus">Some of my files are no longer executable or have the wrong permissions after transferring with Globus</h3>
 <p>Some users have reported issues with executables and permissions after using
 Globus. Having these users resync old files using <code>rsync</code> has helped in some

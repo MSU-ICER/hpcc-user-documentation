@@ -6664,12 +6664,10 @@ you can inspect individual <abbr title="Central Processing Unit">CPU</abbr> and 
 <p>If you have <abbr title="Secure Shell">SSH</abbr> Tunneling set up, we can extend the 
 <a href="../An_SSH_tunneling_via_multiple_hops/#using-proxyjump">ProxyJump</a> framework to connect to compute nodes.</p>
 <p>To do this, add the following lines to your <code>.ssh/config</code>: 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span>Host<span class="w"> </span>lac*<span class="w"> </span>vim*<span class="w"> </span>skl*<span class="w"> </span>nvl*<span class="w"> </span>amr*<span class="w"> </span>nvf*<span class="w"> </span>nif*<span class="w"> </span>nal*<span class="w"> </span>acm*
+<div class="highlight"><pre><span></span><code><span class="w">    </span>Host<span class="w"> </span>lac*<span class="w"> </span>vim*<span class="w"> </span>skl*<span class="w"> </span>nvl*<span class="w"> </span>amr*<span class="w"> </span>nvf*<span class="w"> </span>nif*<span class="w"> </span>nal*<span class="w"> </span>acm*
 <span class="w">        </span>User<span class="w"> </span>here_you_put_your_net_id
 <span class="w">        </span>ProxyJump<span class="w"> </span>intel18
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>The three-letter names correspond to the kinds of nodes available from <a href="../Cluster_Resources/">each cluster</a>.
 Notice that we are using the development node <code>intel18</code> to connect to the compute nodes, rather than the gateway.</p>
 <p>We can then run a command such as <code>ssh amr-070</code> from our local terminal (assuming we have a job running on that node). This will connect us directly to that node.</p>

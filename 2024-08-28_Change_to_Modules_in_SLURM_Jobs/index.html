@@ -6653,42 +6653,23 @@ information and other details.</p>
 <p>However, if you load non-default modules on the development nodes and then use those modules in your SLURM scripts, please add those module load commands to your script before you use the programs in those modules. Additionally, if you make any changes to your module path using the <code>module use</code> command (e.g., you are loading modules that are not provided by ICER), make sure you do this before you load modules in your SLURM scripts as well.</p>
 <h3 id="example">Example</h3>
 <p>Suppose that in a typical session, I have a SLURM script that looks like</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<div class="highlight"><span class="filename">script.sb</span><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=1:00:00</span>
 <span class="c1">#SBATCH --cpus-per-task=2</span>
 <span class="c1">#SBATCH --mem=32GB</span>
 
 stata<span class="w"> </span><span class="k">do</span><span class="w"> </span>myjob.do
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The <code>stata</code> command comes from the <code>Stata</code> module. Before I submit this script, I login and load modules like:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
 ssh<span class="w"> </span>dev-amd20
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>Stata/18-MP
 sbatch<span class="w"> </span>script.sb
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This will no longer work because when the SLURM job starts, the <code>Stata</code> module will be unloaded and replaced by all default modules (which do not include <code>Stata</code>). The fix is to add the <code>module purge</code> and <code>module load Stata/18-MP</code> lines to the beginning of the SLURM script like:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">script_fixed.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<div class="highlight"><span class="filename">script_fixed.sb</span><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=1:00:00</span>
 <span class="c1">#SBATCH --cpus-per-task=2</span>
@@ -6698,7 +6679,7 @@ module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>Stata/18-MP
 
 stata<span class="w"> </span><span class="k">do</span><span class="w"> </span>myjob.do
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You no longer have to load the modules before submitting the job.</p>
 <h3 id="special-considerations-for-nextflow-and-snakemake">Special considerations for Nextflow and Snakemake</h3>
 <p>Nextflow and Snakemake are two workflow managers that can submit jobs to SLURM for you. Since they build the SLURM scripts, you will need to take extra measures to ensure that they load the required modules in the steps where they are used.</p>

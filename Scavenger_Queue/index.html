@@ -6656,11 +6656,11 @@ implemented that can manage jobs being canceled or requeued use this queue.</p>
 </div>
 <h2 id="usage">Usage</h2>
 <p>To use the scavenger queue, add the following line to your job script:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>#SBATCH --qos=scavenger
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>#SBATCH --qos=scavenger
+</code></pre></div></p>
 <p>To prevent your job from requeuing automatically if interrupted, add the following line to your job script:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>#SBATCH --no-requeue
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>#SBATCH --no-requeue
+</code></pre></div></p>
 <p>The scavenger queue is not affected by the amount of wall time requested in your job script, e.g. 24 hours wall time is treated with the same scavenger queue priority as 4 hours wall time.</p>
 <p>Scavenger queue jobs will be automatically assigned to the <code>scavenger</code> account, regardless of the <code>-A</code> setting in your job script.</p>
 <h2 id="scheduling">Scheduling</h2>

@@ -6784,19 +6784,7 @@
 a variety of "sub-commands". The example we used above, <code>list</code>, is an example of a sub-command.</p>
 <p>What other sub-commands are available? Run <code>module</code> by itself to find out. </p>
 <p>You'll see a long list of available sub-commands printed to the screen. Scroll up until you see the portion on listing and searching:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>Listing / Searching sub-commands:
+<div class="highlight"><pre><span></span><code>Listing / Searching sub-commands:
 ---------------------------------
   list                              List loaded modules
   list                s1 s2 ...     List loaded modules that match the pattern
@@ -6809,7 +6797,7 @@ a variety of "sub-commands". The example we used above, <code>list</code>, is an
                                     module.
   whatis              module        Print whatis information about module
   keyword | key       string        Search all name and whatis that contain &quot;string&quot;.
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>Here we see the sub-command <code>list</code>, which we've already encountered. We'll cover <code>avail</code> and <code>keyword</code> in other documentation. For now, let's focus on the <code>spider</code> sub-command.</p>
 <p>The <code>spider</code> sub-command is the most useful way to search through available modules. Its name isn't obvious, but you can think of sending a spider to walk through a tangled web of modules to find the ones matching your request.</p>
 <p>The list of sub-commands from <code>module</code> shows four options for the <code>module spider</code> sub-command:</p>
@@ -6843,33 +6831,7 @@ a variety of "sub-commands". The example we used above, <code>list</code>, is an
 <h3 id="searching-by-module-name">Searching by Module Name</h3>
 <p>For this tutorial we want to search for the versions of the R interpreter. Within the module system on the HPCC, "R" with a capital R is the formal name of the module.</p>
 <p>Run <code>module spider R</code>. An abbreviated output is reproduced below:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>----------
+<div class="highlight"><pre><span></span><code>----------
 
   R:
 ----------
@@ -6896,7 +6858,7 @@ a variety of "sub-commands". The example we used above, <code>list</code>, is an
 
      $ module spider R/4.3.3-gfbf-2023b
 ----------
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>We see a full list of all available R versions as well as some other helpful information:</p>
 <ul>
 <li>Other possible module names we may have been searching for</li>
@@ -6912,30 +6874,24 @@ a variety of "sub-commands". The example we used above, <code>list</code>, is an
 <p>All modules listed by <code>module spider</code> follow the <code>name/version</code> format. We can use this format to get more information on a specific version. As with the default R module, the <code>version</code> tag contains information about the toolchain with which that version of R was compiled. </p>
 <p>We're interested in using R version 3.6.3, so run <code>module spider R/3.6.3-foss-2022b</code>.</p>
 <p>You'll again see a long list of output. We are interested in the following portions:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>This module can be loaded directly: module load R/3.6.3-foss-2022b
+<div class="highlight"><pre><span></span><code>This module can be loaded directly: module load R/3.6.3-foss-2022b
 
 This module provides the following extensions:
 
   base (E), compiler (E), datasets (E), graphics (E), grDevices (E), grid (E), methods (E), parallel (E), splines (E), stats (E), stats4 (E), tcltk (E), tools (E), utils (E)
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>The phrase "this module can be loaded directly" means that we don't have to load any additional modules before loading R version 3.6.3. Any of its dependencies - such as the FOSS 2022b toolchain it was built with - will be loaded automatically when we load this one module.</p>
 <p>It is also worth noting that R provides a number of <strong>extensions</strong>. These are packages that are installed alongside R. In this case, these packages can be loaded <em>within</em> R. Some modules may also have extensions that provide additional command line tools.</p>
 <h2 id="loading-modules">Loading Modules</h2>
 <p>As we saw in the last section, when <a href="#details-on-a-module-version">checking module details</a>, R version 3.6.3 can be loaded "directly" without first loading any dependencies. This is because any necessary dependencies will be loaded automatically, including those from its compiler toolchain.</p>
 <p>Let's attempt to load our desired version of R:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/3.6.3-foss-2022b
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>R/3.6.3-foss-2022b
+</code></pre></div></p>
 <p>This results in an error! The first two sentences are the most informative part of this error:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Lmod has detected the following error:  The previous module command attempted to
+<div class="highlight"><pre><span></span><code>Lmod has detected the following error:  The previous module command attempted to
 load &quot;R/3.6.3-foss-2022b&quot; while &quot;R/4.3.2-gfbf-2023a&quot; was already loaded. This is likely due
 to loading a module with incompatible dependencies from the one currently loaded.
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>Since <code>R/4.3.2-gfbf-2023a</code> and all of its dependencies are already loaded as default modules, we'll need to clear out our currently loaded modules if we want to load a module from a different toolchain. Run <code>module purge</code> to remove all currently loaded modules. You can confirm all modules have been unloaded with <code>module list</code>.</p>
 <p>Now, we can run <code>module load R/3.6.3-foss-2022b</code> again. You will not see any output after this command. Run <code>module list</code> if you would like to confirm it worked.</p>
 <h2 id="saving-and-restoring-loaded-modules">Saving and Restoring Loaded Modules</h2>
@@ -6944,15 +6900,14 @@ to loading a module with incompatible dependencies from the one currently loaded
 <h3 id="saving-a-configuration">Saving a Configuration</h3>
 <p>Now that we only have <abbr title="GNU Compiler Collection">GCC</abbr>, OpenMPI, and R version 4.1.0 loaded, let's save a configuration to easily access these modules later. We'll name it <code>R-example</code>.</p>
 <p>Type <code>module save R-example</code>. You should see the following confirmation message:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Saved current collection of modules to: &quot;R-example&quot;
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>Saved current collection of modules to: &quot;R-example&quot;
+</code></pre></div></p>
 <h3 id="restoring-a-configuration">Restoring a Configuration</h3>
 <p>Log out of the HPCC and log back in to a development node. This will reset your loaded modules to the default; run <code>module list</code> to confirm this is the case.</p>
 <p>Run <code>module savelist</code> to see our stored configurations. Confirm that you see <code>R-example</code>:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Named collection list :
+<div class="highlight"><pre><span></span><code>Named collection list :
   1) R-example 
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>Now, run <code>module restore R-example</code>. The existing modules will automatically be purged and your desired modules loaded!</p>
 <h2 id="further-resources">Further Resources</h2>
 <p>You should now understand the basics of the module system. For a refresher on searching for modules, see <a href="../How_to_find_and_load_software_modules/">Searching software modules</a>. You can also look through <a href="http://127.0.0.1:8000/available_software/overview/">available modules online</a>. Please note that searching via the command line will always yield the most up-to-date results.</p>

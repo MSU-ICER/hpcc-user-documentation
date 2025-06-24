@@ -6669,17 +6669,7 @@ conflict.</p>
 preferred version of Python is loaded. It is also a good idea to create
 a directory of the python version to store different environments and
 their applications:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>[UserName@dev-intel18 ~]$ module list Python
+<div class="highlight"><pre><span></span><code>[UserName@dev-intel18 ~]$ module list Python
 
 Currently Loaded Modules Matching: Python
   1) Python/3.6.4
@@ -6690,7 +6680,7 @@ Currently Loaded Modules Matching: Python
 [UserName@dev-intel18 ~]$ mkdir Python3.6.4
 [UserName@dev-intel18 ~]$ cd Python3.6.4
 [UserName@dev-intel18 Python3.6.4]$
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Currently, two common tools can be used to create Python virtual
 environments. Please use only one of them:</p>
 <ol>
@@ -6701,46 +6691,37 @@ system. A virtual environment can be created by running
 "<code>python3 -m venv &lt;DIR&gt;</code>", where <code>&lt;DIR&gt;</code> is the directory of the
 created environment. Following is an example of the command,
 and the directory <code>tutorial</code> is created for the virtual environment.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>[UserName@dev-intel18 Python3.6.4]$ python3 -m venv tutorial  
+<div class="highlight"><pre><span></span><code>[UserName@dev-intel18 Python3.6.4]$ python3 -m venv tutorial  
 [UserName@dev-intel18 Python3.6.4]$ ls tutorial  
 bin  include  lib  lib64  pyvenv.cfg
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </li>
 <li>
 <p>virtualenv supports all Python versions. By default, HPCC system has
     <code>pip</code>, <code>setuptools</code> and <code>wheel</code> installed and available. Similarly
     to venv, a virtual environment can be created by executing
     <code>virtualenv &lt;DIR&gt;</code>, where applications of the virtual environment are installed in <code>tutorial</code> directory.
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>    [UserName@dev-intel18 Python3.6.4]$ virtualenv tutorial
+<div class="highlight"><pre><span></span><code>    [UserName@dev-intel18 Python3.6.4]$ virtualenv tutorial
     Using base prefix &#39;/opt/software/Python/3.6.4-foss-2018a&#39;
     New python executable in /mnt/home/UserName/Python3.6.4/tutorial/bin/python
     Installing setuptools, pip, wheel...done.
     [UserName@dev-intel18 Python3.6.4]$ ls tutorial
     bin  include  lib  lib64  pip-selfcheck.json
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 </li>
 </ol>
 <p>Please use one of them to create the virtual environment.</p>
 <p>The created <code>tutorial</code> environment can now be used by sourcing the
 script file <code>activate</code> under the <code>bin</code> directory:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>[UserName@dev-intel18 Python3.6.4]$ source tutorial/bin/activate
+<div class="highlight"><pre><span></span><code>[UserName@dev-intel18 Python3.6.4]$ source tutorial/bin/activate
 (tutorial) [UserName@dev-intel18 Python3.6.4]$
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where the name inside the parentheses <code>(tutorial)</code> in front of the
 prompt line shows the current Python environment. To leave the
 environment, just run "deactivate":</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ deactivate
+<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ deactivate
 [UserName@dev-intel18 Python3.6.4]$
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>and the parentheses disappear. Any time you want to use the <code>tutorial</code>
 environment. Simply source the file again:
 <code>source ~/Python3.6.4/tutorial/bin/activate</code> and the environment is
@@ -6755,44 +6736,27 @@ introduced.</p>
 <p>To install the latest version of a python package, users can run
 <code>pip install &lt;Package Name&gt;</code>, for example, using <code>sympy</code> as
 <code>&lt;Package Name&gt;</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip install &quot;sympy&quot;
+<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip install &quot;sympy&quot;
 Collecting sympy
 Using cached https://files.pythonhosted.org/packages/21/21/f4105795ca7f35c541d82c5b06be684dd2f5cb4f508fb487cd7aea4de776/sympy-1.4-py2.py3-none-any.whl
 Collecting mpmath&gt;=0.19 (from sympy)
 Installing collected packages: mpmath, sympy
 Successfully installed mpmath-1.1.0 sympy-1.4
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To install a specific version of a python package, please run
 <code>pip install &lt;Package Name&gt;==&lt;Version Number&gt;</code>. For example, install
 <code>numpy</code> with <code>&lt;version number&gt;</code> as <code>1.16.2</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip install &quot;numpy==1.16.2&quot;
+<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip install &quot;numpy==1.16.2&quot;
 Collecting numpy==1.16.2
 Downloading https://files.pythonhosted.org/packages/35/d5/4f8410ac303e690144f0a0603c4b8fd3b986feb2749c435f7cdbb288f17e/numpy-1.16.2-cp36-cp36m-manylinux1_x86_64.whl (17.3MB)
     |████████████████████████████████| 17.3MB 10.5MB/s
 Installing collected packages: numpy
 Successfully installed numpy-1.16.2
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To upgrade an already installed package to the latest from PyPI,
 users can run <code>pip install --upgrade</code>. For example, upgrade the
 installed package <code>numpy</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip install --upgrade numpy
+<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip install --upgrade numpy
 Collecting numpy
 Using cached https://files.pythonhosted.org/packages/e5/e6/c3fdc53aed9fa19d6ff3abf97dfad768ae3afce1b7431f7500000816bda5/numpy-1.17.2-cp36-cp36m-manylinux1_x86_64.whl
 Installing collected packages: numpy
@@ -6800,17 +6764,14 @@ Found existing installation: numpy 1.16.2
     Uninstalling numpy-1.16.2:
     Successfully uninstalled numpy-1.16.2
 Successfully installed numpy-1.17.2
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>With pip, you can also list all installed packages and their
 versions with the command <code>pip freeze</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip freeze
+<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip freeze
 mpmath==1.1.0
 numpy==1.17.2
 sympy==1.4
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>For more detail, see the
 <a href="https://pip.pypa.io">pip docs</a>, which
 includes a complete <a href="https://pip.pypa.io/en/latest/reference/index.html">Reference Guide</a>.</p>
@@ -6819,26 +6780,7 @@ includes a complete <a href="https://pip.pypa.io/en/latest/reference/index.html"
 packages already installed by the same python version in other
 directories. By adding the <code>site-packages</code> paths to <code>PYTHONPATH</code>
 environment variable and separating them with the "<code>:</code>" symbol:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ export PYTHONPATH=~/Python3.6.4/tutorial/lib/python3.6/site-packages:/opt/software/Python/3.6.4-foss-2018a/lib/python3.6/site-packages
+<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ export PYTHONPATH=~/Python3.6.4/tutorial/lib/python3.6/site-packages:/opt/software/Python/3.6.4-foss-2018a/lib/python3.6/site-packages
 (tutorial) [UserName@dev-intel18 Python3.6.4]$ pip freeze
 absl-py==0.5.0
 alabaster==0.7.12
@@ -6858,7 +6800,7 @@ virtualenv==15.1.0
 wcwidth==0.1.7
 Werkzeug==0.14.1
 xopen==0.3.5
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>all packages inside the paths are now ready to use. Please make sure the
 <code>site-packages</code> path of the current environment is set the first
 in <code>PYTHONPATH</code> variable. If a package is installed in more than one

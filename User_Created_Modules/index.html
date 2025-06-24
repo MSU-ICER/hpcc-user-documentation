@@ -6555,31 +6555,7 @@
 a <em>modulefile</em> to help manage your environment variables. HPCC presently
 uses the LMOD module package, developed at TACC. The following is a
 typical module file with comments. Name your files with a <code>.lua</code> extension.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>--<span class="w"> </span>-*-<span class="w"> </span>lua<span class="w"> </span>-*-<span class="w"> </span>
+<div class="highlight"><pre><span></span><code>--<span class="w"> </span>-*-<span class="w"> </span>lua<span class="w"> </span>-*-<span class="w"> </span>
 <span class="w"> </span>help<span class="o">(</span><span class="w"> </span>
 <span class="w"> </span><span class="o">[[</span><span class="w"> </span>
 <span class="w"> </span>Describe<span class="w"> </span>your<span class="w"> </span>software<span class="w"> </span>here.<span class="w"> </span>
@@ -6604,7 +6580,7 @@ typical module file with comments. Name your files with a <code>.lua</code> exte
 
 <span class="w"> </span>--<span class="w"> </span>add<span class="w"> </span>include<span class="w"> </span>paths<span class="w"> </span>
 <span class="w"> </span>prepend_path<span class="o">(</span><span class="s1">&#39;INCLUDE&#39;</span>,pathJoin<span class="o">(</span>install_path,<span class="s2">&quot;include&quot;</span><span class="o">))</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>For more information, see the <a href="https://lmod.readthedocs.io/en/latest/015_writing_modules.html">Lmod documentation</a></p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

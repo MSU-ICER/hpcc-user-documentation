@@ -6634,47 +6634,28 @@ information and other details.</p>
 <p>If you haven't already, follow the <a href="../Connect_over_SSH_with_VS_Code/">instructions to connect to the HPCC through <abbr title="Secure Shell">SSH</abbr></a>.</p>
 <p>Press <span class="keys"><kbd class="key-f1">F1</kbd></span> to open the command palette and begin typing "Remote-<abbr title="Secure Shell">SSH</abbr>: Open <abbr title="Secure Shell">SSH</abbr> Configuration File...", press <span class="keys"><kbd class="key-enter">Enter</kbd></span>. Select the file <code>C:\Users\&lt;Account_Name&gt;\.ssh\config</code>.</p>
 <p>Add a new section to the <abbr title="Secure Shell">SSH</abbr> configuration file with the following lines, making sure to replace the pieces in brackets (<code>&lt;&gt;</code>) with your information:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>Host &lt;container&gt;~intel18
+<div class="highlight"><pre><span></span><code>Host &lt;container&gt;~intel18
     HostName dev-intel18
     User &lt;netid&gt;
     ProxyJump &lt;netid&gt;@hpcc.msu.edu
     RemoteCommand singularity shell &lt;path_to_singularity_image&gt;.sif
     RequestTTY yes
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Above, change <code>&lt;container&gt;</code> to a shortname for your container, <code>&lt;netid&gt;</code> to your NetID that you use to access the HPCC, and <code>&lt;path_to_singularity_image&gt;.sif</code> to be the location of your Singularity image on the HPCC. For example, I (<code>grosscra</code>) tested this using a Singularity image on the HPCC at <code>~/tensorflow_latest-gpu-jupyter.sif</code> with Tensorflow installed. So the configuration looks like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>Host tf~intel18
+<div class="highlight"><pre><span></span><code>Host tf~intel18
     HostName dev-intel18
     User grosscra
     ProxyJump grosscra@hpcc.msu.edu
     RemoteCommand singularity shell /mnt/home/grosscra/tensorflow_latest-gpu-jupyter.sif
     RequestTTY yes
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You are also free to change the development node to whatever node you like in the <code>Host</code> and <code>HostName</code> lines.</p>
 <h3 id="set-up-vs-code-settings">Set up VS Code settings</h3>
 <p>We will now set up VS Code so that when it connects to the <code>&lt;container&gt;~intel18</code> host through the "Remote - <abbr title="Secure Shell">SSH</abbr>" extension, it will run the <code>RemoteCommand</code> set above to start the container.</p>
 <p>Open the VS Code Settings JSON files by pressing <span class="keys"><kbd class="key-f1">F1</kbd></span>, and type Preferences: Open User Settings (JSON).</p>
 <p><strong>Important</strong>: Make sure you edit the JSON files directly, do not manipulate the settings using VS Code's menu. There is a bug that does not allow you to set the correct settings from the menu.</p>
 <p>Add the following lines, or if they are already there, ensure that they have these values, replacing <code>&lt;container&gt;</code> with the short name you used in the <abbr title="Secure Shell">SSH</abbr> configuration above and <code>&lt;Windows_Account_Name&gt;</code> with your Windows account:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="err">...</span>
 <span class="w">    </span><span class="nt">&quot;remote.SSH.enableRemoteCommand&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;remote.SSH.useLocalServer&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
@@ -6684,17 +6665,10 @@ information and other details.</p>
 <span class="w">    </span><span class="nt">&quot;remote.SSH.configFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:/Users/&lt;Windows_Account_Name&gt;/.ssh/config&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="err">...</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note that the <abbr title="Secure Shell">SSH</abbr> configuration file path above uses forward-slashes instead of back-slashes.</p>
 <p>Additionally, if you have a <code>remote.SSH.remotePlatform</code> section in your <code>settings.json</code> with a line corresponding to your <code>&lt;container&gt;~intel18</code> section, remove it. For example, if my <code>settings.json</code> has the lines</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="err">...</span>
 <span class="w">    </span><span class="nt">&quot;remote.SSH.remotePlatform&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nt">&quot;amd20&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;linux&quot;</span><span class="p">,</span>
@@ -6702,7 +6676,7 @@ information and other details.</p>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">    </span><span class="err">...</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>I should remove the <code>"tf~intel18": "linux"</code> line.</p>
 <h3 id="kill-vs-code-servers">Kill VS Code Servers</h3>
 <p>To ensure that your new connection does not reuse any old connections, you will need to kill those old connections if they exist.</p>

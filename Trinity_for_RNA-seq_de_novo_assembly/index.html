@@ -6641,28 +6641,21 @@
 <h1 id="trinity-for-rna-seq-de-novo-assembly">Trinity for RNA-seq de novo assembly</h1>
 <h2 id="loading-module">Loading module</h2>
 <p>Take loading Trinity 2.15.1 as an example, we run:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 module load Trinity/2.15.1-foss-2023a
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="most-basic-run-transcript-assembly">Most basic run (transcript assembly)</h2>
 <p>A typical Trinity command for assembling strand-specific paired-end
 RNA-seq data would look like:</p>
 <p><strong>A typical run of Trinity</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>Trinity \
+<div class="highlight"><pre><span></span><code>Trinity \
   --seqType fq \
   --max_memory 2G \
   --left reads.left.fq \
   --right reads.right.fq \
   --SS_lib_type RF \
   --CPU 10
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This will generate output files in a new directory <code>trinity_out_dir</code>
 in the working directory. Among them, the assembled transcripts file is
 "<code>Trinity.fasta</code>". For more detail, check
@@ -6671,12 +6664,10 @@ out <a href="https://github.com/trinityrnaseq/trinityrnaseq/wiki">https://githu
 request 10 CPUs in the sbatch script with the following lines (in
 addition to your other sbatch directives):</p>
 <p><strong>sbatch code snippet</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>#SBATCH --nodes=1
+<div class="highlight"><pre><span></span><code>#SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=10
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="transcript-quantification">Transcript quantification</h2>
 <p>Trinity provides abundant utility scripts for post-assembly analysis,
 such as quality assessment, transcript quantification and differential
@@ -6691,20 +6682,7 @@ assembled transcript and then quantify transcript abundance, we first
 set the <code>PATH</code> variable so that RSEM can be automatically searched for
 by trinity.</p>
 <p><strong>Using RSEM for transcript quantification</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code># Assuming
+<div class="highlight"><pre><span></span><code># Assuming
 #    1) you&#39;ve loaded Trinity module already and
 #    2) your current working directory is trinity_out_dir generated from the previous assembly step. 
 
@@ -6718,7 +6696,7 @@ $EBROOTTRINITY/trinityrnaseq-v2.15.1/util/align_and_estimate_abundance.pl --seqT
     --prep_reference \
     --thread_count 10 \
     --output_dir RSEM_out
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The RSEM computation generates two primary output files containing
 estimated abundances in the subdirectory <code>RSEM_out</code> as specified in the
 command above: <code>RSEM.isoforms.results</code> (transcript level)

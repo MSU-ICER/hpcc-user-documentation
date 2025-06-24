@@ -6743,67 +6743,45 @@
 </div>
 <h2 id="save-your-currently-installed-packages">Save your currently installed packages</h2>
 <p>First, start a <a href="../Backwards_Compatibility_with_CentOS/">backwards compatibility container</a>, and start the version of R you are used to using on the HPCC. For the purposes, of this example, we will use <code>R/4.2.1</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
 ssh<span class="w"> </span>dev-amd20
 old_os
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0<span class="w"> </span>OpenMPI/4.1.4<span class="w"> </span>R/4.2.1
 R
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Within R, save your installed packages to a file and exit.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">packages</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">installed.packages</span><span class="p">()[,</span><span class="s">&quot;Package&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">packages</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">installed.packages</span><span class="p">()[,</span><span class="s">&quot;Package&quot;</span><span class="p">]</span>
 <span class="nf">save</span><span class="p">(</span><span class="n">packages</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Rpackages&quot;</span><span class="p">)</span>
 <span class="nf">q</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="backup-your-previous-library">Backup your previous library</h2>
 <p>To avoid conflicts between packages installed on different operating systems, move your old packages to a different location. Usually, your packages are stored in subdirectories of <code>~/R/x86_64-pc-linux-gnu-library</code> labeled by the version of R they were installed with, but if you would like to double check, you can run <code>R</code> and look at the first entry of</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">.libPaths</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nf">.libPaths</span><span class="p">()</span>
+</code></pre></div>
 <p>Move this library to a backup location so you can continue to use the CentOS operating system if necessary. Run this command from the command line.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv<span class="w"> </span>~/R/x86_64-pc-linux-gnu-library<span class="w"> </span>~/R/x86_64-pc-linux-gnu-library.centos_backup
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>~/R/x86_64-pc-linux-gnu-library<span class="w"> </span>~/R/x86_64-pc-linux-gnu-library.centos_backup
+</code></pre></div>
 <h2 id="reinstall-packages-with-a-version-of-r-on-the-new-operating-system">Reinstall packages with a version of R on the new operating system</h2>
 <p>Now, exit the container back into <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">a development node running the new operating system</a>. Load the version of R you would like to use. ICER highly recommends using <code>R-bundle-CRAN/2023.12-foss-2023a</code>, as this already contains a large number packages users often need, and will reduce the number you need to install manually.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Exit backwards compatibility container</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Exit backwards compatibility container</span>
 <span class="nb">exit</span>
 <span class="c1"># Load desired version of R</span>
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>R-bundle-CRAN/2023.12-foss-2023a
 R
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Then reinstall the packages listed in your <code>Rpackages</code> file that are not already installed.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">load</span><span class="p">(</span><span class="s">&quot;Rpackages&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nf">load</span><span class="p">(</span><span class="s">&quot;Rpackages&quot;</span><span class="p">)</span>
 <span class="n">new_packages</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">setdiff</span><span class="p">(</span><span class="n">packages</span><span class="p">,</span><span class="w"> </span><span class="nf">installed.packages</span><span class="p">()[,</span><span class="s">&quot;Package&quot;</span><span class="p">])</span>
 <span class="kr">for</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">new_packages</span><span class="p">)</span>
 <span class="nf">install.packages</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If you would like to check what packages will be installed before running the <code>install.packages()</code> for loop, you can look at <code>new_packages</code>.</p>
 <p>Your packages will now be ready to use with this new version of R.</p>
 <h2 id="update-old-batch-scripts">Update old batch scripts</h2>
 <p>Assuming these packages were used in a batch script, you now need to update it for the new system. Suppose we have the following script, <code>my_script.sb</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+<div class="highlight"><span class="filename">my_script.sb</span><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=01:00:00</span>
 <span class="c1">#SBATCH --cpus-per-task=2</span>
@@ -6811,22 +6789,12 @@ R
 
 module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0<span class="w"> </span>OpenMPI/4.1.4<span class="w"> </span>R/4.2.1
 Rscript<span class="w"> </span>do_some_work.R
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Copy the script for the new system.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>my_script.sb<span class="w"> </span>my_script_ubuntu.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>my_script.sb<span class="w"> </span>my_script_ubuntu.sb
+</code></pre></div>
 <p>Then, change to using the new version of R. </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script_ubuntu.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+<div class="highlight"><span class="filename">my_script_ubuntu.sb</span><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=01:00:00</span>
 <span class="c1">#SBATCH --cpus-per-task=2</span>
@@ -6837,23 +6805,15 @@ module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>R-bundle-CRAN/2023.12-foss-2023a
 
 Rscript<span class="w"> </span>do_some_work.R
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To test, make sure you log into an <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">Ubuntu development node</a>, and submit the job using</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch<span class="w"> </span>my_script_ubuntu.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>my_script_ubuntu.sb
+</code></pre></div>
 <h2 id="optional-going-back-to-the-old-system">Optional: Going back to the old system</h2>
 <p>In the event that you need to rerun your R code in a <a href="../Backwards_Compatibility_with_CentOS/">CentOS backwards compatibility container</a>, R will not find your old libraries that you have moved to <code>~/R/x86_64-pc-linux-gnu-library.centos_backup</code>. You have two options:</p>
 <h3 id="tell-r-where-your-packages-are-using-an-environment-variable">Tell R where your packages are using an environment variable</h3>
 <p>This option works for any R code run after the <code>R_LIBS_USER</code> environment variable has been set.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+<div class="highlight"><span class="filename">my_script.sb</span><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=01:00:00</span>
 <span class="c1">#SBATCH --cpus-per-task=2</span>
@@ -6862,12 +6822,12 @@ Rscript<span class="w"> </span>do_some_work.R
 module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0<span class="w"> </span>OpenMPI/4.1.4<span class="w"> </span>R/4.2.1
 <span class="nb">export</span><span class="w"> </span><span class="nv">R_LIBS_USER</span><span class="o">=</span>~/R/x86_64-pc-linux-gnu-library.centos_backup
 Rscript<span class="w"> </span>do_some_work.R
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note that even though the <code>R_LIBS_USER</code> variable is set in the script, you can also set it from the command line before starting <code>R</code> interactively.</p>
 <h3 id="tell-r-where-your-packages-are-in-your-r-code">Tell R where your packages are in your R code</h3>
 <p>This option requires modification to your R code, but is more flexible. Before you run any <code>library()</code> commands in an R script or interactively, run the R command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">.libpaths</span><span class="p">(</span><span class="s">&quot;~/R/x86_64-pc-linux-gnu-library.centos_backup&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nf">.libpaths</span><span class="p">(</span><span class="s">&quot;~/R/x86_64-pc-linux-gnu-library.centos_backup&quot;</span><span class="p">)</span>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

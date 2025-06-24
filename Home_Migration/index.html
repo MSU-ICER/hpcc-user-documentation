@@ -6906,8 +6906,8 @@
 <h2 id="new-file-system-tips">New file system tips</h2>
 <h3 id="snapshots">Snapshots</h3>
 <p>Snapshots of your home directory will be taken periodically, and you now have the capability to restore your own files. To see all available snapshots of a directory, change to the <code>.snapshot</code> directory within any directory with the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>.snapshot
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>.snapshot
+</code></pre></div>
 <p>Note that this directory will not show up using <code>ls</code>, and does not count against your quota. You can copy any file from a given snapshot wherever you would like.</p>
 <h3 id="compression-differences">Compression differences</h3>
 <p>The old and new home file system manage automatic compression differently. On the old file system, the <code>quota</code> command reports the compressed size of files in your home directory. On the new file system, you will see the uncompressed size of files in your home directory. Research space quota reporting is not changed.</p>
@@ -6923,13 +6923,13 @@
 <p>Unable to connect to service (1)</p>
 </blockquote>
 <p>This can be resolved by moving RStudio's configuration files to a backup using the command line. Please log into a development node on the command line and run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mv<span class="w"> </span>~/.local/share/rstudio<span class="w"> </span>~/.local/share/rstudio.backup
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>~/.local/share/rstudio<span class="w"> </span>~/.local/share/rstudio.backup
+</code></pre></div>
 <p>For more information, <a href="https://docs.icer.msu.edu/2024-08-12_RStudio_Server_Gray_Screen/">see our documentation about resolving similar errors with RStudio Server</a>.</p>
 <h3 id="permission-issues-using-conda-with-local-miniforge3-installation">Permission issues using conda with local Miniforge3 installation</h3>
 <p>If you have a local Miniforge3 installation in your home directory, after migrating, you may receive an error like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">-bash conda: /mnt/ufs18/home-xxx/username/miniforge3/bin/python: bad interpreter: Permission denied</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="go">-bash conda: /mnt/ufs18/home-xxx/username/miniforge3/bin/python: bad interpreter: Permission denied</span>
+</code></pre></div>
 <p>This is because during the original Miniforge installation, it set some paths as hardcoded to the old home directory system. These paths are read-only after the migration, so <code>conda</code> will not run.</p>
 <p>To fix this, we recommend <a href="../Using_conda/#using-the-miniforge3-module-quick-start-option">using the system Miniforge3 installation</a> by using <code>module load Miniforge3</code> instead of <code>module load Conda/3</code>. You can use the same environments you currently have installed.</p>
 <p>As an alternative, you can change the line at the top of the script giving permission errors to <a href="#will-the-path-to-my-home-directory-change">the full path of your migrated home directory</a>.</p>

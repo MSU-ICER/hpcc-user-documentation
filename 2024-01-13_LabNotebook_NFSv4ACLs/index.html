@@ -6587,30 +6587,13 @@ information and other details.</p>
 <p>To deal with ACLs, you will use three  commands: 1) <code>mmgetacl</code> for obtaining existing ACLs; 2) <code>mmputacl</code> for changing ACLs; and 3) <code>mmdelacl</code> for deleting ACLs. Compared with the basic <code>chmod</code> utility, being able to modify ACLs gives users more fine-grained control over file access.</p>
 <h2 id="viewing-existing-acls">Viewing existing ACLs</h2>
 <p>To view ACL of a directory or a file, we use the command <code>mmgetacl</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>mmgetacl<span class="w"> </span>&lt;my<span class="w"> </span>dir&gt;
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mmgetacl<span class="w"> </span>&lt;my<span class="w"> </span>dir&gt;
 $<span class="w"> </span>mmgetacl<span class="w"> </span>&lt;my<span class="w"> </span>file&gt;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The output should be mostly self-explanatory; for a complete description of the format of ACL entries, refer to <a href="https://www.ibm.com/docs/en/storage-scale/4.2.3?topic=administration-nfs-v4-acl-syntax">IBM NFS V4 ACL Syntax</a> or <a href="https://kb.iu.edu/d/agfd">IU's supercomputer user's guide</a>.</p>
 <h2 id="example-of-sharing-a-directory">Example of sharing a directory</h2>
 <p>Let's say under <code>myuser</code>'s home directory, there is a subdirectory named <code>acl_demo</code>. It contains two files and two directories (each dir has one file inside), as shown below. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ll<span class="w"> </span>acl_demo/
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ll<span class="w"> </span>acl_demo/
 total<span class="w"> </span>17K
 drwxrwx---<span class="w"> </span><span class="m">2</span><span class="w"> </span>myuser<span class="w"> </span>mygroup<span class="w"> </span><span class="m">8</span>.0K<span class="w"> </span>Jan<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">12</span>:38<span class="w"> </span>dir1/
 drwxrwx---<span class="w"> </span><span class="m">2</span><span class="w"> </span>myuser<span class="w"> </span>mygroup<span class="w"> </span><span class="m">8</span>.0K<span class="w"> </span>Jan<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">12</span>:38<span class="w"> </span>dir2/
@@ -6627,33 +6610,21 @@ acl_demo/
 └──<span class="w"> </span>file2
 
 <span class="m">2</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">4</span><span class="w"> </span>files
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Our goal is to <strong>share the entire <code>acl_demo</code> directory with our collaborator  <code>collab</code></strong> on the HPCC. Specifically, we will <strong>grant <em>read-only</em> access to <code>collab</code></strong>.</p>
 <p>First, we need to get the original ACLs for the <code>acl_demo</code> directory and one of the files (say, <code>file1</code>) inside it, using <code>mmgetacl</code> that we've used earlier. The original ACL of a directory/file when created is determined by <a href="https://askubuntu.com/questions/44542/what-is-umask-and-how-does-it-work">umask</a> set by <code>myuser</code>. We will save their ACLs to two files in <code>~/tmp</code>, since we want to differentiate directories from files when manipulating their ACLs. Make sure you have created a subdirectory <code>~/tmp</code> in your home directory beforehand.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="c1"># go to home dir (~/) </span>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="c1"># go to home dir (~/) </span>
 mmgetacl<span class="w"> </span>acl_demo<span class="w"> </span>&gt;<span class="w"> </span>~/tmp/acl-dir.txt<span class="w"> </span><span class="c1"># ACL of dirs</span>
 mmgetacl<span class="w"> </span>acl_demo/file1<span class="w"> </span>&gt;<span class="w"> </span>~/tmp/acl-file.txt<span class="w"> </span><span class="c1"># ACL of files</span>
 
 more<span class="w"> </span>~/tmp/acl-*.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>cat<span class="w"> </span><span class="c1"># take a look at the two ACL files generated</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Then, we will change the ACLs (for directories and files) using the  <code>mmputacl</code>  command. Its usage is simple:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mmputacl<span class="w"> </span>-i<span class="w"> </span>&lt;ACL<span class="w"> </span>entries&gt;<span class="w"> </span>&lt;file/dir<span class="w"> </span>name&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mmputacl<span class="w"> </span>-i<span class="w"> </span>&lt;ACL<span class="w"> </span>entries&gt;<span class="w"> </span>&lt;file/dir<span class="w"> </span>name&gt;
+</code></pre></div>
 <p>The above shows that <code>mmputacl</code> takes an input file (<code>-i</code>) containing user-defined ACL entries. It's important to note that, in this example, we will need to use <code>mmputacl</code> to change ACLs for both directories and files.  This also means that we need to prepare two different input files for <code>mmputacl</code>.</p>
 <p>To give <code>collab</code> read and execute (execute permission is needed to navigate to the directory) permission of a directory, we only need to add an entry to that directory's existing ACL. The same applies to changing a file.  Below we display two files that each contain the additional entry for granting <code>rx</code> (read and execute) access to user <code>collab</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>tmp/dir.acl
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>tmp/dir.acl
 user:collab:r-xc:allow:FileInherit:DirInherit
 <span class="w"> </span><span class="o">(</span>X<span class="o">)</span>READ/LIST<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>WRITE/CREATE<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>APPEND/MKDIR<span class="w"> </span><span class="o">(</span>X<span class="o">)</span>SYNCHRONIZE<span class="w"> </span><span class="o">(</span>X<span class="o">)</span>READ_ACL<span class="w">  </span><span class="o">(</span>X<span class="o">)</span>READ_ATTR<span class="w">  </span><span class="o">(</span>X<span class="o">)</span>READ_NAMED
 <span class="w"> </span><span class="o">(</span>-<span class="o">)</span>DELETE<span class="w">    </span><span class="o">(</span>-<span class="o">)</span>DELETE_CHILD<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>CHOWN<span class="w">        </span><span class="o">(</span>X<span class="o">)</span>EXEC/SEARCH<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>WRITE_ACL<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>WRITE_ATTR<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>WRITE_NAMED
@@ -6662,24 +6633,19 @@ $<span class="w"> </span>cat<span class="w"> </span>tmp/file.acl
 user:collab:r-xc:allow
 <span class="w"> </span><span class="o">(</span>X<span class="o">)</span>READ/LIST<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>WRITE/CREATE<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>APPEND/MKDIR<span class="w"> </span><span class="o">(</span>X<span class="o">)</span>SYNCHRONIZE<span class="w"> </span><span class="o">(</span>X<span class="o">)</span>READ_ACL<span class="w">  </span><span class="o">(</span>X<span class="o">)</span>READ_ATTR<span class="w">  </span><span class="o">(</span>X<span class="o">)</span>READ_NAMED
 <span class="w"> </span><span class="o">(</span>-<span class="o">)</span>DELETE<span class="w">    </span><span class="o">(</span>-<span class="o">)</span>DELETE_CHILD<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>CHOWN<span class="w">        </span><span class="o">(</span>X<span class="o">)</span>EXEC/SEARCH<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>WRITE_ACL<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>WRITE_ATTR<span class="w"> </span><span class="o">(</span>-<span class="o">)</span>WRITE_NAMED
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Above, selected permissions are marked with an <code>X</code>; permissions that are not selected are marked with a <code>-</code>. ACLs for directories have two additional flags (<code>FileInherit</code> and <code>DirInherit</code>) as compared to those for files.  These two files (i.e., <code>dir.acl</code> and <code>file.acl</code>) are saved in <code>~/tmp</code> as before. In practice, you can copy the above content down to your own files and make changes as needed, such as user name and/or permission choices.</p>
 <p>Our next step is to combine the new entry (which corresponds to the modified permission) with existing ACL. To do so, in the code below we append our newly added entry to the current ACL, for both directories and files. In other words, the two previously generated files, <code>acl-dir.txt</code> and <code>acl-file.txt</code> have been updated now (take a look at the two files to make sure everything is in order).</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>cat<span class="w"> </span>~/tmp/dir.acl<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/tmp/acl-dir.txt
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/tmp/dir.acl<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/tmp/acl-dir.txt
 cat<span class="w"> </span>~/tmp/file.acl<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/tmp/acl-file.txt
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>With all the preparation completed, we are now ready to call <code>mmputacl</code>. In order to make sure all the files and directories inside will be accessible to <code>collab</code>, we need to apply ACL changes at all levels, or, recursively. The following commands accomplish this.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="c1"># go to home dir (~/) </span>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="c1"># go to home dir (~/) </span>
 mmputacl<span class="w"> </span>acl_demo<span class="w"> </span>-i<span class="w"> </span>~/tmp/acl-dir.txt
 <span class="nb">cd</span><span class="w"> </span>acl_demo
 find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-exec<span class="w"> </span>mmputacl<span class="w"> </span><span class="se">\{</span><span class="o">}</span><span class="w"> </span>-i<span class="w"> </span>~/tmp/acl-dir.txt<span class="w"> </span><span class="se">\;</span>
 find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>mmputacl<span class="w"> </span><span class="se">\{</span><span class="o">}</span><span class="w"> </span>-i<span class="w"> </span>~/tmp/acl-file.txt<span class="w"> </span><span class="se">\;</span><span class="w"> </span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Here is a breakdown of the above code:</p>
 <ol>
 <li>The first line applies the change to the very top level directory <code>acl_demo</code>.  This allows <code>collab</code> to traverse into this directory.</li>
@@ -6689,16 +6655,12 @@ find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </spa
 </ol>
 <h2 id="optional-deleting-acls">Optional: deleting ACLs</h2>
 <p>If we want to disable access from the collaborator after file sharing is complete,  we can use <a href="https://www.ibm.com/docs/en/storage-scale/4.2.0?topic=commands-mmdelacl-command#mmdelacl"><code>mmdelacl</code></a> to delete extended ACLs we've added to <code>acl_demo</code>. Then the ACLs will be reset to their original entries. To perform deletion, we can use the following commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="c1"># go to home dir (~/) </span>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="c1"># go to home dir (~/) </span>
 mmdelacl<span class="w"> </span>acl_demo
 <span class="nb">cd</span><span class="w"> </span>acl_demo
 find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-exec<span class="w"> </span>mmdelacl<span class="w"> </span><span class="se">\{</span><span class="o">}</span><span class="w"> </span><span class="se">\;</span>
 find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>mmdelacl<span class="w"> </span><span class="se">\{</span><span class="o">}</span><span class="w"> </span><span class="se">\;</span><span class="w"> </span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>After deletion, we can run <code>mmgetacl</code> on those files and directories again, to confirm.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

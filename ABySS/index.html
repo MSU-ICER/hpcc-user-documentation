@@ -6531,34 +6531,16 @@
 rel="nofollow">ABySS</a> is a <em>de novo</em>, parallel, paired-end sequence
 assembler. It can run as an <abbr title="Message Passing Interface">MPI</abbr> job in the HPCC cluster. The latest
 version currently installed on the HPCC is 2.1.5, which can be loaded by</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module load ABySS/2.1.5
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module load ABySS/2.1.5
+</code></pre></div>
 <p>You can optionally load other tools as needed, provided that they have
 been installed under the same toolchain environment as ABySS/2.1.5. For
 example,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module load BEDTools/2.27.1 SAMtools/1.9 BWA/0.7.17
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module load BEDTools/2.27.1 SAMtools/1.9 BWA/0.7.17
+</code></pre></div>
 <p>is valid after you've loaded ABySS.</p>
 <p>A sample SLURM script is below.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>#!/bin/bash
+<div class="highlight"><pre><span></span><code>#!/bin/bash
 
 #SBATCH --job-name=abyss_test  
 #SBATCH --nodes=4  
@@ -6577,7 +6559,7 @@ export OMPI_MCA_mpi_warn_on_fork=0
 export OMPI_MCA_mpi_cuda_support=0
 
 abyss-pe k=25 name=test in=&#39;/mnt/research/common-data/Bio/ABySS/test-data/reads1.fastq /mnt/research/common-data/Bio/ABySS/test-data/reads2.fastq&#39; v=-v np=8 j=2
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This script launches an <abbr title="Message Passing Interface">MPI</abbr> job by requesting 8 processes; they are
 distributed on 4 nodes (<code>--nodes=4</code>) with two processes each
 (<code>--ntasks-per-node=2</code>). Accordingly, in the <code>abyss-pe</code> command line, we

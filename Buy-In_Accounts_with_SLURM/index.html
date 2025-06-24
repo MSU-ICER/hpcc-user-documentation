@@ -6691,16 +6691,14 @@ SLURM to ensure access to buy-in partitions.</p>
 account is used. You can check your default account using the
 <code>buyin_status</code> power tool.</p>
 <p>If you don't already have the <code>powertools</code> module loaded, load it with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
-</code></pre></div></td></tr></table></div>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>buyin_status<span class="w"> </span>-l
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>User:     fordste5
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+</code></pre></div>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>buyin_status<span class="w"> </span>-l
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>User:     fordste5
 Accounts: test1_classres test1 classres
 Default:  classres
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>User <code>fordste5</code> has a default account of <code>classres</code>. If <code>fordste5</code> submits a
 job without specifying an account, it will be submitted to the <code>classres</code>
 partition. If the job requested four hours or less of wall time, it will
@@ -6712,14 +6710,12 @@ complete listing of queue assignments.</p>
 <h2 id="using-non-default-accounts">Using Non-Default Accounts</h2>
 <p>You can see what accounts you have access to using the <code>buyin_status</code>
 powertool:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>buyin_status<span class="w"> </span>-l
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>User:     fordste5
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>buyin_status<span class="w"> </span>-l
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>User:     fordste5
 Accounts: test1_classres test1 classres
 Default:  classres
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>This output shows that <code>fordste5</code> is a member of the <code>test1_classres</code>,
 <code>test1</code>, and <code>classres</code> buy-in accounts. All users have access to the
 general account, so it is not shown in this list.</p>
@@ -6735,46 +6731,25 @@ they coordinate as well as on the jobs queued to those accounts, including
 adding/removing users, adding/removing coordinators, and cancelling or
 requeueing buy-in jobs.</p>
 <p>View members and coordinators of a buy-in account:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>buyin_status<span class="w"> </span>--members<span class="w"> </span>--account<span class="w"> </span>classres
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>buyin_status<span class="w"> </span>--members<span class="w"> </span>--account<span class="w"> </span>classres
+</code></pre></div>
 <p>Add a new coordinator to a buy-in account:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>buyin_status<span class="w"> </span>--account<span class="w"> </span>&lt;Account&gt;<span class="w"> </span>--add-coordinator<span class="w"> </span>&lt;NetID&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>buyin_status<span class="w"> </span>--account<span class="w"> </span>&lt;Account&gt;<span class="w"> </span>--add-coordinator<span class="w"> </span>&lt;NetID&gt;
+</code></pre></div>
 <p>Remove a coordinator from a buy-in account:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>buyin_status<span class="w"> </span>--account<span class="w"> </span>&lt;Account&gt;<span class="w"> </span>--rm-coordinator<span class="w"> </span>&lt;NetID&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>buyin_status<span class="w"> </span>--account<span class="w"> </span>&lt;Account&gt;<span class="w"> </span>--rm-coordinator<span class="w"> </span>&lt;NetID&gt;
+</code></pre></div>
 <p>Add a user to a buy-in account:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>buyin_status<span class="w"> </span>--account<span class="w"> </span>&lt;Account&gt;<span class="w"> </span>--add-user<span class="w"> </span>&lt;NetID&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>buyin_status<span class="w"> </span>--account<span class="w"> </span>&lt;Account&gt;<span class="w"> </span>--add-user<span class="w"> </span>&lt;NetID&gt;
+</code></pre></div>
 <p>Remove a user from your buy-in account:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>buyin_status<span class="w"> </span>--account<span class="w"> </span>&lt;Account&gt;<span class="w"> </span>--rm-user<span class="w"> </span>&lt;NetID&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>buyin_status<span class="w"> </span>--account<span class="w"> </span>&lt;Account&gt;<span class="w"> </span>--rm-user<span class="w"> </span>&lt;NetID&gt;
+</code></pre></div>
 <h2 id="checking-the-status-of-a-buy-in">Checking the Status of a Buy-In</h2>
 <p>The status of a buy-in account can be viewed with the <code>buyin_status</code> powertool.</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>buyin_status<span class="w"> </span>-a<span class="w"> </span>classres
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code>User:     fordste5
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>buyin_status<span class="w"> </span>-a<span class="w"> </span>classres
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>User:     fordste5
 Accounts: test1_classres test1 classres
 Default:  classres
 
@@ -6796,7 +6771,7 @@ Buyin: classres
       JOBID      ACCOUNT    USER       CPUS       TIME  TIME_LEFT
       17402      general    fordste5   10         4:36      55:24
       17401      classres   fordste5   10         4:36      55:24
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>This tool will list all jobs that are queued for a buy-in account, all
 nodes associated with the buy-in account–including node status–and a
 list of jobs running on each node. Because jobs with a wall time of four

@@ -6906,8 +6906,8 @@ By default, standard output and error are combined into the same <code>output</c
 </table>
 <h2 id="overriding-the-job-script">Overriding the Job Script</h2>
 <p>Optionally, any job specification (by <strong>#SBATCH</strong> line) can also be requested by <code>sbatch</code> command line with an equivalent option. For instance, the <strong>#SBATCH  --nodes=1-5</strong> line could be removed from the job script,  and instead be specified from the command line:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>sbatch<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span>-5<span class="w"> </span>myjob.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sbatch<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span>-5<span class="w"> </span>myjob.sb
+</code></pre></div>
 <p>Command line specifications take precedence over those in the job script.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

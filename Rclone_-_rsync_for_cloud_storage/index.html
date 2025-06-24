@@ -6719,12 +6719,12 @@ also be used to mount a user's cloud storage to their HPCC disk so that the
 storage on cloud could be used as extended disk space.</p>
 <p>Rclone is installed on HPCC system wide. To use it, users should first 
 load the software module into their environment using command: </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module load rclone
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module load rclone
+</code></pre></div>
 <p>For more details of using rclone, users can visit Rclone web site at <a href="https://rclone.org/">https://rclone.org/</a>.</p>
 <p>To start using Rclone, users need to run the following command to configure it:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rclone config
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>rclone config
+</code></pre></div>
 <p>The instructions for this command could be found at
 <a href="https://rclone.org/commands/rclone_config/">https://rclone.org/commands/rclone_config/</a>.</p>
 <p>Specifically, to configure for Google Drive,
@@ -6738,73 +6738,7 @@ found in the document <a href="../attachments/34963677/37421153.pdf">Rclone.pdf
 command to copy or mount the cloud storage to HPCC. There are many rclone
 sub-commands that can be used to handle file transfers and manage files on
 HPCC and cloud storage. To get help, use "rclone --help" as shown below:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel16-k80<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>rclone
+<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel16-k80<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>rclone
 <span class="o">[</span>hpc@dev-intel16-k80<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>--help
 
 Rclone<span class="w"> </span>syncs<span class="w"> </span>files<span class="w"> </span>to<span class="w"> </span>and<span class="w"> </span>from<span class="w"> </span>cloud<span class="w"> </span>storage<span class="w"> </span>providers<span class="w"> </span>as<span class="w"> </span>well<span class="w"> </span>as
@@ -6871,7 +6805,7 @@ Use<span class="w"> </span><span class="s2">&quot;rclone [command] --help&quot;<
 Use<span class="w"> </span><span class="s2">&quot;rclone help flags&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span>global<span class="w"> </span>flags.
 Use<span class="w"> </span><span class="s2">&quot;rclone help backends&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>supported<span class="w"> </span>services.
 <span class="o">[</span>hpc@dev-intel16-k80<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The tool "cloudSync" was developed to help user to synchronize the files
 between their cloud storages. It is accessible through "powertools" which
 should automatically loaded upon logging into HPCC, but can be manually
@@ -6884,24 +6818,7 @@ is configured as  the name "MyOneDrive". </p>
 <p>We can check the current configuration of rclone using 'rclone config'.
 As is shown below, we can see that there are currently two remote cloud storage configured:  
 "MyOneDrive" and "googledoc" </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>config
+<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>config
 Current<span class="w"> </span>remotes:
 
 Name<span class="w">                 </span><span class="nv">Type</span>
@@ -6919,45 +6836,25 @@ q<span class="o">)</span><span class="w"> </span>Quit<span class="w"> </span>con
 e/n/d/r/c/s/q&gt;<span class="w"> </span>q
 
 <span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="2-check-the-remote-storage-information">(2) Check the remote storage information</h3>
 <p>We can see the remote storage usage and quota using "rclone about" command.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>user@dev-intel16-k80<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>about<span class="w"> </span>MyOneDrive:
+<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel16-k80<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>about<span class="w"> </span>MyOneDrive:
 Total:<span class="w">   </span>5T
 Used:<span class="w">    </span><span class="m">450</span>.999M
 Free:<span class="w">    </span><span class="m">4</span>.998T
 Trashed:<span class="w"> </span><span class="m">404</span>.576k
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="3-list-the-contents-of-the-cloud-storage">(3) List the contents of the cloud storage</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>lsd<span class="w"> </span>MyOneDrive:
+<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>lsd<span class="w"> </span>MyOneDrive:
 <span class="w">          </span>-1<span class="w"> </span><span class="m">2018</span>-02-02<span class="w"> </span><span class="m">08</span>:57:54<span class="w">         </span><span class="m">0</span><span class="w"> </span>Attachments
 <span class="w">          </span>-1<span class="w"> </span><span class="m">2019</span>-08-27<span class="w"> </span><span class="m">15</span>:43:33<span class="w">         </span><span class="m">1</span><span class="w"> </span>IMAGES
 <span class="w">          </span>-1<span class="w"> </span><span class="m">2019</span>-08-22<span class="w"> </span><span class="m">15</span>:50:10<span class="w">        </span><span class="m">42</span><span class="w"> </span>Matlab
 <span class="w">          </span>-1<span class="w"> </span><span class="m">2019</span>-02-26<span class="w"> </span><span class="m">17</span>:12:01<span class="w">        </span><span class="m">16</span><span class="w"> </span>Microsoft<span class="w"> </span>Teams<span class="w"> </span>Chat<span class="w"> </span>Files
 <span class="w">          </span>-1<span class="w"> </span><span class="m">2018</span>-08-24<span class="w"> </span><span class="m">08</span>:56:32<span class="w">         </span><span class="m">1</span><span class="w"> </span>Notebooks
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="4-copy-files-on-hpcc-to-remote-cloud">(4) Copy files on HPCC to remote cloud:</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>copy<span class="w"> </span>Project<span class="w"> </span>MyOneDrive:Project<span class="w">   </span><span class="c1"># copy the content of directory &quot;Project&quot; to remote cloud storage</span>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>copy<span class="w"> </span>Project<span class="w"> </span>MyOneDrive:Project<span class="w">   </span><span class="c1"># copy the content of directory &quot;Project&quot; to remote cloud storage</span>
 
 <span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>lsd<span class="w"> </span>MyOneDrive:<span class="w">               </span><span class="c1"># view the contents of cloud storage to confirm the copy</span>
 <span class="w">          </span>-1<span class="w"> </span><span class="m">2018</span>-02-02<span class="w"> </span><span class="m">08</span>:57:54<span class="w">         </span><span class="m">0</span><span class="w"> </span>Attachments
@@ -6969,18 +6866,14 @@ Trashed:<span class="w"> </span><span class="m">404</span>.576k
 <span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>lsd<span class="w"> </span>MyOneDrive:Project
 <span class="w">          </span>-1<span class="w"> </span><span class="m">2020</span>-04-27<span class="w"> </span><span class="m">15</span>:44:39<span class="w">         </span><span class="m">1</span><span class="w"> </span>GPAW
 <span class="w">          </span>-1<span class="w"> </span><span class="m">2020</span>-04-27<span class="w"> </span><span class="m">15</span>:43:26<span class="w">         </span><span class="m">3</span><span class="w"> </span>MATLAB
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="5-copy-files-on-cloud-storage-to-hpcc">(5) Copy files on cloud storage to HPCC:</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>Project<span class="o">]</span>$<span class="w"> </span>ls<span class="w">                                 </span><span class="c1"># current content of Project directory before copy</span>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>Project<span class="o">]</span>$<span class="w"> </span>ls<span class="w">                                 </span><span class="c1"># current content of Project directory before copy</span>
 GPAW<span class="w">  </span>MATLAB
 <span class="o">[</span>user@dev-intel18<span class="w"> </span>Project<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>copy<span class="w"> </span>MyOneDrive:IMPACT<span class="w"> </span>./<span class="w">   </span><span class="c1"># copy the content of IMPACT in cloud to current directory         </span>
 <span class="o">[</span>user@dev-intel18<span class="w"> </span>Project<span class="o">]</span>$<span class="w"> </span>ls<span class="w">                                 </span><span class="c1"># confirm that the copy is done</span>
 GPAW<span class="w">  </span>impact_run<span class="w">  </span>MATLAB
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Although "rclone copy" is similar as unix commands rsync and cp, when
@@ -7005,12 +6898,10 @@ If <code>source:sourcepath</code> is a directory, it would be the same as usin
 "<code>rclone copy".</code></p>
 </div>
 <h3 id="6-checks-the-files-in-the-source-and-destination-match">(6) Checks the files in the source and destination match.</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>Project<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>check<span class="w"> </span>impact_run<span class="w"> </span>MyOneDrive:IMPACT/impact_run<span class="w">   </span><span class="c1"># check if it is matched both sides</span>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>Project<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>check<span class="w"> </span>impact_run<span class="w"> </span>MyOneDrive:IMPACT/impact_run<span class="w">   </span><span class="c1"># check if it is matched both sides</span>
 <span class="m">2020</span>/04/27<span class="w"> </span><span class="m">16</span>:19:01<span class="w"> </span>NOTICE:<span class="w"> </span>One<span class="w"> </span>drive<span class="w"> </span>root<span class="w"> </span><span class="s1">&#39;IMPACT/impact_run&#39;</span>:<span class="w"> </span><span class="m">0</span><span class="w"> </span>differences<span class="w"> </span>found
 <span class="m">2020</span>/04/27<span class="w"> </span><span class="m">16</span>:19:01<span class="w"> </span>NOTICE:<span class="w"> </span>One<span class="w"> </span>drive<span class="w"> </span>root<span class="w"> </span><span class="s1">&#39;IMPACT/impact_run&#39;</span>:<span class="w"> </span><span class="m">21</span><span class="w"> </span>matching<span class="w"> </span>files
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For archiving your files to your cloud storage, if the connection
@@ -7044,14 +6935,11 @@ should resolve the issue. </p>
 HPCC, the command will guide you through an interactive setup process.
 At the step of auto config, after you chose "y", it will start
 authentication. You will see something like:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
+<div class="highlight"><pre><span></span><code>If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
 
 Log in and authorize rclone for access
 Waiting for code...
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>At this time, a Firefox browser should be opened. If you did not get the
 browser window, check if you used -X option to allow X11 forwarding when
 you run ssh.  You may follow the instructions at <a href="../Connect_to_HPCC_System/">Connect to HPCC

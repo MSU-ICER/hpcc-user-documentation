@@ -6543,52 +6543,13 @@ available at <a href="https://sites.google.com/view/mendozagroup/home">https://s
 <h1 id="parallel-submission-script-for-crystal23-on-the-msu-hpcc-2023-03-14">Parallel submission script for CRYSTAL23 on the MSU HPCC (2023-03-14)</h1>
 <p>Usage: Your input file should be called <filename>.d12 and be in the same directory as the submission script. The script is submitted by running the command sbatch <submission_script_name></p>
 <p>Tips: </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>The main parameters you will be changing are the job name (note that it is specified twice in the script), run time (currently set to 30 minutes), nodes/cores (currently 2 nodes, 8 cores per node), memory per cpu, and account (general or mendoza_q). These will depend on the type of job you are running and the amount of resources you would like to allocate.
+<div class="highlight"><pre><span></span><code>The main parameters you will be changing are the job name (note that it is specified twice in the script), run time (currently set to 30 minutes), nodes/cores (currently 2 nodes, 8 cores per node), memory per cpu, and account (general or mendoza_q). These will depend on the type of job you are running and the amount of resources you would like to allocate.
 
 There is one #SBATCH line commented out, this is to submit to scavenger queue instead of general or mendoza_q.
 
 There are two cp lines commented out, these might come in handy to restart calculations.
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code>#!/bin/bash --login
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>#!/bin/bash --login
 #SBATCH --job-name=test
 #SBATCH --account=general
 #SBATCH --time=0-00:30:00
@@ -6624,7 +6585,7 @@ export LD_LIBRARY_PATH=/opt/software/UCX/1.12.1-GCCcore-11.3.0/lib64:$LD_LIBRARY
 
 mpiexec -n $SLURM_NTASKS -genv UCX_TLS ud,sm,self /opt/software/CRYSTAL/23/bin/Pcrystal &gt; $DIR/${JOB}.out 2&gt;&amp;1 $DIR/${JOB}.out
 cp fort.9 ${DIR}/${JOB}.f9
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

@@ -6560,10 +6560,9 @@ information and other details.</p>
 <p><img alt="A screenshot of Wolfram Mathematica 13.1 showing error messages related to invalid string operations and persistence locations. The interface includes a &quot;Parallel Kernel Status&quot; panel indicating no active kernels (0 running, idle), with options to launch or configure kernels. Error details mention StringJoin and PersistenceLocation failures, likely due to incorrect paths or syntax." src="../attachments/labnotebook_mathematica/MathematicaError_NoKernels.png" /></p>
 <p>This issue appears to be related/can be fixed by resetting Mathematica's preferences, caches, and history, as mentioned <a href="https://support.wolfram.com/12464">here</a>. While this process should not cause any data loss, we DON NOT recommend immediately deleting the listed files. Instead rename the .Mathematica and .Wolfram folders in your home directory to .Mathematica.save and .Wolframe.save, respectively (this way, the folders can be reverted if something is lost). Please do not change any of the other folders listed in the link without conctacting us first (as we have not tested changing them).</p>
 <p>Renaming these folders with the 'mv' command from the command line:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mv .Mathematica .Mathematica.save
+<div class="highlight"><pre><span></span><code>mv .Mathematica .Mathematica.save
 mv .Wolfram .Wolfram.save
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Once this is done, you can restart Mathematica, which should create new .Mathematica and .Wolfram folders and this should resolve the issue. If it does not, please <a href="https://contact.icer.msu.edu/contact">open a ticket with us</a>.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

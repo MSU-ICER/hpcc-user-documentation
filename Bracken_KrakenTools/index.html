@@ -6647,14 +6647,7 @@
 <p>Both of Bracken and KrakenTools are available through conda and we have .yml file available to aide users in installing the environment locally.</p>
 <p>Below are instructions for installing this environment as well as brief demo using Kraken2 (requires 10-20 minutes to run and ~15GB of disk space for data)</p>
 <h2 id="installing-brackenkrakentools">Installing Bracken/KrakenTools</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">### Creating the Bracken/KrakenTools conda environment ###</span>
+<div class="highlight"><pre><span></span><code><span class="c1">### Creating the Bracken/KrakenTools conda environment ###</span>
 
 <span class="c1"># Load the conda module</span>
 module<span class="w"> </span>purge
@@ -6662,66 +6655,9 @@ module<span class="w"> </span>load<span class="w"> </span>Miniforge3
 
 <span class="c1"># Create the environment using a .yml file</span>
 conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>/mnt/research/common-data/BioinformaticsCore/conda_environment_files/bracken_krakentools.yml
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="example-analysis">Example analysis</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">### Using the Bracken/KrakenTools conda environment ###</span>
+<div class="highlight"><pre><span></span><code><span class="c1">### Using the Bracken/KrakenTools conda environment ###</span>
 
 <span class="c1"># Load the conda and Kraken modules</span>
 module<span class="w"> </span>purge
@@ -6779,7 +6715,7 @@ alpha_diversity.py<span class="w"> </span>-f<span class="w"> </span>SRR13697208.
 <span class="c1"># Berger-parker&#39;s diversity: 0.9820183500776472</span>
 
 <span class="c1">### DONE ###</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

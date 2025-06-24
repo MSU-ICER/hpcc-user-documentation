@@ -6633,10 +6633,9 @@
 <li><code>dev-amd20-v100</code> (NVIDIA v100 <abbr title="Graphics Processing Unit">GPU</abbr>)</li>
 </ul>
 <p>You can access these via <abbr title="Secure Shell">SSH</abbr> like normal:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu<span class="w">  </span><span class="c1"># First SSH into the gateway</span>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu<span class="w">  </span><span class="c1"># First SSH into the gateway</span>
 ssh<span class="w"> </span>dev-intel16<span class="w">  </span><span class="c1"># Then SSH into the desired dev node</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>These nodes were previously appended with an <code>-ubuntu</code> suffix, e.g., <code>dev-intel16-ubuntu</code>, which is no longer necessary.</p>
 <h2 id="slurm-jobs">SLURM jobs</h2>
 <p>All SLURM jobs are now submitted to nodes running Ubuntu by default. Previously, the line <code>#SBATCH --reservation=ubuntu_compute</code> was used to run jobs on these nodes, but is no longer necessary</p>

@@ -6724,8 +6724,8 @@ end user).</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>You install your software on <code>dev-intel18</code>. You should add the line</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH --constraint=intel18</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --constraint=intel18</span>
+</code></pre></div>
 <p>to any SLURM scripts using that code or in OnDemand, under the "Advanced Options" section when starting an app, restrict the code to run on the <code>intel18</code> node type.</p>
 </div>
 <p>You may also consider installing multiple versions of your code for different cluster types like <a href="#cluster-type-and-the-module-system">ICER does with the module system</a>. This can increase the number of nodes you can use and reduce your wait time in the queue. However, this requires extra logic in your scripts that will depend on how you install the software and may be difficult to maintain.</p>

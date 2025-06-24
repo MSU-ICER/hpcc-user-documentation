@@ -6600,17 +6600,7 @@ command <code>R.home()</code> to check path of <code>R_HOME</code>). Below are e
 two files which have been placed in our R workshop directory. You need
 to use <code>ls -a</code> to list them since they are "hidden" files.</p>
 <p><strong><code>.Rprofile</code></strong> (an example)</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>cat<span class="o">(</span><span class="s2">&quot;Sourcing .Rprofile from the R-workshop directory.\n&quot;</span><span class="o">)</span>
+<div class="highlight"><pre><span></span><code>cat<span class="o">(</span><span class="s2">&quot;Sourcing .Rprofile from the R-workshop directory.\n&quot;</span><span class="o">)</span>
 
 <span class="c1"># To avoid setting the CRAN mirror each time you run install.packages</span>
 local<span class="o">({</span>
@@ -6621,15 +6611,14 @@ options<span class="o">(</span><span class="nv">width</span><span class="o">=</s
 
 .First<span class="w"> </span>&lt;-<span class="w"> </span><span class="k">function</span><span class="o">()</span><span class="w"> </span>cat<span class="o">(</span><span class="s2">&quot;##### R session begins for&quot;</span>,<span class="w"> </span>paste<span class="o">(</span>Sys.getenv<span class="o">(</span><span class="s2">&quot;USER&quot;</span><span class="o">)</span>,<span class="s2">&quot;.&quot;</span>,<span class="w"> </span><span class="nv">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">)</span>,<span class="w"> </span><span class="s2">&quot;You are currently in&quot;</span>,<span class="w"> </span>getwd<span class="o">()</span>,<span class="w"> </span><span class="s2">&quot;#####\n\n&quot;</span><span class="o">)</span>
 .Last<span class="w"> </span>&lt;-<span class="w"> </span><span class="k">function</span><span class="o">()</span><span class="w">  </span>cat<span class="o">(</span><span class="s2">&quot;\n##### R session ends for&quot;</span>,<span class="w"> </span>paste<span class="o">(</span>Sys.getenv<span class="o">(</span><span class="s2">&quot;USER&quot;</span><span class="o">)</span>,<span class="s2">&quot;.&quot;</span>,<span class="w"> </span><span class="nv">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">)</span>,<span class="w">  </span><span class="s2">&quot;You are currently in&quot;</span>,<span class="w"> </span>getwd<span class="o">()</span>,<span class="w"> </span><span class="s2">&quot;#####\n\n&quot;</span><span class="o">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p><strong><code>.Renviron</code></strong> (an example)</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">R_DEFAULT_PACKAGES</span><span class="o">=</span><span class="s2">&quot;datasets,utils,grDevices,graphics,stats,methods&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">R_DEFAULT_PACKAGES</span><span class="o">=</span><span class="s2">&quot;datasets,utils,grDevices,graphics,stats,methods&quot;</span>
 <span class="nv">R_LIBS_USER</span><span class="o">=</span>/mnt/home/longnany/Rlibs
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Let's run a short Rscript command to see what we get:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>Rscript<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;date()&#39;</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>Rscript<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;date()&#39;</span>
+</code></pre></div>
 <p>Notes:</p>
 <ul>
 <li>Personalizing these two files can reduce code portability.</li>
@@ -6639,24 +6628,19 @@ options<span class="o">(</span><span class="nv">width</span><span class="o">=</s
 <p><em>A caveat</em>: if you explicitly export an R environment variable, such
 as  <code>export R_LIBS_USER=~/Rlibs</code>, then adding <code>--vanilla</code> will not
 ignore its value. See below the result.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.libPaths()&#39;</span><span class="w"> </span><span class="c1"># .libPaths() is used to see the directories where R searches for libraries</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.libPaths()&#39;</span><span class="w"> </span><span class="c1"># .libPaths() is used to see the directories where R searches for libraries</span>
 <span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="s2">&quot;/opt/software/R/4.0.2-foss-2019b/lib64/R/library&quot;</span>
 $<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">R_LIBS_USER</span><span class="o">=</span>~/Rlibs
 $<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.libPaths()&#39;</span>
 <span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="s2">&quot;/mnt/home/longnany/Rlibs&quot;</span>
 <span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span><span class="s2">&quot;/opt/software/R/4.0.2-foss-2019b/lib64/R/library&quot;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </li>
 </ul>
 <h2 id="rscript-one-liner">Rscript one-liner</h2>
 <p>The general format of <code>Rscript</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Rscript<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span><span class="o">[</span>-e<span class="w"> </span>expression1<span class="w"> </span>-e<span class="w"> </span>expression2<span class="w"> </span>...<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>file<span class="o">]</span><span class="w"> </span><span class="o">[</span>args<span class="o">]</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>Rscript<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span><span class="o">[</span>-e<span class="w"> </span>expression1<span class="w"> </span>-e<span class="w"> </span>expression2<span class="w"> </span>...<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>file<span class="o">]</span><span class="w"> </span><span class="o">[</span>args<span class="o">]</span>
+</code></pre></div>
 <ul>
 <li>
 <p><code>options</code>: can be multiple; all beginning with <code>--</code>
@@ -6677,29 +6661,7 @@ $<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"
 <p>You may have both expressions and source file present in your Rscript
 line. Here are a few one-liner examples:</p>
 <p><strong>Rscript one-liner examples</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Ex1: simple loop</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ex1: simple loop</span>
 <span class="o">$</span><span class="w"> </span><span class="n">Rscript</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="s">&#39;for (i in 1:5) print(paste(&quot;g&quot;, i))&#39;</span>
 
 
@@ -6722,33 +6684,21 @@ line. Here are a few one-liner examples:</p>
 <span class="m">10</span>
 <span class="m">20</span>
 <span class="o">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">test.dat</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Rscript</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="s">&#39;input_con  &lt;- file(&quot;stdin&quot;); open(input_con); while (length(oneLine &lt;- readLines(con = input_con, n = 1, warn = FALSE)) &gt; 0) {print(rnorm(5,mean=as.numeric(oneLine)))};close(input_con)&#39;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="using-rscript-with-source-code">Using Rscript with source code</h2>
 <p><em>a. simple usage:</em></p>
 <p>Instead of using <code>'-e your_commands</code>', we now put R commands in a source file and run it with <code>Rscript</code>. Below is an R script file and we can run <code>Rscript multiplots.R</code> to get a PDF file <code>multiplots.pdf</code>. To view it, run <code>evince multiplots.pdf</code>. Or, you can go to our <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard">OnDemand</a> File Browser to open the file in your web browser.</p>
 <p><code>multiplots.R</code>: a very simple example of making 4 plots on the same page</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">pdf</span><span class="p">(</span><span class="s">&quot;multiplots.pdf&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nf">pdf</span><span class="p">(</span><span class="s">&quot;multiplots.pdf&quot;</span><span class="p">)</span>
 <span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
 <span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="nf">bquote</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="nf">.</span><span class="p">(</span><span class="n">i</span><span class="p">)]),</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="nf">bquote</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="nf">.</span><span class="p">(</span><span class="n">i</span><span class="p">)]),</span><span class="w"> </span><span class="n">main</span><span class="o">=</span><span class="nf">bquote</span><span class="p">(</span><span class="s">&quot;Multiple plots: #&quot;</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="nf">.</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
 <span class="nf">dev.off</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p><em>b. passing command line arguments:</em></p>
 <p>We can also pass arguments to our R script, as shown in the example
 below.</p>
 <p><code>args-1.R</code></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">args</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">commandArgs</span><span class="p">(</span><span class="n">trailingOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">args</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">commandArgs</span><span class="p">(</span><span class="n">trailingOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 
 <span class="n">nargs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 <span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">nargs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -6758,18 +6708,9 @@ below.</p>
 
 <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Generating&quot;</span><span class="p">,</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">nargs</span><span class="m">-1</span><span class="p">]),</span><span class="w"> </span><span class="s">&quot;normal variables with mean =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">nargs</span><span class="p">]),</span><span class="w"> </span><span class="s">&quot;and sd = 1 \n&quot;</span><span class="p">)</span>
 <span class="nf">rnorm</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">nargs</span><span class="m">-1</span><span class="p">]),</span><span class="w"> </span><span class="n">mean</span><span class="o">=</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">nargs</span><span class="p">]))</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Running script <code>args-1.R</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>Rscript<span class="w"> </span>args-1.R<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">3</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>Rscript<span class="w"> </span>args-1.R<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">3</span>
 Sourcing<span class="w"> </span>.Rprofile<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span><span class="m">11092017</span>-R-Workshop<span class="w"> </span>directory.
 <span class="c1">##### R session begins for longnany. You are currently in /mnt/home/longnany/Documents/11092017-R-Workshop #####</span>
 
@@ -6779,32 +6720,10 @@ Generating<span class="w"> </span><span class="m">5</span><span class="w"> </spa
 <span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="m">2</span>.707162<span class="w"> </span><span class="m">3</span>.677923<span class="w"> </span><span class="m">3</span>.192272<span class="w"> </span><span class="m">2</span>.531973<span class="w"> </span><span class="m">3</span>.699060
 
 <span class="c1">##### R session ends for longnany. You are currently in /mnt/home/longnany/Documents/11092017-R-Workshop #####</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p><em>c. processing command line arguments with {<code>getopt</code>}:</em></p>
 <p><code>args-2.R</code></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">require</span><span class="p">(</span><span class="s">&quot;getopt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nf">require</span><span class="p">(</span><span class="s">&quot;getopt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 
 <span class="n">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span>
 <span class="w">    </span><span class="s">&quot;Number&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;integer&quot;</span><span class="p">,</span>
@@ -6827,24 +6746,9 @@ Generating<span class="w"> </span><span class="m">5</span><span class="w"> </spa
 
 <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Generating&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;normal variables with mean =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;and sd = 1 \n&quot;</span><span class="p">)</span>
 <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Running the script <code>args-2.R</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Use long flag names</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Use long flag names</span>
 $<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>args-2.R<span class="w"> </span>--Number<span class="w"> </span><span class="m">10</span><span class="w"> </span>--Mean<span class="w"> </span>-2
 Generating<span class="w"> </span><span class="m">10</span><span class="w"> </span>normal<span class="w"> </span>variables<span class="w"> </span>with<span class="w"> </span><span class="nv">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-2<span class="w"> </span>and<span class="w"> </span><span class="nv">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 <span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>-0.4776278<span class="w"> </span>-1.7759145<span class="w"> </span>-0.9977682<span class="w"> </span>-2.6452126<span class="w"> </span>-3.4050587<span class="w"> </span>-2.2358362
@@ -6860,7 +6764,7 @@ Generating<span class="w"> </span><span class="m">10</span><span class="w"> </sp
 $<span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>args-2.R
 Generating<span class="w"> </span><span class="m">5</span><span class="w"> </span>normal<span class="w"> </span>variables<span class="w"> </span>with<span class="w"> </span><span class="nv">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>and<span class="w"> </span><span class="nv">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 <span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="m">3</span>.951492<span class="w"> </span><span class="m">4</span>.255879<span class="w"> </span><span class="m">4</span>.485044<span class="w"> </span><span class="m">2</span>.727223<span class="w"> </span><span class="m">3</span>.039532
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="submitting-parallel-jobs-to-the-cluster-using-doparallel-single-node-multiple-cores">Submitting parallel jobs to the cluster using <code>doParallel</code>: single node, multiple cores</h2>
 <p>To submit a single-node job, we recommend the package <a href="https://cran.r-project.org/web/packages/doParallel/vignettes/gettingstartedParallel.pdf"><code>doParallel</code></a>. 
 The <code>doParallel</code> package is a "parallel backend" for the <a href="https://cran.r-project.org/web/packages/foreach/vignettes/foreach.html"><code>foreach</code></a> package, making it possible to execute foreach loops in parallel.</p>
@@ -6869,25 +6773,7 @@ The <code>doParallel</code> package is a "parallel backend" for the <a href="htt
 <p><code>doParallel</code> supports two functionalities: multicore and snow. The most important difference between them is that multicore can only run tasks on a single node (computer) whereas snow can execute tasks on different nodes in a cluster. This leads to different commands for registering the parallel backend. In our example here, we are interested in using the multicore-like parallelism, since we are trying to use the many cores on a single compute node in the cluster. To learn more about their differences, you can refer to <a href="https://stackoverflow.com/questions/28829300/doparallel-cluster-vs-cores">this discussion</a>.</p>
 </div>
 <p>Example R code <code>R_doParallel_singlenode.R</code>: run 10,000 bootstrap iterations of fitting a logistic regression model</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">doParallel</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">doParallel</span><span class="p">)</span>
 
 <span class="c1"># Registering a parallel backend, using the &quot;multicore&quot; functionality</span>
 <span class="nf">registerDoParallel</span><span class="p">(</span><span class="n">cores</span><span class="o">=</span><span class="nf">as.numeric</span><span class="p">(</span><span class="nf">Sys.getenv</span><span class="p">(</span><span class="s">&quot;SLURM_CPUS_ON_NODE&quot;</span><span class="p">)[</span><span class="m">1</span><span class="p">]))</span>
@@ -6906,37 +6792,9 @@ The <code>doParallel</code> package is a "parallel backend" for the <a href="htt
 <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Currently registered backend:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">getDoParName</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">)</span>
 <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Number of workers used:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">getDoParWorkers</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">r</span><span class="p">))</span><span class="w"> </span><span class="c1"># column-binded result</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now, submit the job to the HPCC through the following SLURM script <code>submit-doParallel.sbatch</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Job name:</span>
 <span class="c1">#SBATCH --job-name=doParallel_test</span>
@@ -6965,17 +6823,10 @@ module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>GCC/8.3.0<span class="w"> </span>OpenMPI/3.1.4<span class="w"> </span>R/4.0.2
 
 Rscript<span class="w"> </span>--vanilla<span class="w"> </span>R_doParallel_singlenode.R<span class="w"> </span>&gt;<span class="w"> </span>R_doParallel_singlenode.Rout
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Submission command: <code>sbatch --constraint="[intel16|intel18|amd20|amd22]" submit-doParallel.sbatch</code></p>
 <p>The output file <code>R_doParallel_singlenode.Rout</code>  should look like:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>Time elapsed: 8.946
+<div class="highlight"><pre><span></span><code>Time elapsed: 8.946
 Currently registered backend: doParallelMC
 Number of workers used: 4
  num [1:2, 1:10000] -14.6 2.26 -11.86 1.91 -7.75 ...
@@ -6983,7 +6834,7 @@ Number of workers used: 4
   ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;x[ind, 1]&quot;
   ..$ : chr [1:10000] &quot;result.1&quot; &quot;result.2&quot; &quot;result.3&quot; &quot;result.4&quot; ...
 NULL
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="submitting-parallel-jobs-to-the-cluster-using-pbdmpi-multiple-nodes">Submitting parallel jobs to the cluster using <code>pbdMPI</code>: multiple nodes</h2>
 <p><abbr title="Message Passing Interface">MPI</abbr> stands for <em>M</em>essage <em>P</em>assing <em>I</em>nterface, and is the standard for managing multi-node communication. The R package
 <a href="https://cran.r-project.org/web/packages/Rmpi/Rmpi.pdf"><code>Rmpi</code></a> is an implementation of it for R. Because of its complicated usage, here we will use another R package, <code>pbdMPI</code>,  which greatly simplifies the use of <abbr title="Message Passing Interface">MPI</abbr> from R.</p>
@@ -6992,47 +6843,7 @@ NULL
 <p>Below is a graphic illustration of solving a system of linear equations by part so as to be able to distribute the task. To learn more about the underlying mechanism, you can take a look at <a href="../attachments/UnderstandMVNpbdMPI.pdf">this note</a>.</p>
 <p><img alt="A diagram of task distribution across a system of linear equations U times A equals B, where all are matrices." src="../attachments/22708830/50692283.jpeg" /></p>
 <p><code>MVN.R</code>: <abbr title="Message Passing Interface">MPI</abbr> in SPMD mode</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Load pbdMPI and initialize the communicator</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load pbdMPI and initialize the communicator</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">pbdMPI</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 <span class="nf">init</span><span class="p">()</span>
 
@@ -7073,40 +6884,9 @@ NULL
 <span class="nf">comm.print</span><span class="p">(</span><span class="n">total.logL</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 
 <span class="nf">finalize</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>SLURM submission script: <code>submit-pbdMPI.sbatch</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Job name:</span>
 <span class="c1">#SBATCH --job-name=pbdMPI_test</span>
@@ -7138,48 +6918,9 @@ module<span class="w"> </span>load<span class="w"> </span>GCC/8.3.0<span class="
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMPI_MCA_mpi_cuda_support</span><span class="o">=</span><span class="m">0</span>
 
 mpirun<span class="w"> </span>-n<span class="w"> </span><span class="nv">$SLURM_NTASKS</span><span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>MVN.R<span class="w"> </span>&gt;<span class="w"> </span>MVN.Rout
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now, submit the job by <code>sbatch --constraint="[intel16|intel18|amd20|amd22]" submit-pbdMPI.sbatch</code>. When finished, <code>MVN.Rout</code> should contain the following information:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code>COMM.RANK = 0
+<div class="highlight"><pre><span></span><code>COMM.RANK = 0
 All processes start...
 
 I am rank 0 on host lac-419 of 20 processes
@@ -7219,7 +6960,7 @@ Print out the matrix on each process/rank:
 Final log-likelihood:
 
 [1] -283.2159
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can download more R pbdMPI examples from <a href="https://github.com/RBigData/pbdDEMO/tree/master/demo">here</a>.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

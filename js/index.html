@@ -6634,14 +6634,7 @@
 <h1 id="js">js</h1>
 <p>The SLURM command sacct can be used to show the job steps of a
 job and the resource usages after it finished running.:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>sacct<span class="w"> </span>-j<span class="w"> </span><span class="m">40410</span>
+<div class="highlight"><pre><span></span><code>sacct<span class="w"> </span>-j<span class="w"> </span><span class="m">40410</span>
 <span class="w">       </span>JobID<span class="w">    </span>JobName<span class="w">  </span>Partition<span class="w">    </span>Account<span class="w">  </span>AllocCPUS<span class="w">      </span>State<span class="w"> </span>ExitCode
 ------------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>--------
 <span class="m">40410</span><span class="w">               </span>job<span class="w"> </span>classres-+<span class="w">   </span>classres<span class="w">         </span><span class="m">28</span><span class="w">  </span>COMPLETED<span class="w">      </span><span class="m">0</span>:0
@@ -6649,7 +6642,7 @@ job and the resource usages after it finished running.:</p>
 <span class="m">40410</span>.extern<span class="w">     </span>extern<span class="w">              </span>classres<span class="w">         </span><span class="m">28</span><span class="w">  </span>COMPLETED<span class="w">      </span><span class="m">0</span>:0
 <span class="m">40410</span>.0<span class="w">            </span>pw.x<span class="w">              </span>classres<span class="w">         </span><span class="m">28</span><span class="w">  </span>COMPLETED<span class="w">      </span><span class="m">0</span>:0
 <span class="m">40410</span>.1<span class="w">            </span>ph.x<span class="w">              </span>classres<span class="w">         </span><span class="m">28</span><span class="w">  </span>COMPLETED<span class="w">      </span><span class="m">0</span>:0
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>However, to display your desired results, it might take you some time to look into the
 <a href="https://slurm.schedmd.com/sacct.html">web site</a> and learn how to use the command. Here we 
 introduce the powertools command "<strong><code>js</code></strong>" to display the resource usages of your
@@ -6658,31 +6651,7 @@ jobs.</p>
 <p>Users can simply run the powertools command "<code>js</code>" and it gives
 you most of the useful resource usages. To see the resource usages of a
 job, just use the command "<strong><code>js -j &lt;JobID&gt;</code></strong>", e.g.,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-j<span class="w"> </span><span class="m">45251</span><span class="w">                      </span><span class="c1"># powertools command</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-j<span class="w"> </span><span class="m">45251</span><span class="w">                      </span><span class="c1"># powertools command</span>
 
 SLURM<span class="w"> </span>Job<span class="w"> </span>ID:<span class="w"> </span><span class="m">45251</span>
 <span class="nv">WrkDir</span><span class="o">=</span>/mnt/home/changc81/GetExample/GaAs
@@ -6707,29 +6676,22 @@ SLURM<span class="w"> </span>Job<span class="w"> </span>ID:<span class="w"> </sp
 <span class="w">       </span>ExitCode<span class="w"> </span><span class="p">|</span><span class="w">                 </span><span class="m">0</span>:0<span class="w"> </span><span class="p">|</span><span class="w">                 </span><span class="m">0</span>:0<span class="w"> </span><span class="p">|</span><span class="w">                 </span><span class="m">0</span>:0<span class="w"> </span><span class="p">|</span><span class="w">                 </span><span class="m">0</span>:0<span class="w"> </span><span class="p">|</span>
 <span class="w">          </span>State<span class="w"> </span><span class="p">|</span><span class="w">           </span>COMPLETED<span class="w"> </span><span class="p">|</span><span class="w">           </span>COMPLETED<span class="w"> </span><span class="p">|</span><span class="w">           </span>COMPLETED<span class="w"> </span><span class="p">|</span><span class="w">           </span>COMPLETED<span class="w"> </span><span class="p">|</span>
 <span class="o">=========================================================================================================</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If you would like to show more data of a job, you can also use the
 specification -F:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-j<span class="w"> </span>&lt;Job<span class="w"> </span>ID&gt;<span class="w"> </span>-F<span class="w">                   </span><span class="c1"># powertools command</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-j<span class="w"> </span>&lt;Job<span class="w"> </span>ID&gt;<span class="w"> </span>-F<span class="w">                   </span><span class="c1"># powertools command</span>
+</code></pre></div>
 <p>to list all stored data of the job steps.</p>
 <h3 id="display-a-list-of-jobs">Display a List of Jobs</h3>
 <p>If users would like to know a list of jobs submitted before, they
 can use  "<strong><code>js -z</code></strong>" command. Simply provide a period of time when job
 was running with -S (start time of the period) and -E (end time of the
 period) options:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-z<span class="w"> </span>-S<span class="w"> </span>&lt;Start<span class="w"> </span>Time&gt;<span class="w"> </span>-E<span class="w"> </span>&lt;End<span class="w"> </span>Time&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-z<span class="w"> </span>-S<span class="w"> </span>&lt;Start<span class="w"> </span>Time&gt;<span class="w"> </span>-E<span class="w"> </span>&lt;End<span class="w"> </span>Time&gt;
+</code></pre></div>
 <p>and a list of the jobs with their properties and resource usages is
 displayed. For example, user can run the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-z<span class="w"> </span>-S<span class="w"> </span><span class="m">2021</span>-04-12<span class="w"> </span>-E<span class="w"> </span><span class="m">2021</span>-04-19
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-z<span class="w"> </span>-S<span class="w"> </span><span class="m">2021</span>-04-12<span class="w"> </span>-E<span class="w"> </span><span class="m">2021</span>-04-19
 <span class="w">       </span>JobID<span class="w">    </span>JobName<span class="w"> </span>NNo<span class="w"> </span>NTas<span class="w"> </span>NCPU<span class="w">   </span>Timelimit<span class="w">     </span>Elapsed<span class="w">  </span>AveCPU<span class="w">     </span>MaxRSS<span class="w"> </span>Stat<span class="w"> </span>Exit<span class="w">               </span>Start<span class="w">          </span>NodeList
 ------------<span class="w"> </span>----------<span class="w"> </span>---<span class="w"> </span>----<span class="w"> </span>----<span class="w"> </span>-----------<span class="w"> </span>-----------<span class="w"> </span>-------<span class="w"> </span>----------<span class="w"> </span>----<span class="w"> </span>----<span class="w"> </span>-------------------<span class="w"> </span>-----------------
 <span class="w">    </span><span class="m">21043834</span><span class="w"> </span>ondemand/+<span class="w">   </span><span class="m">1</span><span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">01</span>:00:00<span class="w">    </span><span class="m">01</span>:00:16<span class="w"> </span><span class="m">0</span>.05487<span class="w">    </span><span class="m">467</span>.41M<span class="w"> </span>TIM+<span class="w">  </span><span class="m">0</span>:0<span class="w"> </span><span class="m">2021</span>-04-12T08:59:10<span class="w">           </span>css-033
@@ -6737,166 +6699,14 @@ displayed. For example, user can run the command:</p>
 <span class="w">    </span><span class="m">21158898</span><span class="w">  </span>hello.exe<span class="w">   </span><span class="m">1</span><span class="w">    </span><span class="m">8</span><span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">00</span>:20:00<span class="w">    </span><span class="m">00</span>:01:09<span class="w">   </span><span class="m">0</span>.236<span class="w">    </span><span class="m">644</span>.61M<span class="w"> </span>COM+<span class="w">  </span><span class="m">0</span>:0<span class="w"> </span><span class="m">2021</span>-04-17T20:17:57<span class="w">           </span>amr-133
 <span class="w">    </span><span class="m">21158916</span><span class="w"> </span>interacti+<span class="w">   </span><span class="m">1</span><span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">03</span>:00:00<span class="w">    </span><span class="m">02</span>:00:04<span class="w"> </span><span class="m">0</span>.77325<span class="w">   </span><span class="m">1244</span>.61M<span class="w"> </span>COM+<span class="w">  </span><span class="m">0</span>:0<span class="w"> </span><span class="m">2021</span>-04-18T20:18:29<span class="w">           </span>css-033
 <span class="w">    </span><span class="m">21158973</span><span class="w">     </span>SPAdes<span class="w">   </span><span class="m">1</span><span class="w">    </span><span class="m">4</span><span class="w">    </span><span class="m">8</span><span class="w">    </span><span class="m">09</span>:30:00<span class="w">    </span><span class="m">09</span>:00:04<span class="w">   </span><span class="m">7</span>.254<span class="w">     </span><span class="m">13</span>.20G<span class="w"> </span>FAI+<span class="w">  </span><span class="m">1</span>:0<span class="w"> </span><span class="m">2021</span>-04-19T20:20:44<span class="w">           </span>lac-421
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>to see a list of jobs running between April 12th 2021 and April 19th
 2021. If any one of the options -S or -E is not specified, the time will
 be considered as the current time of "<strong><code>js</code></strong>" execution.</p>
 <h3 id="more-selections-of-js-command">More Selections of js Command</h3>
 <p>To see all possible usages of the command, please use the
 specification -h:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
-<span class="normal">  2</span>
-<span class="normal">  3</span>
-<span class="normal">  4</span>
-<span class="normal">  5</span>
-<span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-h
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-h
 
 js<span class="w"> </span><span class="o">[</span>&lt;OPTION&gt;<span class="o">]</span>
 <span class="w">     </span>Valid<span class="w"> </span>&lt;OPTION&gt;<span class="w"> </span>values<span class="w"> </span>are:
@@ -7049,7 +6859,7 @@ js<span class="w"> </span><span class="o">[</span>&lt;OPTION&gt;<span class="o">
 <span class="w">                   </span>MMDD<span class="o">[</span>YY<span class="o">]</span><span class="w"> </span>or<span class="w"> </span>MM/DD<span class="o">[</span>/YY<span class="o">]</span><span class="w"> </span>or<span class="w"> </span>MM.DD<span class="o">[</span>.YY<span class="o">]</span>
 <span class="w">                   </span>MM/DD<span class="o">[</span>/YY<span class="o">]</span>-HH:MM<span class="o">[</span>:SS<span class="o">]</span>
 <span class="w">                   </span>YYYY-MM-DD<span class="o">[</span>THH:MM<span class="o">[</span>:SS<span class="o">]]</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

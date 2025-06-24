@@ -6674,29 +6674,19 @@ an alternative shell</p>
 <h4 id="1-run-with-an-interpreter">1. Run with an interpreter</h4>
 <p>Using an interpreter to run you shell script typically follows this syntax <code>&lt;interpereter&gt; &lt;options&gt; &lt;path/to/script&gt;</code></p>
 <p>A familiar example using python would be:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>python
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>python
 python<span class="w"> </span>my_python_script.py
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>However, the same can be done with different shells:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>my_bash_script.sh
+<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>my_bash_script.sh
 zsh<span class="w"> </span>my_zsh_script.sh
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>While HPCC only supports the bash shell for operations as the module system is written for bash,  if you have shell scripts written for the zsh shell, you can still run those using this method on the command line or even inside another bash script (such as a script to launch a job with SLURM).</p>
 <h4 id="2-using-the-shebang">2. Using the 'shebang'</h4>
 <p>At the top of any script you run on a Linux system like the hPC, you may include what's known as the "shebang" line (which must be the first line, for more information, see <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">the Wikipedia page</a>).</p>
 <p>The general syntax for this line is <code>&lt;interpreter&gt; [optional-arg]</code></p>
 <p>Examples of the 'shebang' in use include:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>#! /usr/bin/bash  : run the commands using bash
+<div class="highlight"><pre><span></span><code>#! /usr/bin/bash  : run the commands using bash
 
 #! /usr/bin/bash -l  : run the commands using bash, but using a login shell, typically used for job/slurm submission scripts to mimic behavior when run on the dev nodes
 
@@ -6705,7 +6695,7 @@ zsh<span class="w"> </span>my_zsh_script.sh
 #! /usr/bin/env Rscript --vanilla : run this script using the activate python
 
 #! /usr/bin/zsh  : run this using zsh, even if launched through bash.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>A further explanation of why you might use <code>/usr/bin/env</code> for your python or R scripts can be found <a href="https://stackoverflow.com/questions/2429511/why-do-people-write-usr-bin-env-python-on-the-first-line-of-a-python-script">here</a>.</p>
 <p>To launch a script with a shebang, you must also change the permissions to allow execution ( <code>+x</code> ) if that is not already set with <code>chmod u+x my_shell_script.sh</code> which gives you permission to run the script.</p>
 <h2 id="alternative-shells">Alternative shells</h2>

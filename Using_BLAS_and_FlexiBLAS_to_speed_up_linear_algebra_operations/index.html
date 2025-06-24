@@ -7048,48 +7048,26 @@
 <p>FlexiBLAS is not a BLAS implementation, but is an easy way to switch between implementations.</p>
 <h3 id="compiling-with-blas">Compiling with BLAS</h3>
 <p>When a piece of code uses BLAS, it usually needs to link to an implementation. This example would link <code>mycode.c</code> on the HPCC to the OpenBLAS dynamic library:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC<span class="w"> </span>OpenBLAS
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC<span class="w"> </span>OpenBLAS
 gcc<span class="w"> </span>-lopenblas<span class="w"> </span>mycode.c<span class="w"> </span>-o<span class="w"> </span>mycode
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You could also compile the same code with the Intel Math Kernel Library (or IMKL) (note the extra options which are <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html#gs.dmj5wm">provided by Intel</a>):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC<span class="w"> </span>imkl
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC<span class="w"> </span>imkl
 gcc<span class="w"> </span>-m64<span class="w">  </span>-lmkl_rt<span class="w"> </span>-Wl,--no-as-needed<span class="w"> </span>-lpthread<span class="w"> </span>-lm<span class="w"> </span>-ldl<span class="w"> </span>mycode.c<span class="w"> </span>-o<span class="w"> </span>mycode
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The compiled code is then fixed to use that implementation of BLAS.</p>
 <h3 id="compiling-with-flexiblas">Compiling with FlexiBLAS</h3>
 <p>FlexiBLAS lets you swap between multiple implementations. This lets you compile the code once with FlexiBLAS as the "implementation", which is really just a layer in the middle that points to the <em>real</em> implementation in the background:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC<span class="w"> </span>FlexiBLAS
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC<span class="w"> </span>FlexiBLAS
 gcc<span class="w"> </span>-lflexiblas<span class="w"> </span>mycode.c<span class="w"> </span>-o<span class="w"> </span>mycode
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="using-flexiblas">Using FlexiBLAS</h3>
 <p>When code is compiled with FlexiBLAS, you can swap BLAS implementations (or as FlexiBLAS calls them, "backends") out at runtime. For more information about using FlexiBLAS not covered here, try running <code>flexiblas help</code> or see <a href="https://github.com/mpimd-csc/flexiblas">the FlexiBLAS documentation</a>.</p>
 <h4 id="listing-available-blas-backends">Listing available BLAS backends</h4>
 <p>When ICER installs FlexiBLAS and different BLAS implementations, we tell FlexiBLAS what backends are available. These can be seen with</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flexiblas<span class="w"> </span>list
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>System-wide:
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>flexiblas<span class="w"> </span>list
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>System-wide:
 System-wide (config directory):
  BLIS
    library = libflexiblas_blis.so
@@ -7109,50 +7087,39 @@ System-wide (config directory):
 User config:
 Host config:
 Environment config:
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The default backend is set by ICER to be <code>OPENBLAS</code>.</p>
 <h4 id="swapping-blas-backends-at-runtime">Swapping BLAS backends at runtime</h4>
 <p>Assuming the <code>mycode</code> executable has been compiled with FlexiBLAS, running it as is will use the default backend (OpenBLAS):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./mycode
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>./mycode
+</code></pre></div>
 <p>To use a different backend, set the environment variable <code>FLEXIBLAS</code> to that backend name:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">FLEXIBLAS</span><span class="o">=</span>IMKL<span class="w"> </span>./mycode
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nv">FLEXIBLAS</span><span class="o">=</span>IMKL<span class="w"> </span>./mycode
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Make sure the module containing that implementation is loaded</p>
 <p>FlexiBLAS can't tell whether an backend is actually installed and working until it tries to run. In the above example using <code>FLEXIBLAS=IMKL</code>, you would need to manually load the <code>imkl</code> module that provides the correct libraries beforehand with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>imkl
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>imkl
+</code></pre></div>
 <p>If the BLAS backend you request is not loaded, FlexiBLAS will fall back to the (very slow) reference implementation.</p>
 </div>
 <p>You can also pass in the location of a BLAS implementation dynamic library file:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">FLEXIBLAS</span><span class="o">=</span>myblas.so<span class="w"> </span>./mycode
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nv">FLEXIBLAS</span><span class="o">=</span>myblas.so<span class="w"> </span>./mycode
+</code></pre></div>
 <h4 id="setting-a-default-flexiblas-backend">Setting a default FlexiBLAS backend</h4>
 <p>If you prefer to use a different backend of BLAS than OpenBLAS at all times, you can set your local configuration with:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flexiblas<span class="w"> </span>default<span class="w"> </span>&lt;IMPLEMENTATION&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>flexiblas<span class="w"> </span>default<span class="w"> </span>&lt;IMPLEMENTATION&gt;
+</code></pre></div>
 <p>For example, using</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flexiblas<span class="w"> </span>default<span class="w"> </span>IMKL
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>flexiblas<span class="w"> </span>default<span class="w"> </span>IMKL
+</code></pre></div>
 <p>will always use the Intel Math Kernel Library. Note that you still need to load the <code>imkl</code> module so that FlexiBLAS can find the library (see the note above)!</p>
 <h2 id="benchmarking-blas-implementations-with-flexiblas">Benchmarking BLAS Implementations with FlexiBLAS</h2>
 <h3 id="using-python">Using Python</h3>
 <p>As mentioned above, <code>numpy</code>'s linear algebra operations are performed using BLAS. ICER has installed <code>numpy</code> with FlexiBLAS, so you can choose your BLAS backend.</p>
 <h4 id="benchmark-script">Benchmark script</h4>
 <p>The results below are run on <code>dev-amd20</code> and computed using the following script:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>SciPy-bundle<span class="w"> </span>imkl<span class="w"> </span>BLIS
@@ -7164,39 +7131,11 @@ module<span class="w"> </span>load<span class="w"> </span>SciPy-bundle<span clas
 <span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">FLEXIBLAS</span><span class="o">=</span><span class="nv">$BACKEND</span><span class="w"> </span>
 <span class="w">    </span><span class="nb">time</span><span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import numpy as np; x = np.random.randn(5000, 5000); x @ x.T&quot;</span>
 <span class="k">done</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This script computes the cross product (the matrix times its transpose) of a 5000-by-5000 matrix of normally distributed random values. Note that we need to load the <code>imkl</code> and <code>BLIS</code> modules in addition to <code>SciPy-bundle</code> to use them with FlexiBLAS. <code>FlexiBLAS</code> and its default backend <code>OpenBLAS</code> are loaded as dependencies of <code>SciPy-bundle</code> and do not need to be specified.</p>
 <h4 id="results">Results</h4>
 <p>The output from one run of the script is copied below</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code>OPENBLAS
+<div class="highlight"><pre><span></span><code>OPENBLAS
 
 real    0m6.410s
 user    0m6.159s
@@ -7225,34 +7164,22 @@ NETLIB
 real    1m2.583s
 user    1m2.442s
 sys 0m0.120s
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The <code>real</code> time is the time that you would wait for the code to run, whereas the <code>user</code> time is the time that that the process was running on the CPUs. Note that the <code>real</code> time can be less than the <code>user</code> time when code is run in parallel (as in the case of <code>IMKL</code>).</p>
 <p>The <code>elapsed</code> time shows that for this specific cross-product example, <code>IMKL</code> is fastest, <code>OPENBLAS</code>, <code>BLIS</code>, and <code>IMKL_SEQ</code> (the non-parallel version of <code>IMKL</code>) are comparable, and <code>NETLIB</code> is much slower.</p>
 <p>Note that this is only one small example with no extra configuration and results will vary by the type of operation and hardware used. We encourage you to explore more about the benefits of each backend and how they may be configured for your situation and experiment with different options.</p>
 <p>For example, <a href="https://github.com/flame/blis/blob/master/docs/Multithreading.md"><code>BLIS</code> allows for parallelization</a> similar to <code>IMKL</code> with an extra command line argument that produces a similar result:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BLIS_NUM_THREADS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">FLEXIBLAS</span><span class="o">=</span>BLIS<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">time</span><span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import numpy as np; x = np.random.randn(5000, 5000); x @ x.T&quot;</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>real    0m2.010s
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BLIS_NUM_THREADS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">FLEXIBLAS</span><span class="o">=</span>BLIS<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">time</span><span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import numpy as np; x = np.random.randn(5000, 5000); x @ x.T&quot;</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>real    0m2.010s
 user    0m7.302s
 sys 0m0.202s
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="using-r">Using R</h3>
 <p>As mentioned above, R's linear algebra operations are performed using BLAS. ICER has installed R with FlexiBLAS, so you can choose your BLAS backend.</p>
 <h4 id="benchmark-script_1">Benchmark script</h4>
 <p>The results below are run on <code>dev-amd20</code> and computed using the following script:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>R<span class="w"> </span>imkl<span class="w"> </span>BLIS
@@ -7263,25 +7190,11 @@ module<span class="w"> </span>load<span class="w"> </span>R<span class="w"> </sp
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$BACKEND</span>
 <span class="w">    </span><span class="nv">FLEXIBLAS</span><span class="o">=</span><span class="nv">$BACKEND</span><span class="w"> </span>Rscript<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;system.time({x &lt;- replicate(5e3, rnorm(5e3)); tcrossprod(x) })&quot;</span>
 <span class="k">done</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This script computes the cross product (the matrix times its transpose) of a 5000-by-5000 matrix of normally distributed random values. Note that we need to load the <code>imkl</code> and <code>BLIS</code> modules in addition to <code>R</code> to use them with FlexiBLAS. <code>FlexiBLAS</code> and its default backend <code>OpenBLAS</code> are loaded as dependencies of R and do not need to be specified.</p>
 <h4 id="results_1">Results</h4>
 <p>The output from one run of the script is copied below</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>OPENBLAS
+<div class="highlight"><pre><span></span><code>OPENBLAS
    user  system elapsed
   7.512   0.497   8.009
 BLIS
@@ -7296,17 +7209,16 @@ IMKL_SEQ
 NETLIB
    user  system elapsed
  50.242   0.481  50.732
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The <code>elapsed</code> time is the time that you would wait for the code to run, whereas the <code>user</code> time is the time that that the process was running on the CPUs. Note that the <code>elapsed</code> time can be less than the <code>user</code> time when code is run in parallel (as in the case of <code>IMKL</code>).</p>
 <p>The <code>elapsed</code> time shows that for this specific cross-product example, <code>IMKL</code> is fastest, <code>OPENBLAS</code>, <code>BLIS</code>, and <code>IMKL_SEQ</code> (the non-parallel version of <code>IMKL</code>) are comparable, and <code>NETLIB</code> is much slower.</p>
 <p>Note that this is only one small example with no extra configuration and results will vary by the type of operation and hardware used. We encourage you to explore more about the benefits of each backend and how they may be configured for your situation and experiment with different options.</p>
 <p>For example, <a href="https://github.com/flame/blis/blob/master/docs/Multithreading.md"><code>BLIS</code> allows for parallelization</a> similar to <code>IMKL</code> with an extra command line argument that produces a similar result:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">BLIS_NUM_THREADS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="nv">FLEXIBLAS</span><span class="o">=</span>BLIS<span class="w"> </span>Rscript<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;system.time({x &lt;- replicate(5e3, rnorm(5e3)); tcrossprod(x) })&quot;</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>   user  system elapsed 
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="nv">BLIS_NUM_THREADS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="nv">FLEXIBLAS</span><span class="o">=</span>BLIS<span class="w"> </span>Rscript<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;system.time({x &lt;- replicate(5e3, rnorm(5e3)); tcrossprod(x) })&quot;</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>   user  system elapsed 
   8.769   0.369   3.381 
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

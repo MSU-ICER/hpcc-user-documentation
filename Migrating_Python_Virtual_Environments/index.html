@@ -6785,53 +6785,36 @@
 <p>To migrate virtual environments, please follow the steps below.</p>
 <h2 id="save-your-current-virtual-environment">Save your current virtual environment</h2>
 <p>First, activate your virtual environment in a <a href="../Backwards_Compatibility_with_CentOS/">backwards compatibility container</a>. In this guide, we will use an example named <code>project</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
 ssh<span class="w"> </span>dev-amd20
 old_os
 <span class="c1"># In directory where &quot;project&quot; virtual env exists</span>
 <span class="nb">source</span><span class="w"> </span>project/bin/activate
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Then, save the packages installed via <code>pip</code> to a <code>requirements.txt</code> file.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</code></pre></div>
 <h2 id="create-a-new-virtual-environment">Create a new virtual environment</h2>
 <p>Now, exit the container back into <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">a development node running the new operating system</a>, and, if you have specific version requirements, select the version of Python you'd like to use from the module system. If you have the default modules loaded, this will be <code>Python/3.11.3</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Exit backwards compatibility container</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Exit backwards compatibility container</span>
 <span class="nb">exit</span>
 <span class="c1"># Load newer version of Python than default (optional)</span>
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>Python/3.11.5-GCCcore-13.2.0
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Then use this python to create a new virtual environment. To avoid confusion with the old environment and to maintain backwards compatibility if necessary, use a new name.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>project_ubuntu
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>project_ubuntu
+</code></pre></div>
 <h2 id="install-the-packages-in-your-old-virtual-environment">Install the packages in your old virtual environment</h2>
 <p>Activate the new virtual environment, and use <code>pip</code> to reinstall the packages from the old environment.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span><span class="w"> </span>project_ubuntu/bin/activate
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>project_ubuntu/bin/activate
 <span class="c1"># The next step may take a while</span>
 pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The new environment is ready to use. If the reinstallation fails, see the <a href="#troubleshooting">Troubleshooting section</a> below.</p>
 <h2 id="update-old-batch-scripts">Update old batch scripts</h2>
 <p>Assuming this virtual environment was used in a batch script, you now need to update it for the new system. Suppose we have the following script, <code>my_script.sb</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+<div class="highlight"><span class="filename">my_script.sb</span><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=01:00:00</span>
 <span class="c1">#SBATCH --cpus-per-task=2</span>
@@ -6839,24 +6822,12 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 
 <span class="nb">source</span><span class="w"> </span>project/bin/activate
 python<span class="w"> </span>do_some_work.py
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Copy the script for the new system.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>my_script.sb<span class="w"> </span>my_script_ubuntu.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>my_script.sb<span class="w"> </span>my_script_ubuntu.sb
+</code></pre></div>
 <p>Then, change the way the virtual environment is activated to match our new virtual environment.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script_ubuntu.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+<div class="highlight"><span class="filename">my_script_ubuntu.sb</span><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=01:00:00</span>
 <span class="c1">#SBATCH --cpus-per-task=2</span>
@@ -6869,23 +6840,19 @@ module<span class="w"> </span>load<span class="w"> </span>Python/3.11.5-GCCcore-
 <span class="c1"># Use the new virtual environment</span>
 <span class="nb">source</span><span class="w"> </span>project_ubuntu/bin/activate
 python<span class="w"> </span>do_some_work.py
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To test, make sure you log into an <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">Ubuntu development node</a>, and submit the job using</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch<span class="w"> </span>my_script_ubuntu.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>my_script_ubuntu.sb
+</code></pre></div>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="using-an-older-version">Using an older version</h3>
 <p>Moving from older versions of Python to newer versions can cause problems when reinstalling packages. If you run into issues, try an older version of Python on the new operating system, e.g., when creating the new virtual environment, use</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>Python/3.10.4-GCCcore-11.3.0
 python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>project_ubuntu
 <span class="nb">source</span><span class="w"> </span>project_ubuntu/bin/activate
 pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>However, even the older versions on the new operating system are still relatively new (we don't recommend using anything older than <code>Python/3.10.4</code>, as the older versions are deprecated). If you need an even older version, we recommend you create a Conda environment. See our instructions for <a href="../Using_conda/#appendix-installing-miniforge-manually-advanced-option">Installing Conda</a>.</p>
 <h3 id="using-conda">Using Conda</h3>
 <div class="admonition warning">
@@ -6893,25 +6860,18 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p>This section explains how to reinstall a Python virtual environment into a Conda environment. For instructions to migrate Conda environments, please see <a href="../Migrating_Conda_Environments/">our Conda specific documentation</a>.</p>
 </div>
 <p>After installing Conda, you can create an environment with the same version of Python from your virtual environment, and install the packages via <code>pip</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>Conda/3
 <span class="c1"># Use version of Python from old venv, can get using &quot;python --version&quot;</span>
 conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>project_ubuntu<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6.3<span class="w"> </span>pip
 conda<span class="w"> </span>activate<span class="w"> </span>project_ubuntu
 pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To use this Conda environment in the future, use</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>Conda/3
 conda<span class="w"> </span>activate<span class="w"> </span>project_ubuntu
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note that when using Conda, we recommend using the Conda package manager to install packages via <code>conda install</code> instead of using <code>pip</code>. However, for migrating virtual environments like this, using <code>pip</code> is fine, so long as you do not use <code>conda install</code> to install more packages into the same environment afterward.</p>
 <h3 id="using-pre-installed-packages">Using pre-installed packages</h3>
 <p>Also note that the module system already includes a few Python "bundles" that have popular packages pre-installed. These include <code>Python-bundle-PyPI</code> and <code>Scipy-bundle</code>. Use the <code>module spider</code> command to see if these can meet your needs.</p>

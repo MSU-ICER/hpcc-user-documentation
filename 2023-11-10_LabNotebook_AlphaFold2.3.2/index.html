@@ -6586,68 +6586,12 @@ information and other details</p>
 <p>Currently, due to certain system limitations, AlphaFold version 2.3.0 and later cannot be installed on HPCC or run as Docker images.</p>
 <p>Therefore, we are working to make Singularity images created by third-party user available on HPCC (see <a href="https://github.com/prehensilecode/alphafold_singularity">https://github.com/prehensilecode/alphafold_singularity</a>). As of the writing of this Lab Notebook, the most current image is 2.3.2-1</p>
 <p>These instructions are a work in progress for running AlphaFold version 2.3.2 using the singularity container found at:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/opt/software/alphafold/2.3.2/alphafold_2.3.2-1.sif
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>/opt/software/alphafold/2.3.2/alphafold_2.3.2-1.sif
+</code></pre></div>
 <p>As with other containers in the <code>/opt/software/alphafold/</code> directory, AlphaFold 2.3.2 can be run via Singularity.</p>
 <p>Howevever, AlphaFold version after 2.3.0 use a database which is formatted differently than pevious versions. This database is located in
 <code>/mnt/research/common-data/alphafold/database_230</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code>database_230
+<div class="highlight"><pre><span></span><code>database_230
 ──<span class="w"> </span>bfd<span class="w"> </span>-&gt;<span class="w"> </span>../database/bfd/
 ├──<span class="w"> </span>mgnify
 │<span class="w">   </span>├──<span class="w"> </span>mgy_clusters_2022_05.fa
@@ -6704,33 +6648,19 @@ information and other details</p>
 │<span class="w">   </span>└──<span class="w"> </span>UniRef30_2021_03.tar.1.gz
 └──<span class="w"> </span>uniref90
 <span class="w">    </span>└──<span class="w"> </span>uniref90.fasta
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="runninging-alphafold-232-using-run_singluaritypy">Runninging AlphaFold 2.3.2 using run_singluarity.py</h3>
 <p>To run AlphaFold 2.3.2, first load the following modules:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>module load Python-bundle-alphafold-singularity/2.3.2-GCCcore-13.2.0
+<div class="highlight"><pre><span></span><code>module load Python-bundle-alphafold-singularity/2.3.2-GCCcore-13.2.0
 module load AlphaFold/2.3.2-GCCcore-13.2.0-singularity
 
 # OLD OS (Centos7, prior to Summer 2024)
 #module load GCC/6.4.0-2.28  OpenMPI/2.1.2 Python/3.6.4 
 #module load alphafold/2.3.2
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The alphafold/2.3.2 module will set the ALPHAFOLD_DIR, ALPHAFOLD_DATADIR, and ALPHAFOLD_MODELS environment variables for you. </p>
 <p>We  recommend you use the python script "run_singularity.py" (which is also in /opt/software/alphafold/2.3.2/) to work with the Singularity image. This script helps automate many of the more challenging parts of using the image, such as correctly binding paths to your data directories and enabling <abbr title="Graphics Processing Unit">GPU</abbr> support. Below is an example of how to run this script:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">output_dir</span><span class="o">=</span>&lt;some_output_folder&gt;<span class="w"> </span><span class="c1"># Set the output directory as a environment variable as this is what the script expects</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">output_dir</span><span class="o">=</span>&lt;some_output_folder&gt;<span class="w"> </span><span class="c1"># Set the output directory as a environment variable as this is what the script expects</span>
 
 python3<span class="w"> </span><span class="si">${</span><span class="nv">ALPHAFOLD_DIR</span><span class="si">}</span>/run_singularity.py<span class="w"> </span><span class="se">\ </span>
 <span class="w">    </span>--use_gpu<span class="w"> </span><span class="se">\ </span><span class="c1">#Use the GPU, which makes the neural network calculations faster</span>
@@ -6740,51 +6670,11 @@ python3<span class="w"> </span><span class="si">${</span><span class="nv">ALPHAF
 <span class="w">    </span>--max_template_date<span class="o">=</span><span class="m">2020</span>-05-14<span class="w"> </span><span class="se">\ </span><span class="c1">#When looking for PDB templates, this is the maximum date we will consider</span>
 <span class="w">    </span>--model_preset<span class="o">=</span>monomer<span class="w"> </span><span class="se">\ </span><span class="c1">#We are predicting a monomeric protein, change to &quot;multimer&quot; for multimer </span>
 <span class="w">    </span>--db_preset<span class="o">=</span>reduced_dbs<span class="w"> </span><span class="c1">#Use the reduced database</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note that any of the flags <a href="https://github.com/google-deepmind/alphafold#running-alphafold">normally passed to AlphaFold should</a> be able to be passed through this script.</p>
 <p>Additionally, the --output_dir argument must be passed EXACTLY as above using an environment variable because the script expects an environment variable (i.e. the uses os.environ to fill in the outdir)</p>
 <p>If you would like to submit an AlphaFold job to SLURM, we have included an example script below. Note that you will need to adjust the resource requests (mainly time) depending on the complexity of your protein.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --job-name 2023alphafold</span>
 <span class="c1">#SBATCH --time=04:00:00</span>
 <span class="c1">#SBATCH --gres=gpu:1</span>
@@ -6825,7 +6715,7 @@ python3<span class="w"> </span><span class="si">${</span><span class="nv">ALPHAF
 
 <span class="nv">timestamp</span><span class="o">=</span><span class="k">$(</span>date<span class="k">)</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Finishing AlphaFold at </span><span class="nv">$timestamp</span><span class="s2">&quot;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="running-the-singularity-image-manually">Running the singularity image manually</h3>
 <p>If for whatever reason you need to manually run AlphaFold from the singularity image, we recommend you still run "run_singularity.py" first as this script will print the "singularity run ..." command it generates. It will be much easier to work from this command, which should have all of the bind paths properly set for the image, than to try to write your own command from scratch.</p>
 <h3 id="additional-resources-and-acknowledgement">Additional Resources and Acknowledgement</h3>

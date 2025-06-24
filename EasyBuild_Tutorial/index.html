@@ -6717,27 +6717,17 @@ created a recipe for.</p>
 <p>In this tutorial, we are going to try to install a piece of software that's not already on the HPCC called <a href="https://computing.llnl.gov/projects/zfp"><code>zfp</code></a>.</p>
 <h2 id="loading-easybuild">Loading EasyBuild</h2>
 <p>To get started, we load the EasyBuild module:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>EasyBuild
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>We now have access to the <code>eb</code> command that does everything you need in
 EasyBuild.</p>
 <h2 id="configuring-easybuild">Configuring EasyBuild</h2>
 <p>We can first check our global
 EasyBuild configuration using</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--show-config
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">#</span>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>eb<span class="w"> </span>--show-config
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">#</span>
 <span class="go"># Current EasyBuild configuration</span>
 <span class="go"># (C: command line argument, D: default value, E: environment variable, F: configuration file)</span>
 <span class="go">#</span>
@@ -6747,7 +6737,7 @@ EasyBuild configuration using</p>
 <span class="go">repositorypath (D) = /mnt/home/k0068027/.local/easybuild/ebfiles_repo</span>
 <span class="go">robot-paths    (D) = /opt/software-current/2023.06/x86_64/generic/software/EasyBuild/4.9.2/easybuild/easyconfigs</span>
 <span class="go">sourcepath     (D) = /mnt/home/k0068027/.local/easybuild/sources</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>Let's highlight the most important ones:</p>
 <dl>
 <dt><code>installpath</code></dt>
@@ -6771,19 +6761,9 @@ EasyBuild configuration using</p>
 Or what if your <a href="../Home_Space/#space-quota">home directory is filling up</a>, you only need the software temporarily, and are okay installing it into your <a href="../Scratch_File_Systems/">scratch space</a>?</p>
 <p>For the sake of this tutorial, we'll practice by using a directory in <code>/tmp</code> as the build directory, installing the software into our scratch space, and leaving the module files in our home directory.</p>
 <p>To change the configuration, we can do it by passing the new value as a command line argument to any <code>ebS</code> command:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--buildpath<span class="o">=</span>/tmp/<span class="nv">$USER</span>/EASYBUILD<span class="w"> </span>--installpath-software<span class="o">=</span><span class="nv">$SCRATCH</span>/software<span class="w"> </span>--show-config
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">#</span>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>eb<span class="w"> </span>--buildpath<span class="o">=</span>/tmp/<span class="nv">$USER</span>/EASYBUILD<span class="w"> </span>--installpath-software<span class="o">=</span><span class="nv">$SCRATCH</span>/software<span class="w"> </span>--show-config
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">#</span>
 <span class="go"># Current EasyBuild configuration</span>
 <span class="go"># (C: command line argument, D: default value, E: environment variable, F: configuration file)</span>
 <span class="go">#</span>
@@ -6794,7 +6774,7 @@ Or what if your <a href="../Home_Space/#space-quota">home directory is filling u
 <span class="go">repositorypath       (D) = /mnt/home/k0068027/.local/easybuild/ebfiles_repo</span>
 <span class="go">robot-paths          (D) = /opt/software-current/2023.06/x86_64/generic/software/EasyBuild/4.9.2/easybuild/easyconfigs</span>
 <span class="go">sourcepath           (D) = /mnt/home/k0068027/.local/easybuild/sources</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>Great! It also tells us that the options were set using a command line argument
 by the <code>(C)</code>. We'll have to make sure to include this option when we actually
 try to install the software: it's not "set and forget"!</p>
@@ -6810,20 +6790,15 @@ These recipes are called EasyConfigs and there's a good chance that someone
 has already created one for the software you're trying to install.</p>
 <p>The list of EasyConfigs is stored on the HPCC and we can search through it
 using the <code>-S</code> option of <code>ebS</code>:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>-S<span class="w"> </span>zfp
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">CFGS1=/opt/software-current/2023.06/x86_64/generic/software/EasyBuild/4.9.2/easybuild/easyconfigs/z/zfp</span>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>eb<span class="w"> </span>-S<span class="w"> </span>zfp
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">CFGS1=/opt/software-current/2023.06/x86_64/generic/software/EasyBuild/4.9.2/easybuild/easyconfigs/z/zfp</span>
 <span class="go"> * $CFGS1/zfp-0.5.5-GCCcore-10.2.0.eb</span>
 <span class="go"> * $CFGS1/zfp-1.0.0-GCCcore-9.3.0.eb</span>
 <span class="go"> * $CFGS1/zfp-1.0.0-GCCcore-10.3.0.eb</span>
 <span class="go"> * $CFGS1/zfp-1.0.0-GCCcore-11.3.0.eb</span>
 <span class="go"> * $CFGS1/zfp-1.0.1-GCCcore-12.3.0.eb</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>This tells us that there a few different EasyConfigs available to help us install
 different versions of <code>zfp</code> under different toolchains.</p>
 <details class="info">
@@ -6842,18 +6817,9 @@ that contain a compiler/<abbr title="Message Passing Interface">MPI</abbr> pair 
 These are labeled by their year and an <code>a</code> or <code>b</code> for the first or second
 half of the year. You can check what's in them by searching for their
 EasyConfig and showing it with <code>eb --show-ec</code>:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>-S<span class="w"> </span>^foss
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">...</span>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>eb<span class="w"> </span>-S<span class="w"> </span>^foss
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">...</span>
 <span class="go">k0068027@dev-intel16:~$ eb -S ^foss-</span>
 <span class="go">CFGS1=/opt/software-current/2023.06/x86_64/generic/software/EasyBuild/4.9.2/easybuild/easyconfigs</span>
 <span class="go">...</span>
@@ -6863,37 +6829,10 @@ EasyConfig and showing it with <code>eb --show-ec</code>:</p>
 <span class="go"> * $CFGS1/f/foss/foss-2023a.eb</span>
 <span class="go"> * $CFGS1/f/foss/foss-2023b.eb</span>
 <span class="go"> * $CFGS1/f/foss/foss-2024.05.eb</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--show-ec<span class="w"> </span>foss-2023a.eb
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">easyblock = &#39;Toolchain&#39;</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>eb<span class="w"> </span>--show-ec<span class="w"> </span>foss-2023a.eb
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">easyblock = &#39;Toolchain&#39;</span>
 
 <span class="go">name = &#39;foss&#39;</span>
 <span class="go">version = &#39;2023a&#39;</span>
@@ -6921,7 +6860,7 @@ EasyConfig and showing it with <code>eb --show-ec</code>:</p>
 <span class="go">]</span>
 
 <span class="go">moduleclass = &#39;toolchain&#39;</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>We can see that <code>foss</code> includes <code>GCC</code>, <code>OpenMPI</code>, <code>FlexiBLAS</code>, <code>FFTW</code>,
 <code>FFTW.MPI</code>, and <code>ScaLAPACK</code>.</p>
 </details>
@@ -6933,18 +6872,14 @@ the software you're using for you. If they're not already installed, it will
 use other EasyConfigs to install them.</p>
 <p>We can check to see if we're missing any of <code>zfp</code>'s dependencies on the system
 using <code>eb -M</code>:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>-M<span class="w"> </span>zfp-1.0.1-GCCcore-12.3.0.eb
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">...</span>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>eb<span class="w"> </span>-M<span class="w"> </span>zfp-1.0.1-GCCcore-12.3.0.eb
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">...</span>
 <span class="go">1 out of 13 required modules missing:</span>
 
 <span class="go">* zfp/1.0.1-GCCcore-12.3.0 (zfp-1.0.1-GCCcore-12.3.0.eb)</span>
 <span class="go">...</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>We're only missing one module: the software itself! The remaining twelve
 modules are already available on the HPCC. If there were other dependencies
 that weren't installed, EasyBuild will install those for us, so long as we use
@@ -6961,41 +6896,11 @@ might consider running EasyBuild through a
 <a href="../Job_Script_and_Job_Submission/">batch</a> or <a href="../Interactive_Job/">interactive
 job</a>.</p>
 <p>And don't forget to change your build and software install paths!</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--parallel<span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>eb<span class="w"> </span>--parallel<span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--buildpath<span class="o">=</span>/tmp/<span class="nv">$USER</span>/EASYBUILD<span class="w"> </span>--installpath-software<span class="o">=</span><span class="nv">$SCRATCH</span>/software<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>zfp-1.0.1-GCCcore-12.3.0.eb
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">...</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">...</span>
 <span class="go">== processing EasyBuild easyconfig /opt/software-current/2023.06/x86_64/generic/software/EasyBuild/4.9.2/easybuild/easyconfigs/z/zfp/zfp-1.0.1-GCCcore-12.3.0.eb</span>
 <span class="go">== building and installing zfp/1.0.1-GCCcore-12.3.0...</span>
 <span class="go">== fetching files...</span>
@@ -7024,7 +6929,7 @@ job</a>.</p>
 <span class="go">== Results of the build can be found in the log file(s) /mnt/gs21/scratch/k0068027/software/zfp/1.0.1-GCCcore-12.3.0/easybuild/easybuild-zfp-1.0.1-20240815.131013.log</span>
 <span class="go">== Build succeeded for 1 out of 1</span>
 <span class="go">...</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>This process should less than a minute in total.</p>
 <p>There's a lot of output here, but we can see that it completed steps like
 configuring, building, testing, installing, and checking that important files
@@ -7032,14 +6937,14 @@ are where they're supposed to be. And not only would it do this for the
 software you requested, but for all of the dependencies too. You would usually
 have to do this all manually!</p>
 <p>We can check that the software is where it's supposed to be.</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span><span class="nv">$SCRATCH</span>/software/zfp/1.0.1-GCCcore-12.3.0
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">bin  easybuild  include  lib  lib64</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span><span class="nv">$SCRATCH</span>/software/zfp/1.0.1-GCCcore-12.3.0/bin
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">testviews testzfp  zfp</span>
-</code></pre></div></td></tr></table></div></p>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>ls<span class="w"> </span><span class="nv">$SCRATCH</span>/software/zfp/1.0.1-GCCcore-12.3.0
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">bin  easybuild  include  lib  lib64</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>ls<span class="w"> </span><span class="nv">$SCRATCH</span>/software/zfp/1.0.1-GCCcore-12.3.0/bin
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">testviews testzfp  zfp</span>
+</code></pre></div></p>
 <p>Note that the installation is stored under the <code>zfp</code> directory in a directory
 labeled with the software and toolchain versions. If, in the future, we wanted
 a new version or one built with a different compiler, these two versions can
@@ -7054,45 +6959,15 @@ dependencies of <code>zfp</code>!</p>
 the software. EasyBuild installs modules into
 <code>$HOME/.local/easybuild/modules/all</code> by default. We can add these to our
 "module path" so that they show up when we try to do <code>module load</code>:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>use<span class="w"> </span><span class="nv">$HOME</span>/modules/.local/easybuild/modules/all
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>use<span class="w"> </span><span class="nv">$HOME</span>/modules/.local/easybuild/modules/all
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$MODULEPATH</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">/mnt/home/k0068027/.local/easybuild/modules/all:/opt/software-current/2023.06/x86_64/generic/modules/all:/usr/modulefiles/Linux:/usr/modulefiles/Core:/usr/lmod/lmod/modulefiles/Core</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">/mnt/home/k0068027/.local/easybuild/modules/all:/opt/software-current/2023.06/x86_64/generic/modules/all:/usr/modulefiles/Linux:/usr/modulefiles/Core:/usr/lmod/lmod/modulefiles/Core</span>
+</code></pre></div></p>
 <p>Let's try searching for it:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>zfp
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">---------------------------------------------------------------------------------------------------------------------------------------------</span>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>zfp
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">---------------------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="go">  zfp: zfp/1.0.1-GCCcore-12.3.0</span>
 <span class="go">---------------------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="go">    Description:</span>
@@ -7122,16 +6997,14 @@ the software. EasyBuild installs modules into
 <span class="go">      ================</span>
 <span class="go">       - Homepage: https://github.com/LLNL/zfp</span>
 <span class="go">...</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>Notice that the version is followed by the toolchain it depends on. Now we can load it using the command <code>module spider</code> gave.</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>zfp/1.0.1-GCCcore-12.3.0
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>zfp/1.0.1-GCCcore-12.3.0
 module<span class="w"> </span>list
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">Currently Loaded Modules:</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Currently Loaded Modules:</span>
 <span class="go">  1) EasyBuild/4.9.2   2) GCCcore/12.3.0   3) zfp/1.0.1-GCCcore-12.3.0</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>This does a few things including </p>
 <ul>
 <li>adding <code>zfp</code>'s <code>bin</code> directory to our path,</li>
@@ -7139,18 +7012,9 @@ module<span class="w"> </span>list
 <li>and loading the modules for its runtime dependencies.</li>
 </ul>
 <p>This means we can run <code>testzfp</code> without using it's absolute path:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>testzfp
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">zfp version 1.0.1 (December 15, 2023)</span>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>testzfp
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">zfp version 1.0.1 (December 15, 2023)</span>
 <span class="go">library version 4112</span>
 <span class="go">CODEC version 5</span>
 <span class="go">data model LP64</span>
@@ -7160,7 +7024,7 @@ module<span class="w"> </span>list
 <span class="go">  decompress: rate= 2 1.626e+01 &lt;= 1.627e+01                          OK </span>
 <span class="go">...</span>
 <span class="go">all tests passed</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>Though this was a small example, this workflow should get you through most
 EasyBuild installations. Checkout our <a href="../EasyBuild_Reference/">EasyBuild
 reference</a> in the future if you need a quick refresher

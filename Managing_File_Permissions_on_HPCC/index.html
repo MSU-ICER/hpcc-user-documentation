@@ -6900,16 +6900,16 @@
 For background on the concepts, please see the page on <a href="../File_Permissions_on_HPCC/">file permissions</a>.</p>
 <h2 id="displaying-permissions-of-files-and-directories-with-ls-l">Displaying permissions of files and directories with <code>ls -l</code></h2>
 <p>To display permissions in the current directory, run:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-l
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l
+</code></pre></div>
 <p><img alt="A terminal window showing the output of the ls -1 command, listing directory entries with metadata including permissions, owner, group, size, and timestamps. Below the listing, explanatory labels break down Unix/Linux file permissions, including user/group/other access rights (read, write, execute), file types, ownership details, and hard link counts. The terms &quot;rwx&quot; which stands for &quot;readable,&quot; &quot;writeable,&quot; and &quot;executable,&quot; are highlighted, illustrating a guide to interpreting permission strings in command-line environments." src="../attachments/1343598/11895106.jpg" /></p>
 <p>You can also display the permissions of an individual file or directory
 by running:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-ld<span class="w"> </span>filename
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-ld<span class="w"> </span>filename
+</code></pre></div>
 <p>For example, you can check the permissions of your home directory:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-ld<span class="w"> </span>~
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-ld<span class="w"> </span>~
+</code></pre></div>
 <h2 id="changing-file-permissions-with-chmod">Changing file permissions with <code>chmod</code></h2>
 <p>In the normal UNIX security model, there are three levels that are
 evaluated when considering file or directory access: user owner, group
@@ -6919,35 +6919,35 @@ of a file or a directory is allowed to change its permissions or the
 group name (to one of the owner's groups).</p>
 <h3 id="change-user-permissions">Change user permissions</h3>
 <p>To add all permissions for the user owner, run the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>u+rwx<span class="w"> </span>FileName
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>u+rwx<span class="w"> </span>FileName
+</code></pre></div>
 <p>Note that any file you create will already have the <code>rw</code> permission for
 your user account so that you will have the "read" and "write" permissions respectively.
 However to have a program script able to be run from the command line, you need to change the 'execute', or <code>x</code>,  permission with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>u+x<span class="w"> </span>FileName
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>u+x<span class="w"> </span>FileName
+</code></pre></div>
 <h3 id="changing-group-and-other-permissions">Changing group and other permissions</h3>
 <p>To allow anyone in the group that owns the file to be able to read that
 file, change the group read permission:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>g+r<span class="w"> </span>FileName
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>g+r<span class="w"> </span>FileName
+</code></pre></div>
 <p>To allow anyone in the group to read and write the file, you can change
 the read and write permission</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>g+wr<span class="w"> </span>FileName
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>g+wr<span class="w"> </span>FileName
+</code></pre></div>
 <p>If you have a file that is currently read and writeable by the group
 (g+wr) and you want to make it private, remove those permissions:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>g-rw<span class="w"> </span>FileName
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>g-rw<span class="w"> </span>FileName
+</code></pre></div>
 <p>To add the ability for other users to write to a file or directory (this
 allows all users on the HPC to see and read this file if it's in a shared
 folder which we don't recommend).</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>o+w<span class="w"> </span>FileName
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>o+w<span class="w"> </span>FileName
+</code></pre></div>
 <h2 id="changing-group-ownership-with-chgrp">Changing group ownership with <code>chgrp</code></h2>
 <p>To change the group ownership of a file or a directory, simply run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chgrp<span class="w"> </span>&lt;GroupName&gt;<span class="w"> </span>&lt;FileName&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chgrp<span class="w"> </span>&lt;GroupName&gt;<span class="w"> </span>&lt;FileName&gt;
+</code></pre></div>
 <p>where <code>&lt;GroupName&gt;</code> is the group name which you would like to change to
 and <code>&lt;FileName&gt;</code> is the name and path of the file or directory.</p>
 <h2 id="working-with-non-primary-groups-and-permissions">Working with non-primary groups and permissions</h2>
@@ -6962,18 +6962,18 @@ primary group</a>. </p>
 directory by setting the set-group-ID setting. The <code>/mnt/research</code> HPCC
 Research file share spaces have this setting set by default.<br />
 To set the set-group-ID bit on a directory:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>g+s<span class="w"> </span>DirectoryName
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>g+s<span class="w"> </span>DirectoryName
+</code></pre></div>
 <p>To remove the set-group-ID bit on a directory:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>g-s<span class="w"> </span>DirectoryName
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>g-s<span class="w"> </span>DirectoryName
+</code></pre></div>
 <h2 id="other-special-permissions">Other special permissions</h2>
 <p>There are other group permissions beyond the scope of this document,
 primarily the set-user-ID bit and the "sticky" bit. For more information
 about special permissions, please review the GNU documentation,
 available on any HPCC system:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>info<span class="w"> </span>chmod
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>info<span class="w"> </span>chmod
+</code></pre></div>
 <h2 id="filesystem-specific-differences">Filesystem-specific differences</h2>
 <h3 id="home">Home</h3>
 <p>Your home directory has default permissions that allow only you to have
@@ -6983,43 +6983,30 @@ you wish to allow other users access to your home directory, you will
 need to change permissions on it.  </p>
 <p>To allow every member of a group access to read your home directory,
 use:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>g+rx<span class="w"> </span>~
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>g+rx<span class="w"> </span>~
+</code></pre></div>
 <p>It is strongly recommended that you do not allow all users to read the contents of your home directory. 
 Instead, to allow users outside of your UNIX group to read contents within your home directory, it is suggested 
 that you create a subdirectory within your home directory that is readable by all users, and then set the execute
 permission on your home directory to allow users to access the subdirectory. For example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#Create a subdirectory in your home directory called &quot;my_sub_directory&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#Create a subdirectory in your home directory called &quot;my_sub_directory&quot;</span>
 mkdir<span class="w"> </span>~/my_sub_directory
 <span class="c1">#Make the subdirectory readable by everyone</span>
 chmod<span class="w"> </span>a+rx<span class="w"> </span>~/my_sub_directory
 <span class="c1">#Set the execute permission on your home directory to allow others to access the new subdirectory</span>
 chmod<span class="w"> </span>o+x<span class="w"> </span>~/
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To allow every user outside your UNIX group to read your home directory,
 use (NOT RECOMMENDED):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>o+rx<span class="w"> </span>~
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>o+rx<span class="w"> </span>~
+</code></pre></div>
 <p>To allow world-wide read access to your home directory (NOT RECOMMENDED):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>a+rx<span class="w"> </span>~
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>a+rx<span class="w"> </span>~
+</code></pre></div>
 <h4 id="sharing-a-single-directory-inside-your-home-directory">Sharing a single directory inside your home directory</h4>
 <p>If you wish to share only a single directory in your home directory and
 keep all other contents private,  you can use the following technique (This is the recommended method for sharing home directory contents with users outside of your UNIX group):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># create the shared folder</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># create the shared folder</span>
 <span class="nb">cd</span><span class="w"> </span>~
 mkdir<span class="w"> </span>shared
 chmod<span class="w"> </span>o+rwx<span class="w"> </span>shared
@@ -7028,7 +7015,7 @@ chmod<span class="w"> </span>o+rwx<span class="w"> </span>shared
 chmod<span class="w"> </span>o+rw<span class="w"> </span>shared/sharefile.txt
 <span class="c1"># anyone can read this file using</span>
 cat<span class="w"> </span>/mnt/home/&lt;netid&gt;/shared/sharefile.txt
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="scratch">Scratch</h3>
 <p>Directories are created as private to you by default. If you do not wish
 this to be the case, you can use the technique for <a href="#sharing-a-single-directory-inside-your-home-directory">sharing a single directory in your home directory</a> above.
@@ -7040,8 +7027,8 @@ deletes the contents of <code>$TMPDIR</code> after a job exits. If you require
 additional security for this temporary space, manually setting the
 permissions of <code>$TMPDIR</code> is necessary. Here is an example to mimic the
 security of home directory space:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>go-rwx<span class="w"> </span><span class="nv">$TMPDIR</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>go-rwx<span class="w"> </span><span class="nv">$TMPDIR</span>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

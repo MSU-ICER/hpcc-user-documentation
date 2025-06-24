@@ -6568,21 +6568,7 @@ information and other details.</p>
 <p>PyMesh is a code base developed by Qingnan Zhou for his PhD research at New York University. It is a rapid prototyping platform focused on geometry processing. PyMesh is written with both C++ and Python, where computational intensive functionalities are realized in C++, and Python is used for creating minimalistic and easy to use interfaces. Documentation for AntiSMASH can be found at <a href="https://github.com/PyMesh/PyMesh">https://github.com/PyMesh/PyMesh</a>, but you will need to follow the instruction below to install AntiSMASH in your home directory on HPCC.</p>
 <p>If you have not installed Conda in you home directory, see <a href="https://docs.icer.msu.edu/Using_conda/">https://docs.icer.msu.edu/Using_conda/</a></p>
 <p><strong>Installing Pymesh</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code># Clear modules and load Conda
+<div class="highlight"><pre><span></span><code># Clear modules and load Conda
 module purge
 module load Conda/3
 
@@ -6597,11 +6583,11 @@ conda activate pymesh
 conda install pymesh2=0.2.1
 
 # Once done, test by trying to do &#39;import pymesh&#39; in python
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p><strong>Why not Pymesh 0.30</strong></p>
 <p>The version of Pymesh 0.3 on conda forge produces the following error when I try to import pymesh</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ImportError: /lib64/libc.so.6: version `GLIBC_2.18&#39; not found (required by /mnt/home/panchyni/miniforge3/envs/pymesh/lib/python3.6/site-packages/pymesh/lib/libstdc++.so.6)
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ImportError: /lib64/libc.so.6: version `GLIBC_2.18&#39; not found (required by /mnt/home/panchyni/miniforge3/envs/pymesh/lib/python3.6/site-packages/pymesh/lib/libstdc++.so.6)
+</code></pre></div>
 <p>As far as I understand it, the GLIBC version is tied to the OS, so its not a s simple as importing another library. If for some reason version 0.3 is required, there are a couple of options, though they may be time consuming:</p>
 <ul>
 <li>Build PyMesh from source using the files from the github. There are a number of dependencies, so you might want to see if you can use a conda environment to install the dependencies</li>

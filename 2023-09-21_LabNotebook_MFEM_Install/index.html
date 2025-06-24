@@ -6655,30 +6655,16 @@ and other details.</p>
 </ul>
 <p>The first thing you need to do is create a n empty working directory and cd into that empty directory</p>
 <h2 id="load-the-needed-modules">Load the needed modules</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>swap<span class="w"> </span>GCCcore<span class="w"> </span>GCCcore/11.2.0
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>swap<span class="w"> </span>GCCcore<span class="w"> </span>GCCcore/11.2.0
 module<span class="w"> </span>load<span class="w"> </span>mesa
 module<span class="w"> </span>load<span class="w"> </span>SDL2
 module<span class="w"> </span>load<span class="w"> </span>glew
 module<span class="w"> </span>load<span class="w"> </span>freetype
 module<span class="w"> </span>load<span class="w"> </span>fontconfig
 module<span class="w"> </span>load<span class="w"> </span>CMake
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="or-better-yet-create-a-script-to-load-modules">or, better yet, create a script to load modules</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; setup.sh</span>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; setup.sh</span>
 <span class="s">module swap GCCcore GCCcore/11.2.0</span>
 <span class="s">module load mesa</span>
 <span class="s">module load SDL2</span>
@@ -6687,20 +6673,12 @@ module<span class="w"> </span>load<span class="w"> </span>CMake
 <span class="s">module load fontconfig</span>
 <span class="s">module load CMake</span>
 <span class="s">EOF</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Run the script using the following command:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span><span class="w"> </span>./setup.sh
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>./setup.sh
+</code></pre></div></p>
 <h2 id="download-the-needed-software">Download the needed software</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>wget<span class="w"> </span>https://github.com/mfem/tpls/raw/gh-pages/metis-4.0.3.tar.gz
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/mfem/tpls/raw/gh-pages/metis-4.0.3.tar.gz
 
 wget<span class="w"> </span>https://bit.ly/mfem-4-5-2<span class="w"> </span>
 mv<span class="w"> </span>mfem-4-5.2<span class="w"> </span>mfem-4-5-2.tgz
@@ -6709,55 +6687,40 @@ wget<span class="w"> </span>https://bit.ly/glvis-4-2
 mv<span class="w"> </span>glvis-4-2<span class="w"> </span>glvis-4-2.tgz
 
 wget<span class="w"> </span>https://github.com/hypre-space/hypre/archive/refs/tags/v2.29.0.tar.gz
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="untar-folders">Untar folders</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>tar<span class="w"> </span>-xzvf<span class="w"> </span>glvis-4-2.tgz
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xzvf<span class="w"> </span>glvis-4-2.tgz
 tar<span class="w"> </span>-xzvf<span class="w"> </span>hypre-v2.29.0.tar.gz
 tar<span class="w"> </span>-xzvf<span class="w"> </span>metis-4.0.3.tar.gz
 tar<span class="w"> </span>-xavf<span class="w"> </span>mfem-4-5-2.tgz
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="build-hypre">Build hypre</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>hypre-2.29.0/src/
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>hypre-2.29.0/src/
 ./configure<span class="w"> </span>--disable-fortran
 make<span class="w"> </span>-j
 <span class="nb">cd</span><span class="w"> </span>../..
 ln<span class="w"> </span>-s<span class="w"> </span>hypre-2.29.0<span class="w"> </span>hypre
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="build-metis">Build metis</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>metis-4.0.3
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>metis-4.0.3
 make<span class="w"> </span><span class="nv">OPTFLAGS</span><span class="o">=</span>-Wno-error<span class="o">=</span>implicit-function-declaration
 <span class="nb">cd</span><span class="w"> </span>..
 ln<span class="w"> </span>-s<span class="w"> </span>metis-4.0.3<span class="w"> </span>metis-4.0
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="build-mfem">build mfem</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>mfem-4.5.2
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>mfem-4.5.2
 make<span class="w"> </span>parallel<span class="w"> </span>-j
 <span class="nb">cd</span><span class="w"> </span>examples
 make<span class="w"> </span>-j
 <span class="nb">cd</span><span class="w"> </span>../..
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="download-glm">download glm</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/g-truc/glm.git
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/g-truc/glm.git
+</code></pre></div>
 <h2 id="build-glvis">build glvis</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>glvis-4.2
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>glvis-4.2
 make<span class="w"> </span><span class="nv">MFEM_DIR</span><span class="o">=</span>../mfem-4.5.2<span class="w"> </span>-j
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="test-everything">Test everything</h2>
 <p>Step 1: Start ondemand desktop and open a terminal.<br />
 Step 2: Run the above module commands or type <code>source ./setup.sh</code> 

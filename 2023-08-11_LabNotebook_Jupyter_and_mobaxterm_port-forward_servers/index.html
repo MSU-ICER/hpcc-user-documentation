@@ -6679,18 +6679,18 @@ local machine. There are two steps to this process.</p>
 <h3 id="1-forwarding-the-gateway-node-to-the-development-or-compute-node">1. Forwarding the gateway node to the development or compute node</h3>
 <p>Open MobaXterm and start a new <abbr title="Secure Shell">SSH</abbr> session to the HPCC gateway. Take note of
 which gateway node is next to your username when you login. For example</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>&lt;username&gt;@gateway-02<span class="w"> </span>~<span class="o">]</span>$
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>&lt;username&gt;@gateway-02<span class="w"> </span>~<span class="o">]</span>$
+</code></pre></div>
 <p>means that I will use <code>gateway-02</code> in the next step.</p>
 <p>Instead of logging into a development node directly, you will use an
 extra command flag to forward the port from where Jupyter is running
 to the gateway. The template for this is:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>-L&lt;port&gt;:&lt;jupyter-host&gt;:&lt;port&gt;<span class="w"> </span>&lt;dev-node&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-L&lt;port&gt;:&lt;jupyter-host&gt;:&lt;port&gt;<span class="w"> </span>&lt;dev-node&gt;
+</code></pre></div>
 <p>In our case, let's say that we started Jupyter in an interactive session on
 <code>lac-250</code> with port <code>12345</code>. We can use</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>-L12345:lac-250:12345<span class="w"> </span>dev-intel18
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-L12345:lac-250:12345<span class="w"> </span>dev-intel18
+</code></pre></div>
 <p>to forward the port. You can use any development node. If you are running the
 Jupyter server on a development node, you should use it in between the ports.</p>
 <h3 id="2-forwarding-the-local-port-to-the-gateway-node">2. Forwarding the local port to the gateway node</h3>

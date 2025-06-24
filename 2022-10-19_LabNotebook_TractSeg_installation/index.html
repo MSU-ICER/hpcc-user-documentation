@@ -6602,23 +6602,7 @@ information and other details.</p>
 <p>If you have not installed Conda in you home directory, see <a href="https://docs.icer.msu.edu/Using_conda/">https://docs.icer.msu.edu/Using_conda/</a></p>
 <p><strong>Installing TractSeg</strong></p>
 <p>The code below will walk you through the process of creating a conda environment of TractSeg and install TactSeg in it:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code># Begin by loading the loading the Conda module:
+<div class="highlight"><pre><span></span><code># Begin by loading the loading the Conda module:
 
 module purge
 module load Conda/3
@@ -6635,22 +6619,16 @@ pip install TractSeg
 #Finally, to test the install, try to get the help options for TractSeg:
 
 TractSeg --help
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Once you have completed the above steps, to run TractSeg in the future, do:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 module load Conda/3
 
 conda activate tractseg
 
 # check
 TractSeg --help
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="install-optional-dependencies">Install Optional Dependencies</h2>
 <p>TractSeg has a couple extra dependencies which can be installed if needed, but are not necessary. I've tested installing them but not their functionality in TractSeg as I am not sure where pip installs the TractSeg example files nor am I an expert on the software itself.</p>
 <h4 id="fsl">FSL</h4>
@@ -6658,18 +6636,16 @@ TractSeg --help
 <p>After finishing the install, you will need to take several setps that dependent on where you installed FSL. So first, let assume that the 
 pathe to the directory you installed FSL in is something like "/mnt/home/your_netid/local/fsl" (replace this with whatever the real path is).
 To get FSL running you will need to do the following in command line, but PLEASE be careful with the export PATH command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>export FSLDIR=/mnt/home/your_netid/local/fsl                  # Set an environment variable for the program
+<div class="highlight"><pre><span></span><code>export FSLDIR=/mnt/home/your_netid/local/fsl                  # Set an environment variable for the program
 source /mnt/home/your_netid/local/fsl/etc/fslconf/fslfsl.sh   # Source the config file
 export PATH=$PATH:/mnt/home/your_netid/local/fslbin           # Add FSL to your path
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>After this you should be able to run FSL from the command line by running 'fsl'</p>
 <p>If you are going to be using FSL a lot, you can add the above lines to your ~/.bashrc file, but again, PLEASE be careful.</p>
 <h4 id="xvfb">xvfb</h4>
 <p>Xvfb is a virtual frame buffer for X11 servers. It is library which should be able to bed installed via conda using:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda install xorg-x11-server-xvfb-cos7-x86_64
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>conda install xorg-x11-server-xvfb-cos7-x86_64
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

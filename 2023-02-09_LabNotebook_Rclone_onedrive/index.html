@@ -6586,29 +6586,16 @@ information and other details.</p>
 <p>The <a href="https://docs.icer.msu.edu/Rclone_-_rsync_for_cloud_storage/">documentation to use rclone</a> to copy data from the HPC to their MSU OneDrive account is very complex.   Rclone is a powerful tool with lots of options so it can be frustrating to sift through all of the options to know what you need to do. Since I had never used rclone before I thought I would give it a try and type up what I learned.</p>
 <h2 id="step-1-configure-rclone-to-connect-with-onedrive">Step 1: Configure Rclone to connect with OneDrive</h2>
 <p>First, we need to log on to an interactive desktop using OnDemand. This is required because OneDrive needs to set up an authentication token and it uses a web browser running on the server to do this step.  Just log onto "http://ondemand.hpcc.msu.edu/" using your MSU NetID and password.  Then click on "Interactive apps" and then click on "Interactive desktop"  use the default settings which should be something like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Number of hours 4
+<div class="highlight"><pre><span></span><code>Number of hours 4
 Number of cores per task 1
 Amount of memory 4gb
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Then you can just hit launch and wait for the job to start. You will be taken to a screen with a job ID number and the word "Queued" in the upper right corner.  It often doesn't take long the word "Queued" will change to "Starting" and then "Running".  A button will appear that says "Launch Interactive Desktop". Click that button and a new window will appear in your browser with the desktop running. </p>
 <p>Then next step is to run the "rclone config" command from a terminal. To get to a terminal go up to the start menu at the stop of the desktop. Click on "Applications--&gt;System Tools--&gt;Terminal" and a terminal window will appear.  Type the following command to load rclone in the terminal:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module load rclone
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module load rclone
+</code></pre></div>
 <p>Run the <code>rclone config</code> command (you only need to do this once).  I typed the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>n
+<div class="highlight"><pre><span></span><code>n
 remote
 onedrive
 &lt;&lt;enter&gt;&gt;
@@ -6620,19 +6607,9 @@ onedrive
 y
 y
 q
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>During this process a window browser window will pop up which may include a button. Just hit accept. You can close the browser when it says "Success". Here is a slightly more detailed breakdown of the command I used when configuring:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>n (create new remote)
+<div class="highlight"><pre><span></span><code>n (create new remote)
 remote (name of the new remote. We are just calling it remote but you can use whatever name)
 onedrive (storage type of remote. In this case onedrive)
 &lt;enter&gt; (Just using default ClientID of an empty string)
@@ -6643,21 +6620,16 @@ onedrive (Pick your Onedrive Personal or Business account)
 0 (Pick the first onedrive account. This assumes you only have one and it is the first in the list)
 y (Yes we want to use our MSU onedrive which will have a URL similar to https://michiganstate-my.sharepoint.com/personal/userid_msu_edu/Documents)
 q (quit the rclone config)
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="step-2-run-rclone-commands-to-create-and-copy-files-to-onedrive">Step 2: Run Rclone commands to create and copy files to OneDrive</h2>
 <p>Now that the rclone authentication is configured we can move on to actually using the rclone command. As an example I want to create a directory on my OneDrive (called testdir) and then copy the contents of a directory on the HPC to that directory.  Although I should be able to just run the rclone commands from the terminal I am going to run the command inside a job using the following job script.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --mem=2gb</span>
 <span class="c1">#SBATCH --time=4:00:00</span>
 module<span class="w"> </span>load<span class="w"> </span>rclone
 rclone<span class="w"> </span>mkdir<span class="w"> </span>remote:testdir
 rclone<span class="w"> </span>copy<span class="w"> </span>~/UserCode/colbrydi/see-benchmark/see-segment/Image_data/<span class="w"> </span>remote:testdir
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>I named this file "rclone.sb" and submitted the job to the cluster using the <code>sbatch rclone.sb</code> command.  Seemed to work for me. Please let us know if you found this helpful.</p>
 <p>Dirk Colbry<br />
 Director of User Support<br />

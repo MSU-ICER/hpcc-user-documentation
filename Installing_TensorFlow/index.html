@@ -6643,17 +6643,7 @@
 <p>If you are not familiar with basic conda commands (e.g., <code>conda create/activate/install/deactivate</code>), check out the <a href="https://conda.io/projects/conda/en/stable/_downloads/a35958a2a7fa1e927e7dfb61ebcd69a9/conda-4.14.pdf">conda cheatsheet</a>.</p>
 </div>
 <p>Once logged in, run the installation script below in your terminal to complete the <abbr title="Graphics Processing Unit">GPU</abbr>-based TensorFlow (TF) installation in your conda environment.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># README</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># README</span>
 <span class="c1"># - Below we are using the Conda with the HPCC module system Miniforge3.</span>
 <span class="c1"># - If you are using a local Miniforge installation, make sure it is installed in /mnt/home/user123/miniforge3/; change user123 to your real account</span>
 <span class="c1"># - Additionally, you&#39;ll need to load conda first, by following the &quot;Using Conda&quot; tutorial https://docs.icer.msu.edu/Using_conda/</span>
@@ -6664,18 +6654,14 @@ conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"
 conda<span class="w"> </span>activate<span class="w"> </span>tf_Apr2025
 python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;tensorflow[and-cuda]&#39;</span>
 conda<span class="w"> </span>deactivate
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now we'll run a few simple one-liner commands to verify the installation. Again, you'll need to have the <code>Miniforge3</code> module loaded before running these commands.  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>tf_Apr2025
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>tf_Apr2025
 python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import tensorflow as tf; print (tf.__version__)&quot;</span><span class="w"> </span><span class="c1"># check TF version</span>
 python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import tensorflow as tf; print(tf.config.list_physical_devices(&#39;GPU&#39;))&quot;</span><span class="w"> </span><span class="c1"># verify GPU devices</span>
 python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import tensorrt; print(tensorrt.__version__); assert tensorrt.Builder(tensorrt.Logger())&quot;</span><span class="w"> </span><span class="c1"># test TensorRT installation</span>
 conda<span class="w"> </span>deactivate
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When running these TensorFlow tests on a dev-node you may run into a <code>CUDA_ERROR_OUT_OF_MEMORY</code> error, due to others using the <abbr title="Graphics Processing Unit">GPU</abbr> memory. To avoid this, you can run these tests by starting an <a href="../Interactive_Job/">interactive session</a> on a <abbr title="Graphics Processing Unit">GPU</abbr> compute node, where you will be allocated an entire <abbr title="Graphics Processing Unit">GPU</abbr>. When starting the interactive session, you may add the constraint <code>--constraint=[amd20|amd22|amd24]</code> to ensure you're running on newer GPUs which can run with the newer <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> versions. </p>
@@ -6683,27 +6669,19 @@ conda<span class="w"> </span>deactivate
 <h2 id="installing-tensorflow-in-a-python-virtual-environment">Installing TensorFlow in a Python Virtual Environment</h2>
 <p>Again, we'll first need to run <code>ssh dev-amd20-v100</code> to log into a <abbr title="Graphics Processing Unit">GPU</abbr> dev-node.</p>
 <p>Once logged into a <abbr title="Graphics Processing Unit">GPU</abbr> dev-node, run the installation script below in your terminal to complete the <abbr title="Graphics Processing Unit">GPU</abbr>-based TF installation in your Python virtual environment.  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge<span class="w"> </span>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge<span class="w"> </span>
 module<span class="w"> </span>load<span class="w"> </span>Python/3.11.3-GCCcore-12.3.0<span class="w"> </span>
 python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>tf_Apr2025<span class="w"> </span>
 <span class="nb">source</span><span class="w"> </span>tf_Apr2025/bin/activate<span class="w"> </span>
 python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>tensorflow<span class="o">[</span>and-cuda<span class="o">]</span>
 deactivate
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now we'll run a few simple one-liner commands to verify the installation. Again, you'll need to have the <code>Python/3.11.3-GCCcore-12.3.0</code> module loaded before running these commands.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span><span class="w"> </span>tf_Apr2025/bin/activate<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>tf_Apr2025/bin/activate<span class="w"> </span>
 python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import tensorflow as tf; print (tf.__version__)&quot;</span><span class="w"> </span><span class="c1"># check TF version</span>
 python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import tensorflow as tf; print(tf.config.list_physical_devices(&#39;GPU&#39;))&quot;</span><span class="w"> </span><span class="c1"># verify GPU devices</span>
 deactivate
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

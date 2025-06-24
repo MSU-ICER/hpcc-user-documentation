@@ -6607,18 +6607,13 @@
 <p>After you submit jobs, you can check their information and status
 in the queue. The simplest way is to use <strong>squeue</strong> command to list all
 of your jobs:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>squeue<span class="w"> </span>-l<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>squeue<span class="w"> </span>-l<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
 Thu<span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">14</span>:45:57<span class="w"> </span><span class="m">2018</span>
 <span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w">    </span>STATE<span class="w">       </span>TIME<span class="w"> </span>TIME_LIMI<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
 <span class="w">              </span><span class="m">9405</span><span class="w"> </span>general-s<span class="w">     </span>Job1<span class="w">   </span>nobody<span class="w">  </span>RUNNING<span class="w">       </span><span class="m">0</span>:32<span class="w">  </span><span class="m">01</span>:00:00<span class="w">      </span><span class="m">1</span><span class="w"> </span>lac-198
 <span class="w">              </span><span class="m">9406</span><span class="w"> </span>general-s<span class="w"> </span>Rmpi_tes<span class="w">   </span>nobody<span class="w">  </span>RUNNING<span class="w">       </span><span class="m">0</span>:11<span class="w">     </span><span class="m">30</span>:00<span class="w">      </span><span class="m">2</span><span class="w"> </span>lac-<span class="o">[</span><span class="m">386</span>-387<span class="o">]</span>
 <span class="w">              </span><span class="m">9290</span><span class="w"> </span>general-l<span class="w">  </span>LongJob<span class="w">   </span>nobody<span class="w">  </span>PENDING<span class="w">       </span><span class="m">0</span>:00<span class="w">  </span><span class="m">36</span>:00:00<span class="w">     </span><span class="m">40</span><span class="w"> </span><span class="o">(</span>Resources<span class="o">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where the argument <strong><code>-l</code></strong> reports more of the available information (i.e. <strong><code>l</code></strong> for long
 format) and <strong><code>-u</code></strong> specifies which user's jobs to show. You may find a complete <strong>squeue</strong>
 specifications from <a href="https://slurm.schedmd.com/squeue.html">the SLURM web site</a>.</p>
@@ -6627,40 +6622,25 @@ their jobs conveniently. Before using powertools commands, please make
 sure powertools module is loaded by using <strong>module list</strong> (By default, 
 the powertools module should be loaded unless the user has purged modules 
 with <strong>module purge</strong>)</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>list
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>list
 
 Currently<span class="w"> </span>Loaded<span class="w"> </span>Modules:
 <span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>powertools/1.2
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>One of the commands <strong>sq</strong> works the same as the above <strong>squeue</strong>
 command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>sq<span class="w">                         </span><span class="c1"># powertools command</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sq<span class="w">                         </span><span class="c1"># powertools command</span>
 Thu<span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">14</span>:48:51<span class="w"> </span><span class="m">2018</span>
 <span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w">    </span>STATE<span class="w">       </span>TIME<span class="w"> </span>TIME_LIMI<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
 <span class="w">              </span><span class="m">9405</span><span class="w"> </span>general-s<span class="w">     </span>Job1<span class="w"> </span>username<span class="w">  </span>RUNNING<span class="w">       </span><span class="m">0</span>:35<span class="w">  </span><span class="m">01</span>:00:00<span class="w">      </span><span class="m">1</span><span class="w"> </span>lac-198
 <span class="w">              </span><span class="m">9406</span><span class="w"> </span>general-s<span class="w"> </span>Rmpi_tes<span class="w"> </span>username<span class="w">  </span>RUNNING<span class="w">       </span><span class="m">0</span>:14<span class="w">     </span><span class="m">30</span>:00<span class="w">      </span><span class="m">2</span><span class="w"> </span>lac-<span class="o">[</span><span class="m">386</span>-387<span class="o">]</span>
 <span class="w">              </span><span class="m">9290</span><span class="w"> </span>general-l<span class="w">  </span>LongJob<span class="w"> </span>username<span class="w">  </span>PENDING<span class="w">       </span><span class="m">0</span>:00<span class="w">  </span><span class="m">36</span>:00:00<span class="w">     </span><span class="m">40</span><span class="w"> </span><span class="o">(</span>Resources<span class="o">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where it shows the job IDs, job partition, job name, username, job
 state, elapsed time, walltime limit, total number of nodes and the node
 list or the waiting reason for the user's each jobs. Users can also use
 <strong>qs</strong> command to see more information:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>qs<span class="w">                         </span><span class="c1"># powertools command</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>qs<span class="w">                         </span><span class="c1"># powertools command</span>
 Thu<span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">14</span>:49:27<span class="w"> </span><span class="m">2019</span>
 <span class="w">                                                                                        </span>Start_Time/
 <span class="w">     </span>JobID<span class="w">         </span>User<span class="w">     </span>Account<span class="w">     </span>Name<span class="w">   </span>Node<span class="w"> </span>CPUs<span class="w">  </span>TotMem<span class="w">  </span>Tres<span class="w">   </span>WallTime<span class="w">  </span>ST<span class="w">  </span>Elapsed_Time<span class="w">  </span>NodeList<span class="o">(</span>Reason<span class="o">)</span>
@@ -6668,7 +6648,7 @@ Thu<span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><
 <span class="w">    </span><span class="m">60889405</span><span class="w">    </span>MyHPCCAcc<span class="w">   </span>general<span class="w">       </span>Job1<span class="w">    </span><span class="m">1</span><span class="w">   </span><span class="m">16</span><span class="w">      </span>2G<span class="w">  </span>gpu:1<span class="w">    </span><span class="m">3</span>:55:00<span class="w">  </span>R<span class="w">      </span><span class="m">1</span>:49:24<span class="w">   </span>lac-198
 <span class="w">    </span><span class="m">60889496</span><span class="w">    </span>MyHPCCAcc<span class="w">   </span>general<span class="w">  </span>Rmpi_test<span class="w">    </span><span class="m">2</span><span class="w">    </span><span class="m">8</span><span class="w">   </span>1500M<span class="w">   </span>N/A<span class="w">       </span><span class="m">30</span>:00<span class="w">  </span>R<span class="w">        </span><span class="m">29</span>:46<span class="w">   </span>lac-<span class="o">[</span><span class="m">386</span>-387<span class="o">]</span><span class="w">         </span>
 <span class="w">    </span><span class="m">60889290</span><span class="w">    </span>MyHPCCAcc<span class="w">  </span>classres<span class="w">    </span>LongJob<span class="w">   </span><span class="m">40</span><span class="w">   </span><span class="m">80</span><span class="w">    </span>750M<span class="w">  </span>k80:1<span class="w"> </span><span class="m">3</span>-00:00:00<span class="w"> </span>PD<span class="w"> </span><span class="m">08</span>-03T10:29:41<span class="w"> </span><span class="o">(</span>Resources<span class="o">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where more items, such as, total number of CPUs, memory, gpu per node
 and job start time (for pending jobs) or elapsed time (for running jobs)
 are shown. For a complete usage of <strong>squeue</strong> command, please refer to
@@ -6677,8 +6657,8 @@ are shown. For a complete usage of <strong>squeue</strong> command, please refer
 <p>Besides the text listing of the jobs, SLURM also offer a command to
 show the <strong>squeue</strong> information with a graphical interface. Use the
 command <strong>sview</strong>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>sview
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sview
+</code></pre></div>
 <p>You will see an image of a job list displaying all jobs in the queue:</p>
 <p><img alt="A screenshot of the SLURM job queue graphic interface. On the left, a grid of red crosses show queued jobs, and on the right a tabbed window shows a list of job IDs and partitions." src="../attachments/20119992/20120950.png" /></p>
 <p>Click on each job, it will pop out another window and show the detailed

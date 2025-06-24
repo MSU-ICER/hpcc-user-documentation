@@ -6817,14 +6817,13 @@ most useful commands and topics for using EasyBuild at ICER. See our
 <a href="../EasyBuild_Tutorial/">tutorial</a> to learn how to use EasyBuild.</p>
 <h2 id="loading-easybuild">Loading EasyBuild</h2>
 <p>EasyBuild is a module available on the HPCC. Make sure to remove all other modules before using it.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>EasyBuild
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="configuration-and-options">Configuration and options</h2>
 <p>Use the <code>--show-config</code> option to see all of the configuration options and their values.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--show-config
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>--show-config
+</code></pre></div>
 <p>Any option can be changed by passing it as a command line argument when using
 <code>ebS</code>. Key examples are given below.</p>
 <h3 id="software-installation-directory-installpath-software">Software installation directory: <code>--installpath-software</code></h3>
@@ -6853,18 +6852,18 @@ contributed by many users and software developers across the world.</p>
 <h3 id="searching-with-search-or-m">Searching with <code>--search</code> or <code>-M</code></h3>
 <p>Use the <code>--search</code> or <code>-S</code> option to <code>eb</code> to find an EasyConfig available on the HPCC.</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>-S<span class="w"> </span>zfp
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>-S<span class="w"> </span>zfp
+</code></pre></div>
 <h3 id="viewing-with-show-ec">Viewing with <code>--show-ec</code></h3>
 <p>Use the <code>--show-ec</code> option to view an EasyConfig based on its name (not its full path).</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--show-ec<span class="w"> </span>zfp-1.0.1-GCCcore-12.3.0.eb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>--show-ec<span class="w"> </span>zfp-1.0.1-GCCcore-12.3.0.eb
+</code></pre></div>
 <h2 id="installing-software">Installing software</h2>
 <p>Run <code>eb</code> with any options you wish to set followed by the name of the EasyConfig you wish to install.</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>eb<span class="w"> </span>--parallel<span class="o">=</span><span class="m">8</span><span class="w"> </span>--buildpath<span class="o">=</span>/tmp/<span class="nv">$USER</span>/EASYBUILD<span class="w"> </span>--installpath-software<span class="o">=</span><span class="nv">$SCRATCH</span>/software<span class="w"> </span>zfp-1.0.1-GCCcore-12.3.0.eb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>--parallel<span class="o">=</span><span class="m">8</span><span class="w"> </span>--buildpath<span class="o">=</span>/tmp/<span class="nv">$USER</span>/EASYBUILD<span class="w"> </span>--installpath-software<span class="o">=</span><span class="nv">$SCRATCH</span>/software<span class="w"> </span>zfp-1.0.1-GCCcore-12.3.0.eb
+</code></pre></div>
 <h2 id="accessing-installed-software-with-the-module-system">Accessing installed software with the <code>module</code> system</h2>
 <p>Add the location where your module files are installed (i.e., <a href="#module-directory-installpath-module">the value of
 <code>--installpath-modules</code> in your EasyBuild
@@ -6873,24 +6872,18 @@ modules can be found by further <code>module</code> commands.</p>
 <p>Note that EasyBuild adds an extra <code>all</code> directory inside your
 <code>installpath-modules</code> that you should use with <code>module use</code>:</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>use<span class="w"> </span><span class="nv">$HOME</span>/.local/easybuild/modules/all
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>use<span class="w"> </span><span class="nv">$HOME</span>/.local/easybuild/modules/all
 module<span class="w"> </span>spider<span class="w"> </span>zfp
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">----------------------------------------------------------------------------</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">----------------------------------------------------------------------------</span>
 <span class="go">  zfp: zfp/1.0.1-GCCcore-12.3.0</span>
 <span class="go">----------------------------------------------------------------------------</span>
 <span class="go">...</span>
 <span class="go">    This module can be loaded directly: module load zfp/1.0.1-GCCcore-12.3.0</span>
 <span class="go">...</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>zfp/1.0.1-GCCcore-12.3.0
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>zfp/1.0.1-GCCcore-12.3.0
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

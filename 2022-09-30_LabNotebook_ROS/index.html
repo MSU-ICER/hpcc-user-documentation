@@ -6540,18 +6540,18 @@ information and other details.</p>
 </div>
 <h1 id="the-problem-2022-09-30">The problem (2022-09-30)</h1>
 <p>The latest version of the Robot Operating System, Humble Hawksbill https://www.openrobotics.org/blog/2022/5/24/ros-2-humble-hawksbill-release, uses a version of <code>libQtCore.so.5</code> that is not compatible with the HPCC Linux kernel version (3.10 as of writing). Specifically, it requires kernel version 3.15+. When the ROS is installed into a Docker container, and used inside a Singularity image with e.g. <code>singularity pull docker://morris2001/humble</code> and <code>singularity run humble_latest.sif</code>, the <code>rqt</code> command inside the Singularity image will result in the error:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ImportError: libQt5Core.so.5: cannot open shared object file: No such file or directory
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ImportError: libQt5Core.so.5: cannot open shared object file: No such file or directory
+</code></pre></div>
 <h1 id="the-solution">The solution</h1>
 <p>Inside your Dockerfile where you build the ROS container with Ubuntu 22.04, add the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>RUN /usr/bin/strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>RUN /usr/bin/strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
+</code></pre></div>
 <p>This is based on discussion here: https://github.com/dnschneid/crouton/wiki/Fix-error-while-loading-shared-libraries:-libQt5Core.so.5</p>
 <p>This command removes the offending piece of code that is incompatible with the HPCC Linux kernel, and allows <code>rqt</code> to launch successfully.</p>
 <h1 id="opencv">OpenCV</h1>
 <p>OpenCV is an important Python package for various parts of ROS. Make sure you install it in your Docker container by adding the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>RUN apt install libopencv-dev python3-opencv
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>RUN apt install libopencv-dev python3-opencv
+</code></pre></div>
 <p>to your Dockerfile.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

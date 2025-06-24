@@ -6818,33 +6818,19 @@ Overlays</a>.</p>
 <code>--sandbox</code> option. As arguments, use a directory name for the location of the
 sandbox and an image you want to start with (which can either be a URI or a
 file):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>build<span class="w"> </span>--sandbox<span class="w"> </span>alpine/<span class="w">  </span>docker://alpine
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>build<span class="w"> </span>--sandbox<span class="w"> </span>alpine/<span class="w">  </span>docker://alpine
+</code></pre></div>
 <p>If you look inside the directory, it looks like the full file system for the container</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>alpine
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>alpine
 bin<span class="w">  </span>environment<span class="w">  </span>home<span class="w">  </span>media<span class="w">  </span>opt<span class="w">   </span>root<span class="w">  </span>sbin<span class="w">         </span>srv<span class="w">  </span>tmp<span class="w">  </span>var
 dev<span class="w">  </span>etc<span class="w">          </span>lib<span class="w">   </span>mnt<span class="w">    </span>proc<span class="w">  </span>run<span class="w">   </span>singularity<span class="w">  </span>sys<span class="w">  </span>usr
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To run this image with any Singularity command, pass the directory as the image name:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>alpine/
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>alpine/
+</code></pre></div>
 <p>However in order to make changes that will persist, you need to use the
 <code>--writable</code> option. Let's try to install some software:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>--writable<span class="w"> </span>alpine/
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>--writable<span class="w"> </span>alpine/
 Singularity&gt;<span class="w"> </span>python
 /bin/sh:<span class="w"> </span>python:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found
 Singularity&gt;<span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--update<span class="w"> </span>py3-pip
@@ -6857,22 +6843,17 @@ Singularity&gt;<span class="w"> </span>python
 Python<span class="w"> </span><span class="m">3</span>.10.11<span class="w"> </span><span class="o">(</span>main,<span class="w"> </span>Apr<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">2023</span>,<span class="w"> </span><span class="m">01</span>:16:54<span class="o">)</span><span class="w"> </span><span class="o">[</span>GCC<span class="w"> </span><span class="m">12</span>.2.1<span class="w"> </span><span class="m">20220924</span><span class="o">]</span><span class="w"> </span>on<span class="w"> </span>linux
 Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
 &gt;&gt;&gt;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If we use the <code>alpine/</code> sandbox again, we'll still have access to Python! The
 sandbox can be packaged back up into an image file by again using the
 <code>singularity build</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>alpine_with_python.sif<span class="w"> </span>alpine/
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>alpine_with_python.sif<span class="w"> </span>alpine/
 INFO:<span class="w">    </span>Starting<span class="w"> </span>build...
 INFO:<span class="w">    </span>Creating<span class="w"> </span>SIF<span class="w"> </span>file...
 INFO:<span class="w">    </span>Build<span class="w"> </span>complete:<span class="w"> </span>alpine_with_python.sif
 $<span class="w"> </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>alpine_with_python.sif<span class="w"> </span>python<span class="w"> </span>--version
 Python<span class="w"> </span><span class="m">3</span>.10.11
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>However, this method for building new containers does not leave a record of how
 you changed the base image. For better reproducibility, you should use a
 Singularity definition file as described in the next section.</p>
@@ -6892,32 +6873,16 @@ similar to a Dockerfile in Docker. We will walk through building a Singularity
 definition file that creates a comparable image to the <a href="../Docker/#building-your-first-docker-image">one in our Docker
 tutorial</a>.</p>
 <p>We will set up our working directory the same way:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
 mkdir<span class="w"> </span>my_first_Singularity_image
 <span class="nb">cd</span><span class="w"> </span>my_first_Singularity_image
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>and create the python script <code>hello.py</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hello.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+<div class="highlight"><span class="filename">hello.py</span><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is my 1st Singularity image!&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now, create the file <code>Singularity</code> with the content below:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Singularity</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">Bootstrap</span>:<span class="w"> </span>docker
+<div class="highlight"><span class="filename">Singularity</span><pre><span></span><code><span class="k">Bootstrap</span>:<span class="w"> </span>docker
 <span class="k">From</span>:<span class="w"> </span>alpine
 
 <span class="c"># copy files required to run</span>
@@ -6931,7 +6896,7 @@ mkdir<span class="w"> </span>my_first_Singularity_image
 <span class="c1"># run the application</span>
 <span class="gh">%runscript</span>
 <span class="w">    </span>python3<span class="w"> </span>/usr/src/my_app/hello.py
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now, let's learn the meaning of each section.</p>
 <p>The first section means that we will use Alpine Linux as a base image. In fact,
 the <code>Bootstrap</code> line tells Singularity that we are using the Docker alpine
@@ -6939,39 +6904,33 @@ image hosted on Docker Hub. Other options for the <code>Bootstrap</code> line in
 <code>library</code> for images in <a href="https://cloud.sylabs.io/library">Sylab's container
 library</a> and <code>shub</code> for images on the
 (archived) <a href="http://datasets.datalad.org/?dir=/shub">Singularity hub</a>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">Bootstrap</span>:<span class="w"> </span>docker
+<div class="highlight"><pre><span></span><code><span class="k">Bootstrap</span>:<span class="w"> </span>docker
 <span class="k">From</span>:<span class="w"> </span>alpine
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The <code>%files</code> section tells Singularity which files in our local directory we
 want to copy to the container and where we should move them. In this case, we
 are copying our Python script into <code>/usr/src/my_app/</code> in the container.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gh">%files</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="gh">%files</span><span class="w"> </span>
 <span class="w">    </span>hello.py<span class="w"> </span>/usr/src/my_app/
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The <code>%post</code> section is used to install <code>pip</code> using the Alpine Package Keeper (<code>apk</code>).</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gh">%post</span>
+<div class="highlight"><pre><span></span><code><span class="gh">%post</span>
 <span class="w">    </span>apk<span class="w"> </span>add<span class="w"> </span>--update<span class="w"> </span>py3-pip
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Finally, the <code>%runscript</code> section tells the container what command to run
 when the container is invoked through <code>singularity run</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gh">%runscript</span>
+<div class="highlight"><pre><span></span><code><span class="gh">%runscript</span>
 <span class="w">    </span>python3<span class="w"> </span>/usr/src/my_app/hello.py
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>We can now build the image using the <code>singularity build</code> command. Don't forget
 that you'll need super user permission!</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>my_first_image.sif<span class="w"> </span>Singularity
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>my_first_image.sif<span class="w"> </span>Singularity
+</code></pre></div>
 <p>This will create the <code>my_first_image.sif</code> file that you can now run.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>my_first_image.sif
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>my_first_image.sif
 Hello<span class="w"> </span>world!
 This<span class="w"> </span>is<span class="w"> </span>my<span class="w"> </span>1st<span class="w"> </span>Singularity<span class="w"> </span>image!
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can now use this singularity image file anywhere you like, including the HPCC.</p>
 <h2 id="migrating-from-docker-to-singularity">Migrating from Docker to Singularity</h2>
 <p>For more information regarding Docker support in Singularity, please see <a href="https://docs.sylabs.io/guides/3.11/user-guide/singularity_and_docker.html">the
@@ -7049,16 +7008,15 @@ you are installing from a private repository on Docker Hub, use the
 <p>If the Docker image is only available locally (e.g., you are testing local
 builds and don't want to push to a repository), you have two options. First,
 you can build a Singularity image directly from a cached Docker image:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>&lt;singularity-image-filename&gt;.sif<span class="w"> </span>docker-daemon://&lt;docker-image-name&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>&lt;singularity-image-filename&gt;.sif<span class="w"> </span>docker-daemon://&lt;docker-image-name&gt;
+</code></pre></div>
 <p>Note that this requires Singularity and Docker to be installed on the same
 system, and requires super user permissions.</p>
 <p>The second option is to first archive the Docker image into a <code>tar</code> file, then
 use this to build the Singularity image:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>save<span class="w"> </span>&lt;docker-image-name&gt;<span class="w"> </span>-o<span class="w"> </span>docker_image.tar
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>save<span class="w"> </span>&lt;docker-image-name&gt;<span class="w"> </span>-o<span class="w"> </span>docker_image.tar
 singularity<span class="w"> </span>build<span class="w"> </span>&lt;singularity-image-filename&gt;.sif<span class="w"> </span>docker-archive://docker_image.tar
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Here you could perform the <code>docker save</code> on your local machine, move the
 <code>docker_image.tar</code> file to the HPCC, and then run the <code>singularity build</code> step
 on the HPCC since it does not require super user privileges.</p>
@@ -7080,31 +7038,7 @@ your user.</p>
 <p>If you are running a container that uses <abbr title="Message Passing Interface">MPI</abbr>, you must use <code>srun -n
 $SLURM_NTASKS -c $SLURM_CPUS_PER_TASK</code> before the <code>singularity</code> command to make
 the command aware of all resources allotted. See a template script below.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">singularity_mpi.sbatch</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><span class="filename">singularity_mpi.sbatch</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Job name:</span>
 <span class="c1">#SBATCH --job-name=singularity-test</span>
@@ -7129,30 +7063,12 @@ the command aware of all resources allotted. See a template script below.</p>
 
 <span class="nb">cd</span><span class="w"> </span>&lt;directory<span class="w"> </span>containing<span class="w"> </span>the<span class="w"> </span>singularity<span class="w"> </span>image<span class="w"> </span>file<span class="w"> </span><span class="o">(</span>.sif<span class="o">)</span>&gt;
 srun<span class="w"> </span>-n<span class="w"> </span><span class="nv">$SLURM_NTASKS</span><span class="w"> </span>-c<span class="w"> </span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="w"> </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>&lt;singularity-file&gt;.sif<span class="w"> </span>&lt;commands&gt;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To run a container that takes advantage of <abbr title="Graphics Processing Unit">GPU</abbr> resources, you can use the
 <code>--nv</code> flag on any <code>run</code>, <code>exec</code>, or <code>shell</code> singularity commands. Otherwise,
 use the standard <code>sbatch</code> setup for running any <abbr title="Graphics Processing Unit">GPU</abbr> job. An example script that
 pulls a TensorFlow container and displays the available GPUs is shown below.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">singularity_gpu.sbatch</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><span class="filename">singularity_gpu.sbatch</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Job name:</span>
 <span class="c1">#SBATCH --job-name=singularity-test</span>
@@ -7171,19 +7087,11 @@ pulls a TensorFlow container and displays the available GPUs is shown below.</p>
 
 singularity<span class="w"> </span>pull<span class="w"> </span>docker://tensorflow/tensorflow:latest-gpu
 singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--nv<span class="w"> </span>tensorflow_latest-gpu.sif<span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from tensorflow.python.client import device_lib; print(device_lib.list_local_devices())&quot;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="cached-images">Cached images</h2>
 <p>When you use Docker image without pulling it first, it appears that no
 Singularity image file was created:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>new_dir
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>new_dir
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>new_dir
 $<span class="w"> </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker://ubuntu<span class="w"> </span>uname<span class="w"> </span>-a
 Getting<span class="w"> </span>image<span class="w"> </span><span class="nb">source</span><span class="w"> </span>signatures
@@ -7192,18 +7100,16 @@ Copying<span class="w"> </span>blob<span class="w"> </span>a1d0c7532777<span cla
 Linux<span class="w"> </span>dev-amd20<span class="w"> </span><span class="m">3</span>.10.0-1160.80.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Nov 8 15:48:59 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux</span>
 $<span class="w"> </span>ls
 $
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>In fact, Singularity stores these files and the files used to create them in a cache:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>cache<span class="w"> </span>list
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>singularity<span class="w"> </span>cache<span class="w"> </span>list
 There<span class="w"> </span>are<span class="w"> </span><span class="m">9</span><span class="w"> </span>container<span class="w"> </span>file<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>using<span class="w"> </span><span class="m">4</span>.06<span class="w"> </span>GiB<span class="w"> </span>and<span class="w"> </span><span class="m">68</span><span class="w"> </span>oci<span class="w"> </span>blob<span class="w"> </span>file<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>using<span class="w"> </span><span class="m">4</span>.18<span class="w"> </span>GiB<span class="w"> </span>of<span class="w"> </span>space
 Total<span class="w"> </span>space<span class="w"> </span>used:<span class="w"> </span><span class="m">8</span>.24<span class="w"> </span>GiB
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>As you can see, the files stored here can build up quickly. You can clean this
 cache using</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>cache<span class="w"> </span>clean
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>cache<span class="w"> </span>clean
+</code></pre></div>
 <p>Everything in the cache can be safely removed, and will just be redownloaded if
 needed again.</p>
 <p>By default, Singularity uses <code>~/.singularity/cache</code> to store these files. If
@@ -7211,18 +7117,15 @@ you want to use another directory (e.g., your scratch space), you can use the
 <code>SINGULARITY_CACHEDIR</code> environment variable. Singularity also uses a temporary
 directory (<code>/tmp</code> by default) that you might also want to change using the
 <code>SINGULARITY_TEMPDIR</code> environment variable. For example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$SCRATCH</span>/singularity_tmp
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$SCRATCH</span>/singularity_tmp
 mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$SCRATCH</span>/singularity_scratch
 <span class="nv">SINGULARITY_CACHEDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>/singularity_scratch<span class="w"> </span><span class="nv">SINGULARITY_TMPDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>/singularity_tmp<span class="w"> </span>singularity<span class="w"> </span>--debug<span class="w"> </span>pull<span class="w"> </span>--name<span class="w"> </span>ubuntu-tmpdir.sif<span class="w"> </span>docker://ubuntu
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Using the <code>--debug</code> flag shows a lot of information, but at the end we see
 these lines:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>VERBOSE<span class="w"> </span><span class="o">[</span><span class="nv">U</span><span class="o">=</span><span class="m">919141</span>,P<span class="o">=</span><span class="m">3605</span><span class="o">]</span><span class="w">  </span>Full<span class="o">()</span><span class="w">    </span>Build<span class="w"> </span>complete:<span class="w"> </span>/mnt/gs21/scratch/&lt;user&gt;/singularity_scratch/cache/oci-tmp/tmp_011111517
+<div class="highlight"><pre><span></span><code>VERBOSE<span class="w"> </span><span class="o">[</span><span class="nv">U</span><span class="o">=</span><span class="m">919141</span>,P<span class="o">=</span><span class="m">3605</span><span class="o">]</span><span class="w">  </span>Full<span class="o">()</span><span class="w">    </span>Build<span class="w"> </span>complete:<span class="w"> </span>/mnt/gs21/scratch/&lt;user&gt;/singularity_scratch/cache/oci-tmp/tmp_011111517
 DEBUG<span class="w">   </span><span class="o">[</span><span class="nv">U</span><span class="o">=</span><span class="m">919141</span>,P<span class="o">=</span><span class="m">3605</span><span class="o">]</span><span class="w">  </span>cleanUp<span class="o">()</span><span class="w"> </span>Cleaning<span class="w"> </span>up<span class="w"> </span><span class="s2">&quot;/mnt/gs21/scratch/&lt;user&gt;/singularity_tmp/build-temp-030629912/rootfs&quot;</span><span class="w"> </span>and<span class="w"> </span><span class="s2">&quot;/mnt/gs21/scratch/&lt;user&gt;/singularity_tmp/bundle-temp-545905815&quot;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>verifying that the scratch directories were used.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

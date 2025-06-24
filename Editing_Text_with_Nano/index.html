@@ -6730,17 +6730,16 @@ there are other text editors you can use directly from the shell (e.g., <code>vi
 or <code>emacs</code>), <code>nano</code> is much more user-friendly, and easier to start with.</p>
 <h2 id="opening-a-file">Opening a file</h2>
 <p>To open a file using <code>nano</code>, type</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>nano<span class="w"> </span>&lt;filename&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>&lt;filename&gt;
+</code></pre></div>
 <p>into the shell, replacing <code>&lt;filename&gt;</code> with the file you'd like to edit. You
 can either give the full path to the file like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>nano<span class="w"> </span>~/my/important/text/file.txt
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>~/my/important/text/file.txt
+</code></pre></div>
 <p>or if you're already in the directory where your file is, you can just use the filename, like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/my/important/text
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/my/important/text
 nano<span class="w"> </span>file.txt
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If the file doesn't exist, <code>nano</code> will create it for you.</p>
 <h2 id="editing-a-file">Editing a file</h2>
 <p>Once the file is open, you can use the arrow keys, page up/down, and home/end
@@ -6820,18 +6819,17 @@ keys. Right click, and choose Paste from the menu.</p>
 <p>If you need to scroll through a file to select all of the text you need to
 copy, the shortcuts in <code>nano</code> become more complicated. A simpler way to do this
 is to <a href="#exiting-nano">exit <code>nano</code></a>, and enter</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cat<span class="w"> </span>&lt;filename&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>&lt;filename&gt;
+</code></pre></div>
 <p>on the command line.</p>
 <p>This will output all contents of the filename you give to your command line,
 and you can select the part you want to copy with the mouse. The copy and paste
 shortcuts above will work in the same way.</p>
 <h3 id="shortcuts">Shortcuts</h3>
 <p>At the bottom of the screen, you will see some helpful key combinations:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Page ^K Cut Text  ^C Cur Pos
+<div class="highlight"><pre><span></span><code>^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Page ^K Cut Text  ^C Cur Pos
 ^X Exit      ^J Justify   ^W Where Is  ^V Next Page ^U UnCut Text^T To Spell
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Each of these combinations starts with <code>^</code> symbolizing the <code>ctrl</code> key on your
 keyboard. For example, to exit, hold <code>ctrl</code> on your keyboard and press <code>x</code>.
 Even though <code>nano</code> shows an upper case <code>X</code>, you don't need to use the <code>shift</code>

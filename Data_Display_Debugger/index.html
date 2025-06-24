@@ -6785,12 +6785,10 @@ forwarding or use OnDemand.</p>
 <p>If you want to debug from a dev node, first make sure that you <abbr title="Secure Shell">SSH</abbr> using the
 <code>-X</code> option. You can then start DDD using <code>ddd</code> which will open a DDD window on
 your computer:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ssh<span class="w"> </span>-X<span class="w"> </span>user@hpcc.msu.edu
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh<span class="w"> </span>-X<span class="w"> </span>user@hpcc.msu.edu
 $<span class="w"> </span>ssh<span class="w"> </span>dev-amd20<span class="w">  </span><span class="c1"># only the first ssh needs -X</span>
 $<span class="w"> </span>ddd
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If you would like to run your debugging job interactively on a compute node,
 please see the <a href="../Interactive_Job/#job-with-graphical-application">instructions for running an interactive graphical
 application</a>.</p>
@@ -6817,15 +6815,7 @@ Programming.</p>
 → Source, check 'Display Source Line Numbers'.</p>
 <h2 id="opening-a-program">Opening a program</h2>
 <p>To use DDD, we need a program to debug. Let's use the following code.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">debug_ex.c</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="highlight"><span class="filename">debug_ex.c</span><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">){</span>
 <span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
@@ -6834,15 +6824,15 @@ Programming.</p>
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>First, you need to compile this code with <code>-g</code> option to include the debug
 symbols. Run this on the command line:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>gcc<span class="w"> </span>-g<span class="w"> </span>debug_ex.c<span class="w"> </span>-o<span class="w"> </span>debug_ex
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-g<span class="w"> </span>debug_ex.c<span class="w"> </span>-o<span class="w"> </span>debug_ex
+</code></pre></div>
 <p>Now, to open this in DDD, you can either select it in the File → Open Program
 menu or you can run DDD with this executable from the command line like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ddd<span class="w"> </span>debug_ex
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ddd<span class="w"> </span>debug_ex
+</code></pre></div>
 <p>Even though you open an executable such as <code>debug_ex</code>, DDD will show the source
 file name such as <code>debug_ex.c</code>.</p>
 <h2 id="setting-breakpoints">Setting breakpoints</h2>

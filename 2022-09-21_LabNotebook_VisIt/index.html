@@ -6602,28 +6602,26 @@ information and other details.</p>
 <p>Currently, there are two challenges using VisIt on HPCC (1) failed installation due to conflicts with GLIBC and (2) running the <abbr title="Graphic User Interface">GUI</abbr> without it crashing immediately after loading.</p>
 <h4 id="easy-solution-using-an-older-visit">Easy Solution, using an older VisIt</h4>
 <p>To address the install issues, the easiest solution is to use an older (before 3.x) version of VisIt which can be found <a href="https://wci.llnl.gov/simulation/computer-codes/visit/executables">here</a>. Use the version titled:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Linux - x86_64 64 bit
+<div class="highlight"><pre><span></span><code>Linux - x86_64 64 bit
 Redhat Enterprise Linux 7.5, 4.18.9-1.el7.elrepo.x86_64 #1 SMP, gcc 4.8.5
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Or use the following command on HPCC:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>wget https://github.com/visit-dav/visit/releases/download/v2.13.3/visit2_13_3.linux-x86_64-rhel7.tar.gz
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>wget https://github.com/visit-dav/visit/releases/download/v2.13.3/visit2_13_3.linux-x86_64-rhel7.tar.gz
+</code></pre></div>
 <p>Once this file is downloaded, unpack using tar -xzf and then begin and then begin an Interactive Desktop session via <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard">OnDemand</a>. This step is necessary because running VisIt from the command line will cause the <abbr title="Graphic User Interface">GUI</abbr> interface to crash immediately after loading (tested with XQuartz on Mac and MobXterm on Windows). Instead, after creating an Interactive Desktop,navigate to the unpacked VisIt folder, enter the bin folder within, and click on the fie named 'visit'. This should start VisIt within the Interactive Desktop.</p>
 <h4 id="intermediate-solution-using-rhel7-visit-33-with-modules">Intermediate Solution, using RHEL7 Visit 3.3 with modules</h4>
 <p>Following from the above solution, I realized that the new (as of writing) version of RHEL7 should work on HPCC without the GLIBC issue, but it doesn't out of the box. However, the fix wasn't difficult once I figured out that right module to load on HPCC, though the combination with the need to use OnDemand makes things a little clunky.</p>
 <p>First, get the RHEL7 3.3 version of VisIt with Mesa from their <a href="https://visit-dav.github.io/visit-website/releases-as-tables/#series-33">website</a>, or use the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>wget https://github.com/visit-dav/visit/releases/download/v3.3.0/visit3_3_0.linux-x86_64-rhel7-wmesa.tar.gz
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>wget https://github.com/visit-dav/visit/releases/download/v3.3.0/visit3_3_0.linux-x86_64-rhel7-wmesa.tar.gz
+</code></pre></div>
 <p>Once this file is downloaded, unpack using tar -xzf and then begin an Interactive Desktop session via <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard">OnDemand</a>. This step is STILL necessary because running this version of VisIt from the command line ALSO will cause the <abbr title="Graphic User Interface">GUI</abbr> interface to crash though this time it waits until you try to draw something (tested with XQuartz on Mac).</p>
 <p>Because we need to use some module, once the Interactive Desktop is started, open a terminal and navigate to the folder where VisIt was unpacked and go to the 'bin' directory. There, run the following commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module load GCCcore/11.2.0
+<div class="highlight"><pre><span></span><code>module load GCCcore/11.2.0
 module load PCRE2/10.37
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Then, if you are in the bin folder, you can start Visit using:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./visit
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>./visit
+</code></pre></div>
 <p>I <em>think</em> this need to be done in the same terminal window for VisIt to start in the right environment (i.e. with the modules loaded)</p>
 <h4 id="future-getting-centos8-visit-to-run-on-hpcc">Future: Getting CentOS8 Visit to run on HPCC</h4>
 <p>I've encountered several problem trying to getting any version VisIt 3.x to work on HPCC (tested 3.0 and the current as of now 3.3), though it turns out this was because I was using the CentOS8 version and RHEL7 is close enough to what we use that the workaround is not bad (see above). Using the prebuilt CentOS8 binary files will not work because they are looking for a version of GLIBC later than version 2.17 which is built into CentOS7. </p>

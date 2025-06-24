@@ -6593,12 +6593,12 @@ installation of conda with a different version such as <a href="https://github.c
 </div>
 <h2 id="using-conda-clone">Using conda --clone</h2>
 <p>First, check that you are using your new conda version by running</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>which<span class="w"> </span>conda
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>which<span class="w"> </span>conda
+</code></pre></div>
 <p>in your terminal, logged on to an HPCC dev node.</p>
 <p>Then, you can run the clone command:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myclone<span class="w"> </span>--clone<span class="w"> </span>/path/to/myenv
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myclone<span class="w"> </span>--clone<span class="w"> </span>/path/to/myenv
+</code></pre></div>
 <p>where <code>myclone</code> is the name of your copy, and <code>/path/to/myenv</code> is the full path to the environment you want to copy e.g. <code>/mnt/home/MyMSUID/miniconda3/myenv</code>.</p>
 <p>You can repeat this for all of your existing environments. Once you have completed the process, you can delete your previous conda version entirely. </p>
 <div class="admonition warning">
@@ -6607,17 +6607,17 @@ installation of conda with a different version such as <a href="https://github.c
 </div>
 <h2 id="using-conda-list">Using conda list</h2>
 <p>To build an identical environment with the same packages as the original, activate your <strong>original</strong> conda version. Check that you are using your <strong>original</strong> conda version by running</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>which<span class="w"> </span>conda
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>which<span class="w"> </span>conda
+</code></pre></div>
 <p>in your terminal, logged on to an HPCC dev node.</p>
 <p>Then activate the environment you want to export. Then run</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--no-builds<span class="w"> </span>&gt;<span class="w"> </span>spec-file.yml
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--no-builds<span class="w"> </span>&gt;<span class="w"> </span>spec-file.yml
+</code></pre></div>
 <p>where <code>spec-file.yml</code> is a file containing the precise packages used to build your environment. </p>
 <p>Deactivate your <strong>original</strong> conda version.</p>
 <p>Then, activate your <strong>new</strong> conda version and run the command</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myenv<span class="w"> </span>--file<span class="w"> </span>spec-file.yml
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myenv<span class="w"> </span>--file<span class="w"> </span>spec-file.yml
+</code></pre></div>
 <p>which will create a new environment named <code>myenv</code> with the same package list. You can repeat this for all of your existing environments. Once you have completed the process, you can delete your previous conda version entirely. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -6630,35 +6630,28 @@ installation of conda with a different version such as <a href="https://github.c
 </div>
 <p>To avoid duplicating environments or downloading packages, you can point your new conda version at your old environments by using the <code>.condarc</code> settings file. </p>
 <p>First, check that you are using your new conda version by running</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>which<span class="w"> </span>conda
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>which<span class="w"> </span>conda
+</code></pre></div>
 <p>in your terminal, logged on to an HPCC dev node.</p>
 <p>Then, run the command</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>config<span class="w"> </span>--append<span class="w"> </span>envs_dirs<span class="w"> </span>/path/to/old/envs
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>conda<span class="w"> </span>config<span class="w"> </span>--append<span class="w"> </span>envs_dirs<span class="w"> </span>/path/to/old/envs
+</code></pre></div>
 <p>where <code>/path/to/old/envs</code> is the path to your original environments e.g. <code>/mnt/home/MyMSUID/miniconda3/envs</code>. You can find this path by running <code>conda env list</code> using your <strong>old</strong> conda version, which will produce output like this:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># conda environments:</span>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="c1"># conda environments:</span>
 <span class="c1">#</span>
 base<span class="w">                     </span>/mnt/home/MyMSUID/miniconda3
 myenv<span class="w">                   </span>/mnt/home/MyMSUID/miniconda3/envs/myenv
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can check that the path in <code>.condarc</code> is correct by running <code>more .condarc</code> in your home directory. The output should look like:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>envs_dirs:
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>envs_dirs:
 <span class="w">  </span>-<span class="w"> </span>/mnt/home/MyMSUID/miniconda3/envs
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>and then run <code>conda env list</code> using your <strong>new</strong> conda version, which should produce output like this:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># conda environments:</span>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="c1"># conda environments:</span>
 <span class="c1">#</span>
 base<span class="w">                     </span>/mnt/home/MyMSUID/miniforge3
 myenv<span class="w">                   </span>/mnt/home/MyMSUID/miniconda3/envs/myenv
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note how <code>base</code> is in the <strong>new</strong> conda version, while <code>myenv</code> is the <strong>old</strong> path. You can then activate the old environment using the new version with <code>conda activate myenv</code> as usual.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

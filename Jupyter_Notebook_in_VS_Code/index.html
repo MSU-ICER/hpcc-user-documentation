@@ -6708,14 +6708,13 @@
 </ol>
 <h2 id="start-an-interactive-job">Start an Interactive Job</h2>
 <p>If we want to run Python and/or Jupyter on the HPCC, it's best to do so from an <a href="../Interactive_Job/">interactive job</a>. This will give us a compute node on which to run our calculations. While a development node may seem more convenient, remember that jobs using more than 2 hours of <abbr title="Central Processing Unit">CPU</abbr> time are automatically cancelled! For example, we can request a single <abbr title="Central Processing Unit">CPU</abbr> for four hours:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>salloc<span class="w"> </span>-t<span class="w"> </span><span class="m">04</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>4GB
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>salloc<span class="w"> </span>-t<span class="w"> </span><span class="m">04</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>4GB
+</code></pre></div>
 <strong>It is strongly suggested that you request a few <abbr title="Gigabyte">GB</abbr> of memory. The default is only 750 <abbr title="Megabyte">MB</abbr>.</strong></p>
 <p>Once your interactive job starts, run the command <code>hostname</code>; e.g.
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>bash-4.2$<span class="w"> </span>hostname
+<div class="highlight"><pre><span></span><code>bash-4.2$<span class="w"> </span>hostname
 lac-046
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 to get the name of the compute node you have been allocated. Copy or write down the output of this command for later.</p>
 <h2 id="connect-vs-code-to-the-interactive-host">Connect VS Code to the Interactive Host</h2>
 <p>Inside VS Code, press F1 and select 'Remote-<abbr title="Secure Shell">SSH</abbr>: Connect to Host...'
@@ -6739,8 +6738,8 @@ In the screenshot below, for example, the "Recommended" Python interpreter corre
 <h2 id="resolving-package-conflicts-with-conda-environments">Resolving package conflicts with Conda environments</h2>
 <p>ICER provides default Python modules on the HPCC. These modules include a variety of Python packages that may cause conflicts with your Conda environment
 when it is executed in a Jupyter Notebook. An example error may be:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Exception: Version mismatch: this is the &#39;cffi&#39; package version 1.15.1, located in &#39;/opt/software-current/2023.06/x86_64/intel/skylake_avx512/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages/cffi/api.py&#39;.  When we import the top-level &#39;_cffi_backend&#39; extension module, we get version 1.17.1, located in [your environment path] The two versions should be equal; check your installation.
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>Exception: Version mismatch: this is the &#39;cffi&#39; package version 1.15.1, located in &#39;/opt/software-current/2023.06/x86_64/intel/skylake_avx512/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages/cffi/api.py&#39;.  When we import the top-level &#39;_cffi_backend&#39; extension module, we get version 1.17.1, located in [your environment path] The two versions should be equal; check your installation.
+</code></pre></div>
 <p>To resolve this, you can launch your Jupyter server from the VS Code terminal.</p>
 <ol>
 <li>Open a VS Code terminal on the HPCC where you wish to run your notebook.</li>

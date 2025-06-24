@@ -6540,15 +6540,7 @@
 <p>So does that mean you have to specify which one you want to run each time? Nope! See the gatk file in there? That's an executable wrapper script that you invoke and that will choose the appropriate jar for you based on the rest of your command line. You could still invoke a specific jar if you wanted, but using gatk is easier, and it will also take care of setting some parameters that you would otherwise have to specify manually.</p>
 </blockquote>
 <p>On the HPCC, after login to a dev-node, run:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>GATK/4.5.0.0-GCCcore-12.3.0-Java-17
 
 A<span class="w"> </span>simple<span class="w"> </span><span class="nb">test</span><span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>HPCC<span class="w"> </span>is<span class="w"> </span>provided<span class="w"> </span>below.
@@ -6557,7 +6549,7 @@ A<span class="w"> </span>simple<span class="w"> </span><span class="nb">test</sp
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>GATK/4.0.5.1-Python-3.6.4
 gatk<span class="w"> </span>--java-options<span class="w"> </span><span class="s2">&quot;-Xmx8G&quot;</span><span class="w"> </span>HaplotypeCaller<span class="w"> </span>-R<span class="w"> </span>/mnt/research/common-data/GATK_resources/exampleFASTA.fasta<span class="w"> </span>-I<span class="w"> </span>/mnt/research/common-data/GATK_resources/exampleBAM.bam<span class="w"> </span>-O<span class="w"> </span>gatk_test.vcf
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

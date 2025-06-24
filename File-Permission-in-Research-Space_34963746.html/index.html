@@ -6536,14 +6536,7 @@
 <p>A user with account name <code>User1</code> is not able to access a directory
 <code>Dirct</code> in his research space <code>Group1</code>. The following is the result of
 the <code>ls</code> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>[User1@dev-intel18 ~]$ ls -la /mnt/research/Group1
+<div class="highlight"><pre><span></span><code>[User1@dev-intel18 ~]$ ls -la /mnt/research/Group1
 total 98
 drwxrwS---   3 ProjInvs Group1 8192 Aug  6 08:53 .
 drwxr-xr-x 391 root     root      0 Sep  9 07:34 ..
@@ -6551,12 +6544,12 @@ drwxr-xr-x 391 root     root      0 Sep  9 07:34 ..
 -rwx------   1 User3    Group3 2452 Jul  2  2018 file2
 drwxrwS---   2 User2    Group2 8192 May 22 11:31 Dirct
 -rw-rw-r--   1 User1    Group1  263 Aug  6 08:54 file3
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Q: How to make <code>User1</code> able to access the directory <code>Dirct</code>?</p>
 <p>A: Since <code>User2</code> is the owner of the directory, <code>User2</code> can run a  command
 to change the group ownership:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[User2@dev-node ~]$ chgrp -R Group1 /mnt/research/Group1/Dirct
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>[User2@dev-node ~]$ chgrp -R Group1 /mnt/research/Group1/Dirct
+</code></pre></div>
 <p>Q: In order for all group users able to access files and directories in the
 research space, what should they do?</p>
 <p>A: They should run the following commands:</p>
@@ -6564,20 +6557,20 @@ research space, what should they do?</p>
 <li>
 <p>Change the group ownership of all files and directories to the
 research group <code>Group1</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[UserID@dev-node ~]$ chgrp -R Group1 /mnt/research/Group1/ 2&gt;/dev/null
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>[UserID@dev-node ~]$ chgrp -R Group1 /mnt/research/Group1/ 2&gt;/dev/null
+</code></pre></div>
 </li>
 <li>
 <p>Open the permissions of all files and directories to be readable
 (<code>r</code>) and writable (<code>w</code>) to group users:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[UserID@dev-node ~]$ chmod -R g+rw /mnt/research/Group1/ 2&gt;/dev/null
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>[UserID@dev-node ~]$ chmod -R g+rw /mnt/research/Group1/ 2&gt;/dev/null
+</code></pre></div>
 </li>
 <li>
 <p>Make all directories sticky to the group ownership for any file
 generated inside (turn on group sticky bits):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[UserID@dev-node ~]$ chmod g+s $(find /mnt/research/Group1/ -type d -user $USER 2&gt;/dev/null)
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>[UserID@dev-node ~]$ chmod g+s $(find /mnt/research/Group1/ -type d -user $USER 2&gt;/dev/null)
+</code></pre></div>
 </li>
 <li>
 <p>Group users should not copy files to their research space with

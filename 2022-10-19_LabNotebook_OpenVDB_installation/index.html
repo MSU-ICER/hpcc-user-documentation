@@ -6583,23 +6583,17 @@ is needed, here are the instructions.</p>
 <p>OpenVDB is an open source C++ library comprising a novel hierarchical data structure and a large suite of tools for the efficient storage and manipulation of sparse volumetric data discretized on three-dimensional grids. For more information see their <a href="https://github.com/AcademySoftwareFoundation/openvdb">Github page</a></p>
 <h2 id="building-the-library-via-a-conda-environment">Building the library via a Conda environment</h2>
 <p>First, to setup you conda environment with the necessary dependencies, do:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>conda create -n openvdb_dep cmake gcc gxx boost tbb tbb-devel blosc
+<div class="highlight"><pre><span></span><code>conda create -n openvdb_dep cmake gcc gxx boost tbb tbb-devel blosc
 conda activate openvdb_dep
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Then, in this environment, run the following commands which are a slight modified the install instructions from https://github.com/AcademySoftwareFoundation/openvdb:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>git clone https://github.com/AcademySoftwareFoundation/openvdb.git
+<div class="highlight"><pre><span></span><code>git clone https://github.com/AcademySoftwareFoundation/openvdb.git
 cd openvdb
 mkdir build
 cd build
 cmake .. -DZLIB_ROOT=&lt;path_to_your_conda_enviroment&gt; -DCMAKE_INSTALL_PREFIX=&lt;path_to_where_you_want_to_install_openvdb&gt;
 make -j4 &amp;&amp; make install
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The file paths to the dependencies, <code>&lt;path_to_your_conda_enviroment&gt;</code>, should be something like <code>/mnt/home/your_netid_name/miniforge3/envs/openvdb_dep/</code> </p>
 <p>The install directory <code>&lt;path_to_where_you_want_to_install_openvdb&gt;</code> can be anywhere in your home directory (but its best to
 make it a folder called 'openvdb' because make will write the bin, include, and lib folders there), just make sure you know where it is so you can point to it/add it to your path as need.</p>

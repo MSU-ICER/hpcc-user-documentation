@@ -6654,20 +6654,14 @@
 <p>Data stored in a user's <strong>scratch space is not backed-up</strong>, and <strong>files in a scratch space with no <abbr title="Input/Output">I/O</abbr> operations for 45 days will be automatically deleted</strong> to ensure the space is available to all users. 
 The limit on storage is <strong>50TB</strong> and the initial limit on the number of files contained in a scratch space is <strong>1,000,000</strong> files. </p>
 <p>A user's scratch space is available at <code>/mnt/scratch/$USER</code>, or use the bash environmental variable <code>$SCRATCH</code>. Use the <code>quota</code> command to check a user's current space and file quotas.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$ quota
+<div class="highlight"><pre><span></span><code>$ quota
 
 Temporary Filesystems:
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 /mnt/scratch (/mnt/gs21)        Space Quota  Space Used   Space Free   Space % Used Files Quota Files Used   Files Free   Files % Used
                                 51200G       0G           51200G       0%           1048576      1            1048575      0%       
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="using-a-scratch-space">Using a Scratch Space</h2>
 <p>Scratch Space can sustain high data transfer rates and is a good 
 choice for data files used in running parallel on multiple nodes with

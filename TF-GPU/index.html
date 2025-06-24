@@ -6771,22 +6771,14 @@
 <p>HPCC provides <abbr title="Graphics Processing Unit">GPU</abbr> resources for machine learning tasks. GPUs can accelerate the training and inference of deep learning models, allowing for faster experimentation and better performance. TensorFlow is a popular open-source machine learning framework that supports <abbr title="Graphics Processing Unit">GPU</abbr> acceleration. This guide will walk you through the steps of utilizing <abbr title="Graphics Processing Unit">GPU</abbr> resources on HPCC using TensorFlow.</p>
 <h2 id="setup">Setup</h2>
 <p>Ensure you have the latest TensorFlow <abbr title="Graphics Processing Unit">GPU</abbr> release installed.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Num GPUs Available: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)))</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>TensorFlow can perform computations on different types of devices, including CPUs and GPUs. These devices are identified by specific names, such as <code>/device:CPU:0</code> for the <abbr title="Central Processing Unit">CPU</abbr> and <code>/GPU:0</code> for the first visible <abbr title="Graphics Processing Unit">GPU</abbr>, <code>CPU:1</code> and <code>GPU:1</code> for the second and so on.</p>
 <p>When running TensorFlow operations that have both <abbr title="Central Processing Unit">CPU</abbr> and <abbr title="Graphics Processing Unit">GPU</abbr> implementations, the <abbr title="Graphics Processing Unit">GPU</abbr> device is prioritized by default. For example, if you have both a <abbr title="Central Processing Unit">CPU</abbr> and a <abbr title="Graphics Processing Unit">GPU</abbr> available, the <abbr title="Graphics Processing Unit">GPU</abbr> will be used to run the operation, unless you specifically request to use the <abbr title="Central Processing Unit">CPU</abbr> instead. However, if an operation doesn't have a corresponding <abbr title="Graphics Processing Unit">GPU</abbr> implementation, then it will fall back to the <abbr title="Central Processing Unit">CPU</abbr> device. For example, if you have a <abbr title="Central Processing Unit">CPU</abbr> and a <abbr title="Graphics Processing Unit">GPU</abbr>, and you're running an operation that only has a <abbr title="Central Processing Unit">CPU</abbr> implementation, the operation will run on the <abbr title="Central Processing Unit">CPU</abbr> even if you requested to run it on the <abbr title="Graphics Processing Unit">GPU</abbr>.</p>
 <h2 id="logging-device-placement">Logging device placement</h2>
 <p>The following code sets a TensorFlow option to log the device used to run each operation, then creates two matrices (<code>a</code> and <code>b</code>) and multiplies them using TensorFlow's built-in matrix multiplication function (<code>tf.matmul</code>). The result of the multiplication is printed to the console. By setting the log option, we can see which device (<abbr title="Central Processing Unit">CPU</abbr> or <abbr title="Graphics Processing Unit">GPU</abbr>) is used to perform the computation:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Create some tensors</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]])</span>
@@ -6794,33 +6786,19 @@
 <span class="n">c</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The expected result for <abbr title="Graphics Processing Unit">GPU</abbr> used is:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>Executing op _EagerConst in device /job:localhost/replica:0/task:0/device:GPU:0
+<div class="highlight"><pre><span></span><code>Executing op _EagerConst in device /job:localhost/replica:0/task:0/device:GPU:0
 Executing op _EagerConst in device /job:localhost/replica:0/task:0/device:GPU:0
 Executing op MatMul in device /job:localhost/replica:0/task:0/device:GPU:0
 tf.Tensor(
 [[22. 28.]
  [49. 64.]], shape=(2, 2), dtype=float32)
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="manual-device-placement">Manual device placement</h2>
 <p>If you want to choose a specific device for an operation instead of letting TensorFlow automatically select it for you, you can use the tf.device function. This creates a context where all operations inside it will run on the same device you choose. However, by default TensorFlow will use a <abbr title="Graphics Processing Unit">GPU</abbr> if it is available and configured properly.</p>
 <p>Again, the following code sets <code>log_device_placement</code> to True, which will cause TensorFlow to print the assigned device for each operation. Then, it places two constant tensors 'a' and 'b' on the <abbr title="Central Processing Unit">CPU</abbr> using the <code>with tf.device('/CPU:0')</code> block. Finally, it multiplies 'a' and 'b'. This demonstrates how to explicitly place tensors on specific devices and how TensorFlow prioritizes <abbr title="Graphics Processing Unit">GPU</abbr> over <abbr title="Central Processing Unit">CPU</abbr> when both are available:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Place tensors on the CPU</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;/CPU:0&#39;</span><span class="p">):</span>
@@ -6830,20 +6808,11 @@ tf.Tensor(
 <span class="c1"># Run on the GPU</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="limiting-tf-to-certain-gpus">Limiting TF to certain GPUs</h2>
 <p>If you want to use only certain GPUs, you can use the <code>tf.config.set_visible_devices</code> method to limit TensorFlow to those GPUs. This can help avoid memory fragmentation and ensure that the specific GPUs you want to use are available. </p>
 <p>The following code checks if there are any GPUs available on the system by listing the physical devices. If there are GPUs available, it restricts TensorFlow to only use the first <abbr title="Graphics Processing Unit">GPU</abbr> by setting it as the visible device. It also lists the logical devices to confirm the <abbr title="Graphics Processing Unit">GPU</abbr> usage. If there are any errors, such as the visible devices being set after the GPUs have already been initialized, it will catch the error and print it. The purpose of this code is to manage the available GPUs and ensure that TensorFlow uses them efficiently:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">gpus</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">gpus</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">gpus</span><span class="p">:</span>
   <span class="c1"># Restrict TensorFlow to only use the first GPU</span>
   <span class="k">try</span><span class="p">:</span>
@@ -6853,26 +6822,17 @@ tf.Tensor(
   <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="c1"># Visible devices must be set before GPUs have been initialized</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Example output:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1 Physical GPUs, 1 Logical GPU
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>1 Physical GPUs, 1 Logical GPU
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Physical vs Logical devices</strong>: physical devices refer to the actual hardware components such as a <abbr title="Graphics Processing Unit">GPU</abbr> or <abbr title="Central Processing Unit">CPU</abbr> that are present in the system. On the other hand, logical devices refer to the virtual representations of these physical devices that are exposed to TensorFlow for computation. When TensorFlow is initialized on a machine with GPUs, it detects the available physical devices and creates a logical device for each physical device. Each logical device can have multiple components, such as a <abbr title="Graphics Processing Unit">GPU</abbr> with multiple cores, and it may also have a subset of the memory of the physical device. Logical devices are used by TensorFlow to distribute and manage the computation across the available physical devices in an efficient manner.</p>
 </div>
 <h2 id="using-a-single-gpu-on-a-multi-gpu-system">Using a single <abbr title="Graphics Processing Unit">GPU</abbr> on a multi-<abbr title="Graphics Processing Unit">GPU</abbr> system</h2>
 <p>If you have multiple GPUs, TensorFlow will use the one with the lowest ID number by default. If you want to use a different <abbr title="Graphics Processing Unit">GPU</abbr>, you need to tell TensorFlow which one to use specifically. The following code attempts to perform a matrix multiplication operation between two TensorFlow constant tensors using a non-existent <abbr title="Graphics Processing Unit">GPU</abbr> device <code>/device:GPU:4</code>. Since this device does not exist, it should raise a RuntimeError exception. The code also sets <code>tf.debugging.set_log_device_placement(True)</code> to log the placement of operations on devices. So, if the program runs successfully, it will log which device the operation ran on. If you try to run operations on a specific <abbr title="Graphics Processing Unit">GPU</abbr> device that does not exist, you will get a runtime error. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
   <span class="c1"># Specify an invalid GPU device</span>
@@ -6882,21 +6842,14 @@ tf.Tensor(
     <span class="n">c</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can use <code>tf.config.set_soft_device_placement(True)</code> to instruct TensorFlow to automatically choose a supported device to run the operations in case the specified device is not available. This can help make your code more flexible and robust in case the availability of <abbr title="Graphics Processing Unit">GPU</abbr> devices changes over time.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Eager vs Graph execution modes</strong>: since TensorFlow 2.0, the <a href="https://towardsdatascience.com/eager-execution-vs-graph-execution-which-is-better-38162ea4dbf6">eager execution</a> is the default and <a href="https://www.tensorflow.org/api_docs/python/tf/config/set_soft_device_placement">soft device placement is enabled</a> by default when running in eager mode. Therefore, with the above code snippet running in the eager mode, you won't get an error even without having <code>tf.config.set_soft_device_placement(True)</code>. However, for complex model training, graph execution has the advantages of being faster, more flexible, and robust. If you opt to use it, you will need to enable soft device placement.</p>
 </div>
 <p>The first two lines of the following code enable TensorFlow to choose a device to run operations on, and then log where each operation is executed:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set_soft_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set_soft_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Creates some tensors</span>
@@ -6904,23 +6857,11 @@ tf.Tensor(
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]])</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="using-multiple-gpus">Using multiple GPUs</h2>
 <p>Developing machine learning models to work with multiple GPUs allows the model to use additional resources and potentially scale better. However, if you only have a single <abbr title="Graphics Processing Unit">GPU</abbr> available, you can still simulate multiple GPUs using virtual devices. This makes it easier to test and develop for multi-<abbr title="Graphics Processing Unit">GPU</abbr> setups without needing additional physical GPUs.</p>
 <p>The following code is creating two virtual GPUs with 1GB memory each. It first lists the physical GPUs available on the system using <code>tf.config.list_physical_devices('GPU')</code>. If there are GPUs available, it uses <code>tf.config.set_logical_device_configuration()</code> to create two logical devices with a memory limit of 1024 <abbr title="Megabyte">MB</abbr> (1GB) each on the first physical <abbr title="Graphics Processing Unit">GPU</abbr>. The code then lists the logical GPUs created with <code>tf.config.list_logical_devices('GPU')</code> and prints the number of physical and logical GPUs. If there is an error setting up the virtual devices, the error message is printed:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">gpus</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">gpus</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">gpus</span><span class="p">:</span>
   <span class="c1"># Create 2 virtual GPUs with 1GB memory each</span>
   <span class="k">try</span><span class="p">:</span>
@@ -6933,23 +6874,15 @@ tf.Tensor(
   <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="c1"># Virtual devices must be set before GPUs have been initialized</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Output:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1 Physical GPU, 2 Logical GPUs
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>1 Physical GPU, 2 Logical GPUs
+</code></pre></div>
 <p>This output indicates that there is one physical <abbr title="Graphics Processing Unit">GPU</abbr> available on the system, and two logical GPUs have been created on that physical <abbr title="Graphics Processing Unit">GPU</abbr> using virtual devices. Each logical <abbr title="Graphics Processing Unit">GPU</abbr> has a memory limit of 1GB. The code successfully created the virtual devices without any errors. </p>
 <p>Once there are multiple logical GPUs available to the runtime, you can utilize the multiple GPUs with <a href="https://towardsdatascience.com/train-a-neural-network-on-multi-gpu-with-tensorflow-42fa5f51b8af"><code>tf.distribute.Strategy</code></a> or with manual placement.</p>
 <h3 id="using-tfdistributestrategy">Using tf.distribute.Strategy</h3>
 <p>The best practice for using multiple GPUs is to use <code>tf.distribute.Strategy</code>. The next code sets up a mirrored strategy for training a neural network model on multiple GPUs. It first enables device placement logging, then lists the logical GPUs available to the runtime. It creates a <code>MirroredStrategy</code> object, which distributes the training across multiple GPUs. The <code>with strategy.scope()</code> block defines the model architecture and compiles it with a mean squared error loss and stochastic gradient descent optimizer:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">gpus</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_logical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
 <span class="n">strategy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">distribute</span><span class="o">.</span><span class="n">MirroredStrategy</span><span class="p">(</span><span class="n">gpus</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">strategy</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
@@ -6958,23 +6891,11 @@ tf.Tensor(
   <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">predictions</span><span class="p">)</span>
   <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span>
                 <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.2</span><span class="p">))</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The program is using multiple GPUs to process the data faster by splitting the input data between the GPUs and running a copy of the model on each <abbr title="Graphics Processing Unit">GPU</abbr>. This approach is called "data parallelism".</p>
 <h3 id="manual-placement">Manual placement</h3>
 <p><code>tf.distribute.Strategy</code> is a tool that allows you to replicate your model on multiple devices, which can improve performance. You can also achieve the same thing manually by building your model on each device. The following program demonstrates how to manually replicate computation across multiple GPUs. It creates copies of a matrix multiplication operation on each available <abbr title="Graphics Processing Unit">GPU</abbr> and then adds the results of those computations on the <abbr title="Central Processing Unit">CPU</abbr> to obtain the final result. It also uses <code>tf.debugging.set_log_device_placement(True)</code> to print the placement of each operation to the console for debugging purposes:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">debugging</span><span class="o">.</span><span class="n">set_log_device_placement</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">gpus</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_logical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">gpus</span><span class="p">:</span>
   <span class="c1"># Replicate your computation on multiple GPUs</span>
@@ -6987,24 +6908,9 @@ tf.Tensor(
   <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;/CPU:0&#39;</span><span class="p">):</span>
     <span class="n">matmul_sum</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">matmul_sum</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Example Output:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>Executing op _EagerConst in device /job:localhost/replica:0/task:0/device:GPU:0
+<div class="highlight"><pre><span></span><code>Executing op _EagerConst in device /job:localhost/replica:0/task:0/device:GPU:0
 Executing op _EagerConst in device /job:localhost/replica:0/task:0/device:GPU:0
 Executing op MatMul in device /job:localhost/replica:0/task:0/device:GPU:0
 Executing op _EagerConst in device /job:localhost/replica:0/task:0/device:GPU:1
@@ -7020,7 +6926,7 @@ Executing op AddN in device /job:localhost/replica:0/task:0/device:CPU:0
 tf.Tensor(
 [[ 88. 112.]
  [196. 256.]], shape=(2, 2), dtype=float32)
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

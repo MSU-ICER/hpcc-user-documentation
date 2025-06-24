@@ -6621,18 +6621,16 @@ information and other details.</p>
 <p>Both 'LM Studio' and 'Ollama' have OnDemand apps. You can access them by going to the <a href="https://ondemand.hpcc.msu.edu">HPCC OnDemand</a> and clicking on the 'Interactive Apps' tab. When requesting a session, it is advised to request a <abbr title="Graphics Processing Unit">GPU</abbr> so the models can run faster. <a href="#nodes-and-vram-requirements">Compatible nodes</a> are listed below. This is the easiest way to use the LLMs on the HPCC.</p>
 <h2 id="modules">Modules</h2>
 <p>There are currently two modules for LLMs on the HPCC, <code>LM-Studio</code> and <code>Ollama</code>. Both can be run using the <code>module load</code> command (case-sensitive).</p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>LM_Studio
+<p><div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>LM_Studio
 LM_Studio
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 LM Studio runs a full <abbr title="Graphic User Interface">GUI</abbr> as its own application. The best way to access this <abbr title="Graphic User Interface">GUI</abbr> is through an OnDemand Interactive Desktop session.</p>
 <ul>
 <li><a href="https://lmstudio.ai/docs/basics">LM Studio docs</a></li>
 </ul>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Ollama
+<p><div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Ollama
 ollama
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 Ollama runs as a command-line interface. 
 - <a href="https://docs.icer.msu.edu/2024-09-24_LabNotebook_Ollama_module/">ICER Ollama docs</a> 
 Ollama runs as a command-line interface. </p>
@@ -6782,15 +6780,13 @@ Ollama runs as a command-line interface. </p>
 <li><a href="https://lmstudio.ai/models">LM Studio Catalog</a></li>
 </ul>
 <p>With Ollama, you can also use the <code>ollama pull</code> command to download models from the <a href="https://ollama.com/library">Ollama Library</a>, then use the 'ollama run' command to run the model. You can also just use the <code>ollama run</code>, and if you don't have the model, it will download it for you. If you need extra space and want to use your <code>$SCRATCH</code> directory, you can set the environment variable <code>OLLAMA_MODELS</code> to the path of your choice, and it will download all models to there. You will not be able to see any of the models that are in the default location, which is <code>$HOME/.ollama/models</code>. To reset this, you can unset the environment variable. To see installed models, you can use the <code>ollama list</code> command. Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OLLAMA_MODELS</span><span class="o">=</span><span class="nv">$SCRATCH</span>/ollama_models
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OLLAMA_MODELS</span><span class="o">=</span><span class="nv">$SCRATCH</span>/ollama_models
 ollama<span class="w"> </span>run<span class="w"> </span>codellama
 ollama<span class="w"> </span>list
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You will now only be able to see and run the models in the <code>$SCRATCH/ollama_models</code> directory. If you want to go back to the default location, you can unset the environment variable.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">unset</span><span class="w"> </span>OLLAMA_MODELS
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">unset</span><span class="w"> </span>OLLAMA_MODELS
+</code></pre></div>
 <p>For LM Studio, navigate to the <code>Discover</code> tab (purple magnifying glass icon) on the left side of the app. There, you can browse the LM Studio Catalog, search, and install models. To view and manage installed models, navigate to the <code>My Models</code> tab (red folder icon) on the left side of the app. Here, you can delete models or change the path to where they are stored. If you need more space, you can change the path to your <code>$SCRATCH</code> directory. The default path is <code>$HOME/.cache/lm-studio/models</code>.</p>
 <p><strong>Note:</strong> In the <code>My Models</code> tab of LM Studio, you will see an estimate of how much disk space the models are taking up. This will be inaccurate if you have run the powertool, so use the <code>quota</code> command to know if you are running out of space.</p>
 <h2 id="nodes-and-vram-requirements">Nodes and VRAM requirements</h2>
@@ -6899,14 +6895,14 @@ ollama<span class="w"> </span>list
 <li>To remove a symbolic link, you can use the <code>rm</code> command.</li>
 </ul>
 <p>Links models in <code>/mnt/research/common-data/llms/lm_studio/models</code> to <code>/mnt/home/$USER/.cache/lm-studio/models</code>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>lm_studio_link_models
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>lm_studio_link_models
+</code></pre></div></p>
 <p>Links models in <code>/mnt/research/common-data/llms/ollama/models</code> to <code>/mnt/home/$USER/.ollama/models</code>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ollama_link_models
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>ollama_link_models
+</code></pre></div></p>
 <p>If you try to run these commands and receive an error such as “command not found”, make sure you have the <code>powertools</code> module loaded. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+</code></pre></div>
 <p>And try again. If you still have issues, make sure you have the latest version of the powertools module; these tools are available in powertools version 1.3.5 and later.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

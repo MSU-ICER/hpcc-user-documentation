@@ -6560,8 +6560,8 @@ information and other details.</p>
 <p>A user was having trouble connecting to the Interactive Desktop using OnDemand.  Once OnDemand started the would encounter a blank desktop similar to the following:</p>
 <p><img alt="Screenshot of black desktop with just VNC controls on the left" src="../assets/VNC_Error.png" /></p>
 <p>We finnally tracked down the problem to an error someplace in their user dconf file.  To fix the error the user just needs to remove their dconf file using the following command and restart their desktop:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rm ~/.config/dconf/user 
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>rm ~/.config/dconf/user 
+</code></pre></div>
 <p>We are still not exactly sure how this file got corrupted.  Please give the above a try and <a href="http://contact.icer.msu.edu">open a ticket</a> if you have any trouble (or insight as to the original cause of the problem). </p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

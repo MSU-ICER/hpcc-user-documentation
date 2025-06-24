@@ -6593,20 +6593,14 @@ following packages: <strong>FUSE for macOS</strong> and <strong>SSHFS</strong> f
 step 4) for each filesystem you wish to mount.  If you are creating
 the folder outside of your home directory, you may need to use
 <code>sudo</code> before each command (sudo = superuser do ) and may also need to open the access permission accordingly. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>[MacBook-Pro:~ icer2]$ mkdir &lt;local_mount_point&gt;
+<div class="highlight"><pre><span></span><code>[MacBook-Pro:~ icer2]$ mkdir &lt;local_mount_point&gt;
 /* begin example home directory */
 [MacBook-Pro:~ icer2]$ mkdir /Users/icer2/hpcc_home
 /* end example home directory */
 /* begin example scratch directory in the Mac /Volumes folder where drives are mounted */
 [MacBook-Pro:~ icer2]$ mkdir /Users/icer2/hpcc_scratch
 /* end example scratch directory */
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </li>
 <li>
 <p>Mount the directory using  the <code>sshfs</code> command. We suggest you add
@@ -6618,15 +6612,7 @@ the folder outside of your home directory, you may need to use
     folder). After running the command, enter the password for logging
     into HPCC and the <strong>FUSE</strong> drive icon will show on the desktop of
     your local Mac computer.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>[MacBook-Pro:~ icer2]$ sshfs &lt;user_id&gt;@rsync.hpcc.msu.edu:&lt;remote_directory_to_mount&gt; &lt;local_mount_point&gt; -ovolname=hpcc -o allow_other,defer_permissions,follow_symlinks,reconnect -ocache=no -onolocalcaches
+<div class="highlight"><pre><span></span><code>[MacBook-Pro:~ icer2]$ sshfs &lt;user_id&gt;@rsync.hpcc.msu.edu:&lt;remote_directory_to_mount&gt; &lt;local_mount_point&gt; -ovolname=hpcc -o allow_other,defer_permissions,follow_symlinks,reconnect -ocache=no -onolocalcaches
 /* begin example hpc&#39;s home directory, using /mnt/home/hpc/ */
 [MacBook-Pro:~ icer2]$ sshfs hpc@rsync.hpcc.msu.edu:/mnt/home/hpc/ /Users/icer2/hpcc_home -o volname=hpcc_home -o allow_other,defer_permissions,follow_symlinks,reconnect -ocache=no -onolocalcaches
 /* end example home directory */
@@ -6635,25 +6621,19 @@ the folder outside of your home directory, you may need to use
 [MacBook-Pro:~ icer2]$ sshfs hpc@rsync.hpcc.msu.edu:/mnt/gs18/scratch/users/hpc /Users/icer2/hpcc_scratch -o volname=hpcc_scratch -o allow_other,defer_permissions,follow_symlinks,reconnect,IdentityFile=~/.ssh/id_rsa -ocache=no -onolocalcaches
 (No password input)
 /* end example scratch directory */
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If <code>&lt;remote_directory_to_mount&gt;</code> is a static link, please make sure</p>
 </li>
 </ol>
 <p>to put <code>/</code> at the end of the directory path:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>-   For your home space, please use `/mnt/home/&lt;user_id&gt;/` instead  of
+<div class="highlight"><pre><span></span><code>-   For your home space, please use `/mnt/home/&lt;user_id&gt;/` instead  of
 `/mnt/home/&lt;user_id&gt;`.
 -   For your research space, please use `/mnt/research/&lt;group_name&gt;/`
 instead of `/mnt/research/&lt;group_name&gt;`.
 
 As the above example (starting from line 5), home space
 `/mnt/home/hpc/` is used on line 7 instead of `/mnt/home/hpc`.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <ol>
 <li>
 <p>To unmount a filesystem, use the <code>umount</code> command. </p>
@@ -6661,14 +6641,11 @@ As the above example (starting from line 5), home space
 <p class="admonition-title">Note</p>
 <p>It's just the letter u before mount, NOT <code>unmount</code>.</p>
 </div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>    umount &lt;local_mount_point&gt;
+<div class="highlight"><pre><span></span><code>    umount &lt;local_mount_point&gt;
     /* begin example */
     umount /Users/icer2/hpcc_home
     /* end example */
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You'll see these folders in the finder if you use the <strong>Go</strong> menu, but you</p>
 </li>
 </ol>

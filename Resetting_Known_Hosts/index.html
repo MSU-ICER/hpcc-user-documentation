@@ -6549,19 +6549,7 @@
 <h1 id="resetting-ssh-hosts">Resetting <abbr title="Secure Shell">SSH</abbr> Hosts</h1>
 <p>Infrequently the HPCC will update the identifier for its development or gateway nodes called an <abbr title="Secure Shell">SSH</abbr> host key. These host keys are identified by their "fingerprint". 
 If you try to connect to a gateway or development node after one of these nodes has changed its host key, you'll see a warning like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span>
+<div class="highlight"><pre><span></span><code><span class="go">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span>
 <span class="go">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</span>
 <span class="go">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span>
 <span class="go">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</span>
@@ -6574,7 +6562,7 @@ If you try to connect to a gateway or development node after one of these nodes 
 <span class="go">Offending RSA key in /etc/ssh/ssh_known_hosts:950</span>
 <span class="go">RSA host key for gateway-04 has changed and you have requested strict checking.</span>
 <span class="go">Host key verification failed.</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Alternatively, in VS Code you'll see an error like the following pop up:</p>
 <p><img alt="Screenshot of VS Code with a pop up warning that a remote connection could not be established as the remote host key has changed" src="../attachments/ssh_host_keys/vs-code-host-key-error-crop.png" /></p>
 <div class="admonition warning">
@@ -6591,8 +6579,8 @@ If you see a discrepancy, please file a help ticket immediately as you may be ex
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>If you connect to the HPCC via a Mac or Linux terminal, run the following command to clear the host key for the <em>gateway</em> nodes:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh-keygen<span class="w"> </span>-R<span class="w"> </span>hpcc.msu.edu<span class="w"> </span>-f<span class="w"> </span>~/.ssh/known_hosts
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-R<span class="w"> </span>hpcc.msu.edu<span class="w"> </span>-f<span class="w"> </span>~/.ssh/known_hosts
+</code></pre></div>
 <p>If you received a warning about the host key when connecting to a development node via <a href="../An_SSH_tunneling_via_multiple_hops/">proxy jump</a>, replace <code>hpcc.msu.edu</code> with the name of the relevant development node; e.g., <code>dev-amd20</code>.</p>
 <p>Alternatively, you can delete the file <code>~/.ssh/known_hosts</code>. Every time you connect via <abbr title="Secure Shell">SSH</abbr> (including to sites like GitHub) you will be asked to verify the <abbr title="Secure Shell">SSH</abbr> host key fingerprint.</p>
 <p>Once your host key(s) have been removed, you'll be prompted to confirm the host key fingerprint the next time you connect via <abbr title="Secure Shell">SSH</abbr>. If you are connecting to the HPCC's gateway (<code>hpcc.msu.edu</code>), check the key against our <a href="../Connect_to_HPCC_System/#current-ssh-host-identification-key-fingerprints">published host key fingerprints</a> before continuing. If the host key fingerprint matches those we have published, type "yes" and hit enter to accept.</p>
@@ -6601,8 +6589,8 @@ If you see a discrepancy, please file a help ticket immediately as you may be ex
 <p>Run MobaXTerm and choose the "Start local terminal" option as shown below:</p>
 <p><img alt="Screenshot of the MobaXTerm start tab with the Start Local Terminal button circled" src="../attachments/ssh_key-based_authentication/MobaXtermLocalTerminal.png" /></p>
 <p>With a local terminal open, you can use the following command to clear the host key for the <em>gateway</em> nodes:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh-keygen<span class="w"> </span>-R<span class="w"> </span>hpcc.msu.edu<span class="w"> </span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-R<span class="w"> </span>hpcc.msu.edu<span class="w"> </span>
+</code></pre></div>
 <p>If you received a warning about the host key when connecting to a development node via <a href="../An_SSH_tunneling_via_multiple_hops/">proxy jump</a>, replace <code>hpcc.msu.edu</code> with the name of the relevant development node; e.g., <code>dev-amd20</code>.</p>
 <p>Alternatively, you can delete the whole known hosts file, either with <code>rm ~/.ssh/known_hosts</code> or by using the Windows file browser to delete either <code>C:\Users\&lt;USERNAME&gt;\.ssh\known_hosts</code> or <code>C:\Users\&lt;USERNAME&gt;\Documents\MobaXterm\home\.ssh\known_hosts</code>, depending on where MobaXTerm stores your <abbr title="Secure Shell">SSH</abbr> information. Deleting the <code>known_hosts</code> file means that every time you connect via <abbr title="Secure Shell">SSH</abbr> (including to sites like GitHub) you will be asked to verify the <abbr title="Secure Shell">SSH</abbr> host key fingerprint.</p>
 <p>Once your host key(s) have been removed, you should be prompted to confirm the host key fingerprint the next time you connect via <abbr title="Secure Shell">SSH</abbr>. If you are connecting to the HPCC's gateway (<code>hpcc.msu.edu</code>), check the key against our <a href="../Connect_to_HPCC_System/#current-ssh-host-identification-key-fingerprints">published host key fingerprints</a> before continuing. </p>
@@ -6610,8 +6598,8 @@ If you see a discrepancy, please file a help ticket immediately as you may be ex
 <div class="tabbed-block">
 <p>First, open a terminal in VS Code. You can do this from the Command Palette (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span> or <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span>) by searching for "Terminal: Create New Terminal" and selecting it.</p>
 <p>With the terminal open, you can use the following command to clear the host key for the <em>gateway</em> nodes:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh-keygen<span class="w"> </span>-R<span class="w"> </span>hpcc.msu.edu<span class="w"> </span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-R<span class="w"> </span>hpcc.msu.edu<span class="w"> </span>
+</code></pre></div>
 <p>If you received a warning about the host key when connecting to a development node via <a href="../An_SSH_tunneling_via_multiple_hops/">proxy jump</a>, you <strong>may</strong> need to replace <code>hpcc.msu.edu</code> with the name of the relevant development node; e.g., <code>dev-amd20</code>. Unfortunately, the warning issued by VS Code will only show the final host name in a proxy jump chain. This means that <em>either</em> the gateway or development node host key could change and VS Code will still tell you that the development node's host key has changed.</p>
 <p>Alternatively, you can delete the file <code>~/.ssh/known_hosts</code>. Every time you connect via <abbr title="Secure Shell">SSH</abbr> (including to sites like GitHub) you will be asked to verify the <abbr title="Secure Shell">SSH</abbr> host key fingerprint.</p>
 <p>Once your host key(s) have been removed, you'll be prompted to confirm the host key fingerprint the next time you connect via <abbr title="Secure Shell">SSH</abbr>:</p>

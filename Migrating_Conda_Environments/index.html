@@ -6686,19 +6686,15 @@
 </div>
 <h2 id="save-your-current-environments">Save your current environments</h2>
 <p>First, start a <a href="../Backwards_Compatibility_with_CentOS/">backwards compatibility container</a> and get a list of your environments.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>user@hpcc.msu.edu
 ssh<span class="w"> </span>dev-amd20
 old_os
 module<span class="w"> </span>load<span class="w"> </span>Conda/3
 conda<span class="w"> </span>env<span class="w"> </span>list
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Select the environments you would like to transfer over. In this guide, we will use an example named <code>project</code>. Use <code>conda env export</code> to get the list of packages in the environment.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-n<span class="w"> </span>project<span class="w"> </span>&gt;<span class="w"> </span>project_environment.yml
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-n<span class="w"> </span>project<span class="w"> </span>&gt;<span class="w"> </span>project_environment.yml
+</code></pre></div>
 <h2 id="reinstall-conda-on-the-new-operating-system">Reinstall Conda on the new operating system</h2>
 <div class="admonition note">
 <p class="admonition-title">Optional</p>
@@ -6706,23 +6702,13 @@ conda<span class="w"> </span>env<span class="w"> </span>list
 </div>
 <p>Log into <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">a development node running the new operating system</a>, and follow our instructions for <a href="../Using_conda/#appendix-installing-miniforge-manually-advanced-option">Installing Conda</a>.</p>
 <p>In the step where you are asked to install Miniforge3 in your home directory, make sure to choose a different location if you'd like to maintain backwards compatibility, e.g., <code>/mnt/home/&lt;user&gt;/miniforge3_ubuntu</code>. You can add the following to the <code>.bashrc</code> file in your home directory to make sure that the new version of Conda is only used on Ubuntu nodes.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="k">$(</span><span class="nb">source</span><span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$ID</span><span class="k">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;ubuntu&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="k">$(</span><span class="nb">source</span><span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$ID</span><span class="k">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;ubuntu&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA3PATH</span><span class="o">=</span>/mnt/home/&lt;user&gt;/miniforge3_ubuntu
 <span class="k">fi</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="create-a-new-virtual-environment">Create a new virtual environment</h2>
 <p>Exit the container back into <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">a development node running the new operating system</a>, and reinstall your environments. To avoid confusion with the old environment, you can use a new name.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Exit backwards compatibility container</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Exit backwards compatibility container</span>
 <span class="nb">exit</span><span class="w"> </span>
 
 <span class="c1"># Load Conda module</span>
@@ -6731,21 +6717,11 @@ module<span class="w"> </span>load<span class="w"> </span>Conda/3
 
 <span class="c1"># Reinstall environment (may take a while)</span>
 conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>project_environment.yml<span class="w"> </span>-n<span class="w"> </span>project_ubuntu
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The new environment is ready to use.</p>
 <h2 id="update-old-batch-scripts">Update old batch scripts</h2>
 <p>Assuming this Conda environment was used in a batch script, you now need to update it for the new system. Suppose we have the following script, <code>my_script.sb</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+<div class="highlight"><span class="filename">my_script.sb</span><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=01:00:00</span>
 <span class="c1">#SBATCH --cpus-per-task=2</span>
@@ -6756,22 +6732,12 @@ module<span class="w"> </span>load<span class="w"> </span>Conda/3
 
 conda<span class="w"> </span>activate<span class="w"> </span>project
 python<span class="w"> </span>do_some_work.py
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Copy the script for the new system.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>my_script.sb<span class="w"> </span>my_script_ubuntu.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>my_script.sb<span class="w"> </span>my_script_ubuntu.sb
+</code></pre></div>
 <p>Then, change the environment name to match the new Conda environment.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">my_script_ubuntu.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#/bin/bash --login</span>
+<div class="highlight"><span class="filename">my_script_ubuntu.sb</span><pre><span></span><code><span class="c1">#/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=01:00:00</span>
 <span class="c1">#SBATCH --cpus-per-task=2</span>
@@ -6782,10 +6748,10 @@ module<span class="w"> </span>load<span class="w"> </span>Conda/3
 
 conda<span class="w"> </span>activate<span class="w"> </span>project_ubuntu
 python<span class="w"> </span>do_some_work.py
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To test, make sure you log into an <a href="../Accessing_Nodes_Running_Ubuntu/#development-nodes">Ubuntu development node</a>, and submit the job using</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch<span class="w"> </span>my_script_ubuntu.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>my_script_ubuntu.sb
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

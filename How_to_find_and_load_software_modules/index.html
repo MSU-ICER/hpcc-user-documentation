@@ -6721,43 +6721,15 @@
 <p>Please refer to the <a href="../available_software/overview/">Available Software</a> page for a searchable list of available modules and how to load them. </p>
 <h2 id="command-line-search-using-module-spider">Command line search using <code>module spider</code></h2>
 <p>To search for a particular software module (e.g. "ABC"), you would run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module spider ABC # can also be abc, ABc...
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module spider ABC # can also be abc, ABc...
+</code></pre></div>
 <p>Once you find it, and want to load a specific version (say 1.1.1), run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module spider ABC/1.1.1-foss-2023a # should only be ABC
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module spider ABC/1.1.1-foss-2023a # should only be ABC
+</code></pre></div>
 <p>The resulting output information will tell you what prerequisites modules are needed before loading your <code>ABC/1.1.1-foss-2023a</code>. </p>
 <h3 id="command-line-searching-with-a-partial-name">Command line searching with a partial name</h3>
 <p>You don't need to know the full name of the software. For example, let's search for all modules related to VCF:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module spider vcf
+<div class="highlight"><pre><span></span><code>$ module spider vcf
 
 ------------------------
   VCFtools: VCFtools/0.1.16-GCC-12.3.0
@@ -6786,31 +6758,11 @@ For detailed information about a specific &quot;vcfR&quot; package (including ho
 
      $ module spider vcfR/1.15.0
 ------------------------
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="other-ways-to-search">Other ways to search</h3>
 <p>The output of <code>module spider</code> may also suggest other ways to search for modules.</p>
 <p>See the example for PCRE below, which suggests both "other possible module matches" and "other possible module matches."</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module spider PCRE
+<div class="highlight"><pre><span></span><code>$ module spider PCRE
 
 --------------------------
   PCRE:
@@ -6831,7 +6783,7 @@ For detailed information about a specific &quot;vcfR&quot; package (including ho
       $ module -r spider &#39;.*PCRE.*&#39;
 
 --------------------------
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="loading-a-specific-version">Loading a specific version</h2>
 <p>If a module is loaded without specifying a version - e.g. <code>module load HDF5</code> - the version of that module from the FOSS 2023a toolchain (or a sibling toolchain) will be loaded. Such modules will be compatible with the HPCC's default modules. In this case, <code>HDF5/1.14.0-gompi-2023a</code> will be loaded.</p>
 <p>A specific version of a module can be loaded using its full name. Users <strong>must</strong> run <code>module purge</code> before loading a module from a different toolchain than their currently loaded modules. Otherwise, an error about incompatible dependencies will be displayed.</p>
@@ -6839,21 +6791,21 @@ For detailed information about a specific &quot;vcfR&quot; package (including ho
 <h2 id="saving-and-restoring-module-sets">Saving and restoring module sets</h2>
 <p>Your currently loaded modules can be saved for easy access at a later time.</p>
 <p>To save your modules, run
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module save &lt;collection_name&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module save &lt;collection_name&gt;
+</code></pre></div>
 where <code>&lt;collection_name&gt;</code> is replaced with your desired name.</p>
 <p>You can then re-load this collection of modules with
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module restore &lt;collection_name&gt;
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>module restore &lt;collection_name&gt;
+</code></pre></div></p>
 <p>To see all saved collections, use
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module savelist
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>module savelist
+</code></pre></div></p>
 <p>To see the contents of a collection, use
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module describe &lt;collection_name&gt;
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>module describe &lt;collection_name&gt;
+</code></pre></div></p>
 <p>A saved collection can be removed with
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module disable &lt;collection_name&gt;
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>module disable &lt;collection_name&gt;
+</code></pre></div></p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Sometimes, <code>module spider</code> doesn't work because your personal module cache is out of date. To clear it, do <code>rm ~/.cache/lmod/spider*</code></p>
 <!--

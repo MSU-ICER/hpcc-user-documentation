@@ -6565,21 +6565,7 @@ Note that items in &lt;&gt; should be replaced with appropriate values. </p>
 <p>Especially note that <code>&lt;NUMBER OF NODES&gt; * &lt;NUMBER OF CPUS&gt;</code> should be 
 entered as one number e.g. 5 nodes * 50 CPUs = 200. This script assumes one
 task per core.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>#!/bin/bash --login
+<div class="highlight"><pre><span></span><code>#!/bin/bash --login
 #SBATCH --nodes=&lt;NUMBER OF NODES&gt;
 #SBATCH --ntasks-per-node=&lt;NUMBER OF CPUS&gt;
 #SBATCH --time=&lt;WALLTIME&gt;
@@ -6594,7 +6580,7 @@ module load NAMD/2.14-mpi
 cd $SLURM_SUBMIT_DIR
 
 charmrun +p &lt;NUMBER OF NODES&gt; * &lt;NUMBER OF CPUS&gt; namd2 &lt;CONFIGURATION FILE&gt;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

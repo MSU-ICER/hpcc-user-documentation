@@ -6626,10 +6626,9 @@ To obtain a License ID for cryoSPARC, go to <a href="https://cryosparc.com/downl
 <li>
 <p>Determine where you'd like to install cryoSPARC and create the installation directory. 
 User should install this software in $HOME or $RESEARCH space. We use CryoSPARC in home directory as the installation directory in this document as an example.
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir ~/CryoSPARC          # create the installation directory      
+<div class="highlight"><pre><span></span><code>mkdir ~/CryoSPARC          # create the installation directory      
 cd ~/CryoSPARC             # go to the install directory
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 </li>
 </ul>
 <div class="admonition note">
@@ -6639,21 +6638,18 @@ cd ~/CryoSPARC             # go to the install directory
 <h2 id="download-software">Download software</h2>
 <ul>
 <li>Set environment variable: run
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>export LICENSE_ID=&quot;&lt;license_id&gt;&quot;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>export LICENSE_ID=&quot;&lt;license_id&gt;&quot;
+</code></pre></div>
     where <license_id> is the license ID you received from the registration.</li>
 <li>Download package to the install directory
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>cd ~/CryoSPARC
+<div class="highlight"><pre><span></span><code>cd ~/CryoSPARC
 curl -L https://get.cryosparc.com/download/master-latest/$LICENSE_ID -o cryosparc_master.tar.gz 
 curl -L https://get.cryosparc.com/download/worker-latest/$LICENSE_ID -o cryosparc_worker.tar.gz
-</code></pre></div></td></tr></table></div></li>
+</code></pre></div></li>
 <li>Extract the downloaded files: 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>tar -xf cryosparc_master.tar.gz cryosparc_master             
+<div class="highlight"><pre><span></span><code>tar -xf cryosparc_master.tar.gz cryosparc_master             
 tar -xf cryosparc_worker.tar.gz cryosparc_worker
-</code></pre></div></td></tr></table></div></li>
+</code></pre></div></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -6663,21 +6659,12 @@ You may safely delete the cryosparc2_worker</p>
 <h2 id="installation-of-master">Installation of Master</h2>
 <ul>
 <li>Load environment
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge                           # unload previous loaded modules.
+<div class="highlight"><pre><span></span><code>module purge                           # unload previous loaded modules.
 module load foss/2022b                 # load the latest compile and dependency.
-</code></pre></div></td></tr></table></div></li>
+</code></pre></div></li>
 <li>
 <p>Master node Installationi
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>cd &lt;dir_master_package&gt;        # go to master package directory.
+<div class="highlight"><pre><span></span><code>cd &lt;dir_master_package&gt;        # go to master package directory.
 
 ./install.sh --license $LICENSE_ID \
              --hostname &lt;master_hostname&gt; \
@@ -6686,39 +6673,29 @@ module load foss/2022b                 # load the latest compile and dependency.
              [--insecure] \
              [--allowroot] \
              [--yes] \
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 Example:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>cd ~/CryoSPARC/cryosparc_master           # go to master package directory.
+<div class="highlight"><pre><span></span><code>cd ~/CryoSPARC/cryosparc_master           # go to master package directory.
 ./install.sh --license $LICENSE_ID \
              --hostname localhost \
              --dbpath ~/CryoSPARC/cryoSPARC_database \
              --port 45000 \
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 </li>
 <li>
 <p>Start cryoSPARC: run
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>export CRYOSPARC_FORCE_HOSTNAME=true
+<div class="highlight"><pre><span></span><code>export CRYOSPARC_FORCE_HOSTNAME=true
 export CRYOSPARC_MASTER_HOSTNAME=$HOSTNAME
 ./bin/cryosparcm start
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 </li>
 <li>Create your user account of cryoSPARC: run
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>./bin/cryosparcm createuser --email &quot;&lt;user email&gt;&quot; \
+<div class="highlight"><pre><span></span><code>./bin/cryosparcm createuser --email &quot;&lt;user email&gt;&quot; \
                       --password &quot;&lt;user password&gt;&quot; \
                       --username &quot;&lt;login username&gt;&quot; \
                       --firstname &quot;&lt;given name&gt;&quot; \
                       --lastname &quot;&lt;surname&gt;&quot;
-</code></pre></div></td></tr></table></div></li>
+</code></pre></div></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -6735,25 +6712,20 @@ See <a href="https://guide.cryosparc.com/setup-configuration-and-management/how-
 <h2 id="installation-of-worker">Installation of worker:</h2>
 <ul>
 <li>Load environment if not yet done it
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge                           # unload previous loaded modules.
+<div class="highlight"><pre><span></span><code>module purge                           # unload previous loaded modules.
 module load foss/2022b                 # load the latest compile and dependency.
 module load CUDA/12.3.0                # cuda is needed for worker
-</code></pre></div></td></tr></table></div></li>
+</code></pre></div></li>
 <li>Worker node Installation</li>
 </ul>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>cd &lt;install_path&gt; /cryosparc_worker
+<p><div class="highlight"><pre><span></span><code>cd &lt;install_path&gt; /cryosparc_worker
 
 ./install.sh --license $LICENSE_ID \
              [--yes]
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 Example: using <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr>/12.3.0 module.
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./install.sh --license $LICENSE_ID
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>./install.sh --license $LICENSE_ID
+</code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For the meaning of the options of worker node installation script, See <a href="https://guide.cryosparc.com/setup-configuration-and-management/how-to-download-install-and-configure/downloading-and-installing-cryosparc#worker-installation-glossary-reference">https://guide.cryosparc.com/setup-configuration-and-management/how-to-download-install-and-configure/downloading-and-installing-cryosparc#worker-installation-glossary-reference</a>.</p>
@@ -6770,18 +6742,7 @@ Example: using <abbr title="Compute Unified Device Architecture (GPU programming
 <li>
 <p>Launch cryosparc master: 
 For the users convenience, create a file named "cryosparc.sh" containing commands for setting up environment (shown below). Before launch CryoSPARC, run command "source cryosparc.sh" first.<br />
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>#!/bin/bash
+<div class="highlight"><pre><span></span><code>#!/bin/bash
 # set up CryoSPARC environment
 #
 
@@ -6793,7 +6754,7 @@ module load foss/2022b
 export PATH=~/cryosparc/cryosparc_master/bin:~/cryosparc/cryosparc_worker/bin:$PATH
 export CRYOSPARC_FORCE_HOSTNAME=true
 export CRYOSPARC_MASTER_HOSTNAME=$HOSTNAME
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 </li>
 </ul>
 <h2 id="connect-a-cluster-to-cryosparc">Connect a Cluster to CryoSPARC</h2>
@@ -6807,68 +6768,7 @@ To register the cluster, provide cryoSPARC with the following two files and call
 The following fields are required to be defined as template strings in the configuration of a cluster. Examples for SLURM are given; use any command required for your particular cluster scheduler. Note that parameters listed as "optional" can be omitted or included with their value as null.</li>
 </ul>
 <p>cluster_info.json:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><code>name               :  &quot;cluster1&quot;
+<div class="highlight"><pre><span></span><code>name               :  &quot;cluster1&quot;
 # string, required
 # Unique name for the cluster to be connected (multiple clusters can be 
 # connected)
@@ -6930,22 +6830,9 @@ transfer_cmd_tpl   :   &quot;scp {{ src_path }} loginnode:{{ dest_path }}&quot;
 # master node is remotely updating a cluster worker installation. This is 
 # optional; if it is incorrect or omitted, you can manually update the 
 # cluster worker installation.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 Along with the above commands, a complete cluster configuration requires a template cluster submission script. The script must send jobs into your cluster scheduler queue and mark them with the appropriate hardware requirements. The cryoSPARC internal scheduler submits jobs with this script as their inputs become ready. The following variables are available for use used within a cluster submission script template. When starting out, example templates may be generated with the commands explained below.
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>{{ script_path_abs }}    # absolute path to the generated submission script
+<div class="highlight"><pre><span></span><code>{{ script_path_abs }}    # absolute path to the generated submission script
 {{ run_cmd }}            # complete command-line string to run the job
 {{ num_cpu }}            # number of CPUs needed
 {{ num_gpu }}            # number of GPUs needed.
@@ -6959,7 +6846,7 @@ Along with the above commands, a complete cluster configuration requires a templ
 {{ job_uid }}            # uid of the job
 {{ job_creator }}        # name of the user that created the job (may contain spaces)
 {{ cryosparc_username }} # cryosparc username of the user that created the job (usually an email)
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The cryoSPARC scheduler does not assume control over <abbr title="Graphics Processing Unit">GPU</abbr> allocation when spawning jobs on a cluster. The number of GPUs required is provided as a template variable. Either your submission script or your cluster scheduler is responsible for assigning <abbr title="Graphics Processing Unit">GPU</abbr> device indices to each job spawned based on the provided variable. The cryoSPARC worker processes that use one or more GPUs on a cluster simply use device 0, then 1, then 2, etc.
@@ -6971,21 +6858,7 @@ Therefore, the simplest way to correctly allocate GPUs is to set the CUDA_VISIBL
 <p>To create or set a configuration for a cluster in cryoSPARC, use the following commands.</p>
 </li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>cryosparcm cluster example &lt;cluster_type&gt;
+<div class="highlight"><pre><span></span><code>cryosparcm cluster example &lt;cluster_type&gt;
 # dumps out config and script template files to current working directory
 # examples are available for pbs and slurm schedulers but others should 
 # be very similar
@@ -7000,26 +6873,14 @@ cryosparcm cluster connect
 
 cryosparcm cluster remove &lt;name&gt;
 # removes a cluster configuration from the scheduler
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The command <code>cryosparcm cluster connect</code> attempts reading cluster_info.json and cluster_script.sh from the current working directory.</p>
 </div>
 <h3 id="examples-of-cluster_infojson-and-cluster_scriptsh-scripts-for-slurm-on-hpcc">Examples of cluster_info.json and cluster_script.sh scripts for SLURM on HPCC:</h3>
 <p><code>cluster_info.json</code>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>{
+<div class="highlight"><pre><span></span><code>{
 &quot;qdel_cmd_tpl&quot;: &quot;scancel {{ cluster_job_id }}&quot;,
 &quot;worker_bin_path&quot;: &quot;/mnt/home/wangx147/cryoSPARC/cryosparc_worker/bin/cryosparcw&quot;,
 &quot;title&quot;: &quot;test_cluster&quot;,
@@ -7032,21 +6893,9 @@ cryosparcm cluster remove &lt;name&gt;
 &quot;cache_reserve_mb&quot;: 10000,
 &quot;name&quot;: &quot;test_cluster&quot;
 }
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p><code>cluster_script.sh</code>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>#!/bin/bash
+<div class="highlight"><pre><span></span><code>#!/bin/bash
 #SBATCH --job-name=cryosparc_{{ project_uid }}_{{ job_uid }}
 #SBATCH --partition=general
 #SBATCH --output={{ job_log_path_abs }}
@@ -7059,7 +6908,7 @@ cryosparcm cluster remove &lt;name&gt;
 #SBATCH --gres-flags=enforce-binding
 
 srun {{ run_cmd }}
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 For more examples, see <a href="https://guide.cryosparc.com/setup-configuration-and-management/how-to-download-install-and-configure/cryosparc-cluster-integration-script-examples">https://guide.cryosparc.com/setup-configuration-and-management/how-to-download-install-and-configure/cryosparc-cluster-integration-script-examples</a>.</p>
 <p>Q: Where should these two files be stored?</p>
 <p>A: Working directory.</p>

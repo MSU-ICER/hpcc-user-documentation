@@ -6752,23 +6752,19 @@
 <h2 id="setting-environment-variables-in-slurm-jobs">Setting Environment Variables in SLURM Jobs</h2>
 <p>You may also set your own variables for use in your SLURM jobs.    One way is to set them inside the script itself, but that requires modifying the script. </p>
 <p>It is possible to pass variables into a SLURM job when you submit the job using the <code>--export</code> flag.  For example to pass the value of the variables <code>REPS</code> and <code>X</code> into the job script named <code>jobs.sb</code> you can use:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch --export=REPS=500,X=&#39;test&#39; jobs.sb
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>sbatch --export=REPS=500,X=&#39;test&#39; jobs.sb
+</code></pre></div>
 <p>These are then available in your jobs as <code>$REPS</code> and <code>$X</code></p>
 <h2 id="using-variables-to-set-slurm-job-name-and-output-files">Using variables to set SLURM job name and output files</h2>
 <p>SLURM does not support using arbitrary variables in the <code>#SBATCH</code> lines within a job script; for example, <code>#SBATCH -N=$REPS</code> will <strong>not</strong> replace <code>$REPS</code> with the variable's value.</p>
 <p>For specifying filenames (such as the SLURM log/output file), a limited number of pre-defined variables are available. These include <code>%j</code>, which references the job ID. For example, you can use <code>#SBATCH --output=analysis-%j.out</code> to set a custom output filename that includes the job number. The full list of these variables is available in the <a href="https://slurm.schedmd.com/sbatch.html#SECTION_%3CB%3Efilename-pattern%3C/B%3E"><code>sbatch</code> documentation</a></p>
 <p>Job options specified from the command line have precedence over values defined in the job script and you can set certain SLURM variables in the command line.  For example, you could set the job name and output/error files from the <code>sbatch</code> command line:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>RUNTYPE=&#39;test&#39;
+<div class="highlight"><pre><span></span><code>RUNTYPE=&#39;test&#39;
 RUNNUMBER=5
 sbatch --job-name=$RUNTYPE.$RUNNUMBER.run \
 --output=$RUNTYPE.$RUNUMBER.txt \
 --export=A=$A,b=$b jobscript.sbatch
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>However note in this example, the output file doesn't have the job ID, which is not available from the command line. The job ID is only defined inside the environment created when running the batch script.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

@@ -6998,41 +6998,31 @@ equivalent to doing a <code>module load</code> on each one individually):</p>
 </ul>
 <h4 id="foss-versions"><code>foss</code> versions</h4>
 <p>To see the versions of this toolchain available on the HPCC use</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>foss
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>foss
+</code></pre></div>
 <p>and to see the versions of each component, use</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>show<span class="w"> </span>foss/&lt;version&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>show<span class="w"> </span>foss/&lt;version&gt;
+</code></pre></div>
 <h4 id="foss-usage-examples"><code>foss</code> usage examples</h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C</label><label for="__tabbed_1_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using OpenMP and shared libraries</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2022a
+<div class="highlight"><span class="filename">Using OpenMP and shared libraries</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2022a
 $<span class="w"> </span>gcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-fopenmp<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For OpenMP </span>
 <span class="w">    </span>-lflexiblas<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For BLAS/LAPACK</span>
 <span class="w">    </span>-lfftw3<span class="w">  </span><span class="c1"># For FFTW</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using OpenMP and shared libraries</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2022a
+<div class="highlight"><span class="filename">Using OpenMP and shared libraries</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2022a
 $<span class="w"> </span>gfortran<span class="w"> </span>foo.f90<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-fopenmp<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For OpenMP</span>
 <span class="w">    </span>-lflexiblas<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For BLAS/LAPACK</span>
 <span class="w">    </span>-lfftw3<span class="w">  </span><span class="c1"># For FFTW</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7041,20 +7031,16 @@ $<span class="w"> </span>./foo
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">C</label><label for="__tabbed_2_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using MPI</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2022a
+<div class="highlight"><span class="filename">Using MPI</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2022a
 $<span class="w"> </span>mpicc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo
 $<span class="w"> </span>srun<span class="w"> </span>./foo<span class="w">  </span><span class="c1"># Use srun for better SLURM integration instead of mpirun</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using MPI</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2022a
+<div class="highlight"><span class="filename">Using MPI</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2022a
 $<span class="w"> </span>mpifort<span class="w"> </span>foo.f90<span class="w"> </span>-o<span class="w"> </span>foo
 $<span class="w"> </span>srun<span class="w"> </span>./foo<span class="w">  </span><span class="c1"># Use srun for better SLURM integration instead of mpirun</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7095,37 +7081,29 @@ is equivalent to doing a <code>module load</code> on each one individually):</p>
 </ul>
 <h4 id="intel-versions"><code>intel</code> versions</h4>
 <p>To see the versions of this toolchain currently available on the HPCC use</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>intel
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>intel
+</code></pre></div>
 <p>and to see the versions of each component, use</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>show<span class="w"> </span>intel/&lt;version&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>show<span class="w"> </span>intel/&lt;version&gt;
+</code></pre></div>
 <h4 id="intel-usage-examples"><code>intel</code> usage examples</h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">C</label><label for="__tabbed_3_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using OpenMP and shared libraries</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>intel/2022b
+<div class="highlight"><span class="filename">Using OpenMP and shared libraries</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>intel/2022b
 $<span class="w"> </span>icx<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-qopenmp<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For OpenMP </span>
 <span class="w">    </span>-qmkl<span class="w"> </span><span class="c1"># For BLAS/LAPACK/FFT</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using OpenMP and shared libraries</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>intel/2022b
+<div class="highlight"><span class="filename">Using OpenMP and shared libraries</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>intel/2022b
 $<span class="w"> </span>ifx<span class="w"> </span>foo.f90<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-qopenmp<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For OpenMP </span>
 <span class="w">    </span>-qmkl<span class="w"> </span><span class="c1"># For BLAS/LAPACK/FFT</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7134,20 +7112,16 @@ $<span class="w"> </span>./foo
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">C</label><label for="__tabbed_4_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using MPI</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>intel/2022b
+<div class="highlight"><span class="filename">Using MPI</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>intel/2022b
 $<span class="w"> </span>mpiicc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo
 $<span class="w"> </span>srun<span class="w"> </span>./foo<span class="w">  </span><span class="c1"># Use srun for better SLURM integration instead of mpirun</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using MPI</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>intel/2022b
+<div class="highlight"><span class="filename">Using MPI</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>intel/2022b
 $<span class="w"> </span>mpiifort<span class="w"> </span>foo.f90<span class="w"> </span>-o<span class="w"> </span>foo
 $<span class="w"> </span>srun<span class="w"> </span>./foo<span class="w">  </span><span class="c1"># Use srun for better SLURM integration instead of mpirun</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7172,16 +7146,12 @@ consider one of the sub-toolchains:</p>
 <p>Certain components can be combined across toolchains. A notable example is the Intel Math Kernel Library (MKL), <code>imkl</code>, that can be loaded with any other compiler.</p>
 <div class="admonition example">
 <p class="admonition-title">C example mixing <abbr title="GNU Compiler Collection">GCC</abbr> and MKL</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0
 $<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>imkl/2022.2.1
 $<span class="w"> </span>gcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-lmkl_rt<span class="w">  </span><span class="c1"># MKL single dynamic library</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>For more information on linking against MKL, see <a href="https://www.intel.com/content/www/us/en/docs/onemkl/developer-guide-linux/2023-1/linking-quick-start.html">Intel's documentation</a>.</p>
 </div>
 <h2 id="alternative-compilers-and-toolchains">Alternative compilers and toolchains</h2>
@@ -7198,24 +7168,18 @@ math libraries, BLAS, FFTW, and others.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">C</label><label for="__tabbed_5_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using OpenMP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>AOCC/4.0.0
+<div class="highlight"><span class="filename">Using OpenMP</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>AOCC/4.0.0
 $<span class="w"> </span>clang<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo.out<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-fopenmp<span class="w">  </span><span class="c1"># For OpenMP</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using OpenMP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>AOCC/4.0.0
+<div class="highlight"><span class="filename">Using OpenMP</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>AOCC/4.0.0
 $<span class="w"> </span>flang<span class="w"> </span>foo.f90<span class="w"> </span>-o<span class="w"> </span>foo.out<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-mp<span class="w">  </span><span class="c1"># For OpenMP</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7224,17 +7188,7 @@ $<span class="w"> </span>./foo
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">C</label><label for="__tabbed_6_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using AOCL libraries</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Assuming AOCL libraries are installed into $HOME/amd/aocl/4.0</span>
+<div class="highlight"><span class="filename">Using AOCL libraries</span><pre><span></span><code><span class="c1"># Assuming AOCL libraries are installed into $HOME/amd/aocl/4.0</span>
 $<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>AOCC/4.0.0
 $<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">AOCL_ROOT</span><span class="o">=</span><span class="nv">$HOME</span>/amd/aocl/4.0
 $<span class="w"> </span>clang<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo.out<span class="w"> </span><span class="se">\</span>
@@ -7245,19 +7199,10 @@ $<span class="w"> </span>clang<span class="w"> </span>foo.c<span class="w"> </sp
 <span class="w">    </span>-lblis-mt<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For multithreaded BLAS</span>
 <span class="w">    </span>-lfftw3<span class="w">  </span><span class="c1"># For FFTW</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using AOCL libraries</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Assuming AOCL libraries are installed into $HOME/amd/aocl/4.0</span>
+<div class="highlight"><span class="filename">Using AOCL libraries</span><pre><span></span><code><span class="c1"># Assuming AOCL libraries are installed into $HOME/amd/aocl/4.0</span>
 $<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>AOCC/4.0.0
 $<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">AOCL_ROOT</span><span class="o">=</span><span class="nv">$HOME</span>/amd/aocl/4.0
 $<span class="w"> </span>flang<span class="w"> </span>foo.f90<span class="w"> </span>-o<span class="w"> </span>foo.out<span class="w"> </span><span class="se">\</span>
@@ -7267,7 +7212,7 @@ $<span class="w"> </span>flang<span class="w"> </span>foo.f90<span class="w"> </
 <span class="w">    </span>-lblis-mt<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For multithreaded BLAS</span>
 <span class="w">    </span>-lfftw3<span class="w">  </span><span class="c1"># For FFTW</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7277,30 +7222,21 @@ $<span class="w"> </span>./foo
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">C</label><label for="__tabbed_7_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using OpenMP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCCcore/11.3.0
+<div class="highlight"><span class="filename">Using OpenMP</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCCcore/11.3.0
 $<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Clang/14.0.0
 $<span class="w"> </span>clang<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo.out<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>-fopenmp<span class="w">  </span><span class="c1"># For OpenMP</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using OpenMP</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2022a<span class="w">  </span><span class="c1"># Compatible with GCCcore/11.3.0</span>
+<div class="highlight"><span class="filename">Using OpenMP</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2022a<span class="w">  </span><span class="c1"># Compatible with GCCcore/11.3.0</span>
 $<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Clang/14.0.0
 $<span class="w"> </span>clang<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo.out<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-lflexiblas<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For BLAS/LAPACK</span>
 <span class="w">    </span>-lfftw3<span class="w">  </span><span class="c1"># For FFTW</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7315,32 +7251,22 @@ need to load a compatible toolchain.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">C</label><label for="__tabbed_8_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using OpenMP and included shared libraries</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>NVHPC/21.9-GCCcore-10.3.0-CUDA-11.4
+<div class="highlight"><span class="filename">Using OpenMP and included shared libraries</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>NVHPC/21.9-GCCcore-10.3.0-CUDA-11.4
 $<span class="w"> </span>nvc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-mp<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For OpenMP </span>
 <span class="w">    </span>-lblas<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For BLAS</span>
 <span class="w">    </span>-llapack<span class="w">  </span><span class="c1"># For LAPACK</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using OpenMP and included shared libraries</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>NVHPC/21.9-GCCcore-10.3.0-CUDA-11.4
+<div class="highlight"><span class="filename">Using OpenMP and included shared libraries</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>NVHPC/21.9-GCCcore-10.3.0-CUDA-11.4
 $<span class="w"> </span>nvfortran<span class="w"> </span>foo.f90<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-mp<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For OpenMP </span>
 <span class="w">    </span>-lblas<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For BLAS</span>
 <span class="w">    </span>-llapack<span class="w">  </span><span class="c1"># For LAPACK</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7349,32 +7275,22 @@ $<span class="w"> </span>./foo
 <div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">C</label><label for="__tabbed_9_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using outside CPU libraries</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2021a<span class="w">  </span><span class="c1"># Compatible with GCC/10.3.0</span>
+<div class="highlight"><span class="filename">Using outside CPU libraries</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2021a<span class="w">  </span><span class="c1"># Compatible with GCC/10.3.0</span>
 $<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>NVHPC/21.9-GCCcore-10.3.0-CUDA-11.4
 $<span class="w"> </span>nvc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-lflexiblas<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># For BLAS/LAPACK</span>
 <span class="w">    </span>-lfftw3<span class="w">  </span><span class="c1"># For FFTW</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using outside CPU libraries</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2021a<span class="w">  </span><span class="c1"># Compatible with GCC/10.3.0</span>
+<div class="highlight"><span class="filename">Using outside CPU libraries</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>foss/2021a<span class="w">  </span><span class="c1"># Compatible with GCC/10.3.0</span>
 $<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>NVHPC/21.9-GCCcore-10.3.0-CUDA-11.4
 $<span class="w"> </span>nvfortran<span class="w"> </span>foo.f90<span class="w"> </span>-o<span class="w"> </span>foo<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-lflexiblas<span class="w">  </span><span class="c1"># For BLAS/LAPACK</span>
 <span class="w">    </span>-lfftw3<span class="w">  </span><span class="c1"># For FFTW</span>
 $<span class="w"> </span>./foo
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7383,20 +7299,16 @@ $<span class="w"> </span>./foo
 <div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">C</label><label for="__tabbed_10_2">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using MPI</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>NVHPC/21.9-GCCcore-10.3.0-CUDA-11.4
+<div class="highlight"><span class="filename">Using MPI</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>NVHPC/21.9-GCCcore-10.3.0-CUDA-11.4
 $<span class="w"> </span>mpicc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo<span class="w">  </span><span class="c1"># Uses NVHPC&#39;s OpenMPI</span>
 $<span class="w"> </span>srun<span class="w"> </span>./foo<span class="w">  </span><span class="c1"># Use srun for better SLURM integration instead of mpirun</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Using MPI</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>NVHPC/21.9-GCCcore-10.3.0-CUDA-11.4
+<div class="highlight"><span class="filename">Using MPI</span><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>NVHPC/21.9-GCCcore-10.3.0-CUDA-11.4
 $<span class="w"> </span>mpifort<span class="w"> </span>foo.f90<span class="w"> </span>-o<span class="w"> </span>foo<span class="w">  </span><span class="c1"># Uses NVHPC&#39;s OpenMPI</span>
 $<span class="w"> </span>srun<span class="w"> </span>./foo<span class="w">  </span><span class="c1"># Use srun for better SLURM integration instead of mpirun</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -7407,11 +7319,11 @@ $<span class="w"> </span>srun<span class="w"> </span>./foo<span class="w">  </sp
 generally only compatible with a single compiler module as they were built on a
 one-off basis.</p>
 <p>You can see the available versions and how to load them with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>MPICH
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>MPICH
+</code></pre></div>
 <p>or</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>MVAPICH2
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>MVAPICH2
+</code></pre></div>
 <p>If OpenMPI, Intel <abbr title="Message Passing Interface">MPI</abbr>, or the available versions of <code>MPICH</code> and <code>MVAPICH2</code> will
 not work for your needs, please <a href="https://contact.icer.msu.edu">contact us</a> to
 discuss alternatives.</p>

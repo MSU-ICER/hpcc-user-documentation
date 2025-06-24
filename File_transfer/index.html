@@ -6675,8 +6675,8 @@ Linux users. Each of them has its own advantages.</p>
 <p>A simple command for transferring files between the cluster and another
 host is <code>scp</code>. To copy a file from a local directory to file space on the
 cluster, run a command such as</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>scp example.txt username@rsync.hpcc.msu.edu:example_copy.txt
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>scp example.txt username@rsync.hpcc.msu.edu:example_copy.txt
+</code></pre></div>
 <p>This will copy the file named <code>example.txt</code> in the local host's current
 directory to the user's home directory on the cluster, with the copy
 having the name <code>example_copy.txt</code>. Leaving the space after the colon
@@ -6684,8 +6684,8 @@ blank gives the new file the same name as the original.  Note: To
 transfer a file name with spaces you must put a backslash before each
 space in your file name, i.e. <code>scp "My File Name" username@hpcc.msu.edu:"My\ File\ Name"</code>.</p>
 <p>To copy a file from the cluster to your local directory,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>scp username@rsync.hpcc.msu.edu:example.txt ./example_copy.txt
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>scp username@rsync.hpcc.msu.edu:example.txt ./example_copy.txt
+</code></pre></div>
 <p>will copy the file named <code>example.txt</code> from the user's home directory on
 the cluster to the home directory of the local host, naming the new file
 <code>example_copy.txt</code>. Leaving the space after the slash blank gives the new
@@ -6701,8 +6701,8 @@ similar to <code>scp</code>.</p>
 <li>
 <p>To mirror <code>&lt;local_dir&gt;</code> on my local computer to <code>&lt;hpcc_dir&gt;</code> on
 hpcc, the following command can be run:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rsync -ave ssh &lt;local_dir&gt; username@rsync.hpcc.msu.edu:&lt;hpcc_dir&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>rsync -ave ssh &lt;local_dir&gt; username@rsync.hpcc.msu.edu:&lt;hpcc_dir&gt;
+</code></pre></div>
 <p>In the above command, rsync will scan through both directories. If
 any files in the <code>&lt;local_dir&gt;</code> are newer, they will be uploaded to
 <code>&lt;hpcc_dir&gt;</code>. (It is also possible to get rsync to upload ALL
@@ -6710,14 +6710,14 @@ different files, regardless of which is newer).</p>
 </li>
 <li>
 <p>To mirror the HPCC directory to your local system, call</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rsync -ave ssh username@rsync.hpcc.msu.edu:&lt;hpcc_dir&gt; &lt;local_dir&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>rsync -ave ssh username@rsync.hpcc.msu.edu:&lt;hpcc_dir&gt; &lt;local_dir&gt;
+</code></pre></div>
 </li>
 <li>
 <p><strong>Please use the <code>rsync</code> command with the option <code>--chmod=Dg+s</code> to transfer files from a local computer to your research space</strong>.<br />
     See the following example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rsync -ave ssh TestDir --chmod=Dg+s &lt;username&gt;@rsync.hpcc.msu.edu:/mnt/research/&lt;GroupName&gt;/
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>rsync -ave ssh TestDir --chmod=Dg+s &lt;username&gt;@rsync.hpcc.msu.edu:/mnt/research/&lt;GroupName&gt;/
+</code></pre></div>
 </li>
 </ul>
 <div class="admonition note">
@@ -6730,8 +6730,8 @@ do a dry run before any files are copied.</p>
 <p>Interactive file copy (<code>sftp</code>)</p>
 <p>When performing several data transfers between hosts, the <code>sftp</code> command
 may be preferable, as it allows the user to work interactively. Running</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sftp username@rsync.hpcc.msu.edu
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>sftp username@rsync.hpcc.msu.edu
+</code></pre></div>
 <p>from a local host establishes a connection between that host and the
 cluster. Both hosts can be navigated. For the local file system, <code>lcd</code>
 changes to the specified directory, <code>lpwd</code> prints the working directory,
@@ -6748,8 +6748,8 @@ file in the local working directory to the remote working directory. The
 <p>Copy files from Internet (<code>wget</code>)</p>
 <p><code>wget</code> is a simple command useful for copying files from the Internet to a
 user's file space on the cluster.  Running the line</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>wget http://www.examplesite.com/examplefile.txt
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>wget http://www.examplesite.com/examplefile.txt
+</code></pre></div>
 <p>downloads <code>examplefile.txt</code> to the user's working directory.</p>
 </li>
 </ol>

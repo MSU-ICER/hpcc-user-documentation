@@ -6732,12 +6732,10 @@
 <p>To use Python virtual environments in Jupyter, they must be created using the version of Python that the <code>Default</code> option uses, which is currently <code>Python/3.11.3-GCCcore-12.3.0</code>. </p>
 </div>
 <p>To use a Jupyer instance with a <a href="../Using_Python_in_HPCC_with_virtualenv/">Python virtual environment</a>, you will need first create a Jupyter kernel for the virtual environment. To do this, you will need to login to a development node and run the following commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>source &lt;your-venv&gt;/bin/activate
+<div class="highlight"><pre><span></span><code>source &lt;your-venv&gt;/bin/activate
 pip install jupyter
 ipython kernel install --user --name=&lt;your-venv&gt;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Next, in the Jupyter OnDemand configuration, choose <code>Default</code> as the Jupyter Location. </p>
 <p><img alt="Screenshot selecting Default Jupyter Location." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_Default.png" /></p>
 <p>Once your Jupyter OnDemand sessions starts, you can then choose your new kernel that will be named <code>your-venv</code>.</p>

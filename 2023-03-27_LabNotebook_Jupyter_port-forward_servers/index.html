@@ -6606,12 +6606,10 @@ running on the HPCC but we use the browser on our local machine to connect to it
 <p>These instructions assume you have access to a terminal on your <strong>local machine</strong>. Users interested in attempting this with MobaXterm should follow <a href="../2023-08-11_LabNotebook_Jupyter_and_mobaxterm_port-forward_servers/">these instruction instead</a>.</p>
 <p>As a prerequisite, set up an <a href="../SSH_Key-Based_Authentication/"><abbr title="Secure Shell">SSH</abbr> Key</a> and <a href="../An_SSH_tunneling_via_multiple_hops/#using-proxyjump"><abbr title="Secure Shell">SSH</abbr> Tunneling</a>.</p>
 <p>Then, add the following to the bottom of your <strong>local</strong> <code>.ssh/config</code> file (this is the same file edited when setting up <abbr title="Secure Shell">SSH</abbr> tunneling):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span>Host<span class="w"> </span>lac*<span class="w"> </span>vim*<span class="w"> </span>skl*<span class="w"> </span>nvl*<span class="w"> </span>amr*<span class="w"> </span>nvf*<span class="w"> </span>nif*<span class="w"> </span>nal*<span class="w"> </span>acm*<span class="w"> </span>agg*<span class="w"> </span>agx*<span class="w"> </span>nfh*<span class="w"> </span>neh*<span class="w"> </span>nel*
+<div class="highlight"><pre><span></span><code><span class="w">    </span>Host<span class="w"> </span>lac*<span class="w"> </span>vim*<span class="w"> </span>skl*<span class="w"> </span>nvl*<span class="w"> </span>amr*<span class="w"> </span>nvf*<span class="w"> </span>nif*<span class="w"> </span>nal*<span class="w"> </span>acm*<span class="w"> </span>agg*<span class="w"> </span>agx*<span class="w"> </span>nfh*<span class="w"> </span>neh*<span class="w"> </span>nel*
 <span class="w">    </span>User<span class="w"> </span>here_you_put_your_net_id
 <span class="w">    </span>ProxyJump<span class="w"> </span>intel18
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The three-letter names correspond to the kinds of nodes available from <a href="../Cluster_Resources/">each cluster</a>. This will make it possible to <a href="../Connections_to_compute_nodes/"><abbr title="Secure Shell">SSH</abbr> to compute nodes</a> from your local machine! This is useful if you would like to run a Jupyter server from an <a href="../Interactive_Job/">interactive job</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

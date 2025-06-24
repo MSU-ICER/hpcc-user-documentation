@@ -6539,14 +6539,7 @@
 
 <h1 id="qs">qs</h1>
 <p>qs is a powertools program that will display list of jobs currently on the SLURM queue for a giver user account. For more information about scheduling jobs on SLURM, see <a href="../Job_Script_and_Job_Submission/">here</a>. Running qs on its own will generate the following table listing your jobs that are currently on the queue:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>qs
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>qs
 
 Tue<span class="w"> </span>Feb<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">12</span>:29:28<span class="w"> </span>EST<span class="w"> </span><span class="m">2023</span>
 <span class="w">                                                                                            </span>Start_Time/
@@ -6554,18 +6547,9 @@ Tue<span class="w"> </span>Feb<span class="w">  </span><span class="m">7</span><
 ---------------------------------------------------------------------------------------------------------------------------
 <span class="w">         </span><span class="m">4304840</span><span class="w">     </span>panchyni<span class="w">   </span>general<span class="w"> </span>test_SLURM<span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">1</span><span class="w">    </span>750M<span class="w">    </span>N/A<span class="w">        </span><span class="m">10</span>:00<span class="w">  </span>R<span class="w">         </span><span class="m">0</span>:05<span class="w">   </span>css-118
 <span class="w">         </span><span class="m">4304842</span><span class="w">     </span>panchyni<span class="w">   </span>general<span class="w"> </span>test_SLURM<span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">1</span><span class="w">    </span>750M<span class="w">    </span>N/A<span class="w">        </span><span class="m">10</span>:00<span class="w">  </span>R<span class="w">         </span><span class="m">0</span>:05<span class="w">   </span>css-121
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>A full description of arguments for qs can be found by accessing the help for the program by running "qs -h" on the command line (this information is also reproduced below)</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>qs<span class="w"> </span>-h
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>qs<span class="w"> </span>-h
 
 Usage:<span class="w">   </span>-a<span class="w">  </span>--&gt;<span class="w">  </span>all<span class="w"> </span><span class="nb">jobs</span>
 <span class="w">         </span>-F<span class="w">  </span>--&gt;<span class="w">  </span>all<span class="w"> </span><span class="o">(</span><span class="m">52</span><span class="o">)</span><span class="w"> </span>fields
@@ -6575,7 +6559,7 @@ Usage:<span class="w">   </span>-a<span class="w">  </span>--&gt;<span class="w"
 <span class="w">         </span>-r<span class="w">  </span>--&gt;<span class="w">  </span>all<span class="w"> </span>job<span class="w"> </span>array<span class="w"> </span>elements
 
 Default:<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

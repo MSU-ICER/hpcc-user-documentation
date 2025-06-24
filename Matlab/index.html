@@ -6915,12 +6915,12 @@
 MATLAB/2018a is loaded. Other available version of MATLAB can be discovered by typing</p>
 </li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel18:~&gt;<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>MATLAB
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>hpc@dev-intel18:~&gt;<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>MATLAB
+</code></pre></div>
 <p>and then switching to a different version, for example, to switch
 from 2018a to 2019a, one can directly load the the version as</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel18:~&gt;<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>MATLAB/2019a<span class="w"> </span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>hpc@dev-intel18:~&gt;<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>MATLAB/2019a<span class="w"> </span>
+</code></pre></div>
 <ul>
 <li>MATLAB's many built-in functions have multi-threaded capability. On
     your personal computer, when a MATLAB function with multi-threads is
@@ -6956,17 +6956,7 @@ commands would be the same for 2018 and older versions and <code>matlab-mt</code
 <li>HPCC has many toolboxes installed. To see a list of installed
     toolboxes and licenses, type</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel18:~&gt;<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>powertools
+<div class="highlight"><pre><span></span><code>hpc@dev-intel18:~&gt;<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>powertools
 hpc@dev-intel18:~&gt;<span class="w"> </span>licensecheck<span class="w"> </span>matlab
 Checking<span class="w"> </span>Licenses<span class="w"> </span><span class="k">for</span><span class="w"> </span>matlab
 lmstat<span class="w"> </span>-a<span class="w"> </span>-c<span class="w"> </span><span class="m">27000</span>@lm-02.i
@@ -6977,7 +6967,7 @@ Users<span class="w"> </span>of<span class="w"> </span>Bioinformatics_Toolbox:<s
 Users<span class="w"> </span>of<span class="w"> </span>Communication_Toolbox:<span class="w">  </span><span class="o">(</span>Total<span class="w"> </span>of<span class="w"> </span><span class="m">10000</span><span class="w"> </span>licenses<span class="w"> </span>issued<span class="p">;</span><span class="w">  </span>Total<span class="w"> </span>of<span class="w"> </span><span class="m">0</span><span class="w"> </span>licenses<span class="w"> </span><span class="k">in</span><span class="w"> </span>use<span class="o">)</span>
 
 ......
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="running-matlab-on-scratch-space">Running MATLAB on Scratch Space</h2>
 <p>It is strongly recommended that iCER users run programs on the scratch
 space. This may improve the speed of job execution as well as the
@@ -7007,14 +6997,7 @@ command line or use the graphics through <code>ssh</code>, see the instructions 
 <ul>
 <li>
 <p><code>ssh</code> to one of the dev nodes and run Matlab:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@gateway:~&gt;<span class="w"> </span>ssh<span class="w"> </span>dev-intel16
+<div class="highlight"><pre><span></span><code>hpc@gateway:~&gt;<span class="w"> </span>ssh<span class="w"> </span>dev-intel16
 Last<span class="w"> </span>login:<span class="w"> </span>Mon<span class="w"> </span>Dec<span class="w">  </span><span class="m">4</span><span class="w"> </span><span class="m">12</span>:54:44<span class="w"> </span><span class="m">2017</span><span class="w"> </span>from<span class="w"> </span><span class="nv">gateway</span>
 <span class="o">===</span>
 This<span class="w"> </span>front-end<span class="w"> </span>node<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>meant<span class="w"> </span><span class="k">for</span><span class="w"> </span>running<span class="w"> </span>big<span class="w"> </span>or<span class="w"> </span>long-running<span class="w"> </span>jobs.<span class="w">  </span>Jobs
@@ -7022,18 +7005,18 @@ that<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </spa
 Long-running<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>on<span class="w"> </span>front-end<span class="w"> </span>nodes<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>killed<span class="w"> </span>without<span class="w"> </span>warning.
 <span class="o">===</span>
 hpc@dev-intel16:~&gt;<span class="w"> </span>matlab<span class="w"> </span>-nodisplay
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>More information about running jobs interactively on compute nodes can be reviewed
 at <a href="../Interactive_Job/">Running Programs Interactively</a></p>
 </li>
 <li>
 <p>If you require graphics, please ensure that you have an Xserver
     running. For Linux and MAC users,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>-X<span class="w"> </span>username@hpcc.msu.edu
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-X<span class="w"> </span>username@hpcc.msu.edu
+</code></pre></div>
 <p>If you want graphics, but don't want the desktop, type</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel16:~&gt;<span class="w"> </span>matlab<span class="w"> </span>-nodesktop
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>hpc@dev-intel16:~&gt;<span class="w"> </span>matlab<span class="w"> </span>-nodesktop
+</code></pre></div>
 <p>This will let you run code from the command line instead of from the IDE
 interface, but will still allow you to use graphics (e.g., make plots).</p>
 </li>
@@ -7045,16 +7028,7 @@ two hours.</p>
 <p>Longer interactive sessions are possible, but are not recommended.
 Modify the following commands to suit your requirements.</p>
 <p>If graphics are not required,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel18:-&gt;<span class="w"> </span>salloc<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>2gb<span class="w"> </span>--time<span class="o">=</span><span class="m">04</span>:00:00<span class="w"> </span>
+<div class="highlight"><pre><span></span><code>hpc@dev-intel18:-&gt;<span class="w"> </span>salloc<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>2gb<span class="w"> </span>--time<span class="o">=</span><span class="m">04</span>:00:00<span class="w"> </span>
 
 
 salloc:<span class="w"> </span>Granted<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">310982</span>
@@ -7064,10 +7038,10 @@ salloc:<span class="w"> </span>Waiting<span class="w"> </span><span class="k">fo
 salloc:<span class="w"> </span>Nodes<span class="w"> </span>lac-376<span class="w"> </span>are<span class="w"> </span>ready<span class="w"> </span><span class="k">for</span><span class="w"> </span>job
 
 hpc@dev-intel18:-&gt;<span class="w"> </span>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If graphics are required, add the option <code>–x11</code> to the <code>salloc</code> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel18:-&gt;<span class="w"> </span>salloc<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>2gb<span class="w"> </span>--time<span class="o">=</span><span class="m">04</span>:00:00<span class="w"> </span>--x11
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>hpc@dev-intel18:-&gt;<span class="w"> </span>salloc<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>2gb<span class="w"> </span>--time<span class="o">=</span><span class="m">04</span>:00:00<span class="w"> </span>--x11
+</code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The above commands submit a job to the cluster. If the resources are
@@ -7081,8 +7055,8 @@ program.</p>
 <h3 id="short-jobs-two-hours">Short Jobs (&lt; two hours)</h3>
 <p>A short job could be run on a development node without opening the matlab command
 window. From a development node, type</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel16:~&gt;<span class="w"> </span>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myMatlab&quot;</span><span class="w"> </span><span class="p">&amp;</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>hpc@dev-intel16:~&gt;<span class="w"> </span>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myMatlab&quot;</span><span class="w"> </span><span class="p">&amp;</span>
+</code></pre></div>
 <p><code>myMatlab.m</code> will start running in the background.</p>
 <h3 id="long-jobs-two-hours">Long Jobs (&gt; two hours)</h3>
 <h4 id="single-matlab-job">Single MATLAB Job</h4>
@@ -7090,29 +7064,7 @@ window. From a development node, type</p>
 submitted to the queue. The following
 sample job script file can be modified to suit your needs:</p>
 <p><code>myJob.sbatch</code></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1">### Specify the Resources Needed</span>
 
@@ -7135,7 +7087,7 @@ sample job script file can be modified to suit your needs:</p>
 
 <span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/my<span class="w">                           </span>
 matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myMatlab&quot;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <ul>
 <li><code>--time=02:05:00</code> is the number of <code>hours:minutes:seconds</code> your job needs to
     run. If it runs longer than this, it will be killed. If you request
@@ -7163,8 +7115,8 @@ matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w
 <li><code>--mail-user=myNetID@msu.edu</code> sets the email address SLURM uses; change <code>myNetID@msu.edu</code> to your preferred email address</li>
 </ul>
 <p>Submit your job with:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel16:~&gt;<span class="w"> </span>sbatch<span class="w"> </span>myJob.sbatch
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>hpc@dev-intel16:~&gt;<span class="w"> </span>sbatch<span class="w"> </span>myJob.sbatch
+</code></pre></div>
 <p><code>myJob.sbatch</code> is the name of your job script as shown above.</p>
 <h2 id="using-the-matlab-parallel-computing-toolbox">Using the MATLAB Parallel Computing Toolbox</h2>
 <p>The MATLAB Parallel Computing Toolbox (PCT) provides users several
@@ -7254,8 +7206,8 @@ on AMD node associated with the Java virtual machine. The patch may be
 introduced in the next release. If you find that the code works on other
 version but crashes in 2020a version, you may try the workaround that
 launch the matlab session without java virtual machine as the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@eval-epyc19<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-nojvm<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myExample&quot;</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@eval-epyc19<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-nojvm<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myExample&quot;</span>
+</code></pre></div>
 <h2 id="using-matlab-with-python">Using MATLAB with Python</h2>
 <p><a href="https://www.mathworks.com/campaigns/offers/matlab-python-cheat-sheets.html?s_v1=41575&amp;elqem=3644189_EM_NA_DIR_22-01_MOE-EDU&amp;elqTrackId=34b76d429da64510a62e451f34bee44d&amp;elq=2311bc59dea9450fa1d52bb1e3446db8&amp;elqaid=41575&amp;elqat=1&amp;elqCampaignId=15309">Here</a> is the link to the cheat sheets provided by the
 Mathworks for users' reference.</p>

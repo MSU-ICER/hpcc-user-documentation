@@ -7030,91 +7030,57 @@ text box. Your job will queue onto a Data Machine node. Other resources (time,
 <h2 id="slurm-scripting-data-machine-access">SLURM scripting Data Machine access</h2>
 <p>Below are some examples of SLURM resource requests for the Data Machine.</p>
 <h3 id="partial-data-machine-node">Partial Data Machine node</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
 <span class="c1">#SBATCH --cpus-per-task=32  # Set to your desired number of CPUs</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="full-data-machine-node-with-no-gpu-with-large-memory">Full Data Machine node with no <abbr title="Graphics Processing Unit">GPU</abbr> with large memory</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=2TB  # Uses all memory on a large memory node</span>
 <span class="c1">#SBATCH --cpus-per-task=128  # Uses all CPUs on a node</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="one-gpu-unit-on-a-single-node">One <abbr title="Graphics Processing Unit">GPU</abbr> unit on a single node</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
 <span class="c1">#SBATCH --cpus-per-task=32  # Set to your desired number of CPUs</span>
 <span class="c1">#SBATCH --gpus=a100_slice  # Request one GPU unit on the reserved node</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="two-gpu-units-on-a-single-node">Two <abbr title="Graphics Processing Unit">GPU</abbr> units on a single node</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
 <span class="c1">#SBATCH --cpus-per-task=32  # Set to your desired number of CPUs</span>
 <span class="c1">#SBATCH --gpus=a100_slice:2  # Request two GPU units on the reserved node</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="one-full-gpu-on-a-single-node">One full <abbr title="Graphics Processing Unit">GPU</abbr> on a single node</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
 <span class="c1">#SBATCH --cpus-per-task=32  # Set to your desired number of CPUs</span>
 <span class="c1">#SBATCH --gpus=a100  # Request one GPU on the reserved node</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="two-full-gpus-on-a-single-node">Two full GPUs on a single node</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
 <span class="c1">#SBATCH --time=4:00:00  # Reserve for four hours (or your desired amount of time)</span>
 <span class="c1">#SBATCH --mem=256GB  # Set to your desired amount of memory</span>
 <span class="c1">#SBATCH --cpus-per-task=32  # Set to your desired number of CPUs</span>
 <span class="c1">#SBATCH --gpus=a100:2  # Request two GPUs on the reserved node</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="using-the-fast-nvme-storage">Using the fast NVME storage</h2>
 <p>You can preload your data into local NVME storage using "burst buffers".
 SLURM will move the data you want to use into NVME storage before your job starts.</p>
@@ -7124,19 +7090,12 @@ data machine. This ensures that the time SLURM takes to move your data does not
 count against the time you reserve the node for.</p>
 <p>However, be careful which node you pick. If this node is busy, SLURM will wait
 until it is available to assign it to you. You can use the </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>buyin_status<span class="w"> </span>--account<span class="w"> </span>data-machine
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>buyin_status<span class="w"> </span>--account<span class="w"> </span>data-machine
+</code></pre></div>
 <p>to see the current usage of the Data Machine nodes.</p>
 <h4 id="example-burst-buffer-resource-specification">Example burst buffer resource specification</h4>
 <p>In this example, we'll assume that we don't need a <abbr title="Graphics Processing Unit">GPU</abbr> and choose <code>acm-048</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
 <span class="c1">#SBATCH --nodelist=acm-048  # Restrict to a specific data machine node</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
@@ -7144,7 +7103,7 @@ until it is available to assign it to you. You can use the </p>
 <span class="c1">#SBATCH --memory=256GB  # Set to your desired amount of memory</span>
 <span class="c1">#SBATCH --cpus-per-task=128  # Set to your desired number of CPUs</span>
 <span class="c1">#BB source=/mnt/home/&lt;username&gt;/important/data/here</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="using-the-local-data">Using the local data</h3>
 <p>SLURM sets an environment variable <code>BB_DATA</code> with the location of your data on
 the local NVME storage. Use this directory to access your data with less
@@ -7156,14 +7115,7 @@ job ends. However, if you add the specification <code>resync=true</code> to the 
 in your submission script, that data will be copied to the location it was
 originally taken from after the job ends.</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --account=data-machine  # Run under the data machine buy-in</span>
 <span class="c1">#SBATCH --nodelist=acm-048  # Restrict to a specific data machine node</span>
 <span class="c1">#SBATCH --nodes=1  # Reserve only one node</span>
@@ -7171,34 +7123,29 @@ originally taken from after the job ends.</p>
 <span class="c1">#SBATCH --memory=256GB  # Set to your desired amount of memory</span>
 <span class="c1">#SBATCH --cpus-per-task=128  # Set to your desired number of CPUs</span>
 <span class="c1">#BB source=/mnt/home/&lt;username&gt;/important/data/here resync=true</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="debugging-burst-buffer-issues">Debugging burst buffer issues</h3>
 <p>To check on the status of your submitted jobs, use the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>squeue<span class="w"> </span>--me
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>squeue<span class="w"> </span>--me
+</code></pre></div>
 <p>The <code>NODELIST(REASON)</code> column of the output may give information relevant to
 burst buffer steps, e.g.,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>   JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
+<div class="highlight"><pre><span></span><code>   JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
 24411390 data-mach data_mac grosscra  PENDING       0:00   1:00:00      1 (BurstBufferResources)
 24411197 data-mach data_mac grosscra  PENDING       0:00   1:00:00      1 (burst_buffer/lua: slurm_bb_data_in: )
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>A job with the <code>BurstBufferResources</code> reason is waiting for a node to run on
 and begin transferring resources. In the example above, a job is running the
 <code>slurm_bb_data_in</code>, i.e., it is transferring the data to the node.</p>
 <p>For more information or if there are problems with the burst buffer specification, use the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span>&lt;jobid&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span>&lt;jobid&gt;
+</code></pre></div>
 <p>For example, running <code>scontrol show job 24411197</code> while the job above was transferring data, the output ends with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>...
+<div class="highlight"><pre><span></span><code>...
 BurstBuffer=#BB source=/mnt/home/grosscra/scripts
 BurstBufferState=staging-in
 ...
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Often the <code>Comment</code> field in the <code>scontrol show job &lt;jobid&gt;</code> output can give helpful burst buffer information.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

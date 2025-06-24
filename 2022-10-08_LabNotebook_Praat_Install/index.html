@@ -6558,54 +6558,39 @@ information and other details.</p>
 </div>
 <h1 id="running-praat-on-hpcc-2022-10-08">Running Praat on HPCC (2022-10-08)</h1>
 <p>I got <a href="https://www.fon.hum.uva.nl/praat/">Praat</a> working on the system.  It requires a newer version of CentOS and a few tricks but it is working.  To start we need to make a folder with a singularity overlay in it and add conda (for dependencies):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir praat
+<div class="highlight"><pre><span></span><code>mkdir praat
 cd praat
 module load powertools
 overlay_build
 overlay_resize 10
 overlay_install_conda
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Next we need to download a CentOS8 image which has the some upgraded libraries that praat needs:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity pull --arch amd64 library://godloved/secure/centos8:20200805.0.0
+<div class="highlight"><pre><span></span><code>singularity pull --arch amd64 library://godloved/secure/centos8:20200805.0.0
 mv centos8_20200805.0.0.sif centos8.sif
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now we can start singularity with the overlay and install some requirements (actually, mfa is not a requirement but this research team is using it for something else):</p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_start overlay.img centos8.sif
+<p><div class="highlight"><pre><span></span><code>overlay_start overlay.img centos8.sif
 conda install -c conda-forge gtk3
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda install -c conda-forge pulseaudio
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda install -c conda-forge montreal-forced-aligner
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>conda install -c conda-forge pulseaudio
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>conda install -c conda-forge montreal-forced-aligner
+</code></pre></div></p>
 <p>Finally, we can download praat and copy it to our singularity image:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>wget https://www.fon.hum.uva.nl/praat/praat6223_linux64.tar.gz
+<div class="highlight"><pre><span></span><code>wget https://www.fon.hum.uva.nl/praat/praat6223_linux64.tar.gz
 tar -xzvf praat6223_linux64.tar.gz
 mv ./praat /praat
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>That should be it. We now connect to the HPCC using an X11 connection. The easiest way to do that is to start an interactive desktop form <a href="http://ondemand.hpcc.msu.edu">OnDemand</a>. Once the desktop is running, open a terminal, change to the praat directory and run the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>cd praat
+<div class="highlight"><pre><span></span><code>cd praat
 singularity exec -B /usr/bin/:/sysbin/ \
                  --env LD_LIBRARY_PATH=/miniconda3/lib:/.singularity.d/lib \
                  --env TERM=vt100 \
                  --env PATH=/miniconda3/bin/:/usr/local/sbin:/usr
 /local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/ \
                  --overlay overlay.img centos8.sif /praat
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>I also have an OnDemand App working in a basic dev environment but need to do some testing to find an easy way to share overlay images.  </p>
 <hr />
 <p>This overview of singularity was initially written by Dirk Colbry and is just intended of an example of how to install and run things on the HPCC. Please contact the ICER User Support Team if you need any help getting your workflow up and running.</p>

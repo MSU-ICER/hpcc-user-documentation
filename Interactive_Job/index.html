@@ -6792,63 +6792,30 @@ terminal and reconnect to the interactive session following the information at
 <code>interact -h</code>. </p>
 <h2 id="salloc-command">salloc command</h2>
 <p>For <strong>salloc</strong>, the command line</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>salloc<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--time<span class="o">=</span><span class="m">1</span>:00:00
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>salloc<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--time<span class="o">=</span><span class="m">1</span>:00:00
+</code></pre></div>
 <p>will allocate a job with resources of 1 node, 2 cores and walltime 1
 hour. The execution will first wait until the job controller can provide
 the resources.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18<span class="w"> </span>WorkDir<span class="o">]</span>$<span class="w"> </span>salloc<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--time<span class="o">=</span><span class="m">1</span>:00:00
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18<span class="w"> </span>WorkDir<span class="o">]</span>$<span class="w"> </span>salloc<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--time<span class="o">=</span><span class="m">1</span>:00:00
 salloc:<span class="w"> </span>Required<span class="w"> </span>node<span class="w"> </span>not<span class="w"> </span>available<span class="w"> </span><span class="o">(</span>down,<span class="w"> </span>drained<span class="w"> </span>or<span class="w"> </span>reserved<span class="o">)</span>
 salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">7625</span><span class="w"> </span>queued<span class="w"> </span>and<span class="w"> </span>waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resources
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Once that happens, the terminal will be transported to a command prompt
 on a compute node assigned to the job.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18<span class="w"> </span>WorkDir<span class="o">]</span>$<span class="w"> </span>salloc<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--time<span class="o">=</span><span class="m">1</span>:00:00
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18<span class="w"> </span>WorkDir<span class="o">]</span>$<span class="w"> </span>salloc<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--time<span class="o">=</span><span class="m">1</span>:00:00
 salloc:<span class="w"> </span>Required<span class="w"> </span>node<span class="w"> </span>not<span class="w"> </span>available<span class="w"> </span><span class="o">(</span>down,<span class="w"> </span>drained<span class="w"> </span>or<span class="w"> </span>reserved<span class="o">)</span>
 salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">7625</span><span class="w"> </span>queued<span class="w"> </span>and<span class="w"> </span>waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resources
 salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">7625</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>allocated<span class="w"> </span>resources
 <span class="o">[</span>username@test-skl-000<span class="w"> </span>WorkDir<span class="o">]</span>$
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where "<strong>test-skl-000</strong>" after the symbol <strong>@</strong> is the name of the
 assigned compute node.</p>
 <h3 id="salloc-and-gpus">salloc and GPUs</h3>
 <p>GPUs requested for an interactive job can now be used without submitting
 an additional srun. See our pages on our <a href="../GPU_resources/"><abbr title="Graphics Processing Unit">GPU</abbr> resources</a>
 and <a href="../Requesting_GPUs/">requesting GPUs</a> for more information.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>salloc<span class="w"> </span>--gpus<span class="o">=</span>k80:1<span class="w"> </span>--time<span class="o">=</span><span class="m">1</span>:00:00
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>salloc<span class="w"> </span>--gpus<span class="o">=</span>k80:1<span class="w"> </span>--time<span class="o">=</span><span class="m">1</span>:00:00
 salloc:<span class="w"> </span>Pending<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">28241766</span>
 salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">28241766</span><span class="w"> </span>queued<span class="w"> </span>and<span class="w"> </span>waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resources
 salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">28241766</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>allocated<span class="w"> </span>resources
@@ -6876,19 +6843,15 @@ Thu<span class="w"> </span>Jan<span class="w">  </span><span class="m">4</span><
 <span class="p">|</span><span class="o">=============================================================================</span><span class="p">|</span>
 <span class="p">|</span><span class="w">  </span>No<span class="w"> </span>running<span class="w"> </span>processes<span class="w"> </span>found<span class="w">                                                 </span><span class="p">|</span>
 +-----------------------------------------------------------------------------+
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="srun-command">srun command</h2>
 <p>A similar way can also be used with <strong>srun</strong> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18<span class="w"> </span>WorkDir<span class="o">]</span>$<span class="w"> </span>srun<span class="w"> </span>-N<span class="w"> </span><span class="m">4</span><span class="w"> </span>--ntasks-per-node<span class="o">=</span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span><span class="m">00</span>:60:00<span class="w"> </span>--mem-per-cpu<span class="o">=</span>1000M<span class="w"> </span>--pty<span class="w"> </span>/bin/bash
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18<span class="w"> </span>WorkDir<span class="o">]</span>$<span class="w"> </span>srun<span class="w"> </span>-N<span class="w"> </span><span class="m">4</span><span class="w"> </span>--ntasks-per-node<span class="o">=</span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span><span class="m">00</span>:60:00<span class="w"> </span>--mem-per-cpu<span class="o">=</span>1000M<span class="w"> </span>--pty<span class="w"> </span>/bin/bash
 srun:<span class="w"> </span>Required<span class="w"> </span>node<span class="w"> </span>not<span class="w"> </span>available<span class="w"> </span><span class="o">(</span>down,<span class="w"> </span>drained<span class="w"> </span>or<span class="w"> </span>reserved<span class="o">)</span>
 srun:<span class="w"> </span>job<span class="w"> </span><span class="m">7636</span><span class="w"> </span>queued<span class="w"> </span>and<span class="w"> </span>waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resources
 srun:<span class="w"> </span>Granted<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">7636</span>
 <span class="o">[</span>username@test-skl-000<span class="w"> </span>WorkDir<span class="o">]</span>$<span class="w"> </span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>As we can see, the specification "<strong>--pty /bin/bash</strong>" is required for
 <strong>srun</strong> command to request an interactive mode. Any command executed in
 this kind of interactive jobs will be launched parallelly with the
@@ -6909,16 +6872,7 @@ and so this will not work with putty. </p>
 <p>The other option is to first log
 into our web-based remote desktop, and run the terminal there. See
 <a href="../Open_OnDemand/">Web Site Access to HPCC</a> for <abbr title="Graphic User Interface">GUI</abbr> software. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@gateway-03<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>ssh<span class="w"> </span>-X<span class="w"> </span>dev-intel18
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@gateway-03<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>ssh<span class="w"> </span>-X<span class="w"> </span>dev-intel18
 <span class="o">[</span>username@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>WorkdDir<span class="w">  </span><span class="c1"># this is optional, but you may want to select your work directory, for example</span>
 <span class="o">[</span>username@dev-intel18<span class="w"> </span>WorkDir<span class="o">]</span>$<span class="w"> </span>salloc<span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="w"> </span><span class="m">2</span><span class="w"> </span>--time<span class="w"> </span><span class="m">00</span>:30:00<span class="w"> </span>--x11
 salloc:<span class="w"> </span>Granted<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">7708</span>
@@ -6928,7 +6882,7 @@ salloc:<span class="w"> </span>Nodes<span class="w"> </span>css-076<span class="
 <span class="o">[</span>username@css-076<span class="w"> </span>WorkDir<span class="o">]</span>$<span class="w"> </span>matlab
 MATLAB<span class="w"> </span>is<span class="w"> </span>selecting<span class="w"> </span>SOFTWARE<span class="w"> </span>OPENGL<span class="w"> </span>rendering.
 Opening<span class="w"> </span>log<span class="w"> </span>file:<span class="w">  </span>/mnt/home/username/java.log.7159
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p><img alt="A screenshot of the MATLAB interactive development environment." src="../attachments/20119770/20119780.png" /></p>
 <!--
 <div class="pageSectionHeader">

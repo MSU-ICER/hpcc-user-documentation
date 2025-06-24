@@ -6554,68 +6554,12 @@ Please use the 2.3.2 version of the image from this point forward. Please see <a
 </div>
 <h1 id="lab-notebook-instructions-for-alphafold-version-231-singulairty-2023-07-18depcreated-see-warnings">Lab Notebook --- Instructions for AlphaFold version 2.3.1, Singulairty (2023-07-18)(DEPCREATED, see warnings)</h1>
 <p>These instructions are a work in progression for running AlphaFold version 2.3.1 using the singularity container found at:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/opt/software/alphafold/2.3.1/alphafold_2.3.1_latest.sif
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>/opt/software/alphafold/2.3.1/alphafold_2.3.1_latest.sif
+</code></pre></div>
 <p>As with other containers in the <code>/opt/software/alphafold/</code> directory, AlphaFold 2.3.1 can be run via Singularity.</p>
 <p>Howevever, AlphaFold version after 2.3.0 use a database which is formatted differently than pevious versions. This database is located in
 <code>/mnt/research/common-data/alphafold/database_230</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code>database_230
+<div class="highlight"><pre><span></span><code>database_230
 ──<span class="w"> </span>bfd<span class="w"> </span>-&gt;<span class="w"> </span>../database/bfd/
 ├──<span class="w"> </span>mgnify
 │<span class="w">   </span>├──<span class="w"> </span>mgy_clusters_2022_05.fa
@@ -6672,15 +6616,14 @@ Please use the 2.3.2 version of the image from this point forward. Please see <a
 │<span class="w">   </span>└──<span class="w"> </span>UniRef30_2021_03.tar.1.gz
 └──<span class="w"> </span>uniref90
 <span class="w">    </span>└──<span class="w"> </span>uniref90.fasta
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Before running AlphaFold 2.3.1, you need to set</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>export ALPHAFOLD_DATA_PATH=&quot;/mnt/research/common-data/alphafold/database&quot;  
+<div class="highlight"><pre><span></span><code>export ALPHAFOLD_DATA_PATH=&quot;/mnt/research/common-data/alphafold/database&quot;  
 export ALPHAFOLD_MODELS=&quot;/mnt/research/common-data/alphafold/database/params&quot;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>We also recommend disabling local Python libraries with the following argument to avoid conflicts with the Python installation within the Singularity container</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>export PYTHONNOUSERSITE=1
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>export PYTHONNOUSERSITE=1
+</code></pre></div>
 <p>Both the database and Python library parameters will be set automatically if you load the module "alphafold/2.3.1"</p>
 <p>To run Alphafold 2.3.1 via SLURM, please use the following template (for more
 information about options/flags, please refer to
@@ -6689,44 +6632,7 @@ information about options/flags, please refer to
 output_dir. Since the command <code>/usr/bin/hhsearch</code> inside the container
 does not work on intel14 nodes (<code>Illegal instruction</code>), please use the
 <code>SBATCH</code> option <code>--constraint</code> in the job script.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --job-name alphafold-run</span>
 <span class="c1">#SBATCH --time=08:00:00</span>
 <span class="c1">#SBATCH --gres=gpu:1</span>
@@ -6764,7 +6670,7 @@ singularity<span class="w"> </span>run<span class="w"> </span>--nv<span class="w
 --max_template_date<span class="o">=</span><span class="m">2020</span>-05-14<span class="w">   </span><span class="se">\ </span><span class="c1"># Update the template date if need be</span>
 --model_preset<span class="o">=</span>monomer<span class="w"> </span><span class="se">\</span>
 --use_gpu_relax<span class="o">=</span><span class="nb">true</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

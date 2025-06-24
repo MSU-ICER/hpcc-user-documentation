@@ -6725,16 +6725,15 @@
 <p>The program <code>make</code> and Makefiles are a simple way to organize code compilation. This tutorial offers a very basic idea of what is possible using <code>make</code>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>For this tutorial, please run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
 getexample<span class="w"> </span>makefile_example2
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This will create a directory <code>makefile_example2</code> with a main program <code>hello.c</code>,
 a function <code>hellofunc.c</code>, and an include file <code>hello.h</code>.</p>
 <h2 id="compiling-by-hand">Compiling by hand</h2>
 <p>To compile this code, you would use the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>gcc<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c<span class="w"> </span>hellofunc.c<span class="w"> </span>-I.
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c<span class="w"> </span>hellofunc.c<span class="w"> </span>-I.
+</code></pre></div>
 <p>This command compiles the two C files, and names the executable hello. With the
 <code>-I.</code> flag, <code>gcc</code> will look in the current directory for the include file
 <code>hello.h</code>. For future steps, please remove the executable with <code>rm hello</code>.</p>
@@ -6748,10 +6747,9 @@ the <code>getexample</code>, so before we start, please move it to <code>makefil
 makefile makefile.bak</code>.</p>
 <p>Now, in the <code>makefile_example2</code> directory, create a file called <code>makefile</code>
 which has the following two lines:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">makefile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">hello</span><span class="o">:</span><span class="w"> </span><span class="n">hello</span>.<span class="n">c</span> <span class="n">hellofunc</span>.<span class="n">c</span>
+<div class="highlight"><span class="filename">makefile</span><pre><span></span><code><span class="nf">hello</span><span class="o">:</span><span class="w"> </span><span class="n">hello</span>.<span class="n">c</span> <span class="n">hellofunc</span>.<span class="n">c</span>
 <span class="w">    </span>gcc<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c<span class="w"> </span>hellofunc.c<span class="w"> </span>-I.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Here, the tab must actually be a tab character, not spaces.</p>
 <p>Now, type <code>make</code> on the terminal and check if the executable is created. The
 <code>make</code> command will execute the compile command as you have written it in the
@@ -6762,14 +6760,11 @@ the first line after the ':', <code>make</code> knows that the rule <code>hello<
 executed if any of those files change.</p>
 <h2 id="useful-makefile-variables">Useful Makefile variables</h2>
 <p>Can we make it a little bit more efficient? Let's modify <code>makefile</code> like so:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">makefile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc
+<div class="highlight"><span class="filename">makefile</span><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc
 <span class="nv">CFLAGS</span><span class="o">=</span>-I.
 <span class="nf">hello</span><span class="o">:</span><span class="w"> </span><span class="n">hello</span>.<span class="n">o</span> <span class="n">hellofunc</span>.<span class="n">o</span>
 <span class="w">    </span><span class="k">$(</span>CC<span class="k">)</span><span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.o<span class="w"> </span>hellofunc.o
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>In this Makefile, we define the variables <code>CC</code> and <code>CFLAGS</code>, which are special macros communicating to <code>make</code> how we want to compile the files <code>hello.c</code> and <code>hellofunc.c</code>.
 In particular, <code>CC</code> is for the C compiler, and <code>CFLAGS</code> is the list of flags to pass to C compiler.</p>
 <p>By putting the object files (<code>hello.o</code> and <code>hellofunc.o</code>) in the dependency
@@ -6782,15 +6777,7 @@ example, if you made a change to <code>hello.h</code>, <code>make</code> would n
 files, even though the change in <code>hello.h</code> may affect them. In order to fix
 this problem, we need to tell <code>make</code> that all <code>.c</code> files depend on certain <code>.h</code>
 files. This can be done by writing a simple rule and adding it to the Makefile.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">makefile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>CC=gcc
+<div class="highlight"><span class="filename">makefile</span><pre><span></span><code>CC=gcc
 CFLAGS=-I.
 DEPS = hello.h
 
@@ -6799,7 +6786,7 @@ DEPS = hello.h
 
 hello: hello.o hellofunc.o
     $(CC) -o hello hello.o hellofunc.o
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This addition first creates the macro <code>DEPS</code> (the macro name can be anything),
 which is the set of <code>.h</code> files on which the <code>.c</code> files depend.</p>
 <p>Then we define a rule for all <code>.o</code> files. The rule says that each <code>.o</code> file
@@ -6824,16 +6811,7 @@ rule to work for multiple files at once.</p>
 <p>In the example below, all of the include files should be listed as part of the
 macro <code>DEPS</code>, and all of the object files should be listed as part of the macro
 <code>OBJ</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">makefile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc
+<div class="highlight"><span class="filename">makefile</span><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc
 <span class="nv">CFLAGS</span><span class="o">=</span>-I.
 <span class="nv">DEPS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hello.h
 <span class="nv">OBJ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hello.o<span class="w"> </span>hellofunc.o
@@ -6843,7 +6821,7 @@ macro <code>DEPS</code>, and all of the object files should be listed as part of
 
 <span class="nf">hello</span><span class="o">:</span><span class="w"> </span><span class="k">$(</span><span class="nv">OBJ</span><span class="k">)</span>
 <span class="w">    </span><span class="k">$(</span>CC<span class="k">)</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span><span class="w"> </span>$^<span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="further-resources">Further resources</h2>
 <p>Now you have a good sense of the Makefile. For more information on Makefiles and the <code>make</code> function, check out the <a href="http://www.gnu.org/software/make/manual/make.html">GNU Make Manual</a>. </p>
 <p>You can download some other Makefile examples on the HPCC using <a href="../getexample/">getexample</a>.</p>

@@ -6540,31 +6540,7 @@ the HPCC.</p>
 an unified read-write file setting (<code>%RWF</code>) should be in the Link 0
 section of the input file. An example <code>water.gjf</code> is in the following:</p>
 <p><strong>water.gjf</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>%NProcShared<span class="o">=</span><span class="m">2</span>
+<div class="highlight"><pre><span></span><code>%NProcShared<span class="o">=</span><span class="m">2</span>
 %Mem<span class="o">=</span>3GB
 %RWF<span class="o">=</span>water.rwf
 %NoSave
@@ -6589,7 +6565,7 @@ H<span class="w">   </span>-2.99563400<span class="w"> </span>-1.73945600<span c
 H<span class="w">   </span>-2.43456700<span class="w">  </span><span class="m">2</span>.07972500<span class="w"> </span>-2.17761600
 H<span class="w">   </span>-2.58174600<span class="w">  </span><span class="m">2</span>.66131900<span class="w"> </span>-0.75942800
 H<span class="w">   </span>-3.39743400<span class="w"> </span>-2.42788000<span class="w">  </span><span class="m">0</span>.69711700
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The input file requests geometry optimization of 5 water molecules with
 a very large basis set <code>aug-cc-pVTZ</code>. It will take about 25 <abbr title="Central Processing Unit">CPU</abbr> hours to
 finish the whole calculation. We have the setting on <code>%RWF</code> which
@@ -6601,26 +6577,20 @@ normally completed without any error.</p>
 stops, we can build a restart Gaussian input file <code>restart.gjf</code> simply
 as</p>
 <p><strong>restart.gjf</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>%NProcShared<span class="o">=</span><span class="m">2</span>
+<div class="highlight"><pre><span></span><code>%NProcShared<span class="o">=</span><span class="m">2</span>
 %Mem<span class="o">=</span>3GB
 %RWF<span class="o">=</span>waters.rwf
 %NoSave
 %chk<span class="o">=</span>waters.chk
 <span class="c1">#P Restart</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Since all information about the calculation is recorded in the rwf file,
 a line with "Restart" is enough for Gaussian to restart from the
 previous job. This restart input file can also be created by the
 commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>grep<span class="w"> </span><span class="s1">&#39;^%&#39;</span><span class="w"> </span>waters.gjf<span class="w"> </span>&gt;<span class="w"> </span>restart.gjf
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s1">&#39;^%&#39;</span><span class="w"> </span>waters.gjf<span class="w"> </span>&gt;<span class="w"> </span>restart.gjf
 <span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;#P Restart\n&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>restart.gjf
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where we simply "<code>grep</code>" the lines starting with "<code>%</code>" sign in
 <code>water.gjf</code> and put them in the Gaussian restart file with
 "<code>#P Restart</code>" line in the end.</p>

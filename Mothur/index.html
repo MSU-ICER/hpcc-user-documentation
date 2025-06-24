@@ -6654,12 +6654,10 @@
 <h1 id="mothur">Mothur</h1>
 <h2 id="loading-mothur">Loading Mothur</h2>
 <p>Mothur version 1.40.3 on the HPCC has two running modes, with and without <abbr title="Message Passing Interface">MPI</abbr> functionality. You can load either one by:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 module load icc/2017.1.132-GCC-6.3.0-2.27 impi/2017.1.132 Mothur/1.40.3-nonMPI-Python-2.7.13        # Mothur non-MPI version
 module load icc/2017.1.132-GCC-6.3.0-2.27 impi/2017.1.132 Mothur/1.40.3-Python-2.7.13               # Mothur MPI version
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <ul>
 <li>
 <p>As of Feb 7, 2019, the highest version is Mothur/1.41.3 (in <abbr title="Message Passing Interface">MPI</abbr> mode only).</p>
@@ -6671,17 +6669,15 @@ module load icc/2017.1.132-GCC-6.3.0-2.27 impi/2017.1.132 Mothur/1.40.3-Python-2
 <h2 id="running-mothur">Running Mothur</h2>
 <p>Take a look at this example code <code>batch.m</code>:</p>
 <p><strong><code>/mnt/research/common-data/Examples/mothur/batch.m</code></strong>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>set.current(fasta=ex.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.subsample.fasta, count=ex.trim.contigs.good.unique.good.filter.unique.precluster.uchime.pick.pick.subsample.count_table,  processors=1)
+<div class="highlight"><pre><span></span><code>set.current(fasta=ex.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.subsample.fasta, count=ex.trim.contigs.good.unique.good.filter.unique.precluster.uchime.pick.pick.subsample.count_table,  processors=1)
 dist.seqs(fasta=current, cutoff=0.2, processors=8)
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where we specified <code>processors=8</code> in line 2. To be able to actually
 utilize 8 processors, you need to launch Mothur using either of the
 following commands, depending on whether <abbr title="Message Passing Interface">MPI</abbr> is enabled or not.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>MPI: mpirun -np 8 mothur batch.m
+<div class="highlight"><pre><span></span><code>MPI: mpirun -np 8 mothur batch.m
 non-MPI: mothur batch.m
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="differences-between-mpi-and-non-mpi-runs">Differences between <abbr title="Message Passing Interface">MPI</abbr> and non-<abbr title="Message Passing Interface">MPI</abbr> runs</h2>
 <p><abbr title="Message Passing Interface">MPI</abbr> jobs can run across multiple nodes at the cost of overhead. This can
 lead to increased memory usage and decreased performance. The additional

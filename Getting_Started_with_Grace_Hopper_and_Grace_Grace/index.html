@@ -6777,22 +6777,18 @@ such as <code>dev-amd24-h200</code> and the <code>nfh</code> and <code>neh</code
 <li>These nodes have slower-than-normal home directory and research space access. Researchers may wish to stage data or code to the node in <code>/tmp</code>. </li>
 <li>
 <p>Software pre-installed by ICER is different than what is available on other nodes. To access the <code>module</code> command and all software currently built for the Grace Hopper systems, run </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/cvmfs/software.eessi.io/versions/2023.06/init/bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>module<span class="w"> </span>use<span class="w"> </span>/opt/modules/all
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/cvmfs/software.eessi.io/versions/2023.06/init/bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>module<span class="w"> </span>use<span class="w"> </span>/opt/modules/all
+</code></pre></div>
 <p>Please note that you may see references to modules on the main cluster being inactive, as SLURM copies these references over before the line above deactivates them. These modules are non-functional on the Grace nodes.</p>
 </li>
 <li>
 <p>Before running code that has been compiled on the Grace nodes, you need to load the <code>Compiled</code> module after all other dependent modules. For example, assuming that a code is compiled using the <code>GCC/12.2.0</code>, <code>Cabana/0.6.1-foss-2022b-CUDA-12.1.1</code>, and <code>CUDA/12.1.1</code> modules, you should use the following lines to run your code:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>purge
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>GCC/12.2.0<span class="w"> </span>Cabana/0.6.1-foss-2022b-CUDA-12.1.1<span class="w"> </span>CUDA/12.1.1
 module<span class="w"> </span>load<span class="w"> </span>Compiled
 
 ./my-compiled-code
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </li>
 </ol>
 <p>We will update this page as we address these issues.</p>
@@ -6800,35 +6796,14 @@ module<span class="w"> </span>load<span class="w"> </span>Compiled
 <p>The primary mechanism to schedule jobs on Grace nodes is to use the SLURM option <code>--constraint NOAUTO:grace</code>.</p>
 <h3 id="interactive-jobs">Interactive jobs</h3>
 <p>To start an interactive job, use the template</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>salloc<span class="w"> </span>--constraint<span class="o">=</span>NOAUTO:grace<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">72</span><span class="w"> </span>--mem<span class="o">=</span>10G
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>salloc<span class="w"> </span>--constraint<span class="o">=</span>NOAUTO:grace<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">72</span><span class="w"> </span>--mem<span class="o">=</span>10G
+</code></pre></div>
 <p>If you would like to avoid using your default shell environment (due to any of the potential incompatibilities, see <a href="#differences-from-other-nodes">above</a>), you should use <code>srun</code> with option <code>--pty</code> and command <code>/bin/bash</code>,  e.g.,</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>srun<span class="w"> </span>--constraint<span class="o">=</span>NOAUTO:grace<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">72</span><span class="w"> </span>--mem<span class="o">=</span>10G<span class="w"> </span>--pty<span class="w"> </span>/bin/bash
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>srun<span class="w"> </span>--constraint<span class="o">=</span>NOAUTO:grace<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">72</span><span class="w"> </span>--mem<span class="o">=</span>10G<span class="w"> </span>--pty<span class="w"> </span>/bin/bash
+</code></pre></div>
 <p>If you have buy-in access to a Grace node, you should additionally add the option <code>--account=&lt;buy-in-name&gt;</code>. By using the <code>--gpus:1</code> option, jobs are restricted to only running on Grace Hopper nodes. Removing this options allows jobs to run on any Grace node.</p>
 <h3 id="job-script-template">Job script template</h3>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">grace_hopper_template.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><span class="filename">grace_hopper_template.sb</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1">#SBATCH --constraint=NOAUTO:grace  # Only run on Grace nodes</span>
 <span class="c1">#SBATCH --time=3:00:00             # Run for three hours</span>
@@ -6850,7 +6825,7 @@ matrixMulCUBLAS
 
 <span class="c1"># Output debugging information</span>
 scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="see-also">See also</h2>
 <p>Users may wish to refer to NVIDIA's documentation:</p>
 <ul>

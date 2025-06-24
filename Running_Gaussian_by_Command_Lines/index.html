@@ -6587,21 +6587,7 @@
 <h1 id="running-gaussian-by-command-lines">Running Gaussian by Command Lines</h1>
 <p>Here we are going to do an geometry optimization calculation on a simple molecule Formamide (HCONH<sub>2</sub>). Users can use the Gaussian input file <code>g16.com</code> :</p>
 <p><strong>g16.com</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>%NProcShared<span class="o">=</span><span class="m">4</span>
+<div class="highlight"><pre><span></span><code>%NProcShared<span class="o">=</span><span class="m">4</span>
 %Mem<span class="o">=</span>5GB
 %NoSave
 %chk<span class="o">=</span>g16.chk
@@ -6616,7 +6602,7 @@ Title<span class="w"> </span>Card:<span class="w"> </span>Single<span class="w">
 <span class="w"> </span>N<span class="w">                  </span><span class="m">3</span>.10941607<span class="w">   </span>-5.34695260<span class="w">   </span>-0.05391726
 <span class="w"> </span>H<span class="w">                  </span><span class="m">2</span>.79423275<span class="w">   </span>-5.53644967<span class="w">    </span><span class="m">0</span>.87600227
 <span class="w"> </span>H<span class="w">                  </span><span class="m">2</span>.31994463<span class="w">   </span>-5.24505745<span class="w">   </span>-0.65918762<span class="w">                                                      </span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>In the file, the <code>%</code> lines (Link 0 section) specify the system
 resources. <code>%NprocShared</code> gives how many CPUs to use in a node and
 <code>%Mem</code> indicates how much memory to use. If any file specified before
@@ -6628,22 +6614,7 @@ Card section. After that, use Molecule Specification section to assign
 the coordinates of the atoms with the charge and spin multiplicity of
 the system in the first line. Please <strong>make sure there is at least one empty line in the end of file</strong>.</p>
 <p>By logging into HPCC and ssh to a dev node, users can find Gaussian program installed in HPCC with the module commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module spider Gaussian
+<div class="highlight"><pre><span></span><code>$ module spider Gaussian
 
 ----------------------------
   Gaussian:
@@ -6659,13 +6630,13 @@ the system in the first line. Please <strong>make sure there is at least one emp
 
      $ module spider Gaussian/g16
 ----------------------------
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Please load Gaussian module with g16 version:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Gaussian/16-AVX
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Gaussian/16-AVX
+</code></pre></div>
 <p>and the Gaussian command "g16" can be used. Simply run the command by giving the input and output file names:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>g16<span class="w"> </span>&lt;<span class="w"> </span>g16.com<span class="w"> </span>&gt;<span class="w"> </span>g16.log
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>g16<span class="w"> </span>&lt;<span class="w"> </span>g16.com<span class="w"> </span>&gt;<span class="w"> </span>g16.log
+</code></pre></div>
 <p>and it starts to calculate the system on the node. It will take about 2
 minutes to complete the calculation. After it is finished, you can check
 the output file <code>g16.log</code>. All dev nodes have 2-hour <abbr title="Central Processing Unit">CPU</abbr> limit. Please

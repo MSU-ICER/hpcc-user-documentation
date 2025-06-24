@@ -6581,29 +6581,29 @@ information and other details.</p>
 <li>
 <p><strong>Create a Modelfile:</strong></p>
 <p>Save the following content as <code>Modelfile</code> (update the path as necessary; no file extension is required). This file specifies the location of your <code>.gguf</code> model.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>FROM /path/to/your/model.gguf
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>FROM /path/to/your/model.gguf
+</code></pre></div>
 </li>
 <li>
 <p><strong>Load the ollama module:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module load Ollama
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module load Ollama
+</code></pre></div>
 </li>
 <li>
 <p><strong>Start the ollama server:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ollama serve &amp;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ollama serve &amp;
+</code></pre></div>
 </li>
 <li>
 <p><strong>Create the custom model:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ollama create new-model-name -f Modelfile
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ollama create new-model-name -f Modelfile
+</code></pre></div>
 <p>The name given here will be the name displayed in <code>ollama list</code>.</p>
 </li>
 <li>
 <p><strong>Run the model:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ollama run new-model-name
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ollama run new-model-name
+</code></pre></div>
 </li>
 </ol>
 <h2 id="example-2-customizing-a-pre-built-base-model">Example 2: Customizing a Pre-built Base Model</h2>
@@ -6612,34 +6612,31 @@ information and other details.</p>
 <li>
 <p><strong>Create a Modelfile:</strong></p>
 <p>Save this content as <code>Modelfile</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>FROM llama3.2
+<div class="highlight"><pre><span></span><code>FROM llama3.2
 PARAMETER temperature 0.7
 PARAMETER num_ctx 4096
 SYSTEM You are a knowledgeable assistant ready to help with detailed explanations.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </li>
 <li>
 <p><strong>Load the ollama module:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module load Ollama
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>module load Ollama
+</code></pre></div>
 </li>
 <li>
 <p><strong>Start the ollama server:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ollama serve &amp;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ollama serve &amp;
+</code></pre></div>
 </li>
 <li>
 <p><strong>Create your custom model:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ollama create custom-llama -f Modelfile
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ollama create custom-llama -f Modelfile
+</code></pre></div>
 </li>
 <li>
 <p><strong>Run the model:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ollama run custom-llama
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ollama run custom-llama
+</code></pre></div>
 </li>
 </ol>
 <h2 id="modelfile-syntax">Modelfile Syntax</h2>
@@ -6647,24 +6644,23 @@ SYSTEM You are a knowledgeable assistant ready to help with detailed explanation
 <ul>
 <li>
 <p><strong>FROM:</strong> Specifies the base model to use. For example, a local <code>.gguf</code> file:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>FROM /path/to/your/model.gguf
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>FROM /path/to/your/model.gguf
+</code></pre></div>
 <p>or a pre-built model from the ollama library:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>FROM llama3.2
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>FROM llama3.2
+</code></pre></div>
 <p>The <a href="https://ollama.com/library">Ollama Library</a> has a wide range of pre-built models for you to choose from.</p>
 </li>
 <li>
 <p><strong>PARAMETER:</strong> Sets configuration values for the model such as temperature or context window size. For example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>PARAMETER temperature 0.7
+<div class="highlight"><pre><span></span><code>PARAMETER temperature 0.7
 PARAMETER num_ctx 4096
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 </li>
 <li>
 <p><strong>SYSTEM:</strong> Defines a custom system message to control the model's behavior. For example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>SYSTEM You are a knowledgeable assistant ready to help.
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>SYSTEM You are a knowledgeable assistant ready to help.
+</code></pre></div>
 </li>
 </ul>
 <p>Other instructions like <code>TEMPLATE</code>, <code>ADAPTER</code>, and <code>MESSAGE</code> are available for advanced configurations. View the <a href="https://github.com/ollama/ollama/blob/main/docs/modelfile.md">Ollama Modelfile Docs</a> or <a href="https://github.com/ollama/ollama/blob/main/docs/import.md">Ollama import docs</a> for more information.</p>

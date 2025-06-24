@@ -6728,25 +6728,12 @@ information and other details.</p>
 <p>Use these instructions to setup your own Conda environment. You can make any customizations you like to better fit your workflow.</p>
 <h3 id="login">Login</h3>
 <p>The first step is to login and make sure that you are on a development node with a <abbr title="Graphics Processing Unit">GPU</abbr>. This specific tutorial uses <code>dev-amd20-v100</code> because it has a newer <abbr title="Graphics Processing Unit">GPU</abbr> more in line with the GPUs found on the Data Machine. Most importantly, they are both compatible with <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr> 12 whereas the k20 and k80 GPUs are not.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># From a gateway node</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># From a gateway node</span>
 ssh<span class="w"> </span>dev-amd20-v100
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="install-packages">Install packages</h3>
 <p>The next step is to get access to <a href="../Using_conda/">Conda</a>. Using the <code>Miniforge3</code> module, create a new environment and install the required packages from NVIDIA. Note that even though all of the packages are installed using <code>pip</code>, we still create a Conda environment as this works best with OnDemand.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 module load Miniforge3 CUDA
 conda create -n ml
 conda activate ml
@@ -6759,7 +6746,7 @@ python -m pip install torch torchvision torchaudio --index-url https://download.
 python -m pip install torcheval
 python -m pip install matplotlib
 python -m pip install tqdm
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 

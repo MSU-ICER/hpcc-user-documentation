@@ -6529,16 +6529,7 @@
 <h1 id="load-the-software">Load the software</h1>
 <p>When running <code>module spider orthomcl</code> on a dev-node, you will see the
 following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>----------
+<div class="highlight"><pre><span></span><code>----------
 OrthoMCL:
 ----------
     Description:
@@ -6548,29 +6539,26 @@ OrthoMCL:
      Versions:
         OrthoMCL/2.0.9-custom-Perl-5.24.0
         OrthoMCL/2.0.9-Perl-5.24.0
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>They are the same version of OrthoMCL, except that the custom one has
 fixed a possible error due to sequence identifier. See
 the <a href="https://github.com/apetkau/orthomcl-pipeline/issues/25"
 rel="nofollow">issue</a> reported in GitHub.</p>
 <p>Since OrthoMCL uses BLAST, it needs to be loaded as well. An example of
 loading OrthoMCL would be</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 module load icc/2016.3.210-GCC-5.4.0-2.26  impi/5.1.3.181
 module load OrthoMCL/2.0.9-custom-Perl-5.24.0
 module load BLAST/2.2.26-Linux_x86_64
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The next thing you need to do is to request and set up your MySQL
 configuration file, see <a href="https://docs.icer.msu.edu/MySQL_configuration/"
 rel="nofollow">https://docs.icer.msu.edu/MySQL_configuration/</a></p>
 <p>After you have your config file (say <code>orthomcl.config</code>) ready, you need
 to run <code>orthomclInstallSchema</code> to install the required schema into the
 database:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>orthomclInstallSchema orthomcl.config install_schema.log
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>orthomclInstallSchema orthomcl.config install_schema.log
+</code></pre></div>
 <p>For the rest of your analysis steps, please read <a
 href="http://orthomcl.org/common/downloads/software/v2.0/UserGuide.txt"
 rel="nofollow">http://orthomcl.org/common/downloads/software/v2.0/UserGuide.txt</a></p>

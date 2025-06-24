@@ -6559,36 +6559,7 @@
 
 <h1 id="showing-job-steps">Showing job steps</h1>
 <p>SLURM provides commands to show the execution information of each command line in a job script. This can be helpful for debugging and testing. In order to get  such information, the wrapper command <code>srun</code> needs to be used. Let's take a look at the following job script:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1">#SBATCH -N 4 -n 4 -c 2</span>
 <span class="c1">#SBATCH --time=00:05:00</span>
@@ -6618,23 +6589,12 @@ mpirun<span class="w"> </span>NoSuchCommand<span class="w">                     
 
 echo<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;====== scontrol show job </span><span class="nv">$SLURM_JOB_ID</span><span class="s2"> ======&quot;</span>
 srun<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="w">         </span><span class="c1">#5 Step</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Although there are many command lines, only 6 of them are executed with
 either <strong>mpirun</strong> or <strong>srun</strong> wrapper and marked with the comments (from step 0 to 5) in the end. SLURM can record each of the 6 executions as
 a job step. Once the job is submitted by <strong>sbatch</strong> command and starts
 running, you can use <strong>sacct</strong> command to check the steps:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="m">10732</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="m">10732</span>
 <span class="w">       </span>JobID<span class="w">    </span>JobName<span class="w">  </span>Partition<span class="w">    </span>Account<span class="w">  </span>AllocCPUS<span class="w">      </span>State<span class="w"> </span>ExitCode
 ------------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>--------
 <span class="m">10732</span><span class="w">              </span><span class="nb">test</span><span class="w"> </span>general-l+<span class="w">   </span>classres<span class="w">          </span><span class="m">8</span><span class="w">  </span>COMPLETED<span class="w">      </span><span class="m">0</span>:0
@@ -6646,57 +6606,12 @@ running, you can use <strong>sacct</strong> command to check the steps:</p>
 <span class="m">10732</span>.3<span class="w">      </span>NoSuchCom+<span class="w">              </span>classres<span class="w">          </span><span class="m">8</span><span class="w">     </span>FAILED<span class="w">      </span><span class="m">2</span>:0
 <span class="m">10732</span>.4<span class="w">           </span>orted<span class="w">              </span>classres<span class="w">          </span><span class="m">6</span><span class="w">  </span>COMPLETED<span class="w">      </span><span class="m">0</span>:0
 <span class="m">10732</span>.5<span class="w">        </span>scontrol<span class="w">              </span>classres<span class="w">          </span><span class="m">1</span><span class="w">  </span>COMPLETED<span class="w">      </span><span class="m">0</span>:0
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where the Job has ID 10732 and the 6 steps are shown from JobID 10732.0
 to 10732.5.</p>
 <p>We can also use a powertools command <a href="../js/"><strong>js</strong></a> to see more detailed information (such as memory usage and a list of
 used nodes) about the steps:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-j<span class="w"> </span><span class="m">10732</span><span class="w"> </span>-C5
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>js<span class="w"> </span>-j<span class="w"> </span><span class="m">10732</span><span class="w"> </span>-C5
 
 SLURM<span class="w"> </span>Job<span class="w"> </span>ID:<span class="w"> </span><span class="nv">10732</span>
 <span class="o">===============================================================================================================================</span>
@@ -6742,7 +6657,7 @@ SLURM<span class="w"> </span>Job<span class="w"> </span>ID:<span class="w"> </sp
 <span class="w">       </span>ExitCode<span class="w"> </span><span class="p">|</span><span class="w">                 </span><span class="m">0</span>:0<span class="w"> </span><span class="p">|</span><span class="w">                 </span><span class="m">2</span>:0<span class="w"> </span><span class="p">|</span><span class="w">                 </span><span class="m">0</span>:0<span class="w"> </span><span class="p">|</span><span class="w">                 </span><span class="m">0</span>:0<span class="w"> </span><span class="p">|</span>
 <span class="w">          </span>State<span class="w"> </span><span class="p">|</span><span class="w">           </span>COMPLETED<span class="w"> </span><span class="p">|</span><span class="w">              </span>FAILED<span class="w"> </span><span class="p">|</span><span class="w">           </span>COMPLETED<span class="w"> </span><span class="p">|</span><span class="w">           </span>COMPLETED<span class="w"> </span><span class="p">|</span>
 <span class="o">=========================================================================================================</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>From the results above, we can see the executions by <strong>mpirun</strong> are
 different from <strong>srun</strong>. First of all, for <strong>mpirun</strong>, the JobName only
 show "orted" no matter what commands are used in the steps 10732.0 and
@@ -6761,85 +6676,7 @@ step 10732.1 (<strong>srun hello.exe</strong>). SLURM seems to get a good <stro
 information with <strong>srun</strong> but not with <strong>mpirun</strong>. If you wish to use
 the step information, do not forget to put <strong>srun</strong> in the command
 lines.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code>Currently Loaded Modules:
+<div class="highlight"><pre><span></span><code>Currently Loaded Modules:
   1) GCCcore/6.4.0   2) binutils/2.28   3) GCC/6.4.0-2.28   4) OpenMPI/2.1.1
 
 
@@ -6918,7 +6755,7 @@ JobId=10732 JobName=test
    StdIn=/dev/null
    StdOut=/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
    Power=
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>For a complete instruction of <strong>sacct</strong> command, please refer to <a href="https://slurm.schedmd.com/sacct.html">the SLURM web site</a>.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>

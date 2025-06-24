@@ -6745,12 +6745,10 @@ information and other details.</p>
 </ul>
 <p><strong><em>NOTE</em></strong> This overview is specific to the High Performance Computing Center (HPCC) at Michigan State University (MSU).  For a complete tutorial see the <a href="https://docs.sylabs.io/guides/3.2/user-guide/index.html">Singularity documentation</a>.  This overview assumes that you have an HPCC account and know how to navigate to and use a development node. </p>
 <p>The remainder of this overview will walk you through the first steps in using Singularity. However, if you want to skip the details just try running the following three powertools commands.  The first two will create a read/writable overlay and install miniforge. The third one will start this overlay inside a CentOS singularity image.  You will only need to run the first two commands once to build the overlay file (with conda), then you can just use the third command anytime you want to start the overlay:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_build
+<div class="highlight"><pre><span></span><code>overlay_build
 overlay_install_conda
 overlay_start
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To exit singularity just type <code>exit</code>.</p>
 <h2 id="step-1-get-a-singularity-image">Step 1: Get a singularity image</h2>
 <p>As a starting point we need a singularity image, also known as a container or virtual machine.  You can think of a singularity image as a "software hard drive" that contains an entire operating system in a file. There are three main ways to get these images:</p>
@@ -6762,11 +6760,11 @@ overlay_start
 <p>If you don't know which one of the above to use, I recommend that you pick number 1 and just use the singularity image we already have on the system.</p>
 <h3 id="1-use-one-of-the-singularity-images-already-on-the-hpcc">1. Use one of the Singularity images already on the HPCC</h3>
 <p>For this introduction, we can keep things simple and just use one of the Singularity images already on the HPCC. This image runs CentOS 7 Linux and is a good starting point.  Use the following command to start singularity in a "shell" using the provided image:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>--env<span class="w"> </span><span class="nv">TERM</span><span class="o">=</span>vt100<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>--env<span class="w"> </span><span class="nv">TERM</span><span class="o">=</span>vt100<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos
+</code></pre></div>
 <p>Once you run this command you should see the "Singularity" prompt which will look something like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Singularity&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>Singularity&gt;
+</code></pre></div>
 <p>You did it!  You are running a different operating system (OS) than the base operating system.  All of the main HPCC folders are still accessible from this "container" (ex. /mnt/home, /mnt/research, /mnt/scratch/, etc) so it shouldn't look much different than before (except for the different prompt and you no longer have access to some of the base HPCC software). </p>
 <p>At this point, if you know what you need, you should be able use files in your home directory and it will compile/run using the singularity OS instead of the base OS.</p>
 <p><strong><em>NOTE</em></strong>: You can just install software in your <code>/mnt/home/$USER</code> and/or <code>/mnt/research</code> folders. The software you install will probably only work from "inside" this singularity image. However, you will also be able to see and manipulate the files from within your standard HPC account.  This is fine for many researchers but I recommend you jump down to "Step 3: Overlays" to make Singularity even more flexible. </p>
@@ -6775,30 +6773,24 @@ overlay_start
 <h4 id="sylabs-library">Sylabs Library</h4>
 <p><a href="https://cloud.sylabs.io/library">Link to Browse Sylabs</a><br />
 example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>pull<span class="w"> </span>alpine.sif<span class="w"> </span>library://alpine:latest
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>pull<span class="w"> </span>alpine.sif<span class="w"> </span>library://alpine:latest
 
 singularity<span class="w"> </span>shell<span class="w"> </span>alpine.sif
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h4 id="docker-hub">Docker Hub</h4>
 <p><a href="https://hub.docker.com/search?q=&amp;type=image">Link to Browse Docker Hub</a><br />
 example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>pull<span class="w"> </span>tensorflow.sif<span class="w"> </span>docker://tensorflow/tensorflow:latest
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>pull<span class="w"> </span>tensorflow.sif<span class="w"> </span>docker://tensorflow/tensorflow:latest
 
 singularity<span class="w"> </span>shell<span class="w"> </span>tensorflow.sif
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h4 id="singularity-hub-aka-shub">Singularity Hub (aka shub)</h4>
 <p><a href="https://singularityhub.github.io/singularity-catalog/">Link to Browse Singularity Hub</a><br />
 example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>pull<span class="w"> </span>shub_image.sif<span class="w"> </span>shub://vsoch/singularity-images
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>pull<span class="w"> </span>shub_image.sif<span class="w"> </span>shub://vsoch/singularity-images
 
 singularity<span class="w"> </span>shell<span class="w"> </span>shub_image.sif
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="3-build-your-own-image">3. Build your own image</h3>
 <p>This one is more complex and outside the scope of the overview. However, if you are interested I recommend you try using the build command with a Docker image since it is fairly easy to install on your personal computer. Here is a link to how to use docker to make a singularity image:</p>
 <ul>
@@ -6806,90 +6798,72 @@ singularity<span class="w"> </span>shell<span class="w"> </span>shub_image.sif
 </ul>
 <h2 id="step-2-running-commands-in-singularity">Step 2: Running commands in Singularity</h2>
 <p>In Step 1 we showed you how to start a singularity "shell".  You can also just "execute" a command inside the singularity image and return the results.  For example, to run </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos<span class="w"> </span>&lt;&lt;COMMAND&gt;&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos<span class="w"> </span>&lt;&lt;COMMAND&gt;&gt;
+</code></pre></div>
 <p>Where you replace <code>&lt;&lt;COMMAND&gt;&gt;</code> with whatever command you need to run.  This option will become very helpful when you want to run singularity inside a submission script "See Step 4" below.</p>
 <p>For example, the <code>df -hT</code> command will report file system disk space usage. So running the <code>df -hT</code> will give a different result running inside or outside a singularity image. You can test this using the following commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>df<span class="w"> </span>-hT
+<div class="highlight"><pre><span></span><code>df<span class="w"> </span>-hT
 
 singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos<span class="w"> </span>df<span class="w"> </span>-hT
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="step-3-overlays">Step 3: Overlays</h2>
 <p>One problem we often encounter on the HPCC is "lots-of-small-files" (hundreds of files where each one is &lt; 50MB).  The filesystem is optimized for large files.  Lots of small files end up "clogging" things up which can slow things down for everyone.  One useful trick of singularity is you can make a single large file called an "Overlay" which can be attached to a singularity session. You can use an Overlay as a "filesystem inside a single file" where you can store lots of the small files inside the single overlay file. From the user point of view you can have as many small files as you want accessible from the singularity image (within reasonable limits). However, these small files act as a single file from the HPCC point of view and doesn't clog things up.</p>
 <p>This technique is really helpful if you are using complex software installs such as lots of Python, R or Conda installs.  It can also be helpful if your research data is lots of small files. </p>
 <h3 id="make-your-overlay-file">Make your overlay file</h3>
 <p>Making an overlay is not hard but takes multiple steps. For details on how to make an overlay we recommend viewing the <a href="https://docs.sylabs.io/guides/3.2/user-guide/persistent_overlays.html?highlight=overlay">singularity overlay documentation</a>.</p>
 <p>Fortunately the HPCC has a "powertool" that can make a basic overlay for you.  All you need to do is run the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_build
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>overlay_build
+</code></pre></div>
 <p>This overlay can be applied to a singularity image using the <code>--overlay</code> option as follows:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>--overlay<span class="w"> </span>overlay.img<span class="w"> </span>--env<span class="w"> </span><span class="nv">TERM</span><span class="o">=</span>vt100<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>--overlay<span class="w"> </span>overlay.img<span class="w"> </span>--env<span class="w"> </span><span class="nv">TERM</span><span class="o">=</span>vt100<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos
+</code></pre></div>
 <p>If you have an overlay called <code>overlay.img</code> in your current directory you can use the following powertool shortcut to run it inside the CentOS image:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_start
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>overlay_start
+</code></pre></div>
 <p>You can also view the amount of filespace available on an overlay (using the <code>df -hT</code> command we used above) by using the following powertool:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_size
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>overlay_size
+</code></pre></div>
 <h3 id="writing-to-your-overlay">Writing to your overlay</h3>
 <p>Once you are in the singularity shell you can now write to the overlay as if you were adding files to the "root" directory (/).  For example, running the following commands from inside of your singularity image should allow you to install miniforge3: </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>wget<span class="w"> </span>https://github.com/conda-forge/miniforge/releases/download/24.3.0-0/Miniforge3-24.3.0-0-Linux-x86_64.sh
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/conda-forge/miniforge/releases/download/24.3.0-0/Miniforge3-24.3.0-0-Linux-x86_64.sh
 
 ./Miniforge3-24.3.0-0-Linux-x86_64.sh<span class="w"> </span>-b<span class="w"> </span>-p<span class="w"> </span>/miniconda3/
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Since we install miniforge3 a lot there is yet another powertool that will do this installation for you. Just run the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_install_conda
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>overlay_install_conda
+</code></pre></div>
 <p>Once miniforge is installed in the <code>/miniforge3/</code> directory you need to add the folder <code>/miniforge3/</code> to the path with the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/miniforge3/bin:<span class="nv">$PATH</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/miniforge3/bin:<span class="nv">$PATH</span>
 
 conda<span class="w"> </span>--init
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Or, just use the powertool from before and it will automatically add <code>/miniforge3</code> to your path:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_start
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>overlay_start
+</code></pre></div>
 <p>At this point you can use <code>pip</code> and <code>conda</code> installs as much as you like.  These generate hundreds of small files but it doesn't matter because everything will be stored in the overlay.img file as one big file.  </p>
 <p>To exit singularity just type <code>exit</code>. To start your overlay image just type <code>overlay_start</code></p>
 <h2 id="step-4-submitting-jobs">Step 4: Submitting Jobs</h2>
 <p>Once we have our image and our conda overlay working in a development node we can execute a script inside of the singularity image, "in batch mode" using the <code>exec</code> from above. For example, this script uses our miniforge installed overlay and runs the python3 script called "mypython.py" which is stored in my home directory on the HPCC.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--overlay<span class="w"> </span>overlay.img<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos<span class="w"> </span>python3<span class="w"> </span>/mnt/home/<span class="nv">$USER</span>/mypython.py
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--overlay<span class="w"> </span>overlay.img<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos<span class="w"> </span>python3<span class="w"> </span>/mnt/home/<span class="nv">$USER</span>/mypython.py
+</code></pre></div>
 <p>Once the above is running on a development node we can just submit this as a job to the HPCC using the following submissions script:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --walltime=04:00:00</span>
 <span class="c1">#SBATCH --mem=5gb</span>
 <span class="c1">#SBATCH -c 1</span>
 <span class="c1">#SBATCH -N 1</span>
 
 singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--overlay<span class="w"> </span>overlay.img<span class="w"> </span>--env<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/miniforge3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos<span class="w"> </span>python3<span class="w"> </span>/mnt/home/<span class="nv">$USER</span>/mypython.py
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Again, we have a powertool to help clean this up for common workflows.  Using the <code>overlay_exec</code> command you can simply the above submission script using the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>#!/bin/bash
+<div class="highlight"><pre><span></span><code>#!/bin/bash
 #SBATCH --walltime=04:00:00
 #SBATCH --mem=5gb
 #SBATCH -c 1
 #SBATCH -N 1
 
 overlay_exec python3 /mnt/home/$USER/mypython.py
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="job-arrays">Job Arrays</h3>
 <p>If you need to have multiple jobs running the same software (such as for a job array). You can't have them all writing to the same overlay file. To resolve this issue, there are two steps:</p>
 <ul>
@@ -6900,83 +6874,63 @@ overlay_exec python3 /mnt/home/$USER/mypython.py
 <h4 id="embedding-the-overlay">Embedding the overlay</h4>
 <p>First, we will <a href="https://docs.sylabs.io/guides/3.8/user-guide/persistent_overlays.html#overlay-embedded-in-sif">embed the overlay into the image file</a>. This links the image and with a copy of the overlay, so that any time the image is used the overlay copy will be brought along without needing to be specified.</p>
 <p>To do this, you first need a copy of the image file that you want to use with your overlay. In the case above where you are using the CentOS container that is already on the HPCC, you can create a copy called <code>centos7.sif</code> in your current working directory with</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>build<span class="w"> </span>centos7.sif<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>build<span class="w"> </span>centos7.sif<span class="w"> </span>/opt/software/CentOS.container/7.4/bin/centos
+</code></pre></div>
 <p>Now, you should create an overlay or use the one created in <a href="#make-your-overlay-file">the steps above</a>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>overlay_build
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>overlay_build
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>After this step, many of the powertools like <code>overlay_exec</code> and <code>overlay_start</code> will not work correctly since they automatically use the <code>/opt/software/CentOS.container/7.4/bin/centos</code> image. In most cases, you can specify arguments to the powertools to use a desired overlay file or image, but this will not work properly with embedded overlays below.</p>
 </div>
 <p>To embed the overlay into the container, you can use the (not very user-friendly) command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>sif<span class="w"> </span>add<span class="w"> </span>--datatype<span class="w"> </span><span class="m">4</span><span class="w"> </span>--partfs<span class="w"> </span><span class="m">2</span><span class="w"> </span>--parttype<span class="w"> </span><span class="m">4</span><span class="w"> </span>--partarch<span class="w"> </span><span class="m">2</span><span class="w"> </span>--groupid<span class="w"> </span><span class="m">1</span><span class="w"> </span>centos7.sif<span class="w"> </span>overlay.img
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>sif<span class="w"> </span>add<span class="w"> </span>--datatype<span class="w"> </span><span class="m">4</span><span class="w"> </span>--partfs<span class="w"> </span><span class="m">2</span><span class="w"> </span>--parttype<span class="w"> </span><span class="m">4</span><span class="w"> </span>--partarch<span class="w"> </span><span class="m">2</span><span class="w"> </span>--groupid<span class="w"> </span><span class="m">1</span><span class="w"> </span>centos7.sif<span class="w"> </span>overlay.img
+</code></pre></div>
 <p>If you are using a different container or a different overlay, make sure to change the filenames at the end.</p>
 <p>Nothing looks any different, but your <code>centos7.sif</code> image will have a copy of the overlay embedded into it. Anything that was installed in the overlay (e.g., a Minicoda installation created using <code>overlay_install_conda</code>) is now available in the image.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The original <code>overlay.img</code> overlay is now entirely disconnected from the one embedded into the <code>centos7.sif</code> image. Any changes made to the overlay will not be reflected in the image. And likewise, any changes to the overlay embedded in the image will not affect the original overlay file.</p>
 <p>However, you can always run your image with the original overlay file to ignore the embedded one:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity shell --overlay overlay.img centos7.sif
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>singularity shell --overlay overlay.img centos7.sif
+</code></pre></div></p>
 </div>
 <h4 id="running-the-embedded-overlay">Running the embedded overlay</h4>
 <p>You can now run your image like normal:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity shell centos7.sif
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>singularity shell centos7.sif
+</code></pre></div>
 <p>You will see any changes that were in the original <code>overlay.img</code>. But if you try to make a change to a system file, you will get an error:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Singularity&gt;<span class="w"> </span>mkdir<span class="w"> </span>/hello
+<div class="highlight"><pre><span></span><code>Singularity&gt;<span class="w"> </span>mkdir<span class="w"> </span>/hello
 mkdir:<span class="w"> </span>cannot<span class="w"> </span>create<span class="w"> </span>directory<span class="w"> </span>‘/hello’:<span class="w"> </span>Read-only<span class="w"> </span>file<span class="w"> </span>system
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To be able to make changes, you need to start the image with the <code>--writable</code> flag:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>--writable<span class="w"> </span>centos7.sif
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>--writable<span class="w"> </span>centos7.sif
 Singularity&gt;<span class="w"> </span>mkdir<span class="w"> </span>/hello
 Singularity&gt;<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>/hello
 /hello
 Singularity&gt;<span class="w"> </span><span class="nb">exit</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If you exit the container and restart it, you will still see the <code>/hello</code> directory: </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>centos7.sif
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>centos7.sif
 Singularity&gt;<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>/hello
 /hello
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>However, this means that you still cannot use this container in multiple jobs at once since they will all try to get full access to the embedded overlay.</p>
 <h4 id="running-the-embedded-overlay-in-multiple-jobs">Running the embedded overlay in multiple jobs</h4>
 <p>To fix the problem in the previous section, you need to load the overlay as temporarily read-writable. This loads the filesystem temporarily in a way that multiple jobs can use it at once:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>--writable-tmpfs<span class="w"> </span>centos7.sif
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>--writable-tmpfs<span class="w"> </span>centos7.sif
 Singularity&gt;<span class="w"> </span>mkdir<span class="w"> </span>/hello2
 Singularity&gt;<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>/hello2
 /hello2
 Singularity&gt;<span class="w"> </span><span class="nb">exit</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Any changes you make are discarded, so make sure your important files are somewhere accessible on the HPCC like your home or research space.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>--writable-tmpfs<span class="w"> </span>centos7.sif
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span>--writable-tmpfs<span class="w"> </span>centos7.sif
 Singularity&gt;<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>/hello2
 ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span>/hello2:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>In a script with a job array, this might look something like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --walltime=04:00:00</span>
 <span class="c1">#SBATCH --mem=5gb</span>
 <span class="c1">#SBATCh --array 1-10</span>
@@ -6984,7 +6938,7 @@ ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> 
 <span class="c1">#SBATCH -N 1</span>
 
 singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--writable-tmpfs<span class="w"> </span>centos7.sif<span class="w"> </span>python3<span class="w"> </span>/mnt/home/<span class="nv">$USER</span>/mypython.py<span class="w"> </span><span class="nv">$SLURM_ARRAY_ID</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>In this case <code>/mnt/home/$USER/mypython.py</code> should use the <code>$SLURM_ARRAY_ID</code> to do some analysis and write the output to somewhere like <code>/mnt/home/$USER/results</code> so it will be remain after the temporary filesystem is erased.</p>
 <p>This overview of singularity was initially written by Dirk Colbry.  Please contact the ICER User Support Team if you need any help getting your workflow up and running.</p>
 <p><a href="https://contact.icer.msu.edu/contact">link to ICER User Support Team online contact form</a></p>

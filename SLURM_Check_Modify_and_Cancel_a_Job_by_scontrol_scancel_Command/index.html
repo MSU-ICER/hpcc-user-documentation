@@ -6607,34 +6607,7 @@
 <p>Besides the brief listing of every job using the <code>squeue</code> command,
 a user can also see the detailed information of each job. Run the SLURM
 command <code>scontrol show</code> with a job ID:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="m">8929</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="m">8929</span>
 <span class="nv">JobId</span><span class="o">=</span><span class="m">8929</span><span class="w"> </span><span class="nv">JobName</span><span class="o">=</span><span class="nb">test</span>
 <span class="w">   </span><span class="nv">UserId</span><span class="o">=</span>nobody<span class="o">(</span><span class="m">804293</span><span class="o">)</span><span class="w"> </span><span class="nv">GroupId</span><span class="o">=</span>helpdesk<span class="o">(</span><span class="m">2103</span><span class="o">)</span><span class="w"> </span><span class="nv">MCS_label</span><span class="o">=</span>N/A
 <span class="w">   </span><span class="nv">Priority</span><span class="o">=</span><span class="m">404</span><span class="w"> </span><span class="nv">Nice</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">Account</span><span class="o">=</span>classres<span class="w"> </span><span class="nv">QOS</span><span class="o">=</span>normal
@@ -6662,72 +6635,36 @@ command <code>scontrol show</code> with a job ID:</p>
 <span class="w">   </span><span class="nv">StdIn</span><span class="o">=</span>/dev/null
 <span class="w">   </span><span class="nv">StdOut</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/slurm-8929.out
 <span class="w">   </span><span class="nv">Power</span><span class="o">=</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can check if the information is right for the job. If the job has
 not started to run and you would like change any specification, you can
 hold the job first using the <code>scontrol hold</code> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>hold<span class="w"> </span><span class="m">8929</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>hold<span class="w"> </span><span class="m">8929</span>
 $<span class="w"> </span>squeue<span class="w"> </span>-l<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
 Fri<span class="w"> </span>Aug<span class="w">  </span><span class="m">3</span><span class="w"> </span><span class="m">12</span>:26:57<span class="w"> </span><span class="m">2018</span>
 <span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w">    </span>STATE<span class="w">       </span>TIME<span class="w"> </span>TIME_LIMI<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
 <span class="w">              </span><span class="m">8929</span><span class="w"> </span>general-s<span class="w">     </span><span class="nb">test</span><span class="w">   </span>nobody<span class="w">  </span>PENDING<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span>:00<span class="w">     </span><span class="m">80</span><span class="w"> </span><span class="o">(</span>JobHeldUser<span class="o">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where you can see from the results of the <code>squeue</code> command, the job is
 pending due to the user's hold. You can choose the information you want to change in <code>scontrol show</code> results. Put them in the
 <code>scontrol update</code> command and modify the information after the <code>=</code> symbol. For example, the command line</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>update<span class="w"> </span>job<span class="w"> </span><span class="m">8929</span><span class="w">  </span><span class="nv">NumNodes</span><span class="o">=</span><span class="m">2</span>-2<span class="w"> </span><span class="nv">NumTasks</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">Features</span><span class="o">=</span>intel16
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>update<span class="w"> </span>job<span class="w"> </span><span class="m">8929</span><span class="w">  </span><span class="nv">NumNodes</span><span class="o">=</span><span class="m">2</span>-2<span class="w"> </span><span class="nv">NumTasks</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">Features</span><span class="o">=</span>intel16
+</code></pre></div>
 <p>will change the resource request of the job 8929 from 80 nodes and 80
 tasks with intel16 nodes to 2 nodes and 2 tasks with intel16 nodes.
 After the update, you can use the <code>scontrol show</code> command again to verify
 the job setting. Once you are done with the update work, you can release
 the job hold by command <code>scontrol release</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>release<span class="w"> </span><span class="m">8929</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>release<span class="w"> </span><span class="m">8929</span>
 $<span class="w"> </span>squeue<span class="w"> </span>-l<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
 Fri<span class="w"> </span>Aug<span class="w">  </span><span class="m">3</span><span class="w"> </span><span class="m">13</span>:18:10<span class="w"> </span><span class="m">2018</span>
 <span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w">    </span>STATE<span class="w">       </span>TIME<span class="w"> </span>TIME_LIMI<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
 <span class="w">              </span><span class="m">8929</span><span class="w"> </span>general-s<span class="w">     </span><span class="nb">test</span><span class="w">   </span>nobody<span class="w">  </span>RUNNING<span class="w">       </span><span class="m">0</span>:07<span class="w">      </span><span class="m">1</span>:00<span class="w">      </span><span class="m">2</span><span class="w"> </span>lac-<span class="o">[</span><span class="m">386</span>-387<span class="o">]</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The job is now running due to the change of the resource request by the
 command <code>scontrol update</code>. Again, we can check the running job using the
 command <code>scontrol show</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="m">8929</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="m">8929</span>
 <span class="nv">JobId</span><span class="o">=</span><span class="m">8929</span><span class="w"> </span><span class="nv">JobName</span><span class="o">=</span><span class="nb">test</span>
 <span class="w">   </span><span class="nv">UserId</span><span class="o">=</span>changc81<span class="o">(</span><span class="m">804793</span><span class="o">)</span><span class="w"> </span><span class="nv">GroupId</span><span class="o">=</span>helpdesk<span class="o">(</span><span class="m">2103</span><span class="o">)</span><span class="w"> </span><span class="nv">MCS_label</span><span class="o">=</span>N/A
 <span class="w">   </span><span class="nv">Priority</span><span class="o">=</span><span class="m">379</span><span class="w"> </span><span class="nv">Nice</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">Account</span><span class="o">=</span>classres<span class="w"> </span><span class="nv">QOS</span><span class="o">=</span>normal
@@ -6756,7 +6693,7 @@ command <code>scontrol show</code>:</p>
 <span class="w">   </span><span class="nv">StdIn</span><span class="o">=</span>/dev/null
 <span class="w">   </span><span class="nv">StdOut</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/slurm-8929.out
 <span class="w">   </span><span class="nv">Power</span><span class="o">=</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>For complete usage information about the <code>scontrol</code> command, please refer to
 <a href="https://slurm.schedmd.com/scontrol.html">https://slurm.schedmd.com/scontrol.html</a> at the
 SLURM web site.</p>
@@ -6764,8 +6701,8 @@ SLURM web site.</p>
 <p>If at any moment before the job complete, you would like to remove
 the job, you can use the <code>scancel</code> command to cancel a job. For example,
 the command</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>scancel<span class="w"> </span><span class="m">8929</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>scancel<span class="w"> </span><span class="m">8929</span>
+</code></pre></div>
 <p>will cancel job 8929. For a complete usage information about the <code>scancel</code>
 command, please refer to
 <a href="https://slurm.schedmd.com/scancel.html">https://slurm.schedmd.com/scancel.html</a> at the

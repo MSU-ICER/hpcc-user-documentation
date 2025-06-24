@@ -6771,14 +6771,11 @@
 <h2 id="setup">Setup</h2>
 <p>First, make sure you're on a <a href="../development_nodes/">development node</a> and in your <a href="../Home_Space/">home directory</a>.</p>
 <p>Clone and compile the example we're going to use:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>getexample<span class="w"> </span>MPI_OpenMP_GPU
+<div class="highlight"><pre><span></span><code>getexample<span class="w"> </span>MPI_OpenMP_GPU
 <span class="nb">cd</span><span class="w"> </span>MPI_OpenMP_GPU
 
 make
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>This directory contains example C++ codes using several forms of parallelism. These examples may be useful if you find yourself developing your own software, and interested users should read the accompanying README.</p>
 <p>For now we'll just use the <code>hybrid</code> example. This example combines <abbr title="Message Passing Interface">MPI</abbr> and <abbr title="Open Multi-Processing">OpenMP</abbr>. <abbr title="Message Passing Interface">MPI</abbr> allows multiple processes to communicate with each other, while <abbr title="Open Multi-Processing">OpenMP</abbr> allows multiple CPUs to "collaborate" on the same process.</p>
 <p>We would like to run 4 processes, each on their own node, with 2 CPUs per process. That means we'll need a total of 8 CPUs.</p>
@@ -6789,8 +6786,8 @@ make
 <li>The commands for running the job</li>
 </ul>
 <p>Using <a href="../Editing_Text_with_Nano/"><code>nano</code></a> or your preferred text editor, create and open <code>hybrid.sb</code>:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>nano<span class="w"> </span>hybrid.sb
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>hybrid.sb
+</code></pre></div></p>
 <h3 id="resource-request">Resource request</h3>
 <p>The <code>hybrid</code> example likely uses a more complex set of resource requests than you will need for your own jobs, but it useful for illustrative purposes.</p>
 <p>Recall from the previous section that we'd like to run <code>hybrid</code> over 4 processes with 2 CPUs per process. Each process will also run on its own node. This outlines the resources we want to request.</p>
@@ -6806,14 +6803,7 @@ make
 <li>The amount of memory to use per <abbr title="Central Processing Unit">CPU</abbr>. We are requesting 1 <abbr title="Gigabyte">GB</abbr> each.</li>
 <li>The name of the job, so we can easily identify it later.</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=00:10:00</span>
 <span class="c1">#SBATCH --nodes=4</span>
@@ -6821,7 +6811,7 @@ make
 <span class="c1">#SBATCH --cpus-per-task=2</span>
 <span class="c1">#SBATCH --mem-per-cpu=1G</span>
 <span class="c1">#SBATCH --job-name hybrid_example</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="job-commands">Job commands</h3>
 <p>The resource request is just one part of writing a job script. The second part is running the job itself.</p>
 <p>To run our job we need to:</p>
@@ -6831,31 +6821,22 @@ make
 <li>Run <code>hybrid</code></li>
 </ol>
 <p>We'll add the following lines to <code>hybrid.sb</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>reset
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>reset
 
 <span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/MPI_OpenMP_GPU
 
 srun<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>hybrid
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Notice that we use the <code>srun</code> command to run our <code>hybrid</code> executable. This command prepares the parallel runtime environment, setting up the requested 4 processes across 4 nodes and their associated CPUs.</p>
 <p>You may already be familiar with <code>mpirun</code> or <code>mpiexec</code>. While <code>srun</code> is similar to these commands <strong>it is preferred for use on the HPCC</strong> because of its <a href="../Show_Job_Steps_by_sacct_and_srun_Commands/">connection to the SLURM scheduler</a>.</p>
 <p>We can also add a couple of optional commands that will save data about our job:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">### write job information to SLURM output file.</span>
+<div class="highlight"><pre><span></span><code><span class="c1">### write job information to SLURM output file.</span>
 scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 
 <span class="c1">### write resource usage to SLURM output file (uses a powertools command).</span>
 module<span class="w"> </span>load<span class="w"> </span>powertools
 js<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You have now completed your job script. </p>
 <p>If you used <code>nano</code> to write it, hit Ctrl+X followed by Y to save, then press Enter to accept the filename.</p>
 <h3 id="final-notes">Final notes</h3>
@@ -6871,18 +6852,16 @@ js<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_
 <p>See the curated <a href="../List_of_Job_Specifications/">List of Job Specifications</a> or the <a href="https://slurm.schedmd.com/sbatch.html"><code>sbatch</code> Documentation</a> for more options.</p>
 <h2 id="batch-job-submission">Batch job submission</h2>
 <p>Now that we have our job script, we need to submit it to the SLURM scheduler. For this, we use the <code>sbatch</code> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>sbatch<span class="w"> </span>hybrid.sb
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sbatch<span class="w"> </span>hybrid.sb
 Submitted<span class="w"> </span>batch<span class="w"> </span>job<span class="w"> </span><span class="m">8929</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If the command has been submitted successfully, the job controller will issue a job ID on the screen. This ID can be used with, for example, <code>scancel</code> to cancel the job or <code>sacct</code> to look up stats about the job after it ends.</p>
 <p>Note the <code>sbatch</code> command only runs on development and compute nodes - it will not work on any gateway node.</p>
 <h3 id="checking-our-job-status">Checking our job status</h3>
 <p>Once the job has been submitted, we can see it in the queue with <code>sq</code> powertool:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
 sq
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>This will show us the following information:</p>
 <ol>
 <li>The job's ID number</li>

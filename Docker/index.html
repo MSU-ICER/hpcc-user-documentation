@@ -6917,41 +6917,14 @@ here: <a href="https://docs.docker.com/docker-for-mac/install/">Mac</a>/<a href
 terminal (if you are running Windows, this should be a <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL
 terminal</a>) and running
 the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>--version
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>--version
 Docker<span class="w"> </span>version<span class="w"> </span><span class="m">19</span>.03.8,<span class="w"> </span>build<span class="w"> </span>afacb8b
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>When you run the <code>docker</code> command without <code>--version</code>, you will see
 the options available with docker. Alternatively, you can test your
 installation by running the following (you have to log into Docker to
 use this test):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
 Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;hello-world:latest&#39;</span><span class="w"> </span>locally
 latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/hello-world
 0e03bdcc26d7:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
@@ -6978,7 +6951,7 @@ https://hub.docker.com/
 
 For<span class="w"> </span>more<span class="w"> </span>examples<span class="w"> </span>and<span class="w"> </span>ideas,<span class="w"> </span>visit:
 https://docs.docker.com/get-started/
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="running-docker-containers-from-prebuilt-images">Running Docker containers from prebuilt images</h2>
 <p>Now, you have setup everything, and it is time to use Docker seriously. You
 will run a container from the
@@ -6993,30 +6966,7 @@ distribute images.</p>
 containers for the same image.</p>
 <p>Now that you know what containers and images are, let's get some practice, by
 running the <code>docker run alpine ls -l</code> command in your terminal.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>ls<span class="w"> </span>-l
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>ls<span class="w"> </span>-l
 Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;alpine:latest&#39;</span><span class="w"> </span>locally
 latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/alpine
 cbdbe7a5bc2a:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
@@ -7040,7 +6990,7 @@ dr-xr-xr-x<span class="w">   </span><span class="m">12</span><span class="w"> </
 drwxrwxrwt<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>tmp
 drwxr-xr-x<span class="w">    </span><span class="m">7</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>usr
 drwxr-xr-x<span class="w">   </span><span class="m">12</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>var
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>When you run the <code>docker run alpine ls -l</code> command, it searches for the
 <code>alpine:latest</code> image from your system first. If your system has it (i.e. if
 you downloaded it previously), Docker uses that image.</p>
@@ -7056,23 +7006,20 @@ which is fed to the container, so Docker starts the given command and
 results show up.</p>
 <p>To see a list of all images on your system, you can use the <code>docker
 images</code> command.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images
 alpine<span class="w">                     </span>latest<span class="w">              </span>f70734b6a266<span class="w">        </span><span class="m">4</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">         </span><span class="m">5</span>.61MB
 hello-world<span class="w">                </span>latest<span class="w">              </span>bf756fb1ae65<span class="w">        </span><span class="m">4</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">        </span><span class="m">13</span>.3kB
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Next, let's try another command.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello world&quot;</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello world&quot;</span>
 Hello<span class="w"> </span>world
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>In this case, Docker ran the <code>echo</code> command in your <code>alpine</code>
 container, and then exited it. Exit means the container is terminated
 after running the command.</p>
 <p>Let's try another command.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>sh
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>sh
+</code></pre></div>
 <p>It seems nothing happened. In fact, docker ran the <code>sh</code> command in your alpine
 container, and exited it. If you want to be inside the container shell, you
 need to use <code>docker run -it alpine sh</code>. The <code>-i</code> flag tells Docker you want to
@@ -7080,20 +7027,14 @@ run the container interactively and the <code>-t</code> flag tells it you want t
 terminal in that image to run your command. You can find more help on the <code>run</code>
 command with <code>docker run --help</code>.</p>
 <p>Let's run a few commands inside the <code>docker run -it alpine sh</code> container.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
 /<span class="w"> </span><span class="c1"># ls</span>
 bin<span class="w">    </span>etc<span class="w">    </span>lib<span class="w">    </span>mnt<span class="w">    </span>proc<span class="w">   </span>run<span class="w">    </span>srv<span class="w">    </span>tmp<span class="w">    </span>var
 dev<span class="w">    </span>home<span class="w">   </span>media<span class="w">  </span>opt<span class="w">    </span>root<span class="w">   </span>sbin<span class="w">   </span>sys<span class="w">    </span>usr
 /<span class="w"> </span><span class="c1"># uname -a</span>
 Linux<span class="w"> </span>c1552c9b6cf0<span class="w"> </span><span class="m">4</span>.19.76-linuxkit<span class="w"> </span><span class="c1">#1 SMP Fri Apr 3 15:53:26 UTC 2020 x86_64 Linux</span>
 /<span class="w"> </span><span class="c1"># exit</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You are inside of the container shell and you can try out a few commands like
 <code>ls</code> and <code>uname -a</code> and others. To quit the container, type <code>exit</code> on the
 terminal. If you use the <code>exit</code> command, the container is terminated. If you
@@ -7104,25 +7045,19 @@ you want to go back into the container, you can type <code>docker attach
 id with <code>docker ps -all</code>. This command will be explained next.</p>
 <p>Now, let's learn about the <code>docker ps</code> command which shows you all
 containers that are currently running.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>ps
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>ps
 CONTAINER<span class="w"> </span>ID<span class="w">        </span>IMAGE<span class="w">               </span>COMMAND<span class="w">             </span>CREATED<span class="w">             </span>STATUS<span class="w">              </span>PORTS
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>In this case, you don't see any container because no containers are running. To see
 a list of all containers that you ran, use <code>docker ps --all</code>. You can
 see that STATUS says that all containers exited.  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>ps<span class="w"> </span>--all
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>ps<span class="w"> </span>--all
 CONTAINER<span class="w"> </span>ID<span class="w">        </span>IMAGE<span class="w">               </span>COMMAND<span class="w">                  </span>CREATED<span class="w">             </span>STATUS<span class="w">                      </span>PORTS<span class="w">               </span>NAMES
 c1552c9b6cf0<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;sh&quot;</span><span class="w">                     </span><span class="m">6</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">       </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                        </span>wonderful_cori
 5de22ab86f2a<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;echo &#39;Hello world&#39;&quot;</span><span class="w">     </span><span class="m">18</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">18</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>goofy_visvesvaraya
 df35ee7df7e3<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;ls -l&quot;</span><span class="w">                  </span><span class="m">31</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">31</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>fervent_gould
 6dbe999044b4<span class="w">        </span>hello-world<span class="w">         </span><span class="s2">&quot;/hello&quot;</span><span class="w">                 </span><span class="m">3</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="w">         </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>hours<span class="w"> </span>ago
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>When Docker containers are created, the Docker system automatically assign a
 universally unique identifier (UUID) number to each container to avoid any
 naming conflicts. CONTAINER ID is a shortform of the UUID. Each container also
@@ -7132,18 +7067,13 @@ CONTAINER ID to make typing a bit easier.</p>
 the <code>--name</code> flags. In addition, you can rename your Docker container's name
 with <code>rename</code> command. For example, let's rename "wonderful_cori" to
 "my_container" with <code>docker rename</code> command.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>rename<span class="w"> </span>wonderful_cori<span class="w"> </span>my_container
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>rename<span class="w"> </span>wonderful_cori<span class="w"> </span>my_container
 $<span class="w"> </span>docker<span class="w"> </span>ps<span class="w"> </span>--all
 CONTAINER<span class="w"> </span>ID<span class="w">        </span>IMAGE<span class="w">               </span>COMMAND<span class="w">                  </span>CREATED<span class="w">             </span>STATUS<span class="w">                      </span>PORTS<span class="w">               </span>NAMES
 c1552c9b6cf0<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;sh&quot;</span><span class="w">                     </span><span class="m">10</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">6</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                        </span>my_container
 5de22ab86f2a<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;echo &#39;Hello world&#39;&quot;</span><span class="w">     </span><span class="m">22</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">22</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>goofy_visvesvaraya
 df35ee7df7e3<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;ls -l&quot;</span><span class="w">                  </span><span class="m">35</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">35</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>fervent_gould
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="build-docker-images-which-contain-your-own-code">Build Docker images which contain your own code</h2>
 <p>Now you are ready to use Docker to create your own applications! First,
 you will learn more about Docker images. Then you will build your own
@@ -7153,64 +7083,30 @@ image and use that image to run an application on your local machine.</p>
 the alpine image from Docker Hub and ran a container based on that
 image. To see the list of images that are available on your local
 machine, run the <code>docker images</code> command.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images
 REPOSITORY<span class="w">    </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">         </span>SIZE
 alpine<span class="w">        </span>latest<span class="w">    </span>9ed4aefc74f6<span class="w">   </span><span class="m">4</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span><span class="m">7</span>.05MB
 hello-world<span class="w">   </span>latest<span class="w">    </span>feb5d9fea6a5<span class="w">   </span><span class="m">19</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span><span class="m">13</span>.3kB
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The TAG refers to a particular snapshot of the image and the ID is the
 corresponding UUID of the image. Images can have multiple versions. When
 you do not assign a specific version number, the client defaults to
 latest. If you want a specific version of the image, you can use docker
 pull command as follows:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ubuntu:22.04
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ubuntu:22.04
 <span class="m">7</span>:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/ubuntu
 2d473b07cdd5:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
 Digest:<span class="w"> </span>sha256:0eb0f877e1c869a300c442c41120e778db7161419244ee5cbc6fa5f134e74736
 Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>ubuntu:22.04
 docker.io/library/ubuntu:22.04
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Notice that here we pulled the image without running it. When we run a
 container with the <code>ubuntu:22.04</code> image in the future, it will use this downloaded
 copy.</p>
 <p>You can search for images from a repository's website (for example, <a href="https://hub.docker.com/_/centos">searching
 Docker hub for CentOS</a>) or directly from the
 command line using <code>docker search</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>search<span class="w"> </span>centos
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>search<span class="w"> </span>centos
 NAME<span class="w">                               </span>DESCRIPTION<span class="w">                                     </span>STARS<span class="w">               </span>OFFICIAL<span class="w">            </span>AUTOMATED
 centos<span class="w">                             </span>The<span class="w"> </span>official<span class="w"> </span>build<span class="w"> </span>of<span class="w"> </span>CentOS.<span class="w">                   </span><span class="m">6014</span><span class="w">                </span><span class="o">[</span>OK<span class="o">]</span>
 ansible/centos7-ansible<span class="w">            </span>Ansible<span class="w"> </span>on<span class="w"> </span>Centos7<span class="w">                              </span><span class="m">129</span><span class="w">                                     </span><span class="o">[</span>OK<span class="o">]</span>
@@ -7237,7 +7133,7 @@ mcnaughton/centos-base<span class="w">             </span>centos<span class="w">
 pivotaldata/centos7-dev<span class="w">            </span>CentosOS<span class="w"> </span><span class="m">7</span><span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>GPDB<span class="w"> </span>development<span class="w">           </span><span class="m">0</span>
 smartentry/centos<span class="w">                  </span>centos<span class="w"> </span>with<span class="w"> </span>smartentry<span class="w">                          </span><span class="m">0</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
 pivotaldata/centos6.8-dev<span class="w">          </span>CentosOS<span class="w"> </span><span class="m">6</span>.8<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>GPDB<span class="w"> </span>development<span class="w">         </span><span class="m">0</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="building-your-first-docker-image">Building your first Docker image</h3>
 <p>In this section, you will build a simple Docker image with writing a
 Dockerfile, and run it. For this purpose, we will create a Python
@@ -7245,18 +7141,15 @@ script and a Dockerfile.</p>
 <h4 id="creating-working-directory">Creating working directory</h4>
 <p>Let's create a working directory where you will make the following files:
 <code>hello.py</code>, <code>Dockerfile</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
 mkdir<span class="w"> </span>my_first_Docker_image
 <span class="nb">cd</span><span class="w"> </span>my_first_Docker_image
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h4 id="python-script">Python script</h4>
 <p>Create the <code>hello.py</code> file with the following content.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hello.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+<div class="highlight"><span class="filename">hello.py</span><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is my 1st Docker image!&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h4 id="dockerfile">Dockerfile</h4>
 <p>A <strong>Dockerfile</strong> is a text file which has a list of commands that Docker calls
 while creating an image. The Dockerfile is similar to a job batch file, and
@@ -7264,17 +7157,7 @@ contains all information that Docker needs to know to to run the application
 package.</p>
 <p>In the <code>my_first_Docker_image</code> directory, create a file, called Dockerfile,
 which has the content below.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Dockerfile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c"># our base image. The latest version will be pulled.</span>
+<div class="highlight"><span class="filename">Dockerfile</span><pre><span></span><code><span class="c"># our base image. The latest version will be pulled.</span>
 <span class="k">FROM</span><span class="w"> </span><span class="s">alpine</span>
 
 <span class="c"># install python and pip</span>
@@ -7285,45 +7168,44 @@ which has the content below.</p>
 
 <span class="c"># run the application</span>
 <span class="k">CMD</span><span class="w"> </span>python3<span class="w"> </span>/usr/src/my_app/hello.py
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now, let's learn the meaning of each line.</p>
 <p>The first line means that we will use Alpine Linux as a base image. No
 version is specified, so the latest version will be pulled. Use the <code>FROM</code>
 keyword.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">alpine</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">alpine</span>
+</code></pre></div>
 <p>Next, the Python <code>pip</code> package is installed using the Alpine Package Keeper
 (<code>apk</code>). Use the <code>RUN</code> keyword.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--update<span class="w"> </span>py3-pip
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--update<span class="w"> </span>py3-pip
+</code></pre></div>
 <p>Next, copy the file to the image. <code>/usr/src/my_app</code> will be created
 while the file is copied. Use the <code>COPY</code> keyword.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">COPY</span><span class="w"> </span>hello.py<span class="w"> </span>/usr/src/my_app/
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="k">COPY</span><span class="w"> </span>hello.py<span class="w"> </span>/usr/src/my_app/
+</code></pre></div>
 <p>The last step is run the application with the <code>CMD</code> keyword. <code>CMD</code> tells
 the container what the container should do by default when it is
 started.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CMD</span><span class="w"> </span>python3<span class="w"> </span>/usr/src/my_app/hello.py
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="k">CMD</span><span class="w"> </span>python3<span class="w"> </span>/usr/src/my_app/hello.py
+</code></pre></div>
 <h4 id="build-the-image">Build the image</h4>
 <p>Now you are ready to build your first Docker image. The <code>docker build</code>
 command will do most of the work.</p>
 <p>To build the image, use the following command.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>my_first_image<span class="w"> </span>.
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>my_first_image<span class="w"> </span>.
+</code></pre></div>
 <p>The client will pull all necessary images and create your image. If
 everything goes well, your image is ready to be used! Run the <code>docker images</code>
 command to see if your image <code>my_first_image</code> is shown.</p>
 <h4 id="run-your-image">Run your image</h4>
 <p>When you successfully create your Docker image, test it by starting a
 new container from the image.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>my_first_image
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>my_first_image
+</code></pre></div>
 <p>If everything went well, you will see this message.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Hello<span class="w"> </span>world!
+<div class="highlight"><pre><span></span><code>Hello<span class="w"> </span>world!
 This<span class="w"> </span>is<span class="w"> </span>my<span class="w"> </span>1st<span class="w"> </span>Docker<span class="w"> </span>image!
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="connecting-docker-and-your-computer">Connecting Docker and your computer</h2>
 <p>Containers are great for keeping all the parts of a piece of software isolated
 together. But this means that there are a few extra steps necessary to share
@@ -7333,27 +7215,20 @@ information from that container with the computer you're running it on.</p>
 the results in some data file. We'll mimic this by just creating an empty file
 with the <code>touch</code> command. Let's make a new directory for our output and create
 our "important data" in our alpine image:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>results
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>results
 ls<span class="w"> </span>results
 
 docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>data.dat<span class="w"> </span>
 ls<span class="w"> </span>results
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Nothing happened! You can look in your current directory with <code>ls</code>, and you
 won't see anything either. We can even run an interactive alpine container and
 look around:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
 /<span class="w"> </span><span class="c1"># ls</span>
 bin<span class="w">    </span>dev<span class="w">    </span>etc<span class="w">    </span>home<span class="w">   </span>lib<span class="w">    </span>media<span class="w">  </span>mnt<span class="w">    </span>opt<span class="w">    </span>proc<span class="w">   </span>root<span class="w">   </span>run<span class="w">    </span>sbin<span class="w">   </span>srv<span class="w">    </span>sys<span class="w">    </span>tmp<span class="w">    </span>usr<span class="w">    </span>var
 /<span class="w"> </span><span class="c1"># exit</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>No results directory and no <code>data.dat</code> file...</p>
 <p>What happened is that the file was created and locked away in the previous
 container. When we start a new container, we start fresh from whatever the
@@ -7362,27 +7237,20 @@ of the container we're working in.</p>
 <p>The way Docker does this is through "bind mounts". It's like we are "binding" a
 directory on our computer to a directory that's "mounted" in the container.
 Let's try it interactively first:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>./results:outside_world<span class="w"> </span>alpine<span class="w"> </span>sh
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>./results:outside_world<span class="w"> </span>alpine<span class="w"> </span>sh
 /<span class="w"> </span><span class="c1"># ls</span>
 bin<span class="w">            </span>etc<span class="w">            </span>lib<span class="w">            </span>mnt<span class="w">            </span>outside_world<span class="w">  </span>root
 sbin<span class="w">           </span>sys<span class="w">            </span>usr<span class="w">            </span>dev<span class="w">            </span>home<span class="w">           </span>media
 opt<span class="w">            </span>proc<span class="w">           </span>run<span class="w">            </span>srv<span class="w">            </span>tmp<span class="w">            </span>var
 /<span class="w"> </span><span class="c1"># exit</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The <code>-v</code> command tells Docker that I want to connect the <code>./results</code> directory
 on my computer to a directory called <code>/outside_world</code> inside the container.</p>
 <p>Now we can put it all together:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./results:/outside_world<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>/outside_world/data.dat
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./results:/outside_world<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>/outside_world/data.dat
 $<span class="w"> </span>ls<span class="w"> </span>results
 data.dat
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Notice that we had to write to the container version of our directory with the
 <code>touch</code> command, but it's now visible on the computer in the <code>results</code>
 directory.</p>
@@ -7412,17 +7280,7 @@ show an alternate way to include files in a Docker container, albeit, in more
 of a read-only way.</p>
 <p>First, let's check the Jupyter images available on Docker Hub. We will use
 minimal-notebook.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>search<span class="w"> </span>jupyter
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>search<span class="w"> </span>jupyter
 NAME<span class="w">                                    </span>DESCRIPTION<span class="w">                                     </span>STARS<span class="w">               </span>OFFICIAL<span class="w">            </span>AUTOMATED
 jupyter/datascience-notebook<span class="w">            </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Data<span class="w"> </span>Science<span class="w"> </span>Stack<span class="w"> </span>from<span class="w"> </span>htt…<span class="w">   </span><span class="m">666</span>
 jupyter/all-spark-notebook<span class="w">              </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Python,<span class="w"> </span>Scala,<span class="w"> </span>R,<span class="w"> </span>Spark,<span class="w"> </span>Me…<span class="w">   </span><span class="m">301</span>
@@ -7433,18 +7291,11 @@ jupyter/pyspark-notebook<span class="w">                </span>Jupyter<span clas
 jupyter/base-notebook<span class="w">                   </span>Small<span class="w"> </span>base<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>stacks…<span class="w">   </span><span class="m">106</span>
 jupyter/minimal-notebook<span class="w">                </span>Minimal<span class="w"> </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Stack<span class="w"> </span>from<span class="w"> </span>https://…<span class="w">   </span><span class="m">105</span>
 ...
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Let's start by creating a directory <code>my_notebook</code>. Copy <code>hello.py</code>, which we
 used for the Python image to the <code>my_notebook</code> directory. Then create a
 Dockerfile in the <code>my_notebook</code> directory with the following content:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Dockerfile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c"># base image</span>
+<div class="highlight"><span class="filename">Dockerfile</span><pre><span></span><code><span class="c"># base image</span>
 <span class="k">FROM</span><span class="w"> </span><span class="s">jupyter/base-notebook</span>
 
 <span class="c"># copy files</span>
@@ -7452,7 +7303,7 @@ Dockerfile in the <code>my_notebook</code> directory with the following content:
 
 <span class="c"># the port number the container should expose</span>
 <span class="k">EXPOSE</span><span class="w"> </span><span class="s">8888</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The <code>COPY</code> line moves our <code>hello.py</code> script into the container directory
 <code>/home/jovyan/work</code> which is where the Jupyer instance inside the container can
 access files.</p>
@@ -7460,18 +7311,7 @@ access files.</p>
 The default port for Jupyter is 8888, and therefore, we will expose that
 port.</p>
 <p>Now, build the image using the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>mynotebook<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>mynotebook<span class="w"> </span>.
 Sending<span class="w"> </span>build<span class="w"> </span>context<span class="w"> </span>to<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w">  </span><span class="m">3</span>.072kB
 Step<span class="w"> </span><span class="m">1</span>/3<span class="w"> </span>:<span class="w"> </span>FROM<span class="w"> </span>jupyter/base-notebook
 <span class="w"> </span>---&gt;<span class="w"> </span>6494235c84ec
@@ -7483,27 +7323,11 @@ Removing<span class="w"> </span>intermediate<span class="w"> </span>container<sp
 <span class="w"> </span>---&gt;<span class="w"> </span>464731f2e3a7
 Successfully<span class="w"> </span>built<span class="w"> </span>464731f2e3a7
 Successfully<span class="w"> </span>tagged<span class="w"> </span>mynotebook:latest
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now, everything is ready. You can run the image using the <code>docker run</code> command.
 We use the <code>-p 8888:8888</code> option to tell Docker that we'd like to bind the 8888
 port in the container to the 8888 port on your host computer.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span>mynotebook
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span>mynotebook
 Entered<span class="w"> </span>start.sh<span class="w"> </span>with<span class="w"> </span>args:<span class="w"> </span>jupyter<span class="w"> </span>lab
 Executing<span class="w"> </span>the<span class="w"> </span>command:<span class="w"> </span>jupyter<span class="w"> </span>lab
 <span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.694<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>jupyterlab<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0000s<span class="w"> </span>to<span class="w"> </span>import
@@ -7520,7 +7344,7 @@ Executing<span class="w"> </span>the<span class="w"> </span>command:<span class=
 <span class="w">    </span>Or<span class="w"> </span>copy<span class="w"> </span>and<span class="w"> </span>paste<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>these<span class="w"> </span>URLs:
 <span class="w">        </span>http://ad7f42d45370:8888/lab?token<span class="o">=</span>b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879
 <span class="w">        </span>http://127.0.0.1:8888/lab?token<span class="o">=</span>b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If you navigate to one of the URLs that Jupyter outputs, you will see your
 containerized Jupyter Hub ready to go. If you look inside the <code>work</code> directory,
 you'll even see our <code>hello.py</code> script!</p>

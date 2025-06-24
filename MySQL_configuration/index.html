@@ -6716,18 +6716,7 @@ comprising the OrthoMCL application, which tell OrthMCL how to connect
 to your database. </p>
 <h2 id="configuration-file">Configuration File</h2>
 <p>The following is an example of the configuration file you will receive:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>dbVendor=mysql
+<div class="highlight"><pre><span></span><code>dbVendor=mysql
 dbConnectString=dbi:mysql:someUserdb:db-01:3306
 dbLogin=someUser
 dbPassword=somePassword
@@ -6739,12 +6728,12 @@ coOrthologTable=CoOrtholog
 interTaxonMatchView=InterTaxonMatch
 percentMatchCutoff=50
 evalueExponentCutoff=-5
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="command-example">Command Example</h2>
 <p>A typical run that would require the database configuration file might
 look something like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>orthomclPairs orthomcl.config log_file cleanup=[yes|no|only|all] &lt;startAfter=TAG&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>orthomclPairs orthomcl.config log_file cleanup=[yes|no|only|all] &lt;startAfter=TAG&gt;
+</code></pre></div>
 <p>In the example above, the file "<strong><em>orthomcl.config</em></strong>" is the name of
 the configuration/connection file (provided by the HPCC) that you want
 to use for your run.</p>
@@ -6769,15 +6758,15 @@ the HPCC.  The most common modification needed will be to change the
 name of the database to be accessed in those cases where users are
 provided with access to more than one database.</p>
 <p>The relevant line to be modified is shown below:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dbConnectString=dbi:mysql:someUserdb:db-01:3306 
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>dbConnectString=dbi:mysql:someUserdb:db-01:3306 
+</code></pre></div>
 <p>In the example above, the database name is "someUserdb".  </p>
 <p>Let's assume (for example), a user had been issued 4 databases named:
 someUserdb, someUserdb2, someUserdb3, someUserdb4.  To perform a run
 using one of these other databases, we would need to make a copy of the
 configuration file and change the name in that file, for example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dbConnectString=dbi:mysql:someUserdb2:db-01:3306
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>dbConnectString=dbi:mysql:someUserdb2:db-01:3306
+</code></pre></div>
 <p>You may then structure the command for each OrthoMCL run to use the
 configuration file (and related database) desired.</p>
 <h2 id="more-information">More Information</h2>
