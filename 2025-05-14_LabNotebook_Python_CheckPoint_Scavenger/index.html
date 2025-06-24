@@ -6519,14 +6519,14 @@ information and other details.</p>
 <p>Checkout the documentation on the scavenger queue <a href="https://docs.icer.msu.edu/Scavenger_Queue/">https://docs.icer.msu.edu/Scavenger_Queue/</a>.</p>
 <hr />
 <h1 id="2-checkpointing">2. Checkpointing</h1>
-<p><a href="https://docs.icer.msu.edu/Job_with_Checkpointing_Run/">Checkpointing</a> is the process of periodically saving the state of a program. While it is especially useful when working with the scavenger queue, checkpointing can be useful in any scenario where it is important to not lose substantial progress if a program is interupted for any reason. </p>
+<p><a href="https://docs.icer.msu.edu/Job_with_Checkpointing_Run/">Checkpointing</a> is the process of periodically saving the state of a program. While it is especially useful when working with the scavenger queue, checkpointing can be useful in any scenario where it is important to not lose substantial progress if a program is interrupted for any reason. </p>
 <p>The following example demonstrates a basic implementation of checkpointing in Python. This code uses the <code>dill</code> library to save and reload the current variables in python.  You can install the dill library in your home directory using one of the following command on a development node (depending on how your Python environment is set up):</p>
 <p><code>pip install --user dill</code></p>
 <p>or</p>
 <p><code>conda install dill</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The dill library will work with most of the core python variable types. However, some special variables will not work with dill. Refer to the <a href="https://dill.readthedocs.io/en/latest/">dill package documentat</a> for how best to use the libary wiht your own workflows. </p>
+<p>The dill library will work with most of the core python variable types. However, some special variables will not work with dill. Refer to the <a href="https://dill.readthedocs.io/en/latest/">dill package documentat</a> for how best to use the library with your own workflows. </p>
 </div>
 <p>Once you have <code>dill</code> installed  on the HPCC, you can use the following example (called <code>counter.py</code>) on a development node with the <code>python counter.py</code> command. At some random point after 10 cycles, kill the code using ctrl+c, then restart the program.  It should save it's state and start where it left off. </p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">counter.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -6602,7 +6602,7 @@ information and other details.</p>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h1 id="3-putting-it-all-together">3. Putting it all together</h1>
-<p>Now that the code has been tested (and is working) on a devleopment node let's write a slurm script to run it on the scavenger queue. </p>
+<p>Now that the code has been tested (and is working) on a development node let's write a slurm script to run it on the scavenger queue. </p>
 <p>The following is an example submission script that can be used to run on the scavenger queue:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">run_counter.sb</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -6661,7 +6661,7 @@ python<span class="w"> </span>counter.py
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 17, 2025 16:30:10 UTC">June 17, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 24, 2025 15:20:28 UTC">June 24, 2025</span>
     </span>
     
 
@@ -6685,7 +6685,7 @@ python<span class="w"> </span>counter.py
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer, Dirk Colbry
+            Andrew Fullard, Claire Kopenhafer, Craig Gross, Dirk Colbry
         </nav>
     </span>
     
