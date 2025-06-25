@@ -1,5 +1,10 @@
 @import url("https://msu-p-001.sitecorecontenthub.cloud/api/public/content/1a1d46b45afb40eda6ebf4ed44077295");
 
+
+
+
+
+
 :root {
   --md-primary-fg-color: #18453B;
   --md-footer-bg-color: #18453B;
@@ -542,3 +547,26 @@ ul li {
   margin-right: auto;
   max-width: 95%
 }
+
+/*
+this is for 
+.md-content__inner.md-typeset > p,
+.md-content__inner.md-typeset > h1,
+.md-content__inner.md-typeset > h2,
+.md-content__inner.md-typeset > h3,
+.md-content__inner.md-typeset > ul,
+.md-content__inner.md-typeset > ol,
+.md-content__inner.md-typeset > blockquote {
+  max-width: 45rem !important;
+}
+*/
+
+@media (min-width: 1400px) { 
+  .md-grid {
+    max-width: 1420px;  
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
