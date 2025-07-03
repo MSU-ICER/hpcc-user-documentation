@@ -46,9 +46,12 @@ function populate_overview(json_data) {
 		    let pathArray = x.split("/")
 		    //pathArray = pathArray.slice(7)
 		    console.log("pathArray:", pathArray)
+            if (pathArray[pathArray.length - 2] == "gateway") {
+                x = "gateway"
+            } else {
+                x = pathArray[pathArray.length -1]
+            }
 		    console.log("last:", pathArray[pathArray.length -1])
-		    x = pathArray[pathArray.length -1]
-		    //x = pathArray
 		    console.log("x:",x)
                     return ({"title": x})
                 })
