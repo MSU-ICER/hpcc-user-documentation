@@ -6502,7 +6502,7 @@ module<span class="w"> </span>load<span class="w"> </span>GCC/8.3.0<span class="
 
 Rscript<span class="w"> </span>--vanilla<span class="w"> </span>R_doParallel_singlenode.R<span class="w"> </span>&gt;<span class="w"> </span>R_doParallel_singlenode.Rout
 </code></pre></div>
-<p>Submission command: <code>sbatch --constraint="[intel16|intel18|amd20|amd22]" submit-doParallel.sbatch</code></p>
+<p>Submission command: <code>sbatch --constraint="[intel18|amd20|amd22]" submit-doParallel.sbatch</code></p>
 <p>The output file <code>R_doParallel_singlenode.Rout</code>  should look like:</p>
 <div class="highlight"><pre><span></span><code>Time elapsed: 8.946
 Currently registered backend: doParallelMC
@@ -6597,7 +6597,7 @@ module<span class="w"> </span>load<span class="w"> </span>GCC/8.3.0<span class="
 
 mpirun<span class="w"> </span>-n<span class="w"> </span><span class="nv">$SLURM_NTASKS</span><span class="w"> </span>Rscript<span class="w"> </span>--vanilla<span class="w"> </span>MVN.R<span class="w"> </span>&gt;<span class="w"> </span>MVN.Rout
 </code></pre></div>
-<p>Now, submit the job by <code>sbatch --constraint="[intel16|intel18|amd20|amd22]" submit-pbdMPI.sbatch</code>. When finished, <code>MVN.Rout</code> should contain the following information:</p>
+<p>Now, submit the job by <code>sbatch --constraint="[intel18|amd20|amd22]" submit-pbdMPI.sbatch</code>. When finished, <code>MVN.Rout</code> should contain the following information:</p>
 <div class="highlight"><pre><span></span><code>COMM.RANK = 0
 All processes start...
 
@@ -6684,7 +6684,7 @@ Final log-likelihood:
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 1, 2025 03:56:03 UTC">March 1, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
     </span>
     
 
@@ -6708,7 +6708,7 @@ Final log-likelihood:
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer, Nanye Long, toelawpa
+            Andrew Fullard, Claire Kopenhafer, Craig Gross, Nanye Long, toelawpa
         </nav>
     </span>
     

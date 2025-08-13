@@ -6381,8 +6381,12 @@ to a development node.</p>
 <p>Each development node is configured to match the compute nodes of the same <a href="../Cluster_Resources/">cluster</a>. If you would like your job to be able to run on any cluster (as is the default for the queue; see the section on <a href="../Job_Constraints/#automatic-job-constraints">Automatic Job Constraints</a>) you should not compile with  architecture-specific tuning (e.g. <code>-march</code> or <code>-x</code>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Code compiled on different architectures (e.g. <code>intel16</code> vs <code>intel18</code>) may have errors when running on other nodes. To avoid this, compile your code on a newer development node or specify
-<code>--constraint=[node type]</code> in your SLURM batch script where <code>[node type]</code> is the development node type you compiled on.</p>
+<p>Code compiled on different architectures (e.g. <code>amd20</code> vs <code>intel18</code>) may
+have errors when running on other nodes. To avoid this, compile your code
+<code>dev-amd20</code> or specify <code>--constraint=[node type]</code> in your SLURM batch script
+where <code>[node type]</code> is the development node type you compiled on. For more
+information see our page on <a href="../Using_Different_Cluster_Architectures/">Using Different Cluster
+Architectures</a>.</p>
 </div>
 <h2 id="compute-nodes">Compute Nodes</h2>
 <p>ICER maintains several <a href="../Cluster_Resources/">clusters</a> of compute nodes. Users submit jobs to the <a href="../SLURM_overview/">SLURM scheduler</a> which assigns compute nodes based on the resources requested. </p>
@@ -6494,7 +6498,7 @@ to a development node.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 8, 2025 19:26:44 UTC">May 8, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
     </span>
     
 

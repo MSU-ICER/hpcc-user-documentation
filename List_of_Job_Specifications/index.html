@@ -6390,7 +6390,7 @@ Not all options need to be specified. See our <a href="../Example_SLURM_scripts/
 <tr>
 <td><code>-C</code>,<br/><code>--constraint=&lt;list&gt;</code></td>
 <td>Request node feature. May be specified with symbol <code>&amp;</code> for and, <code>|</code> for or, etc.<p>Constraints using <code>|</code> must be prepended with <code>NOAUTO:</code>. See the <a href="../Job_Constraints/">Job Constraints</a> page for more information.</td>
-<td><code>#SBATCH -C NOAUTO:intel16|amd20</code></td>
+<td><code>#SBATCH -C NOAUTO:intel18|amd24</code></td>
 </tr>
 <tr>
 <td><code>-c</code>,<br/><code>--cpus-per-task=&lt;ncpus&gt;</code></td>
@@ -6399,18 +6399,18 @@ Not all options need to be specified. See our <a href="../Example_SLURM_scripts/
 </tr>
 <tr>
 <td><code>-G</code>,<br/><code>--gpus=[&lt;type&gt;:]&lt;number&gt;</code></td>
-<td>Specify the total number of GPUs required for the job. An optional <abbr title="Graphics Processing Unit">GPU</abbr> type specification can be supplied. Valid <abbr title="Graphics Processing Unit">GPU</abbr> types are <code>k20</code>, <code>k80</code>, <code>v100</code> and <code>a100</code>. Note that type is optional, but the number of GPUs is necessary. The allocation has to contain at least one <abbr title="Graphics Processing Unit">GPU</abbr> per node.</td>
-<td><code>#SBATCH   --gpus=k80:2</code> (request 2 k80 GPUs for entire job)<br/> <code>#SBATCH --gpus=2</code> (request 2 GPUs for entire job)</td>
+<td>Specify the total number of GPUs required for the job. An optional <abbr title="Graphics Processing Unit">GPU</abbr> type specification can be supplied. Valid <abbr title="Graphics Processing Unit">GPU</abbr> types are <code>v100</code>, <code>v100s</code>, <code>a100</code>, <code>l40s</code>, and <code>h200</code>. Note that type is optional, but the number of GPUs is necessary. The allocation has to contain at least one <abbr title="Graphics Processing Unit">GPU</abbr> per node.</td>
+<td><code>#SBATCH   --gpus=v100:2</code> (request 2 V100 GPUs for entire job)<br/> <code>#SBATCH --gpus=2</code> (request 2 GPUs for entire job)</td>
 </tr>
 <tr>
 <td><code>--gpus-per-node=[&lt;type&gt;:]&lt;number&gt;</code></td>
 <td>Specify the number of GPUs required for the job on each node included in the job's resource allocation. GPUs are specified in the same format as <code>--gpus</code>.</td>
-<td><code>#SBATCH   --gpus-per-node=v100:8</code> (request 8 v100 GPUs for each node requested by job)<br/> <code>#SBATCH --gpus-per-node=8</code> (request 8 GPUs for each node requested by job)</td>
+<td><code>#SBATCH   --gpus-per-node=v100:8</code> (request 8 V100 GPUs for each node requested by job)<br/> <code>#SBATCH --gpus-per-node=8</code> (request 8 GPUs for each node requested by job)</td>
 </tr>
 <tr>
 <td><code>--gpus-per-task=[&lt;type&gt;:]&lt;number&gt;</code></td>
 <td>Specify the number of GPUs required for the job on each task to be spawned in the job's resource allocation. GPUs are specified in the same format as <code>--gpus</code>.<p>This option requires an explicit task count, e.g. <code>-n</code>, <code>--ntasks</code> or <code>--gpus=X --gpus-per-task=Y</code>. This option will implicitly set <code>--gpu-bind=per_task:&lt;gpus_per_task&gt;</code>, but that can be overridden (see the <a href="https://slurm.schedmd.com/sbatch.html">full documentation</a>).</td>
-<td><code>#SBATCH   --gpus-per-task=k80:2</code> (request 2 k80 GPUs for each task requested by job)<br/><code>#SBATCH --gpus-per-task=2</code> (request 2 GPUs for each task requested by job)</td>
+<td><code>#SBATCH   --gpus-per-task=v100:2</code> (request 2 V100 GPUs for each task requested by job)<br/><code>#SBATCH --gpus-per-task=2</code> (request 2 GPUs for each task requested by job)</td>
 </tr>
 <tr>
 <td><code>--mem=&lt;size[units]&gt;</code></td>
@@ -6631,7 +6631,7 @@ By default, standard output and error are combined into the same <code>output</c
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 6, 2025 17:34:14 UTC">February 6, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
     </span>
     
 

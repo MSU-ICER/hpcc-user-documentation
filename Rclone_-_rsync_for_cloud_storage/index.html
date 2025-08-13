@@ -6416,73 +6416,72 @@ found in the document <a href="../attachments/34963677/37421153.pdf">Rclone.pdf
 command to copy or mount the cloud storage to HPCC. There are many rclone
 sub-commands that can be used to handle file transfers and manage files on
 HPCC and cloud storage. To get help, use "rclone --help" as shown below:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel16-k80<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>rclone
-<span class="o">[</span>hpc@dev-intel16-k80<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>--help
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>rclone
+rclone<span class="w"> </span>--help
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Rclone syncs files to and from cloud storage providers as well as</span>
+<span class="go">mounting them, listing them in lots of different ways.</span>
 
-Rclone<span class="w"> </span>syncs<span class="w"> </span>files<span class="w"> </span>to<span class="w"> </span>and<span class="w"> </span>from<span class="w"> </span>cloud<span class="w"> </span>storage<span class="w"> </span>providers<span class="w"> </span>as<span class="w"> </span>well<span class="w"> </span>as
-mounting<span class="w"> </span>them,<span class="w"> </span>listing<span class="w"> </span>them<span class="w"> </span><span class="k">in</span><span class="w"> </span>lots<span class="w"> </span>of<span class="w"> </span>different<span class="w"> </span>ways.
+<span class="go">See the home page (https://rclone.org/) for installation, usage,</span>
+<span class="go">documentation, changelog and configuration walkthroughs.</span>
 
-See<span class="w"> </span>the<span class="w"> </span>home<span class="w"> </span>page<span class="w"> </span><span class="o">(</span>https://rclone.org/<span class="o">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>installation,<span class="w"> </span>usage,
-documentation,<span class="w"> </span>changelog<span class="w"> </span>and<span class="w"> </span>configuration<span class="w"> </span>walkthroughs.
+<span class="go">Usage:</span>
+<span class="go">  rclone [flags]</span>
+<span class="go">  rclone [command]</span>
 
-Usage:
-<span class="w">  </span>rclone<span class="w"> </span><span class="o">[</span>flags<span class="o">]</span>
-<span class="w">  </span>rclone<span class="w"> </span><span class="o">[</span>command<span class="o">]</span>
+<span class="go">Available Commands:</span>
+<span class="go">  about           Get quota information from the remote.</span>
+<span class="go">  authorize       Remote authorization.</span>
+<span class="go">  cachestats      Print cache stats for a remote</span>
+<span class="go">  cat             Concatenates any files and sends them to stdout.</span>
+<span class="go">  check           Checks the files in the source and destination match.</span>
+<span class="go">  cleanup         Clean up the remote if possible</span>
+<span class="go">  config          Enter an interactive configuration session.</span>
+<span class="go">  copy            Copy files from source to dest, skipping already copied</span>
+<span class="go">  copyto          Copy files from source to dest, skipping already copied</span>
+<span class="go">  copyurl         Copy url content to dest.</span>
+<span class="go">  cryptcheck      Cryptcheck checks the integrity of a crypted remote.</span>
+<span class="go">  cryptdecode     Cryptdecode returns unencrypted file names.</span>
+<span class="go">  dbhashsum       Produces a Dropbox hash file for all the objects in the path.</span>
+<span class="go">  dedupe          Interactively find duplicate files and delete/rename them.</span>
+<span class="go">  delete          Remove the contents of path.</span>
+<span class="go">  deletefile      Remove a single file from remote.</span>
+<span class="go">  genautocomplete Output completion script for a given shell.</span>
+<span class="go">  gendocs         Output markdown docs for rclone to the directory supplied.</span>
+<span class="go">  hashsum         Produces an hashsum file for all the objects in the path.</span>
+<span class="go">  help            Show help for rclone commands, flags and backends.</span>
+<span class="go">  link            Generate public link to file/folder.</span>
+<span class="go">  listremotes     List all the remotes in the config file.</span>
+<span class="go">  ls              List the objects in the path with size and path.</span>
+<span class="go">  lsd             List all directories/containers/buckets in the path.</span>
+<span class="go">  lsf             List directories and objects in remote:path formatted for parsing</span>
+<span class="go">  lsjson          List directories and objects in the path in JSON format.</span>
+<span class="go">  lsl             List the objects in path with modification time, size and path.</span>
+<span class="go">  md5sum          Produces an md5sum file for all the objects in the path.</span>
+<span class="go">  mkdir           Make the path if it does not already exist.</span>
+<span class="go">  mount           Mount the remote as file system on a mountpoint.</span>
+<span class="go">  move            Move files from source to dest.</span>
+<span class="go">  moveto          Move file or directory from source to dest.</span>
+<span class="go">  ncdu            Explore a remote with a text based user interface.</span>
+<span class="go">  obscure         Obscure password for use in the rclone.conf</span>
+<span class="go">  purge           Remove the path and all of its contents.</span>
+<span class="go">  rc              Run a command against a running rclone.</span>
+<span class="go">  rcat            Copies standard input to file on remote.</span>
+<span class="go">  rcd             Run rclone listening to remote control commands only.</span>
+<span class="go">  rmdir           Remove the path if empty.</span>
+<span class="go">  rmdirs          Remove empty directories under the path.</span>
+<span class="go">  serve           Serve a remote over a protocol.</span>
+<span class="go">  settier         Changes storage class/tier of objects in remote.</span>
+<span class="go">  sha1sum         Produces an sha1sum file for all the objects in the path.</span>
+<span class="go">  size            Prints the total size and number of objects in remote:path.</span>
+<span class="go">  sync            Make source and dest identical, modifying destination only.</span>
+<span class="go">  touch           Create new file or change file modification time.</span>
+<span class="go">  tree            List the contents of the remote in a tree like fashion.</span>
+<span class="go">  version         Show the version number.</span>
 
-Available<span class="w"> </span>Commands:
-<span class="w">  </span>about<span class="w">           </span>Get<span class="w"> </span>quota<span class="w"> </span>information<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>remote.
-<span class="w">  </span>authorize<span class="w">       </span>Remote<span class="w"> </span>authorization.
-<span class="w">  </span>cachestats<span class="w">      </span>Print<span class="w"> </span>cache<span class="w"> </span>stats<span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>remote
-<span class="w">  </span>cat<span class="w">             </span>Concatenates<span class="w"> </span>any<span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>sends<span class="w"> </span>them<span class="w"> </span>to<span class="w"> </span>stdout.
-<span class="w">  </span>check<span class="w">           </span>Checks<span class="w"> </span>the<span class="w"> </span>files<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span><span class="nb">source</span><span class="w"> </span>and<span class="w"> </span>destination<span class="w"> </span>match.
-<span class="w">  </span>cleanup<span class="w">         </span>Clean<span class="w"> </span>up<span class="w"> </span>the<span class="w"> </span>remote<span class="w"> </span><span class="k">if</span><span class="w"> </span>possible
-<span class="w">  </span>config<span class="w">          </span>Enter<span class="w"> </span>an<span class="w"> </span>interactive<span class="w"> </span>configuration<span class="w"> </span>session.
-<span class="w">  </span>copy<span class="w">            </span>Copy<span class="w"> </span>files<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span><span class="w"> </span>to<span class="w"> </span>dest,<span class="w"> </span>skipping<span class="w"> </span>already<span class="w"> </span>copied
-<span class="w">  </span>copyto<span class="w">          </span>Copy<span class="w"> </span>files<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span><span class="w"> </span>to<span class="w"> </span>dest,<span class="w"> </span>skipping<span class="w"> </span>already<span class="w"> </span>copied
-<span class="w">  </span>copyurl<span class="w">         </span>Copy<span class="w"> </span>url<span class="w"> </span>content<span class="w"> </span>to<span class="w"> </span>dest.
-<span class="w">  </span>cryptcheck<span class="w">      </span>Cryptcheck<span class="w"> </span>checks<span class="w"> </span>the<span class="w"> </span>integrity<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>crypted<span class="w"> </span>remote.
-<span class="w">  </span>cryptdecode<span class="w">     </span>Cryptdecode<span class="w"> </span>returns<span class="w"> </span>unencrypted<span class="w"> </span>file<span class="w"> </span>names.
-<span class="w">  </span>dbhashsum<span class="w">       </span>Produces<span class="w"> </span>a<span class="w"> </span>Dropbox<span class="w"> </span><span class="nb">hash</span><span class="w"> </span>file<span class="w"> </span><span class="k">for</span><span class="w"> </span>all<span class="w"> </span>the<span class="w"> </span>objects<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>path.
-<span class="w">  </span>dedupe<span class="w">          </span>Interactively<span class="w"> </span>find<span class="w"> </span>duplicate<span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>delete/rename<span class="w"> </span>them.
-<span class="w">  </span>delete<span class="w">          </span>Remove<span class="w"> </span>the<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>path.
-<span class="w">  </span>deletefile<span class="w">      </span>Remove<span class="w"> </span>a<span class="w"> </span>single<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>remote.
-<span class="w">  </span>genautocomplete<span class="w"> </span>Output<span class="w"> </span>completion<span class="w"> </span>script<span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>given<span class="w"> </span>shell.
-<span class="w">  </span>gendocs<span class="w">         </span>Output<span class="w"> </span>markdown<span class="w"> </span>docs<span class="w"> </span><span class="k">for</span><span class="w"> </span>rclone<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>directory<span class="w"> </span>supplied.
-<span class="w">  </span>hashsum<span class="w">         </span>Produces<span class="w"> </span>an<span class="w"> </span>hashsum<span class="w"> </span>file<span class="w"> </span><span class="k">for</span><span class="w"> </span>all<span class="w"> </span>the<span class="w"> </span>objects<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>path.
-<span class="w">  </span><span class="nb">help</span><span class="w">            </span>Show<span class="w"> </span><span class="nb">help</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>rclone<span class="w"> </span>commands,<span class="w"> </span>flags<span class="w"> </span>and<span class="w"> </span>backends.
-<span class="w">  </span>link<span class="w">            </span>Generate<span class="w"> </span>public<span class="w"> </span>link<span class="w"> </span>to<span class="w"> </span>file/folder.
-<span class="w">  </span>listremotes<span class="w">     </span>List<span class="w"> </span>all<span class="w"> </span>the<span class="w"> </span>remotes<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>config<span class="w"> </span>file.
-<span class="w">  </span>ls<span class="w">              </span>List<span class="w"> </span>the<span class="w"> </span>objects<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>path<span class="w"> </span>with<span class="w"> </span>size<span class="w"> </span>and<span class="w"> </span>path.
-<span class="w">  </span>lsd<span class="w">             </span>List<span class="w"> </span>all<span class="w"> </span>directories/containers/buckets<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>path.
-<span class="w">  </span>lsf<span class="w">             </span>List<span class="w"> </span>directories<span class="w"> </span>and<span class="w"> </span>objects<span class="w"> </span><span class="k">in</span><span class="w"> </span>remote:path<span class="w"> </span>formatted<span class="w"> </span><span class="k">for</span><span class="w"> </span>parsing
-<span class="w">  </span>lsjson<span class="w">          </span>List<span class="w"> </span>directories<span class="w"> </span>and<span class="w"> </span>objects<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>path<span class="w"> </span><span class="k">in</span><span class="w"> </span>JSON<span class="w"> </span>format.
-<span class="w">  </span>lsl<span class="w">             </span>List<span class="w"> </span>the<span class="w"> </span>objects<span class="w"> </span><span class="k">in</span><span class="w"> </span>path<span class="w"> </span>with<span class="w"> </span>modification<span class="w"> </span>time,<span class="w"> </span>size<span class="w"> </span>and<span class="w"> </span>path.
-<span class="w">  </span>md5sum<span class="w">          </span>Produces<span class="w"> </span>an<span class="w"> </span>md5sum<span class="w"> </span>file<span class="w"> </span><span class="k">for</span><span class="w"> </span>all<span class="w"> </span>the<span class="w"> </span>objects<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>path.
-<span class="w">  </span>mkdir<span class="w">           </span>Make<span class="w"> </span>the<span class="w"> </span>path<span class="w"> </span><span class="k">if</span><span class="w"> </span>it<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>already<span class="w"> </span>exist.
-<span class="w">  </span>mount<span class="w">           </span>Mount<span class="w"> </span>the<span class="w"> </span>remote<span class="w"> </span>as<span class="w"> </span>file<span class="w"> </span>system<span class="w"> </span>on<span class="w"> </span>a<span class="w"> </span>mountpoint.
-<span class="w">  </span>move<span class="w">            </span>Move<span class="w"> </span>files<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span><span class="w"> </span>to<span class="w"> </span>dest.
-<span class="w">  </span>moveto<span class="w">          </span>Move<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span><span class="w"> </span>to<span class="w"> </span>dest.
-<span class="w">  </span>ncdu<span class="w">            </span>Explore<span class="w"> </span>a<span class="w"> </span>remote<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>text<span class="w"> </span>based<span class="w"> </span>user<span class="w"> </span>interface.
-<span class="w">  </span>obscure<span class="w">         </span>Obscure<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>use<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>rclone.conf
-<span class="w">  </span>purge<span class="w">           </span>Remove<span class="w"> </span>the<span class="w"> </span>path<span class="w"> </span>and<span class="w"> </span>all<span class="w"> </span>of<span class="w"> </span>its<span class="w"> </span>contents.
-<span class="w">  </span>rc<span class="w">              </span>Run<span class="w"> </span>a<span class="w"> </span><span class="nb">command</span><span class="w"> </span>against<span class="w"> </span>a<span class="w"> </span>running<span class="w"> </span>rclone.
-<span class="w">  </span>rcat<span class="w">            </span>Copies<span class="w"> </span>standard<span class="w"> </span>input<span class="w"> </span>to<span class="w"> </span>file<span class="w"> </span>on<span class="w"> </span>remote.
-<span class="w">  </span>rcd<span class="w">             </span>Run<span class="w"> </span>rclone<span class="w"> </span>listening<span class="w"> </span>to<span class="w"> </span>remote<span class="w"> </span>control<span class="w"> </span>commands<span class="w"> </span>only.
-<span class="w">  </span>rmdir<span class="w">           </span>Remove<span class="w"> </span>the<span class="w"> </span>path<span class="w"> </span><span class="k">if</span><span class="w"> </span>empty.
-<span class="w">  </span>rmdirs<span class="w">          </span>Remove<span class="w"> </span>empty<span class="w"> </span>directories<span class="w"> </span>under<span class="w"> </span>the<span class="w"> </span>path.
-<span class="w">  </span>serve<span class="w">           </span>Serve<span class="w"> </span>a<span class="w"> </span>remote<span class="w"> </span>over<span class="w"> </span>a<span class="w"> </span>protocol.
-<span class="w">  </span>settier<span class="w">         </span>Changes<span class="w"> </span>storage<span class="w"> </span>class/tier<span class="w"> </span>of<span class="w"> </span>objects<span class="w"> </span><span class="k">in</span><span class="w"> </span>remote.
-<span class="w">  </span>sha1sum<span class="w">         </span>Produces<span class="w"> </span>an<span class="w"> </span>sha1sum<span class="w"> </span>file<span class="w"> </span><span class="k">for</span><span class="w"> </span>all<span class="w"> </span>the<span class="w"> </span>objects<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>path.
-<span class="w">  </span>size<span class="w">            </span>Prints<span class="w"> </span>the<span class="w"> </span>total<span class="w"> </span>size<span class="w"> </span>and<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>objects<span class="w"> </span><span class="k">in</span><span class="w"> </span>remote:path.
-<span class="w">  </span>sync<span class="w">            </span>Make<span class="w"> </span><span class="nb">source</span><span class="w"> </span>and<span class="w"> </span>dest<span class="w"> </span>identical,<span class="w"> </span>modifying<span class="w"> </span>destination<span class="w"> </span>only.
-<span class="w">  </span>touch<span class="w">           </span>Create<span class="w"> </span>new<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>change<span class="w"> </span>file<span class="w"> </span>modification<span class="w"> </span>time.
-<span class="w">  </span>tree<span class="w">            </span>List<span class="w"> </span>the<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>remote<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>tree<span class="w"> </span>like<span class="w"> </span>fashion.
-<span class="w">  </span>version<span class="w">         </span>Show<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>number.
-
-Use<span class="w"> </span><span class="s2">&quot;rclone [command] --help&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information<span class="w"> </span>about<span class="w"> </span>a<span class="w"> </span>command.
-Use<span class="w"> </span><span class="s2">&quot;rclone help flags&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span>global<span class="w"> </span>flags.
-Use<span class="w"> </span><span class="s2">&quot;rclone help backends&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>supported<span class="w"> </span>services.
-<span class="o">[</span>hpc@dev-intel16-k80<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>
+<span class="go">Use &quot;rclone [command] --help&quot; for more information about a command.</span>
+<span class="go">Use &quot;rclone help flags&quot; for to see the global flags.</span>
+<span class="go">Use &quot;rclone help backends&quot; for a list of supported services.</span>
 </code></pre></div>
 <p>The tool "cloudSync" was developed to help user to synchronize the files
 between their cloud storages. It is accessible through "powertools" which
@@ -6496,122 +6495,127 @@ is configured as  the name "MyOneDrive". </p>
 <p>We can check the current configuration of rclone using 'rclone config'.
 As is shown below, we can see that there are currently two remote cloud storage configured:  
 "MyOneDrive" and "googledoc" </p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>config
-Current<span class="w"> </span>remotes:
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>rclone<span class="w"> </span>config
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Current remotes:</span>
 
-Name<span class="w">                 </span><span class="nv">Type</span>
-<span class="o">====</span><span class="w">                 </span><span class="o">====</span>
-MyOneDrive<span class="w">           </span>onedrive
-googledoc<span class="w">            </span>drive
+<span class="go">Name                 Type</span>
+<span class="go">====                 ====</span>
+<span class="go">MyOneDrive           onedrive</span>
+<span class="go">googledoc            drive</span>
 
-e<span class="o">)</span><span class="w"> </span>Edit<span class="w"> </span>existing<span class="w"> </span>remote
-n<span class="o">)</span><span class="w"> </span>New<span class="w"> </span>remote
-d<span class="o">)</span><span class="w"> </span>Delete<span class="w"> </span>remote
-r<span class="o">)</span><span class="w"> </span>Rename<span class="w"> </span>remote
-c<span class="o">)</span><span class="w"> </span>Copy<span class="w"> </span>remote
-s<span class="o">)</span><span class="w"> </span>Set<span class="w"> </span>configuration<span class="w"> </span>password
-q<span class="o">)</span><span class="w"> </span>Quit<span class="w"> </span>config
-e/n/d/r/c/s/q&gt;<span class="w"> </span>q
-
-<span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$
+<span class="go">e) Edit existing remote</span>
+<span class="go">n) New remote</span>
+<span class="go">d) Delete remote</span>
+<span class="go">r) Rename remote</span>
+<span class="go">c) Copy remote</span>
+<span class="go">s) Set configuration password</span>
+<span class="go">q) Quit config</span>
+<span class="go">e/n/d/r/c/s/q&gt; q</span>
 </code></pre></div>
 <h3 id="2-check-the-remote-storage-information">(2) Check the remote storage information</h3>
 <p>We can see the remote storage usage and quota using "rclone about" command.</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel16-k80<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>about<span class="w"> </span>MyOneDrive:
-Total:<span class="w">   </span>5T
-Used:<span class="w">    </span><span class="m">450</span>.999M
-Free:<span class="w">    </span><span class="m">4</span>.998T
-Trashed:<span class="w"> </span><span class="m">404</span>.576k
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>rclone<span class="w"> </span>about<span class="w"> </span>MyOneDrive:
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Total:   5T</span>
+<span class="go">Used:    450.999M</span>
+<span class="go">Free:    4.998T</span>
+<span class="go">Trashed: 404.576k</span>
 </code></pre></div>
 <h3 id="3-list-the-contents-of-the-cloud-storage">(3) List the contents of the cloud storage</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>lsd<span class="w"> </span>MyOneDrive:
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2018</span>-02-02<span class="w"> </span><span class="m">08</span>:57:54<span class="w">         </span><span class="m">0</span><span class="w"> </span>Attachments
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2019</span>-08-27<span class="w"> </span><span class="m">15</span>:43:33<span class="w">         </span><span class="m">1</span><span class="w"> </span>IMAGES
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2019</span>-08-22<span class="w"> </span><span class="m">15</span>:50:10<span class="w">        </span><span class="m">42</span><span class="w"> </span>Matlab
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2019</span>-02-26<span class="w"> </span><span class="m">17</span>:12:01<span class="w">        </span><span class="m">16</span><span class="w"> </span>Microsoft<span class="w"> </span>Teams<span class="w"> </span>Chat<span class="w"> </span>Files
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2018</span>-08-24<span class="w"> </span><span class="m">08</span>:56:32<span class="w">         </span><span class="m">1</span><span class="w"> </span>Notebooks
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>rclone<span class="w"> </span>lsd<span class="w"> </span>MyOneDrive:
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">          -1 2018-02-02 08:57:54         0 Attachments</span>
+<span class="go">          -1 2019-08-27 15:43:33         1 IMAGES</span>
+<span class="go">          -1 2019-08-22 15:50:10        42 Matlab</span>
+<span class="go">          -1 2019-02-26 17:12:01        16 Microsoft Teams Chat Files</span>
+<span class="go">          -1 2018-08-24 08:56:32         1 Notebooks</span>
 </code></pre></div>
 <h3 id="4-copy-files-on-hpcc-to-remote-cloud">(4) Copy files on HPCC to remote cloud:</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>copy<span class="w"> </span>Project<span class="w"> </span>MyOneDrive:Project<span class="w">   </span><span class="c1"># copy the content of directory &quot;Project&quot; to remote cloud storage</span>
-
-<span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>lsd<span class="w"> </span>MyOneDrive:<span class="w">               </span><span class="c1"># view the contents of cloud storage to confirm the copy</span>
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2018</span>-02-02<span class="w"> </span><span class="m">08</span>:57:54<span class="w">         </span><span class="m">0</span><span class="w"> </span>Attachments
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2019</span>-08-27<span class="w"> </span><span class="m">15</span>:43:33<span class="w">         </span><span class="m">1</span><span class="w"> </span>IMPACT
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2019</span>-08-22<span class="w"> </span><span class="m">15</span>:50:10<span class="w">        </span><span class="m">42</span><span class="w"> </span>Matlab
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2019</span>-02-26<span class="w"> </span><span class="m">17</span>:12:01<span class="w">        </span><span class="m">16</span><span class="w"> </span>Microsoft<span class="w"> </span>Teams<span class="w"> </span>Chat<span class="w"> </span>Files
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2018</span>-08-24<span class="w"> </span><span class="m">08</span>:56:32<span class="w">         </span><span class="m">1</span><span class="w"> </span>Notebooks
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2020</span>-04-27<span class="w"> </span><span class="m">15</span>:43:25<span class="w">         </span><span class="m">2</span><span class="w"> </span>Project
-<span class="o">[</span>user@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>lsd<span class="w"> </span>MyOneDrive:Project
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2020</span>-04-27<span class="w"> </span><span class="m">15</span>:44:39<span class="w">         </span><span class="m">1</span><span class="w"> </span>GPAW
-<span class="w">          </span>-1<span class="w"> </span><span class="m">2020</span>-04-27<span class="w"> </span><span class="m">15</span>:43:26<span class="w">         </span><span class="m">3</span><span class="w"> </span>MATLAB
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>rclone<span class="w"> </span>copy<span class="w"> </span>Project<span class="w"> </span>MyOneDrive:Project<span class="w">   </span><span class="c1"># copy the content of directory &quot;Project&quot; to remote cloud storage</span>
+rclone<span class="w"> </span>lsd<span class="w"> </span>MyOneDrive:<span class="w">  </span><span class="c1"># view the contents of cloud storage to confirm the copy</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">          -1 2018-02-02 08:57:54         0 Attachments</span>
+<span class="go">          -1 2019-08-27 15:43:33         1 IMPACT</span>
+<span class="go">          -1 2019-08-22 15:50:10        42 Matlab</span>
+<span class="go">          -1 2019-02-26 17:12:01        16 Microsoft Teams Chat Files</span>
+<span class="go">          -1 2018-08-24 08:56:32         1 Notebooks</span>
+<span class="go">          -1 2020-04-27 15:43:25         2 Project</span>
+<span class="go">[user@dev-intel18 ~]$ rclone lsd MyOneDrive:Project</span>
+<span class="go">          -1 2020-04-27 15:44:39         1 GPAW</span>
+<span class="go">          -1 2020-04-27 15:43:26         3 MATLAB</span>
 </code></pre></div>
 <h3 id="5-copy-files-on-cloud-storage-to-hpcc">(5) Copy files on cloud storage to HPCC:</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>Project<span class="o">]</span>$<span class="w"> </span>ls<span class="w">                                 </span><span class="c1"># current content of Project directory before copy</span>
-GPAW<span class="w">  </span>MATLAB
-<span class="o">[</span>user@dev-intel18<span class="w"> </span>Project<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>copy<span class="w"> </span>MyOneDrive:IMPACT<span class="w"> </span>./<span class="w">   </span><span class="c1"># copy the content of IMPACT in cloud to current directory         </span>
-<span class="o">[</span>user@dev-intel18<span class="w"> </span>Project<span class="o">]</span>$<span class="w"> </span>ls<span class="w">                                 </span><span class="c1"># confirm that the copy is done</span>
-GPAW<span class="w">  </span>impact_run<span class="w">  </span>MATLAB
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>ls<span class="w">  </span><span class="c1"># current content of directory before copy</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">GPAW  MATLAB</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>rclone<span class="w"> </span>copy<span class="w"> </span>MyOneDrive:IMPACT<span class="w"> </span>./<span class="w">  </span><span class="c1"># copy the content of IMPACT in cloud to current directory         </span>
+ls<span class="w">  </span><span class="c1"># confirm that the copy is done</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">GPAW  impact_run  MATLAB</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Although "rclone copy" is similar as unix commands rsync and cp, when
+<p>Although <code>rclone copy</code> is similar as unix commands rsync and cp, when
 using it, users should be aware of the differences and know the details
 of its behavior. </p>
-<p>(1) "rclone copy" does not transfer unchanged files, testing by size
+<p>(1) <code>rclone copy</code> does not transfer unchanged files, testing by size
 and modification time or MD5SUM. In this sense, it is similar as linux
 command rsync;</p>
 <p>(2) When running
-"<code>rclone copy source:sourcepath dest:destpath</code>", if <code>source:sourcepath</code> is
+<code>rclone copy source:sourcepath dest:destpath</code>, if <code>source:sourcepath</code> is
 a directory, <code>dest:destpath</code> should also be a directory.  It does not
 copy the directory <code>source:sourcepath</code>, instead, it will copy the
 content of the directory <code>source:sourcepath</code> to the destination
 <code>dest:destpath</code>. If <code>dest:destpath</code> does not exist, it will be created
 and the content of <code>source:sourcepath</code> will be stored in it.</p>
-<p>(3) "rclone copyto" is a very similar rclone command to "rclone copy". The
+<p>(3) <code>rclone copyto</code> is a very similar rclone command to <code>rclone copy</code>. The
 only difference is that it can be used to upload single files to files other
 than their current name. When running
-"<code>rclone copyto source:sourcepath dest:destpath</code>", if <code>source:sourcepath</code> is
+<code>rclone copyto source:sourcepath dest:destpath</code>, if <code>source:sourcepath</code> is
 a file, <code>dest:destpath</code> could be a new file name.
 If <code>source:sourcepath</code> is a directory, it would be the same as using
-"<code>rclone copy".</code></p>
+<code>rclone copy</code>.</p>
 </div>
 <h3 id="6-checks-the-files-in-the-source-and-destination-match">(6) Checks the files in the source and destination match.</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>user@dev-intel18<span class="w"> </span>Project<span class="o">]</span>$<span class="w"> </span>rclone<span class="w"> </span>check<span class="w"> </span>impact_run<span class="w"> </span>MyOneDrive:IMPACT/impact_run<span class="w">   </span><span class="c1"># check if it is matched both sides</span>
-<span class="m">2020</span>/04/27<span class="w"> </span><span class="m">16</span>:19:01<span class="w"> </span>NOTICE:<span class="w"> </span>One<span class="w"> </span>drive<span class="w"> </span>root<span class="w"> </span><span class="s1">&#39;IMPACT/impact_run&#39;</span>:<span class="w"> </span><span class="m">0</span><span class="w"> </span>differences<span class="w"> </span>found
-<span class="m">2020</span>/04/27<span class="w"> </span><span class="m">16</span>:19:01<span class="w"> </span>NOTICE:<span class="w"> </span>One<span class="w"> </span>drive<span class="w"> </span>root<span class="w"> </span><span class="s1">&#39;IMPACT/impact_run&#39;</span>:<span class="w"> </span><span class="m">21</span><span class="w"> </span>matching<span class="w"> </span>files
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>rclone<span class="w"> </span>check<span class="w"> </span>impact_run<span class="w"> </span>MyOneDrive:IMPACT/impact_run<span class="w">   </span><span class="c1"># check if it is matched both sides</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">2020/04/27 16:19:01 NOTICE: One drive root &#39;IMPACT/impact_run&#39;: 0 differences found</span>
+<span class="go">2020/04/27 16:19:01 NOTICE: One drive root &#39;IMPACT/impact_run&#39;: 21 matching files</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For archiving your files to your cloud storage, if the connection
 between HPCC and your cloud storage is not stable, we would NOT
-recommend using "rclone move" because it may loss the data during the
+recommend using <code>rclone move</code> because it may loss the data during the
 transfer. Instead, we recommend using "rclone copy" to successfully copy
-the files over and run "rclone check" to check if files are identical.
+the files over and run <code>rclone check</code> to check if files are identical.
 After that, it is safe to delete local copy of the files.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When using "rclone mount" command to mount your cloud storage to HPCC,
+<p>When using <code>rclone mount</code> command to mount your cloud storage to HPCC,
 there are two things users should be careful:</p>
-<p>(1) When running rclone mount, the process runs NOT as the user,
+<p>(1) When running <code>rclone mount</code>, the process runs NOT as the user,
 instead, it runs as a "root" of the cloud storage. Therefore, user may
-see the error message like "mount helper error: fusermount: failed to
-open mountpoint for reading: Permission denied". User could use /tmp
+see the error message like <code>mount helper error: fusermount: failed to
+open mountpoint for reading: Permission denied</code>. User could use <code>/tmp</code>
 space for mount point because that space is accessible for all users.
 Users should be very careful to open the permission to others for the
-purpose of using rclone mount. </p>
-<p>(2) The "rclone mount" users should unmount it after use using
-"fusermount -u \&lt;endpoint_dir&gt;". Note that sometimes the endpoint is
+purpose of using <code>rclone mount</code>. </p>
+<p>(2) The <code>rclone mount</code> users should unmount it after use using
+<code>fusermount -u \&lt;endpoint_dir\&gt;</code>. Note that sometimes the endpoint is
 not unmounted from some nodes due to timeout or some reason, you may see
-the message like "Transport endpoint is not connected" when accessing
+the message like <code>Transport endpoint is not connected</code> when accessing
 the endpoint directory on the node. Just manually unmount it again
 should resolve the issue. </p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When using "rclone config" command to configure your cloud storage on
+<p>When using <code>rclone config</code> command to configure your cloud storage on
 HPCC, the command will guide you through an interactive setup process.
-At the step of auto config, after you chose "y", it will start
+At the step of auto config, after you chose <code>y</code>, it will start
 authentication. You will see something like:</p>
 <div class="highlight"><pre><span></span><code>If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
 
@@ -6619,32 +6623,17 @@ Log in and authorize rclone for access
 Waiting for code...
 </code></pre></div>
 <p>At this time, a Firefox browser should be opened. If you did not get the
-browser window, check if you used -X option to allow X11 forwarding when
-you run ssh.  You may follow the instructions at <a href="../Connect_to_HPCC_System/">Connect to HPCC
+browser window, check if you used <code>-X</code> option to allow X11 forwarding when you
+run ssh.  You may follow the instructions at <a href="../Connect_to_HPCC_System/">Connect to HPCC
 System</a> to get the display right.</p>
 <p>It will take a few minutes to get the browser open and connected. Please
 be patient. If the browser window is open but does not open the
 authentication page, you could manually input the link provided by the
-"rclone config" command to the firefox browser's url address box to
+<code>rclone config</code> command to the firefox browser's url address box to
 connect to the site. DO NOT use the link on your personal computer's
 browser. The authentication have to use the browser on HPCC development
 node.  </p>
 </div>
-<!--
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" /> [Rclone
-tutorial final.pdf](attachments/34963677/37421153.pdf)
-(application/pdf)  
-
-</div>
--->
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6689,7 +6678,7 @@ tutorial final.pdf](attachments/34963677/37421153.pdf)
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 11, 2025 15:04:22 UTC">June 11, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
     </span>
     
 

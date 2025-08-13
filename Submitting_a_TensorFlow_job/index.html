@@ -6205,69 +6205,6 @@
 
 
 <h1 id="submitting-a-tensorflow-job">Submitting a TensorFlow job</h1>
-<!-- We assume that you've installed your TensorFlow virtual environment on a GPU dev-node (dev-intel16-k80). The Python code we are going to run in the SLURM job script is named `matmul.py`, with content being
-
-**matmul.py**
-
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
-
-<span class="n">device_name</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Choose device from cmd line. Options: gpu or cpu</span>
-<span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
-<span class="k">if</span> <span class="n">device_name</span> <span class="o">==</span> <span class="s2">&quot;gpu&quot;</span><span class="p">:</span>
-    <span class="n">device_name</span> <span class="o">=</span> <span class="s2">&quot;/gpu:6&quot;</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">device_name</span> <span class="o">=</span> <span class="s2">&quot;/cpu:0&quot;</span>
-
-<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="n">device_name</span><span class="p">):</span>
-    <span class="n">random_matrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">dot_operation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">random_matrix</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">random_matrix</span><span class="p">))</span>
-    <span class="n">sum_operation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">dot_operation</span><span class="p">)</span>
-
-<span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ConfigProto</span><span class="p">(</span><span class="n">allow_soft_placement</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">log_device_placement</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">sum_operation</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape:&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;Device:&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time taken:&quot;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">startTime</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
-</code></pre></div>
-
-Now we write a SLURM script to submit the job to the cluster:
-
-**Submitting GPU TensorFlow job: test_matmul.sbatch**
-
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-<span class="c1">#SBATCH --job-name=test_matmul</span>
-<span class="c1">#SBATCH --gpus=1</span>
-<span class="c1">#SBATCH --mem-per-cpu=20G</span>
-<span class="c1">#SBATCH --time=20</span>
-<span class="c1">#SBATCH --output=%x-%j.SLURMout</span>
-
-<span class="nb">echo</span><span class="w"> </span><span class="nv">$CUDA_VISIBLE_DEVICES</span>
-
-module<span class="w"> </span>purge
-module<span class="w"> </span>load<span class="w"> </span>GCC/6.4.0-2.28<span class="w">  </span>OpenMPI/2.1.2
-module<span class="w"> </span>load<span class="w"> </span>CUDA/10.0.130<span class="w"> </span>cuDNN/7.5.0.56-CUDA-10.0.130
-module<span class="w"> </span>load<span class="w"> </span>Python/3.6.4
-<span class="nb">source</span><span class="w"> </span>~/tf-1.13.1-env/bin/activate
-<span class="nb">export</span><span class="w"> </span><span class="nv">TF_CPP_MIN_LOG_LEVEL</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="c1"># disables the warning, doesn&#39;t enable AVX/FMA.</span>
-
-srun<span class="w"> </span>python<span class="w"> </span>matmul.py<span class="w"> </span>gpu<span class="w"> </span><span class="m">1500</span>
-</code></pre></div>
-
-To submit it, simply run
-
-<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>test_matmul.sbatch
-</code></pre></div>
-
-The final result will be written to file "`test_matmul-<jobid>.SLURMout`". -->
-
 <p>After you've <a href="../Installing_TensorFlow/">installed TF in your conda environment</a>, we can submit a TF job to the cluster. In order to make use of <abbr title="Graphics Processing Unit">GPU</abbr> computing, we'll need to <a href="../Requesting_GPUs/">request for a <abbr title="Graphics Processing Unit">GPU</abbr> node</a> in the job script through the <code>--gpu</code> directive.</p>
 <p>As an example, the TF python code, <code>matmul.tf2.py</code>, is shown below:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
@@ -6355,7 +6292,7 @@ conda<span class="w"> </span>deactivate
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 13, 2025 22:02:43 UTC">May 13, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
     </span>
     
 

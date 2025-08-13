@@ -6586,35 +6586,38 @@
 <h2 id="about-matlab">About MATLAB</h2>
 <ul>
 <li>
-<p>There is a <a href="https://www.mathworks.com/academia/tah-portal/michigan-state-university-1110432.html">Matlab portal for Michigan State University users</a>. Users are encouraged to visit it for information and support provided by Mathworks.</p>
+<p>There is a <a href="https://www.mathworks.com/academia/tah-portal/michigan-state-university-1110432.html">MATLAB portal for Michigan State University users</a>. Users are encouraged to visit it for information and support provided by Mathworks.</p>
 </li>
 <li>
 <p>Several versions of MATLAB are installed on the cluster. By default,
-MATLAB/2018a is loaded. Other available version of MATLAB can be discovered by typing</p>
+<code>MATLAB/2023b</code> is loaded. Other available version of MATLAB can be discovered by typing</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>hpc@dev-intel18:~&gt;<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>MATLAB
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>MATLAB
 </code></pre></div>
 <p>and then switching to a different version, for example, to switch
-from 2018a to 2019a, one can directly load the the version as</p>
-<div class="highlight"><pre><span></span><code>hpc@dev-intel18:~&gt;<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>MATLAB/2019a<span class="w"> </span>
+from 2023b to 2024b, one can directly load the version as</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>MATLAB/2024b
 </code></pre></div>
 <ul>
-<li>MATLAB's many built-in functions have multi-threaded capability. On
+<li>
+<p>MATLAB's many built-in functions have multi-threaded capability. On
     your personal computer, when a MATLAB function with multi-threads is
     called, MATLAB will automatically spawn as many threads as the
     number of cores on the machine. To avoid over utilizing compute
     nodes on HPCC, user should set the max number of threads by using
-    <code>maxNumCompThreads(N)</code> in matlab where N is the maximum number of
-    threads matlab would use in the session. User could also use option
-    <code>-SingleCompThread</code> to launch matlab session that would only use a
-    single thread. Without these option, matlab session will potentially
-    spawn as many as 28 (on intel16 nodes)
+    <code>maxNumCompThreads(N)</code> in MATLAB where N is the maximum number of
+    threads MATLAB would use in the session. User could also use option
+    <code>-SingleCompThread</code> to launch MATLAB session that would only use a
+    single thread. Without these option, MATLAB session will potentially
+    spawn as many as 40 (on intel18 nodes)
     threads when a built-in multi-threaded function is called. To allow
-    the multi-thread functions in matlab, users need to do the
-    following:<ol>
+    the multi-thread functions in MATLAB, users need to do the
+    following:</p>
+<ol>
 <li>Specify the maximum number of compute threads to be used with
-     <code>maxNumCompThreads(N)</code> at the beginning of the matlab
+     <code>maxNumCompThreads(N)</code> at the beginning of the MATLAB
     program where N is the maximum number of threads in the program.
     For example, <code>maxNumCompThreads(4)</code> will set the maximum
     number of threads used in the program to four.  </li>
@@ -6623,36 +6626,31 @@ from 2018a to 2019a, one can directly load the the version as</p>
     compute threads set in <code>maxNumCompThreads(N)</code>.</li>
 </ol>
 </li>
+<li>
+<p>HPCC has many toolboxes installed. To see a list of installed
+    toolboxes and licenses, type</p>
+</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Starting Nov. 1, 2018 on new HPCC system, the matlab default setting of
-using a single compute thread is changed. <code>matlab-mt</code> and <code>matlab</code>
-commands would be the same for 2018 and older versions and <code>matlab-mt</code> will no longer exist from later versions starting 2019.</p>
-</div>
-<ul>
-<li>HPCC has many toolboxes installed. To see a list of installed
-    toolboxes and licenses, type</li>
-</ul>
-<div class="highlight"><pre><span></span><code>hpc@dev-intel18:~&gt;<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>powertools
-hpc@dev-intel18:~&gt;<span class="w"> </span>licensecheck<span class="w"> </span>matlab
-Checking<span class="w"> </span>Licenses<span class="w"> </span><span class="k">for</span><span class="w"> </span>matlab
-lmstat<span class="w"> </span>-a<span class="w"> </span>-c<span class="w"> </span><span class="m">27000</span>@lm-02.i
-
-Users<span class="w"> </span>of<span class="w"> </span>MATLAB:<span class="w">  </span><span class="o">(</span>Total<span class="w"> </span>of<span class="w"> </span><span class="m">10000</span><span class="w"> </span>licenses<span class="w"> </span>issued<span class="p">;</span><span class="w">  </span>Total<span class="w"> </span>of<span class="w"> </span><span class="m">44</span><span class="w"> </span>licenses<span class="w"> </span><span class="k">in</span><span class="w"> </span>use<span class="o">)</span>
-Users<span class="w"> </span>of<span class="w"> </span>SIMULINK:<span class="w">  </span><span class="o">(</span>Total<span class="w"> </span>of<span class="w"> </span><span class="m">10000</span><span class="w"> </span>licenses<span class="w"> </span>issued<span class="p">;</span><span class="w">  </span>Total<span class="w"> </span>of<span class="w"> </span><span class="m">1</span><span class="w"> </span>license<span class="w"> </span><span class="k">in</span><span class="w"> </span>use<span class="o">)</span>
-Users<span class="w"> </span>of<span class="w"> </span>Bioinformatics_Toolbox:<span class="w">  </span><span class="o">(</span>Total<span class="w"> </span>of<span class="w"> </span><span class="m">10000</span><span class="w"> </span>licenses<span class="w"> </span>issued<span class="p">;</span><span class="w">  </span>Total<span class="w"> </span>of<span class="w"> </span><span class="m">0</span><span class="w"> </span>licenses<span class="w"> </span><span class="k">in</span><span class="w"> </span>use<span class="o">)</span>
-Users<span class="w"> </span>of<span class="w"> </span>Communication_Toolbox:<span class="w">  </span><span class="o">(</span>Total<span class="w"> </span>of<span class="w"> </span><span class="m">10000</span><span class="w"> </span>licenses<span class="w"> </span>issued<span class="p">;</span><span class="w">  </span>Total<span class="w"> </span>of<span class="w"> </span><span class="m">0</span><span class="w"> </span>licenses<span class="w"> </span><span class="k">in</span><span class="w"> </span>use<span class="o">)</span>
-
-......
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+licensecheck<span class="w"> </span>matlab
 </code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Checking Licenses for matlab</span>
+<span class="go">lmstat -a -c 27000@lm-02.i</span>
+
+<span class="go">Users of MATLAB:  (Total of 10000 licenses issued;  Total of 44 licenses in use)</span>
+<span class="go">Users of SIMULINK:  (Total of 10000 licenses issued;  Total of 1 license in use)</span>
+<span class="go">Users of Bioinformatics_Toolbox:  (Total of 10000 licenses issued;  Total of 0 licenses in use)</span>
+<span class="go">Users of Communication_Toolbox:  (Total of 10000 licenses issued;  Total of 0 licenses in use)</span>
+
+<span class="go">......</span>
+</code></pre></div></p>
 <h2 id="running-matlab-on-scratch-space">Running MATLAB on Scratch Space</h2>
-<p>It is strongly recommended that iCER users run programs on the scratch
+<p>It is strongly recommended that ICER users run programs on the scratch
 space. This may improve the speed of job execution as well as the
 whole system's performance. MATLAB users should carefully check
 whether any temporary files involved in the program execution need
-to be stored in scratch space. For example, if you use the Matlab
-compiler to make a Matlab program into a standalone program, you
+to be stored in scratch space. For example, if you use the MATLAB
+compiler to make a MATLAB program into a standalone program, you
 need to set the environment variable <code>MCR_CACHE_ROOT</code> in the scratch
 directory with: <code>export MCR_CACHE_ROOT=$SCRATCH</code> before starting
 the execution. This line should be added to the job script
@@ -6674,15 +6672,9 @@ command line or use the graphics through <code>ssh</code>, see the instructions 
 <h3 id="short-sessions-two-hours">Short Sessions (&lt; two hours)</h3>
 <ul>
 <li>
-<p><code>ssh</code> to one of the dev nodes and run Matlab:</p>
-<div class="highlight"><pre><span></span><code>hpc@gateway:~&gt;<span class="w"> </span>ssh<span class="w"> </span>dev-intel16
-Last<span class="w"> </span>login:<span class="w"> </span>Mon<span class="w"> </span>Dec<span class="w">  </span><span class="m">4</span><span class="w"> </span><span class="m">12</span>:54:44<span class="w"> </span><span class="m">2017</span><span class="w"> </span>from<span class="w"> </span><span class="nv">gateway</span>
-<span class="o">===</span>
-This<span class="w"> </span>front-end<span class="w"> </span>node<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>meant<span class="w"> </span><span class="k">for</span><span class="w"> </span>running<span class="w"> </span>big<span class="w"> </span>or<span class="w"> </span>long-running<span class="w"> </span>jobs.<span class="w">  </span>Jobs
-that<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>run<span class="w"> </span>longer<span class="w"> </span>than<span class="w"> </span>a<span class="w"> </span>few<span class="w"> </span>minutes<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>submitted<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>queue.
-Long-running<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>on<span class="w"> </span>front-end<span class="w"> </span>nodes<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>killed<span class="w"> </span>without<span class="w"> </span>warning.
-<span class="o">===</span>
-hpc@dev-intel16:~&gt;<span class="w"> </span>matlab<span class="w"> </span>-nodisplay
+<p><code>ssh</code> to one of the dev nodes and run MATLAB:</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>dev-amd20
+matlab<span class="w"> </span>-nodisplay
 </code></pre></div>
 <p>More information about running jobs interactively on compute nodes can be reviewed
 at <a href="../Interactive_Job/">Running Programs Interactively</a></p>
@@ -6693,7 +6685,7 @@ at <a href="../Interactive_Job/">Running Programs Interactively</a></p>
 <div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-X<span class="w"> </span>username@hpcc.msu.edu
 </code></pre></div>
 <p>If you want graphics, but don't want the desktop, type</p>
-<div class="highlight"><pre><span></span><code>hpc@dev-intel16:~&gt;<span class="w"> </span>matlab<span class="w"> </span>-nodesktop
+<div class="highlight"><pre><span></span><code>matlab<span class="w"> </span>-nodesktop
 </code></pre></div>
 <p>This will let you run code from the command line instead of from the IDE
 interface, but will still allow you to use graphics (e.g., make plots).</p>
@@ -6706,19 +6698,18 @@ two hours.</p>
 <p>Longer interactive sessions are possible, but are not recommended.
 Modify the following commands to suit your requirements.</p>
 <p>If graphics are not required,</p>
-<div class="highlight"><pre><span></span><code>hpc@dev-intel18:-&gt;<span class="w"> </span>salloc<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>2gb<span class="w"> </span>--time<span class="o">=</span><span class="m">04</span>:00:00<span class="w"> </span>
-
-
-salloc:<span class="w"> </span>Granted<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">310982</span>
-
-salloc:<span class="w"> </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resource<span class="w"> </span>configuration
-
-salloc:<span class="w"> </span>Nodes<span class="w"> </span>lac-376<span class="w"> </span>are<span class="w"> </span>ready<span class="w"> </span><span class="k">for</span><span class="w"> </span>job
-
-hpc@dev-intel18:-&gt;<span class="w"> </span>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>salloc<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>2gb<span class="w"> </span>--time<span class="o">=</span><span class="m">04</span>:00:00<span class="w"> </span>
 </code></pre></div>
-<p>If graphics are required, add the option <code>–x11</code> to the <code>salloc</code> command:</p>
-<div class="highlight"><pre><span></span><code>hpc@dev-intel18:-&gt;<span class="w"> </span>salloc<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>2gb<span class="w"> </span>--time<span class="o">=</span><span class="m">04</span>:00:00<span class="w"> </span>--x11
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">salloc: Granted job allocation 310982</span>
+
+<span class="go">salloc: Waiting for resource configuration</span>
+
+<span class="go">salloc: Nodes amr-019 are ready for job</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>
+</code></pre></div>
+<p>If graphics are required, add the option <code>--x11</code> to the <code>salloc</code> command:</p>
+<div class="highlight"><pre><span></span><code>salloc<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>2gb<span class="w"> </span>--time<span class="o">=</span><span class="m">04</span>:00:00<span class="w"> </span>--x11
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -6731,9 +6722,9 @@ program.</p>
 </div>
 <h2 id="running-matlab-non-interactively">Running MATLAB Non-Interactively</h2>
 <h3 id="short-jobs-two-hours">Short Jobs (&lt; two hours)</h3>
-<p>A short job could be run on a development node without opening the matlab command
+<p>A short job could be run on a development node without opening the MATLAB command
 window. From a development node, type</p>
-<div class="highlight"><pre><span></span><code>hpc@dev-intel16:~&gt;<span class="w"> </span>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myMatlab&quot;</span><span class="w"> </span><span class="p">&amp;</span>
+<div class="highlight"><pre><span></span><code>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myMatlab&quot;</span><span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
 <p><code>myMatlab.m</code> will start running in the background.</p>
 <h3 id="long-jobs-two-hours">Long Jobs (&gt; two hours)</h3>
@@ -6741,8 +6732,7 @@ window. From a development node, type</p>
 <p>To submit jobs to the cluster, a job script needs to be written. And
 submitted to the queue. The following
 sample job script file can be modified to suit your needs:</p>
-<p><code>myJob.sbatch</code></p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><span class="filename">myJob.sbatch</span><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 
 <span class="c1">### Specify the Resources Needed</span>
 
@@ -6761,9 +6751,14 @@ sample job script file can be modified to suit your needs:</p>
 
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This script is from ICER&#39;s MATLAB tutorial&quot;</span>
 
-<span class="c1">### Navigate to your data directory and run Matlab</span>
+<span class="c1"># Load the desired MATLAB module</span>
 
-<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/my<span class="w">                           </span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>MATLAB/2023b
+
+<span class="c1">### Navigate to your data directory and run MATLAB</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/myCode
 matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myMatlab&quot;</span>
 </code></pre></div>
 <ul>
@@ -6774,26 +6769,26 @@ matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w
     you will have to make a guess and use the real running time to
     improve this number on future runs. The maximum walltime that can be
     requested is <code>168:00:00</code>.</li>
-<li><code>--nodes=1</code> because you are running one matlab client in the job. If
-    you want put multiple matlab run in a single job script, you may
+<li><code>--nodes=1</code> because you are running one MATLAB client in the job. If
+    you want put multiple MATLAB run in a single job script, you may
     request more nodes for the job.</li>
-<li><code>--cpus-per-task=1</code> here because the matlab script <code>MyMatlab.m</code> does
+<li><code>--cpus-per-task=1</code> here because the MATLAB script <code>MyMatlab.m</code> does
     not use multiple threads. If you are using multiple threads, you may
     need to request more cpus.</li>
 <li><code>--mem-per-cpu=1G</code> reserves 1 gigabytes per <abbr title="Central Processing Unit">CPU</abbr> of memory for the job. We
     recommend user to serve at least 1GB for each session plus the
     total size of data variables used in the computation. User could
-    click <a href="https://www.mathworks.com/support/requirements/matlab-parallel-server.html#:~:text=Minimum%20of%202%20GB%20RAM,to%20accommodate%20temporary%20data%20directories.">here</a> to see the recommendation of the matlab
+    click <a href="https://www.mathworks.com/support/requirements/matlab-parallel-server.html#:~:text=Minimum%20of%202%20GB%20RAM,to%20accommodate%20temporary%20data%20directories.">here</a> to see the recommendation of the MATLAB
     requirement by Mathworks.</li>
 <li><code>myJobName</code> is a string to make your job easier to identify it when
     managing or monitoring your jobs.</li>
 <li><code>--output=%x-%j.SLURMout</code> sets the SLURM output filename to <code>myJobName-IDnumber.SLURMout</code></li>
-<li><code>myMatlab</code> is the name of your matlab script without the .m extension</li>
+<li><code>myMatlab</code> is the name of your MATLAB script without the .m extension</li>
 <li><code>--mail-type=ALL</code> tells SLURM to email you with <code>ALL</code> job scheduling events e.g., start, complete, exit-code</li>
 <li><code>--mail-user=myNetID@msu.edu</code> sets the email address SLURM uses; change <code>myNetID@msu.edu</code> to your preferred email address</li>
 </ul>
 <p>Submit your job with:</p>
-<div class="highlight"><pre><span></span><code>hpc@dev-intel16:~&gt;<span class="w"> </span>sbatch<span class="w"> </span>myJob.sbatch
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>myJob.sbatch
 </code></pre></div>
 <p><code>myJob.sbatch</code> is the name of your job script as shown above.</p>
 <h2 id="using-the-matlab-parallel-computing-toolbox">Using the MATLAB Parallel Computing Toolbox</h2>
@@ -6817,17 +6812,20 @@ parallel computing features. </p>
 <p>Distributed arrays and <code>spmd</code> (single-program-multiple-data) for large
     dataset handling and data-parallel algorithms</p>
 <ol>
-<li>One <abbr title="Graphics Processing Unit">GPU</abbr> card will be used for each worker. In order to use
+<li>
+<p>One <abbr title="Graphics Processing Unit">GPU</abbr> card will be used for each worker. In order to use
 multiple GPUs, user need to use <code>spmd</code> capability that each instance
 of the program will use one card and multiple instances of the
-program take multiple cards.</li>
-<li>If you use <abbr title="Graphics Processing Unit">GPU</abbr> capability, you need to have matlab run on a
-node with <abbr title="Graphics Processing Unit">GPU</abbr>. dev-intel16-k80 and dev-amd20-v100 are the development
-nodes with GPUs. To request GPUs, use
-<code>–-gpus=&lt;type&gt;:&lt;number&gt;</code> to request a number and type
-of <abbr title="Graphics Processing Unit">GPU</abbr>. <code>#SBATCH ---gpus=k80:1</code> is an example to request one k20
-<abbr title="Graphics Processing Unit">GPU</abbr>. Valid <abbr title="Graphics Processing Unit">GPU</abbr> type are k80 and v100. Note that type is
-optional, but the number of <abbr title="Graphics Processing Unit">GPU</abbr> is necessary.</li>
+program take multiple cards.</p>
+</li>
+<li>
+<p>If you use <abbr title="Graphics Processing Unit">GPU</abbr> capability, you need to have MATLAB run on a node with
+<abbr title="Graphics Processing Unit">GPU</abbr>. <code>dev-amd20-v100</code> and <code>dev-amd24-h200</code> are the development nodes
+with GPUs. To request GPUs, use <code>–-gpus=&lt;type&gt;:&lt;number&gt;</code> to request a number
+and type of <abbr title="Graphics Processing Unit">GPU</abbr>. <code>#SBATCH ---gpus=v100:1</code> is an example to request one V100
+<abbr title="Graphics Processing Unit">GPU</abbr>. Note that type is optional, but the number of <abbr title="Graphics Processing Unit">GPU</abbr> is necessary.  See our
+page on <a href="../GPU_resources/"><abbr title="Graphics Processing Unit">GPU</abbr> Resources</a> for more details.</p>
+</li>
 </ol>
 </li>
 </ul>
@@ -6872,7 +6870,7 @@ Please refer to Mathworks' document for how to configure the cluster
 with the SLURM scheduler
 <a href="https://www.mathworks.com/help/mdce/configure-parallel-computing-products-for-supported-third-party-schedulers-pbs-pro-platform-lsf-torque.html">here</a>. Previous versions of MATLAB are not recommended for use with the HPCC scheduler.</p>
 <h2 id="using-the-matlab-thread-based-worker-pool">Using the MATLAB thread-based worker pool</h2>
-<p>Started from Matlab version R2020a, thread-based worker pool is
+<p>Started from MATLAB version R2020a, thread-based worker pool is
 introduced. Please refer to <a href="https://www.mathworks.com/help/parallel-computing/parallel.threadpool.html">this document</a> for
 more details. On HPCC, we provide our users an example showing how to
 use thread-base pool with <code>parfor</code>, as well as the comparison between
@@ -6883,8 +6881,8 @@ process-based and thread-based pools. To obtain the example, module load
 on AMD node associated with the Java virtual machine. The patch may be
 introduced in the next release. If you find that the code works on other
 version but crashes in 2020a version, you may try the workaround that
-launch the matlab session without java virtual machine as the following:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@eval-epyc19<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-nojvm<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myExample&quot;</span>
+launch the MATLAB session without java virtual machine as the following:</p>
+<div class="highlight"><pre><span></span><code>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-nojvm<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myExample&quot;</span>
 </code></pre></div>
 <h2 id="using-matlab-with-python">Using MATLAB with Python</h2>
 <p><a href="https://www.mathworks.com/campaigns/offers/matlab-python-cheat-sheets.html?s_v1=41575&amp;elqem=3644189_EM_NA_DIR_22-01_MOE-EDU&amp;elqTrackId=34b76d429da64510a62e451f34bee44d&amp;elq=2311bc59dea9450fa1d52bb1e3446db8&amp;elqaid=41575&amp;elqat=1&amp;elqCampaignId=15309">Here</a> is the link to the cheat sheets provided by the
@@ -6933,7 +6931,7 @@ Mathworks for users' reference.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 6, 2025 17:34:14 UTC">February 6, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
     </span>
     
 
@@ -6957,7 +6955,7 @@ Mathworks for users' reference.</p>
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer, Craig Gross, Mahmoud Parvizi, Ryan, Joseph, Xiaoge Wang
+            Andrew Fullard, Claire Kopenhafer, Craig Gross, Mahmoud Parvizi, Xiaoge Wang
         </nav>
     </span>
     

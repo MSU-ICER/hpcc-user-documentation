@@ -6326,10 +6326,10 @@ Fri<span class="w"> </span>Aug<span class="w">  </span><span class="m">3</span><
 <p>where you can see from the results of the <code>squeue</code> command, the job is
 pending due to the user's hold. You can choose the information you want to change in <code>scontrol show</code> results. Put them in the
 <code>scontrol update</code> command and modify the information after the <code>=</code> symbol. For example, the command line</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>update<span class="w"> </span>job<span class="w"> </span><span class="m">8929</span><span class="w">  </span><span class="nv">NumNodes</span><span class="o">=</span><span class="m">2</span>-2<span class="w"> </span><span class="nv">NumTasks</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">Features</span><span class="o">=</span>intel16
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>scontrol<span class="w"> </span>update<span class="w"> </span>job<span class="w"> </span><span class="m">8929</span><span class="w">  </span><span class="nv">NumNodes</span><span class="o">=</span><span class="m">2</span>-2<span class="w"> </span><span class="nv">NumTasks</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">Features</span><span class="o">=</span>amd20
 </code></pre></div>
 <p>will change the resource request of the job 8929 from 80 nodes and 80
-tasks with intel16 nodes to 2 nodes and 2 tasks with intel16 nodes.
+tasks with amd20 nodes to 2 nodes and 2 tasks with amd20 nodes.
 After the update, you can use the <code>scontrol show</code> command again to verify
 the job setting. Once you are done with the update work, you can release
 the job hold by command <code>scontrol release</code>:</p>
@@ -6429,7 +6429,7 @@ SLURM web site.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 3, 2025 21:54:35 UTC">March 3, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
     </span>
     
 
@@ -6453,7 +6453,7 @@ SLURM web site.</p>
             
         </span>
         <nav>
-            Andrew Fullard, Xiaoge Wang, toelawpa
+            Andrew Fullard, Craig Gross, Xiaoge Wang, toelawpa
         </nav>
     </span>
     

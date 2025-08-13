@@ -6314,12 +6314,7 @@ You can open your config file in VS Code by pressing the F1 key, then typing <co
 </div>
 <p>In the following example <code>.ssh/config</code> file, we have defined hosts for all seven development nodes. Each entries each contain the line <code>ProxyJump &lt;netid&gt;@hpcc.msu.edu</code> to be able to connect to the development nodes through the gateway nodes.</p>
 <p>To use the following template <code>.ssh/config</code>,  change all instances of <code>&lt;netid&gt;</code> to your NetID that you use to login to the HPCC.</p>
-<div class="highlight"><pre><span></span><code>Host intel16
-    HostName dev-intel16
-    User &lt;netid&gt;
-    ProxyJump &lt;netid&gt;@hpcc.msu.edu
-
-Host intel18
+<div class="highlight"><pre><span></span><code>Host intel18
     HostName dev-intel18
     User &lt;netid&gt;
     ProxyJump &lt;netid&gt;@hpcc.msu.edu
@@ -6331,11 +6326,6 @@ Host amd20
 
 Host amd24
     HostName dev-amd24
-    User &lt;netid&gt;
-    ProxyJump &lt;netid&gt;@hpcc.msu.edu
-
-Host k80
-    HostName dev-intel16-k80
     User &lt;netid&gt;
     ProxyJump &lt;netid&gt;@hpcc.msu.edu
 
@@ -6364,7 +6354,7 @@ method, you need to open two terminals on your local machine.</p>
 <p>You can change 1234 to any number larger than 1024 (1234 here is a port
 number you are using). You can change dev-intel18 to any dev-node name,
 but 22 (port number of dev node) should be remained. For example, </p>
-<div class="highlight"><pre><span></span><code>ssh -L 4321:dev-intel16:22 &lt;your_net_id&gt;@gateway.hpcc.msu.edu
+<div class="highlight"><pre><span></span><code>ssh -L 4321:dev-amd20:22 &lt;your_net_id&gt;@gateway.hpcc.msu.edu
 </code></pre></div>
 <p>is also working.</p>
 <p>2nd terminal (right in the picture): type </p>
@@ -6417,7 +6407,7 @@ yes. Then you will arrive at the dev-node on the 2nd terminal.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 13, 2025 22:07:53 UTC">February 13, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
     </span>
     
 

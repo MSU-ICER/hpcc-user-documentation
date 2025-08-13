@@ -6208,13 +6208,13 @@
 <p><a href="https://github.com/bcgsc/abyss#parallel-processing"
 rel="nofollow">ABySS</a> is a <em>de novo</em>, parallel, paired-end sequence
 assembler. It can run as an <abbr title="Message Passing Interface">MPI</abbr> job in the HPCC cluster. The latest
-version currently installed on the HPCC is 2.1.5, which can be loaded by</p>
-<div class="highlight"><pre><span></span><code>module load ABySS/2.1.5
+version currently installed on the HPCC is 2.3.7, which can be loaded by</p>
+<div class="highlight"><pre><span></span><code>module load ABySS/2.3.7
 </code></pre></div>
 <p>You can optionally load other tools as needed, provided that they have
-been installed under the same toolchain environment as ABySS/2.1.5. For
+been installed under the same toolchain environment as ABySS/2.3.7. For
 example,</p>
-<div class="highlight"><pre><span></span><code>module load BEDTools/2.27.1 SAMtools/1.9 BWA/0.7.17
+<div class="highlight"><pre><span></span><code>module load BEDTools/2.31.0 SAMtools/1.18 BWA/0.7.17
 </code></pre></div>
 <p>is valid after you've loaded ABySS.</p>
 <p>A sample SLURM script is below.</p>
@@ -6231,7 +6231,7 @@ echo &quot;This script is from ICER&#39;s ABySS tutorial.&quot;
 
 echo &quot;$SLURM_JOB_NODELIST&quot;
 
-module load ABySS/2.1.5
+module load ABySS/2.3.7
 
 export OMPI_MCA_mpi_warn_on_fork=0  
 export OMPI_MCA_mpi_cuda_support=0
@@ -6249,8 +6249,7 @@ parameter j. The default value for j is the value of np.</p>
 </blockquote>
 <p>So, rather than using np as the default value for j, we set j = 2 which
 is the number of CPUs per node as requested (in this case "task" is
-equivalent to <abbr title="Central Processing Unit">CPU</abbr>). To submit the job,</p>
-<p><code>sbatch --constraint="[intel16|intel18]"</code></p>
+equivalent to <abbr title="Central Processing Unit">CPU</abbr>). </p>
 <p>While the job is running, you may look at the SLURM output file, in this
 example, <code>abyss_test-&lt;job ID&gt;.SLURMout</code>, which has a lot of running log,
 including the following:</p>
@@ -6307,7 +6306,7 @@ including the following:</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 3, 2025 21:27:46 UTC">March 3, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
     </span>
     
 
@@ -6331,7 +6330,7 @@ including the following:</p>
             
         </span>
         <nav>
-            Claire Kopenhafer, Nanye Long, toelawpa
+            Claire Kopenhafer, Craig Gross, Nanye Long, toelawpa
         </nav>
     </span>
     

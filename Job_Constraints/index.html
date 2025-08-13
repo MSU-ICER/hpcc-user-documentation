@@ -6349,14 +6349,14 @@ specifying constraints.</p>
 <td>[<em>feature</em>|<em>feature</em>]</td>
 <td>XOR</td>
 <td><strong>All</strong> nodes allocated for the job must have one feature or the other. Useful for multi-node shared memory jobs.</td>
-<td>[intel16|intel18]</td>
+<td>[intel18|amd24]</td>
 </tr>
 </tbody>
 </table>
 <h3 id="multi-node-jobs">Multi-Node Jobs</h3>
 <p>Multi-node jobs that use constraints to control which cluster hardware
 they run on must use the XOR syntax to specify multiple clusters, e.g.
-<code>[intel18|intel16]</code>, and not the OR syntax, e.g. <code>intel18|intel16</code>.
+<code>[intel18|amd24]</code>, and not the OR syntax, e.g. <code>intel18|amd24</code>.
 Multi-node jobs using OR instead of XOR may experience a considerable
 performance decrease or may be killed by HPCC staff without warning.</p>
 <p>In most cases where OR is used, the job would be better served by XOR.
@@ -6365,12 +6365,12 @@ use XOR. If an OR constraint is required, prepend the constraint request
 with <code>NOAUTO:</code>.</p>
 <h2 id="automatic-job-constraints">Automatic Job Constraints</h2>
 <p>When no constraints are specified, a job will get a default constraint
-of <code>[intel16|intel18|(amr|acm)|nvf|nal|nif|agg|agx|(nfh|neh)|nel]</code>. 
+of <code>[intel18|(amr|acm)|nvf|nal|nif|agg|agx|(nfh|neh)|nel]</code>. 
 This ensures the job runs on only one type of cluster hardware. </p>
-<p>User specified constraints that don't use
-the <code>feature|feature</code> or <code>[feature|feature]</code> syntax are automatically
-combined with <code>[intel16|intel18]</code>. If a more complex
-constraint is required, <code>NOAUTO:</code> must be prepended to the constraint.</p>
+<p>User specified constraints that don't use the <code>feature|feature</code> or
+<code>[feature|feature]</code> syntax are automatically combined with the default
+constraint above. If a more complex constraint is required, <code>NOAUTO:</code> must be
+prepended to the constraint.</p>
 <table>
 <thead>
 <tr>
@@ -6394,34 +6394,34 @@ constraint is required, <code>NOAUTO:</code> must be prepended to the constraint
 <td>Run this job on nodes that are all the same cluster type</td>
 </tr>
 <tr>
-<td><code>--constraint=lac</code></td>
-<td>lac&amp;[<em>Default</em>]</td>
-<td>lac</td>
-<td>Run this job on only Laconia nodes</td>
+<td><code>--constraint=amr</code></td>
+<td>amr&amp;[<em>Default</em>]</td>
+<td>amr</td>
+<td>Run this job on only amr</td>
 </tr>
 <tr>
-<td><code>--constraint=</code><br><code>"lac&amp;ib"</code></td>
-<td>lac&amp;ib&amp;[<em>Default</em>]</td>
-<td>lac&amp;ib</td>
-<td>Run this job on only nodes with both lac and ib features</td>
+<td><code>--constraint=</code><br><code>"amr&amp;ib"</code></td>
+<td>amr&amp;ib&amp;[<em>Default</em>]</td>
+<td>amr&amp;ib</td>
+<td>Run this job on only nodes with both amr and ib features</td>
 </tr>
 <tr>
-<td><code>--constraint=</code><br><code>"intel16\|intel18"</code></td>
-<td>[intel16|intel18]</td>
-<td>[intel16|intel18]</td>
-<td>Run this job on nodes that are either all intel16 or all intel18</td>
+<td><code>--constraint=</code><br><code>"intel18\|amd24"</code></td>
+<td>[intel18|amd24]</td>
+<td>[intel18|amd24]</td>
+<td>Run this job on nodes that are either all intel18 or all amd24</td>
 </tr>
 <tr>
-<td><code>--constraint=</code><br><code>"NOAUTO:lac\|vim"</code></td>
-<td>lac|vim</td>
-<td>lac|vim</td>
-<td>Run this job on nodes the each have either the lac or vim feature</td>
+<td><code>--constraint=</code><br><code>"NOAUTO:amr\|nvl"</code></td>
+<td>amr|nvl</td>
+<td>amr|nvl</td>
+<td>Run this job on nodes the each have either the amr or nvl feature</td>
 </tr>
 <tr>
-<td><code>--constraint=</code><br><code>"\[intel16&amp;ib\|intel18&amp;ib\]"</code></td>
-<td>[intel16&amp;ib|intel18&amp;ib]</td>
-<td>[intel16&amp;ib|intel18&amp;ib]</td>
-<td>Run this job on nodes that are either all intel16&amp;ib or all intel18&amp;ib</td>
+<td><code>--constraint=</code><br><code>"\[intel18&amp;ib\|amd24&amp;ib\]"</code></td>
+<td>[intel18&amp;ib|amd24&amp;ib]</td>
+<td>[intel18&amp;ib|amd24&amp;ib]</td>
+<td>Run this job on nodes that are either all intel18&amp;ib or all amd24&amp;ib</td>
 </tr>
 </tbody>
 </table>
@@ -6469,7 +6469,7 @@ constraint is required, <code>NOAUTO:</code> must be prepended to the constraint
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 15, 2025 19:26:04 UTC">April 15, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
     </span>
     
 
@@ -6493,7 +6493,7 @@ constraint is required, <code>NOAUTO:</code> must be prepended to the constraint
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer, Yongjun Choi, toelawpa
+            Andrew Fullard, Claire Kopenhafer, Craig Gross, Yongjun Choi, toelawpa
         </nav>
     </span>
     
