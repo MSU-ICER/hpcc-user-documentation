@@ -6577,7 +6577,7 @@ much older than the versions available in the module system. For this reason,
 we recommend loading either the <code>NVHPC</code> modules (which will use the version of
 <code>gcc/g++</code> suffixing the module version), or loading a <code>foss</code> or <code>GCC</code>
 module in addition to <code>CUDA</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C</label><label for="__tabbed_1_2">Fortran</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="cuda-code-c" name="__tabbed_1" type="radio" /><input id="cuda-code-fortran" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="cuda-code-c">C</label><label for="cuda-code-fortran">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">CUDA with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
@@ -6655,7 +6655,7 @@ of nodes in the HPCC. Please see our documentation on <a href="https://docs.icer
 architectures</a>
 for details, and reference the  <a href="../available_software/detail/NVHPC/">NVHPC</a> and
 <a href="../available_software/detail/CUDA/"><abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr></a> module listings for availability.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">C</label><label for="__tabbed_2_2">Fortran</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="cuda-libraries-c" name="__tabbed_2" type="radio" /><input id="cuda-libraries-fortran" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="cuda-libraries-c">C</label><label for="cuda-libraries-fortran">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">Using CUDA shared libraries with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
@@ -6680,7 +6680,7 @@ libraries</a>
 is limited to NVIDIA's compilers. See <a href="https://docs.nvidia.com/hpc-sdk/compilers/fortran-cuda-interfaces/index.html">NVIDIA's Fortran <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr>
 interfaces</a>
 for more information. </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">C</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="cuda-libraries-c_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="cuda-libraries-c_1">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">Using CUDA shared libraries with fosscuda</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>foss/2023a<span class="w"> </span>CUDA/12.1.1
@@ -6718,7 +6718,7 @@ to compile compatible binaries for the respective GPUs. GPUs with other compute
 capabilities will incur a slight one-time cost when the executable is run (so
 that <a href="#compiling-for-specific-gpus">embedded PTX code can be JIT compiled to appropriate
 binary</a>).</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">C</label><label for="__tabbed_4_2">Fortran</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="openacc-c" name="__tabbed_4" type="radio" /><input id="openacc-fortran" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="openacc-c">C</label><label for="openacc-fortran">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">GPU offloading with OpenACC with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
@@ -6743,7 +6743,7 @@ Support for these compilers is very limited, and simple tests indicate that
 they can suffer from reduced performance in comparison to NVIDIA's compilers or
 running multi-threaded (or, in extreme cases, single-threaded) on the <abbr title="Central Processing Unit">CPU</abbr>.
 Experiment with these versions at your own risk.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">C</label><label for="__tabbed_5_2">Fortran</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="openacc-c_1" name="__tabbed_5" type="radio" /><input id="openacc-fortran_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="openacc-c_1">C</label><label for="openacc-fortran_1">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">GPU offloading with OpenMP with GCC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
@@ -6781,7 +6781,7 @@ to compile compatible binaries for the respective GPUs. GPUs with other compute
 capabilities will incur a slight one-time cost when the executable is run (so
 that <a href="#compiling-for-specific-gpus">embedded PTX code can be JIT compiled to appropriate
 binary</a>).</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">C</label><label for="__tabbed_6_2">Fortran</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="openmp-c" name="__tabbed_6" type="radio" /><input id="openmp-fortran" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="openmp-c">C</label><label for="openmp-fortran">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">GPU offloading with OpenMP with NVHPC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>NVHPC/23.7-CUDA-12.1.1
@@ -6806,7 +6806,7 @@ Support for these compilers is very limited, and simple tests indicate that
 they can suffer from reduced performance in comparison to NVIDIA's compilers or
 running multi-threaded (or, in extreme cases, single-threaded) on the <abbr title="Central Processing Unit">CPU</abbr>.
 Experiment with these versions at your own risk.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">C</label><label for="__tabbed_7_2">Fortran</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="openmp-c_1" name="__tabbed_7" type="radio" /><input id="openmp-fortran_1" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="openmp-c_1">C</label><label for="openmp-fortran_1">Fortran</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">GPU offloading with OpenMP with GCC</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0

@@ -864,28 +864,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#via-command-line-tools-linux-macos-mobaxterm-terminal-on-windows" class="md-nav__link">
+  <a href="#steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Via command line tools (Linux, MacOS, MobaXterm terminal on Windows)
+      Steps
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Via command line tools (Linux, MacOS, MobaXterm terminal on Windows)">
+    <nav class="md-nav" aria-label="Steps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#generating-ssh-keypairs-on-command-line" class="md-nav__link">
+  <a href="#generate-an-ssh-keypair" class="md-nav__link">
     <span class="md-ellipsis">
-      Generating SSH keypairs on command line
+      Generate an SSH keypair
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#uploading-your-public-key-to-the-hpcc" class="md-nav__link">
+  <a href="#upload-your-public-key-to-the-hpcc" class="md-nav__link">
     <span class="md-ellipsis">
-      Uploading your public key to the HPCC
+      Upload your public key to the HPCC
     </span>
   </a>
   
@@ -893,48 +893,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#via-gui-tools-in-mobaxterm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Via GUI Tools in MobaXTerm
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Via GUI Tools in MobaXTerm">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generating-ssh-keypairs-using-mobakeygen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generating SSH keypairs using MobaKeyGen
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uploading-your-public-key-to-the-hpcc_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Uploading your public key to the HPCC:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-your-private-key-to-mobaxterms-ssh-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adding your private key to MobaXterm's SSH connection
-    </span>
-  </a>
   
 </li>
       
@@ -6337,28 +6295,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#via-command-line-tools-linux-macos-mobaxterm-terminal-on-windows" class="md-nav__link">
+  <a href="#steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Via command line tools (Linux, MacOS, MobaXterm terminal on Windows)
+      Steps
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Via command line tools (Linux, MacOS, MobaXterm terminal on Windows)">
+    <nav class="md-nav" aria-label="Steps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#generating-ssh-keypairs-on-command-line" class="md-nav__link">
+  <a href="#generate-an-ssh-keypair" class="md-nav__link">
     <span class="md-ellipsis">
-      Generating SSH keypairs on command line
+      Generate an SSH keypair
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#uploading-your-public-key-to-the-hpcc" class="md-nav__link">
+  <a href="#upload-your-public-key-to-the-hpcc" class="md-nav__link">
     <span class="md-ellipsis">
-      Uploading your public key to the HPCC
+      Upload your public key to the HPCC
     </span>
   </a>
   
@@ -6366,48 +6324,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#via-gui-tools-in-mobaxterm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Via GUI Tools in MobaXTerm
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Via GUI Tools in MobaXTerm">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generating-ssh-keypairs-using-mobakeygen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generating SSH keypairs using MobaKeyGen
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uploading-your-public-key-to-the-hpcc_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Uploading your public key to the HPCC:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-your-private-key-to-mobaxterms-ssh-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adding your private key to MobaXterm's SSH connection
-    </span>
-  </a>
   
 </li>
       
@@ -6465,99 +6381,136 @@
 </div>
 <h2 id="what-are-ssh-keypairs">What are <abbr title="Secure Shell">SSH</abbr> keypairs?</h2>
 <p>An <abbr title="Secure Shell">SSH</abbr> keypair consists of a private key and a public key. Your private key is a secret key just like your password which you should not share with anyone. On the other hand, your public key can be made publicly available in the same way that your name can be made public. The public key is stored on the server you attempt to log into (that is, the HPCC), while the private key is stored on your own computer. When a user attempts to log in, an encryption process starts on the HPCC side, using the public key. With your private key, your computer will be able to decrypt the encrypted message sent from the HPCC. When everything matches up, your login is approved.</p>
-<h2 id="via-command-line-tools-linux-macos-mobaxterm-terminal-on-windows">Via command line tools (Linux, MacOS, MobaXterm terminal on Windows)</h2>
-<p><abbr title="Secure Shell">SSH</abbr> tool suites usually provide a utility for generating these keypairs. On a Mac and Linux, you can <a href="https://docs.tritondatacenter.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-mac-os-x">run the command <code>ssh-keygen</code> using the built in terminal Terminal</a>. </p>
-<p>On a Windows computer, you will first need to download <a href="https://mobaxterm.mobatek.net/">MobaXterm to generate <abbr title="Secure Shell">SSH</abbr> key pairs</a>. See the <a href="../Intro_to_MobaXterm/">Intro to MobaXterm</a> for more on getting started. Once you have installed MobaXerm, run the program and choose the "Start local terminal" option.</p>
-<p><img alt="Screenshot of the MobaXTerm start tab with the Start Local Terminal button circled" src="../attachments/ssh_key-based_authentication/MobaXtermLocalTerminal.png" /></p>
-<h3 id="generating-ssh-keypairs-on-command-line">Generating <abbr title="Secure Shell">SSH</abbr> keypairs on command line</h3>
-<p>To generate a keypair from command line (e.g., after opening a terminal on Mac, Linux or through MobaXterm on Windows), run</p>
-<p><code>ssh-keygen -t rsa -b 4096</code></p>
-<p>You will be given an option for protecting your private key with a passphrase. Please do this, as it will prevent your private key from being used by a malicious individual if it is ever stolen.</p>
-<p>After you have set a passphrase and the keys has generated, you will find the key's files in the <code>.ssh</code> directory under your home directory. By default, <code>id_rsa</code> is the private key file and <code>id_rsa.pub</code> the public key file.</p>
-<!-- !!! Note
-    Use at least 2048 bits for an RSA key. This is usually the default key
-    length, but can be specified with the '-b' option when generating your
-    key, e.g.
-
-    ssh-keygen -t rsa -b 2048 -->
-
-<h3 id="uploading-your-public-key-to-the-hpcc">Uploading your public key to the HPCC</h3>
-<p>In order to login to HPCC with key-based authentication from your local computer, you will need to add your public key to the <code>~/.ssh/authorized_keys</code> file.  The following steps will guide you through this process:</p>
-<ol>
-<li>
-<p>Log on to HPCC gateway <code>gateway.hpcc.msu.edu</code> or start an interactive ondemand session to edit within a linux <abbr title="Graphic User Interface">GUI</abbr> environment</p>
-</li>
-<li>
-<p>On the HPCC, make sure you have a directory named <code>.ssh</code> under your home directory. If not, create one by running <code>mkdir ~/.ssh</code> in the terminal</p>
-</li>
-<li>
-<p>Upload your public key <code>id_rsa.pub</code> from your computer to <code>gateway.hpcc.msu.edu</code>. There are multiple ways to do so, as given <a href="../File_transfer/">here</a>.</p>
-</li>
-<li>
-<p>Append the public key file to another file <code>~/.ssh/authorized_keys</code>. In order to do so, assuming that the pub key file has been copied to your home directory from Step  3, you can run the following command</p>
-<p><code>cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code></p>
-</li>
-<li>
-<p>Set correct permissions by running </p>
-<p><code>chmod 700 ~/.ssh</code>  </p>
-<p><code>chmod 600 ~/.ssh/authorized_keys</code></p>
-</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Only copy key files with the <code>.pub</code> extension. Key files <em>without</em> this extension are private keys, which should never be shared!</p>
-</div>
-<h2 id="via-gui-tools-in-mobaxterm">Via <abbr title="Graphic User Interface">GUI</abbr> Tools in MobaXTerm</h2>
+<h2 id="steps">Steps</h2>
+<h3 id="generate-an-ssh-keypair">Generate an <abbr title="Secure Shell">SSH</abbr> keypair</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="generate-an-ssh-keypair-graphically-windows-via-mobaxterm-only" name="__tabbed_1" type="radio" /><input id="generate-an-ssh-keypair-using-command-line-tools" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="generate-an-ssh-keypair-graphically-windows-via-mobaxterm-only">Graphically (Windows via MobaXterm only)</label><label for="generate-an-ssh-keypair-using-command-line-tools">Using command line tools</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>We recommend Windows users use <a href="../Intro_to_MobaXterm/">MobaXTerm</a> to generate and manage their key pairs. If you are Windows user who is not comfortable with the command line, the following instructions will guide you through using Graphical User Interface (<abbr title="Graphic User Interface">GUI</abbr>) tools built into MobaXterm which should work similar to other Windows applications. Please follows these instructions carefully as each step is important to ensure your keys are created using the proper format for use with HPCC.</p>
-<h3 id="generating-ssh-keypairs-using-mobakeygen">Generating <abbr title="Secure Shell">SSH</abbr> keypairs using MobaKeyGen</h3>
 <p>In MobaXTerm, click Tools -&gt; MobaKeyGen (<abbr title="Secure Shell">SSH</abbr> Key Generator) in the menu bar. 
 You will see the following window:</p>
 <p><img alt="Screenshot of the MobaXTerm SSH Key Generator window. RSA is selected by default and the Generate button is highlighted." src="../attachments/ssh_key-based_authentication/mobakeygen-window-20221205.png" /></p>
-<p>Click Generate and follow the commands on the screen. The Parameters should be set to <strong>RSA</strong>, Number of bits <strong>4096</strong>. The <code>Key comment</code> field can be used to enter a description of the key e.g. "My home PC". As above, we recommend adding a key passphrase.</p>
+<p>Click Generate and follow the commands on the screen. The Parameters should be set to <strong>RSA</strong>, Number of bits <strong>4096</strong>. The <code>Key comment</code> field can be used to enter a description of the key e.g. "My home PC". We also recommend adding a key passphrase to secure your key.</p>
 <p><img alt="Screenshot of the MobaXTerm SSH Key Generator window. RSA is selected and the Number of bits in a generated key is set to 4096." src="../attachments/ssh_key-based_authentication/mobakeygen-rsa-4096.png" /></p>
 <p>Save the private key to your computer by going to the Conversions menu at the top of the screen, and selecting "Export OpenSSH key". Save the resulting file in <code>C:\Users\&lt;Account_Name&gt;\.ssh\id_rsa</code> where <code>&lt;Account_Name&gt;</code> is your Windows account name. Create the <code>.ssh</code> directory if it doesn't already exist.</p>
-<h2 id="uploading-your-public-key-to-the-hpcc_1">Uploading your public key to the HPCC:</h2>
-<ol>
-<li>Copy the Public key from the MobaKeyGen window. <strong>Make sure you copy all of the characters.</strong> </li>
-</ol>
+<p>When uploading your public key to the HPCC in the next section, copy the public key from the MobaKeyGen window. <strong>Make sure you copy all of the characters.</strong> </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you use "Save public key", the file will not be in the correct format. </p>
 </div>
 <p><img alt="Screenshot of the key generator window with the ssh-rsa key text circled" src="../attachments/ssh_key-based_authentication/puttygen-window_20221013.webp" /></p>
-<ol>
-<li>
-<p>Log on to the HPCC gateway <code>gateway.hpcc.msu.edu</code> or start an interactive <a href="../Open_OnDemand/">Open OnDemand session</a></p>
-</li>
-<li>
-<p>On the HPCC, make sure you have a directory named <code>.ssh</code> under your home directory. If not, create one by running <code>mkdir ~/.ssh</code> on the HPCC or using the <abbr title="Graphic User Interface">GUI</abbr> file browser in the applications menu of an interactive OnDemand session.</p>
-</li>
-<li>
-<p>Using an editor on the HPCC, such as <a href="../Editing_Text_with_Nano/"><code>nano</code></a> or the editors in the OnDemand <abbr title="Graphic User Interface">GUI</abbr> session, open or create the <code>~/.ssh/authorized_keys</code> file and paste the copied public key. Save the file.</p>
-</li>
-<li>
-<p>Set correct permissions by running these commands in the HPCC terminal or using the <abbr title="Graphic User Interface">GUI</abbr> file browser of an OnDemand session</p>
-<p><code>chmod 700 ~/.ssh</code>  </p>
-<p><code>chmod 600 ~/.ssh/authorized_keys</code></p>
-</li>
-</ol>
-<h2 id="adding-your-private-key-to-mobaxterms-ssh-connection">Adding your private key to MobaXterm's <abbr title="Secure Shell">SSH</abbr> connection</h2>
-<p>In the MobaXTerm window, in the User sessions pane, right click the link you use to connect to the hpcc (usually something like <code>hpcc.msu.edu (&lt;netid&gt;)</code>), and select "Edit session". In the "Advanced <abbr title="Secure Shell">SSH</abbr> settings" pane, click "Use private key", and add the path to the key file you saved in <code>C:\Users\&lt;Account_Name&gt;\.ssh\id_rsa</code>. Click "OK" to save.</p>
-<p>When you use this session in the future, you should no longer be prompted for a password.</p>
+<p>Back in the MobaXTerm window, in the User sessions pane, right click the link you use to connect to the HPCC (usually something like <code>hpcc.msu.edu (&lt;netid&gt;)</code>), and select "Edit session". In the "Advanced <abbr title="Secure Shell">SSH</abbr> settings" pane, click "Use private key", and add the path to the key file you saved in <code>C:\Users\&lt;Account_Name&gt;\.ssh\id_rsa</code>. Click "OK" to save.</p>
 <p><img alt="Screenshot of MobaXterm Session settings. The Advanced SSH settings tab is selected with the &quot;Use private key&quot; field filled with C:\Users\Craig.ssh\id_rsa." src="../attachments/ssh_key-based_authentication/SSHKeyMobaXterm.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you use MobaXTerm for access, make sure you keep MobaXTerm up to date. 
-We recommend using MobaXTerm to generate keys for use with MobaXTerm on Windows.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>If you are having trouble connecting with an <abbr title="Secure File Transfer Protocol">SFTP</abbr> session in MobaXterm to rsync.hpcc.msu.edu, make sure you 
-check the "Use private key" box and point towards the private key (id_rsa) file which should be in either:
-- C:\Users\<Account_Name>\AppData\Roaming\MobaXterm\home.ssh if you used command line or
-- C:\Users\<Account_Name>.ssh if you use the the <abbr title="Graphic User Interface">GUI</abbr> tool</p>
+check the "Use private key" box and point towards the private key (id_rsa) file which should be in either:</p>
+<ul>
+<li><code>C:\Users\&lt;Account_Name&gt;\AppData\Roaming\MobaXterm\home\.ssh</code> if you used command line or</li>
+<li><code>C:\Users\&lt;Account_Name&gt;\.ssh</code> if you use the the <abbr title="Graphic User Interface">GUI</abbr> tool</li>
+</ul>
 <p><img alt="Screenshot of the MobaXTerm SFTP settings window with the Use private key option checked and a directory path to the key set" src="../attachments/ssh_key-based_authentication/MobaXtermSFTPcheckbox.png" /></p>
 </div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Start a command line on your personal computer:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="generate-an-ssh-keypair-macos" name="__tabbed_2" type="radio" /><input id="generate-an-ssh-keypair-windows" name="__tabbed_2" type="radio" /><input id="generate-an-ssh-keypair-linux" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="generate-an-ssh-keypair-macos">MacOS</label><label for="generate-an-ssh-keypair-windows">Windows</label><label for="generate-an-ssh-keypair-linux">Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Click the Launchpad icon in the dock, search for the Terminal application, and click Terminal</li>
+<li>In the Finder, open <code>/Applications/Utilities</code> and double click the Terminal</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><a href="../Intro_to_MobaXterm/">Install MobaXterm</a></li>
+<li>
+<p>Start MobaXterm and choose the "Start local terminal" option:</p>
+<p><img alt="Screenshot of the MobaXTerm start tab with the Start Local Terminal button circled" src="../attachments/ssh_key-based_authentication/MobaXtermLocalTerminal.png" /></p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>This will depend on your desktop environment and terminal name, but usually you can search for "Terminal" in your applications.</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Generate a keypair:</p>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span>
+</code></pre></div>
+<p>You will be given an option for protecting your private key with a passphrase. Please do this, as it will prevent your private key from being used by a malicious individual if it is ever stolen.</p>
+<p>After you have set a passphrase and the keys have generated, you will find the both the public and private key files in the <code>.ssh</code> directory under your home directory. By default, <code>id_rsa</code> is the private key file and <code>id_rsa.pub</code> the public key file.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<h3 id="upload-your-public-key-to-the-hpcc">Upload your public key to the HPCC</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="upload-your-public-key-to-the-hpcc-graphically-via-ondemand" name="__tabbed_3" type="radio" /><input id="upload-your-public-key-to-the-hpcc-using-the-command-line" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="upload-your-public-key-to-the-hpcc-graphically-via-ondemand">Graphically via OnDemand</label><label for="upload-your-public-key-to-the-hpcc-using-the-command-line">Using the command line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Log into <a href="https://ondemand.hpcc.msu.edu">the OnDemand web portal</a>.</li>
+<li>From the Files dropdown at the top of the screen, click your Home Directory.</li>
+<li>
+<p>Click the checkbox above the File Browser listings to "Show Dotfiles".</p>
+<p><img alt="OnDemand file browser with &quot;Show Dotfiles&quot; checkbox circled and checked" src="../attachments/ssh_key-based_authentication/ood_show_dotfiles.png" /></p>
+</li>
+<li>
+<p>(If the <code>.ssh</code> directory doesn't exist) Click the New Directory button near the top of the screen and enter <code>.ssh</code> as the directory name (do not forget the leading <code>.</code>). </p>
+<p><img alt="OnDemand file browser New Directory dialog with &quot;.ssh&quot; entered as directory name" src="../attachments/ssh_key-based_authentication/ood_create_ssh_directory.png" /></p>
+</li>
+<li>
+<p>Click the <code>.ssh</code> directory in the File Browser listing to open it.</p>
+<p><img alt="OnDemand file browser listing for &quot;.ssh&quot; directory with link circled" src="../attachments/ssh_key-based_authentication/ood_enter_ssh_directory.png" /></p>
+</li>
+<li>
+<p>(If the <code>authorized_keys</code> file doesn't exist) Click the New File button near the top of the screen and enter <code>authorized_keys</code> as the file name.</p>
+<p><img alt="OnDemand file browser New File dialog with &quot;authorized_keys&quot; entered as file name" src="../attachments/ssh_key-based_authentication/ood_create_authorized_keys.png" /></p>
+</li>
+<li>
+<p>In the three-dot dropdown next to the <code>authorized_keys</code> filename, click Edit</p>
+<p><img alt="OnDemand file browser listing for &quot;authorized_keys&quot; file with dropdown menu clicked and &quot;Edit&quot; circled" src="../attachments/ssh_key-based_authentication/ood_edit_authorized_keys.png" /></p>
+</li>
+<li>
+<p>Copy the public key from your personal computer. If using MobaXterm graphically, you should already have copied this in the last step of that section. If you used the command line, type <code>cat ~/.ssh/id_rsa.pub</code> and copy the output.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only copy key files with the <code>.pub</code> extension. Key files <em>without</em> this extension are private keys, which should never be shared!</p>
+</div>
+</li>
+<li>
+<p>Paste into the OnDemand file editor, and click Save.</p>
+</li>
+<li>Close the tab and go back to the File Browser in the <code>.ssh</code> directory.</li>
+<li>
+<p>Click the button above the File Browser that says "Open in Terminal".</p>
+<p><img alt="OnDemand file browser with &quot;Open in Terminal&quot; button circled" src="../attachments/ssh_key-based_authentication/ood_open_in_terminal.png" /></p>
+</li>
+<li>
+<p>Type the following two commands, hitting <span class="keys"><kbd class="key-enter">Enter</kbd></span> after each one:</p>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>.
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>authorized_keys
+</code></pre></div>
+<p><img alt="OnDemand terminal with &quot;chmod 700 .&quot; and &quot;chmod 600 authorized_keys&quot; entered" src="../attachments/ssh_key-based_authentication/ood_change_perms.png" /></p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>Note that this option can only be used if you are able to log in using your password on the command line. If not, please use the steps in the other tab "Graphically via OnDemand".</p>
+<p>To copy your key to the HPCC, run the following command, replacing <code>&lt;netid&gt;</code> with your MSU NetID:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>&lt;netid&gt;@hpcc.msu.edu
+</code></pre></div>
+<p>Enter your MSU password when prompted. Note that the command line will stay blank while entering your password (i.e., no text or stars will be shown).</p>
+</div>
+</div>
+</div>
+<p>Try logging in to the HPCC via <abbr title="Secure Shell">SSH</abbr> to verify that you do not need to enter your MSU password. You may be prompted for your <abbr title="Secure Shell">SSH</abbr> key passphrase if you set it when creating your <abbr title="Secure Shell">SSH</abbr> keys.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6602,7 +6555,7 @@ check the "Use private key" box and point towards the private key (id_rsa) file 
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 6, 2025 17:34:14 UTC">February 6, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 19, 2025 13:03:35 UTC">August 19, 2025</span>
     </span>
     
 

@@ -6517,7 +6517,7 @@ Since all quotas on the new system are a maximum of 100GB of space, you will nee
 </div>
 <h2 id="moving-files">Moving files</h2>
 <p>There are two workflows for moving files. Choose the tab below that best matches your situation.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Reduce your current home directory usage and sync all files</label><label for="__tabbed_1_2">Choose files to copy manually</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="moving-files-reduce-your-current-home-directory-usage-and-sync-all-files" name="__tabbed_1" type="radio" /><input id="moving-files-choose-files-to-copy-manually" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="moving-files-reduce-your-current-home-directory-usage-and-sync-all-files">Reduce your current home directory usage and sync all files</label><label for="moving-files-choose-files-to-copy-manually">Choose files to copy manually</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -6547,7 +6547,7 @@ file-sizes --detail
 </li>
 <li>
 <p>After repeating Step 1 and verifying that you are using less than 100GB in your home directory, you can sync the entire contents of your home directory using these steps:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Graphically</label><label for="__tabbed_2_2">From the command line</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="moving-files-graphically" name="__tabbed_2" type="radio" /><input id="moving-files-from-the-command-line" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="moving-files-graphically">Graphically</label><label for="moving-files-from-the-command-line">From the command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -6581,7 +6581,7 @@ file-sizes --detail
 <li>Select directories you wish to copy to the new home system.</li>
 <li>
 <p>Copy these directories manually using these steps:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Graphically</label><label for="__tabbed_3_2">From the command line</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="moving-files-graphically_1" name="__tabbed_3" type="radio" /><input id="moving-files-from-the-command-line_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="moving-files-graphically_1">Graphically</label><label for="moving-files-from-the-command-line_1">From the command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -6683,12 +6683,7 @@ portal</a>.</p>
 <p>Then run the command</p>
 <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/mnt/ufs18/gpfs-home/<span class="nv">$USER</span>/.ssh<span class="w"> </span>~
 </code></pre></div>
-<p>Alternatively, you can retransfer the existing keys on your computer depending
-on how you originally set them up:</p>
-<ul>
-<li><a href="../SSH_Key-Based_Authentication/#uploading-your-public-key-to-the-hpcc">Mac/Linux/MobaXTerm terminal</a> </li>
-<li><a href="../SSH_Key-Based_Authentication/#uploading-your-public-key-to-the-hpcc_1">Using MobaXTerm's graphical user interface</a></li>
-</ul>
+<p>Alternatively, you can <a href="../SSH_Key-Based_Authentication/#upload-your-public-key-to-the-hpcc">retransfer the existing keys on your computer</a> </p>
 <h3 id="how-do-i-remove-the-warning-on-login">How do I remove the warning on login?</h3>
 <p>If you were migrated on or after June 10th, you will receive a warning on login
 directing you to this page. To remove this login, you can copy your old
@@ -6780,7 +6775,7 @@ manually" and "From the command line" tabs.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 12, 2025 15:00:08 UTC">June 12, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 19, 2025 13:03:35 UTC">August 19, 2025</span>
     </span>
     
 
