@@ -20,7 +20,7 @@
     
     
       
-        <title>Using virtual env - MSU HPCC User Documentation</title>
+        <title>Using virtual environments - MSU HPCC User Documentation</title>
       
     
     
@@ -147,7 +147,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Using virtual env
+                Using virtual environments
               
             </span>
           </div>
@@ -5098,7 +5098,7 @@
   
   
   <span class="md-ellipsis">
-    Using virtual env
+    Using virtual environments
     
   </span>
   
@@ -5111,7 +5111,7 @@
   
   
   <span class="md-ellipsis">
-    Using virtual env
+    Using virtual environments
     
   </span>
   
@@ -5134,27 +5134,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-and-use-virtual-environments" class="md-nav__link">
+  <a href="#creating-virtual-environments" class="md-nav__link">
     <span class="md-ellipsis">
-      Create and use virtual environments
+      Creating virtual environments
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-packages-from-pypi-using-pip" class="md-nav__link">
+  <a href="#activating-virtual-environments" class="md-nav__link">
     <span class="md-ellipsis">
-      Install packages from PyPI using pip
+      Activating virtual environments
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pythonpath-environment-variable" class="md-nav__link">
+  <a href="#installing-packages-from-pypi-using-pip" class="md-nav__link">
     <span class="md-ellipsis">
-      PYTHONPATH environment variable
+      Installing packages from PyPI using pip
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinstalling-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reinstalling a virtual environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-system-installed-python-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using system installed Python packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-different-node-types-how-to-fix-illegal-instruction-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing different node types (how to fix "Illegal instruction error")
     </span>
   </a>
   
@@ -6298,27 +6325,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-and-use-virtual-environments" class="md-nav__link">
+  <a href="#creating-virtual-environments" class="md-nav__link">
     <span class="md-ellipsis">
-      Create and use virtual environments
+      Creating virtual environments
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-packages-from-pypi-using-pip" class="md-nav__link">
+  <a href="#activating-virtual-environments" class="md-nav__link">
     <span class="md-ellipsis">
-      Install packages from PyPI using pip
+      Activating virtual environments
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pythonpath-environment-variable" class="md-nav__link">
+  <a href="#installing-packages-from-pypi-using-pip" class="md-nav__link">
     <span class="md-ellipsis">
-      PYTHONPATH environment variable
+      Installing packages from PyPI using pip
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinstalling-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reinstalling a virtual environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-system-installed-python-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using system installed Python packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-different-node-types-how-to-fix-illegal-instruction-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing different node types (how to fix "Illegal instruction error")
     </span>
   </a>
   
@@ -6380,160 +6434,216 @@
 
 
 <h1 id="using-python-in-hpcc-with-virtualenv">Using Python in HPCC with virtualenv</h1>
-<p>Python applications usually use packages and modules that require
-specific versions of libraries. This means one installed application may
-conflict with another application due to using the same library but with
-different versions. It is difficult to meet the requirements of every
-application by one global Python installation. To resolve this issue,
-users can create an isolated <a href="https://docs.python.org/3/glossary.html#term-virtual-environment">virtual environment</a>
-with a particular version of
-Python in a self-contained directory of their home or research space.
-Any package and the dependent libraries installed inside the directory
-can be available only through the virtual environment. Different
-applications can then use different virtual environments to avoid any
-conflict.</p>
-<h3 id="create-and-use-virtual-environments">Create and use virtual environments</h3>
-<p>To create python virtual environments, please make sure your
-preferred version of Python is loaded. It is also a good idea to create
-a directory of the python version to store different environments and
-their applications:</p>
-<div class="highlight"><pre><span></span><code>[UserName@dev-intel18 ~]$ module list Python
-
-Currently Loaded Modules Matching: Python
-  1) Python/3.6.4
-
-[UserName@dev-intel18 ~]$ which python
-/opt/software/Python/3.6.4-foss-2018a/bin/python
-
-[UserName@dev-intel18 ~]$ mkdir Python3.6.4
-[UserName@dev-intel18 ~]$ cd Python3.6.4
-[UserName@dev-intel18 Python3.6.4]$
+<p>Python applications usually use packages and modules that require specific
+versions of libraries. This means one installed application may conflict with
+another application due to using the same library but with different versions.
+It is difficult to meet the requirements of every application by one global
+Python installation. To resolve this issue, users can create an isolated
+<a href="https://docs.python.org/3/glossary.html#term-virtual-environment">virtual
+environment</a>
+with a particular version of Python in a self-contained directory of their home
+or research space.  Any package and the dependent libraries installed inside
+the directory can be available only through the virtual environment. Different
+applications can then use different virtual environments to avoid any conflict.</p>
+<h3 id="creating-virtual-environments">Creating virtual environments</h3>
+<p>For <a href="#managing-different-node-types-how-to-fix-illegal-instruction-error">compatibility
+purposes</a>
+please create virtual environments and install packages using the <code>dev-amd20</code>
+development node:</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>dev-amd20
 </code></pre></div>
-<p>Currently, two common tools can be used to create Python virtual
-environments. Please use only one of them:</p>
-<ol>
-<li>
-<p>venv is available for Python 3.3 and later by default. The
-application <code>pip</code> and <code>setuptools</code> should be ready to use in HPCC
-system. A virtual environment can be created by running
-"<code>python3 -m venv &lt;DIR&gt;</code>", where <code>&lt;DIR&gt;</code> is the directory of the
-created environment. Following is an example of the command,
-and the directory <code>tutorial</code> is created for the virtual environment.</p>
-<div class="highlight"><pre><span></span><code>[UserName@dev-intel18 Python3.6.4]$ python3 -m venv tutorial  
-[UserName@dev-intel18 Python3.6.4]$ ls tutorial  
-bin  include  lib  lib64  pyvenv.cfg
+<p>To create python virtual environments, please load your <a href="../available_software/detail/Python/">preferred version
+of Python</a>:</p>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Python/3.11.3
+module<span class="w"> </span>list<span class="w"> </span>Python
 </code></pre></div>
-</li>
-<li>
-<p>virtualenv supports all Python versions. By default, HPCC system has
-    <code>pip</code>, <code>setuptools</code> and <code>wheel</code> installed and available. Similarly
-    to venv, a virtual environment can be created by executing
-    <code>virtualenv &lt;DIR&gt;</code>, where applications of the virtual environment are installed in <code>tutorial</code> directory.
-<div class="highlight"><pre><span></span><code>    [UserName@dev-intel18 Python3.6.4]$ virtualenv tutorial
-    Using base prefix &#39;/opt/software/Python/3.6.4-foss-2018a&#39;
-    New python executable in /mnt/home/UserName/Python3.6.4/tutorial/bin/python
-    Installing setuptools, pip, wheel...done.
-    [UserName@dev-intel18 Python3.6.4]$ ls tutorial
-    bin  include  lib  lib64  pip-selfcheck.json
-</code></pre></div></p>
-</li>
-</ol>
-<p>Please use one of them to create the virtual environment.</p>
-<p>The created <code>tutorial</code> environment can now be used by sourcing the
-script file <code>activate</code> under the <code>bin</code> directory:</p>
-<div class="highlight"><pre><span></span><code>[UserName@dev-intel18 Python3.6.4]$ source tutorial/bin/activate
-(tutorial) [UserName@dev-intel18 Python3.6.4]$
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Currently Loaded Modules Matching: Python</span>
+<span class="go">  1) Python/3.11.3-GCCcore-12.3.0</span>
 </code></pre></div>
-<p>where the name inside the parentheses <code>(tutorial)</code> in front of the
-prompt line shows the current Python environment. To leave the
-environment, just run "deactivate":</p>
-<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ deactivate
-[UserName@dev-intel18 Python3.6.4]$
+<p>It is also a good idea to create a directory labeled with the Python version
+to store corresponding virtual environments:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>Python3.11.3
+<span class="nb">cd</span><span class="w"> </span>Python3.11.3
 </code></pre></div>
-<p>and the parentheses disappear. Any time you want to use the <code>tutorial</code>
-environment. Simply source the file again:
-<code>source ~/Python3.6.4/tutorial/bin/activate</code> and the environment is
-back. More information can be found about <a href="https://docs.python.org/3/library/venv.html">venv</a>
-or <a href="http://virtualenv.pypa.io">virtualenv</a>.</p>
-<h3 id="install-packages-from-pypi-using-pip">Install packages from PyPI using pip</h3>
-<p>The most common usage of pip is to install python packages from the
-<a href="https://packaging.python.org/glossary/#term-python-package-index-pypi">Python Package Index</a>
-with a <a href="https://packaging.python.org/glossary/#term-requirement-specifier">requirement specifier</a>. Users can also check other
-usages with pip. Below, some of the common usage scenarios are
-introduced.</p>
-<p>To install the latest version of a python package, users can run
-<code>pip install &lt;Package Name&gt;</code>, for example, using <code>sympy</code> as
-<code>&lt;Package Name&gt;</code>:</p>
-<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip install &quot;sympy&quot;
-Collecting sympy
-Using cached https://files.pythonhosted.org/packages/21/21/f4105795ca7f35c541d82c5b06be684dd2f5cb4f508fb487cd7aea4de776/sympy-1.4-py2.py3-none-any.whl
-Collecting mpmath&gt;=0.19 (from sympy)
-Installing collected packages: mpmath, sympy
-Successfully installed mpmath-1.1.0 sympy-1.4
+<p>A virtual environment can be created by running <code>python3 -m venv --copies
+&lt;DIR&gt;</code>, where <code>&lt;DIR&gt;</code> is the directory of the created environment. For example,
+the following code creates a virtual environment named <code>tutorial</code> in the
+<code>tutorial</code> directory:</p>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--copies<span class="w"> </span>tutorial<span class="w">  </span>
+ls<span class="w"> </span>tutorial<span class="w">  </span>
 </code></pre></div>
-<p>To install a specific version of a python package, please run
-<code>pip install &lt;Package Name&gt;==&lt;Version Number&gt;</code>. For example, install
-<code>numpy</code> with <code>&lt;version number&gt;</code> as <code>1.16.2</code>:</p>
-<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip install &quot;numpy==1.16.2&quot;
-Collecting numpy==1.16.2
-Downloading https://files.pythonhosted.org/packages/35/d5/4f8410ac303e690144f0a0603c4b8fd3b986feb2749c435f7cdbb288f17e/numpy-1.16.2-cp36-cp36m-manylinux1_x86_64.whl (17.3MB)
-    |████████████████████████████████| 17.3MB 10.5MB/s
-Installing collected packages: numpy
-Successfully installed numpy-1.16.2
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">bin  include  lib  lib64  pyvenv.cfg  </span>
 </code></pre></div>
-<p>To upgrade an already installed package to the latest from PyPI,
-users can run <code>pip install --upgrade</code>. For example, upgrade the
-installed package <code>numpy</code>:</p>
-<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip install --upgrade numpy
-Collecting numpy
-Using cached https://files.pythonhosted.org/packages/e5/e6/c3fdc53aed9fa19d6ff3abf97dfad768ae3afce1b7431f7500000816bda5/numpy-1.17.2-cp36-cp36m-manylinux1_x86_64.whl
-Installing collected packages: numpy
-Found existing installation: numpy 1.16.2
-    Uninstalling numpy-1.16.2:
-    Successfully uninstalled numpy-1.16.2
-Successfully installed numpy-1.17.2
+<p>The created <code>tutorial</code> environment can now be used by sourcing the script file
+<code>activate</code> under the <code>bin</code> directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>tutorial/bin/activate
 </code></pre></div>
-<p>With pip, you can also list all installed packages and their
-versions with the command <code>pip freeze</code>:</p>
-<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip freeze
-mpmath==1.1.0
-numpy==1.17.2
-sympy==1.4
+<p>Your prompt will begin with the title of the virtual environment, for example:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>tutorial<span class="o">)</span><span class="w"> </span>user@host:~/Python3.11.3$
 </code></pre></div>
-<p>For more detail, see the
-<a href="https://pip.pypa.io">pip docs</a>, which
-includes a complete <a href="https://pip.pypa.io/en/latest/reference/index.html">Reference Guide</a>.</p>
-<h3 id="pythonpath-environment-variable">PYTHONPATH environment variable</h3>
-<p>You can use the environment variable <code>PYTHONPATH</code> to include the
-packages already installed by the same python version in other
-directories. By adding the <code>site-packages</code> paths to <code>PYTHONPATH</code>
-environment variable and separating them with the "<code>:</code>" symbol:</p>
-<div class="highlight"><pre><span></span><code>(tutorial) [UserName@dev-intel18 Python3.6.4]$ export PYTHONPATH=~/Python3.6.4/tutorial/lib/python3.6/site-packages:/opt/software/Python/3.6.4-foss-2018a/lib/python3.6/site-packages
-(tutorial) [UserName@dev-intel18 Python3.6.4]$ pip freeze
-absl-py==0.5.0
-alabaster==0.7.12
-appdirs==1.4.3
-artemis==0.1.4
-...
-nose==1.3.7
-numpy==1.17.2
-numpydoc==0.8.0
-...
-suspenders==0.2.6
-sympy==1.4
-tensorboard==1.10.0
-tensorflow==1.10.1
-...
-virtualenv==15.1.0
-wcwidth==0.1.7
-Werkzeug==0.14.1
-xopen==0.3.5
+<p>To leave the environment, run <code>deactivate</code>:</p>
+<div class="highlight"><pre><span></span><code>deactivate
 </code></pre></div>
-<p>all packages inside the paths are now ready to use. Please make sure the
-<code>site-packages</code> path of the current environment is set the first
-in <code>PYTHONPATH</code> variable. If a package is installed in more than one
-path (possibly with different versions), the package of the first path
-showing in the variable (<code>PYTHONPATH</code>) will be used.</p>
+<p>and the virtual environment name will disappear.</p>
+<div class="admonition note">
+<p class="admonition-title">Use the <code>--copies</code> flag to ensure compatibility</p>
+<p>If you have used <code>venv</code> before, you may not have seen the <code>--copies</code> flag.
+It is important to use this when creating a virtual environment on the HPCC so
+that you reduce dependence on the system environment when you create the
+virtual environment. This allows you to use your virtual environments on
+<a href="#managing-different-node-types-how-to-fix-illegal-instruction-error">multiple different node
+types</a>.</p>
+</div>
+<h3 id="activating-virtual-environments">Activating virtual environments</h3>
+<p>To activate a previously created virtual environment (for example, after you
+log in, or in a <a href="../Job_Script_and_Job_Submission/">job submission script</a>),
+first load the corresponding module, then activate the virtual environment:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Python/3.11.3
+<span class="nb">source</span><span class="w"> </span>~/Python3.11.3/tutorial/bin/activate
+</code></pre></div>
+<p>To deactivate the environment, run:</p>
+<div class="highlight"><pre><span></span><code>deactivate
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Load the corresponding module</p>
+<p>Make sure to load the same Python module you used to create the virtual
+environment. If you forget to load the module, or load a different version, you
+will likely receive an error like</p>
+<div class="highlight"><pre><span></span><code>python: error while loading shared libraries: libpython3.11.so.1.0: cannot open shared object file: No such file or directory
+</code></pre></div>
+<p>To help with this, we recommend creating virtual environments in a
+directory labeled with the version of Python used <a href="#creating-virtual-environments">as described
+above</a>.</p>
+</div>
+<h3 id="installing-packages-from-pypi-using-pip">Installing packages from PyPI using <code>pip</code></h3>
+<p>The most common usage of <code>pip</code> is to install python packages from the <a href="https://packaging.python.org/en/latest/glossary/#term-Python-Package-Index-PyPI">Python
+Package
+Index</a>
+with a <a href="https://packaging.python.org/glossary/#term-Requirement-Specifier">requirement
+specifier</a>.
+Below, some of the common usage scenarios are introduced.</p>
+<div class="admonition note">
+<p class="admonition-title">Activate your virtual environment first!</p>
+<p>Before running any of the commands below, make sure to <a href="#activating-virtual-environments">activate your
+virtual environment</a>, otherwise, your
+packages will be installed in the wrong location.</p>
+</div>
+<p>For <a href="#managing-different-node-types-how-to-fix-illegal-instruction-error">compatibility
+purposes</a>,
+install all packages using the <code>dev-amd20</code> development node:</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>dev-amd20
+</code></pre></div>
+<p>To install the latest version of a python package, run <code>python -m pip install
+&lt;Package Name&gt;</code>, for example, using <code>sympy</code> as <code>&lt;Package Name&gt;</code>:</p>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="c1"># Activate your virtual environment first if not activated (see above)</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>sympy
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com</span>
+<span class="go">Collecting sympy</span>
+<span class="go">  Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)</span>
+<span class="go">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 99.0 MB/s eta 0:00:00</span>
+<span class="go">Collecting mpmath&lt;1.4,&gt;=1.1.0</span>
+<span class="go">  Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)</span>
+<span class="go">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 211.6 MB/s eta 0:00:00</span>
+<span class="go">Installing collected packages: mpmath, sympy</span>
+<span class="go">Successfully installed mpmath-1.3.0 sympy-1.14.0</span>
+</code></pre></div>
+<p>To install a specific version of a python package, run <code>python -m pip install
+&lt;Package Name&gt;==&lt;Version Number&gt;</code>. For example, installing <code>numpy</code> with
+<code>&lt;version number&gt;</code> as <code>2.3.2</code>:</p>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="c1"># Activate your virtual environment first if not activated (see above)</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">numpy</span><span class="o">==</span><span class="m">2</span>.3.2
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com</span>
+<span class="go">Collecting numpy==2.3.2</span>
+<span class="go">  Downloading numpy-2.3.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)</span>
+<span class="go">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 118.5 MB/s eta 0:00:00</span>
+<span class="go">Installing collected packages: numpy</span>
+<span class="go">Successfully installed numpy-2.3.2</span>
+</code></pre></div>
+<p>To upgrade an already installed package to the latest from PyPI, users can run
+<code>python -m pip install --upgrade &lt;Package Name&gt;</code>. For example, to upgrade the
+<code>pip</code> package itself:</p>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="c1"># Activate your virtual environment first if not activated (see above)</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Requirement already satisfied: pip in ./Python3.11.3/tutorial/lib/python3.11/site-packages (22.3.1)</span>
+<span class="go">Collecting pip</span>
+<span class="go">  Downloading pip-25.2-py3-none-any.whl (1.8 MB)</span>
+<span class="go">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 85.8 MB/s eta 0:00:00</span>
+<span class="go">Installing collected packages: pip</span>
+<span class="go">  Attempting uninstall: pip</span>
+<span class="go">    Found existing installation: pip 22.3.1</span>
+<span class="go">    Uninstalling pip-22.3.1:</span>
+<span class="go">      Successfully uninstalled pip-22.3.1</span>
+<span class="go">Successfully installed pip-25.2</span>
+</code></pre></div>
+<p>With pip, you can also list all installed packages and their versions with the
+command <code>python -m pip freeze</code>:</p>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code><span class="c1"># Activate your virtual environment first if not activated (see above)</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>freeze
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">mpmath==1.3.0</span>
+<span class="go">numpy==2.3.2</span>
+<span class="go">sympy==1.14.0</span>
+</code></pre></div>
+<p>For more detail, see the <a href="https://pip.pypa.io">pip docs</a>, which includes a
+complete <a href="https://pip.pypa.io/en/latest/reference/index.html">Reference Guide</a>.</p>
+<h3 id="reinstalling-a-virtual-environment">Reinstalling a virtual environment</h3>
+<p>To reinstall a virtual environment (e.g., to reinstall on a <a href="#managing-different-node-types-how-to-fix-illegal-instruction-error">more compatible
+node
+type</a>),
+first activate the old one, run <code>python -m pip freeze</code>, save the output to a
+file, and deactivate:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Python/3.11.3
+<span class="nb">source</span><span class="w"> </span>~/Python3.11.3/tutorial/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+deactivate
+</code></pre></div>
+<p>Then create a new virtual environment following <a href="#creating-virtual-environments">the instructions
+above</a>. In this example, we'll call it
+<code>new_tutorial</code>. <a href="#activating-virtual-environments">Activate it</a>, and reinstall
+all packages in the <code>requirements.txt</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/Python3.11.3/new_tutorial/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>After testing the new virtual environment, you can remove the old one by
+deleting the directory containing it:</p>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-r<span class="w"> </span>~/Python3.11.3/tutorial
+</code></pre></div>
+<h3 id="using-system-installed-python-packages">Using system installed Python packages</h3>
+<p>For many versions of Python, the HPCC has preinstalled Python packages as
+modules. These are mostly in the form of "bundles", e.g.,
+<a href="../available_software/detail/Python-bundle-PyPI/"><code>Python-bundle-PyPI</code></a> and
+<a href="../available_software/detail/SciPy-bundle/"><code>SciPy-bundle</code></a>, but there are some
+standalone packages-as-modules, including
+<a href="../available_software/detail/scikit-learn/"><code>scikit-learn</code></a> and
+<a href="../available_software/detail/PyTorch/"><code>PyTorch</code></a>.</p>
+<p>You can use these packages in addition to those you install yourself by loading
+them before you activate your virtual environment:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Python/3.11.3<span class="w"> </span>SciPy-bundle/2023.07-gfbf-2023a<span class="w"> </span>scikit-learn/1.3.1-gfbf-2023a
+<span class="nb">source</span><span class="w"> </span>~/Python3.11.3/tutorial/bin/activate
+</code></pre></div>
+<p>If you install any additional packages into your virtual environment, make sure
+to load all modules that were loaded when you installed the packages before
+activating your environment in the future.</p>
+<h3 id="managing-different-node-types-how-to-fix-illegal-instruction-error">Managing different node types (how to fix "Illegal instruction error")</h3>
+<p>The HPCC has many different types of nodes you can run your code on. See a
+<a href="https://docs.icer.msu.edu/Cluster_Resources/">listing here</a>.</p>
+<p>When a virtual environment is created or a package is installed using <code>pip</code>, it
+is sometimes customized to the type of node you installed it on. It is not
+guaranteed that you can then run this package on other node types.</p>
+<p>By using <code>dev-amd20</code> to create virtual environments and install packages (as
+suggested above), you limit the chance at installing incompatible packages, as
+it is the oldest cluster and most compatible with other node types.
+Additionally, using the <code>--copies</code> flag when creating a virtual environment
+(<a href="#creating-virtual-environments">described above</a>) limits the dependence on
+the node type where the virtual environment was created.</p>
+<p>For more on this topic, see our page on <a href="../Using_Different_Cluster_Architectures/">Architecture Specific Compilation</a>.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6578,7 +6688,7 @@ showing in the variable (<code>PYTHONPATH</code>) will be used.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 3, 2024 16:12:28 UTC">June 3, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 19, 2025 15:51:53 UTC">August 19, 2025</span>
     </span>
     
 
@@ -6658,7 +6768,7 @@ showing in the variable (<code>PYTHONPATH</code>) will be used.</p>
                 
                 
               
-              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Using%20virtual%20env" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=Using%20virtual%20environments" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
             </div>
           
         </div>
