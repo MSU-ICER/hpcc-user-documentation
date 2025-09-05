@@ -6429,7 +6429,7 @@
 
 <h1 id="scratch-space">Scratch Space</h1>
 <p>Each user is provided with a working directory know as <em>scratch space</em>. This space is intended for intensive input/output (<abbr title="Input/Output">I/O</abbr>) operations <em>i.e.</em>, heavy reading and writing of data, involving very large files and/or a very large number of small files. Research groups may also <a href="https://contact.icer.msu.edu/contact">request a scratch space</a>. Unlike the <a href="../Home_Space/">home space</a> and <a href="../Research_Space/">research space</a>, the scratch space is <strong>not intended for long-term storage</strong>. </p>
-<p>Data stored in a user's <strong>scratch space is not backed-up</strong>, and <strong>files in a scratch space with no <abbr title="Input/Output">I/O</abbr> operations for 45 days will be automatically deleted</strong> to ensure the space is available to all users. 
+<p>Data stored in a user's <strong>scratch space is not backed-up</strong>, and <strong>files in a scratch space with no changes for 45 days will be automatically deleted</strong> to ensure the space is available to all users. 
 The limit on storage is <strong>50TB</strong> and the initial limit on the number of files contained in a scratch space is <strong>1,000,000</strong> files. </p>
 <p>A user's scratch space is available at <code>/mnt/scratch/$USER</code>, or use the bash environmental variable <code>$SCRATCH</code>. Use the <code>quota</code> command to check a user's current space and file quotas.</p>
 <div class="highlight"><pre><span></span><code>$ quota
@@ -6454,9 +6454,9 @@ below for best practice:    </p>
 <li>Delete that data from the scratch space</li>
 </ol>
 <h2 id="time-limits-on-scratch-space">Time Limits on Scratch Space</h2>
-<p>Files in a scratch space with no <abbr title="Input/Output">I/O</abbr> operations for 45 days will be automatically deleted to ensure the space is available to all users. To find files in a scratch space approaching the 45 day limit run the following command:</p>
+<p>Files in a scratch space with no changes for 45 days will be automatically deleted to ensure the space is available to all users. To find files in a scratch space approaching the 45 day limit run the following command:</p>
 <p><code>find $SCRATCH -type f -ctime +40</code></p>
-<p>Here the <code>+40</code> argument specifies files with no <abbr title="Input/Output">I/O</abbr> for more than 40 days. Users may set this argument to any number of days desired, up to the 45 day limit.
+<p>Here the <code>+40</code> argument specifies files with no changes for more than 40 days. Users may set this argument to any number of days desired, up to the 45 day limit.
 This time is measured based on the "change time" of the file, so files extracted from archives will not be deleted until the 45 day limit is reached, <em>after</em> they have been extracted.</p>
 <h2 id="multiple-scratch-spaces">Multiple Scratch Spaces</h2>
 <p>You may have multiple directories in scratch, such as one associated with your home directory (<code>/mnt/scratch/$USER</code>) and one or more associated with research spaces (<code>/mnt/scratch/groups/&lt;research_group_name&gt;</code>). Research scratch directory, like regular research directories are shared with other members of your reserearch group and intended to facilitate collaboration with groups. However, like the scratch space under your username, research scratch spaces is not <strong>backed-up</strong>, and files <strong>will be automatically deleted after 45 days</strong>.</p>
@@ -6505,7 +6505,7 @@ This time is measured based on the "change time" of the file, so files extracted
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 5, 2025 14:46:40 UTC">September 5, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 5, 2025 15:09:44 UTC">September 5, 2025</span>
     </span>
     
 
