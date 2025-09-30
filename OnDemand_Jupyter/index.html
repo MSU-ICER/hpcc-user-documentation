@@ -6512,23 +6512,23 @@
 <h1 id="jupyter">Jupyter</h1>
 <h2 id="basic-configuration">Basic Configuration</h2>
 <p>To begin an OnDemand Jupyter session, the basic configuration we recommend is less than 4 hours (unless you require more), at least a single core, and at least 1GB memory per core (default is 750MB). You may also configure the session to use Jupyter Lab (default) or Jupyter Notebook with the <code>Jupyter Lab</code> selection box. </p>
-<p><img alt="Screenshot of Jupyter session config." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_config.png" /></p>
+<p><img alt="The Jupyter session configuration with 'Number of hours' set to 1, 'Number of cores per task' set to 1, and 'Amount of memory' set to 1GB." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_config.png" /></p>
 <h3 id="jupyter-location">Jupyter Location</h3>
 <p>You can configure the Jupyter application to use various Jupyter instances. 
-<img alt="Screenshot of the Jupyter OnDemand session configuration page. Jupyter Location setting." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_Location.png" /></p>
+<img alt="The Jupyter session configuration with 'Jupyter Location' set to 'Default'." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_Location.png" /></p>
 <p>We recommend using the <code>Default</code> or <code>Conda Environment using Miniforge3 module</code> options. The default option uses the HPC's system Jupyter instance, and requires no Jupyter installation. The <code>Conda Environment using Miniforge3 module</code> option uses a Jupyter instance installed in a <a href="../Using_conda/">Conda</a> environment that was created using the Miniforge3 module. For this option, you can specify your environment under <code>Conda Environment name or path</code> with either the environment name or full environment path.</p>
-<p><img alt="Using a Conda environment using Miniforge3 module, and specifying the environment name/path." src="../attachments/OnDemand_Jupyter/conda_miniforge.png" /></p>
+<p><img alt="The Jupyter session configuration with 'Jupyter Location' set to 'Conda Environment using Miniforge3 module' and specifying the 'Conda Environment name or path' to 'myenv'." src="../attachments/OnDemand_Jupyter/conda_miniforge.png" /></p>
 <p>If you're working with a Jupyter instance installed in a <a href="../Using_conda/">Conda</a> environment that was created using a local Conda installation, you can select the <code>Conda Environment using local install</code> option. For this option you will need to specify the full path to your local Conda installation. You can also specify your environment under the <code>Conda Environment name or path</code> with either the environment name or full environment path. </p>
-<p><img alt="Using a Conda environment from a local Conda install, specifying the local Conda path and environment name/path." src="../attachments/OnDemand_Jupyter/local_conda_path.png" /></p>
+<p><img alt="The Jupyter session configuration with 'Jupyter Location' set to 'Conda Environment using local install' specifying the 'Conda Path' to '/mnt/home/USERNAME/miniforge3' and 'Conda Environment name or path' to 'myenv'" src="../attachments/OnDemand_Jupyter/local_conda_path.png" /></p>
 <p>If you're working with Jupyter installed in an overlay installation using <a href="../Singularity_Overlays/">Singularity</a>, you can select the <code>Singularity Overlay</code> option. With this option you can specify the Jupyter path inside the singularity image, path to the Singularity Image, and path to the Overlay image. </p>
-<p><img alt="Using Jupyter installed in an overlay installation using Singularity, setting the Jupyter path inside the singularity image, path to the Singularity Image, and path to the Overlay image." src="../attachments/OnDemand_Jupyter/singularity_option.png" /></p>
+<p><img alt="The Jupyter session configuration with 'Jupyter Location' set to 'Singularity Overlay' specifying 'Jupyter Path' to '/miniforge3/bin', 'Path to Singularity Image' to '/mnt/research/common-data/Container-images/icer-centos7-img_latest.sif', and 'Path to Overlay Image' set to '/mnt/home/&lt;user&gt;/overlay.img'" src="../attachments/OnDemand_Jupyter/singularity_option.png" /></p>
 <h3 id="working-directory">Working Directory</h3>
 <p>You may also specify a working directory for your Jupyter session, which can be any space on the HPCC that you have access to, such as home (default), scratch, or research space. You can specify the full path, or use the graphical path selector interface by clicking on the <code>Select Path</code> button. </p>
-<p><img alt="Screenshot of working directory path." src="../attachments/OnDemand_Jupyter/path_selector.png" />
-<img alt="Screenshot of working directory path selector." src="../attachments/OnDemand_Jupyter/path_select_widget.png" /></p>
+<p><img alt="The Jupyter session configuration with 'Working Directory' path empty, set to default." src="../attachments/OnDemand_Jupyter/path_selector.png" />
+<img alt="The Jupyter session configuration with 'Working Directory' path selector option chosen to graphically browse for desired path." src="../attachments/OnDemand_Jupyter/path_select_widget.png" /></p>
 <h2 id="advanced-configuration-options">Advanced Configuration Options</h2>
 <p>Beyond these basic configuration parameters, there are more session configurations you can make by selecting the <code>Advanced Options</code> box below the set of basic configuration options. Here, you can specify the node type for the session to run on, request GPUs and number of tasks. You can also specify a SLURM account or reservation. </p>
-<p><img alt="Screenshot of Jupyter session config - advanced." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_config_adv.png" /></p>
+<p><img alt="The Jupyter session advanced configuration with 'Node Type' set to 'amd20' and 'Number of GPUs' set to 1 GPU." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_config_adv.png" /></p>
 <h2 id="using-jupyter-with-a-python-virtual-environment">Using Jupyter with a Python virtual environment</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -6540,10 +6540,10 @@ pip install jupyter
 ipython kernel install --user --name=&lt;your-venv&gt;
 </code></pre></div>
 <p>Next, in the Jupyter OnDemand configuration, choose <code>Default</code> as the Jupyter Location. </p>
-<p><img alt="Screenshot selecting Default Jupyter Location." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_Default.png" /></p>
+<p><img alt="The Jupyter session configuration for using a Python Virtual environment, with 'Default Jupyter Location' set to the 'Default' option." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_Default.png" /></p>
 <p>Once your Jupyter OnDemand sessions starts, you can then choose your new kernel that will be named <code>your-venv</code>.</p>
-<p><img alt="Screenshot selecting Default Jupyter Location." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_kernel_select_1.png" /></p>
-<p><img alt="Screenshot selecting Default Jupyter Location." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_kernel_select_2.png" /></p>
+<p><img alt="The 'Select Kernel' drop-down selector for the Jupyter session configuration for using a Python Virtual environment." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_kernel_select_1.png" /></p>
+<p><img alt="The Jupyter session configuration for using a Python Virtual environment, with 'Select Kernel' set to the 'your-env' Kernel." src="../attachments/OnDemand_Jupyter/OnDemand_Jupyter_kernel_select_2.png" /></p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6588,7 +6588,7 @@ ipython kernel install --user --name=&lt;your-venv&gt;
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 15, 2025 14:20:37 UTC">April 15, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2025 13:23:19 UTC">September 30, 2025</span>
     </span>
     
 
