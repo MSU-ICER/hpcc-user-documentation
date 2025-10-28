@@ -6397,16 +6397,21 @@
 <h1 id="development-nodes">Development nodes</h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Any long running (total <abbr title="Central Processing Unit">CPU</abbr> run time <code>&gt; 2hrs</code>) jobs on dev nodes will be killed automatically without advance notice.</p>
+<p>Any long running (<abbr title="Central Processing Unit">CPU</abbr> usage or <abbr title="Graphics Processing Unit">GPU</abbr> access time <code>&gt; 2 hours</code>) jobs on dev nodes will be killed automatically without advance notice. Abuse of development nodes may result in suspension from the system.</p>
 </div>
+<p>Processes that use more than 2 hours of <abbr title="Central Processing Unit">CPU</abbr> time (defined as work across all CPUs that equal 2 hours of work on one <abbr title="Central Processing Unit">CPU</abbr>, e.g., a process using 12 CPUs at 100% will be killed after 10 minutes) or 2 hours of <abbr title="Graphics Processing Unit">GPU</abbr> time (defined as a process using a <abbr title="Graphics Processing Unit">GPU</abbr> for at least 2 hours of total elapsed time) will be killed automatically without advance notice. Circumventing this policy and/or abusing the intended usage of development nodes may result in suspension from the system. </p>
 <p>The HPCC has several development nodes that are available for users to
 compile their code and do short runs (less than 2 hours) to estimate
-run-time and memory usage. </p>
+run-time and memory usage.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is an <code>80%</code> memory cap (percentage of total <abbr title="Random Access Memory">RAM</abbr> on the node) for processes running on development nodes. Processes that exceed this memory cap get killed automatically.  </p>
+</div>
 <p>These development nodes run the latest operating system and have similar
 configurations and environment setups as the compute nodes of the same
 clusters.  Please use these development nodes to compile your program
 and test the work flow of your job script. For running long-time or
-large-resource computations, please <a href="../SLURM_overview/">submit jobs</a> to use compute nodes.</p>
+large-resource computations, please <a href="../SLURM_overview/">submit jobs</a> to use compute nodes. If your long-running (more than 2 hours) computations require interactive development, testing or debugging, you should use <a href="../Interactive_Job/">interactive jobs</a> to work on compute nodes.  </p>
 <p>Users may <code>ssh</code> to the development nodes after
 <a href="../Connect_to_HPCC_System/">connecting to the gateway via <abbr title="Secure Shell">SSH</abbr></a>.
 To access a certain development node, for example dev-amd20, please
@@ -6505,7 +6510,7 @@ and so on.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 23, 2025 14:04:48 UTC">September 23, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 28, 2025 21:13:25 UTC">October 28, 2025</span>
     </span>
     
 
@@ -6529,7 +6534,7 @@ and so on.</p>
             
         </span>
         <nav>
-            Claire Kopenhafer, Craig Gross, Keen, Andrew, Xiaoge Wang
+            Claire Kopenhafer, Craig Gross, Keen, Andrew, Venegas, Julian, Xiaoge Wang
         </nav>
     </span>
     
