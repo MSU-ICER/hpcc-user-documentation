@@ -3476,6 +3476,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Job Priority Factors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fairshare" class="md-nav__link">
+    <span class="md-ellipsis">
+      FairShare
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -6481,6 +6496,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Job Priority Factors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fairshare" class="md-nav__link">
+    <span class="md-ellipsis">
+      FairShare
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -6623,6 +6653,39 @@ account all contribute to the job’s priority.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="fairshare">FairShare</h3>
+<p>The FairShare priority factor of a job is calculated based on recent usage compared to overall cluster usage. Each user/account pair is assigned a "share" of the cluster based on the overall number of users in the accounting database. Usage is tracked based on the cluster's configured TRES (Trackable Resource) billing weights. A weight is set for CPUs, memory, and GPUs. Each job's allocated resources are multiplied by these weights and the job's run time to get a combined measure of TRES seconds. TRES seconds are then tracked for each user/account pair. When consumed TRES seconds is equal to the share of TRES seconds relative to the entire cluster, the FairShare factor will be 0.5 (30000 weighted), when consumed TRES seconds exceeds double the share for the entire cluster, the FairShare factor will be zero.</p>
+<p>Usage accrual for this calculation decays with a half life of one day and the effect of this decay is calculated every five minutes.</p>
+<p>The exact weights and share values change with the size of the cluster and accounting database, but can be viewed using the <code>fairshare_info</code> powertool.</p>
+<div class="highlight"><pre><span></span><code>$ module load powertools
+$ fairshare_info
+
+TresBillingWeights:
+  CPU    = 1.0
+  Memory = 0.152
+  GPU    = 250
+
+Current Total Cluster Usage:  3102285712231 TRES seconds
+FairShare Ratio Per User:     0.000051
+User Portion of Cluster:      158216571 TRES seconds
+
+FairShare is calculated every 00:05:00 and your usage decays 50% every 1-00:00:00
+
+The following usage will reduce FairShare priority by half, twice will zero it:
+     43949 CPU Hours
+       176 GPU Hours
+       282 GB Hours
+
+       281 1 Hour / 1 CPU / 1 GB Jobs
+       108 1 Hour / 1 CPU / 1 GB / 1 GPU Jobs
+
+Current FairShare Priority Status:
+
+  Account             Priority  Usage (TRES Seconds)
+  --------------------------------------------------
+  general                59727              1046312
+  scavenger              60000                    0
+</code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -6667,7 +6730,7 @@ account all contribute to the job’s priority.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 27, 2025 20:23:13 UTC">October 27, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 10, 2025 18:36:01 UTC">November 10, 2025</span>
     </span>
     
 
@@ -6691,7 +6754,7 @@ account all contribute to the job’s priority.</p>
             
         </span>
         <nav>
-            Andrew Fullard, Craig Gross, Xiaoge Wang
+            Andrew Fullard, Craig Gross, Steven Ford, Xiaoge Wang
         </nav>
     </span>
     
