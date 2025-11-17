@@ -19,7 +19,7 @@
     
     
       
-        <title>(2023-08-02) Lab Notebook: Alternative Linux Shells on HPCC - MSU HPCC User Documentation</title>
+        <title>AlphaFold3 - MSU HPCC User Documentation</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-an-alternative-linux-shell-on-hpcc" class="md-skip">
+        <a href="#alphafold3" class="md-skip">
           Skip to content
         </a>
       
@@ -145,7 +145,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                (2023-08-02) Lab Notebook: Alternative Linux Shells on HPCC
+                AlphaFold3
               
             </span>
           </div>
@@ -7538,103 +7538,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#before-you-change-your-shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Before you change your shell...
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Before you change your shell...">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-run-with-an-interpreter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Run with an interpreter
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-using-the-shebang" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Using the 'shebang'
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alternative-shells" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alternative shells
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alternative shells">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changing-your-shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changing your shell
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assigning-environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assigning Environment Variables
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#startup-scripts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Startup scripts
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -7657,19 +7560,7 @@
         
       
       
-        <a href="../tags/#tag:csh" class="md-tag md-tag-icon">csh</a>
-      
-    
-      
-      
-      
-        
-        
-          
-        
-      
-      
-        <a href="../Lab_Notebooks/#tag:lab-notebook" class="md-tag md-tag-icon md-tag--labnotes">lab notebook</a>
+        <a href="../tags/#tag:alphafold" class="md-tag md-tag-icon">AlphaFold</a>
       
     
       
@@ -7679,44 +7570,14 @@
         
       
       
-        <a href="../tags/#tag:linux" class="md-tag md-tag-icon">Linux</a>
-      
-    
-      
-      
-      
-        
-        
-      
-      
-        <a href="../tags/#tag:shell" class="md-tag md-tag-icon">shell</a>
-      
-    
-      
-      
-      
-        
-        
-      
-      
-        <a href="../tags/#tag:tcsh" class="md-tag md-tag-icon">tcsh</a>
-      
-    
-      
-      
-      
-        
-        
-      
-      
-        <a href="../tags/#tag:zsh" class="md-tag md-tag-icon">zsh</a>
+        <a href="../tags/#tag:tutorial" class="md-tag md-tag-icon">tutorial</a>
       
     
   </nav>
 
 
   
-    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/2023-08-02_LabNotebook_AlternativeLinuxShells.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/AlphaFold3.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -7724,75 +7585,41 @@
   
 
 
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This is as a <strong>Lab Notebook</strong> which describes how to solve a specific problem at a specific time.
-Please keep this in mind as you read and use the content. Please pay close attention to the date, version
-information and other details.</p>
-</div>
-<div class="admonition extra warning warning">
-<p class="admonition-title">Extra</p>
-<p>Changing your shell on HPCC, particularly your login shell, is not recommended. We only 
-support bash and much of our system, particularly the module system and job scheduler,
-is set to work with bash. Additionally, external software (such as VScode) may break with
-an alternative shell</p>
-</div>
-<h1 id="using-an-alternative-linux-shell-on-hpcc">Using an Alternative Linux Shell on HPCC</h1>
-<p>HPCC only supports bash, but if you would like to use an alternative shell, you may do so at your own risk. Please keep in mind the above warning before your proceed, and if you require help to restore the regular bash shell, <a href="http://www.hpcc.msu.edu/contact">please contact HPCC support</a></p>
-<h2 id="before-you-change-your-shell">Before you change your shell...</h2>
-<p>While your default login shell on HPCC is bash, this does not mean you are limited to only running bash shell scripts.</p>
-<p>Shell scripts are simply text files with series of commands that are a mix of programs that are on the system (grep, date, time, a python program, your program, and 'built-ins' specific to the shell) and syntax for control statements like loops and if specific to the shell in which you are running. </p>
-<p>Shell scripts typically have a program that runs then, known as the interpreter, which could include a shell (bash, zsh, etc) or a language interpreter (python, Rscript, ruby, julia etc).</p>
-<p>You can run a shell script in (at least) two ways:</p>
-<h4 id="1-run-with-an-interpreter">1. Run with an interpreter</h4>
-<p>Using an interpreter to run you shell script typically follows this syntax <code>&lt;interpereter&gt; &lt;options&gt; &lt;path/to/script&gt;</code></p>
-<p>A familiar example using python would be:</p>
-<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>python
-python<span class="w"> </span>my_python_script.py
+<h1 id="alphafold3">AlphaFold3</h1>
+<p>AlphaFold3 is protein structural prediction software from Google DeepMind and Isomorphic Labs. It is the successor to
+<a href="../AlphaFold_installed_in_HPCC/">previous</a> <a href="../Alphafold_via_Singularity/">versions</a> of Alphafold, which are available on 
+HPCC.</p>
+<h1 id="terms-of-use-and-model-parameters">Terms of Use and Model Parameters</h1>
+<p>While AlphaFold3 is distributed under a ShareAlike <a href="https://github.com/google-deepmind/alphafold3/blob/main/LICENSE">license</a>, the model parameters are subject to terms of use <a href="https://github.com/google-deepmind/alphafold3/blob/main/WEIGHTS_TERMS_OF_USE.md">agreement</a>, particularly in regards to commercial applications and training other models.</p>
+<p>To obtain a personal copy of the of AlphaFold3 model parameters, please request one from Google using the following <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWZAgo1aYk0O4MuAXZj8xRQ8DafeFJnldNOnh_13qAx2ceZw/viewform">form</a>.</p>
+<p>Alternatively, access to an institutional copy can be obtained by requesting access through the <a href="https://contact.icer.msu.edu/licensing">ICER contact form</a> and acknowedgeling the terms of use there.</p>
+<h1 id="alphafold3-installed-in-hpcc">AlphaFold3 installed in HPCC</h1>
+<p>Available versions of AlphaFold3 can be found using the following command:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>avail<span class="w"> </span>AlphaFold3
 </code></pre></div>
-<p>However, the same can be done with different shells:</p>
-<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>my_bash_script.sh
-zsh<span class="w"> </span>my_zsh_script.sh
+<p>After loading the module, you can run AlphaFold3 using the
+'run_alphafold.py' wrapper script. For example:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>AlphaFold3/3.0.1-foss-2023a-CUDA-12.4.0
+
+run_alphafold.py<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--json_path<span class="o">=</span>protein_input.json<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--model_dir<span class="o">=</span>&lt;path_to_model_parameters_file&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--db_dir<span class="o">=</span>&lt;path_to_alphafold3_database&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--output_dir<span class="o">=</span>output<span class="w"> </span><span class="se">\</span>
 </code></pre></div>
-<p>While HPCC only supports the bash shell for operations as the module system is written for bash,  if you have shell scripts written for the zsh shell, you can still run those using this method on the command line or even inside another bash script (such as a script to launch a job with SLURM).</p>
-<h4 id="2-using-the-shebang">2. Using the 'shebang'</h4>
-<p>At the top of any script you run on a Linux system like the hPC, you may include what's known as the "shebang" line (which must be the first line, for more information, see <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">the Wikipedia page</a>).</p>
-<p>The general syntax for this line is <code>&lt;interpreter&gt; [optional-arg]</code></p>
-<p>Examples of the 'shebang' in use include:</p>
-<div class="highlight"><pre><span></span><code>#! /usr/bin/bash  : run the commands using bash
-
-#! /usr/bin/bash -l  : run the commands using bash, but using a login shell, typically used for job/slurm submission scripts to mimic behavior when run on the dev nodes
-
-#! /usr/bin/env python : run this script using the active python interpreter
-
-#! /usr/bin/env Rscript --vanilla : run this script using the activate python
-
-#! /usr/bin/zsh  : run this using zsh, even if launched through bash.
+<p>In addition to the module, HPCC also provides a copy of the AlphaFold3 database at:</p>
+<div class="highlight"><pre><span></span><code>/mnt/research/common-data/alphafold/database_3/
 </code></pre></div>
-<p>A further explanation of why you might use <code>/usr/bin/env</code> for your python or R scripts can be found <a href="https://stackoverflow.com/questions/2429511/why-do-people-write-usr-bin-env-python-on-the-first-line-of-a-python-script">here</a>.</p>
-<p>To launch a script with a shebang, you must also change the permissions to allow execution ( <code>+x</code> ) if that is not already set with <code>chmod u+x my_shell_script.sh</code> which gives you permission to run the script.</p>
-<h2 id="alternative-shells">Alternative shells</h2>
-<p>If you still find it necessary to change your shell, see below for instructions on how to do so as well as important notes about setting environment variables and making startup scripts for different shells.</p>
-<h3 id="changing-your-shell">Changing your shell</h3>
-<p>Several common shell choices are available on HPCC:</p>
-<ul>
-<li><code>bash</code>: a Bourne-shell (sh) compatible shell with many newer advanced features as well </li>
-<li><code>tcsh</code>: an advanced variant on <code>csh</code> with all the features of modern shells</li>
-<li><code>zsh</code>: an advanced shell which incorporates all the functionality of <code>bash</code>, <code>tcsh</code>, and <code>ksh</code> combined</li>
-<li><code>csh</code>: the original C-style shell</li>
-</ul>
-<p>You can change you login shell with the <code>chsh</code> command.</p>
-<h3 id="assigning-environment-variables">Assigning Environment Variables</h3>
-<p>To assign a new value to an environment variable in <code>zsh</code>, you use the same format as <code>bash</code>: <code>export &lt;name&gt;=&lt;value&gt;</code></p>
-<p>To assign a new value to an environment variable in either <code>tcsh</code> or <code>csh</code>: <code>setenv &lt;name&gt; &lt;value&gt;</code></p>
-<h3 id="startup-scripts">Startup scripts</h3>
-<p>A startup script is a shell script which the login process executes. It provides an opportunity to alter your environment. You are free to setup your own startup scripts but be careful to make sure they are set up correctly for both interactive and batch access or it may negatively affect your ability to log in or run batch jobs on the system. Below are startup scripts for each shell:</p>
-<ul>
-<li>bash:  <code>~/.bashrc</code></li>
-<li>tcsh:  <code>~/.chsrc</code>  </li>
-<li>zsh:   <code>~/.zshrc</code>  </li>
-<li>csh:   <code>~/.cshrc</code>  </li>
-</ul>
+<p>However, users must supply their own model parameters
+file or gain access to the institutional copy.</p>
+<p>Additional documentation on AlphaFold3 can be found at <a href="https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#alphafold-3">the AlphaFold3 GitHub</a>.</p>
+<h1 id="known-issues">Known Issues</h1>
+<p>AlphaFold3 requires a number of python libraries which currently cannot be built to operate on both avx512 and other node architectures at the same time. </p>
+<p>ICER is aware of this issues and working on a solution.</p>
+<h1 id="alternatives">Alternatives</h1>
+<p>While HPCC does not support Docker images, user can <a href="https://blog.colbyford.com/running-alphafold3-at-scale-on-high-performance-computing-clusters-82764a6b809e">build or obtain</a> their own Singualirty image which is compatible with HPCC.</p>
+<p>ICER currently does not maintain its own Singularity image or AlphaFold3 nor makes guarantee of support for 3rd party images.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -7837,7 +7664,7 @@ zsh<span class="w"> </span>my_zsh_script.sh
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 6, 2025 17:34:14 UTC">February 6, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 17, 2025 15:03:19 UTC">November 17, 2025</span>
     </span>
     
 
@@ -7847,7 +7674,7 @@ zsh<span class="w"> </span>my_zsh_script.sh
         <span class="md-icon" title="Created">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 2, 2023 14:08:37 UTC">August 2, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 17, 2025 15:03:19 UTC">November 17, 2025</span>
     </span>
     
 
@@ -7857,11 +7684,11 @@ zsh<span class="w"> </span>my_zsh_script.sh
     <span class="md-source-file__fact">
         <span class="md-icon" title="Contributors">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
             
         </span>
         <nav>
-            Craig Gross, panchyni
+            panchyni
         </nav>
     </span>
     
@@ -7917,7 +7744,7 @@ zsh<span class="w"> </span>my_zsh_script.sh
                 
                 
               
-              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=%282023-08-02%29%20Lab%20Notebook%3A%20Alternative%20Linux%20Shells%20on%20HPCC" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&entry.1784336917=AlphaFold3" target="_blank" rel="noopener">feedback form</a>. Make sure you are logged in to your MSU google account.
             </div>
           
         </div>
