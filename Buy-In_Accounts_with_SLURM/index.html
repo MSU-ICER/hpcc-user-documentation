@@ -4020,6 +4020,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#large-buy-in-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large Buy-In Accounts
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -7685,6 +7696,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#large-buy-in-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large Buy-In Accounts
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -7858,6 +7880,18 @@ running on buy-in nodes from other accounts.</p>
 <p>Buy-in partitions generally have the same name as a given buy-in account. Some
 buy-in accounts have specialized partitions for <abbr title="Graphics Processing Unit">GPU</abbr> or Nvidia Grace nodes. These
 partition will have names like <code>&lt;buyin&gt;-gpu</code> or <code>&lt;buyin&gt;-grace</code>.</p>
+<h2 id="large-buy-in-accounts">Large Buy-In Accounts</h2>
+<p>Jobs submitted to buy-in account are, by default, subject to the usual <a href="../job_policies/">running job
+and core limits</a>. When a buy-in account contains more cores than
+allowed by these limits, these limits prevent a single user from using the entire
+buy-in allocation. Users in these large buy-in accounts can submit their jobs with
+the 'large' quality of service (QOS) option to circumvent these usual limits and
+make full use of a buy-in allocation.</p>
+<div class="highlight"><pre><span></span><code>#SBATCH --qos=large
+</code></pre></div>
+<p>When submitting to a buy-in account without the large QOS option, jobs may run on
+buy-in or general hardware. The drawback of submitting with the large QOS option is
+that jobs are restricted to running on only buy-in hardware.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -7902,7 +7936,7 @@ partition will have names like <code>&lt;buyin&gt;-gpu</code> or <code>&lt;buyin
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 17, 2025 14:20:37 UTC">November 17, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 1, 2025 14:39:00 UTC">December 1, 2025</span>
     </span>
     
 
