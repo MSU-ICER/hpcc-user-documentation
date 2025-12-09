@@ -7828,18 +7828,18 @@ correct dependencies and setup.</p>
 <p><code>(scienv) $ conda remove --name myenv beautifulsoup4</code>    </p>
 <p>will remove the package "beautifulsoup4" in the inactive environment "myenv".</p>
 <h2 id="using-conda-with-slurm">Using conda with SLURM</h2>
-<p>You can activate a conda environment from within a <a href="../Job_Script_and_Job_Submission/"><strong>SLURM Job Script</strong></a>. Include the <code>conda activate &lt;environment name&gt;</code> and <code>conda deactivate</code> commands in the 'bash command' portion of the SLURM job script. Ensure to first navigate into the directory where Miniforge is installed e.g., <code>cd $HOME</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<p>You can activate a conda environment from within a <a href="../Job_Script_and_Job_Submission/"><strong>SLURM Job Script</strong></a>. Include the <code>conda activate &lt;environment name&gt;</code> and <code>conda deactivate</code> commands in the 'bash command' portion of the SLURM job script. </p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 <span class="c1">#SBATCH -t 60 # Runtime in minutes</span>
 .
 .
 .
 <span class="c1">#SBATCH --output=conda_%j.out # Standard out goes to this file</span>
 
-<span class="c1"># Load Conda module</span>
-module<span class="w"> </span>swap<span class="w"> </span>Python-bundle-PyPI<span class="w"> </span>Conda/3
+<span class="c1"># Load Miniforge3 module</span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>Miniforge3
 <span class="c1"># Activate conda environment and run job commands</span>
-<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>
 conda<span class="w"> </span>activate<span class="w"> </span>&lt;environment<span class="w"> </span>name&gt;
 &lt;bash<span class="w"> </span>command&gt;
 &lt;bash<span class="w"> </span>command&gt;
@@ -7849,6 +7849,10 @@ conda<span class="w"> </span>activate<span class="w"> </span>&lt;environment<spa
 &lt;bash<span class="w"> </span>command&gt;
 conda<span class="w"> </span>deactivate
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have <a href="#appendix-installing-miniforge-manually-advanced-option">installed Conda manually</a>, use <code>module load Conda/3</code>.</p>
+</div>
 <h2 id="appendix-installing-miniforge-manually-advanced-option">Appendix: Installing Miniforge Manually (Advanced Option)</h2>
 <p>You may wish to install Miniforge yourself rather than using the version on the HPCC (e.g., to use a newer version).</p>
 <p>Doing so requires both a default component installed and maintained by the HPCC administrators via the <a href="../How_to_find_and_load_software_modules/"><strong>Software module system</strong></a> and a user installed and maintained component. This dual component configuration is required to ensure system wide compliance for the user's customized Conda environments. Hence, if you are not using the <code>Miniforge3</code> module, <strong>users must install Miniforge in the home or research space</strong> to have full control of their Conda managed environments and packages; and <strong>users must also load the HPCC administrated Conda/3 module</strong> to allow Conda managed environments and packages to run smoothly on the HPCC.</p>
@@ -8069,7 +8073,7 @@ Executing transaction: done
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 6, 2025 17:34:14 UTC">February 6, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 9, 2025 14:45:24 UTC">December 9, 2025</span>
     </span>
     
 
@@ -8093,7 +8097,7 @@ Executing transaction: done
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer, Craig Gross, Keen, Andrew, Mahmoud Parvizi, Nanye Long, panchyni
+            Andrew Fullard, Claire Kopenhafer, Craig Gross, Keen, Andrew, Mahmoud Parvizi, Nanye Long, Venegas, Julian, panchyni
         </nav>
     </span>
     
