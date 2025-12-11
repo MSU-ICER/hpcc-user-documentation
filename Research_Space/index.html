@@ -1935,6 +1935,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#requesting-a-research-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requesting a Research Space
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requesting a Research Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-users-to-a-research-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding users to a research space
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requesting-a-quota-increase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requesting a quota increase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-a-research-space" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7360,6 +7399,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#requesting-a-research-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requesting a Research Space
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requesting a Research Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-users-to-a-research-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding users to a research space
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requesting-a-quota-increase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requesting a quota increase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-a-research-space" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7480,25 +7558,14 @@
 
 
 <h1 id="research-space">Research Space</h1>
-<p>A research group's central directory, or <em>research space</em>, is a shared directory established by a MSU Principal Investigator (<abbr title="Principle Investigator">PI</abbr>) for use by the members of the <abbr title="Principle Investigator">PI</abbr>'s research group.</p>
-<p>To create a research space the <abbr title="Principle Investigator">PI</abbr> must submit a <a href="https://contact.icer.msu.edu/account#new-project-tab">New Project Request</a> form. The initial limit on storage is <strong>250GB</strong> and the initial limit on the number of files contained in a research space is <strong>1,000,000 files</strong>. A <abbr title="Principle Investigator">PI</abbr> may request an increase in storage of up to 3TB of space at no cost by submitting a <a href="https://contact.icer.msu.edu/quota">Quota Increase Request</a> form or an increase beyond 3TB or 3 million files for an annual fee billed at the current rate listed on the Quota Increase Request form by submitting a
-<a href="https://contact.icer.msu.edu/large_quota">Large Quota Increase Request</a> form.</p>
-<div class="admonition note">
-<p class="admonition-title">Policy change</p>
-<p>As of January 12th, 2025, ICER has increased the amount of available research space storage at no cost to 3TB per <abbr title="Principle Investigator">PI</abbr>. For existing research spaces using more than 1 <abbr title="Terabyte">TB</abbr>, the free 3TB will take effect on your next billing after the new effective policy date (January 12th, 2025). </p>
-</div>
-<p>Use the <code>quota</code> command to check a research group's current space and file quotas.</p>
-<div class="highlight"><span class="filename">input</span><pre><span></span><code>quota
-</code></pre></div>
-<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Research Groups: Space    Space   Space     Space     Files     Files     Files     Files        </span>
-<span class="go">                 Quota    Used    Available % Used    Quota     Used      Available % Used</span>
-<span class="go">-----------------------------------------------------------------------------------------------</span>
-<span class="go">&lt;groupname&gt;      4096G    3733G   363G      91%       2097152   432525    1664627   21%</span>
-</code></pre></div>
-<p>The group's research space is associated with an assigned group name and is located at
-<code>/mnt/research/&lt;groupname&gt;</code>
-by default. It is accessible to all users who have been added to the group by the <abbr title="Principle Investigator">PI</abbr>. Members of the group must set their user file mode creation mask and file permissions correctly such that the other group members have the appropriate access to the shared files in the research space. See the section <a href="#using-a-research-space">Using a research space</a> for more details.  </p>
-<p>All research space files are periodically, automatically copied to an offsite disaster recovery servers, except those files that a group has opted to store in a specially requested <code>nodr</code> space. To request data from this system, please submit a <a href="https://contact.icer.msu.edu/contact">help ticket</a> containing the file paths and the period, i.e. the time frame, from which the files should be restored.  </p>
+<p>A research group's central directory, or <em>research space</em>, is a shared directory established by a MSU Principal Investigator (<abbr title="Principle Investigator">PI</abbr>) for use by the members of <abbr title="Principle Investigator">PI</abbr>'s projects. Every project requested by a <abbr title="Principle Investigator">PI</abbr> has a corresponding research space.</p>
+<h2 id="requesting-a-research-space">Requesting a Research Space</h2>
+<p>To create a research space, the <abbr title="Principle Investigator">PI</abbr> must submit a <a href="https://contact.icer.msu.edu/account#new-project-tab">New Project Request</a> form. Each project is provided a corresponding research space. The name provided in the request form will be used as the group name associated with the space and to set the path to the space, which by default will be <code>/mnt/research/&lt;groupname&gt;</code>. The initial limit on storage is <strong>250GB</strong> and the initial limit on the number of files contained in a research space is <strong>1,000,000 files</strong>. </p>
+<h3 id="adding-users-to-a-research-space">Adding users to a research space</h3>
+<p>New users can gain access to a research space by being added to the corresponding project on the <a href="https://contact.icer.msu.edu/account#manage-project-tab">Manage Existing Research Space</a> tab of the HPCC Access Management form. More information about managing projects can be found on our page about <a href="https://docs.icer.msu.edu/Obtain_hpcc_access/#manage-existing-projectcourse">Obtaining access to HPCC</a></p>
+<p>New members of the group should be reminded to set their user file mode creation mask and file permissions correctly such that the other group members have the appropriate access to the shared files in the research space. See the section <a href="#using-a-research-space">Using a research space</a> for more details.  </p>
+<h3 id="requesting-a-quota-increase">Requesting a quota increase</h3>
+<p>A <abbr title="Principle Investigator">PI</abbr> may request an increase in storage by submitting a <a href="https://contact.icer.msu.edu/quota">Quota Increase Request</a> form. Each <abbr title="Principle Investigator">PI</abbr> may request of up to <strong>3TB of space across all research spaces</strong> at not cost, but each additional <abbr title="Terabyte">TB</abbr> of storage will incur a yearly fee. As of 2025, the cost of each additional <abbr title="Terabyte">TB</abbr> of space per year is <strong>$72 for internal faculty</strong> and <strong>$95 for external clients</strong>. These prices are typically updated every two years.</p>
 <h2 id="using-a-research-space">Using a research space</h2>
 <p>To configure a research space such that all group members have the appropriate access to the files and directories contained within, it is important to read and follow the instructions below.</p>
 <p><strong>1. Ensure that all directories created in a research space have the group ownership set to the <code>&lt;groupname&gt;</code> 
@@ -7538,6 +7605,14 @@ command when needed. For more information, refer to the
 page. A user may request that the primary group ID be changed from the default setting by submitting a request via a 
 <a href="https://contact.icer.msu.edu/contact">help ticket</a>.</p>
 <h2 id="quotas-on-a-research-space">Quotas on a research space</h2>
+<p>Use the <code>quota</code> command to check a research group's current space and file quotas.</p>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>quota
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Research Groups: Space    Space   Space     Space     Files     Files     Files     Files        </span>
+<span class="go">                 Quota    Used    Available % Used    Quota     Used      Available % Used</span>
+<span class="go">-----------------------------------------------------------------------------------------------</span>
+<span class="go">&lt;groupname&gt;      4096G    3733G   363G      91%       2097152   432525    1664627   21%</span>
+</code></pre></div>
 <p>The space and file quotas on an research space are calculated by matching the group
 ownership settings of files stored on the HPCC to that of the research space group name. Hence, a user may not create files larger than 8 <abbr title="Megabyte">MB</abbr> in a specified research space with a group ownership attribute different from that of the research space. Attempting to do so will likely result in a 
 <code>Disk quota exceeded</code> 
@@ -7567,14 +7642,11 @@ files into one large file (larger than 64KiB). In this way, the number of
 files can also be reduced. </p>
 <h2 id="backups">Backups</h2>
 <p>All research directories are stored in the IBM General Parallel File
-System (<abbr title="General Parallel File System">GPFS</abbr>). It is automatically backed up
-except files saved in the <code>nodr</code> space. To restore any file from backup,
-please submit a ticket and let us know the paths to the files or the
-directory with the time frame you would like them restored.</p>
+System (<abbr title="General Parallel File System">GPFS</abbr>). Files stored in the space are periodically, automatically copied to an offsite disaster recovery servers, except those files that a group has opted to store in a specially requested <code>nodr</code> space. To request data from this system, please submit a <a href="https://contact.icer.msu.edu/contact">help ticket</a> containing the file paths and the period, i.e. the time frame, from which the files should be restored.  </p>
 <h2 id="limit-on-number-of-files">Limit on number of files</h2>
 <p>Besides the quota on the size of space, users are also limited to 1 million files in their research directory by default. We need to set this limit because with a great number of files the file system will spend too much time on backups to be able to function normally. If possible, users can compress many files into one to reduce the file number.</p>
-<p>With an increase in research space quota, we also increase the file count limit accordingly.  If users do not wish to have the limit, the <abbr title="Principle Investigator">PI</abbr> can request to have a portion of their research space moved under nodr space /mnt/ufs18/nodr/research/ by submitting a help ticket with the drop-down subject 'other' and secondary subject 'nodr request'. There is no limit on the file count, but there is no backup of these files either. Users will be responsible for their own backup of files in the nodr space.</p>
-<p>By default, one half of the current research quota is assigned to the requested nodr space. The original quota under /mnt/research/ is then reduced to half the original quota so the total space quota remains the same. A different size of nodr space can also be assigned based on the <abbr title="Principle Investigator">PI</abbr>'s request. Once this space is created, the path and the quota information on both research and nodr space can be found using quota command mentioned above.</p>
+<p>With an increase in research space quota, we can increase the file count limit accordingly.  If users do not wish to have the limit, the <abbr title="Principle Investigator">PI</abbr> can request to have a portion of their research space moved under nodr space <code>/mnt/ufs18/nodr/research/</code> by submitting a help ticket with the drop-down subject 'other' and secondary subject 'nodr request'. There is no limit on the file count, but there is no backup of these files either. Users will be responsible for their own backup of files in the nodr space.</p>
+<p>By default, when requested, one half of the current research quota will be assigned to the requested nodr space. The original quota under <code>/mnt/research/</code> is then reduced to half the original quota so the total space quota remains the same. A different size of nodr space can also be assigned based on the <abbr title="Principle Investigator">PI</abbr>'s request. Once this space is created, the path and the quota information on both research and nodr space can be found using quota command mentioned above.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -7619,7 +7691,7 @@ directory with the time frame you would like them restored.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 19, 2025 13:15:53 UTC">August 19, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 11, 2025 17:32:27 UTC">December 11, 2025</span>
     </span>
     
 
@@ -7643,7 +7715,7 @@ directory with the time frame you would like them restored.</p>
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer, Craig Gross, Keen, Andrew, Mahmoud Parvizi, Ryan, Joseph, holco101
+            Andrew Fullard, Claire Kopenhafer, Craig Gross, Keen, Andrew, Mahmoud Parvizi, Ryan, Joseph, panchyni
         </nav>
     </span>
     
