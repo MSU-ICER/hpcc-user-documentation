@@ -1,0 +1,162 @@
+@font-face {
+  font-family: "Metropolis";
+  src: url("3b1beee5e25c408387344051bc55bf6e.abd01f74")
+      format("woff2"),
+    url("2d1540155e7845718924331a5b1519ae.883e1b40")
+      format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("d048f60287e843d1a21074278bb51624.255f7232")
+      format("woff2"),
+    url("09acfd20fc0c4a0aa33c14ba2d351bba.72368c2f")
+      format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("0b34a69ee7484d479fa4f9f6c129acd4.7f116e48")
+      format("woff2"),
+    url("81e22d3c145c4df793d78a9f3da67390.dec97868")
+      format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("4c24a69065d44a9cb5b9eec1965a624c.2c508a15")
+      format("woff2"),
+    url("e0cd10a9545c46489b95c83fdda7a47f.8e6ccd40")
+      format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("215eae9a82ec49c99755b7209d695afc.8d60d4bb")
+      format("woff2"),
+    url("b6dd83073a374bc19a0654639b7401aa.c9009056")
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("0b308044072349b0b3f8e70a391f92cb.adb100b3")
+      format("woff2"),
+    url("93deab0d70c44977be9a1e54f10bf3ee.c9f41359")
+      format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("7b37299062304010aa325d279dce272e.66d008c6")
+      format("woff2"),
+    url("8ad295c8bad848219ff66bb95f5ac60e.2604a055")
+      format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("47bdb92609784312afbd4bbd86e91f84.f154996d")
+      format("woff2"),
+    url("ad4bd86e0715417494fef36386deb1c6.a49d40de")
+      format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("ebce5c744a2b43e38d9924d3d9ee5420.91b82ee7")
+      format("woff2"),
+    url("33d3de7bc02f47b3b3028fb8625d8f46.050d47eb")
+      format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("a0dfcdeffd34480b9367f3fe1146cd51.d9c30da5")
+      format("woff2"),
+    url("434831a29e874d06b6e0e505e54cddec.9e8aa8be")
+      format("woff");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("fafdec20efe74ac6ae8c3c4e3ce8d79d.dc31f925")
+      format("woff2"),
+    url("70b6f39aa38c4d3f8975c2974993f824.a760185d")
+      format("woff");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("71e207608ffa49038e1dc93f1dc11936.aa514fb7")
+      format("woff2"),
+    url("b0039adfdfe04390886987aad424a6c4.ded2f4f6")
+      format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("d27501c251114984bf46e343135da127.4b09123d")
+      format("woff2"),
+    url("a5a4f88607cd44c88678cb8674dbe2b8.3dcc6828")
+      format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("22e37802a1894a5c9587f21e1e83bb31.50bd9fb4")
+      format("woff2"),
+    url("b18924d398c44429a6761a982ce69a82.56e3de86")
+      format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("03ba34a036ed497e9f24c08335471e5a.66c17aef")
+      format("woff2"),
+    url("bdc38c3567254447bfb315def688e6c6.cbe34bde")
+      format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("ce9d30e729674552b49902cf6717335b.9338cae5")
+      format("woff2"),
+    url("88676ee4bcb54dadabd670e48a189a9d.386ce5d3")
+      format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("371d688dd02644229bddb03bdf4576f8.b57a8d08")
+      format("woff2"),
+    url("eaae04112e3b47cdabda907fab6939f3.cb093679")
+      format("woff");
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("a87bcabbeb0247ce85a968814d529e60.eb7df67c")
+      format("woff2"),
+    url("ea0abb51a5bf4d0cb3a18b4d664aa541.e373000f")
+      format("woff");
+  font-weight: 900;
+  font-style: italic;
+}
