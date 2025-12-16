@@ -7532,27 +7532,7 @@ check the "Use private key" box and point towards the private key (id_rsa) file 
 <div class="tabbed-block">
 <ol>
 <li>Log into <a href="https://ondemand.hpcc.msu.edu" target="_blank" rel="noopener">the OnDemand web portal</a>.</li>
-<li>From the Files dropdown at the top of the screen, click your Home Directory.</li>
-<li>
-<p>Click the checkbox above the File Browser listings to "Show Dotfiles".</p>
-<p><img alt="OnDemand file browser with &quot;Show Dotfiles&quot; checkbox circled and checked" src="../attachments/ssh_key-based_authentication/ood_show_dotfiles.png" /></p>
-</li>
-<li>
-<p>(If the <code>.ssh</code> directory doesn't exist) Click the New Directory button near the top of the screen and enter <code>.ssh</code> as the directory name (do not forget the leading <code>.</code>). </p>
-<p><img alt="OnDemand file browser New Directory dialog with &quot;.ssh&quot; entered as directory name" src="../attachments/ssh_key-based_authentication/ood_create_ssh_directory.png" /></p>
-</li>
-<li>
-<p>Click the <code>.ssh</code> directory in the File Browser listing to open it.</p>
-<p><img alt="OnDemand file browser listing for &quot;.ssh&quot; directory with link circled" src="../attachments/ssh_key-based_authentication/ood_enter_ssh_directory.png" /></p>
-</li>
-<li>
-<p>(If the <code>authorized_keys</code> file doesn't exist) Click the New File button near the top of the screen and enter <code>authorized_keys</code> as the file name.</p>
-<p><img alt="OnDemand file browser New File dialog with &quot;authorized_keys&quot; entered as file name" src="../attachments/ssh_key-based_authentication/ood_create_authorized_keys.png" /></p>
-</li>
-<li>
-<p>In the three-dot dropdown next to the <code>authorized_keys</code> filename, click Edit</p>
-<p><img alt="OnDemand file browser listing for &quot;authorized_keys&quot; file with dropdown menu clicked and &quot;Edit&quot; circled" src="../attachments/ssh_key-based_authentication/ood_edit_authorized_keys.png" /></p>
-</li>
+<li>From the Files dropdown at the top of the screen, click <abbr title="Secure Shell">SSH</abbr> Key Upload under the Utilities section.</li>
 <li>
 <p>Copy the public key from your personal computer. If using MobaXterm graphically, you should already have copied this in the last step of that section. If you used the command line, type <code>cat ~/.ssh/id_rsa.pub</code> and copy the output.</p>
 <div class="admonition warning">
@@ -7561,24 +7541,15 @@ check the "Use private key" box and point towards the private key (id_rsa) file 
 </div>
 </li>
 <li>
-<p>Paste into the OnDemand file editor, and click Save.</p>
-</li>
-<li>Close the tab and go back to the File Browser in the <code>.ssh</code> directory.</li>
-<li>
-<p>Click the button above the File Browser that says "Open in Terminal".</p>
-<p><img alt="OnDemand file browser with &quot;Open in Terminal&quot; button circled" src="../attachments/ssh_key-based_authentication/ood_open_in_terminal.png" /></p>
-</li>
-<li>
-<p>Type the following two commands, hitting <span class="keys"><kbd class="key-enter">Enter</kbd></span> after each one:</p>
-<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>.
-chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>authorized_keys
-</code></pre></div>
-<p><img alt="OnDemand terminal with &quot;chmod 700 .&quot; and &quot;chmod 600 authorized_keys&quot; entered" src="../attachments/ssh_key-based_authentication/ood_change_perms.png" /></p>
+<p>Paste into the text box, and click Upload.</p>
 </li>
 </ol>
 </div>
 <div class="tabbed-block">
-<p>Note that this option can only be used if you are able to log in using your password on the command line. If not, please use the steps in the other tab "Graphically via OnDemand".</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This option can only be used if you are able to log in using your password on the command line. If not, please use the steps in the other tab "Graphically via OnDemand".</p>
+</div>
 <p>To copy your key to the HPCC, run the following command, replacing <code>&lt;netid&gt;</code> with your MSU NetID:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>&lt;netid&gt;@hpcc.msu.edu
 </code></pre></div>
@@ -7631,7 +7602,7 @@ chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>a
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 19, 2025 13:03:35 UTC">August 19, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 14:41:42 UTC">December 16, 2025</span>
     </span>
     
 
