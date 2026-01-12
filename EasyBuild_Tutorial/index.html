@@ -12,7 +12,7 @@
         <link rel="prev" href="../AMD_Optimizing_CPU_Libraries_and_Compilers/">
       
       
-        <link rel="next" href="../EasyBuild_Reference/">
+        <link rel="next" href="../EasyBuild_Advanced/">
       
       
         
@@ -2792,6 +2792,8 @@
       
         
       
+        
+      
     
     
     
@@ -2968,6 +2970,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EasyBuild_Advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EasyBuild advanced topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -7479,8 +7509,7 @@ created a recipe for.</p>
 <div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>EasyBuild
 </code></pre></div>
-<p>We now have access to the <code>eb</code> command that does everything you need in
-EasyBuild.</p>
+<p>The <code>module purge</code> command removes any loaded modules, which prevents conflicts with EasyBuild when it tries to build/load modules. With <code>module load EasyBuild</code>, we now have access to the <code>eb</code> command that does everything you need in EasyBuild.</p>
 <h2 id="configuring-easybuild">Configuring EasyBuild</h2>
 <p>We can first check our global
 EasyBuild configuration using</p>
@@ -7643,6 +7672,7 @@ using <code>eb -M</code>:</p>
 modules are already available on the <abbr title="High-performance computing cluster">HPCC</abbr>. If there were other dependencies
 that weren't installed, EasyBuild will install those for us, so long as we use
 the <code>--robot</code> option when installing <code>zfp</code>. </p>
+<p>The <code>--robot</code> option automates the process of installing dependencies. If a required dependency is missing, EasyBuild will search the <abbr title="High-performance computing cluster">HPCC</abbr> repository and install it locally. You’ll often notice that the missing dependencies come from the same toolchain. This is because all components need to be built with the same set of tools to work together. Even if another version of the software is available, it cannot be used as a dependency if it was built under a different toolchain. If it is not present, you will need to manually install the dependency yourself. Instructions on downloading or updating dependencies can be found in <a href="../EasyBuild_Advanced/">advanced topics</a>.</p>
 <h2 id="installing">Installing</h2>
 <p>Now we're ready to install. We just use the <code>eb</code> alias with our EasyConfig,
 and hope things go well!</p>
@@ -7655,7 +7685,7 @@ might consider running EasyBuild through a
 <a href="../Job_Script_and_Job_Submission/">batch</a> or <a href="../Interactive_Job/">interactive
 job</a>.</p>
 <p>And don't forget to change your build and software install paths!</p>
-<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>eb<span class="w"> </span>--parallel<span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>eb<span class="w"> </span>--parallel<span class="o">=</span><span class="m">8</span><span class="w"> </span>
 <span class="w">    </span>--buildpath<span class="o">=</span>/tmp/<span class="nv">$USER</span>/EASYBUILD<span class="w"> </span>--installpath-software<span class="o">=</span><span class="nv">$SCRATCH</span>/software<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>zfp-1.0.1-GCCcore-12.3.0.eb
 </code></pre></div>
@@ -7689,7 +7719,7 @@ job</a>.</p>
 <span class="go">== Build succeeded for 1 out of 1</span>
 <span class="go">...</span>
 </code></pre></div></p>
-<p>This process should less than a minute in total.</p>
+<p>This process should take less than a minute in total.</p>
 <p>There's a lot of output here, but we can see that it completed steps like
 configuring, building, testing, installing, and checking that important files
 are where they're supposed to be. And not only would it do this for the
@@ -7771,18 +7801,19 @@ module<span class="w"> </span>list
 <li>and loading the modules for its runtime dependencies.</li>
 </ul>
 <p>This means we can run <code>testzfp</code> without using it's absolute path:</p>
-<p><div class="highlight"><span class="filename">input</span><pre><span></span><code>testzfp
-</code></pre></div>
-<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">zfp version 1.0.1 (December 15, 2023)</span>
-<span class="go">library version 4112</span>
-<span class="go">CODEC version 5</span>
-<span class="go">data model LP64</span>
+<p>```  title="input"bash
+testzfp
+<div class="highlight"><pre><span></span><code>``` output title=&quot;output&quot;
+zfp version 1.0.1 (December 15, 2023)
+library version 4112
+CODEC version 5
+data model LP64
 
-<span class="go">testing 1D array of floats</span>
-<span class="go">  compress:   rate= 2                                                 OK </span>
-<span class="go">  decompress: rate= 2 1.626e+01 &lt;= 1.627e+01                          OK </span>
-<span class="go">...</span>
-<span class="go">all tests passed</span>
+testing 1D array of floats
+  compress:   rate= 2                                                 OK 
+  decompress: rate= 2 1.626e+01 &lt;= 1.627e+01                          OK 
+...
+all tests passed
 </code></pre></div></p>
 <p>Though this was a small example, this workflow should get you through most
 EasyBuild installations. Checkout our <a href="../EasyBuild_Reference/">EasyBuild
@@ -7834,7 +7865,7 @@ of the most important commands.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 12, 2026 17:15:04 UTC">January 12, 2026</span>
     </span>
     
 
@@ -7858,7 +7889,7 @@ of the most important commands.</p>
             
         </span>
         <nav>
-            Craig Gross, panchyni
+            Craig Gross, neiheis1, panchyni
         </nav>
     </span>
     
