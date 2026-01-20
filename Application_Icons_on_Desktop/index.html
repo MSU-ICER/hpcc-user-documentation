@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../OnDemand_Interactive_Desktop/">
+      
+      
+        <link rel="next" href="../OnDemand_Jupyter/">
       
       
         
@@ -6265,8 +6269,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -6292,15 +6298,17 @@
       
         
       
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" checked>
         
           
           <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
@@ -6321,7 +6329,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_15">
             <span class="md-nav__icon md-icon"></span>
             
@@ -6383,6 +6391,103 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Icons on Desktop
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Icons on Desktop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-icons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding icons
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-your-own-icons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating your own icons
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -7250,10 +7355,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#use-command-lines" class="md-nav__link">
+  <a href="#adding-icons" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Use Command Lines
+        Adding icons
       
     </span>
   </a>
@@ -7261,21 +7366,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-interactive-desktop" class="md-nav__link">
+  <a href="#creating-your-own-icons" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Use Interactive Desktop
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-app-icons" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create App Icons
+        Creating your own icons
       
     </span>
   </a>
@@ -7297,6 +7391,30 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <a href="../tags/#tag:how-to-guide" class="md-tag md-tag-icon">how-to guide</a>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <a href="../tags/#tag:interactive-desktop" class="md-tag md-tag-icon">Interactive desktop</a>
+      
+    
+  </nav>
+
 
   
     <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Application_Icons_on_Desktop.md" title="Edit this page" class="md-content__button md-icon" rel="edit noopener" target="_blank">
@@ -7308,61 +7426,56 @@
 
 
 <h1 id="application-icons-on-desktop">Application Icons on Desktop</h1>
-<p>It is much easier to execute your favorite apps by clicking icons
-on the desktop just like using your Windows or Mac PC. We can certainly
-do this through Open OnDemand. There are some app icons already created
-in the directory <code>/opt/software/OnDemand/Desktop-Icons</code>, where you can
-see them by listing the folder:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>/opt/software/OnDemand/Desktop-Icons
-ANSYS.desktop<span class="w">             </span>Dolphin.desktop<span class="w">  </span>GaussView.desktop<span class="w">  </span>Maestro.desktop<span class="w">   </span>rstudio.desktop<span class="w">  </span>tecplot.desktop<span class="w">           </span>VMD.desktop
-chromium-browser.desktop<span class="w">  </span>firefox.desktop<span class="w">  </span>GSEA.desktop<span class="w">       </span>MATLAB.desktop<span class="w">    </span>sas.desktop<span class="w">      </span>Terminal.desktop
-COMSOL.desktop<span class="w">            </span>Fluent.desktop<span class="w">   </span>Jupyter.desktop<span class="w">    </span>Nautilus.desktop<span class="w">  </span>Stata.desktop<span class="w">    </span>User<span class="err">&#39;</span>s<span class="w"> </span>Anaconda3.deskto
+<p>If you are used to starting your favorite apps by clicking icons on the desktop
+like using your Windows or Mac PC, this can also be done through Open OnDemand.
+There are some app icons already created in the directory
+<code>/mnt/research/common-data/OnDemand/Desktop-Icons</code>, where you can see them by
+listing its contents:</p>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>ls<span class="w"> </span>/mnt/research/common-data/OnDemand/Desktop-Icons
 </code></pre></div>
-<p>User can easily add the icons to their OnDemand interactive desktop by
-following the sections below.</p>
-<p>[ <a href="#use-command-lines">Use Command Lines</a> ] [ <a href="#use-interactive-desktop">Use Interactive
-Desktop</a> ] [ <a href="#create-app-icons">Create
-App Icons</a> ]</p>
-<p>A video instruction is also provided (<a href="../attachments/55607377/58786078.mp4">click to start</a>).</p>
-<h3 id="use-command-lines">Use Command Lines</h3>
-<p>You can simply copy them to your desktop directory <code>~/Desktop</code> .
-For example, if you would like to have MATLAB icon on your OnDemand
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">AFNI.desktop     firefox.desktop    Mathematica.desktop  Terminal.desktop</span>
+<span class="go">ANSYS.desktop    Fluent.desktop     ParaView.desktop     VMD.desktop</span>
+<span class="go">AnsysEM.desktop  GaussView.desktop  Stata.desktop</span>
+<span class="go">COMSOL.desktop   Maestro.desktop    tecplot.desktop</span>
+</code></pre></div>
+<h2 id="adding-icons">Adding icons</h2>
+<p>To add the icons to your Desktop when using the OnDemand Interactive Desktop
+application, follow the steps below:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="adding-icons-using-ondemand" name="__tabbed_1" type="radio" /><input id="adding-icons-using-the-command-line" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="adding-icons-using-ondemand">Using OnDemand</label><label for="adding-icons-using-the-command-line">Using the command line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>After starting an <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard/batch_connect/sys/bc_icer_desktop_ubuntu/session_contexts/new" target="_blank" rel="noopener">Interactive Desktop</a> session, you can copy icons from <code>/mnt/research/common-data/OnDemand/Desktop-Icons</code>. To do so double click the "USERNAME's Home" icon on your desktop or open the "Menu" in the top right corner and search for "Caja". This will start a new file manager window.</p>
+<p>In the "Location:" text box, enter the directory <code>/mnt/research/common-data/OnDemand/Desktop-Icons</code> and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> (<strong>Note</strong>: If the "Location:" text box does not allow any input, click on the pencil icon circled in the screenshot below). It should show all available application icons. Right click on an app icon you would like to copy to your desktop. Choose "Copy to" and click "Desktop":</p>
+<p><img alt="Screenshot of the interactive desktop window showing the right click menu of an application icon, with Copy to Desktop highlighted. A small pencil icon above the file listing is circled in red." src="../attachments/Application_Icons_on_Desktop/Desktop_with_Copy.png" /></p>
+<p>The icon you choose will be copied to your desktop.</p>
+</div>
+<div class="tabbed-block">
+<p>If you haven't already, create the <code>~/Desktop</code> directory.
+Then, use the <code>cp</code> command to copy the icons you would like.</p>
+<p>For example, if you would like to have MATLAB icon on your OnDemand
 desktop, you can run</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/Desktop
-$<span class="w"> </span>cp<span class="w"> </span>/opt/software/OnDemand/Desktop-Icons/MATLAB.desktop<span class="w"> </span>~/Desktop/
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/Desktop
+cp<span class="w"> </span>/mnt/research/common-data/OnDemand/Desktop-Icons/MATLAB.desktop<span class="w"> </span>~/Desktop/
 </code></pre></div>
 <p>Once the apps' desktop files are copied, request an 
-<a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard/batch_connect/sys/bc_icer_desktop/session_contexts/new" target="_blank" rel="noopener">Interactive Desktop</a>
+<a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard/batch_connect/sys/bc_icer_desktop_ubuntu/session_contexts/new" target="_blank" rel="noopener">Interactive Desktop</a>
 session as mentioned in the
 <a href="../Open_OnDemand/">Open OnDemand</a>
 page. You should see the apps' icons on
 your desktop once you launch it:</p>
-<p><img alt="Screenshot of the ICER interactive desktop showing application icons." src="../attachments/55607377/55607380.png" /></p>
-<h3 id="use-interactive-desktop">Use Interactive Desktop</h3>
-<p>You can also request and start an 
-<a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard/batch_connect/sys/bc_icer_desktop/session_contexts/new" target="_blank" rel="noopener">Interactive Desktop</a>
-session to copy the app icons
-from <code>/opt/software/OnDemand/Desktop-Icons</code>. Simply double-click the
-"<code>Trash</code>" or "<code>Computer</code>" icon on your desktop. It will pop out the file
-manager window. In the "<code>Location:</code>" place, please enter the directory
-<code>/opt/software/OnDemand/Desktop-Icons</code>. (If the "<code>Location:</code>" place does
-not allow any input, please click on 
-<img alt="Screenshot of a pencil and paper icon." src="../attachments/55607377/55607390.png" />).
-It should show all app icons in the window. Right click on an app icon you would like to copy to your desktop. Choose "Copy to" and click "Desktop":</p>
-<p><img alt="Screenshot of the interactive desktop window showing the right click menu of an application icon, with Copy to Desktop highlighted." src="../attachments/55607377/55607387.png" /></p>
-<p>The icon you choose will be copied to your desktop.</p>
-<h3 id="create-app-icons">Create App Icons</h3>
-<p>If your favorite app icons are not in the directory, you can try
-to use one them as an example</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/opt/software/OnDemand/Desktop-Icons/MATLAB.desktop
-
-<span class="o">[</span>Desktop<span class="w"> </span>Entry<span class="o">]</span>
+<p><img alt="Screenshot of the ICER interactive desktop showing application icons." src="../attachments/Application_Icons_on_Desktop/Desktop_with_Icons.png" /></p>
+</div>
+</div>
+</div>
+<h2 id="creating-your-own-icons">Creating your own icons</h2>
+<p>If your favorite app icons are not in the directory, you can use one them as an
+example, e.g.:</p>
+<div class="highlight"><span class="filename">MATLAB.desktop</span><pre><span></span><code><span class="o">[</span>Desktop<span class="w"> </span>Entry<span class="o">]</span>
 <span class="nv">Type</span><span class="o">=</span>Application
 <span class="nv">Name</span><span class="o">=</span>MATLAB
-<span class="nv">Icon</span><span class="o">=</span>/opt/software/OnDemand/images/matlab.png
-<span class="nv">Exec</span><span class="o">=</span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;module load MATLAB/2018a; matlab -desktop&quot;</span>
+<span class="nv">Icon</span><span class="o">=</span>/mnt/research/common-data/OnDemand/icons/matlab.png
+<span class="nv">Exec</span><span class="o">=</span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;module load MATLAB/2023b; matlab -desktop&quot;</span>
 <span class="nv">Terminal</span><span class="o">=</span><span class="nb">false</span>
-<span class="nv">GenericName</span><span class="o">=</span>
 </code></pre></div>
 <p>and modify it. Change the following contents</p>
 <div class="highlight"><pre><span></span><code><span class="nv">Name</span><span class="o">=</span>&lt;Software<span class="w"> </span>Name&gt;
@@ -7370,38 +7483,9 @@ to use one them as an example</p>
 <span class="nv">Exec</span><span class="o">=</span>&lt;Commands<span class="w"> </span>to<span class="w"> </span>Run<span class="w"> </span>the<span class="w"> </span>Software&gt;
 </code></pre></div>
 <p>to your app's. Save the file with your app's file name in <code>~/Desktop</code>
-directory. Every time you launch an Interactive Desktop session, the
-icon shows on your desktop. If you have any question, please
-<a href="https://contact.icer.msu.edu" target="_blank" rel="noopener">let us know</a>.
-We can help you to create one.</p>
-<!--
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2021-1-26_15-34-44.png](attachments/55607377/55607380.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2021-1-26_15-53-41.png](attachments/55607377/55607387.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2021-1-26_16-38-33.png](attachments/55607377/55607390.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[OnDemand-AppIcon.mp4](attachments/55607377/58786068.mp4) (video/mp4)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[OnDemand-AppIcon_Trim.mp4](attachments/55607377/58786076.mp4)
-(video/mp4)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[OnDemand.mp4](attachments/55607377/58786078.mp4) (video/mp4)  
-
-</div>
--->
+directory. Every time you launch an Interactive Desktop session, the icon shows
+on your desktop. If you have any question, please <a href="https://contact.icer.msu.edu" target="_blank" rel="noopener">let us
+know</a>, and we can help you create one.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -7446,7 +7530,7 @@ We can help you to create one.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 3, 2025 21:32:30 UTC">March 3, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 20, 2026 17:22:51 UTC">January 20, 2026</span>
     </span>
     
 
@@ -7470,7 +7554,7 @@ We can help you to create one.</p>
             
         </span>
         <nav>
-            Andrew Fullard, Xiaoge Wang, toelawpa
+            Craig Gross, Xiaoge Wang, toelawpa
         </nav>
     </span>
     
