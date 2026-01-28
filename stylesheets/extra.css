@@ -8,7 +8,20 @@
 :root {
   --md-primary-fg-color: #18453B;
   --md-footer-bg-color: #18453B;
-  --md-text-font: "Metropolis"
+  --md-text-font: "Metropolis";
+  --md-code-bg-color: #FAFAFA;
+  --md-code-hl-color--light: #F2F6FD;
+  --md-default-fg-color--light: #0000008C;
+}
+
+.md-nav__link {
+	margin-top: .635em;
+}
+
+.dataTables_wrapper
+.dataTables_filter 
+input {
+	border: 3px solid #757575 !important;
 }
 
 a {
@@ -142,8 +155,8 @@ a:hover {
 .link-block li,
 .plain-list li {
   list-style: none;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .link-block:after {
