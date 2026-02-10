@@ -7459,7 +7459,7 @@ information and other details.</p>
 </div>
 <p>Conda often creates many small files contributing to user's file quota on <abbr title="High-performance computing cluster">HPCC</abbr>. A more permanent solution for this problem can be found using <a href="../2022-09-24_LabNotebook_Singularity_Overlays/">Singularity overlays</a>, but as of the time of writing, Singularity overlays remains something of a work in progress. Hence, this guide is meant to provide an interim solution by outlining ways of cleaning out some of the extraneous files produced by Conda.</p>
 <h4 id="conda-clean">Conda clean</h4>
-<p>The command 'conda clean' can be used to clean out unneeded packages in the 'pkgs' cache folder. Full options for this command can be found <a href="https://docs.conda.io/projects/conda/en/latest/commands/clean.html" target="_blank" rel="noopener">here</a>, but the simplest options are to either remove all <strong>unused</strong> packages with:</p>
+<p>The command 'conda clean' can be used to clean out unneeded packages in the 'pkgs' cache folder. Full options for this command can be found <a href="https://docs.conda.io/projects/conda/en/latest/commands/clean.html" target="_blank" rel="noopener">in Conda's documentation</a>, but the simplest options are to either remove all <strong>unused</strong> packages with:</p>
 <p><code>conda clean -p</code></p>
 <p>Or remove <strong>ALL</strong> packages with:</p>
 <p><code>conda clean -a</code></p>
@@ -7508,7 +7508,7 @@ information and other details.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 6, 2025 17:34:14 UTC">February 6, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 10, 2026 20:48:03 UTC">February 10, 2026</span>
     </span>
     
 
@@ -7736,6 +7736,8 @@ information and other details.</p>
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
       
         <script src="../available_software/javascripts/populate_overview.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
       
     
   </body>

@@ -7573,66 +7573,66 @@ already have a .screenrc file)</p>
 <p>You'll have to exit and restart screen to see the changes.</p>
 <h4 id="screen-commands">Screen Commands</h4>
 <p>To send commands to screen (instead of the window you're working in),
-you preface them with Ctrl-a, i.e., you type the Ctrl key and "a"
+you preface them with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-a">A</kbd></span>, i.e., you type the <span class="keys"><kbd class="key-control">Ctrl</kbd></span> key and <span class="keys"><kbd class="key-a">A</kbd></span>
 together, release both keys, then type the next letter to invoke the
 command.</p>
 <ul>
 <li>
-<p>Ctrl-A then:</p>
+<p><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-a">A</kbd></span> then:</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>key</th>
+<th>command</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>?</td>
+<td><span class="keys"><kbd class="key-question">?</kbd></span></td>
 <td>Display available screen commands</td>
 </tr>
 <tr>
-<td>"</td>
+<td><span class="keys"><kbd class="key-double-quote">"</kbd></span></td>
 <td>List running screen windows</td>
 </tr>
 <tr>
-<td>N</td>
+<td><span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-n">N</kbd></span></td>
 <td>Display number of current window</td>
 </tr>
 <tr>
-<td>c</td>
+<td><span class="keys"><kbd class="key-c">C</kbd></span></td>
 <td>Open a new window</td>
 </tr>
 <tr>
-<td>[number]</td>
-<td>Switch to window [number]</td>
+<td><span class="keys"><kbd>&lt;number&gt;</kbd></span></td>
+<td>Switch to window <code>&lt;number&gt;</code></td>
 </tr>
 <tr>
-<td>[</td>
+<td><span class="keys"><kbd class="key-bracket-left">[</kbd></span></td>
 <td>Copy (so you can paste to another window)</td>
 </tr>
 <tr>
-<td>]</td>
+<td><span class="keys"><kbd class="key-bracket-right">]</kbd></span></td>
 <td>Paste</td>
 </tr>
 <tr>
-<td>k</td>
+<td><span class="keys"><kbd class="key-k">K</kbd></span></td>
 <td>Kill the current window</td>
 </tr>
 <tr>
-<td>Ctrl-\</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-backslash">\</kbd></span></td>
 <td>Quit and close all screen windows</td>
 </tr>
 <tr>
-<td>A</td>
+<td><span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-a">A</kbd></span></td>
 <td>Label the screen window</td>
 </tr>
 <tr>
-<td>M</td>
+<td><span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-m">M</kbd></span></td>
 <td>Monitor for activity</td>
 </tr>
 <tr>
-<td>d</td>
+<td><span class="keys"><kbd class="key-d">D</kbd></span></td>
 <td>Detach the current screen session</td>
 </tr>
 </tbody>
@@ -7643,8 +7643,8 @@ command.</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>command</th>
+<th>function</th>
 </tr>
 </thead>
 <tbody>
@@ -7653,7 +7653,7 @@ command.</p>
 <td>List detached screen sessions on the server</td>
 </tr>
 <tr>
-<td>screen -S (name for new screen)</td>
+<td><code>screen -S &lt;name for new screen&gt;</code></td>
 <td>Create a screen with specified name</td>
 </tr>
 <tr>
@@ -7665,8 +7665,7 @@ command.</p>
 </li>
 </ul>
 <h4 id="detachingreattaching-screen-sessions">Detaching/Reattaching Screen Sessions</h4>
-<p>To detach a running screen session, type<br />
-<code>Ctrl-A d</code><br />
+<p>To detach a running screen session, type <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-a">A</kbd></span> <span class="keys"><kbd class="key-d">D</kbd></span>.
 This will detach the screen session with all of its windows but leave
 all of the related processes running. You can start and detach as many
 screen sessions as you wish, each with its own windows and processes.
@@ -7740,7 +7739,7 @@ buffers. More information is available at
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 9, 2025 21:46:21 UTC">April 9, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 10, 2026 20:47:26 UTC">February 10, 2026</span>
     </span>
     
 
@@ -7764,7 +7763,7 @@ buffers. More information is available at
             
         </span>
         <nav>
-            Xiaoge Wang, toelawpa
+            Craig Gross, Xiaoge Wang, toelawpa
         </nav>
     </span>
     
@@ -7968,6 +7967,8 @@ buffers. More information is available at
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
       
         <script src="../available_software/javascripts/populate_overview.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
       
     
   </body>

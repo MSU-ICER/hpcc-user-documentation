@@ -8018,9 +8018,7 @@ matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w
     need to request more cpus.</li>
 <li><code>--mem-per-cpu=1G</code> reserves 1 gigabytes per <abbr title="Central Processing Unit">CPU</abbr> of memory for the job. We
     recommend user to serve at least 1GB for each session plus the
-    total size of data variables used in the computation. User could
-    click <a href="https://www.mathworks.com/support/requirements/matlab-parallel-server.html#:~:text=Minimum%20of%202%20GB%20RAM,to%20accommodate%20temporary%20data%20directories." target="_blank" rel="noopener">here</a> to see the recommendation of the MATLAB
-    requirement by Mathworks.</li>
+    total size of data variables used in the computation. See also <a href="https://www.mathworks.com/support/requirements/matlab-parallel-server.html#:~:text=Minimum%20of%202%20GB%20RAM,to%20accommodate%20temporary%20data%20directories." target="_blank" rel="noopener">the recommendations of the MATLAB requirements by Mathworks</a>.</li>
 <li><code>myJobName</code> is a string to make your job easier to identify it when
     managing or monitoring your jobs.</li>
 <li><code>--output=%x-%j.SLURMout</code> sets the SLURM output filename to <code>myJobName-IDnumber.SLURMout</code></li>
@@ -8108,8 +8106,10 @@ steps.</p>
 </ol>
 <p>Starting from version 2018a, MATLAB supports the SLURM scheduler.
 Please refer to Mathworks' document for how to configure the cluster
-with the SLURM scheduler
-<a href="https://www.mathworks.com/help/mdce/configure-parallel-computing-products-for-supported-third-party-schedulers-pbs-pro-platform-lsf-torque.html" target="_blank" rel="noopener">here</a>. Previous versions of MATLAB are not recommended for use with the <abbr title="High-performance computing cluster">HPCC</abbr> scheduler.</p>
+with the <a href="https://www.mathworks.com/help/mdce/configure-parallel-computing-products-for-supported-third-party-schedulers-pbs-pro-platform-lsf-torque.html" target="_blank" rel="noopener">SLURM
+scheduler</a>.
+Previous versions of MATLAB are not recommended for use with the <abbr title="High-performance computing cluster">HPCC</abbr>
+scheduler.</p>
 <h2 id="using-the-matlab-thread-based-worker-pool">Using the MATLAB thread-based worker pool</h2>
 <p>Started from MATLAB version R2020a, thread-based worker pool is
 introduced. Please refer to <a href="https://www.mathworks.com/help/parallel-computing/parallel.threadpool.html" target="_blank" rel="noopener">this document</a> for
@@ -8126,8 +8126,7 @@ launch the MATLAB session without java virtual machine as the following:</p>
 <div class="highlight"><pre><span></span><code>matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-nojvm<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;myExample&quot;</span>
 </code></pre></div>
 <h2 id="using-matlab-with-python">Using MATLAB with Python</h2>
-<p><a href="https://www.mathworks.com/campaigns/offers/matlab-python-cheat-sheets.html?s_v1=41575&amp;elqem=3644189_EM_NA_DIR_22-01_MOE-EDU&amp;elqTrackId=34b76d429da64510a62e451f34bee44d&amp;elq=2311bc59dea9450fa1d52bb1e3446db8&amp;elqaid=41575&amp;elqat=1&amp;elqCampaignId=15309" target="_blank" rel="noopener">Here</a> is the link to the cheat sheets provided by the
-Mathworks for users' reference.</p>
+<p>See the <a href="https://www.mathworks.com/campaigns/offers/matlab-python-cheat-sheets.html?s_v1=41575&amp;elqem=3644189_EM_NA_DIR_22-01_MOE-EDU&amp;elqTrackId=34b76d429da64510a62e451f34bee44d&amp;elq=2311bc59dea9450fa1d52bb1e3446db8&amp;elqaid=41575&amp;elqat=1&amp;elqCampaignId=15309" target="_blank" rel="noopener">cheat sheets provided by Mathworks</a> for reference.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -8172,7 +8171,7 @@ Mathworks for users' reference.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 7, 2025 14:21:30 UTC">August 7, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 10, 2026 20:48:03 UTC">February 10, 2026</span>
     </span>
     
 
@@ -8400,6 +8399,8 @@ Mathworks for users' reference.</p>
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
       
         <script src="../available_software/javascripts/populate_overview.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
       
     
   </body>

@@ -7745,8 +7745,8 @@ application by one global Python installation. To resolve this issue,</p>
 </ul>
 <p>To get started using Python on the <abbr title="High-performance computing cluster">HPCC</abbr>, you have to load a Python module. A
 few helpful module commands would be <code>module avail Python</code>, <code>module spider
-Python</code>, and <code>module load Python</code>. More information on our module system can be
-found <a href="../Intro_to_modules/">here</a>.</p>
+Python</code>, and <code>module load Python</code>. See <a href="../Intro_to_modules/">our documentation on the module
+system</a> for more details.</p>
 <h3 id="python-with-virtual-environments">Python with virtual environments</h3>
 <p>More details of how to use virtual environments can be found at <a href="../Using_Python_in_HPCC_with_virtualenv/">this page</a>.</p>
 <h3 id="python-with-conda">Python with Conda</h3>
@@ -7771,13 +7771,9 @@ dot product, cross product, and matrix multiplication. See the <a href="https://
 <p><a href="https://numba.pydata.org/" target="_blank" rel="noopener">Numba</a> compiles Python codes just in time with a few decorators, without
 much modification of code. In addition, Numba offers automatic parallelization which is very
 easy to use. You just need to add the one line
-decorator, <code>@njit(parallel=True)</code>. More information can be found <a href="https://numba.readthedocs.io/en/stable/user/parallel.html" target="_blank" rel="noopener">here</a>.
+decorator, <code>@njit(parallel=True)</code>. More information can be found <a href="https://numba.readthedocs.io/en/stable/user/parallel.html" target="_blank" rel="noopener">in the Numba documentation</a>.
 Numba also supports NVIDIA <abbr title="Compute Unified Device Architecture (GPU programming)">CUDA</abbr>. It is easy to use (at least much easier
 to use than other programming languages). </p>
-<!-- A well-written Jupyter
-Notebook for performance tests among CPU vs GPU with NumPy, Numba and
-CUDA can be found here. -->
-
 <h3 id="use-threaded-libraries">Use Threaded Libraries</h3>
 <p>Packages like NumPy and SciPy are already built with <abbr title="Message Passing Interface">MPI</abbr> and multithread support
 via BLAS/LAPACK, and MKL. In general, it is a plausible guess that most
@@ -7796,7 +7792,7 @@ wheel. If it is not new, it is probably already implemented for high performance
 <li>portable and scalable.</li>
 <li>dependent only on NumPy, Cython (build only), and <abbr title="Message Passing Interface">MPI</abbr> libraries.</li>
 </ul>
-<p>More information can be found <a href="https://mpi4py.readthedocs.io/en/stable/" target="_blank" rel="noopener">here</a>.</p>
+<p>More information can be found <a href="https://mpi4py.readthedocs.io/en/stable/" target="_blank" rel="noopener">in the mpi4py documentation</a>.</p>
 <h2 id="other-python-resources">Other Python Resources</h2>
 <p>The following are a few Python resource links.</p>
 <ul>
@@ -7872,7 +7868,7 @@ wheel. If it is not new, it is probably already implemented for high performance
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 14, 2024 14:06:07 UTC">August 14, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 10, 2026 20:48:03 UTC">February 10, 2026</span>
     </span>
     
 
@@ -8100,6 +8096,8 @@ wheel. If it is not new, it is probably already implemented for high performance
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
       
         <script src="../available_software/javascripts/populate_overview.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
       
     
   </body>

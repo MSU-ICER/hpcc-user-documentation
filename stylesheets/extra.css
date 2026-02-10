@@ -126,7 +126,6 @@ a:hover {
 
 .phone-link {
   color: #779a36;
-  font-weight: 700
 }
 
 @media (min-width:600px) {
@@ -340,7 +339,8 @@ ul li {
 
 .footer-list-lg .footer-lime-link,
 .footer-list-sm .footer-lime-link {
-  color: #00c24e
+  color: #00c24e;
+  font-weight: 700
 }
 
 .footer-list-lg .footer-lime-link:active,
@@ -383,6 +383,12 @@ ul li {
   }
 }
 
+@media (min-width:0px) {
+  .media-lg-only__media {
+	padding-bottom: 20px;
+  }
+}
+
 @media (min-width:500px) {
   .media {
     display: -webkit-flex;
@@ -392,7 +398,7 @@ ul li {
 
   .media__media {
     text-align: center;
-    width: auto
+    width: auto;
   }
 
   .media__content {
@@ -437,7 +443,7 @@ ul li {
 
   .media-lg-only__media {
     text-align: center;
-    width: auto
+    width: auto;
   }
 
   .no-flexbox .media-lg-only__media {
