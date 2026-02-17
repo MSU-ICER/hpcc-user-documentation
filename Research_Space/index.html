@@ -7665,7 +7665,7 @@
 <h3 id="requesting-a-quota-increase">Requesting a quota increase</h3>
 <p>A <abbr title="Principle Investigator">PI</abbr> may request an increase in storage by submitting a <a href="https://contact.icer.msu.edu/quota" target="_blank" rel="noopener">Quota Increase Request</a> form. Each <abbr title="Principle Investigator">PI</abbr> may request of up to <strong>3TB of space across all research spaces</strong> at not cost, but each additional <abbr title="Terabyte">TB</abbr> of storage will incur a yearly fee. As of 2025, the cost of each additional <abbr title="Terabyte">TB</abbr> of space per year is <strong>$72 for internal faculty</strong> and <strong>$95 for external clients</strong>. These prices are typically updated every two years.</p>
 <h2 id="using-a-research-space">Using a research space</h2>
-<p>To configure a research space such that all group members have the appropriate access to the files and directories contained within, it is important to read and follow the instructions below.</p>
+<p>Research spaces can be accessed at <code>/mnt/research/&lt;groupname&gt;</code>, where <code>&lt;groupname&gt;</code> is the name of the research space like common-data at <code>/mnt/research/common-data</code>. This location is a symbolic link pointing to the underlying filesystem location, which may change over time. To configure a research space such that all group members have the appropriate access to the files and directories contained within, it is important to read and follow the instructions below.</p>
 <p><strong>1. Ensure that all directories created in a research space have the group ownership set to the <code>&lt;groupname&gt;</code> 
 and the set-group-ID (<code>setgid</code>) bit enabled.</strong> </p>
 <p>By default, the group's research space <code>/mnt/research/&lt;groupname&gt;</code> is set with the correct group ownership and <code>setgid</code> bit. This setting makes newly created sub-directories and files within inherit the group ownership of the parent directory rather than the primary group of the individual user. To check the group ownership and <code>setgid</code> bit of a directory within the research space use the <code>ls -ld &lt;path/to/directory&gt;</code> command:</p>
@@ -7789,7 +7789,7 @@ System (<abbr title="General Parallel File System">GPFS</abbr>). Files stored in
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 11, 2025 17:32:27 UTC">December 11, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 17, 2026 17:11:36 UTC">February 17, 2026</span>
     </span>
     
 
