@@ -7475,28 +7475,29 @@ Card section. After that, use Molecule Specification section to assign
 the coordinates of the atoms with the charge and spin multiplicity of
 the system in the first line. Please <strong>make sure there is at least one empty line in the end of file</strong>.</p>
 <p>By logging into <abbr title="High-performance computing cluster">HPCC</abbr> and ssh to a dev node, users can find Gaussian program installed in <abbr title="High-performance computing cluster">HPCC</abbr> with the module commands:</p>
-<div class="highlight"><pre><span></span><code>$ module spider Gaussian
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>spider<span class="w"> </span>Gaussian
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>----------------------------
+<span class="w">  </span>Gaussian:
+----------------------------
+<span class="w"> </span>Versions:
+<span class="w">        </span>Gaussian/g16_AVX
+<span class="w">        </span>Gaussian/g16-AVX2
+<span class="w">        </span>Gaussian/g16
 
 ----------------------------
-  Gaussian:
-----------------------------
- Versions:
-        Gaussian/g16_AVX
-        Gaussian/g16-AVX2
-        Gaussian/g16
+<span class="w">  </span>For<span class="w"> </span>detailed<span class="w"> </span>information<span class="w"> </span>about<span class="w"> </span>a<span class="w"> </span>specific<span class="w"> </span><span class="s2">&quot;Gaussian&quot;</span><span class="w"> </span>module<span class="w"> </span><span class="o">(</span>including<span class="w"> </span>how<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>the<span class="w"> </span>modules<span class="o">)</span><span class="w"> </span>use<span class="w"> </span>the<span class="w"> </span>module<span class="err">&#39;</span>s<span class="w"> </span>full<span class="w"> </span>name.
+<span class="w">  </span>For<span class="w"> </span>example:
 
-----------------------------
-  For detailed information about a specific &quot;Gaussian&quot; module (including how to load the modules) use the module&#39;s full name.
-  For example:
-
-     $ module spider Gaussian/g16
+<span class="w">     </span>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>Gaussian/g16
 ----------------------------
 </code></pre></div>
 <p>Please load Gaussian module with g16 version:</p>
 <div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Gaussian/16-AVX
 </code></pre></div>
-<p>and the Gaussian command "g16" can be used. Simply run the command by giving the input and output file names:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>g16<span class="w"> </span>&lt;<span class="w"> </span>g16.com<span class="w"> </span>&gt;<span class="w"> </span>g16.log
+<p>and the Gaussian command "g16" can be used. </p>
+<p>You can run the command by giving the input (&lt;) and output (&gt;) file names:</p>
+<div class="highlight"><pre><span></span><code>g16<span class="w"> </span>&lt;<span class="w"> </span>g16.com<span class="w"> </span>&gt;<span class="w"> </span>g16.log
 </code></pre></div>
 <p>and it starts to calculate the system on the node. It will take about 2
 minutes to complete the calculation. After it is finished, you can check
@@ -7550,7 +7551,7 @@ after loading the Gaussian module.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 9, 2025 21:49:55 UTC">April 9, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 17, 2026 17:16:49 UTC">February 17, 2026</span>
     </span>
     
 
@@ -7574,7 +7575,7 @@ after loading the Gaussian module.</p>
             
         </span>
         <nav>
-            Andrew Fullard, Nanye Long, toelawpa
+            Andrew Fullard, Craig Gross, Nanye Long, toelawpa
         </nav>
     </span>
     

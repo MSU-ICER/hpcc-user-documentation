@@ -7493,11 +7493,15 @@
 
 <h1 id="alphafold-installed-in-hpcc">AlphaFold installed in <abbr title="High-performance computing cluster">HPCC</abbr></h1>
 <p>The following command can be used to find all versions of AlphaFold installed on <abbr title="High-performance computing cluster">HPCC</abbr>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>ml<span class="w"> </span>spider<span class="w"> </span>AlphaFold
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This applies to older versions of Alphafold (2.x). For instructions on using newer version of Alphafold, (see our documentation on Alphafold3](AlphaFold3.md)</p>
+</div>
+<div class="highlight"><pre><span></span><code>ml<span class="w"> </span>spider<span class="w"> </span>AlphaFold
 </code></pre></div>
 <p>To find how to load a specific AlphaFold version, where <code>&lt;version&gt;</code> is
 the version of AlphaFold to be load, use:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>ml<span class="w"> </span>spider<span class="w"> </span>AlphaFold/&lt;version&gt;
+<div class="highlight"><pre><span></span><code>ml<span class="w"> </span>spider<span class="w"> </span>AlphaFold/&lt;version&gt;
 </code></pre></div>
 <p>All AlphaFold versions use the same data structure and
 location <code>/mnt/research/common-data/alphafold/database</code> as mentioned
@@ -7516,17 +7520,21 @@ for more information.</p>
 <p>Users can get an example of AlphaFold to run on <abbr title="High-performance computing cluster">HPCC</abbr> nodes.
 Log into <abbr title="High-performance computing cluster">HPCC</abbr> and ssh to a dev node with <abbr title="Graphics Processing Unit">GPU</abbr> cards, then run the
 following command to copy the example directory <code>AlphaFold</code> to the current directory:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>getexample<span class="w"> </span>AlphaFold
+<div class="highlight"><pre><span></span><code>getexample<span class="w"> </span>AlphaFold
 </code></pre></div>
 <p>(If the above command fails, you may need to manually load powertools with
 <code>module load powertools</code>)</p>
 <p>After you cd to the directory, you should be able to see the files
 inside:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>AlphaFold
-<span class="o">[</span>UserName@dev-amd20-v100<span class="w"> </span>AlphaFold<span class="o">]</span>$<span class="w"> </span>ls
-data.fasta<span class="w">  </span>README<span class="w">  </span>slurm_script.sb
-<span class="o">[</span>UserName@dev-amd20-v100<span class="w"> </span>AlphaFold<span class="o">]</span>$<span class="w"> </span>cat<span class="w"> </span>slurm_script.sb
-<span class="c1">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>AlphaFold
+ls
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>data.fasta<span class="w">  </span>README<span class="w">  </span>slurm_script.sb
+</code></pre></div>
+<p>The 'slurm_script.sb' file contains </p>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>cat<span class="w"> </span>slurm_script.sb
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --job-name AlphaFold</span>
 <span class="c1">#SBATCH --time=12:00:00</span>
 <span class="c1">#SBATCH --gpus=4</span>
@@ -7558,7 +7566,7 @@ specified in the command line:</p>
 </code></pre></div>
 <p>Users can look into the <a href="https://github.com/deepmind/alphafold" target="_blank" rel="noopener">AlphaFold documentation</a>
 or use the commands:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100<span class="w"> </span>AlphaFold<span class="o">]</span>$<span class="w"> </span>alphafold<span class="w"> </span>--help
+<div class="highlight"><pre><span></span><code>alphafold<span class="w"> </span>--help
 </code></pre></div>
 <p>to find out how to use all options after you load the AlphaFold module.</p>
 <!--
@@ -7605,7 +7613,7 @@ or use the commands:</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 24, 2024 17:23:37 UTC">October 24, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 17, 2026 17:16:49 UTC">February 17, 2026</span>
     </span>
     
 

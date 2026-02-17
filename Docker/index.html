@@ -7833,40 +7833,42 @@ here: <a href="https://docs.docker.com/docker-for-mac/install/" target="_blank"
 terminal (if you are running Windows, this should be a <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank" rel="noopener">WSL
 terminal</a>) and running
 the following command:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>--version
-Docker<span class="w"> </span>version<span class="w"> </span><span class="m">19</span>.03.8,<span class="w"> </span>build<span class="w"> </span>afacb8b
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>--version
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Docker version 19.03.8, build afacb8b</span>
 </code></pre></div>
 <p>When you run the <code>docker</code> command without <code>--version</code>, you will see
 the options available with docker. Alternatively, you can test your
 installation by running the following (you have to log into Docker to
 use this test):</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
-Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;hello-world:latest&#39;</span><span class="w"> </span>locally
-latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/hello-world
-0e03bdcc26d7:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
-Digest:<span class="w"> </span>sha256:6a65f928fb91fcfbc963f7aa6d57c8eeb426ad9a20c7ee045538ef34847f44f1
-Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>hello-world:latest
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Unable to find image &#39;hello-world:latest&#39; locally</span>
+<span class="go">latest: Pulling from library/hello-world</span>
+<span class="go">0e03bdcc26d7: Pull complete</span>
+<span class="go">Digest: sha256:6a65f928fb91fcfbc963f7aa6d57c8eeb426ad9a20c7ee045538ef34847f44f1</span>
+<span class="go">Status: Downloaded newer image for hello-world:latest</span>
 
-Hello<span class="w"> </span>from<span class="w"> </span>Docker!
-This<span class="w"> </span>message<span class="w"> </span>shows<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>installation<span class="w"> </span>appears<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>working<span class="w"> </span>correctly.
+<span class="go">Hello from Docker!</span>
+<span class="go">This message shows that your installation appears to be working correctly.</span>
 
-To<span class="w"> </span>generate<span class="w"> </span>this<span class="w"> </span>message,<span class="w"> </span>Docker<span class="w"> </span>took<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>steps:
-<span class="m">1</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>client<span class="w"> </span>contacted<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>daemon.
-<span class="m">2</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>pulled<span class="w"> </span>the<span class="w"> </span><span class="s2">&quot;hello-world&quot;</span><span class="w"> </span>image<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>Hub.
-<span class="o">(</span>amd64<span class="o">)</span>
-<span class="m">3</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>created<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>container<span class="w"> </span>from<span class="w"> </span>that<span class="w"> </span>image<span class="w"> </span>which<span class="w"> </span>runs<span class="w"> </span>the
-executable<span class="w"> </span>that<span class="w"> </span>produces<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>currently<span class="w"> </span>reading.
-<span class="m">4</span>.<span class="w"> </span>The<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w"> </span>streamed<span class="w"> </span>that<span class="w"> </span>output<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>client,<span class="w"> </span>which<span class="w"> </span>sent<span class="w"> </span>it
-to<span class="w"> </span>your<span class="w"> </span>terminal.
+<span class="go">To generate this message, Docker took the following steps:</span>
+<span class="go">1. The Docker client contacted the Docker daemon.</span>
+<span class="go">2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span>
+<span class="go">(amd64)</span>
+<span class="go">3. The Docker daemon created a new container from that image which runs the</span>
+<span class="go">executable that produces the output you are currently reading.</span>
+<span class="go">4. The Docker daemon streamed that output to the Docker client, which sent it</span>
+<span class="go">to your terminal.</span>
 
-To<span class="w"> </span>try<span class="w"> </span>something<span class="w"> </span>more<span class="w"> </span>ambitious,<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>run<span class="w"> </span>an<span class="w"> </span>Ubuntu<span class="w"> </span>container<span class="w"> </span>with:
-$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>ubuntu<span class="w"> </span>bash
+<span class="go">To try something more ambitious, you can run an Ubuntu container with:</span>
+<span class="go">$ docker run -it ubuntu bash</span>
 
-Share<span class="w"> </span>images,<span class="w"> </span>automate<span class="w"> </span>workflows,<span class="w"> </span>and<span class="w"> </span>more<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>free<span class="w"> </span>Docker<span class="w"> </span>ID:
-https://hub.docker.com/
+<span class="go">Share images, automate workflows, and more with a free Docker ID:</span>
+<span class="go">https://hub.docker.com/</span>
 
-For<span class="w"> </span>more<span class="w"> </span>examples<span class="w"> </span>and<span class="w"> </span>ideas,<span class="w"> </span>visit:
-https://docs.docker.com/get-started/
+<span class="go">For more examples and ideas, visit:</span>
+<span class="go">https://docs.docker.com/get-started/</span>
 </code></pre></div>
 <h2 id="running-docker-containers-from-prebuilt-images">Running Docker containers from prebuilt images</h2>
 <p>Now, you have setup everything, and it is time to use Docker seriously. You
@@ -7882,30 +7884,31 @@ distribute images.</p>
 containers for the same image.</p>
 <p>Now that you know what containers and images are, let's get some practice, by
 running the <code>docker run alpine ls -l</code> command in your terminal.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>ls<span class="w"> </span>-l
-Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;alpine:latest&#39;</span><span class="w"> </span>locally
-latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/alpine
-cbdbe7a5bc2a:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
-Digest:<span class="w"> </span>sha256:9a839e63dad54c3a6d1834e29692c8492d93f90c59c978c1ed79109ea4fb9a54
-Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>alpine:latest
-total<span class="w"> </span><span class="m">56</span>
-drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>bin
-drwxr-xr-x<span class="w">    </span><span class="m">5</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">           </span><span class="m">340</span><span class="w"> </span>May<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">17</span>:11<span class="w"> </span>dev
-drwxr-xr-x<span class="w">    </span><span class="m">1</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>May<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">17</span>:11<span class="w"> </span>etc
-drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>home
-drwxr-xr-x<span class="w">    </span><span class="m">5</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>lib
-drwxr-xr-x<span class="w">    </span><span class="m">5</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>media
-drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>mnt
-drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>opt
-dr-xr-xr-x<span class="w">  </span><span class="m">187</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">             </span><span class="m">0</span><span class="w"> </span>May<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">17</span>:11<span class="w"> </span>proc
-drwx------<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>root
-drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>run
-drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>sbin
-drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>srv
-dr-xr-xr-x<span class="w">   </span><span class="m">12</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">             </span><span class="m">0</span><span class="w"> </span>May<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">17</span>:11<span class="w"> </span>sys
-drwxrwxrwt<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>tmp
-drwxr-xr-x<span class="w">    </span><span class="m">7</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>usr
-drwxr-xr-x<span class="w">   </span><span class="m">12</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">06</span>:25<span class="w"> </span>var
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>ls<span class="w"> </span>-l
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Unable to find image &#39;alpine:latest&#39; locally</span>
+<span class="go">latest: Pulling from library/alpine</span>
+<span class="go">cbdbe7a5bc2a: Pull complete</span>
+<span class="go">Digest: sha256:9a839e63dad54c3a6d1834e29692c8492d93f90c59c978c1ed79109ea4fb9a54</span>
+<span class="go">Status: Downloaded newer image for alpine:latest</span>
+<span class="go">total 56</span>
+<span class="go">drwxr-xr-x    2 root     root          4096 Apr 23 06:25 bin</span>
+<span class="go">drwxr-xr-x    5 root     root           340 May 26 17:11 dev</span>
+<span class="go">drwxr-xr-x    1 root     root          4096 May 26 17:11 etc</span>
+<span class="go">drwxr-xr-x    2 root     root          4096 Apr 23 06:25 home</span>
+<span class="go">drwxr-xr-x    5 root     root          4096 Apr 23 06:25 lib</span>
+<span class="go">drwxr-xr-x    5 root     root          4096 Apr 23 06:25 media</span>
+<span class="go">drwxr-xr-x    2 root     root          4096 Apr 23 06:25 mnt</span>
+<span class="go">drwxr-xr-x    2 root     root          4096 Apr 23 06:25 opt</span>
+<span class="go">dr-xr-xr-x  187 root     root             0 May 26 17:11 proc</span>
+<span class="go">drwx------    2 root     root          4096 Apr 23 06:25 root</span>
+<span class="go">drwxr-xr-x    2 root     root          4096 Apr 23 06:25 run</span>
+<span class="go">drwxr-xr-x    2 root     root          4096 Apr 23 06:25 sbin</span>
+<span class="go">drwxr-xr-x    2 root     root          4096 Apr 23 06:25 srv</span>
+<span class="go">dr-xr-xr-x   12 root     root             0 May 26 17:11 sys</span>
+<span class="go">drwxrwxrwt    2 root     root          4096 Apr 23 06:25 tmp</span>
+<span class="go">drwxr-xr-x    7 root     root          4096 Apr 23 06:25 usr</span>
+<span class="go">drwxr-xr-x   12 root     root          4096 Apr 23 06:25 var</span>
 </code></pre></div>
 <p>When you run the <code>docker run alpine ls -l</code> command, it searches for the
 <code>alpine:latest</code> image from your system first. If your system has it (i.e. if
@@ -7922,13 +7925,15 @@ which is fed to the container, so Docker starts the given command and
 results show up.</p>
 <p>To see a list of all images on your system, you can use the <code>docker
 images</code> command.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images
-alpine<span class="w">                     </span>latest<span class="w">              </span>f70734b6a266<span class="w">        </span><span class="m">4</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">         </span><span class="m">5</span>.61MB
-hello-world<span class="w">                </span>latest<span class="w">              </span>bf756fb1ae65<span class="w">        </span><span class="m">4</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">        </span><span class="m">13</span>.3kB
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>images
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">alpine                     latest              f70734b6a266        4 weeks ago         5.61MB</span>
+<span class="go">hello-world                latest              bf756fb1ae65        4 months ago        13.3kB</span>
 </code></pre></div>
 <p>Next, let's try another command.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello world&quot;</span>
-Hello<span class="w"> </span>world
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello world&quot;</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Hello world</span>
 </code></pre></div>
 <p>In this case, Docker ran the <code>echo</code> command in your <code>alpine</code>
 container, and then exited it. Exit means the container is terminated
@@ -7943,36 +7948,43 @@ run the container interactively and the <code>-t</code> flag tells it you want t
 terminal in that image to run your command. You can find more help on the <code>run</code>
 command with <code>docker run --help</code>.</p>
 <p>Let's run a few commands inside the <code>docker run -it alpine sh</code> container.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
-/<span class="w"> </span><span class="c1"># ls</span>
-bin<span class="w">    </span>etc<span class="w">    </span>lib<span class="w">    </span>mnt<span class="w">    </span>proc<span class="w">   </span>run<span class="w">    </span>srv<span class="w">    </span>tmp<span class="w">    </span>var
-dev<span class="w">    </span>home<span class="w">   </span>media<span class="w">  </span>opt<span class="w">    </span>root<span class="w">   </span>sbin<span class="w">   </span>sys<span class="w">    </span>usr
-/<span class="w"> </span><span class="c1"># uname -a</span>
-Linux<span class="w"> </span>c1552c9b6cf0<span class="w"> </span><span class="m">4</span>.19.76-linuxkit<span class="w"> </span><span class="c1">#1 SMP Fri Apr 3 15:53:26 UTC 2020 x86_64 Linux</span>
-/<span class="w"> </span><span class="c1"># exit</span>
+<div class="highlight"><span class="filename">input (normal shell)</span><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
+</code></pre></div>
+<div class="highlight"><span class="filename">input (container shell)</span><pre><span></span><code>ls
+</code></pre></div>
+<p><div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">bin    etc    lib    mnt    proc   run    srv    tmp    var</span>
+<span class="go">dev    home   media  opt    root   sbin   sys    usr</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input (container shell)</span><pre><span></span><code>uname<span class="w"> </span>-a
+</code></pre></div></p>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Linux c1552c9b6cf0 4.19.76-linuxkit #1 SMP Fri Apr 3 15:53:26 UTC 2020 x86_64 Linux</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input (container shell)</span><pre><span></span><code><span class="nb">exit</span>
 </code></pre></div>
 <p>You are inside of the container shell and you can try out a few commands like
 <code>ls</code> and <code>uname -a</code> and others. To quit the container, type <code>exit</code> on the
 terminal. If you use the <code>exit</code> command, the container is terminated. If you
-want to keep the container active, then you can use keys <code>Ctrl-p</code> followed by
-<code>Ctrl-q</code> (you don't have to press these key combinations simultaneously). If
+want to keep the container active, then you can use keys <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-p">P</kbd></span> followed by
+<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-q">Q</kbd></span> (you don't have to press these key combinations simultaneously). If
 you want to go back into the container, you can type <code>docker attach
 &lt;container_id&gt;</code>, such as <code>docker attach c1552c9b6cf0</code>. You can find container
 id with <code>docker ps -all</code>. This command will be explained next.</p>
 <p>Now, let's learn about the <code>docker ps</code> command which shows you all
 containers that are currently running.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>ps
-CONTAINER<span class="w"> </span>ID<span class="w">        </span>IMAGE<span class="w">               </span>COMMAND<span class="w">             </span>CREATED<span class="w">             </span>STATUS<span class="w">              </span>PORTS
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>ps
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS</span>
 </code></pre></div>
 <p>In this case, you don't see any container because no containers are running. To see
 a list of all containers that you ran, use <code>docker ps --all</code>. You can
 see that STATUS says that all containers exited.  </p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>ps<span class="w"> </span>--all
-CONTAINER<span class="w"> </span>ID<span class="w">        </span>IMAGE<span class="w">               </span>COMMAND<span class="w">                  </span>CREATED<span class="w">             </span>STATUS<span class="w">                      </span>PORTS<span class="w">               </span>NAMES
-c1552c9b6cf0<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;sh&quot;</span><span class="w">                     </span><span class="m">6</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">       </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                        </span>wonderful_cori
-5de22ab86f2a<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;echo &#39;Hello world&#39;&quot;</span><span class="w">     </span><span class="m">18</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">18</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>goofy_visvesvaraya
-df35ee7df7e3<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;ls -l&quot;</span><span class="w">                  </span><span class="m">31</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">31</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>fervent_gould
-6dbe999044b4<span class="w">        </span>hello-world<span class="w">         </span><span class="s2">&quot;/hello&quot;</span><span class="w">                 </span><span class="m">3</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="w">         </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>hours<span class="w"> </span>ago
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>ps<span class="w"> </span>--all
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES</span>
+<span class="go">c1552c9b6cf0        alpine              &quot;sh&quot;                     6 minutes ago       Exited (0) 2 minutes ago                        wonderful_cori</span>
+<span class="go">5de22ab86f2a        alpine              &quot;echo &#39;Hello world&#39;&quot;     18 minutes ago      Exited (0) 18 minutes ago                       goofy_visvesvaraya</span>
+<span class="go">df35ee7df7e3        alpine              &quot;ls -l&quot;                  31 minutes ago      Exited (0) 31 minutes ago                       fervent_gould</span>
+<span class="go">6dbe999044b4        hello-world         &quot;/hello&quot;                 3 hours ago         Exited (0) 3 hours ago</span>
 </code></pre></div>
 <p>When Docker containers are created, the Docker system automatically assign a
 universally unique identifier (UUID) number to each container to avoid any
@@ -7981,14 +7993,15 @@ has a randomly generated name. You can usually use this name in place of the
 CONTAINER ID to make typing a bit easier.</p>
 <p>You can also assign names to your Docker containers when you run them, using
 the <code>--name</code> flags. In addition, you can rename your Docker container's name
-with <code>rename</code> command. For example, let's rename "wonderful_cori" to
-"my_container" with <code>docker rename</code> command.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>rename<span class="w"> </span>wonderful_cori<span class="w"> </span>my_container
-$<span class="w"> </span>docker<span class="w"> </span>ps<span class="w"> </span>--all
-CONTAINER<span class="w"> </span>ID<span class="w">        </span>IMAGE<span class="w">               </span>COMMAND<span class="w">                  </span>CREATED<span class="w">             </span>STATUS<span class="w">                      </span>PORTS<span class="w">               </span>NAMES
-c1552c9b6cf0<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;sh&quot;</span><span class="w">                     </span><span class="m">10</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">6</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                        </span>my_container
-5de22ab86f2a<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;echo &#39;Hello world&#39;&quot;</span><span class="w">     </span><span class="m">22</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">22</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>goofy_visvesvaraya
-df35ee7df7e3<span class="w">        </span>alpine<span class="w">              </span><span class="s2">&quot;ls -l&quot;</span><span class="w">                  </span><span class="m">35</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">      </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">35</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">                       </span>fervent_gould
+with <code>rename</code> command. For example, let's rename <code>wonderful_cori</code> to
+<code>my_container</code> with <code>docker rename</code> command.</p>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>rename<span class="w"> </span>wonderful_cori<span class="w"> </span>my_container
+docker<span class="w"> </span>ps<span class="w"> </span>--all
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES</span>
+<span class="go">c1552c9b6cf0        alpine              &quot;sh&quot;                     10 minutes ago      Exited (0) 6 minutes ago                        my_container</span>
+<span class="go">5de22ab86f2a        alpine              &quot;echo &#39;Hello world&#39;&quot;     22 minutes ago      Exited (0) 22 minutes ago                       goofy_visvesvaraya</span>
+<span class="go">df35ee7df7e3        alpine              &quot;ls -l&quot;                  35 minutes ago      Exited (0) 35 minutes ago                       fervent_gould</span>
 </code></pre></div>
 <h2 id="build-docker-images-which-contain-your-own-code">Build Docker images which contain your own code</h2>
 <p>Now you are ready to use Docker to create your own applications! First,
@@ -7999,22 +8012,24 @@ image and use that image to run an application on your local machine.</p>
 the alpine image from Docker Hub and ran a container based on that
 image. To see the list of images that are available on your local
 machine, run the <code>docker images</code> command.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images
-REPOSITORY<span class="w">    </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">         </span>SIZE
-alpine<span class="w">        </span>latest<span class="w">    </span>9ed4aefc74f6<span class="w">   </span><span class="m">4</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span><span class="m">7</span>.05MB
-hello-world<span class="w">   </span>latest<span class="w">    </span>feb5d9fea6a5<span class="w">   </span><span class="m">19</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span><span class="m">13</span>.3kB
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>images
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">REPOSITORY    TAG       IMAGE ID       CREATED         SIZE</span>
+<span class="go">alpine        latest    9ed4aefc74f6   4 weeks ago     7.05MB</span>
+<span class="go">hello-world   latest    feb5d9fea6a5   19 months ago   13.3kB</span>
 </code></pre></div>
 <p>The TAG refers to a particular snapshot of the image and the ID is the
 corresponding UUID of the image. Images can have multiple versions. When
 you do not assign a specific version number, the client defaults to
 latest. If you want a specific version of the image, you can use docker
 pull command as follows:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ubuntu:22.04
-<span class="m">7</span>:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/ubuntu
-2d473b07cdd5:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
-Digest:<span class="w"> </span>sha256:0eb0f877e1c869a300c442c41120e778db7161419244ee5cbc6fa5f134e74736
-Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>ubuntu:22.04
-docker.io/library/ubuntu:22.04
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>ubuntu:22.04
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">7: Pulling from library/ubuntu</span>
+<span class="go">2d473b07cdd5: Pull complete </span>
+<span class="go">Digest: sha256:0eb0f877e1c869a300c442c41120e778db7161419244ee5cbc6fa5f134e74736</span>
+<span class="go">Status: Downloaded newer image for ubuntu:22.04</span>
+<span class="go">docker.io/library/ubuntu:22.04</span>
 </code></pre></div>
 <p>Notice that here we pulled the image without running it. When we run a
 container with the <code>ubuntu:22.04</code> image in the future, it will use this downloaded
@@ -8022,33 +8037,34 @@ copy.</p>
 <p>You can search for images from a repository's website (for example, <a href="https://hub.docker.com/_/centos" target="_blank" rel="noopener">searching
 Docker hub for CentOS</a>) or directly from the
 command line using <code>docker search</code>.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>search<span class="w"> </span>centos
-NAME<span class="w">                               </span>DESCRIPTION<span class="w">                                     </span>STARS<span class="w">               </span>OFFICIAL<span class="w">            </span>AUTOMATED
-centos<span class="w">                             </span>The<span class="w"> </span>official<span class="w"> </span>build<span class="w"> </span>of<span class="w"> </span>CentOS.<span class="w">                   </span><span class="m">6014</span><span class="w">                </span><span class="o">[</span>OK<span class="o">]</span>
-ansible/centos7-ansible<span class="w">            </span>Ansible<span class="w"> </span>on<span class="w"> </span>Centos7<span class="w">                              </span><span class="m">129</span><span class="w">                                     </span><span class="o">[</span>OK<span class="o">]</span>
-consol/centos-xfce-vnc<span class="w">             </span>Centos<span class="w"> </span>container<span class="w"> </span>with<span class="w"> </span><span class="s2">&quot;headless&quot;</span><span class="w"> </span>VNC<span class="w"> </span>session…<span class="w">   </span><span class="m">115</span><span class="w">                                     </span><span class="o">[</span>OK<span class="o">]</span>
-jdeathe/centos-ssh<span class="w">                 </span>OpenSSH<span class="w"> </span>/<span class="w"> </span>Supervisor<span class="w"> </span>/<span class="w"> </span>EPEL/IUS/SCL<span class="w"> </span>Repos<span class="w"> </span>-<span class="w"> </span>…<span class="w">   </span><span class="m">114</span><span class="w">                                     </span><span class="o">[</span>OK<span class="o">]</span>
-centos/mysql-57-centos7<span class="w">            </span>MySQL<span class="w"> </span><span class="m">5</span>.7<span class="w"> </span>SQL<span class="w"> </span>database<span class="w"> </span>server<span class="w">                   </span><span class="m">76</span>
-imagine10255/centos6-lnmp-php56<span class="w">    </span>centos6-lnmp-php56<span class="w">                              </span><span class="m">58</span><span class="w">                                      </span><span class="o">[</span>OK<span class="o">]</span>
-tutum/centos<span class="w">                       </span>Simple<span class="w"> </span>CentOS<span class="w"> </span>docker<span class="w"> </span>image<span class="w"> </span>with<span class="w"> </span>SSH<span class="w"> </span>access<span class="w">      </span><span class="m">46</span>
-centos/postgresql-96-centos7<span class="w">       </span>PostgreSQL<span class="w"> </span>is<span class="w"> </span>an<span class="w"> </span>advanced<span class="w"> </span>Object-Relational<span class="w"> </span>…<span class="w">   </span><span class="m">44</span>
-kinogmt/centos-ssh<span class="w">                 </span>CentOS<span class="w"> </span>with<span class="w"> </span>SSH<span class="w">                                 </span><span class="m">29</span><span class="w">                                      </span><span class="o">[</span>OK<span class="o">]</span>
-pivotaldata/centos-gpdb-dev<span class="w">        </span>CentOS<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>GPDB<span class="w"> </span>development.<span class="w"> </span>Tag<span class="w"> </span>names…<span class="w">   </span><span class="m">12</span>
-guyton/centos6<span class="w">                     </span>From<span class="w"> </span>official<span class="w"> </span>centos6<span class="w"> </span>container<span class="w"> </span>with<span class="w"> </span>full<span class="w"> </span>up…<span class="w">   </span><span class="m">10</span><span class="w">                                      </span><span class="o">[</span>OK<span class="o">]</span>
-centos/tools<span class="w">                       </span>Docker<span class="w"> </span>image<span class="w"> </span>that<span class="w"> </span>has<span class="w"> </span>systems<span class="w"> </span>administration…<span class="w">   </span><span class="m">6</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
-drecom/centos-ruby<span class="w">                 </span>centos<span class="w"> </span>ruby<span class="w">                                     </span><span class="m">6</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
-pivotaldata/centos<span class="w">                 </span>Base<span class="w"> </span>centos,<span class="w"> </span>freshened<span class="w"> </span>up<span class="w"> </span>a<span class="w"> </span>little<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>Do…<span class="w">   </span><span class="m">4</span>
-pivotaldata/centos-mingw<span class="w">           </span>Using<span class="w"> </span>the<span class="w"> </span>mingw<span class="w"> </span>toolchain<span class="w"> </span>to<span class="w"> </span>cross-compile<span class="w"> </span>t…<span class="w">   </span><span class="m">3</span>
-darksheer/centos<span class="w">                   </span>Base<span class="w"> </span>Centos<span class="w"> </span>Image<span class="w"> </span>--<span class="w"> </span>Updated<span class="w"> </span>hourly<span class="w">             </span><span class="m">3</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
-mamohr/centos-java<span class="w">                 </span>Oracle<span class="w"> </span>Java<span class="w"> </span><span class="m">8</span><span class="w"> </span>Docker<span class="w"> </span>image<span class="w"> </span>based<span class="w"> </span>on<span class="w"> </span>Centos<span class="w"> </span><span class="m">7</span><span class="w">    </span><span class="m">3</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
-pivotaldata/centos-gcc-toolchain<span class="w">   </span>CentOS<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>toolchain,<span class="w"> </span>but<span class="w"> </span>unaffiliated<span class="w"> </span>wi…<span class="w">   </span><span class="m">3</span>
-miko2u/centos6<span class="w">                     </span>CentOS6<span class="w"> </span>日本語環境<span class="w">                                   </span><span class="m">2</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
-blacklabelops/centos<span class="w">               </span>CentOS<span class="w"> </span>Base<span class="w"> </span>Image!<span class="w"> </span>Built<span class="w"> </span>and<span class="w"> </span>Updates<span class="w"> </span>Daily!<span class="w">     </span><span class="m">1</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
-indigo/centos-maven<span class="w">                </span>Vanilla<span class="w"> </span>CentOS<span class="w"> </span><span class="m">7</span><span class="w"> </span>with<span class="w"> </span>Oracle<span class="w"> </span>Java<span class="w"> </span>Developmen…<span class="w">   </span><span class="m">1</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
-mcnaughton/centos-base<span class="w">             </span>centos<span class="w"> </span>base<span class="w"> </span>image<span class="w">                               </span><span class="m">1</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
-pivotaldata/centos7-dev<span class="w">            </span>CentosOS<span class="w"> </span><span class="m">7</span><span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>GPDB<span class="w"> </span>development<span class="w">           </span><span class="m">0</span>
-smartentry/centos<span class="w">                  </span>centos<span class="w"> </span>with<span class="w"> </span>smartentry<span class="w">                          </span><span class="m">0</span><span class="w">                                       </span><span class="o">[</span>OK<span class="o">]</span>
-pivotaldata/centos6.8-dev<span class="w">          </span>CentosOS<span class="w"> </span><span class="m">6</span>.8<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>GPDB<span class="w"> </span>development<span class="w">         </span><span class="m">0</span>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>search<span class="w"> </span>centos
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">NAME                               DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED</span>
+<span class="go">centos                             The official build of CentOS.                   6014                [OK]</span>
+<span class="go">ansible/centos7-ansible            Ansible on Centos7                              129                                     [OK]</span>
+<span class="go">consol/centos-xfce-vnc             Centos container with &quot;headless&quot; VNC session…   115                                     [OK]</span>
+<span class="go">jdeathe/centos-ssh                 OpenSSH / Supervisor / EPEL/IUS/SCL Repos - …   114                                     [OK]</span>
+<span class="go">centos/mysql-57-centos7            MySQL 5.7 SQL database server                   76</span>
+<span class="go">imagine10255/centos6-lnmp-php56    centos6-lnmp-php56                              58                                      [OK]</span>
+<span class="go">tutum/centos                       Simple CentOS docker image with SSH access      46</span>
+<span class="go">centos/postgresql-96-centos7       PostgreSQL is an advanced Object-Relational …   44</span>
+<span class="go">kinogmt/centos-ssh                 CentOS with SSH                                 29                                      [OK]</span>
+<span class="go">pivotaldata/centos-gpdb-dev        CentOS image for GPDB development. Tag names…   12</span>
+<span class="go">guyton/centos6                     From official centos6 container with full up…   10                                      [OK]</span>
+<span class="go">centos/tools                       Docker image that has systems administration…   6                                       [OK]</span>
+<span class="go">drecom/centos-ruby                 centos ruby                                     6                                       [OK]</span>
+<span class="go">pivotaldata/centos                 Base centos, freshened up a little with a Do…   4</span>
+<span class="go">pivotaldata/centos-mingw           Using the mingw toolchain to cross-compile t…   3</span>
+<span class="go">darksheer/centos                   Base Centos Image -- Updated hourly             3                                       [OK]</span>
+<span class="go">mamohr/centos-java                 Oracle Java 8 Docker image based on Centos 7    3                                       [OK]</span>
+<span class="go">pivotaldata/centos-gcc-toolchain   CentOS with a toolchain, but unaffiliated wi…   3</span>
+<span class="go">miko2u/centos6                     CentOS6 日本語環境                                   2                                       [OK]</span>
+<span class="go">blacklabelops/centos               CentOS Base Image! Built and Updates Daily!     1                                       [OK]</span>
+<span class="go">indigo/centos-maven                Vanilla CentOS 7 with Oracle Java Developmen…   1                                       [OK]</span>
+<span class="go">mcnaughton/centos-base             centos base image                               1                                       [OK]</span>
+<span class="go">pivotaldata/centos7-dev            CentosOS 7 image for GPDB development           0</span>
+<span class="go">smartentry/centos                  centos with smartentry                          0                                       [OK]</span>
+<span class="go">pivotaldata/centos6.8-dev          CentosOS 6.8 image for GPDB development         0</span>
 </code></pre></div>
 <h3 id="building-your-first-docker-image">Building your first Docker image</h3>
 <p>In this section, you will build a simple Docker image with writing a
@@ -8116,11 +8132,11 @@ command to see if your image <code>my_first_image</code> is shown.</p>
 <h4 id="run-your-image">Run your image</h4>
 <p>When you successfully create your Docker image, test it by starting a
 new container from the image.</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>my_first_image
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>my_first_image
 </code></pre></div>
 <p>If everything went well, you will see this message.</p>
-<div class="highlight"><pre><span></span><code>Hello<span class="w"> </span>world!
-This<span class="w"> </span>is<span class="w"> </span>my<span class="w"> </span>1st<span class="w"> </span>Docker<span class="w"> </span>image!
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Hello world!</span>
+<span class="go">This is my 1st Docker image!</span>
 </code></pre></div>
 <h2 id="connecting-docker-and-your-computer">Connecting Docker and your computer</h2>
 <p>Containers are great for keeping all the parts of a piece of software isolated
@@ -8131,19 +8147,26 @@ information from that container with the computer you're running it on.</p>
 the results in some data file. We'll mimic this by just creating an empty file
 with the <code>touch</code> command. Let's make a new directory for our output and create
 our "important data" in our alpine image:</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>results
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>mkdir<span class="w"> </span>results
 ls<span class="w"> </span>results
-
-docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>data.dat<span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>
+</code></pre></div>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>data.dat<span class="w"> </span>
 ls<span class="w"> </span>results
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>
 </code></pre></div>
 <p>Nothing happened! You can look in your current directory with <code>ls</code>, and you
 won't see anything either. We can even run an interactive alpine container and
 look around:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
-/<span class="w"> </span><span class="c1"># ls</span>
-bin<span class="w">    </span>dev<span class="w">    </span>etc<span class="w">    </span>home<span class="w">   </span>lib<span class="w">    </span>media<span class="w">  </span>mnt<span class="w">    </span>opt<span class="w">    </span>proc<span class="w">   </span>root<span class="w">   </span>run<span class="w">    </span>sbin<span class="w">   </span>srv<span class="w">    </span>sys<span class="w">    </span>tmp<span class="w">    </span>usr<span class="w">    </span>var
-/<span class="w"> </span><span class="c1"># exit</span>
+<div class="highlight"><span class="filename">input (normal shell)</span><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
+</code></pre></div>
+<div class="highlight"><span class="filename">input (container shell)</span><pre><span></span><code>ls
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">bin    dev    etc    home   lib    media  mnt    opt    proc   root   run    sbin   srv    sys    tmp    usr    var</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input (container shell)</span><pre><span></span><code><span class="nb">exit</span>
 </code></pre></div>
 <p>No results directory and no <code>data.dat</code> file...</p>
 <p>What happened is that the file was created and locked away in the previous
@@ -8153,19 +8176,23 @@ of the container we're working in.</p>
 <p>The way Docker does this is through "bind mounts". It's like we are "binding" a
 directory on our computer to a directory that's "mounted" in the container.
 Let's try it interactively first:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>./results:outside_world<span class="w"> </span>alpine<span class="w"> </span>sh
-/<span class="w"> </span><span class="c1"># ls</span>
-bin<span class="w">            </span>etc<span class="w">            </span>lib<span class="w">            </span>mnt<span class="w">            </span>outside_world<span class="w">  </span>root
-sbin<span class="w">           </span>sys<span class="w">            </span>usr<span class="w">            </span>dev<span class="w">            </span>home<span class="w">           </span>media
-opt<span class="w">            </span>proc<span class="w">           </span>run<span class="w">            </span>srv<span class="w">            </span>tmp<span class="w">            </span>var
-/<span class="w"> </span><span class="c1"># exit</span>
+<div class="highlight"><span class="filename">input (normal shell)</span><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>./results:outside_world<span class="w"> </span>alpine<span class="w"> </span>sh
+</code></pre></div>
+<div class="highlight"><span class="filename">input (container shell)</span><pre><span></span><code>ls
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">bin            etc            lib            mnt            outside_world  root</span>
+<span class="go">sbin           sys            usr            dev            home           media</span>
+<span class="go">opt            proc           run            srv            tmp            var</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">input (container shell)</span><pre><span></span><code><span class="nb">exit</span>
 </code></pre></div>
 <p>The <code>-v</code> command tells Docker that I want to connect the <code>./results</code> directory
 on my computer to a directory called <code>/outside_world</code> inside the container.</p>
 <p>Now we can put it all together:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./results:/outside_world<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>/outside_world/data.dat
-$<span class="w"> </span>ls<span class="w"> </span>results
-data.dat
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./results:/outside_world<span class="w"> </span>alpine<span class="w"> </span>touch<span class="w"> </span>/outside_world/data.dat
+ls<span class="w"> </span>results
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">data.dat</span>
 </code></pre></div>
 <p>Notice that we had to write to the container version of our directory with the
 <code>touch</code> command, but it's now visible on the computer in the <code>results</code>
@@ -8196,17 +8223,18 @@ show an alternate way to include files in a Docker container, albeit, in more
 of a read-only way.</p>
 <p>First, let's check the Jupyter images available on Docker Hub. We will use
 minimal-notebook.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>search<span class="w"> </span>jupyter
-NAME<span class="w">                                    </span>DESCRIPTION<span class="w">                                     </span>STARS<span class="w">               </span>OFFICIAL<span class="w">            </span>AUTOMATED
-jupyter/datascience-notebook<span class="w">            </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Data<span class="w"> </span>Science<span class="w"> </span>Stack<span class="w"> </span>from<span class="w"> </span>htt…<span class="w">   </span><span class="m">666</span>
-jupyter/all-spark-notebook<span class="w">              </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Python,<span class="w"> </span>Scala,<span class="w"> </span>R,<span class="w"> </span>Spark,<span class="w"> </span>Me…<span class="w">   </span><span class="m">301</span>
-jupyterhub/jupyterhub<span class="w">                   </span>JupyterHub:<span class="w"> </span>multi-user<span class="w"> </span>Jupyter<span class="w"> </span>notebook<span class="w"> </span>serv…<span class="w">   </span><span class="m">248</span><span class="w">                                     </span><span class="o">[</span>OK<span class="o">]</span>
-jupyter/scipy-notebook<span class="w">                  </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Scientific<span class="w"> </span>Python<span class="w"> </span>Stack<span class="w"> </span>fro…<span class="w">   </span><span class="m">241</span>
-jupyter/tensorflow-notebook<span class="w">             </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Scientific<span class="w"> </span>Python<span class="w"> </span>Stack<span class="w"> </span>w/<span class="w"> </span>…<span class="w">   </span><span class="m">218</span>
-jupyter/pyspark-notebook<span class="w">                </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Python,<span class="w"> </span>Spark,<span class="w"> </span>Mesos<span class="w"> </span>Stack<span class="w"> </span>…<span class="w">   </span><span class="m">157</span>
-jupyter/base-notebook<span class="w">                   </span>Small<span class="w"> </span>base<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>stacks…<span class="w">   </span><span class="m">106</span>
-jupyter/minimal-notebook<span class="w">                </span>Minimal<span class="w"> </span>Jupyter<span class="w"> </span>Notebook<span class="w"> </span>Stack<span class="w"> </span>from<span class="w"> </span>https://…<span class="w">   </span><span class="m">105</span>
-...
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>search<span class="w"> </span>jupyter
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">NAME                                    DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED</span>
+<span class="go">jupyter/datascience-notebook            Jupyter Notebook Data Science Stack from htt…   666</span>
+<span class="go">jupyter/all-spark-notebook              Jupyter Notebook Python, Scala, R, Spark, Me…   301</span>
+<span class="go">jupyterhub/jupyterhub                   JupyterHub: multi-user Jupyter notebook serv…   248                                     [OK]</span>
+<span class="go">jupyter/scipy-notebook                  Jupyter Notebook Scientific Python Stack fro…   241</span>
+<span class="go">jupyter/tensorflow-notebook             Jupyter Notebook Scientific Python Stack w/ …   218</span>
+<span class="go">jupyter/pyspark-notebook                Jupyter Notebook Python, Spark, Mesos Stack …   157</span>
+<span class="go">jupyter/base-notebook                   Small base image for Jupyter Notebook stacks…   106</span>
+<span class="go">jupyter/minimal-notebook                Minimal Jupyter Notebook Stack from https://…   105</span>
+<span class="go">...</span>
 </code></pre></div>
 <p>Let's start by creating a directory <code>my_notebook</code>. Copy <code>hello.py</code>, which we
 used for the Python image to the <code>my_notebook</code> directory. Then create a
@@ -8227,39 +8255,41 @@ access files.</p>
 The default port for Jupyter is 8888, and therefore, we will expose that
 port.</p>
 <p>Now, build the image using the following command:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>mynotebook<span class="w"> </span>.
-Sending<span class="w"> </span>build<span class="w"> </span>context<span class="w"> </span>to<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w">  </span><span class="m">3</span>.072kB
-Step<span class="w"> </span><span class="m">1</span>/3<span class="w"> </span>:<span class="w"> </span>FROM<span class="w"> </span>jupyter/base-notebook
-<span class="w"> </span>---&gt;<span class="w"> </span>6494235c84ec
-Step<span class="w"> </span><span class="m">2</span>/3<span class="w"> </span>:<span class="w"> </span>COPY<span class="w"> </span>hello.py<span class="w"> </span>/home/jovyan/work
-<span class="w"> </span>---&gt;<span class="w"> </span>6e22bc10eee0
-Step<span class="w"> </span><span class="m">3</span>/3<span class="w"> </span>:<span class="w"> </span>EXPOSE<span class="w"> </span><span class="m">8888</span>
-<span class="w"> </span>---&gt;<span class="w"> </span>Running<span class="w"> </span><span class="k">in</span><span class="w"> </span>2d754a40aa2b
-Removing<span class="w"> </span>intermediate<span class="w"> </span>container<span class="w"> </span>2d754a40aa2b
-<span class="w"> </span>---&gt;<span class="w"> </span>464731f2e3a7
-Successfully<span class="w"> </span>built<span class="w"> </span>464731f2e3a7
-Successfully<span class="w"> </span>tagged<span class="w"> </span>mynotebook:latest
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>mynotebook<span class="w"> </span>.
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Sending build context to Docker daemon  3.072kB</span>
+<span class="go">Step 1/3 : FROM jupyter/base-notebook</span>
+<span class="go"> ---&gt; 6494235c84ec</span>
+<span class="go">Step 2/3 : COPY hello.py /home/jovyan/work</span>
+<span class="go"> ---&gt; 6e22bc10eee0</span>
+<span class="go">Step 3/3 : EXPOSE 8888</span>
+<span class="go"> ---&gt; Running in 2d754a40aa2b</span>
+<span class="go">Removing intermediate container 2d754a40aa2b</span>
+<span class="go"> ---&gt; 464731f2e3a7</span>
+<span class="go">Successfully built 464731f2e3a7</span>
+<span class="go">Successfully tagged mynotebook:latest</span>
 </code></pre></div>
 <p>Now, everything is ready. You can run the image using the <code>docker run</code> command.
 We use the <code>-p 8888:8888</code> option to tell Docker that we'd like to bind the 8888
 port in the container to the 8888 port on your host computer.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span>mynotebook
-Entered<span class="w"> </span>start.sh<span class="w"> </span>with<span class="w"> </span>args:<span class="w"> </span>jupyter<span class="w"> </span>lab
-Executing<span class="w"> </span>the<span class="w"> </span>command:<span class="w"> </span>jupyter<span class="w"> </span>lab
-<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.694<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>jupyterlab<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0000s<span class="w"> </span>to<span class="w"> </span>import
-...
-<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.941<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Serving<span class="w"> </span>notebooks<span class="w"> </span>from<span class="w"> </span><span class="nb">local</span><span class="w"> </span>directory:<span class="w"> </span>/home/jovyan
-<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.941<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Jupyter<span class="w"> </span>Server<span class="w"> </span><span class="m">2</span>.5.0<span class="w"> </span>is<span class="w"> </span>running<span class="w"> </span>at:
-<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.941<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>http://ad7f42d45370:8888/lab?token<span class="o">=</span>b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879
-<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.941<span class="w"> </span>ServerApp<span class="o">]</span><span class="w">     </span>http://127.0.0.1:8888/lab?token<span class="o">=</span>b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879
-<span class="o">[</span>I<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.941<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Use<span class="w"> </span>Control-C<span class="w"> </span>to<span class="w"> </span>stop<span class="w"> </span>this<span class="w"> </span>server<span class="w"> </span>and<span class="w"> </span>shut<span class="w"> </span>down<span class="w"> </span>all<span class="w"> </span>kernels<span class="w"> </span><span class="o">(</span>twice<span class="w"> </span>to<span class="w"> </span>skip<span class="w"> </span>confirmation<span class="o">)</span>.
-<span class="o">[</span>C<span class="w"> </span><span class="m">2023</span>-05-02<span class="w"> </span><span class="m">17</span>:45:26.943<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span>mynotebook
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Entered start.sh with args: jupyter lab</span>
+<span class="go">Executing the command: jupyter lab</span>
+<span class="go">[I 2023-05-02 17:45:26.694 ServerApp] Package jupyterlab took 0.0000s to import</span>
+<span class="go">...</span>
+<span class="go">[I 2023-05-02 17:45:26.941 ServerApp] Serving notebooks from local directory: /home/jovyan</span>
+<span class="go">[I 2023-05-02 17:45:26.941 ServerApp] Jupyter Server 2.5.0 is running at:</span>
+<span class="go">[I 2023-05-02 17:45:26.941 ServerApp] http://ad7f42d45370:8888/lab?token=b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879</span>
+<span class="go">[I 2023-05-02 17:45:26.941 ServerApp]     http://127.0.0.1:8888/lab?token=b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879</span>
+<span class="go">[I 2023-05-02 17:45:26.941 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).</span>
+<span class="go">[C 2023-05-02 17:45:26.943 ServerApp] </span>
 
-<span class="w">    </span>To<span class="w"> </span>access<span class="w"> </span>the<span class="w"> </span>server,<span class="w"> </span>open<span class="w"> </span>this<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>browser:
-<span class="w">        </span>file:///home/jovyan/.local/share/jupyter/runtime/jpserver-7-open.html
-<span class="w">    </span>Or<span class="w"> </span>copy<span class="w"> </span>and<span class="w"> </span>paste<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>these<span class="w"> </span>URLs:
-<span class="w">        </span>http://ad7f42d45370:8888/lab?token<span class="o">=</span>b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879
-<span class="w">        </span>http://127.0.0.1:8888/lab?token<span class="o">=</span>b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879
+<span class="go">    To access the server, open this file in a browser:</span>
+<span class="go">        file:///home/jovyan/.local/share/jupyter/runtime/jpserver-7-open.html</span>
+<span class="go">    Or copy and paste one of these URLs:</span>
+<span class="go">        http://ad7f42d45370:8888/lab?token=b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879</span>
+<span class="go">        http://127.0.0.1:8888/lab?token=b76dcd0514e9fe7f60b145e936852ab7836df45e6e4b0879</span>
 </code></pre></div>
 <p>If you navigate to one of the URLs that Jupyter outputs, you will see your
 containerized Jupyter Hub ready to go. If you look inside the <code>work</code> directory,
@@ -8308,7 +8338,7 @@ you'll even see our <code>hello.py</code> script!</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 2, 2024 19:54:18 UTC">August 2, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 17, 2026 17:16:49 UTC">February 17, 2026</span>
     </span>
     
 

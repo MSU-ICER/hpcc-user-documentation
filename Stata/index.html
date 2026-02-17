@@ -6158,6 +6158,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#using-stata-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Stata command line
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Stata command line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#versions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6195,8 +6207,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#running-jobs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6206,8 +6218,19 @@
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-stata-example" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        Getting Stata Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#more-help" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6215,6 +6238,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7458,6 +7486,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#using-stata-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Stata command line
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Stata command line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#versions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7495,8 +7535,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#running-jobs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7506,8 +7546,19 @@
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-stata-example" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        Getting Stata Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#more-help" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7515,6 +7566,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7547,42 +7603,42 @@
 <p>Many versions of Stata are installed on the ICER <abbr title="High-performance computing">HPC</abbr>. When you log in,
 Stata is not available by default, but it may be load easily using this
 command  (note you must type Stata with a capital 'S'</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Stata
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Stata
 </code></pre></div>
 <p>This loads Stata SE version 15.  This is equivalent to using the command</p>
-<div class="highlight"><pre><span></span><code>[hpc@dev-intel18 ~]$ module load Stata/15.0.SE
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Stata/15.0.SE
 </code></pre></div>
 <p>Stata has a command line version and a <abbr title="Graphic User Interface">GUI</abbr> (windowed) version. To use
 the command line, type stata at the prompt. You will see this :</p>
-<p><strong>Using Stata command line</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Stata
-<span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>stata
+<h2 id="using-stata-command-line">Using Stata command line</h2>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Stata
+stata
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">  ___  ____  ____  ____  ____ (R)</span>
+<span class="go"> /__    /   ____/   /   ____/</span>
+<span class="go">___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC</span>
+<span class="go">  Statistics/Data Analysis            StataCorp</span>
+<span class="go">                                      4905 Lakeway Drive</span>
+<span class="go">                                      College Station, Texas 77845 USA</span>
+<span class="go">                                      800-STATA-PC        http://www.stata.com</span>
+<span class="go">                                      979-696-4600        stata@stata.com</span>
+<span class="go">                                      979-696-4601 (fax)</span>
 
-<span class="w">  </span>___<span class="w">  </span>____<span class="w">  </span>____<span class="w">  </span>____<span class="w">  </span>____<span class="w"> </span><span class="o">(</span>R<span class="o">)</span>
-<span class="w"> </span>/__<span class="w">    </span>/<span class="w">   </span>____/<span class="w">   </span>/<span class="w">   </span>____/
-___/<span class="w">   </span>/<span class="w">   </span>/___/<span class="w">   </span>/<span class="w">   </span>/___/<span class="w">   </span><span class="m">15</span>.0<span class="w">   </span>Copyright<span class="w"> </span><span class="m">1985</span>-2017<span class="w"> </span>StataCorp<span class="w"> </span>LLC
-<span class="w">  </span>Statistics/Data<span class="w"> </span>Analysis<span class="w">            </span>StataCorp
-<span class="w">                                      </span><span class="m">4905</span><span class="w"> </span>Lakeway<span class="w"> </span>Drive
-<span class="w">                                      </span>College<span class="w"> </span>Station,<span class="w"> </span>Texas<span class="w"> </span><span class="m">77845</span><span class="w"> </span>USA
-<span class="w">                                      </span><span class="m">800</span>-STATA-PC<span class="w">        </span>http://www.stata.com
-<span class="w">                                      </span><span class="m">979</span>-696-4600<span class="w">        </span>stata@stata.com
-<span class="w">                                      </span><span class="m">979</span>-696-4601<span class="w"> </span><span class="o">(</span>fax<span class="o">)</span>
+<span class="go">15-user Stata network perpetual license:</span>
+<span class="go">       Serial number:  401506213245</span>
+<span class="go">         Licensed to:  iCER / HPCC at Michigan State University</span>
+<span class="go">                       East Lansing, MI</span>
 
-<span class="m">15</span>-user<span class="w"> </span>Stata<span class="w"> </span>network<span class="w"> </span>perpetual<span class="w"> </span>license:
-<span class="w">       </span>Serial<span class="w"> </span>number:<span class="w">  </span><span class="m">401506213245</span>
-<span class="w">         </span>Licensed<span class="w"> </span>to:<span class="w">  </span>iCER<span class="w"> </span>/<span class="w"> </span>HPCC<span class="w"> </span>at<span class="w"> </span>Michigan<span class="w"> </span>State<span class="w"> </span>University
-<span class="w">                       </span>East<span class="w"> </span>Lansing,<span class="w"> </span>MI
+<span class="go">Notes:</span>
+<span class="go">      1.  Unicode is supported; see help unicode_advice.</span>
 
-Notes:
-<span class="w">      </span><span class="m">1</span>.<span class="w">  </span>Unicode<span class="w"> </span>is<span class="w"> </span>supported<span class="p">;</span><span class="w"> </span>see<span class="w"> </span><span class="nb">help</span><span class="w"> </span>unicode_advice.
-
-.
+<span class="go">.</span>
 </code></pre></div>
 <p>In which you may type Stata commands. Type 'exit' to quit this
 version. </p>
 <p>To run a Stata do file from the command line in 'batch', you use the
 syntax</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>stata<span class="w"> </span>-b<span class="w"> </span><span class="k">do</span><span class="w"> </span>dofilename.do
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>stata<span class="w"> </span>-b<span class="w"> </span><span class="k">do</span><span class="w"> </span>dofilename.do
 </code></pre></div>
 <h3 id="versions">Versions</h3>
 <p>Stata comes in several versions: IC, SE, and MP; see
@@ -7592,13 +7648,13 @@ numbers of variables that affect most users but has no licensing
 restrictions (see below). While the default version of Stata
 available when you load the module is Stata/SE, you currently have to
 use the command 'stata-se' to start the 'SE' version</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Stata/15.0.SE
-<span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>stata-se<span class="w">  </span><span class="c1"># to run the interactive version</span>
-<span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>stata-se<span class="w"> </span>-b<span class="w"> </span><span class="k">do</span><span class="w"> </span>dofilename.do<span class="w">  </span><span class="c1"># to run a do file </span>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Stata/15.0.SE
+stata-se<span class="w">  </span><span class="c1"># to run the interactive version</span>
+stata-se<span class="w"> </span>-b<span class="w"> </span><span class="k">do</span><span class="w"> </span>dofilename.do<span class="w">  </span><span class="c1"># to run a do file </span>
 </code></pre></div>
 <p>However, to use the "MP" Version, you must load it explicitly. </p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Stata/15.0.MP
-<span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>stata-mp
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Stata/15.0.MP
+stata-mp
 </code></pre></div>
 <p>Note that even if you load Stata/MP or SE module, as above, if you just
 use the command <code>stata</code> it will load the IC version. To see which
@@ -7616,8 +7672,8 @@ or using a web-base connection to <abbr title="High-performance computing cluste
 via web site</a> ).
 Once an X11 or remote desktop client is connected, you can run xstata on
 a dev node:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Stata
-<span class="o">[</span>hpc@dev-intel18<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>xstata
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Stata
+xstata
 </code></pre></div>
 <p><img alt="A screenshot of the Stata graphic user interface." src="../attachments/11896244/11896243.png" /></p>
 <h4 id="variables-limits">Variables Limits</h4>
@@ -7625,7 +7681,7 @@ a dev node:</p>
 variables to 5000 unless you tell it otherwise.    For information use
 the help set_maxvar command at the dot prompt.   You can set the maxvar
 for your session or in your do file with (for example to 6000)</p>
-<div class="highlight"><pre><span></span><code>.<span class="w"> </span><span class="nb">set</span><span class="w"> </span>maxvar<span class="w"> </span><span class="m">6000</span>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>.<span class="w"> </span><span class="nb">set</span><span class="w"> </span>maxvar<span class="w"> </span><span class="m">6000</span>
 </code></pre></div>
 <p>There are other settings related to memory usage which are important as
 Stata attempts to be very conservative.  For more information use the
@@ -7634,8 +7690,8 @@ Stata "memory" command</p>
 <p>Note you must use the command line version inside a sb script when
 running jobs.  To copy a working example of Stata job file into your 
 home directory, you can use our getexample tool</p>
-<p><strong>Getting Stata Example</strong></p>
-<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
+<h3 id="getting-stata-example">Getting Stata Example</h3>
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
 <span class="nb">cd</span><span class="w"> </span>~
 getexample<span class="w"> </span>STATA_example
 <span class="nb">cd</span><span class="w"> </span>STATA_example
@@ -7692,7 +7748,7 @@ use the "schedule a meeting" link to submit an intake form.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 9, 2025 21:43:31 UTC">April 9, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 17, 2026 17:16:49 UTC">February 17, 2026</span>
     </span>
     
 
@@ -7716,7 +7772,7 @@ use the "schedule a meeting" link to submit an intake form.</p>
             
         </span>
         <nav>
-            Andrew Fullard, Claire Kopenhafer, Xiaoge Wang, toelawpa
+            Andrew Fullard, Claire Kopenhafer, Craig Gross, Xiaoge Wang, toelawpa
         </nav>
     </span>
     

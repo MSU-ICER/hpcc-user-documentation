@@ -7393,35 +7393,36 @@
 <h1 id="getexample">getexample</h1>
 <p>getexample is powertools program for downloading user examples for various programs installed on <abbr title="High-performance computing cluster">HPCC</abbr>. Using getexample requires specifying an examplename
 a list of which can be found by running getexample without any arguments (see below):</p>
-<div class="highlight"><pre><span></span><code>$ getexample
-Download an HPC example:
-usage:
-   getexample &lt;examplename&gt;
+<div class="highlight"><span class="filename">input</span><pre><span></span><code>getexample
+</code></pre></div>
+<div class="highlight"><span class="filename">output</span><pre><span></span><code><span class="go">Download an HPC example:</span>
+<span class="go">usage:</span>
+<span class="go">   getexample &lt;examplename&gt;</span>
 
-Where &lt;examplename&gt; is the name of the example you want to
-download.  This will create a directory named examplename which
-you can cd into and read the README file for details (if one is
-available) or read .qsub or .sb file for how the example is run.
-You may submit the example with &#39;qsub *.qsub&#39; or &#39;sbatch *.sb&#39;.
+<span class="go">Where &lt;examplename&gt; is the name of the example you want to</span>
+<span class="go">download.  This will create a directory named examplename which</span>
+<span class="go">you can cd into and read the README file for details (if one is</span>
+<span class="go">available) or read .qsub or .sb file for how the example is run.</span>
+<span class="go">You may submit the example with &#39;qsub *.qsub&#39; or &#39;sbatch *.sb&#39;.</span>
 
-For Example:
-  getexample helloworld
+<span class="go">For Example:</span>
+<span class="go">  getexample helloworld</span>
 
-Possible example names:
-abaqus_example        cuda_hybrid     Intro2Linux_Oct_2019    MATLAB_threadPool  PETSc_example
-ABySS             DDT_examples    Job_dependency      MKL_benchmark      Python_MPI
-ADMB_example          dmtcp_longjob   LAPACK_example      MKL_c_eigenvalues  Python_numpy
-affinity          espresso_benchmark  magma_example       MKL_Example        QuantumESPRESSO
-Amber_example         FFTW        makefile_example    MKL_FFTW       R_parallel_examples
-basic_array_job       FI491       maker_MPI       MKL_parallel       SAS_example
-blast             fluentMPI       MATLAB_basic        mothur_example     ScaLAPACK
-blender_farm          fortran_openmp      MATLAB_compiler     MPI_OpenMP_GPU     simpleMatlab
-BOOST_example         FreeSurfer      MATLAB_GPU          MPI_pi         STATA_array
-bowtie            gmp_mpfr        MATLAB_many_jobs    multi_variable     STATA_example
-brother_test          helloHPCC       MATLAB_parallel     NAMD_example       tbb_example
-Clang_example         helloMPI        MATLAB_parameter_sweep  OpenACC_example    TotalView_MPI_example
-CMakePackageExamples  helloworld      MATLAB_parfor       openmp_exercise    VASP_example
-cuda              intro2hpcc      MATLAB_patternsearch    PC2HPC         XSEDE_MPI_WORKSHOP
+<span class="go">Possible example names:</span>
+<span class="go">abaqus_example        cuda_hybrid     Intro2Linux_Oct_2019    MATLAB_threadPool  PETSc_example</span>
+<span class="go">ABySS             DDT_examples    Job_dependency      MKL_benchmark      Python_MPI</span>
+<span class="go">ADMB_example          dmtcp_longjob   LAPACK_example      MKL_c_eigenvalues  Python_numpy</span>
+<span class="go">affinity          espresso_benchmark  magma_example       MKL_Example        QuantumESPRESSO</span>
+<span class="go">Amber_example         FFTW        makefile_example    MKL_FFTW       R_parallel_examples</span>
+<span class="go">basic_array_job       FI491       maker_MPI       MKL_parallel       SAS_example</span>
+<span class="go">blast             fluentMPI       MATLAB_basic        mothur_example     ScaLAPACK</span>
+<span class="go">blender_farm          fortran_openmp      MATLAB_compiler     MPI_OpenMP_GPU     simpleMatlab</span>
+<span class="go">BOOST_example         FreeSurfer      MATLAB_GPU          MPI_pi         STATA_array</span>
+<span class="go">bowtie            gmp_mpfr        MATLAB_many_jobs    multi_variable     STATA_example</span>
+<span class="go">brother_test          helloHPCC       MATLAB_parallel     NAMD_example       tbb_example</span>
+<span class="go">Clang_example         helloMPI        MATLAB_parameter_sweep  OpenACC_example    TotalView_MPI_example</span>
+<span class="go">CMakePackageExamples  helloworld      MATLAB_parfor       openmp_exercise    VASP_example</span>
+<span class="go">cuda              intro2hpcc      MATLAB_patternsearch    PC2HPC         XSEDE_MPI_WORKSHOP</span>
 </code></pre></div>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -7467,7 +7468,7 @@ cuda              intro2hpcc      MATLAB_patternsearch    PC2HPC         XSEDE_M
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 19, 2024 13:15:24 UTC">June 19, 2024</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 17, 2026 17:16:49 UTC">February 17, 2026</span>
     </span>
     
 
