@@ -345,10 +345,6 @@
          <lastmod>2026-03-24</lastmod>
     </url>
     <url>
-         <loc>https://docs.icer.msu.edu/Checkpointing_Overview/</loc>
-         <lastmod>2026-03-24</lastmod>
-    </url>
-    <url>
          <loc>https://docs.icer.msu.edu/Checkpointing_with_DMTCP/</loc>
          <lastmod>2026-03-24</lastmod>
     </url>
@@ -386,10 +382,6 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/Connections_to_compute_nodes/</loc>
-         <lastmod>2026-03-24</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.icer.msu.edu/Containers_Overview/</loc>
          <lastmod>2026-03-24</lastmod>
     </url>
     <url>
@@ -685,10 +677,6 @@
          <lastmod>2026-03-24</lastmod>
     </url>
     <url>
-         <loc>https://docs.icer.msu.edu/Powertools/</loc>
-         <lastmod>2026-03-24</lastmod>
-    </url>
-    <url>
          <loc>https://docs.icer.msu.edu/Powertools_Listing/</loc>
          <lastmod>2026-03-24</lastmod>
     </url>
@@ -766,10 +754,6 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/SLURM_commands/</loc>
-         <lastmod>2026-03-24</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.icer.msu.edu/SLURM_overview/</loc>
          <lastmod>2026-03-24</lastmod>
     </url>
     <url>
@@ -861,10 +845,6 @@
          <lastmod>2026-03-24</lastmod>
     </url>
     <url>
-         <loc>https://docs.icer.msu.edu/Transferring_data_with_Globus/</loc>
-         <lastmod>2026-03-24</lastmod>
-    </url>
-    <url>
          <loc>https://docs.icer.msu.edu/Trimmomatic/</loc>
          <lastmod>2026-03-24</lastmod>
     </url>
@@ -906,10 +886,6 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/development_nodes/</loc>
-         <lastmod>2026-03-24</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.icer.msu.edu/filesystem_overview/</loc>
          <lastmod>2026-03-24</lastmod>
     </url>
     <url>
@@ -3970,6 +3946,34 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/zstd/</loc>
+         <lastmod>2026-03-24</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/checkpointing/</loc>
+         <lastmod>2026-03-24</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/containers/</loc>
+         <lastmod>2026-03-24</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/filesystems/</loc>
+         <lastmod>2026-03-24</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/ondemand/</loc>
+         <lastmod>2026-03-24</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/powertools/</loc>
+         <lastmod>2026-03-24</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/slurm/</loc>
+         <lastmod>2026-03-24</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/transferring_data_with_globus/</loc>
          <lastmod>2026-03-24</lastmod>
     </url>
 </urlset>
