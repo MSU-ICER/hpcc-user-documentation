@@ -8237,15 +8237,20 @@ not available under a permissive license.</p>
 similarly and will give access to the same <code>conda</code> program.</p>
 <p>There are two methods for using Conda on the <abbr title="High-performance computing cluster">HPCC</abbr>. The first is using the <code>Miniforge3</code> module. The second is to install Miniforge manually, and is detailed in <a href="#appendix-installing-miniforge-manually-advanced-option">the appendix</a>.</p>
 <h2 id="using-the-miniforge3-module-quick-start-option">Using the Miniforge3 Module (Quick Start Option)</h2>
+<div class="admonition danger">
+<p class="admonition-title">Update Miniforge3 version</p>
+<p>The default version of Miniforge3 is changing on May 4, 2026! If you haven't already, please switch to using the new version <code>25.11.0-1</code>. For details, see <a href="https://blog.icer.msu.edu/announcement/2026/02/25/Miniforge3-Update" target="_blank" rel="noopener">ICER's service status page</a>.</p>
+<p>After May 4, the current version <code>24.3.0-0</code> will be removed.</p>
+</div>
 <p>To access the <code>conda</code> command, first unload other modules to ensure you do not conflict with other versions of Python. Then load the <strong>Miniforge3</strong> module:</p>
 <div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
-module<span class="w"> </span>load<span class="w"> </span>Miniforge3
+module<span class="w"> </span>load<span class="w"> </span>Miniforge3/25.11.0-1
 </code></pre></div>
 <p>When you <a href="#managing-environments">create Conda environments</a> and <a href="#managing-packages">install packages</a>, they will be installed in your home directory under the path <code>/mnt/home/$USER/.conda/envs/myenv</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Using <code>module swap</code></p>
 <p>You can also use <code>module swap</code> to get access to the <code>Miniforge3</code> module while keeping other modules loaded. However, swapping with the <code>Python</code> module by itself is not enough. The better option is to use</p>
-<div class="highlight"><pre><span></span><code>module<span class="w"> </span>swap<span class="w"> </span>Python-bundle-PyPI<span class="w"> </span>Miniforge3
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>swap<span class="w"> </span>Python-bundle-PyPI<span class="w"> </span>Miniforge3/25.11.0-1
 </code></pre></div>
 <p>This ensures that no extra Python packages installed by ICER are accessible from your Miniforge environments.</p>
 </div>
@@ -8295,7 +8300,7 @@ of the "scipy" packages, the current "asteroid" package, and the current
 <div class="highlight"><span class="filename">output</span><pre><span></span><code># conda environments:
 #
 astroenv                 /mnt/home/$USER/.conda/envs/astroenv
-base                  *  /opt/software-current/2023.06/x86_64/generic/software/Miniforge3/24.3.0-0
+base                  *  /opt/software-current/2023.06/x86_64/generic/software/Miniforge3/25.11.0-1
 bioenv                   /mnt/home/$USER/.conda/envs/bioenv
 myenv                    /mnt/home/$USER/.conda/envs/myenv
 newenv                   /mnt/home/$USER/.conda/envs/newenv
@@ -8436,7 +8441,7 @@ correct dependencies and setup.</p>
 
 <span class="c1"># Load Miniforge3 module</span>
 module<span class="w"> </span>purge
-module<span class="w"> </span>load<span class="w"> </span>Miniforge3
+module<span class="w"> </span>load<span class="w"> </span>Miniforge3/25.11.0-1
 <span class="c1"># Activate conda environment and run job commands</span>
 conda<span class="w"> </span>activate<span class="w"> </span>&lt;environment<span class="w"> </span>name&gt;
 &lt;bash<span class="w"> </span>command&gt;
@@ -8460,9 +8465,9 @@ conda<span class="w"> </span>deactivate
 and follow the instructions below:</p>
 <ol>
 <li>
-<p>Find the link for the <strong>64-bit (x86_64) Installer for Minforge3 for Linux</strong> and copy the URL
+<p>Find the link for the <strong>64-bit (x86_64) Installer for Miniforge3 for Linux</strong> and copy the URL
 associated with this link (right-click on the download link and select "copy
-link address" or "copy link location"); For example, <a href="https://github.com/conda-forge/miniforge/releases/download/24.3.0-0/Miniforge3-24.3.0-0-Linux-x86_64.sh" target="_blank" rel="noopener">https://github.com/conda-forge/miniforge/releases/download/24.3.0-0/Miniforge3-24.3.0-0-Linux-x86_64.sh</a>.</p>
+link address" or "copy link location"); For example, <a href="https://github.com/conda-forge/miniforge/releases/download/25.11.0-1/Miniforge3-25.11.0-1-Linux-x86_64.sh" target="_blank" rel="noopener">https://github.com/conda-forge/miniforge/releases/download/25.11.0-1/Miniforge3-25.11.0-1-Linux-x86_64.sh</a>.</p>
 </li>
 <li>
 <p>Login to the <abbr title="High-performance computing cluster">HPCC</abbr>, login to a development node, navigate to the desired installation directory if it is somewhere other than your homespace, then run the command<br />
@@ -8473,7 +8478,7 @@ link address" or "copy link location"); For example, <a href="https://github.com
 <p>Once the Miniforge file is downloaded, run the command<br />
 <code>bash &lt;MiniforgeFileName.sh&gt;</code>  <br />
     where <code>&lt;MiniforgeFileName.sh&gt;</code> above is replaced with the name of the Miniforge
-    file downloaded with the <code>curl</code> command. For example, <code>Miniforge3-24.3.0-0-Linux-x86_64.sh</code>.  </p>
+    file downloaded with the <code>curl</code> command. For example, <code>Miniforge3-25.11.0-1-Linux-x86_64.sh</code>.  </p>
 <p>During Installation you will need to:  </p>
 <ul>
 <li>Accept the license terms; the output will display<br />
@@ -8555,7 +8560,7 @@ to the  <code>.bashrc</code> file after the  <code>export CONDA3PATH=...</code>
 <div class="admonition note">
 <p class="admonition-title">Difference between <code>Conda/3</code> and <code>Miniforge3</code> modules</p>
 <p>If you have installed conda manually, use <code>module load Conda/3</code>. If you are
-using the one installed on the <abbr title="High-performance computing cluster">HPCC</abbr>, use <code>module load Miniforge3</code>. As you
+using the one installed on the <abbr title="High-performance computing cluster">HPCC</abbr>, use <code>module load Miniforge3/25.11.0-1</code>. As you
 read through ICER's documentation, you may see either module being used.
 Substitute for the version that you have chosen.</p>
 </div>
@@ -8671,7 +8676,7 @@ Executing transaction: done
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 9, 2025 14:45:24 UTC">December 9, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 21, 2026 18:11:01 UTC">April 21, 2026</span>
     </span>
     
 
