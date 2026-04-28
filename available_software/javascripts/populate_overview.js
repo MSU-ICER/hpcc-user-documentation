@@ -94,7 +94,7 @@ function populate_overview(json_data) {
               // list_avaible contains a list with booleans.
               // These booleans indicates if the software is available on the corresponding cluster.
               for (const [software, list_available] of Object.entries(json.modules)) {
-                  let new_row = [`<a href="../detail/${software}">${software}</a>`];
+                  let new_row = [`<a href="../detail/${software}" aria-label="${software} detail page">${software}</a>`];
                   list_available.forEach(bool => new_row.push(bool ? "x" : "-"));
                   new_rows.push(new_row);
               }
