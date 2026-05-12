@@ -3739,6 +3739,44 @@
   
 </li>
       
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#constraints-for-specific-nodes" class="md-nav__link" aria-label="Constraints for specific nodes section on page">
+    <span class="md-ellipsis">
+
+      <!-- Typeset title -->
+      
+        Constraints for specific nodes
+      
+    </span>
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -7576,6 +7614,44 @@
   
 </li>
       
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#constraints-for-specific-nodes" class="md-nav__link" aria-label="Constraints for specific nodes section on page">
+    <span class="md-ellipsis">
+
+      <!-- Typeset title -->
+      
+        Constraints for specific nodes
+      
+    </span>
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -7616,6 +7692,58 @@
 
 <!-- Tags -->
 
+  <nav class="md-tags" >
+    
+
+      <!-- Determine classes -->
+      
+      
+      
+        
+        
+      
+
+      <!-- Render tag with link -->
+      
+	  <a href="../tags/#tag:job-script" class="md-tag md-tag-icon" aria-label="Pages tagged with job script">job script</a>
+
+      <!-- Render tag without link -->
+      
+    
+
+      <!-- Determine classes -->
+      
+      
+      
+        
+        
+      
+
+      <!-- Render tag with link -->
+      
+	  <a href="../tags/#tag:reference" class="md-tag md-tag-icon" aria-label="Pages tagged with reference">reference</a>
+
+      <!-- Render tag without link -->
+      
+    
+
+      <!-- Determine classes -->
+      
+      
+      
+        
+        
+      
+
+      <!-- Render tag with link -->
+      
+	  <a href="../tags/#tag:slurm" class="md-tag md-tag-icon" aria-label="Pages tagged with slurm">slurm</a>
+
+      <!-- Render tag without link -->
+      
+    
+  </nav>
+
 
   
     <a href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/Job_Constraints.md" title="Edit this page" class="md-content__button md-icon" rel="edit noopener" target="_blank">
@@ -7628,7 +7756,7 @@
 
 <h1 id="job-constraints">Job Constraints</h1>
 <p>Constraints are set to restrict which node features are required for a
-given job. Use <strong>-C</strong> or <strong>--constraint = &lt;list&gt;</strong> when submitting
+given job. Use <code>-C</code> or <code>--constraint = &lt;list\&gt;</code> when submitting
 your job to specify a constraint. </p>
 <h2 id="operators">Operators</h2>
 <p>The following operators can be used to combine multiple features when
@@ -7729,6 +7857,29 @@ prepended to the constraint.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="constraints-for-specific-nodes">Constraints for specific nodes</h2>
+<p>This table lists the specific constraints necessary to request <a href="../Cluster_Resources/">certain special subsets of nodes</a> on the <abbr title="High-performance computing cluster">HPCC</abbr>.</p>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Nodes</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--constraint=NOAUTO:vim</code></td>
+<td><code>vim-[000-002]</code></td>
+<td><a href="../Cluster_Resources/#fn:1">Large memory nodes</a></td>
+</tr>
+<tr>
+<td><code>--constraint=NOAUTO:grace</code></td>
+<td><code>nch-[000-003],ncc-000</code></td>
+<td><a href="../Getting_Started_with_Grace_Hopper_and_Grace_Grace/">Grace Hopper and Grace Grace nodes</a></td>
+</tr>
+</tbody>
+</table>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -7773,7 +7924,7 @@ prepended to the constraint.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 10, 2026 20:47:26 UTC">February 10, 2026</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 12, 2026 16:13:43 UTC">May 12, 2026</span>
     </span>
     
 
