@@ -8008,43 +8008,53 @@ account all contribute to the job’s priority.</p>
 </tbody>
 </table>
 <h3 id="fairshare">FairShare</h3>
-<p>The FairShare priority factor of a job is calculated based on recent usage compared to overall cluster usage. Each user/account pair is assigned a "share" of the cluster based on the overall number of users in the accounting database. Usage is tracked based on the cluster's configured TRES (Trackable Resource) billing weights. A weight is set for CPUs, memory, and GPUs. Each job's allocated resources are multiplied by these weights and the job's run time to get a combined measure of TRES seconds. TRES seconds are then tracked for each user/account pair.</p>
-<p>The formula used to calculate FairShare factor is as follows:</p>
+<p>The FairShare priority factor is calculated based on recent usage compared to overall cluster usage and gives a priority boost to users who have consumed fewer resources than others. The exact amount of usage it takes to take fairshare priority down to zero varies with overall system system usage, but can be exhausted after two days with sustained usage of ~1000 CPUs or 40 GPUs.</p>
+<p>Usage is tracked based on the cluster's configured Trackable Resource (TRES) billing weights. Weights are configured for CPUs, memory, and each type of <abbr title="Graphics Processing Unit">GPU</abbr>. Every second a job consumes each resource is multiplied by these weights and added together to get a combined measure of TRES seconds that are tracked for each user/account pair.</p>
+<p>The formula used to calculate the FairShare factor from accumulated TRES seconds and is as follows:</p>
 <p>F - FairShare priority factor
 U - Usage as a proportion of total cluster usage
-S - User's configured "share" of cluster
+S - User's configured "share" of the cluster
 W - FairShare priority weight (60000)</p>
 <p>F = (2 ^ (-U/S)) * W</p>
-<p>When consumed TRES seconds is equal to the share of TRES seconds relative to the entire cluster, the FairShare factor will be 30000, and when consumed TRES seconds exceeds double the share for the entire cluster, the FairShare factor will be 15000, tapering off towards zero as usage increases.</p>
-<p>Usage accrual for this calculation decays with a half life of one day and the effect of this decay is calculated every five minutes.</p>
-<p>The exact weights and share values change with the size of the cluster and accounting database, but can be viewed using the <code>fairshare_info</code> powertool.</p>
+<p>When consumed TRES seconds is equal to the share of TRES seconds relative to the entire cluster, the FairShare factor will be 30000, and when consumed TRES seconds exceeds double the share for the entire cluster, the FairShare factor will be 15000, tapering off towards zero as usage increases. Usage accrual for this calculation decays with a half life of one day and the effect of this decay is recalculated every five minutes.</p>
+<p>To view the exact state of the FairShare configuration on the cluster, you can use the <code>fairshare_info</code> powertool.</p>
 <div class="highlight"><span class="filename">input</span><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>powertools
 fairshare_info
 </code></pre></div>
-<div class="highlight"><span class="filename">output</span><pre><span></span><code>TresBillingWeights:
-<span class="w">  </span><span class="nv">CPU</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
-<span class="w">  </span><span class="nv">Memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.0001953
-<span class="w">  </span><span class="nv">GPU</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="m">251</span>.5
+<div class="highlight"><span class="filename">output</span><pre><span></span><code>Resource<span class="w"> </span>Weights:
 
-Current<span class="w"> </span>Total<span class="w"> </span>Cluster<span class="w"> </span>Usage:<span class="w">  </span><span class="m">1494856040893</span><span class="w"> </span>TRES<span class="w"> </span>seconds
-FairShare<span class="w"> </span>Ratio<span class="w"> </span>Per<span class="w"> </span>User:<span class="w">     </span><span class="m">0</span>.000051
-User<span class="w"> </span>Portion<span class="w"> </span>of<span class="w"> </span>Cluster:<span class="w">      </span><span class="m">76237658</span><span class="w"> </span>TRES<span class="w"> </span>seconds
+<span class="w">  </span><span class="nv">CPU</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>Memory<span class="w"> </span><span class="o">(</span>GB<span class="o">)</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.19999
+<span class="w">  </span>GPU<span class="w"> </span><span class="o">(</span>Unspecified<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span>
+<span class="w">  </span>GPU<span class="w"> </span><span class="o">(</span>v100<span class="o">)</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">50</span>
+<span class="w">  </span>GPU<span class="w"> </span><span class="o">(</span>v100s<span class="o">)</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="m">50</span>
+<span class="w">  </span>GPU<span class="w"> </span><span class="o">(</span>a100<span class="o">)</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">75</span>
+<span class="w">  </span>GPU<span class="w"> </span><span class="o">(</span>a100_slice<span class="o">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+<span class="w">  </span>GPU<span class="w"> </span><span class="o">(</span>l40s<span class="o">)</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">25</span>
+<span class="w">  </span>GPU<span class="w"> </span><span class="o">(</span>gh200<span class="o">)</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="m">50</span>
+<span class="w">  </span>GPU<span class="w"> </span><span class="o">(</span>h200<span class="o">)</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">100</span>
+
+Current<span class="w"> </span>Total<span class="w"> </span>Cluster<span class="w"> </span>Usage:<span class="w">  </span><span class="m">3879799</span><span class="w"> </span>Trackable<span class="w"> </span>Resource<span class="w"> </span>Hours
+FairShare<span class="w"> </span>Ratio<span class="w"> </span>Per<span class="w"> </span>User:<span class="w">     </span><span class="m">0</span>.00240
+User<span class="w"> </span>Portion<span class="w"> </span>of<span class="w"> </span>Cluster:<span class="w">      </span><span class="m">9312</span><span class="w"> </span>Trackable<span class="w"> </span>Resource<span class="w"> </span>Hours
 
 FairShare<span class="w"> </span>is<span class="w"> </span>calculated<span class="w"> </span>every<span class="w"> </span><span class="m">00</span>:05:00<span class="w"> </span>and<span class="w"> </span>your<span class="w"> </span>usage<span class="w"> </span>decays<span class="w"> </span><span class="m">50</span>%<span class="w"> </span>every<span class="w"> </span><span class="m">1</span>-00:00:00
 
 The<span class="w"> </span>following<span class="w"> </span>usage<span class="w"> </span>will<span class="w"> </span>reduce<span class="w"> </span>FairShare<span class="w"> </span>priority<span class="w"> </span>to<span class="w"> </span><span class="m">1</span>/2.<span class="w"> </span>Twice<span class="w"> </span>this<span class="w"> </span>usage<span class="w"> </span>will<span class="w"> </span>reduce<span class="w"> </span>it<span class="w"> </span>to<span class="w"> </span><span class="m">1</span>/4:
-<span class="w">     </span><span class="m">21177</span><span class="w"> </span>CPU<span class="w"> </span>Hours
-<span class="w">        </span><span class="m">84</span><span class="w"> </span>GPU<span class="w"> </span>Hours
-<span class="w">    </span><span class="m">105892</span><span class="w"> </span>GB<span class="w"> </span>Hours
 
-<span class="w">     </span><span class="m">17648</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>Hour<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>CPU<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>GB<span class="w"> </span>Jobs
-<span class="w">        </span><span class="m">84</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>Hour<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>CPU<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>GB<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>GPU<span class="w"> </span>Jobs
+<span class="w">      </span><span class="m">9312</span><span class="w"> </span>CPU<span class="w"> </span>Hours
+<span class="w">       </span><span class="m">186</span><span class="w"> </span>GPU<span class="w"> </span>Hours
+<span class="w">     </span><span class="m">46561</span><span class="w">  </span>GB<span class="w"> </span>Hours
+
+<span class="w">      </span><span class="m">7760</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>Hour<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>CPU<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>GB<span class="w"> </span>Jobs
+<span class="w">       </span><span class="m">182</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>Hour<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>CPU<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>GB<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>GPU<span class="w"> </span><span class="o">(</span>Unspecified<span class="o">)</span><span class="w"> </span>Jobs
+<span class="w">        </span><span class="m">93</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>Hour<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>CPU<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>GB<span class="w"> </span>/<span class="w"> </span><span class="m">1</span><span class="w"> </span>GPU<span class="w"> </span><span class="o">(</span>h200<span class="o">)</span><span class="w"> </span>Jobs
 
 Current<span class="w"> </span>FairShare<span class="w"> </span>Priority<span class="w"> </span>Status:
 
 <span class="w">  </span>Account<span class="w">             </span>Priority<span class="w">  </span>Usage<span class="w"> </span><span class="o">(</span>TRES<span class="w"> </span>Seconds<span class="o">)</span>
 <span class="w">  </span>--------------------------------------------------
-<span class="w">  </span>general<span class="w">                </span><span class="m">59907</span><span class="w">               </span><span class="m">171144</span>
+<span class="w">  </span>general<span class="w">                </span><span class="m">60000</span><span class="w">                    </span><span class="m">0</span>
 <span class="w">  </span>scavenger<span class="w">              </span><span class="m">60000</span><span class="w">                    </span><span class="m">0</span>
 </code></pre></div>
 <!--
@@ -8091,7 +8101,7 @@ Current<span class="w"> </span>FairShare<span class="w"> </span>Priority<span cl
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 17, 2026 17:16:49 UTC">February 17, 2026</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 14, 2026 15:31:33 UTC">July 14, 2026</span>
     </span>
     
 
