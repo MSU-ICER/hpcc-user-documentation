@@ -1752,6 +1752,8 @@
       
         
       
+        
+      
     
     
     
@@ -1967,12 +1969,12 @@
 
 <!-- Table of contents item -->
 <li class="md-nav__item">
-  <a href="#backups" class="md-nav__link" aria-label="Backups section on page">
+  <a href="#snapshots" class="md-nav__link" aria-label="Snapshots section on page">
     <span class="md-ellipsis">
 
       <!-- Typeset title -->
       
-        Backups
+        Snapshots
       
     </span>
   </a>
@@ -2061,6 +2063,34 @@
     
   
     Local file system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Backups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File backups
   
 
     
@@ -7635,12 +7665,12 @@
 
 <!-- Table of contents item -->
 <li class="md-nav__item">
-  <a href="#backups" class="md-nav__link" aria-label="Backups section on page">
+  <a href="#snapshots" class="md-nav__link" aria-label="Snapshots section on page">
     <span class="md-ellipsis">
 
       <!-- Typeset title -->
       
-        Backups
+        Snapshots
       
     </span>
   </a>
@@ -7764,7 +7794,7 @@ node.</p>
 and can not contain more than <strong>1 million files</strong>. To check the quota and used space of
 your home directory, see the <a href="#space-quota">Space quota</a> section. 
 Storage space greater than 100GB will require the use of a <a href="../Research_Space/">research space</a>. If you would like to store more than 1 million files in a research space, please refer to the section <a href="#limit-on-number-of-files">Limit on number of files</a>.</p>
-<p>All home directories are stored in the VAST filesystem. It is automatically backed up with local snapshots. To restore any file from backup, change into the .snapshot directory and locate the timestamp directory that has the file version you want.  Copy the file from this location into another location in your home directory.</p>
+<p>All home directories are stored in the <code>ffs24</code> file system. The system takes <a href="#snapshots">automated snapshots</a>.</p>
 <p>For system security and user data privacy, we recommend that
 users do NOT open home directory access permission to others. When you
 report an issue about files saved in home, please attach them to your
@@ -7807,16 +7837,22 @@ total space quota remains the same. A different size of <code>nodr</code> space 
 also be assigned based on the <abbr title="Principle Investigator">PI</abbr>'s request. Once this space is
 created, the path and the quota information on both research and nodr space 
 can be found using <strong><code>quota</code></strong> command mentioned above.</p>
-<h2 id="backups">Backups</h2>
-<p>All home space files are periodically, automatically backed up (except 
+<h2 id="snapshots">Snapshots</h2>
+<div class="admonition warning">
+<p class="admonition-title">Snapshots are not backups</p>
+<p>The automated snapshots described below allow you to recover the state of your home directory when the file system took a snapshot. Any changes that occur between snapshots, or that are from a snapshot older than 30 days are unrecoverable.</p>
+<p>For important files, you need to <a href="../File_Backups/">implement your own backup solution</a> to ensure that you can recover files in exactly the state that you need them.</p>
+</div>
+<p>Snapshots of home space files are automatically taken periodically (except 
 those files that a user has opted to store in a previously requested legacy 
-<strong><code>nodr</code></strong> space). To access file backups, change to the <code>.snapshot</code>
+<strong><code>nodr</code></strong> space). To access these snapshots, change to the <code>.snapshot</code>
 directory within any directory in your home space with the command</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>.snapshot
 </code></pre></div>
 <p>Note that this directory will not show up using <code>ls</code>, and does not count
 against your quota. You can copy any file from a timestamped snapshot wherever
 you would like.</p>
+<p>By default, snapshots are taken hourly. The last 24 hourly snapshots are stored. Beyond that, one snapshot is stored for each of the last 30 days. Modifications older than 30 days are unrecoverable.</p>
 <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
@@ -7861,7 +7897,7 @@ you would like.</p>
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 17, 2026 17:16:49 UTC">February 17, 2026</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 17, 2026 20:19:52 UTC">July 17, 2026</span>
     </span>
     
 

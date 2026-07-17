@@ -1752,6 +1752,8 @@
       
         
       
+        
+      
     
     
     
@@ -2159,12 +2161,12 @@
 
 <!-- Table of contents item -->
 <li class="md-nav__item">
-  <a href="#backups" class="md-nav__link" aria-label="Backups section on page">
+  <a href="#snapshots" class="md-nav__link" aria-label="Snapshots section on page">
     <span class="md-ellipsis">
 
       <!-- Typeset title -->
       
-        Backups
+        Snapshots
       
     </span>
   </a>
@@ -2263,6 +2265,34 @@
     
   
     Local file system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Backups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File backups
   
 
     
@@ -8001,12 +8031,12 @@
 
 <!-- Table of contents item -->
 <li class="md-nav__item">
-  <a href="#backups" class="md-nav__link" aria-label="Backups section on page">
+  <a href="#snapshots" class="md-nav__link" aria-label="Snapshots section on page">
     <span class="md-ellipsis">
 
       <!-- Typeset title -->
       
-        Backups
+        Snapshots
       
     </span>
   </a>
@@ -8165,7 +8195,7 @@
 <h3 id="requesting-a-quota-increase">Requesting a quota increase</h3>
 <p>A <abbr title="Principle Investigator">PI</abbr> may request an increase in storage by submitting a <a href="https://contact.icer.msu.edu/quota" target="_blank" rel="noopener">Quota Increase Request</a> form. Each <abbr title="Principle Investigator">PI</abbr> may request of up to <strong>3TB of space across all research spaces</strong> at not cost, but each additional <abbr title="Terabyte">TB</abbr> of storage will incur a yearly fee. As of 2025, the cost of each additional <abbr title="Terabyte">TB</abbr> of space per year is <strong>$72 for internal faculty</strong> and <strong>$95 for external clients</strong>. These prices are typically updated every two years.</p>
 <h2 id="using-a-research-space">Using a research space</h2>
-<p>Research spaces can be accessed at <code>/mnt/research/&lt;groupname&gt;</code>, where <code>&lt;groupname&gt;</code> is the name of the research space like common-data at <code>/mnt/research/common-data</code>. This location is a symbolic link pointing to the underlying filesystem location, which may change over time. To configure a research space such that all group members have the appropriate access to the files and directories contained within, it is important to read and follow the instructions below.</p>
+<p>Research spaces can be accessed at <code>/mnt/research/&lt;groupname&gt;</code>, where <code>&lt;groupname&gt;</code> is the name of the research space like common-data at <code>/mnt/research/common-data</code>. This location is a symbolic link pointing to the underlying file system location, which may change over time. To configure a research space such that all group members have the appropriate access to the files and directories contained within, it is important to read and follow the instructions below.</p>
 <p><strong>1. Ensure that all directories created in a research space have the group ownership set to the <code>&lt;groupname&gt;</code> 
 and the set-group-ID (<code>setgid</code>) bit enabled.</strong> </p>
 <p>By default, the group's research space <code>/mnt/research/&lt;groupname&gt;</code> is set with the correct group ownership and <code>setgid</code> bit. This setting makes newly created sub-directories and files within inherit the group ownership of the parent directory rather than the primary group of the individual user. To check the group ownership and <code>setgid</code> bit of a directory within the research space use the <code>ls -ld &lt;path/to/directory&gt;</code> command:</p>
@@ -8238,9 +8268,16 @@ causes space usage to be greatly inflated for users with large amounts of
 small files. One suggested solution would be to compress many small
 files into one large file (larger than 64KiB). In this way, the number of
 files can also be reduced. </p>
-<h2 id="backups">Backups</h2>
+<h2 id="snapshots">Snapshots</h2>
+<div class="admonition warning">
+<p class="admonition-title">Snapshots are not backups</p>
+<p>The automated snapshots described below are automated for disaster recovery purposes. Any changes that occur between snapshots or that are from older snapshots are unrecoverable.</p>
+<p>For important files, you need to <a href="../File_Backups/">implement your own backup solution</a> to ensure that you can recover files in exactly the state that you need them.</p>
+</div>
 <p>All research directories are stored in the IBM General Parallel File
-System (<abbr title="General Parallel File System">GPFS</abbr>). Files stored in the space are periodically, automatically copied to an offsite disaster recovery servers, except those files that a group has opted to store in a specially requested <code>nodr</code> space. To request data from this system, please submit a <a href="https://contact.icer.msu.edu/contact" target="_blank" rel="noopener">help ticket</a> containing the file paths and the period, i.e. the time frame, from which the files should be restored.  </p>
+System (<abbr title="General Parallel File System">GPFS</abbr>). Snapshots of files stored in the space are periodically, automatically copied to an offsite disaster recovery servers, except those files that a group has opted to store in a specially requested <code>nodr</code> space.</p>
+<p>As a side-effect of these disaster recovery snapshots, it is sometimes possible to recover files upon request. To request data from this system, please submit a <a href="https://contact.icer.msu.edu/contact" target="_blank" rel="noopener">help ticket</a> containing the file paths and the period, i.e. the time frame, from which the files should be restored. Please note that <strong>there are no guarantees that files can be recovered to your desired state</strong>, and you should always make sure to <a href="../File_Backups/">implement your own backup solution</a>.</p>
+<p>By default, snapshots are taken hourly. The last 24 hourly snapshots are stored. Beyond that, one snapshot is stored for each of the last seven days, and beyond that, one snapshot is stored for each of the last eight weeks. Modifications older than eight weeks are unrecoverable.</p>
 <h2 id="limit-on-number-of-files">Limit on number of files</h2>
 <p>Besides the quota on the size of space, users are also limited to 1 million files in their research directory by default. We need to set this limit because with a great number of files the file system will spend too much time on backups to be able to function normally. If possible, users can compress many files into one to reduce the file number.</p>
 <p>With an increase in research space quota, we can increase the file count limit accordingly.  If users do not wish to have the limit, the <abbr title="Principle Investigator">PI</abbr> can request to have a portion of their research space moved under nodr space <code>/mnt/ufs18/nodr/research/</code> by submitting a help ticket with the drop-down subject 'other' and secondary subject 'nodr request'. There is no limit on the file count, but there is no backup of these files either. Users will be responsible for their own backup of files in the nodr space.</p>
@@ -8289,7 +8326,7 @@ System (<abbr title="General Parallel File System">GPFS</abbr>). Files stored in
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 24, 2026 20:40:02 UTC">March 24, 2026</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 17, 2026 20:19:52 UTC">July 17, 2026</span>
     </span>
     
 
