@@ -1265,6 +1265,14 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/CUnit/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/Cartopy/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/Catch2/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -1461,6 +1469,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/Fiona/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/Flask/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -1569,11 +1581,23 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/GRASS/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/GROMACS/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/GSL/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/GST-plugins-base/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/GStreamer/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -1625,11 +1649,23 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/GnuTLS/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/Go/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/Graphene/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/Graphviz/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/Guile/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -1761,6 +1797,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/Jansson/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/JasPer/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -1846,6 +1886,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/LZO/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/LibSoup/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -2325,6 +2369,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/QGIS/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/QScintilla/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -2338,6 +2386,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/Qt5/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/Qt5Webkit/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -2546,6 +2598,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/Serf/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/Shapely/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -2777,6 +2833,14 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/Waylandpp/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/WebKitGTK%2B/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/X11/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -2865,6 +2929,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/attrdict3/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/awscli/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -2909,6 +2977,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/c-ares/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/cURL/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -2918,6 +2990,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/casacore/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/ccache/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -3029,7 +3105,15 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/elfutils/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/enchant-2/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/exiv2/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -3129,6 +3213,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/gc/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/geckodriver/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -3162,6 +3250,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/glew/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/glib-networking/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -3225,6 +3317,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/hiredis/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/hmmlearn/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -3258,6 +3354,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/impi/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/inih/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -3337,6 +3437,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/libavif/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/libcerf/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -3357,6 +3461,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/libev/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/libevent/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -3366,6 +3474,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/libffi/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/libgcrypt/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -3382,6 +3494,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/libglvnd/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/libgpg-error/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -3453,6 +3569,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/libtasn1/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/libtirpc/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -3490,6 +3610,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/libwebp/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/libwpe/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -3637,6 +3761,18 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/nghttp2/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/nghttp3/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/ngtcp2/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/nlohmann_json/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -3678,6 +3814,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/occt/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/p11-kit/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -3761,6 +3901,14 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/psycopg2/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/pugixml/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/pyBigWig/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -3774,6 +3922,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/pyfaidx/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/pyproj/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
@@ -3953,6 +4105,10 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/unifdef/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/utf8proc/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
@@ -3981,7 +4137,19 @@
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/wpebackend-fdo/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/wrapt/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/wxPython/</loc>
+         <lastmod>2026-09-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/wxWidgets/</loc>
          <lastmod>2026-09-03</lastmod>
     </url>
     <url>
