@@ -1955,12 +1955,12 @@
 
 <!-- Table of contents item -->
 <li class="md-nav__item">
-  <a href="#using-the-local-data" class="md-nav__link" aria-label="Using the local data section on page">
+  <a href="#using-local-data-storage" class="md-nav__link" aria-label="Using local data storage section on page">
     <span class="md-ellipsis">
 
       <!-- Typeset title -->
       
-        Using the local data
+        Using local data storage
       
     </span>
   </a>
@@ -8774,12 +8774,12 @@
 
 <!-- Table of contents item -->
 <li class="md-nav__item">
-  <a href="#using-the-local-data" class="md-nav__link" aria-label="Using the local data section on page">
+  <a href="#using-local-data-storage" class="md-nav__link" aria-label="Using local data storage section on page">
     <span class="md-ellipsis">
 
       <!-- Typeset title -->
       
-        Using the local data
+        Using local data storage
       
     </span>
   </a>
@@ -9008,7 +9008,7 @@ examples below</a>.</p>
 <h2 id="running-code-on-the-data-machine">Running code on the Data Machine</h2>
 <p>Though the Data Machine is not a <a href="../Buy-In_Accounts_with_SLURM/">buy-in node</a>, the
 same procedures are used behind the scenes to run on Data Machine nodes.
-Therefore, users must be added to the <code>data-machine</code> buy-in account to run jobs
+Therefore, users must be added to the <code>data-machine</code> account to run jobs
 on the Data Machine. To be added to this account please <a href="../Data_Machine/#request-access-to-the-data-machine">submit a request</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -9081,7 +9081,7 @@ text box. Your job will queue onto a Data Machine node. Other resources (time,
 <p>You can preload your data into local NVME storage using "burst buffers".
 SLURM will move the data you want to use into NVME storage before your job starts.</p>
 <h3 id="requesting-a-node">Requesting a node</h3>
-<p>At the moment, burst buffers work best when requesting one specific node in the
+<p>Burst buffers work best when requesting one specific node in the
 data machine. This ensures that the time SLURM takes to move your data does not
 count against the time you reserve the node for.</p>
 <p>However, be careful which node you pick. If this node is busy, SLURM will wait
@@ -9100,7 +9100,7 @@ until it is available to assign it to you. You can use the </p>
 <span class="c1">#SBATCH --cpus-per-task=128  # Set to your desired number of CPUs</span>
 <span class="c1">#BB source=/mnt/home/&lt;username&gt;/important/data/here</span>
 </code></pre></div>
-<h3 id="using-the-local-data">Using the local data</h3>
+<h3 id="using-local-data-storage">Using local data storage</h3>
 <p>SLURM sets an environment variable <code>BB_DATA</code> with the location of your data on
 the local NVME storage. Use this directory to access your data with less
 latency than the home, research, or scratch space where it originally came
@@ -9187,7 +9187,7 @@ BurstBufferState=staging-in
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 26, 2026 19:14:54 UTC">May 26, 2026</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 10, 2026 15:08:36 UTC">September 10, 2026</span>
     </span>
     
 
