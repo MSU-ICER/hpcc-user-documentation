@@ -7998,6 +7998,11 @@ Not all options need to be specified. See our <a href="../Example_SLURM_scripts/
 <td><code>#SBATCH   --mem-per-gpu=2G</code></td>
 </tr>
 <tr>
+<td><code>--mem-update=&lt;margin&gt;@&lt;delay&gt;</code></td>
+<td>Update the amount of memory SLURM allocates to your job after a given delay. The new maximum memory will be <code>margin</code> percent above the current usage after <code>delay</code>; e.g. a <code>margin</code> of 20 will mean the limit is 20% above the current usage. The delay can be specified using the same format as <code>--time</code>.</p>The memory limit can only be reduced, never increased. This increase will occur at most once. This option works with both <code>--mem</code> and <code>--mem-per-cpu</code> jobs. For <code>--mem-per-cpu</code> jobs, the new limit is applied as a per-node value. The memory update only uses the resident physical memory (RSS); swap memory is not considered.</td>
+<td><code>#SBATCH --mem-update=20@01:30:00</code></td>
+</tr>
+<tr>
 <td><code>-N</code>,<br/><code>--nodes=&lt;minnodes[-maxnodes]&gt;</code></td>
 <td>Request that a minimum of <code>minnodes</code> nodes be allocated to this job. A maximum node count may also be specified with <code>maxnodes</code>. If only one number is specified, this is used as both the minimum and maximum node count.<p>The job will be allocated as many nodes as possible within the range specified and without delaying the initiation of the job.  Note that the <a href="../Slurm_Environment_Variables/">environment variable</a> <code>SLURM_JOB_NUM_NODES</code> will be set to the count of nodes actually allocated to the job. If not specified, the default behavior is to allocate enough nodes to satisfy the other requested resources as expressed by per-job specification options.</td>
 <td><code>#SBATCH   --nodes=2-4</code> (Request 2 to 4 different nodes)</td>
@@ -8201,7 +8206,7 @@ By default, standard output and error are combined into the same <code>output</c
         <span class="md-icon" title="Last update">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 17, 2026 17:16:49 UTC">February 17, 2026</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 25, 2026 20:21:00 UTC">September 25, 2026</span>
     </span>
     
 
