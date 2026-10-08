@@ -2153,6 +2153,10 @@
          <lastmod>2026-10-08</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/OpenGL/</loc>
+         <lastmod>2026-10-08</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/OpenJPEG/</loc>
          <lastmod>2026-10-08</lastmod>
     </url>
@@ -3449,6 +3453,10 @@
          <lastmod>2026-10-08</lastmod>
     </url>
     <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/libclc/</loc>
+         <lastmod>2026-10-08</lastmod>
+    </url>
+    <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/libde265/</loc>
          <lastmod>2026-10-08</lastmod>
     </url>
@@ -3594,6 +3602,10 @@
     </url>
     <url>
          <loc>https://docs.icer.msu.edu/available_software/detail/libunwind/</loc>
+         <lastmod>2026-10-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.icer.msu.edu/available_software/detail/libuv/</loc>
          <lastmod>2026-10-08</lastmod>
     </url>
     <url>
