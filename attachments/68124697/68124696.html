@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>steviaGBS-variantcalling</title></head>
+<body><h1>Stevia GBS data variant calling</h1>
+<p><em>last update: 2021-03-30</em></p>
+<hr />
+<h2>Results</h2>
+<p>All files and script are stored in the HPCC directory <code>/mnt/research/warner-lab/SteviaGBS2020-Genotypes/</code>.</p>
+<h3>Genotype files</h3>
+<p>Variant genotypes were called for the entire sample, including 234 F1 individuals (18-02), parental line 10-34 and its corresponding TC line, and parental line 10-19 and its TC line, totaling 238 samples. Variant calling was performed by GATK multi-sample calling procedure. SNP genotypes are in PLINK binary format; look for files <code>all.filter2.plink.*</code>.  All SNPs are biallelic with MAF &gt;= 0.01 (184,040 variants with a total genotyping rate of 0.75).</p>
+<h3>Summary files</h3>
+<p><em>1. Distance between samples</em></p>
+<p>Distance matrix was computed based on variants with missing rate &lt; 0.05. The Hamming edit distance (allele counts, so the distance is 2 for the two homozygous genotypes) was used with weights based on missingness. It is found (see dendrogram figure) that parental line 10-19 and 10-19TC are very close (2221.73 distance versus average around 15,000) but 10-34 and 10-34TC are not. There are also other closely related individuals. </p>
+<p>Dendrogram figure: <code>figure_distMatrix.pdf</code> (source files: <code>all.filter2.dist.dist</code> and <code>all.filter2.dist.dist.id</code>).</p>
+<p><em>2. Relationship between proximity to enzyme cut sites and sequencing depth</em></p>
+<p>Presumably only ends digested by the two enzymes (MspI: <code>C^CGG</code> and BamHI: <code>G^GATCC</code>) are sequenced. In reality, there is a strong enrichment around 10bp near the cut sites and a steep drop when distance gets farther than 140bp. As expected, there is very little sequencing beyond 150bp (sequence length) of cut sites.</p>
+<p>Figure: <code>figure_siteDistDP.pdf</code> (source file: <code>dp.site.RData</code>)</p>
+<hr />
+<h2>Bioinformatics pipeline for generating genotypes</h2>
+<h3>Mapping reads to the reference genome using BWA-MEM</h3>
+<p>The reference genome (<code>/mnt/research/warner-lab/SteviaAssembly/Stevia_V2.3.fasta</code>) consists of 10,642 contigs with an N50 = 534,442 bp and total length of 2.19 Gbp. Mapping was performed using BWA-MEM on the paired end reads.</p>
+<h3>Variant calling and genotyping using GATK</h3>
+<p>Before variant calling, GATK typically has to recalibrate base quality. This is not possible with this dataset because there is no reference SNP set that is required for the recalibration to work. However, base calling nowadays is generally quite accurate that this omission is unlikely to affect much of the accuracy of variant calling.</p>
+<p>The three major steps with GATK are:</p>
+<ol start='' >
+<li><code>HaplotypeCaller</code>: turn bam files to GVCF files. This steps turns alignments into allele counts, one sample at a time and keeping both variant and reference allele counts;</li>
+<li><code>CombineGVCFs</code>: combine individual GVCF files into a single one;</li>
+<li><code>GenotypeGVCFs</code>: take in multiple-sample allele counts to call variants and genotypes.</li>
+
+</ol>
+<p>Again, because of the lack of a known variant set, variant quality score recalibration is not possible here. Instead, we applied a set of hard filters on variants and genotypes. See next. </p>
+<h3>Hard-filtering</h3>
+<p>The raw unfiltered VCF has 3,293,908 variants. How number of variant sites changed as more stringent filters were applied sequentially:</p>
+<ul>
+<li>remove sites with mean depth values (over all included individuals) &lt; 5 and variant quality &lt; 50 (751,026 sites left)</li>
+<li>flag genotypes with genotype quality &lt; 10 as missing (no change in variant sites)</li>
+<li>remove sites with missing rate  &gt; 0.25 (580,233 left) &rarr; <code>all.filter2.recode.vcf</code></li>
+<li>remove non-biallelic sites, and sites with MAF &lt; 0.01 (184,040 left, total genotyping rate is 0.75) &rarr; <code>all.filter2.plink.*</code></li>
+
+</ul>
+<hr />
+<h2>Converting VCF to JoinMap format</h2>
+<h3>Usage of the Perl script <code>vcf2jm.pl</code> and other commands</h3>
+<pre><code class='language-shell' lang='shell'># The Perl script produces the second part of the output file, which contains genotypes of the offsprings.
+# 1. --vcf: the vcf file name
+# 2. --p1: ID of the first parent
+# 3. --p2: ID of the second parent
+# 4. --ex: IDs to be excluded (comma separated). For this dataset, we need to exclude the two TC parents.
+#   Also note that p1 and p2 are excluded automatically so they don&#39;t need to be included.
+# 5. --out: output file name
+# 6. --miss: maximum missing rate (default is 0.25). If offspring missing rate at a site is higher than this value, 
+#   the site will be removed from reporting. The rules to label an offspring as missing are:
+#   1) having alleles absent in the parents;
+#   2) having Menelian error. For example, ab x cd can&#39;t produce an ab offspring
+#   3) missing genotype (i.e. not called in VCF)
+perl vcf2jm.pl --vcf test.vcf --p1 10_19 --p2 10_34 --ex 10-19TC,10-34TC --out test.out --miss 0.2
+
+# To prepare the first part of the file, we need to take information from the file &quot;test.out&quot; generated above.
+# This part includes 
+#   &quot;name&quot;, 
+#   &quot;popt&quot; (population type = CP in this case),
+#   &quot;nloc&quot; (number of loci, counted from &quot;test.out&quot;), and
+#   &quot;nind&quot; (number of individuals, counted from &quot;test.out&quot;).
+# All of these are written to the final output file data.for.joinmap.txt, together with test.out appended to it.
+echo &quot;name = test&quot; &gt; data.for.joinmap.txt
+echo &quot;popt = CP&quot; &gt;&gt; data.for.joinmap.txt
+echo -n &quot;nloc = &quot; &gt;&gt; data.for.joinmap.txt
+wc -l test.out | awk &#39;{print $1}&#39; &gt;&gt; data.for.joinmap.txt
+echo -n &quot;nind = &quot; &gt;&gt; data.for.joinmap.txt
+head -n 1 test.out | awk &#39;{print NF-2}&#39; &gt;&gt; data.for.joinmap.txt
+cat test.out &gt;&gt; data.for.joinmap.txt
+</code></pre>
+<h3>Applying the format conversion to the VCF file from previous step</h3>
+<p>The file to be converted can be the VCF that has been quality checked, as generated earlier. That is, the file <code>all.filter2.recode.vcf</code> from the previous <em>Hard-filtering</em> section. I didn&#39;t run the script in the data folder, because you may want to have a different missingness cutoff and/or output file name.</p>
+<h3>Split data into two types of crosses to make pseudo-testcross</h3>
+<p>The code below will be applied to the file <code>test.out</code> above. The purpose is to split data into two types of crosses to make pseudo-testcross, generating two files for your further analysis.</p>
+<pre><code class='language-shell' lang='shell'># Test cross 1: all markers are lmxll
+echo &quot;name = testcross1&quot; &gt; data.for.joinmap.testcross1.txt
+echo &quot;popt = CP&quot; &gt;&gt; data.for.joinmap.testcross1.txt
+echo -n &quot;nloc = &quot; &gt;&gt; data.for.joinmap.testcross1.txt
+awk &#39;$2 == &quot;&lt;lmxll&gt;&quot;&#39; test.out | wc -l &gt;&gt; data.for.joinmap.testcross1.txt
+echo -n &quot;nind = &quot; &gt;&gt; data.for.joinmap.testcross1.txt
+head -n 1 test.out | awk &#39;{print NF-2}&#39; &gt;&gt; data.for.joinmap.testcross1.txt
+awk &#39;$2 == &quot;&lt;lmxll&gt;&quot;&#39; test.out &gt;&gt; data.for.joinmap.testcross1.txt
+
+# Test cross 2: all markers are nnxnp
+echo &quot;name = testcross2&quot; &gt; data.for.joinmap.testcross2.txt
+echo &quot;popt = CP&quot; &gt;&gt; data.for.joinmap.testcross2.txt
+echo -n &quot;nloc = &quot; &gt;&gt; data.for.joinmap.testcross2.txt
+awk &#39;$2 == &quot;&lt;nnxnp&gt;&quot;&#39; test.out | wc -l &gt;&gt; data.for.joinmap.testcross2.txt
+echo -n &quot;nind = &quot; &gt;&gt; data.for.joinmap.testcross2.txt
+head -n 1 test.out | awk &#39;{print NF-2}&#39; &gt;&gt; data.for.joinmap.testcross2.txt
+awk &#39;$2 == &quot;&lt;nnxnp&gt;&quot;&#39; test.out &gt;&gt; data.for.joinmap.testcross2.txt
+
+# The two files data.for.joinmap.testcross1.txt and data.for.joinmap.testcross2.txt are now ready for analysis as two separate datasets
+</code></pre>
+</body>
+</html>

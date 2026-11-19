@@ -1,0 +1,7641 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.icer.msu.edu/available_software/detail/Perl-bundle-CPAN/">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/icer-small-logo-white.png">
+      <meta name="generator" content="zensical-0.1.1">
+    
+    
+      
+        <title>Perl-bundle-CPAN - MSU HPCC User Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/modern/main.ebb7f775.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../overrides/assets/stylesheets/footer.css">
+    
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-689HG824HG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-689HG824HG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-689HG824HG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+<meta name="google-site-verification" content="2ii_V-LUtafEjdOkDT9Sh4326p85vxm9HAeqjFvUElI" />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+<ul class="horiz-link-list footer-list-lg">
+    <li>
+        <a href="https://icer.msu.edu/" rel="noopener" target="_blank">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            </span>
+            ICER Home Page
+        </a>
+    </li>
+    <li>
+        <a href="https://blog.icer.msu.edu/" rel="noopener" target="_blank">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 19v1H3v-1l2-2v-6c0-3.1 2.03-5.83 5-6.71V4a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.29c2.97.88 5 3.61 5 6.71v6zm-7 2a2 2 0 0 1-2 2 2 2 0 0 1-2-2"/></svg>
+            </span>
+            ICER Announcements Blog
+        </a>
+    </li>
+    <li>
+        <a href="https://contact.icer.msu.edu/" rel="noopener" target="_blank">
+            <span class="twemoji">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+            </span>
+            ICER Contact Page
+        </a>
+    </li>
+</ul>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+    <nav
+    class="md-header__inner md-grid"
+    aria-label="header.title"
+  >
+    
+    <!-- <H1>HERE</H1> -->
+    <a class="md-header__button md-logo" data-md-component="logo" href="https://docs.icer.msu.edu/" rel="noopener" target="_blank">
+    
+  <img src="../../../assets/icer-small-logo-white.png" alt="MSU HPCC User Documentation">
+
+    </a>
+        <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+
+    <div class="md-header__title" data-md-component="header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">
+              ICER
+            </span>
+          </div>
+          <div class="md-header__topic" data-md-component="header-topic">
+            <span class="md-ellipsis">
+              
+                Perl-bundle-CPAN
+              
+            </span>
+          </div>
+        </div>
+    </div>
+
+        <!-- Button to open search modal -->
+        <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+  </nav>
+
+</header>
+
+
+<!-- used to conditionally add a banner on certain pages (like index.html) --!>
+
+
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/icer-small-logo-white.png" alt="MSU HPCC User Documentation">
+
+    </a>
+    MSU HPCC User Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a class="md-source" data-md-component="source" href="https://github.com/MSU-ICER/hpcc-user-documentation" rel="noopener" target="_blank" title="Go to repository">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MSU-ICER-User-Documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dashboard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Getting Help
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Getting Help
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Submitting_a_Help_Ticket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Submitting a help ticket
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../virtual_help_desk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Office hours
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICER_HPC_Classroom_Support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Classroom support
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Site_Accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Site and service accessibility
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Getting access to the HPCC
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Getting access to the HPCC
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Obtain_hpcc_access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Obtaining and Managing HPCC accounts
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Project_Tracking_System/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Project Tracking System
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Find_My_Sponsor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Find My Account Sponsor
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Connecting to the HPCC
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Connecting to the HPCC
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Open_OnDemand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Quick start - Login to HPCC via Web portal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Login to HPCC via an SSH client
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Login to HPCC via an SSH client
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install_ssh_client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Install an SSH client
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Connect_to_HPCC_System/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  How to connect to HPCC using an SSH client
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SSH_Key-Based_Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SSH key based authentication
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4" id="__nav_5_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SSH key topics
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5_2_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  SSH key topics
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SSH tunneling to directly access development nodes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SSH connection via VS Code
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Resetting_Known_Hosts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Resetting SSH Host Keys
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  HPCC resources
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  HPCC resources
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../HPC_s_entire_layout_at_ICER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  HPCC layout
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Cluster_Resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cluster resources
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GPU_resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  GPU resources
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development_nodes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Development nodes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  The Data Machine
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  The Data Machine
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Data_Machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data Machine overview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Using_the_Data_Machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Using the Data Machine
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Getting_Started_with_Grace_Hopper_and_Grace_Grace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  NVIDIA Grace nodes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Clusters_with_AMD_CPUs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  AMD CPUs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other_Computing_Resources_NSF_ACCESS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Other Computing Resources (NSF ACCESS)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other_Computing_Resources_on_Campus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Other Computing Resources at MSU
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Computing environment
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Computing environment
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux_Shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Linux shells
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Editing_Text_with_Nano/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Editing text with nano
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../File_Permissions_on_HPCC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  File permissions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_File_Permissions_on_HPCC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Managing file permissions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Change_Primary_Group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Change primary group
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Virtual_Terminals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Virtual Terminals
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parallel_computing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Basics of parallel computing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GPU_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  GPU programming tools
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../filesystems/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  File systems
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  File systems
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Home_Space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home space
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Research_Space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Research space
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scratch_File_Systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scratch space
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Local_File_Systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Local file system
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../File_Backups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  File backups
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Guidelines for choosing file systems and I/O
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sensitive data storage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Science_DMZ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  High Speed Research Network
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../filesystems/parallelfilesystemsIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Using parallel file systems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  File transfer
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  File transfer
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../File_transfer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  File transfer
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../transferring_data_with_globus/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Large file transfer (Globus)
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Large file transfer (Globus)
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Transferring_Data_with_OneDrive_using_Globus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Transferring data with OneDrive using Globus
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Transferring_Data_with_Google_using_Globus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Transferring data with Google using Globus
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cloud storage file transfer
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Mapping drives
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Mapping drives
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Mapping drives using Samba
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Mapping drives using SSHFS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Software module system
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Software module system
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Intro_to_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction to the module system
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Available software modules
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../How_to_find_and_load_software_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Searching software modules
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User_Created_Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User created modules
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Loading_Modules_in_a_Jupyter_Notebook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Loading modules in a Jupyter notebook
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installing software
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Installing software
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Installing_Software_on_the_HPCC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installing Software on the HPCC
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Using_Different_Cluster_Architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Using different cluster architectures
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_3" id="__nav_11_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compiling code
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Compiling code
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compilers_and_Libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compilers and Libraries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compiling_for_GPUs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compiling for GPUs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AMD_Optimizing_CPU_Libraries_and_Compilers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Optimizing for AMD CPUs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_4" id="__nav_11_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installing software with EasyBuild
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Installing software with EasyBuild
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EasyBuild_Tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  EasyBuild tutorial
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EasyBuild_Advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  EasyBuild advanced topics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EasyBuild_Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  EasyBuild reference
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../powertools/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Powertools
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Powertools
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Powertools_Listing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Powertools Listing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getexample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Get software usage examples
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SLURM - buyin information
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../qs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SLURM - display job list
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SLURM - display job steps and their resource usages
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Display_Compute_Nodes_and_Job_Partitions_by_sinfo_command/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SLURM - node status and job partition
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../File_Count/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  File count
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../slurm/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Job submission by SLURM
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_13" id="__nav_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_13">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Job submission by SLURM
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SLURM_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SLURM commands
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_3" id="__nav_13_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Requesting Resources & Submitting Jobs
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_13_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Requesting Resources & Submitting Jobs
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Interactive_Job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interactive jobs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Job_Script_and_Job_Submission/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing and submitting job scripts
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Example_SLURM_scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Example job scripts
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SLURM_resource_request_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SLURM resource request guide
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Requesting_GPUs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Requesting GPUs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../List_of_Job_Specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  List of job specifications
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Job_Constraints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Job constraints
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Slurm_Environment_Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SLURM environment variables
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_4" id="__nav_13_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Managing Jobs
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_13_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Managing Jobs
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SLURM_Check_Modify_and_Cancel_a_Job_by_scontrol_scancel_Command/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Controlling jobs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Show_Job_Steps_by_sacct_and_srun_Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Showing job steps
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../List_Jobs_by_squeue_sview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  List jobs using squeue and sview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../job_policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Job policies
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Buy-In_Accounts_with_SLURM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Buy-in and account management
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_7" id="__nav_13_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Understanding the Scheduler
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_13_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Understanding the Scheduler
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../How_Jobs_are_Scheduled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  How jobs are scheduled
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SLURM_Queueing_and_Partitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SLURM queueing and partitions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Scavenger_Queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scavenger Queue
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Checkpointing_Jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Checkpointing jobs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Connections_to_compute_nodes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Connections to compute nodes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Torque_vs._SLURM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Migrating from Torque
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Software tutorials
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_14">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Software tutorials
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_14_1" id="__nav_14_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  AlphaFold
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_1_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_14_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  AlphaFold
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AlphaFold_installed_in_HPCC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  AlphaFold on HPCC
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Alphafold_via_Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  AlphaFold via Singularity
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ANSYS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  ANSYS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_14_3" id="__nav_14_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bioinformatics software and data
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_14_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Bioinformatics software and data
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Aspera_bulk_file_transfer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Aspera bulk file transfer
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ABySS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  ABySS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BLAST_BLAST+_with_Multiple_Processors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  BLAST/BLAST+
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bracken_KrakenTools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bracken/KrakenTools
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Common-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Common Data Sets
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GATK4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  GATK4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../HTSeq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  HTSeq
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Mothur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Mothur
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NCBI_Entrez_Direct_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  NCBI eDirect
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Load_the_software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  OrthoMCL: load module
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL_configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  OrthoMCL: MySQL configuration
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../orthomcl-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  OrthoMCL pipeline
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QIIME_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  QIIME 2
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RNA_seq_example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  RNA-seq
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Trimmomatic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trimmomatic
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trinity for RNA-seq de novo assembly
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Using_BLAS_and_FlexiBLAS_to_speed_up_linear_algebra_operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  BLAS and FlexiBLAS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../checkpointing/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Checkpointing
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_5" id="__nav_14_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_14_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Checkpointing
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Checkpointing_with_DMTCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Checkpointing with DMTCP
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Checkpointing_with_DMTCP_in_Batch_Jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Checkpointing with DMTCP in batch jobs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Template_for_a_General_Purpose_Checkpointing_Script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Template for a General Purpose Checkpointing Script
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Powertools_longjob_by_DMTCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Powertools `longjob` by DMTCP
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../COMSOL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  COMSOL
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../containers/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Containers: Singularity and Docker
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_7" id="__nav_14_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_14_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Containers: Singularity and Docker
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Docker
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Singularity_Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Singularity Introduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Singularity_Overlays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Singularity Overlays
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Singularity_Advanced_Topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Singularity Advanced Topics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Backwards_Compatibility_with_CentOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  CentOS Backwards compatibility container
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Elbencho_IO_benchmarking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  elbencho
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_14_9" id="__nav_14_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Gaussian
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_14_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Gaussian
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Gaussian_Access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Gaussian access
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Running Gaussian from command line
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Gaussian_Job_Script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Gaussian job script
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Gaussian job with checkpointing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Gaussian_on_HPCC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Gaussian workshop slides
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../make/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  make
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Matlab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Matlab
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_14_12" id="__nav_14_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Perl
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_14_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Perl
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Installing_Local_Perl_Modules_with_CPAN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installing Local Perl Modules with CPAN
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_14_13" id="__nav_14_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Python
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_13_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_14_13">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Python
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Package management
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Using_conda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Using Conda
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Using_conda_research_space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Using Conda in a research space
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Using_Python_in_HPCC_with_virtualenv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Using virtual environments
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_on_HPC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Python on HPCC
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Jupyter_Notebook_in_VS_Code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Jupyter Notebooks in VS Code
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Installing_pytorch_using_pip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installing Pytorch with pip
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14_14" id="__nav_14_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  R
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_14_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_14_14">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  R
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../R_Getting_Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Getting started
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Stata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Stata
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_14_16" id="__nav_14_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  TensorFlow
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_16_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_14_16">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  TensorFlow
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Installing_TensorFlow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installing Tensorflow
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Submitting_a_TensorFlow_job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Submitting a Tensorflow job
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TF-GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tensorflow GPU usage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TFcode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tensorflow Model Training Code Examples
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../launching_TotalView/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  TotalView
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ondemand/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  OnDemand
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_15">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  OnDemand
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OnDemand_Interactive_Desktop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interactive Desktop
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Application_Icons_on_Desktop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Application Icons on Desktop
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OnDemand_Jupyter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Jupyter
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OnDemand_RStudio_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  RStudio Server
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OnDemand_Tensorboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tensorboard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OnDemand_Code_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code Server
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OnDemand_Matlab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MATLAB
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OnDemand_Stata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  STATA
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OnDemand_ParaView/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  ParaView
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OnDemand_LMStudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LM Studio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OnDemand_OpenWebUI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  OpenWebUI
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Training material
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_16">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Training material
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workshop_slides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Workshop materials
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_16_2" id="__nav_16_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exercises and Solution
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_16_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Exercises and Solution
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../File-Permission-in-Research-Space_34963746.html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  File Permission in Research Space
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../HPCC-Job-Submission-Workflow_40337480.html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  HPCC Job Submission Workflow
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Job-Arrays---Run-multiple-similar-jobs-simultaneously_40337504.html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Run Multiple Similar Jobs Simultaneously Using Job-Array
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Running-multiple-jobs-sequentially_34963786.html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Running multiple jobs sequentially
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Submitting-multiple-jobs-simultaneously_40337501.html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Submitting Multiple Jobs Simultaneously
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../External_Resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  External Resources
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_16_4" id="__nav_16_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Others
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_16_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Others
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Targeting_Cluster_Architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Targeting Cluster Architectures
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Frequently_Asked_Questions_FAQ_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  FAQ
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Acknowledging_ICER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Acknowledging ICER
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Maintenance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../HPC_Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Lab_Notebooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Lab Notebooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tags
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICER_User_and_Data_Policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User and Data Policies
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSU_AUP_and_ICER_Guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Acceptable Use Policy and Guidelines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+    <a class="md-content__button md-icon" href="https://gitlab.msu.edu/icer/public-documentation/-/tree/main/docs/available_software/detail/Perl-bundle-CPAN.md" rel="edit noopener" target="_blank" title="Edit this page">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-pen" viewBox="0 0 24 24"><path d="M12.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v9.34"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10.378 12.622a1 1 0 0 1 3 3.003L8.36 20.637a2 2 0 0 1-.854.506l-2.867.837a.5.5 0 0 1-.62-.62l.836-2.869a2 2 0 0 1 .506-.853z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="perl-bundle-cpan">Perl-bundle-CPAN</h1>
+<p>A set of common packages from CPAN</p>
+<p><a href="https://www.perl.org/" rel="noopener" target="_blank">https://www.perl.org/</a></p>
+<h1 id="available-modules">Available modules</h1>
+<p>The overview below shows which Perl-bundle-CPAN installations are available per target architecture in the <abbr title="High-performance computing cluster">HPCC</abbr> module system, ordered based on software version (new to old).</p>
+<p>To start using Perl-bundle-CPAN, load one of these modules using a <code>module load</code> command like:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Perl-bundle-CPAN/5.42.0-GCCcore-15.2.0
+</code></pre></div>
+<p><em>(This data was automatically generated on Thu, 19 Nov 2026 at 12:01:03 EST)</em>  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">gateway</th>
+<th style="text-align: center;">generic</th>
+<th style="text-align: center;">zen2</th>
+<th style="text-align: center;">zen3</th>
+<th style="text-align: center;">zen4</th>
+<th style="text-align: center;">skylake_avx512</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Gateway nodes</td>
+<td style="text-align: center;">everywhere (except Grace nodes)</td>
+<td style="text-align: center;">amd20</td>
+<td style="text-align: center;">amd22</td>
+<td style="text-align: center;">amd24</td>
+<td style="text-align: center;">intel18,amd20-v100,amd21,intel21</td>
+</tr>
+<tr>
+<td style="text-align: center;">Perl-bundle-CPAN/5.42.0-GCCcore-15.2.0</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">Perl-bundle-CPAN/5.40.0-GCCcore-14.2.0</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">Perl-bundle-CPAN/5.38.2-GCCcore-13.3.0</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">Perl-bundle-CPAN/5.38.0-GCCcore-13.2.0</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">Perl-bundle-CPAN/5.36.1-GCCcore-12.3.0</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+</tr>
+</tbody>
+</table>
+<h3 id="perl-bundle-cpan5420-gcccore-1520">Perl-bundle-CPAN/5.42.0-GCCcore-15.2.0</h3>
+<p>This is a list of extensions included in the module:</p>
+<p>Algorithm::Dependency-1.112, Algorithm::Diff-1.201, aliased-0.34, AnyEvent-7.17, App::Cmd-0.340, App::cpanminus-1.7049, AppConfig-1.71, Archive::Extract-0.88, Array::Transpose-0.07, Array::Utils-0.5, Authen::NTLM-1.09, Authen::SASL-2.2000, AutoLoader-5.74, B::COW-0.007, B::Hooks::EndOfScope-0.28, B::Lint-1.20, boolean-0.46, Business::ISBN-3.014, Business::ISBN::Data-20260519.001, Canary::Stability-2013, Capture::Tiny-0.50, Carp::Clan-6.08, Carp::Heavy-1.50, CGI-4.72, Class::Accessor-0.51, Class::Data::Inheritable-0.10, Class::DBI-v3.0.17, Class::DBI::SQLite-0.11, Class::Inspector-1.36, Class::ISA-0.36, Class::Load-0.25, Class::Load::XS-0.10, Class::Method::Modifiers-2.15, Class::Singleton-1.6, Class::Tiny-1.008, Class::Trigger-0.15, Class::XSAccessor-1.19, Clone-0.50, Clone::Choose-0.010, common::sense-3.75, Compress::Raw::Bzip2-2.218, Compress::Raw::Zlib-2.222, Config::General-2.67, Config::INI-0.029, Config::MVP-2.200013, Config::MVP::Reader::INI-2.101465, Config::Simple-4.58, Config::Tiny-2.30, Const::Exporter-v1.3.0, Const::Fast-0.014, CPAN::Meta::Check-0.018, CPAN::Meta::Requirements-2.145, CPAN::Requirements::Dynamic-0.002, CPAN::Uploader-0.103019, CPANPLUS-0.9916, Crypt::DES-2.07, Crypt::Rijndael-1.16, Crypt::URandom-0.55, Cwd-3.75, Cwd::Guard-0.05, Data::Dump-1.25, Data::Dumper::Concise-2.023, Data::Grove-0.08, Data::OptList-0.114, Data::Section-0.200008, Data::Section::Simple-0.07, Data::Stag-0.14, Data::Types-0.17, Data::UUID-1.227, Date::Handler-1.2, Date::Language-2.35, DateTime-1.66, DateTime::Locale-1.45, DateTime::TimeZone-2.68, DateTime::Tiny-1.08, DBD::CSV-0.62, DBD::SQLite-1.78, DBI-1.647, DBIx::Admin::CreateTable-2.11, DBIx::Admin::DSNManager-2.02, DBIx::Admin::TableInfo-3.04, DBIx::ContextualFetch-1.03, DBIx::Simple-1.37, Devel::CheckCompiler-0.07, Devel::CheckLib-1.16, Devel::Cycle-1.12, Devel::FindPerl-0.016, Devel::GlobalDestruction-0.14, Devel::OverloadInfo-0.008, Devel::Size-0.87, Devel::StackTrace-2.05, Digest::HMAC-1.05, Digest::MD5::File-0.08, Digest::SHA1-2.13, Dist::CheckConflicts-0.11, Dist::Zilla-6.037, Email::Date::Format-1.008, Encode-3.24, Encode::Locale-1.05, Error-0.17030, Eval::Closure-0.14, Exception::Class-1.45, Expect-1.38, Exporter::Declare-0.114, Exporter::Tiny-1.006003, ExtUtils::CBuilder-0.280236, ExtUtils::Config-0.010, ExtUtils::Constant-0.25, ExtUtils::CppGuess-0.27, ExtUtils::Helpers-0.028, ExtUtils::InstallPaths-0.015, ExtUtils::MakeMaker-7.78, ExtUtils::ParseXS-3.63, Fennec::Lite-0.004, File::CheckTree-4.42, File::Copy::Recursive-0.45, File::Copy::Recursive::Reduced-0.008, File::Find::Rule-0.35, File::Find::Rule::Perl-1.16, File::Grep-0.02, File::HomeDir-1.006, File::Listing-6.16, File::Next-1.18, File::pushd-1.016, File::Remove-1.61, File::ShareDir-1.118, File::ShareDir::Install-0.14, File::Slurp-9999.32, File::Slurp::Tiny-0.004, File::Slurper-0.014, File::Temp-0.2312, File::Which-1.27, Font::TTF-1.06, Getopt::Long::Descriptive-0.117, Git-0.42, GO-0.04, GO::Utils-0.15, Graph-0.9735, Graph::ReadWrite-2.10, Hash::Merge-0.302, Hash::Objectify-0.008, Heap-0.80, Hook::LexWrap-0.26, HTML::Entities::Interpolate-1.10, HTML::Form-6.13, HTML::Parser-3.83, HTML::Tagset-3.24, HTML::Template-2.97, HTML::Tree-5.07, HTTP::CookieJar-0.014, HTTP::Cookies-6.11, HTTP::Daemon-6.16, HTTP::Date-6.06, HTTP::Message-7.01, HTTP::Negotiate-6.01, HTTP::Tiny-0.094, if-0.0608, Ima::DBI-0.35, Import::Into-1.002005, Importer-0.026, Inline-0.87, IO::Compress::Zip-2.220, IO::HTML-1.004, IO::Socket::SSL-2.098, IO::String-1.08, IO::Stringy-2.113, IO::TieCombine-1.005, IO::Tty-1.29, IPC::Cmd-1.04, IPC::Run-20260402.0, IPC::Run3-0.049, IPC::System::Simple-1.30, JSON-4.11, JSON::MaybeXS-1.004008, JSON::XS-4.04, Lingua::EN::PluralToSingular-0.21, List::AllUtils-0.19, List::MoreUtils-0.430, List::MoreUtils::XS-0.430, List::SomeUtils-0.59, List::UtilsBy-0.12, local::lib-2.000029, Locale::Maketext::Simple-0.21, Log::Dispatch-2.71, Log::Dispatch::Array-1.005, Log::Dispatchouli-3.101, Log::Handler-0.90, Log::Log4perl-1.57, Log::Message-0.08, Log::Message::Simple-0.10, Log::Report-1.45, Log::Report::Optional-1.08, Logger::Simple-2.0, LWP::MediaTypes-6.04, LWP::Protocol::https-6.15, LWP::Simple-6.83, Mail::Util-2.22, Math::Bezier-0.01, Math::CDF-0.1, Math::Round-0.08, Math::Utils-1.14, Math::VecStat-0.08, MCE::Mutex-1.902, Meta::Builder-0.004, MIME::Base32-1.303, MIME::Base64-3.16, MIME::Charset-v1.013.1, MIME::Lite-3.038, MIME::Types-2.30, Mixin::Linewise::Readers-0.111, Mock::Quick-1.111, Module::Build-0.4234, Module::Build::Tiny-0.053, Module::Build::XSUtil-0.19, Module::CoreList-5.20260420, Module::Implementation-0.09, Module::Install-1.21, Module::Load-0.36, Module::Load::Conditional-0.74, Module::Metadata-1.000039, Module::Path-0.19, Module::Pluggable-6.3, Module::Runtime-0.018, Module::Runtime::Conflicts-0.003, Moo-2.005005, Moose-2.4000, MooseX::LazyRequire-0.11, MooseX::OneArgNew-0.007, MooseX::Role::Parameterized-1.11, MooseX::SetOnce-0.203, MooseX::Types-0.51, MooseX::Types::Perl-0.101344, Mouse-v2.6.2, Mozilla::CA-20250602, MRO::Compat-0.15, namespace::autoclean-0.31, namespace::clean-0.27, Net::Domain-3.15, Net::HTTP-6.24, Net::SMTP::SSL-1.04, Net::SNMP-v6.0.1, Net::SSLeay-1.96, Number::Compare-0.03, Number::Format-1.76, Object::Accessor-0.48, Object::InsideOut-4.05, Package::Constants-0.06, Package::DeprecationManager-0.18, Package::Stash-0.40, Package::Stash::XS-0.30, PadWalker-2.5, Parallel::ForkManager-2.04, Params::Check-0.38, Params::Util-1.102, Params::Validate-1.31, Params::ValidationCompiler-0.31, parent-0.244, Parse::RecDescent-1.967015, Parse::Yapp-1.21, Path::Tiny-0.150, PDF::API2-2.048, Perl::OSType-1.010, Perl::PrereqScanner-1.100, PerlIO::utf8_strict-0.010, Pod::Elemental-0.103006, Pod::Escapes-1.07, Pod::Eventual-0.094003, Pod::LaTeX-0.61, Pod::Man-v6.0.2, Pod::Parser-1.67, Pod::Plainer-1.04, Pod::POM-2.01, Pod::Simple-3.48, Pod::Weaver-4.020, PPI-1.291, Readonly-2.05, Ref::Util-0.204, Regexp::Common-2024080801, Role::HasMessage-0.007, Role::Identifiable::HasIdent-0.009, Role::Tiny-2.002005, Safe::Isa-1.000010, Scalar::Util-1.70, Scalar::Util::Numeric-0.40, Scope::Guard-0.21, Set::Array-0.30, Set::IntervalTree-0.12, Set::IntSpan-1.19, Set::IntSpan::Fast-1.15, Set::Object-1.43, Set::Scalar-1.29, Shell-0.73, Socket-2.041, Software::License-0.104007, Specio-0.53, Spiffy-0.46, SQL::Abstract-2.000001, SQL::Statement-1.414, Statistics::Basic-1.6611, Statistics::Descriptive-3.0801, Storable-3.25, strictures-2.000006, String::Errf-0.009, String::Flogger-1.101246, String::Formatter-1.235, String::Print-1.02, String::RewritePrefix-0.009, String::Truncate-1.100603, String::TtyLength-0.03, Sub::Exporter-0.991, Sub::Exporter::ForMethods-0.100055, Sub::Exporter::GlobExporter-0.006, Sub::Exporter::Progressive-0.001013, Sub::Identify-0.14, Sub::Info-0.002, Sub::Install-0.929, Sub::Name-0.28, Sub::Quote-2.006009, Sub::Uplevel-0.2800, SVG-2.89, Switch-2.17, Sys::HostIP-2.120, Sys::Info-0.7811, Sys::Info::Base-0.7810, Sys::Info::Driver::Linux-0.7911, Sys::Info::Driver::Unknown-0.79, Task::Weaken-1.06, Template-3.102, Template::Plugin::Number::Format-1.06, Term::Encoding-0.03, Term::ReadKey-2.38, Term::ReadLine::Gnu-1.47, Term::Table-0.028, Term::UI-0.50, Test-1.26, Test2::Plugin::NoWarnings-0.10, Test2::Require::Module-1.302219, Test::Base-0.89, Test::CheckDeps-0.010, Test::ClassAPI-1.07, Test::CleanNamespaces-0.24, Test::Deep-1.205, Test::Differences-0.72, Test::Exception-0.43, Test::FailWarnings-0.008, Test::Fatal-0.018, Test::File-1.995, Test::File::ShareDir::Dist-1.001002, Test::Harness-3.52, Test::LeakTrace-0.17, Test::Memory::Cycle-1.06, Test::More::UTF8-0.05, Test::Most-0.42, Test::Needs-0.002010, Test::NoWarnings-1.06, Test::Object-0.08, Test::Output-1.036, Test::Pod-1.52, Test::Requires-0.11, Test::RequiresInternet-0.05, Test::Simple-1.302219, Test::SubCalls-1.10, Test::Sys::Info-0.23, Test::Version-2.09, Test::Warn-0.37, Test::Warnings-0.038, Test::Without::Module-0.23, Test::YAML-1.07, Text::Aligner-0.16, Text::Balanced-2.07, Text::CSV-2.06, Text::CSV_XS-1.62, Text::Diff-1.45, Text::Format-0.63, Text::Glob-0.11, Text::Iconv-1.7, Text::Soundex-3.05, Text::Table-1.135, Text::Table::Manifold-1.03, Text::Template-1.61, Throwable-1.001, Tie::Function-0.02, Tie::IxHash-1.23, Time::Local-1.35, Time::Piece-1.41, Time::Piece::MySQL-0.06, Tree::DAG_Node-1.35, Try::Tiny-0.32, Type::Tiny-2.010001, Types::Serialiser-1.01, Unicode::EastAsianWidth-12.0, Unicode::LineBreak-2019.001, UNIVERSAL::moniker-0.08, Unix::Processors-2.046, URI-5.34, Variable::Magic-0.64, version-0.9934, Want-0.29, WWW::RobotRules-6.02, XML::Bare-0.53, XML::DOM-1.46, XML::Filter::BufferText-1.01, XML::NamespaceSupport-1.12, XML::Parser-2.58, XML::RegExp-0.04, XML::SAX-1.02, XML::SAX::Base-1.09, XML::SAX::Expat-0.51, XML::SAX::Writer-0.57, XML::Simple-2.25, XML::Tiny-2.07, XML::Twig-3.54, XML::Writer-0.900, XML::XPath-1.49, XSLoader-0.24, YAML-1.31, YAML::PP-v0.40.0, YAML::Tiny-1.76</p>
+<h3 id="perl-bundle-cpan5400-gcccore-1420">Perl-bundle-CPAN/5.40.0-GCCcore-14.2.0</h3>
+<p>This is a list of extensions included in the module:</p>
+<p>Algorithm::Dependency-1.112, Algorithm::Diff-1.201, aliased-0.34, AnyEvent-7.17, App::Cmd-0.336, App::cpanminus-1.7048, AppConfig-1.71, Archive::Extract-0.88, Array::Transpose-0.06, Array::Utils-0.5, Authen::NTLM-1.09, Authen::SASL-2.1700, AutoLoader-5.74, B::COW-0.007, B::Hooks::EndOfScope-0.28, B::Lint-1.20, boolean-0.46, Business::ISBN-3.009, Business::ISBN::Data-20241205.001, Canary::Stability-2013, Capture::Tiny-0.48, Carp::Clan-6.08, Carp::Heavy-1.50, CGI-4.66, Class::Accessor-0.51, Class::Data::Inheritable-0.10, Class::DBI-v3.0.17, Class::DBI::SQLite-0.11, Class::Inspector-1.36, Class::ISA-0.36, Class::Load-0.25, Class::Load::XS-0.10, Class::Method::Modifiers-2.15, Class::Singleton-1.6, Class::Tiny-1.008, Class::Trigger-0.15, Class::XSAccessor-1.19, Clone-0.47, Clone::Choose-0.010, common::sense-3.75, Compress::Raw::Bzip2-2.213, Compress::Raw::Zlib-2.213, Config::General-2.65, Config::INI-0.029, Config::MVP-2.200013, Config::MVP::Reader::INI-2.101465, Config::Simple-4.58, Config::Tiny-2.30, Const::Exporter-v1.2.3, Const::Fast-0.014, CPAN::Meta::Check-0.018, CPAN::Meta::Requirements-2.143, CPAN::Requirements::Dynamic-0.001, CPAN::Uploader-0.103018, CPANPLUS-0.9914, Crypt::DES-2.07, Crypt::Rijndael-1.16, Cwd-3.75, Cwd::Guard-0.05, Data::Dump-1.25, Data::Dumper::Concise-2.023, Data::Grove-0.08, Data::OptList-0.114, Data::Section-0.200008, Data::Section::Simple-0.07, Data::Stag-0.14, Data::Types-0.17, Data::UUID-1.227, Date::Handler-1.2, Date::Language-2.33, DateTime-1.65, DateTime::Locale-1.44, DateTime::TimeZone-2.63, DateTime::Tiny-1.07, DBD::CSV-0.60, DBD::SQLite-1.76, DBI-1.645, DBIx::Admin::CreateTable-2.11, DBIx::Admin::DSNManager-2.02, DBIx::Admin::TableInfo-3.04, DBIx::ContextualFetch-1.03, DBIx::Simple-1.37, Devel::CheckCompiler-0.07, Devel::CheckLib-1.16, Devel::Cycle-1.12, Devel::FindPerl-0.016, Devel::GlobalDestruction-0.14, Devel::OverloadInfo-0.007, Devel::Size-0.84, Devel::StackTrace-2.05, Digest::HMAC-1.05, Digest::MD5::File-0.08, Digest::SHA1-2.13, Dist::CheckConflicts-0.11, Dist::Zilla-6.032, Email::Date::Format-1.008, Encode-3.21, Encode::Locale-1.05, Error-0.17029, Eval::Closure-0.14, Exception::Class-1.45, Expect-1.38, Exporter::Declare-0.114, Exporter::Tiny-1.006002, ExtUtils::CBuilder-0.280236, ExtUtils::Config-0.010, ExtUtils::Constant-0.25, ExtUtils::CppGuess-0.27, ExtUtils::Helpers-0.028, ExtUtils::InstallPaths-0.014, ExtUtils::MakeMaker-7.70, ExtUtils::ParseXS-3.51, Fennec::Lite-0.004, File::CheckTree-4.42, File::Copy::Recursive-0.45, File::Copy::Recursive::Reduced-0.008, File::Find::Rule-0.34, File::Find::Rule::Perl-1.16, File::Grep-0.02, File::HomeDir-1.006, File::Listing-6.16, File::Next-1.18, File::pushd-1.016, File::Remove-1.61, File::ShareDir-1.118, File::ShareDir::Install-0.14, File::Slurp-9999.32, File::Slurp::Tiny-0.004, File::Slurper-0.014, File::Temp-0.2311, File::Which-1.27, Font::TTF-1.06, Getopt::Long::Descriptive-0.115, Git-0.42, GO-0.04, GO::Utils-0.15, Graph-0.9732, Graph::ReadWrite-2.10, Hash::Merge-0.302, Hash::Objectify-0.008, Heap-0.80, Hook::LexWrap-0.26, HTML::Entities::Interpolate-1.10, HTML::Form-6.12, HTML::Parser-3.83, HTML::Tagset-3.24, HTML::Template-2.97, HTML::Tree-5.07, HTTP::CookieJar-0.014, HTTP::Cookies-6.11, HTTP::Daemon-6.16, HTTP::Date-6.06, HTTP::Message-7.00, HTTP::Negotiate-6.01, HTTP::Tiny-0.090, if-0.0608, Ima::DBI-0.35, Import::Into-1.002005, Importer-0.026, Inline-0.86, IO::Compress::Zip-2.213, IO::HTML-1.004, IO::Socket::SSL-2.089, IO::String-1.08, IO::Stringy-2.113, IO::TieCombine-1.005, IO::Tty-1.20, IPC::Cmd-1.04, IPC::Run-20231003.0, IPC::Run3-0.049, IPC::System::Simple-1.30, JSON-4.10, JSON::MaybeXS-1.004008, JSON::XS-4.03, Lingua::EN::PluralToSingular-0.21, List::AllUtils-0.19, List::MoreUtils-0.430, List::MoreUtils::XS-0.430, List::SomeUtils-0.59, List::UtilsBy-0.12, local::lib-2.000029, Locale::Maketext::Simple-0.21, Log::Dispatch-2.71, Log::Dispatch::Array-1.005, Log::Dispatchouli-3.008, Log::Handler-0.90, Log::Log4perl-1.57, Log::Message-0.08, Log::Message::Simple-0.10, Log::Report-1.39, Log::Report::Optional-1.07, Logger::Simple-2.0, LWP::MediaTypes-6.04, LWP::Protocol::https-6.14, LWP::Simple-6.77, Mail::Util-2.22, Math::Bezier-0.01, Math::CDF-0.1, Math::Round-0.08, Math::Utils-1.14, Math::VecStat-0.08, MCE::Mutex-1.900, Meta::Builder-0.004, MIME::Base32-1.303, MIME::Base64-3.16, MIME::Charset-v1.013.1, MIME::Lite-3.033, MIME::Types-2.26, Mixin::Linewise::Readers-0.111, Mock::Quick-1.111, Module::Build-0.4234, Module::Build::Tiny-0.051, Module::Build::XSUtil-0.19, Module::CoreList-5.20241120, Module::Implementation-0.09, Module::Install-1.21, Module::Load-0.36, Module::Load::Conditional-0.74, Module::Metadata-1.000038, Module::Path-0.19, Module::Pluggable-6.2, Module::Runtime-0.016, Module::Runtime::Conflicts-0.003, Moo-2.005005, Moose-2.2207, MooseX::LazyRequire-0.11, MooseX::OneArgNew-0.007, MooseX::Role::Parameterized-1.11, MooseX::SetOnce-0.203, MooseX::Types-0.50, MooseX::Types::Perl-0.101344, Mouse-v2.5.11, Mozilla::CA-20240924, MRO::Compat-0.15, namespace::autoclean-0.31, namespace::clean-0.27, Net::Domain-3.15, Net::HTTP-6.23, Net::SMTP::SSL-1.04, Net::SNMP-v6.0.1, Net::SSLeay-1.94, Number::Compare-0.03, Number::Format-1.76, Object::Accessor-0.48, Object::InsideOut-4.05, Package::Constants-0.06, Package::DeprecationManager-0.18, Package::Stash-0.40, Package::Stash::XS-0.30, PadWalker-2.5, Parallel::ForkManager-2.03, Params::Check-0.38, Params::Util-1.102, Params::Validate-1.31, Params::ValidationCompiler-0.31, parent-0.243, Parse::RecDescent-1.967015, Parse::Yapp-1.21, Path::Tiny-0.146, PDF::API2-2.047, Perl::OSType-1.010, Perl::PrereqScanner-1.100, PerlIO::utf8_strict-0.010, Pod::Elemental-0.103006, Pod::Escapes-1.07, Pod::Eventual-0.094003, Pod::LaTeX-0.61, Pod::Man-v6.0.2, Pod::Parser-1.67, Pod::Plainer-1.04, Pod::POM-2.01, Pod::Simple-3.45, Pod::Weaver-4.020, PPI-1.279, Readonly-2.05, Ref::Util-0.204, Regexp::Common-2024080801, Role::HasMessage-0.007, Role::Identifiable::HasIdent-0.009, Role::Tiny-2.002004, Scalar::Util-1.68, Scalar::Util::Numeric-0.40, Scope::Guard-0.21, Set::Array-0.30, Set::IntervalTree-0.12, Set::IntSpan-1.19, Set::IntSpan::Fast-1.15, Set::Object-1.42, Set::Scalar-1.29, Shell-0.73, Socket-2.038, Software::License-0.104006, Specio-0.48, Spiffy-0.46, SQL::Abstract-2.000001, SQL::Statement-1.414, Statistics::Basic-1.6611, Statistics::Descriptive-3.0801, Storable-3.25, strictures-2.000006, String::Errf-0.009, String::Flogger-1.101246, String::Formatter-1.235, String::Print-0.94, String::RewritePrefix-0.009, String::Truncate-1.100603, String::TtyLength-0.03, Sub::Exporter-0.991, Sub::Exporter::ForMethods-0.100055, Sub::Exporter::GlobExporter-0.006, Sub::Exporter::Progressive-0.001013, Sub::Identify-0.14, Sub::Info-0.002, Sub::Install-0.929, Sub::Name-0.27, Sub::Quote-2.006008, Sub::Uplevel-0.2800, SVG-2.87, Switch-2.17, Sys::Info-0.7811, Sys::Info::Base-0.7807, Sys::Info::Driver::Linux-0.7905, Sys::Info::Driver::Unknown-0.79, Template-3.102, Template::Plugin::Number::Format-1.06, Term::Encoding-0.03, Term::ReadKey-2.38, Term::ReadLine::Gnu-1.46, Term::Table-0.023, Term::UI-0.50, Test-1.26, Test2::Plugin::NoWarnings-0.10, Test2::Require::Module-1.302204, Test::Base-0.89, Test::CheckDeps-0.010, Test::ClassAPI-1.07, Test::CleanNamespaces-0.24, Test::Deep-1.204, Test::Differences-0.71, Test::Exception-0.43, Test::FailWarnings-0.008, Test::Fatal-0.017, Test::File-1.993, Test::File::ShareDir::Dist-1.001002, Test::Harness-3.50, Test::LeakTrace-0.17, Test::Memory::Cycle-1.06, Test::More::UTF8-0.05, Test::Most-0.38, Test::Needs-0.002010, Test::NoWarnings-1.06, Test::Object-0.08, Test::Output-1.034, Test::Pod-1.52, Test::Requires-0.11, Test::RequiresInternet-0.05, Test::Simple-1.302204, Test::SubCalls-1.10, Test::Sys::Info-0.23, Test::Version-2.09, Test::Warn-0.37, Test::Warnings-0.033, Test::Without::Module-0.23, Test::YAML-1.07, Text::Aligner-0.16, Text::Balanced-2.06, Text::CSV-2.04, Text::CSV_XS-1.57, Text::Diff-1.45, Text::Format-0.63, Text::Glob-0.11, Text::Iconv-1.7, Text::Soundex-3.05, Text::Table-1.135, Text::Table::Manifold-1.03, Text::Template-1.61, Throwable-1.001, Tie::Function-0.02, Tie::IxHash-1.23, Time::Local-1.35, Time::Piece-1.3401, Time::Piece::MySQL-0.06, Tree::DAG_Node-1.32, Try::Tiny-0.32, Type::Tiny-2.006000, Types::Serialiser-1.01, Unicode::EastAsianWidth-12.0, Unicode::LineBreak-2019.001, UNIVERSAL::moniker-0.08, Unix::Processors-2.046, URI-5.31, Variable::Magic-0.64, version-0.9933, Want-0.29, WWW::RobotRules-6.02, XML::Bare-0.53, XML::DOM-1.46, XML::Filter::BufferText-1.01, XML::NamespaceSupport-1.12, XML::Parser-2.47, XML::RegExp-0.04, XML::SAX-1.02, XML::SAX::Base-1.09, XML::SAX::Expat-0.51, XML::SAX::Writer-0.57, XML::Simple-2.25, XML::Tiny-2.07, XML::Twig-3.52, XML::Writer-0.900, XML::XPath-1.48, XSLoader-0.24, YAML-1.31, YAML::Tiny-1.74</p>
+<h3 id="perl-bundle-cpan5382-gcccore-1330">Perl-bundle-CPAN/5.38.2-GCCcore-13.3.0</h3>
+<p>This is a list of extensions included in the module:</p>
+<p>Algorithm::Dependency-1.112, Algorithm::Diff-1.201, aliased-0.34, AnyEvent-7.17, App::Cmd-0.336, App::cpanminus-1.7047, AppConfig-1.71, Archive::Extract-0.88, Array::Transpose-0.06, Array::Utils-0.5, Authen::NTLM-1.09, Authen::SASL-2.1700, AutoLoader-5.74, B::COW-0.007, B::Hooks::EndOfScope-0.28, B::Lint-1.20, boolean-0.46, Business::ISBN-3.009, Business::ISBN::Data-20240614.001, Canary::Stability-2013, Capture::Tiny-0.48, Carp::Clan-6.08, Carp::Heavy-1.50, CGI-4.66, Class::Accessor-0.51, Class::Data::Inheritable-0.09, Class::DBI-v3.0.17, Class::DBI::SQLite-0.11, Class::Inspector-1.36, Class::ISA-0.36, Class::Load-0.25, Class::Load::XS-0.10, Class::Method::Modifiers-2.15, Class::Singleton-1.6, Class::Tiny-1.008, Class::Trigger-0.15, Class::XSAccessor-1.19, Clone-0.46, Clone::Choose-0.010, common::sense-3.75, Compress::Raw::Bzip2-2.212, Compress::Raw::Zlib-2.212, Config::General-2.65, Config::INI-0.029, Config::MVP-2.200013, Config::MVP::Reader::INI-2.101465, Config::Simple-4.58, Config::Tiny-2.30, Const::Exporter-v1.2.3, Const::Fast-0.014, CPAN::Meta::Check-0.018, CPAN::Meta::Requirements-2.143, CPAN::Requirements::Dynamic-0.001, CPAN::Uploader-0.103018, CPANPLUS-0.9914, Crypt::DES-2.07, Crypt::Rijndael-1.16, Cwd-3.75, Cwd::Guard-0.05, Data::Dump-1.25, Data::Dumper::Concise-2.023, Data::Grove-0.08, Data::OptList-0.114, Data::Section-0.200008, Data::Section::Simple-0.07, Data::Stag-0.14, Data::Types-0.17, Data::UUID-1.227, Date::Handler-1.2, Date::Language-2.33, DateTime-1.65, DateTime::Locale-1.42, DateTime::TimeZone-2.62, DateTime::Tiny-1.07, DBD::CSV-0.60, DBD::SQLite-1.74, DBI-1.643, DBIx::Admin::CreateTable-2.11, DBIx::Admin::DSNManager-2.02, DBIx::Admin::TableInfo-3.04, DBIx::ContextualFetch-1.03, DBIx::Simple-1.37, Devel::CheckCompiler-0.07, Devel::CheckLib-1.16, Devel::Cycle-1.12, Devel::FindPerl-0.016, Devel::GlobalDestruction-0.14, Devel::OverloadInfo-0.007, Devel::Size-0.84, Devel::StackTrace-2.05, Digest::HMAC-1.04, Digest::MD5::File-0.08, Digest::SHA1-2.13, Dist::CheckConflicts-0.11, Dist::Zilla-6.032, Email::Date::Format-1.008, Encode-3.21, Encode::Locale-1.05, Error-0.17029, Eval::Closure-0.14, Exception::Class-1.45, Expect-1.38, Exporter::Declare-0.114, Exporter::Tiny-1.006002, ExtUtils::CBuilder-0.280236, ExtUtils::Config-0.009, ExtUtils::Constant-0.25, ExtUtils::CppGuess-0.27, ExtUtils::Helpers-0.027, ExtUtils::InstallPaths-0.013, ExtUtils::MakeMaker-7.70, ExtUtils::ParseXS-3.51, Fennec::Lite-0.004, File::CheckTree-4.42, File::Copy::Recursive-0.45, File::Copy::Recursive::Reduced-0.008, File::Find::Rule-0.34, File::Find::Rule::Perl-1.16, File::Grep-0.02, File::HomeDir-1.006, File::Listing-6.16, File::Next-1.18, File::pushd-1.016, File::Remove-1.61, File::ShareDir-1.118, File::ShareDir::Install-0.14, File::Slurp-9999.32, File::Slurp::Tiny-0.004, File::Slurper-0.014, File::Temp-0.2311, File::Which-1.27, Font::TTF-1.06, Getopt::Long::Descriptive-0.114, Git-0.42, GO-0.04, GO::Utils-0.15, Graph-0.9729, Graph::ReadWrite-2.10, Hash::Merge-0.302, Hash::Objectify-0.008, Heap-0.80, Hook::LexWrap-0.26, HTML::Entities::Interpolate-1.10, HTML::Form-6.11, HTML::Parser-3.82, HTML::Tagset-3.24, HTML::Template-2.97, HTML::Tree-5.07, HTTP::CookieJar-0.014, HTTP::Cookies-6.11, HTTP::Daemon-6.16, HTTP::Date-6.06, HTTP::Message-6.46, HTTP::Negotiate-6.01, HTTP::Tiny-0.088, if-0.0608, Ima::DBI-0.35, Import::Into-1.002005, Importer-0.026, Inline-0.86, IO::Compress::Zip-2.212, IO::HTML-1.004, IO::Socket::SSL-2.087, IO::String-1.08, IO::Stringy-2.113, IO::TieCombine-1.005, IO::Tty-1.20, IO::Tty-1.20, IPC::Cmd-1.04, IPC::Run-20231003.0, IPC::Run3-0.049, IPC::System::Simple-1.30, JSON-4.10, JSON::MaybeXS-1.004005, JSON::XS-4.03, Lingua::EN::PluralToSingular-0.21, List::AllUtils-0.19, List::MoreUtils-0.430, List::MoreUtils::XS-0.430, List::SomeUtils-0.59, List::UtilsBy-0.12, local::lib-2.000029, Locale::Maketext::Simple-0.21, Log::Dispatch-2.71, Log::Dispatch::Array-1.005, Log::Dispatchouli-3.007, Log::Handler-0.90, Log::Log4perl-1.57, Log::Message-0.08, Log::Message::Simple-0.10, Log::Report-1.37, Log::Report::Optional-1.07, Logger::Simple-2.0, LWP::MediaTypes-6.04, LWP::Protocol::https-6.14, LWP::Simple-6.77, Mail::Util-2.21, Math::Bezier-0.01, Math::CDF-0.1, Math::Round-0.08, Math::Utils-1.14, Math::VecStat-0.08, MCE::Mutex-1.897, Meta::Builder-0.004, MIME::Base64-3.16, MIME::Charset-v1.013.1, MIME::Lite-3.033, MIME::Types-2.26, Mixin::Linewise::Readers-0.111, Mock::Quick-1.111, Module::Build-0.4234, Module::Build::Tiny-0.048, Module::Build::XSUtil-0.19, Module::CoreList-5.20240702, Module::Implementation-0.09, Module::Install-1.21, Module::Load-0.36, Module::Load::Conditional-0.74, Module::Metadata-1.000038, Module::Path-0.19, Module::Path-0.19, Module::Pluggable-5.2, Module::Runtime-0.016, Module::Runtime::Conflicts-0.003, Moo-2.005005, Moose-2.2207, MooseX::LazyRequire-0.11, MooseX::OneArgNew-0.007, MooseX::Role::Parameterized-1.11, MooseX::SetOnce-0.203, MooseX::Types-0.50, MooseX::Types::Perl-0.101344, Mouse-v2.5.10, Mozilla::CA-20240313, MRO::Compat-0.15, namespace::autoclean-0.29, namespace::clean-0.27, Net::Domain-3.15, Net::HTTP-6.23, Net::SMTP::SSL-1.04, Net::SNMP-v6.0.1, Net::SSLeay-1.94, Number::Compare-0.03, Number::Format-1.76, Object::Accessor-0.48, Object::InsideOut-4.05, Object::InsideOut-4.05, Package::Constants-0.06, Package::DeprecationManager-0.18, Package::Stash-0.40, Package::Stash::XS-0.30, PadWalker-2.5, Parallel::ForkManager-2.02, Params::Check-0.38, Params::Util-1.102, Params::Validate-1.31, Params::ValidationCompiler-0.31, parent-0.241, Parse::RecDescent-1.967015, Parse::Yapp-1.21, Path::Tiny-0.146, PDF::API2-2.047, Perl::OSType-1.010, Perl::PrereqScanner-1.100, PerlIO::utf8_strict-0.010, Pod::Elemental-0.103006, Pod::Escapes-1.07, Pod::Eventual-0.094003, Pod::LaTeX-0.61, Pod::Man-5.01, Pod::Parser-1.67, Pod::Plainer-1.04, Pod::POM-2.01, Pod::Simple-3.45, Pod::Weaver-4.020, PPI-1.278, Readonly-2.05, Ref::Util-0.204, Regexp::Common-2017060201, Role::HasMessage-0.007, Role::Identifiable::HasIdent-0.009, Role::Tiny-2.002004, Scalar::Util-1.63, Scalar::Util::Numeric-0.40, Scope::Guard-0.21, Set::Array-0.30, Set::IntervalTree-0.12, Set::IntSpan-1.19, Set::IntSpan::Fast-1.15, Set::Object-1.42, Set::Scalar-1.29, Shell-0.73, Socket-2.038, Software::License-0.104006, Specio-0.48, Spiffy-0.46, SQL::Abstract-2.000001, SQL::Statement-1.414, Statistics::Basic-1.6611, Statistics::Descriptive-3.0801, Storable-3.25, strictures-2.000006, String::Errf-0.009, String::Flogger-1.101246, String::Formatter-1.235, String::Print-0.94, String::RewritePrefix-0.009, String::Truncate-1.100603, String::TtyLength-0.03, Sub::Exporter-0.991, Sub::Exporter::ForMethods-0.100055, Sub::Exporter::GlobExporter-0.006, Sub::Exporter::Progressive-0.001013, Sub::Identify-0.14, Sub::Info-0.002, Sub::Install-0.929, Sub::Name-0.27, Sub::Quote-2.006008, Sub::Uplevel-0.2800, SVG-2.87, Switch-2.17, Sys::Info-0.7811, Sys::Info::Base-0.7807, Sys::Info::Driver::Linux-0.7905, Sys::Info::Driver::Unknown-0.79, Template-3.102, Template::Plugin::Number::Format-1.06, Term::Encoding-0.03, Term::ReadKey-2.38, Term::ReadLine::Gnu-1.46, Term::Table-0.018, Term::UI-0.50, Test-1.26, Test2::Plugin::NoWarnings-0.10, Test2::Require::Module-0.000163, Test::Base-0.89, Test::CheckDeps-0.010, Test::ClassAPI-1.07, Test::CleanNamespaces-0.24, Test::Deep-1.204, Test::Differences-0.71, Test::Exception-0.43, Test::FailWarnings-0.008, Test::Fatal-0.017, Test::File-1.993, Test::File::ShareDir::Dist-1.001002, Test::Harness-3.48, Test::LeakTrace-0.17, Test::Memory::Cycle-1.06, Test::More::UTF8-0.05, Test::Most-0.38, Test::Needs-0.002010, Test::NoWarnings-1.06, Test::Object-0.08, Test::Output-1.034, Test::Pod-1.52, Test::Requires-0.11, Test::RequiresInternet-0.05, Test::Simple-1.302199, Test::SubCalls-1.10, Test::Sys::Info-0.23, Test::Version-2.09, Test::Warn-0.37, Test::Warnings-0.033, Test::Without::Module-0.22, Test::YAML-1.07, Text::Aligner-0.16, Text::Balanced-2.06, Text::CSV-2.04, Text::CSV_XS-1.55, Text::Diff-1.45, Text::Format-0.62, Text::Glob-0.11, Text::Iconv-1.7, Text::Soundex-3.05, Text::Table-1.135, Text::Table::Manifold-1.03, Text::Template-1.61, Throwable-1.001, Tie::Function-0.02, Tie::IxHash-1.23, Time::Local-1.35, Time::Piece-1.3401, Time::Piece::MySQL-0.06, Tree::DAG_Node-1.32, Try::Tiny-0.31, Type::Tiny-2.004000, Types::Serialiser-1.01, Types::Serialiser-1.01, Unicode::EastAsianWidth-12.0, Unicode::LineBreak-2019.001, UNIVERSAL::moniker-0.08, Unix::Processors-2.046, Unix::Processors-2.046, URI-5.28, Variable::Magic-0.64, version-0.9932, Want-0.29, WWW::RobotRules-6.02, XML::Bare-0.53, XML::DOM-1.46, XML::Filter::BufferText-1.01, XML::NamespaceSupport-1.12, XML::Parser-2.47, XML::RegExp-0.04, XML::SAX-1.02, XML::SAX::Base-1.09, XML::SAX::Expat-0.51, XML::SAX::Writer-0.57, XML::Simple-2.25, XML::Tiny-2.07, XML::Twig-3.52, XML::Writer-0.900, XML::XPath-1.48, XSLoader-0.24, YAML-1.31, YAML::Tiny-1.74</p>
+<h3 id="perl-bundle-cpan5380-gcccore-1320">Perl-bundle-CPAN/5.38.0-GCCcore-13.2.0</h3>
+<p>This is a list of extensions included in the module:</p>
+<p>Algorithm::Dependency-1.112, Algorithm::Diff-1.201, aliased-0.34, AnyEvent-7.17, App::Cmd-0.336, App::cpanminus-1.7047, AppConfig-1.71, Archive::Extract-0.88, Array::Transpose-0.06, Array::Utils-0.5, Authen::NTLM-1.09, Authen::SASL-2.1700, AutoLoader-5.74, B::COW-0.007, B::Hooks::EndOfScope-0.26, B::Lint-1.20, boolean-0.46, Business::ISBN-3.008, Business::ISBN::Data-20231013.001, Canary::Stability-2013, Capture::Tiny-0.48, Carp::Clan-6.08, Carp::Heavy-1.50, CGI-4.59, Class::Accessor-0.51, Class::Data::Inheritable-0.09, Class::DBI-v3.0.17, Class::DBI::SQLite-0.11, Class::Inspector-1.36, Class::ISA-0.36, Class::Load-0.25, Class::Load::XS-0.10, Class::Method::Modifiers-2.15, Class::Singleton-1.6, Class::Tiny-1.008, Class::Trigger-0.15, Class::XSAccessor-1.19, Clone-0.46, Clone::Choose-0.010, common::sense-3.75, Compress::Raw::Zlib-2.206, Config::General-2.65, Config::INI-0.029, Config::MVP-2.200013, Config::MVP::Reader::INI-2.101465, Config::Simple-4.58, Config::Tiny-2.30, Const::Exporter-v1.2.3, Const::Fast-0.014, CPAN::Meta::Check-0.018, CPAN::Uploader-0.103018, CPANPLUS-0.9914, Crypt::DES-2.07, Crypt::Rijndael-1.16, Cwd-3.75, Cwd::Guard-0.05, Data::Dump-1.25, Data::Dumper::Concise-2.023, Data::Grove-0.08, Data::OptList-0.114, Data::Section-0.200008, Data::Section::Simple-0.07, Data::Stag-0.14, Data::Types-0.17, Data::UUID-1.226, Date::Handler-1.2, Date::Language-2.33, DateTime-1.59, DateTime::Locale-1.39, DateTime::TimeZone-2.60, DateTime::Tiny-1.07, DBD::CSV-0.60, DBD::SQLite-1.74, DBI-1.643, DBIx::Admin::CreateTable-2.11, DBIx::Admin::DSNManager-2.02, DBIx::Admin::TableInfo-3.04, DBIx::ContextualFetch-1.03, DBIx::Simple-1.37, Devel::CheckCompiler-0.07, Devel::CheckLib-1.16, Devel::Cycle-1.12, Devel::FindPerl-0.016, Devel::GlobalDestruction-0.14, Devel::OverloadInfo-0.007, Devel::Size-0.83, Devel::StackTrace-2.04, Digest::HMAC-1.04, Digest::MD5::File-0.08, Digest::SHA1-2.13, Dist::CheckConflicts-0.11, Dist::Zilla-6.030, Email::Date::Format-1.008, Encode-3.19, Encode::Locale-1.05, Error-0.17029, Eval::Closure-0.14, Exception::Class-1.45, Expect-1.35, Exporter::Declare-0.114, Exporter::Tiny-1.006002, ExtUtils::CBuilder-0.280236, ExtUtils::Config-0.008, ExtUtils::Constant-0.25, ExtUtils::CppGuess-0.26, ExtUtils::Helpers-0.026, ExtUtils::InstallPaths-0.012, ExtUtils::MakeMaker-7.70, ExtUtils::ParseXS-3.51, Fennec::Lite-0.004, File::CheckTree-4.42, File::Copy::Recursive-0.45, File::Copy::Recursive::Reduced-0.007, File::Find::Rule-0.34, File::Find::Rule::Perl-1.16, File::Grep-0.02, File::HomeDir-1.006, File::Listing-6.16, File::Next-1.18, File::pushd-1.016, File::Remove-1.61, File::ShareDir-1.118, File::ShareDir::Install-0.14, File::Slurp-9999.32, File::Slurp::Tiny-0.004, File::Slurper-0.014, File::Temp-0.2311, File::Which-1.27, Font::TTF-1.06, Getopt::Long::Descriptive-0.111, Git-0.42, GO-0.04, GO::Utils-0.15, Graph-0.9727, Graph::ReadWrite-2.10, Hash::Merge-0.302, Hash::Objectify-0.008, Heap-0.80, Hook::LexWrap-0.26, HTML::Entities::Interpolate-1.10, HTML::Form-6.11, HTML::Parser-3.81, HTML::Tagset-3.20, HTML::Template-2.97, HTML::Tree-5.07, HTTP::CookieJar-0.014, HTTP::Cookies-6.10, HTTP::Daemon-6.16, HTTP::Date-6.06, HTTP::Message-6.45, HTTP::Negotiate-6.01, HTTP::Tiny-0.088, if-0.0608, Ima::DBI-0.35, Import::Into-1.002005, Importer-0.026, Inline-0.86, IO::Compress::Zip-2.206, IO::HTML-1.004, IO::Socket::SSL-2.083, IO::String-1.08, IO::Stringy-2.113, IO::TieCombine-1.005, IO::Tty-1.17, IO::Tty-1.17, IPC::Cmd-1.04, IPC::Run-20231003.0, IPC::Run3-0.048, IPC::System::Simple-1.30, JSON-4.10, JSON::MaybeXS-1.004005, JSON::XS-4.03, Lingua::EN::PluralToSingular-0.21, List::AllUtils-0.19, List::MoreUtils-0.430, List::MoreUtils::XS-0.430, List::SomeUtils-0.59, List::UtilsBy-0.12, local::lib-2.000029, Locale::Maketext::Simple-0.21, Log::Dispatch-2.71, Log::Dispatch::Array-1.005, Log::Dispatchouli-3.007, Log::Handler-0.90, Log::Log4perl-1.57, Log::Message-0.08, Log::Message::Simple-0.10, Log::Report-1.34, Log::Report::Optional-1.07, Logger::Simple-2.0, LWP::MediaTypes-6.04, LWP::Protocol::https-6.11, LWP::Simple-6.72, Mail::Util-2.21, Math::Bezier-0.01, Math::CDF-0.1, Math::Round-0.08, Math::Utils-1.14, Math::VecStat-0.08, MCE::Mutex-1.889, Meta::Builder-0.004, MIME::Base64-3.16, MIME::Charset-v1.013.1, MIME::Lite-3.033, MIME::Types-2.24, Mixin::Linewise::Readers-0.111, Mock::Quick-1.111, Module::Build-0.4234, Module::Build::Tiny-0.047, Module::Build::XSUtil-0.19, Module::CoreList-5.20230920, Module::Implementation-0.09, Module::Install-1.21, Module::Load-0.36, Module::Load::Conditional-0.74, Module::Metadata-1.000038, Module::Path-0.19, Module::Path-0.19, Module::Pluggable-5.2, Module::Runtime-0.016, Module::Runtime::Conflicts-0.003, Moo-2.005005, Moose-2.2206, MooseX::LazyRequire-0.11, MooseX::OneArgNew-0.007, MooseX::Role::Parameterized-1.11, MooseX::SetOnce-0.203, MooseX::Types-0.50, MooseX::Types::Perl-0.101344, Mouse-v2.5.10, Mozilla::CA-20230821, MRO::Compat-0.15, namespace::autoclean-0.29, namespace::clean-0.27, Net::Domain-3.15, Net::HTTP-6.23, Net::SMTP::SSL-1.04, Net::SNMP-v6.0.1, Net::SSLeay-1.92, Number::Compare-0.03, Number::Format-1.76, Object::Accessor-0.48, Object::InsideOut-4.05, Object::InsideOut-4.05, Package::Constants-0.06, Package::DeprecationManager-0.18, Package::Stash-0.40, Package::Stash::XS-0.30, PadWalker-2.5, Parallel::ForkManager-2.02, Params::Check-0.38, Params::Util-1.102, Params::Validate-1.31, Params::ValidationCompiler-0.31, parent-0.241, Parse::RecDescent-1.967015, Parse::Yapp-1.21, Path::Tiny-0.144, PDF::API2-2.045, Perl::OSType-1.010, Perl::PrereqScanner-1.100, PerlIO::utf8_strict-0.010, Pod::Elemental-0.103006, Pod::Escapes-1.07, Pod::Eventual-0.094003, Pod::LaTeX-0.61, Pod::Man-5.01, Pod::Parser-1.66, Pod::Plainer-1.04, Pod::POM-2.01, Pod::Simple-3.45, Pod::Weaver-4.019, PPI-1.277, Readonly-2.05, Ref::Util-0.204, Regexp::Common-2017060201, Role::HasMessage-0.007, Role::Identifiable::HasIdent-0.009, Role::Tiny-2.002004, Scalar::Util-1.63, Scalar::Util::Numeric-0.40, Scope::Guard-0.21, Set::Array-0.30, Set::IntervalTree-0.12, Set::IntSpan-1.19, Set::IntSpan::Fast-1.15, Set::Object-1.42, Set::Scalar-1.29, Shell-0.73, Socket-2.037, Software::License-0.104004, Specio-0.48, Spiffy-0.46, SQL::Abstract-2.000001, SQL::Statement-1.414, Statistics::Basic-1.6611, Statistics::Descriptive-3.0801, Storable-3.25, strictures-2.000006, String::Errf-0.009, String::Flogger-1.101246, String::Formatter-1.235, String::Print-0.94, String::RewritePrefix-0.009, String::Truncate-1.100603, String::TtyLength-0.03, Sub::Exporter-0.990, Sub::Exporter::ForMethods-0.100055, Sub::Exporter::GlobExporter-0.006, Sub::Exporter::Progressive-0.001013, Sub::Identify-0.14, Sub::Info-0.002, Sub::Install-0.929, Sub::Name-0.27, Sub::Quote-2.006008, Sub::Uplevel-0.2800, SVG-2.87, Switch-2.17, Sys::Info-0.7811, Sys::Info::Base-0.7807, Sys::Info::Driver::Linux-0.7905, Sys::Info::Driver::Linux::Device::<abbr title="Central Processing Unit">CPU</abbr>-0.7905, Sys::Info::Driver::Unknown-0.79, Sys::Info::Driver::Unknown::Device::<abbr title="Central Processing Unit">CPU</abbr>-0.79, Template-3.101, Template::Plugin::Number::Format-1.06, Term::Encoding-0.03, Term::ReadKey-2.38, Term::ReadLine::Gnu-1.46, Term::Table-0.017, Term::UI-0.50, Test-1.26, Test2::Plugin::NoWarnings-0.09, Test2::Require::Module-0.000156, Test::Base-0.89, Test::CheckDeps-0.010, Test::ClassAPI-1.07, Test::CleanNamespaces-0.24, Test::Deep-1.204, Test::Differences-0.71, Test::Exception-0.43, Test::FailWarnings-0.008, Test::Fatal-0.017, Test::File-1.993, Test::File::ShareDir::Dist-1.001002, Test::Harness-3.48, Test::LeakTrace-0.17, Test::Memory::Cycle-1.06, Test::More::UTF8-0.05, Test::Most-0.38, Test::Needs-0.002010, Test::NoWarnings-1.06, Test::Object-0.08, Test::Output-1.034, Test::Pod-1.52, Test::Requires-0.11, Test::RequiresInternet-0.05, Test::Simple-1.302195, Test::SubCalls-1.10, Test::Sys::Info-0.23, Test::Version-2.09, Test::Warn-0.37, Test::Warnings-0.032, Test::Without::Module-0.21, Test::YAML-1.07, Text::Aligner-0.16, Text::Balanced-2.06, Text::CSV-2.03, Text::CSV_XS-1.52, Text::Diff-1.45, Text::Format-0.62, Text::Glob-0.11, Text::Iconv-1.7, Text::Soundex-3.05, Text::Table-1.135, Text::Table::Manifold-1.03, Text::Template-1.61, Throwable-1.001, Tie::Function-0.02, Tie::IxHash-1.23, Time::HiRes-1.9764, Time::Local-1.35, Time::Piece-1.3401, Time::Piece::MySQL-0.06, Tree::DAG_Node-1.32, Try::Tiny-0.31, Type::Tiny-2.004000, Types::Serialiser-1.01, Types::Serialiser-1.01, Unicode::EastAsianWidth-12.0, Unicode::LineBreak-2019.001, UNIVERSAL::moniker-0.08, Unix::Processors-2.046, Unix::Processors-2.046, URI-5.21, Variable::Magic-0.63, version-0.9930, Want-0.29, WWW::RobotRules-6.02, XML::Bare-0.53, XML::DOM-1.46, XML::Filter::BufferText-1.01, XML::NamespaceSupport-1.12, XML::Parser-2.46, XML::RegExp-0.04, XML::SAX-1.02, XML::SAX::Base-1.09, XML::SAX::Expat-0.51, XML::SAX::Writer-0.57, XML::Simple-2.25, XML::Tiny-2.07, XML::Twig-3.52, XML::Writer-0.900, XML::XPath-1.48, XSLoader-0.24, YAML-1.30, YAML::Tiny-1.74</p>
+<h3 id="perl-bundle-cpan5361-gcccore-1230">Perl-bundle-CPAN/5.36.1-GCCcore-12.3.0</h3>
+<p>This is a list of extensions included in the module:</p>
+<p>Algorithm::Dependency-1.112, Algorithm::Diff-1.201, aliased-0.34, AnyEvent-7.17, App::Cmd-0.335, App::cpanminus-1.7046, AppConfig-1.71, Archive::Extract-0.88, Array::Transpose-0.06, Array::Utils-0.5, Authen::NTLM-1.09, Authen::SASL-2.16, AutoLoader-5.74, B::COW-0.007, B::Hooks::EndOfScope-0.26, B::Lint-1.20, boolean-0.46, Business::ISBN-3.008, Business::ISBN::Data-20230516.001, Canary::Stability-2013, Capture::Tiny-0.48, Carp::Clan-6.08, Carp::Heavy-1.50, CGI-4.57, Class::Accessor-0.51, Class::Data::Inheritable-0.09, Class::DBI-v3.0.17, Class::DBI::SQLite-0.11, Class::Inspector-1.36, Class::ISA-0.36, Class::Load-0.25, Class::Load::XS-0.10, Class::Method::Modifiers-2.15, Class::Singleton-1.6, Class::Tiny-1.008, Class::Trigger-0.15, Class::XSAccessor-1.19, Clone-0.46, Clone::Choose-0.010, common::sense-3.75, Compress::Raw::Zlib-2.204, Config::General-2.65, Config::INI-0.029, Config::MVP-2.200013, Config::MVP::Reader::INI-2.101465, Config::Simple-4.58, Config::Tiny-2.29, Const::Exporter-1.2.2, Const::Fast-0.014, CPAN::Meta::Check-0.017, CPAN::Uploader-0.103018, CPANPLUS-0.9914, Crypt::DES-2.07, Crypt::Rijndael-1.16, Cwd-3.75, Cwd::Guard-0.05, Data::Dump-1.25, Data::Dumper::Concise-2.023, Data::Grove-0.08, Data::OptList-0.114, Data::Section-0.200008, Data::Section::Simple-0.07, Data::Stag-0.14, Data::Types-0.17, Data::UUID-1.226, Date::Handler-1.2, Date::Language-2.33, DateTime-1.59, DateTime::Locale-1.38, DateTime::TimeZone-2.60, DateTime::Tiny-1.07, DBD::CSV-0.60, DBD::SQLite-1.72, DBI-1.643, DBIx::Admin::CreateTable-2.11, DBIx::Admin::DSNManager-2.02, DBIx::Admin::TableInfo-3.04, DBIx::ContextualFetch-1.03, DBIx::Simple-1.37, Devel::CheckCompiler-0.07, Devel::CheckLib-1.16, Devel::Cycle-1.12, Devel::FindPerl-0.016, Devel::GlobalDestruction-0.14, Devel::OverloadInfo-0.007, Devel::Size-0.83, Devel::StackTrace-2.04, Digest::HMAC-1.04, Digest::MD5::File-0.08, Digest::SHA1-2.13, Dist::CheckConflicts-0.11, Dist::Zilla-6.030, Email::Date::Format-1.008, Encode-3.19, Encode::Locale-1.05, Error-0.17029, Eval::Closure-0.14, Exception::Class-1.45, Expect-1.35, Exporter::Declare-0.114, Exporter::Tiny-1.006002, ExtUtils::CBuilder-0.280236, ExtUtils::Config-0.008, ExtUtils::Constant-0.25, ExtUtils::CppGuess-0.26, ExtUtils::Helpers-0.026, ExtUtils::InstallPaths-0.012, ExtUtils::MakeMaker-7.70, ExtUtils::ParseXS-3.44, Fennec::Lite-0.004, File::CheckTree-4.42, File::Copy::Recursive-0.45, File::Copy::Recursive::Reduced-0.006, File::Find::Rule-0.34, File::Find::Rule::Perl-1.16, File::Grep-0.02, File::HomeDir-1.006, File::Listing-6.15, File::Next-1.18, File::pushd-1.016, File::Remove-1.61, File::ShareDir-1.118, File::ShareDir::Install-0.14, File::Slurp-9999.32, File::Slurp::Tiny-0.004, File::Slurper-0.014, File::Temp-0.2311, File::Which-1.27, Font::TTF-1.06, Getopt::Long::Descriptive-0.111, Git-0.42, GO-0.04, GO::Utils-0.15, Graph-0.9726, Graph::ReadWrite-2.10, Hash::Merge-0.302, Hash::Objectify-0.008, Heap-0.80, Hook::LexWrap-0.26, HTML::Entities::Interpolate-1.10, HTML::Form-6.11, HTML::Parser-3.81, HTML::Tagset-3.20, HTML::Template-2.97, HTML::Tree-5.07, HTTP::CookieJar-0.014, HTTP::Cookies-6.10, HTTP::Daemon-6.16, HTTP::Date-6.05, HTTP::Message-6.44, HTTP::Negotiate-6.01, HTTP::Tiny-0.082, if-0.0608, Ima::DBI-0.35, Import::Into-1.002005, Importer-0.026, Inline-0.86, IO::Compress::Zip-2.204, IO::HTML-1.004, IO::Socket::SSL-2.083, IO::String-1.08, IO::Stringy-2.113, IO::TieCombine-1.005, IO::Tty-1.17, IO::Tty-1.17, IPC::Cmd-1.04, IPC::Run-20220807.0, IPC::Run3-0.048, IPC::System::Simple-1.30, JSON-4.10, JSON::MaybeXS-1.004005, JSON::XS-4.03, Lingua::EN::PluralToSingular-0.21, List::AllUtils-0.19, List::MoreUtils-0.430, List::MoreUtils::XS-0.430, List::SomeUtils-0.59, List::UtilsBy-0.12, local::lib-2.000029, Locale::Maketext::Simple-0.21, Log::Dispatch-2.71, Log::Dispatch::Array-1.005, Log::Dispatchouli-3.002, Log::Handler-0.90, Log::Log4perl-1.57, Log::Message-0.08, Log::Message::Simple-0.10, Log::Report-1.34, Log::Report::Optional-1.07, Logger::Simple-2.0, LWP::MediaTypes-6.04, LWP::Protocol::https-6.10, LWP::Simple-6.70, Mail::Util-2.21, Math::Bezier-0.01, Math::CDF-0.1, Math::Round-0.07, Math::Utils-1.14, Math::VecStat-0.08, MCE::Mutex-1.884, Meta::Builder-0.004, MIME::Base64-3.16, MIME::Charset-v1.013.1, MIME::Lite-3.033, MIME::Types-2.24, Mixin::Linewise::Readers-0.111, Mock::Quick-1.111, Module::Build-0.4234, Module::Build::Tiny-0.045, Module::Build::XSUtil-0.19, Module::CoreList-5.20230423, Module::Implementation-0.09, Module::Install-1.21, Module::Load-0.36, Module::Load::Conditional-0.74, Module::Metadata-1.000038, Module::Path-0.19, Module::Path-0.19, Module::Pluggable-5.2, Module::Runtime-0.016, Module::Runtime::Conflicts-0.003, Moo-2.005005, Moose-2.2203, MooseX::LazyRequire-0.11, MooseX::OneArgNew-0.007, MooseX::Role::Parameterized-1.11, MooseX::SetOnce-0.203, MooseX::Types-0.50, MooseX::Types::Perl-0.101344, Mouse-v2.5.10, Mozilla::CA-20221114, MRO::Compat-0.15, namespace::autoclean-0.29, namespace::clean-0.27, Net::Domain-3.15, Net::HTTP-6.22, Net::SMTP::SSL-1.04, Net::SNMP-v6.0.1, Net::SSLeay-1.92, Number::Compare-0.03, Number::Format-1.75, Object::Accessor-0.48, Object::InsideOut-4.05, Object::InsideOut-4.05, Package::Constants-0.06, Package::DeprecationManager-0.18, Package::Stash-0.40, Package::Stash::XS-0.30, PadWalker-2.5, Parallel::ForkManager-2.02, Params::Check-0.38, Params::Util-1.102, Params::Validate-1.31, Params::ValidationCompiler-0.31, parent-0.241, Parse::RecDescent-1.967015, Parse::Yapp-1.21, Path::Tiny-0.144, PDF::API2-2.044, Perl::OSType-1.010, Perl::PrereqScanner-1.100, PerlIO::utf8_strict-0.010, Pod::Elemental-0.103006, Pod::Escapes-1.07, Pod::Eventual-0.094003, Pod::LaTeX-0.61, Pod::Man-5.01, Pod::Parser-1.66, Pod::Plainer-1.04, Pod::POM-2.01, Pod::Simple-3.45, Pod::Weaver-4.019, PPI-1.276, Readonly-2.05, Ref::Util-0.204, Regexp::Common-2017060201, Role::HasMessage-0.007, Role::Identifiable::HasIdent-0.009, Role::Tiny-2.002004, Scalar::Util-1.63, Scalar::Util::Numeric-0.40, Scope::Guard-0.21, Set::Array-0.30, Set::IntervalTree-0.12, Set::IntSpan-1.19, Set::IntSpan::Fast-1.15, Set::Object-1.42, Set::Scalar-1.29, Shell-0.73, Socket-2.036, Software::License-0.104003, Specio-0.48, Spiffy-0.46, SQL::Abstract-2.000001, SQL::Statement-1.414, Statistics::Basic-1.6611, Statistics::Descriptive-3.0800, Storable-3.25, strictures-2.000006, String::Errf-0.009, String::Flogger-1.101246, String::Formatter-1.235, String::Print-0.94, String::RewritePrefix-0.009, String::Truncate-1.100603, String::TtyLength-0.03, Sub::Exporter-0.989, Sub::Exporter::ForMethods-0.100055, Sub::Exporter::GlobExporter-0.006, Sub::Exporter::Progressive-0.001013, Sub::Identify-0.14, Sub::Info-0.002, Sub::Install-0.929, Sub::Name-0.27, Sub::Quote-2.006008, Sub::Uplevel-0.2800, SVG-2.87, Switch-2.17, Sys::Info-0.7811, Sys::Info::Base-0.7807, Sys::Info::Driver::Linux-0.7905, Sys::Info::Driver::Linux::Device::<abbr title="Central Processing Unit">CPU</abbr>-0.7905, Sys::Info::Driver::Unknown-0.79, Sys::Info::Driver::Unknown::Device::<abbr title="Central Processing Unit">CPU</abbr>-0.79, Template-3.101, Template::Plugin::Number::Format-1.06, Term::Encoding-0.03, Term::ReadKey-2.38, Term::ReadLine::Gnu-1.45, Term::Table-0.016, Term::UI-0.50, Test-1.26, Test2::Plugin::NoWarnings-0.09, Test2::Require::Module-0.000155, Test::Base-0.89, Test::CheckDeps-0.010, Test::ClassAPI-1.07, Test::CleanNamespaces-0.24, Test::Deep-1.204, Test::Differences-0.69, Test::Exception-0.43, Test::FailWarnings-0.008, Test::Fatal-0.017, Test::File-1.993, Test::File::ShareDir::Dist-1.001002, Test::Harness-3.44, Test::LeakTrace-0.17, Test::Memory::Cycle-1.06, Test::More::UTF8-0.05, Test::Most-0.38, Test::Needs-0.002010, Test::NoWarnings-1.06, Test::Object-0.08, Test::Output-1.033, Test::Pod-1.52, Test::Requires-0.11, Test::RequiresInternet-0.05, Test::Simple-1.302195, Test::SubCalls-1.10, Test::Sys::Info-0.23, Test::Version-2.09, Test::Warn-0.37, Test::Warnings-0.031, Test::Without::Module-0.21, Test::YAML-1.07, Text::Aligner-0.16, Text::Balanced-2.06, Text::CSV-2.02, Text::CSV_XS-1.50, Text::Diff-1.45, Text::Format-0.62, Text::Glob-0.11, Text::Iconv-1.7, Text::Soundex-3.05, Text::Table-1.135, Text::Table::Manifold-1.03, Text::Template-1.61, Throwable-1.001, Tie::Function-0.02, Tie::IxHash-1.23, Time::HiRes-1.9764, Time::Local-1.35, Time::Piece-1.3401, Time::Piece::MySQL-0.06, Tree::DAG_Node-1.32, Try::Tiny-0.31, Type::Tiny-2.004000, Types::Serialiser-1.01, Types::Serialiser-1.01, Unicode::EastAsianWidth-12.0, Unicode::LineBreak-2019.001, UNIVERSAL::moniker-0.08, Unix::Processors-2.046, Unix::Processors-2.046, URI-5.19, Variable::Magic-0.63, version-0.9929, Want-0.29, WWW::RobotRules-6.02, XML::Bare-0.53, XML::DOM-1.46, XML::Filter::BufferText-1.01, XML::NamespaceSupport-1.12, XML::Parser-2.46, XML::RegExp-0.04, XML::SAX-1.02, XML::SAX::Base-1.09, XML::SAX::Expat-0.51, XML::SAX::Writer-0.57, XML::Simple-2.25, XML::Tiny-2.07, XML::Twig-3.52, XML::Writer-0.900, XML::XPath-1.48, XSLoader-0.24, YAML-1.30, YAML::Tiny-1.74</p>
+<!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine whether to show tags -->
+
+  
+
+
+<!-- Tags -->
+
+<!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine date of last update -->
+
+
+
+<!-- Determine date of creation -->
+
+
+
+<!-- Source file information -->
+
+
+  
+
+
+  
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              
+              
+                
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              
+              
+                
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1z_oYtR7cRf8zuyZwk_Pz-_KosCpq0jCWfsegP1XlZUnx1w/viewform?usp=pp_url&amp;entry.1784336917=Perl-bundle-CPAN" rel="noopener" target="_blank">feedback form</a>. Make sure you are logged in to your MSU google account.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+
+    <!-- <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
+
+        <div class="fourMSUcolumns" id="standard-footer-MSU-wordmark">
+            <a href="http://www.msu.edu">
+
+                <img alt="Michigan State University Wordmark" class="screen-msuwordmark"
+                    src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/msu-wordmark-green.png" height="47" width="221" />
+            </a>
+        </div>
+        <div class="twelveMSUcolumns">
+            <div id="standard-footer-site-links">
+                <ul>
+            <li><a href="http://icer.msu.edu/contact">Contact Information</a></li>
+            <li><a href="https://msu.edu/privacy">Privacy Policy</a></li>
+            <li><a href="https://msu.edu/accessibility">Site Accessibility</a></li>
+		</ul>
+            </div>
+            <div id="standard-footer-MSU-info">
+                <ul>
+    
+    
+                    
+                    <li>Call MSU: <span class="msu-phone"><strong>(517) 355-1855</strong></span></li>
+                    <li>Visit: <strong><a href="http://msu.edu">msu.edu</a></strong></li>
+                    <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                    <li><a href="http://oie.msu.edu/"><strong>Notice of Nondiscrimination</strong></a></li>
+                </ul>
+                <ul>
+                    <li class="spartans-will">Spartans Will.</li>
+                    <li>© Michigan State University</li>
+                </ul>
+            </div>
+        </div>
+    </footer> -->
+
+    <div id="page" class="page with-navigation">
+
+
+      <div class="everything-wrapper">
+  
+        <footer role="contentinfo">
+  
+          <section class="footer-lower">
+            <div class="container-narrow">
+              <div class="padded-plain-block">
+  
+                <div class="media-lg-only">
+                  <div class="media-lg-only__media media-lg-only--msu">
+                    <a aria-label="Michigan State University Homepage Link" class="neg-ext" href="http://www.msu.edu/" rel="noopener" target="_blank">
+                      <!-- <img
+                        src="images/msu-wordmark-logo.svg"
+                        alt="Michigan State University logo">
+                    </a> -->
+                   <img
+                        src="https://docs.icer.msu.edu/assets/images/msu-wordmark-logo.svg"
+                        alt="Michigan State University logo">
+                    </a>
+                  </div>
+  
+                  <div class="media-lg-only__content">
+                    <div role="navigation" aria-label="ICER Contact Information">
+                      <ul class="horiz-link-list footer-list-lg">
+                        <!-- <li>Call ICER: <a href="tel:+1-517-353-9309" class="phone-link">(517) 353-9309</a></li> -->
+                        <li><a href="https://icer.msu.edu/contact" rel="noopener" target="_blank">Contact Information</a></li>
+						<li><a href="https://docs.icer.msu.edu/sitemap.xml" rel="noopener" target="_blank">Site Map</a></li>
+                        <li><a class="ext" href="https://msu.edu/privacy" rel="noopener" target="_blank">Privacy Statement<span
+                              class="ext"><span class="element-invisible"> (link is external)</span></span></a></li>
+						<li><a class="ext" href="https://docs.icer.msu.edu/Site_Accessibility" rel="noopener" target="_blank">Site
+                            Accessibility<span class="ext"><span class="element-invisible"> (link is
+                                external)</span></span></a></li>
+                      </ul>
+                    </div>
+  
+                    <hr class="footer-hr">
+  
+                    <div role="navigation" aria-label="MSU Contact Information">
+                      <ul class="horiz-link-list footer-list-sm">
+                        <li>Call MSU: <a href="tel:+1-517-355-1855" class="phone-link footer-lime-link">(517) 355-1855</a>
+                        </li>
+                        <li>Visit: <a class="neg-ext footer-lime-link ext" href="http://www.msu.edu/" rel="noopener" target="_blank">msu.edu<span class="ext"><span class="element-invisible">
+                                (link is external)</span></span></a></li>
+                        <li><a class="neg-ext footer-lime-link ext" href="https://civilrights.msu.edu/policies/Notice-of-Non-Discrimination-Anti-Harassment-and-Non-Retaliation.html" rel="noopener" target="_blank">Notice of Nondiscrimination</a></li>
+                      </ul>
+                    </div>
+  
+                    <ul class="horiz-link-list footer-list-sm">
+                      <li><strong>SPARTANS WILL.</strong></li>
+                      <li>© Michigan State University</li>
+                    </ul>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </section>
+        </footer>
+  
+      </div>
+    </div>
+
+
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+          
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["navigation.instant","navigation.indexes","search.suggest","content.code.annotate","navigation.top","content.action.edit","content.tabs.link"],"redirect":"../../../redirect.json","search":"../../../assets/javascripts/workers/search.719e0d91.min.js","tags":{"lab notebook":"labnotes"},"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.3cb411a8.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs" type="module"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+      
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+      
+        <script src="../../javascripts/populate_overview.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
